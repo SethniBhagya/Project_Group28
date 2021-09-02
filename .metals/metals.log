@@ -16,3 +16,26 @@
 [0m2021.09.01 07:55:23 INFO  time: initialize in 7.77s[0m
 [0m2021.09.01 07:55:35 WARN  Build server is not auto-connectable.[0m
 [0m2021.09.01 07:55:35 WARN  no build tool detected in workspace 'D:\UCSC\Secound_Year\Semester 1\SCS 2202\application'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. [0m
+Sep 01, 2021 4:07:37 PM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+Sep 01, 2021 4:08:39 PM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+[0m2021.09.01 18:30:59 WARN  no build target for: D:\UCSC\Secound_Year\Semester 1\SCS 2204\19000529.scala[0m
+[0m2021.09.01 18:32:45 INFO  no build target: using presentation compiler with only scala-library: 2.12.14[0m
+Sep 01, 2021 6:33:07 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 4
+[0m2021.09.01 18:37:46 WARN  no build target for: D:\UCSC\Secound_Year\Semester 1\SCS 2204\19000529.scala[0m
+[0m2021.09.01 18:43:51 WARN  no build target for: D:\UCSC\Secound_Year\Semester 1\SCS 2204\19000529.scala[0m
+[0m2021.09.01 18:45:03 WARN  no build target for: D:\UCSC\Secound_Year\Semester 1\SCS 2204\19000529.scala[0m
+[0m2021.09.01 18:46:16 WARN  no build target for: D:\UCSC\Secound_Year\Semester 1\SCS 2204\19000529.scala[0m
+[0m2021.09.01 19:00:53 WARN  no build target for: D:\UCSC\Secound_Year\Semester 1\SCS 2204\19000529.scala[0m
+[0m2021.09.01 19:30:14 INFO  time: code lens generation in 2.06s[0m
+Sep 01, 2021 7:30:54 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 188
+Sep 01, 2021 7:30:56 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 189
+[0m2021.09.01 19:31:03 WARN  no build target for: D:\UCSC\Secound_Year\Semester 1\SCS 2204\19000529.scala[0m
+[0m2021.09.01 19:31:05 INFO  time: code lens generation in 1.22s[0m
+[0m2021.09.01 19:31:08 WARN  no build target for: D:\UCSC\Secound_Year\Semester 1\SCS 2204\19000529.scala[0m
+[0m2021.09.01 19:31:11 INFO  time: code lens generation in 1.73s[0m
+[0m2021.09.01 19:44:09 INFO  shutting down Metals[0m
