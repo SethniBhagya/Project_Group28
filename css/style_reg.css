@@ -397,3 +397,31 @@ li {
     transform: rotate(45deg) translate(-8px, -8px);
   }
 }
+
+input[type="radio"]:after {
+  width: 12px;
+  height: 12px;
+  border-radius: 15px;
+  top: -2px;
+  left: -1px;
+  position: relative;
+  background-color: #d1d3d1;
+  content: "";
+  display: inline-block;
+  visibility: visible;
+  border: 2px solid white;
+}
+
+input[type="radio"]:checked:after {
+  width: 12px;
+  height: 12px;
+  border-radius: 15px;
+  top: -2px;
+  left: -1px;
+  position: relative;
+  background-color: rgba(15, 95, 4, 0.911);
+  content: "";
+  display: inline-block;
+  visibility: visible;
+  border: 2px solid rgb(0, 252, 63);
+}
