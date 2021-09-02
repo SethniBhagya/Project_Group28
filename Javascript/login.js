@@ -1,12 +1,3 @@
-
-if(screen.width<=900){
-   document.getElementsByClassName("dropbtn").innerHTML = "Select the language";    
-}
-function changeColor(color) {
-  document.body.style.backgroundColor = color;
-}
-//document.getElementById("p1").innerHTML = "Select the language";
-//Web get Mobile Version interface
 function myFunction_1(x) {
     var y = document.getElementById("navbar");
     if (y.className === "mybar") {
