@@ -219,14 +219,15 @@ li {
   font-size: 18px;
 }
 .sumbit2 input[type="submit"]:hover {
-  background-color: rgb(46, 204, 73);
+  background-color: rgb(255, 255, 255);
+  color: #18470e;
 }
 
 .form2 {
   font-size: 19px;
 }
 #language {
-  background-color: #14671c;
+  background-color: #a5a5a5;
   margin-left: 75%;
   width: 225px;
   margin-right: 10%;
@@ -276,6 +277,46 @@ li {
   color: rgb(0, 0, 0);
   font-weight: 1000px;
 }
+.otp {
+  display: inline-block;
+  border-radius: 5px;
+  width: 650px;
+  height: 20%;
+  border: none;
+  background-color: none;
+  font-size: 20px;
+  color: rgb(0, 0, 0);
+  font-weight: 1000px;
+  margin-top: 120px;
+  margin-left: 70px;
+}
+.des,
+.des a {
+  font-size: 16px;
+  text-align: center;
+  line-height: 15px;
+  color: black;
+}
+.des a:hover {
+  color: rgb(41, 158, 25);
+}
+.otp1 {
+  display: inline-block;
+  border-radius: 5px;
+  width: 50px;
+  height: 50px;
+  border: none;
+  background-color: #18470e;
+  font-size: 25px;
+  color: rgb(247, 247, 247);
+  font-weight: 1000px;
+  margin-left: 1px;
+}
+/* .otp1:hover {
+  width: 52px;
+  height: 52px;
+} */
+
 .gender:focus {
   background-color: rgb(210, 228, 216);
   outline: none;
@@ -424,4 +465,8 @@ input[type="radio"]:checked:after {
   display: inline-block;
   visibility: visible;
   border: 2px solid rgb(0, 252, 63);
+}
+.text::placeholder {
+  font-style: initial;
+  color: #1c201d;
 }
