@@ -45,7 +45,7 @@
       </div>
 
 
-    <form class="form2" action = "/cgi-bin/test.cgi" name = "myForm" onsubmit = "return(validate());">
+    <form class="form2" action = "/cgi-bin/test.cgi" name = "myForm">
    	
     
      <table id="form1">
@@ -54,14 +54,14 @@
           <label for="fname">First Name</label>
         </td>
       </tr>
-      <tr><td ><input type="text" class="text" id="fname" name="fname" placeholder="  Type your first name"  /></td></tr>
+      <tr><td ><input type="text" class="text" id="fname" name="fname" placeholder="  Type your first name" required   /></td></tr>
       <tr>
         <td>
           <label for="lname">Last Name</label>
         </td>
       </tr>
       <tr>
-        <td><input type="text" class="text" id="lname" name="lname" placeholder="  Type your last name" required /></td>
+        <td><input type="text" class="text" id="lname" name="lname" placeholder="  Type your last name" required  /></td>
       </tr>
       <tr>
         <td><label for="gender">Gender</label></td>
@@ -70,7 +70,7 @@
         <tr>
         
         <td>
-          <input type="radio" id="male" name="gender" value="Male" required />
+          <input type="radio" id="male" name="gender" value="Male" required    />
           <label for="male">Male</label>
           <input type="radio" id="female" name="gender" value="Female" />
           <label for="female">Female</label><br />
@@ -84,7 +84,7 @@
         </td>
         <tr>
           <td>
-          <input class="text" type="date" id="dob" name="dob" required />
+          <input class="text" type="date" id="dob" name="dob" required   />
       </td>
       </tr>
       
@@ -96,7 +96,7 @@
       </tr>
       <tr>
         <td>
-          <textarea class="text" id="address" name="address" rows="2" required > Type here your address
+          <textarea class="text" id="address" name="address" rows="2" required    > Type here your address
               </textarea>
         </td>
       </tr>
@@ -109,7 +109,7 @@
         <tr>
 
         <td>
-          <select class="text" name="province" id="province" required>
+          <select class="text" name="province" id="province" required   >
             <option value="" class="choose_option">&nbsp; Choose here</option>
             <option value="central province">Central Province</option>
             <option value="eastern province">Eastern Province</option>
@@ -136,7 +136,7 @@
        
         <tr>
         <td>
-          <select class="text" name="district" id="district" required>
+          <select class="text" name="district" id="district" required  >
             <option value="" >&nbsp; Choose here</option>
            
             <option value="Gampaha">Gampaha District</option>
@@ -174,7 +174,7 @@
         </td>
       </tr>
       <tr>
-        <td><input class="text" type="text" id="gndivision" name="gndivision" placeholder="  Type your gramaniladhari division" required /></td>
+        <td><input class="text" type="text" id="gndivision" name="gndivision" placeholder="  Type your gramaniladhari division" required   /></td>
       </tr>
       <tr>
         <td>
@@ -182,7 +182,7 @@
         </td>
         </tr>
         <tr>
-        <td><input class="text" type="text" id="nic" name="nic" placeholder="  Type your NIC" required /></td>
+        <td><input class="text" type="text" id="nic" name="nic" placeholder="  Type your NIC" required  /></td>
       </tr>
       <tr>
         <td>
@@ -198,14 +198,14 @@
         </td>
       </tr>
       <tr>
-        <td><input class="text" type="tp" id="tp" name="tp" placeholder="  Type your telephone number"  required /></td>
+        <td><input class="text" type="tp" id="tp" name="tp" placeholder="  Type your telephone number" required   /></td>
       </tr>
       <tr>
         <td>
           <label for="password">Password</label>
         </td>
       </tr>
-        <td><input class="text" type="password" id="password" name="password" placeholder="  Type a password for your profile"  required /></td>
+        <td><input class="text" type="password" id="password" name="password" placeholder="  Type a password for your profile" required   /></td>
       </tr>
       <tr>
       <tr>
@@ -214,7 +214,7 @@
         </td>
       </tr>
       <tr>
-        <td><input class="text" type="password" id="cpassword" name="cpassword" placeholder="  Reype the password" required /></td>
+        <td><input class="text" type="password" id="cpassword" name="cpassword" placeholder="  Reype the password" required    /></td>
       </tr>
       <tr>
         <td></td>
@@ -223,7 +223,7 @@
         <div class="sumbit2">
           <input
             type="submit" 
-            onclick=""
+            onclick="login.html"
             value="Next"/>
    </div>
    <div class="last">
