@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../css/style_reg.css">
     <script src="../Javascript/login.js"></script>
+    <script  type = "text/javascript" src="../Javascript/form.js"></script>
     <title>Registration Form</title>
   </head>
   <body>
@@ -44,7 +45,7 @@
       </div>
 
 
-    <form class="form2" action="">
+    <form class="form2" action = "/cgi-bin/test.cgi" name = "myForm" onsubmit = "return(validate());">
    	
     
      <table id="form1">
@@ -53,7 +54,7 @@
           <label for="fname">First Name</label>
         </td>
       </tr>
-      <tr><td ><input type="text" class="text" id="fname" name="fname" placeholder="  Type your first name" required /></td></tr>
+      <tr><td ><input type="text" class="text" id="fname" name="fname" placeholder="  Type your first name"  /></td></tr>
       <tr>
         <td>
           <label for="lname">Last Name</label>
