@@ -42,29 +42,47 @@ body {
     border-radius: 20px;
     cursor: pointer;
   }
+  #navbar_1{
+    position: relative;
+    float: right;
+    margin-top: 0px;
+    padding :0px;
+
+  }
   a:visited{
       font-weight: bold;
-      color: ba;
+      color: black;
   }
   #icon {
     margin-left: 20px;
     width: 150px;
     height: 80px;
   }
-  
+
   #home {
     background-color: #14671c;
   }
   
-  #home:hover {
+  #home , #home_1:hover {
     background-color: darkgreen;
   }
-  
+  #home_1{
+    position: absolute;
+    top:20px;
+    right:200px;
+    text-align: center;
+  }
+  #report_1{
+    position: absolute;
+    top:20px;
+    right:100px;
+    text-align: center;
+  }
   #report {
     background-color: #14671c;
   }
   
-  #report:hover {
+  #report ,#report_1:hover {
     background-color: darkgreen;
   }
   
@@ -93,8 +111,16 @@ body {
     font-weight: bold;
     color: green;
   }
-
-
+  .user_btn {
+    float: none;
+    margin-top: 0px;
+    padding: 2px 0px;
+    padding-left: 5px;
+    width: 40px;
+    height:40px;
+    margin-right:10px;
+    cursor: pointer;
+  }
   .dropbtn {
     background-color: rgba(16, 87, 7, 0.467);
     color: white;
@@ -109,22 +135,32 @@ body {
   .dropbtn:hover, .dropbtn:focus {
     background-color: green;
   }
-  
+  .dot{
+    height: 48px;
+    width: 52px;
+    padding: 1px 1px;
+    border: 2px solid #ddd;
+    border-radius: 50%;
+    background-color: #14671c;
+    display: inline-block;
+  }
   .dropdown {
-    position: relative;
+    position: relative
+    ;
     display: inline-block;
   }
   
   .dropdown-content {
     display: none;
-    position: absolute;
+    position: fixed;
+    right:1px;
     background-color: rgba(15, 95, 4, 0.911);
     padding: 0px 16px;
     overflow: auto;
     border-radius: 10px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
-    width:85px;
+    width:100px;
   }
   
   .dropdown-content a {
@@ -154,10 +190,11 @@ body {
       float: none;
       height: auto;
     }
-    button, li{
+    li{
       display: block;
       width: 100%;
     }
+
     ul{
         margin-right: 5%;
     }
@@ -166,7 +203,10 @@ body {
     .mybar li{
       display: none;
     }
-  
+    
+    #home_1, #report_1{
+      position: inherit;
+    }
   
     .mybar .icon {
       position: absolute;
@@ -198,7 +238,22 @@ body {
       display: block;
       width: 100%;
     }
- 
+    .user_btn{
+      position: fixed;
+      padding-top: 5px;
+      right:2%;
+      top:15px;
+    }
+    .dot{
+      position: fixed;
+      right:2%;
+      top:15px;
+    
+    }
+    .dropdown-content{
+      position:fixed;
+      top:15px;
+    }
     .mybar.responsive {
       position: absolute;
       width: 100%;
@@ -209,7 +264,7 @@ body {
   
     .mybar.responsive ul {
       top: 0px;
-      padding-top: 40px;
+      padding-top: 60px;
       width: 80%;
     }
     .mybar.responsive li {
@@ -218,14 +273,28 @@ body {
       display: block;
       width: 100%;
     }
-    .mybar.responsive li button.dropbtn {
+    .mybar.responsive  .dropdown-content{
+      position: fixed;
+      float: none;
+      top: 250px;
+      left :0px;
+      display: block;
+      width: 90%;
+    }
+    .mybar.responsive  .dropdown-content a{
+       height: 40px;
+       padding : 1px 8px;
+    }
+
+    .mybar.responsive .dropbtn {
+      position: relative;
       float: none;
       top: 0px;
       display: block;
       width: 100%;
     }
-  
-    .mybar.responsive div.icon {
+   
+    .mybar.responsive div.icon  {
       position: absolute;
       right: 5%;
       top: 20px;
