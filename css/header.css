@@ -63,7 +63,7 @@ body {
     background-color: #14671c;
   }
   
-  #home , #home_1:hover {
+  #home:hover , #home_1:hover {
     background-color: darkgreen;
   }
   #home_1{
@@ -82,7 +82,7 @@ body {
     background-color: #14671c;
   }
   
-  #report ,#report_1:hover {
+  #report:hover ,#report_1:hover {
     background-color: darkgreen;
   }
   
