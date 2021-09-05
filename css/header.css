@@ -25,7 +25,7 @@ body {
     text-decoration: none;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 100;
-    color: honeydew;
+    color:black;
     line-height: 1.6em;
     text-align-last: center;
     font-size: medium;
@@ -51,7 +51,7 @@ body {
   }
   a:visited{
       font-weight: bold;
-      color: black;
+      color:white;
   }
   #icon {
     margin-left: 20px;
