@@ -49,9 +49,10 @@ body {
     padding :0px;
 
   }
-  a:visited{
+  a:visited {
       font-weight: bold;
       color: white;
+      background-color: darkgreen;
   }
   #icon {
     margin-left: 20px;
