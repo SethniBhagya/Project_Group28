@@ -1,4 +1,4 @@
-body {
+/* body {
   margin: 0px;
   background-image: url(../images/background.jpg);
   background-repeat: no-repeat;
@@ -6,18 +6,18 @@ body {
   background-size: cover;
   background-color: rgba(255, 255, 255, 0.36);
   font-family: Arial, Helvetica, sans-serif;
-}
+} */
 
 #main {
   z-index: 100;
-  width: 100%;
+  /* width: 100%;
   height: auto;
   background-color: #14671c;
   position: sticky;
-  top: 0px;
+  top: 0px; */
 }
 
-.mybar {
+/* .mybar {
   float: right;
   margin-top: 10px;
   margin-right: 15px;
@@ -28,7 +28,7 @@ body {
     position:absolute;
 } */
 
-a {
+/* a {
   text-decoration: none;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 100;
@@ -36,8 +36,8 @@ a {
   line-height: 1.6em;
   text-align-last: center;
   font-size: medium;
-}
-
+}  */
+/* 
 ul {
   margin-top: 0px;
   margin-right: 0%;
@@ -49,7 +49,7 @@ li {
   padding: 16px;
   border-radius: 20px;
   cursor: pointer;
-}
+} */
 
 #icon {
   margin-left: 20px;
@@ -109,7 +109,7 @@ li {
   line-height: 1.6em;
 } */
 
-.dropbtn {
+/* .dropbtn {
   background-color: rgba(16, 87, 7, 0.467);
   color: white;
   padding: 16px;
@@ -163,7 +163,7 @@ li {
   padding: 3px;
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
-}
+} */
 
 .register_header {
   text-align: center;
@@ -239,19 +239,7 @@ li {
   padding-bottom: 5px;
   height: 20px;
 }
-#sinhala,
-#english,
-#tamil {
-  display: inline-block;
-  text-align-last: center;
-  width: 70px;
-  cursor: pointer;
-}
-#sinhala a,
-#english a,
-#tamil a {
-  font-size: 15px;
-}
+
 
 .gender {
   padding-top: 4px;
@@ -436,6 +424,7 @@ li {
   .mybar.responsive div.bar3 {
     -webkit-transform: rotate(45deg) translate(-8px, -8px);
     transform: rotate(45deg) translate(-8px, -8px);
+
   }
 }
 
