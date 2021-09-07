@@ -1,0 +1,8 @@
+ReWriteEngine on
+ReWriteBase /wildlifeCare/
+
+ReWriteCond %{ReQUEST_FILENAME} !-d
+ReWriteCond %{ReQUEST_FILENAME} !-l
+ReWriteCond %{ReQUEST_FILENAME} !-f
+
+ReWriteRule ^(.+)$ index.php?$1 [QSA,L]
