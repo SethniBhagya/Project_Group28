@@ -1,3 +1,11 @@
+function myFunction() {
+  myVar = setTimeout(showPage, 3000);
+}
+
+function showPage() {
+  document.getElementById("loader").style.display = "none";
+}
+
 function myFunction_1(x) {
     var y = document.getElementById("navbar");
     if (y.className === "mybar") {
