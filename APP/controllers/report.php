@@ -8,6 +8,7 @@ class report extends Controller{
     }
     
     function index(){
+        if()
     }
 
 }
