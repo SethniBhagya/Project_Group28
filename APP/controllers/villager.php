@@ -45,7 +45,7 @@
            echo "Already Have";
            return false;
       }else{
-           return true;
+           return true; 
       }
     }
     
@@ -64,7 +64,7 @@
         //     echo "Check Your Mail Address";
         // }else{
         //     echo "Your Email is Wrong!!!! try to begining in Registration";
-        // }
+        // }//
         
         
         if(isset($_POST['submit'])){
