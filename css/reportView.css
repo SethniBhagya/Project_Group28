@@ -233,24 +233,18 @@ label{
   
   }
   .subcontainer_3-3{
-      width:94%;
-      border-radius: 10px;
+      width:96%;
       margin-left: 3%;
       margin-right: 1%;
   
   }
   select{
       width: 90%;
-      margin-left: 5%;
-  }
-  .text-search-bar{
-    display: none;
   }
   table{
       margin-right:1% ;
       width: 90%;
       padding: 10px 10px;
-      margin-left: 4.5%;
   }
 
   .search-container{
