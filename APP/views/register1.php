@@ -22,10 +22,10 @@
 
           <ul>
 
-              <li id="home"><a href="##">HOME</a></li>
-              <li id="report"><a href="##">REPORT</a></li>
+              <li id="home"><a href="aa">HOME</a></li>
+              <li id="report"><a href="aaa">REPORT</a></li>
               <li id="register"><a href="">REGISTER</a></li>
-              <li id="login"><a id=login_text href="####">LOGIN</a></li>
+              <li id="login"><a id=login_text href="aaa">LOGIN</a></li>
               <li class="dropdown">
                   <button onclick="myFunction_2()" class="dropbtn">Language <i class="down"></i></button>
                   <div id="myDropdown" class="dropdown-content">
@@ -36,7 +36,11 @@
               </li>
           </ul>
   </header>
-  
+<!--   
+ <div class="reg-messager">
+      <h>Thank You For Registration Wildlife Care Managemnet System</h>
+      <li class='login-btn'><a href="">Login</a> </li>
+</div> -->
 
 
   <div class="contanier2">
@@ -82,9 +86,9 @@
         <tr>
         
         <td>
-          <input type="radio" id="male" name="male" value="Male" required />
+          <input type="radio" id="male" name="gender" value="male"/>
           <label for="male">Male</label>
-          <input type="radio" id="female" name="femala" value="Female" />
+          <input type="radio" id="female " name="gender" value="female" />
           <label for="female">Female</label><br />
         </td>
       
