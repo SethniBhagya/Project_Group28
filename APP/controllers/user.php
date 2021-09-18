@@ -42,10 +42,10 @@ class user extends Controller{
                 ];
 
             if(!empty($data["username"])&&!empty($data["password"])){
-
+               
                $loginUser=$this->model->login($data["username"],$data["password"]);
                if(empty($loginUser["Error"]))
-               {
+               {  
                   session_start();
                   $_SESSION["NIC"]= $loginUser["NIC"];
                   $_SESSION["Fname"]= $loginUser["Fname"];
@@ -60,6 +60,7 @@ class user extends Controller{
                     // case "veterinarian": $this->view->render('veterinarian');
 
                   }
+
 
                }
                else{

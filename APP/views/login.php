@@ -44,7 +44,7 @@
             <h3>LOGIN</h3>
         </div>
         </br>
-        <form action="" method="POST" class="login_form">
+        <form action="login" method="POST" class="login_form">
             <div class="group">
                 <label for="username">Username</label><br>
                 <input type="text" name="username"><br>
