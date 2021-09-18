@@ -16,7 +16,7 @@ class villager_model extends Model{
         $this->db->runQuery("INSERT INTO `user`(`NIC`, `Fname`, `Lname`, `gender`, `email` , `mobileNo`, `BOD`, `Address`, `jobType`) VALUES ('$userNic','$firstName','$lastName','$gender','$userEmail','$userMobileNumber','$userDataofBirth','$address','villager')");
         $hashPassword = sha1($userPassword);
         $this->db->runQuery("INSERT INTO `login`(`userName`, `password`) VALUES ('$userNic','$hashPassword')");
-        $this->db->runQuery("INSERT INTO `login`(`userName`, `password`) VALUES ('$userNic','$hashPassword')");
+    
  
     }
 
