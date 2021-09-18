@@ -1,15 +1,15 @@
 <?php
 class user extends Controller{
 
-    public $firstName;
-    public $lastName;
-    public $address;
-    public $gender;
-    public $userNic;
-    public $password;
-    public $userEmail;
-    public $userMobileNumber;
-    public $userDataofBirth;
+    private $firstName;
+    private $lastName;
+    private $address;
+    private $gender;
+    private $userNic;
+    private $password;
+    private $userEmail;
+    private $userMobileNumber;
+    private $userDataofBirth;
 
     function __construct(){
         parent::__construct();
@@ -26,4 +26,62 @@ class user extends Controller{
 
      //    }
     } 
+
+    public function login()
+    {
+        $this->view->render('login');
+        
+        if($_SERVER["REQUEST_METHOD"]=="POST"){
+
+            $_POST=filter_input_array(INPUT_POST,FILTER_SANITIZE_STRING);
+
+            
+            $data=[
+                "username"=>trim($_POST["username"]),
+                "password"=>trim($_POST["password"])
+                ];
+
+            if(!empty($data["username"])&&!empty($data["password"])){
+
+               $loginUser=$this->model->login($data["username"],$data["password"]);
+               if(empty($loginUser["Error"]))
+               {
+                  session_start();
+                  $_SESSION["NIC"]= $loginUser["NIC"];
+                  $_SESSION["Fname"]= $loginUser["Fname"];
+                  switch($loginUser["jobtype"])
+                  {
+                    case "villager": $this->view->render('villager');
+                    break;
+                    // case "wildlifeofficer": $this->view->render('wildlifeofficer');
+                    // break;
+                    // case "admin": $this->view->render('admin');
+                    // break;
+                    // case "veterinarian": $this->view->render('veterinarian');
+
+                  }
+
+               }
+               else{
+                 $this->view->render('login');
+               }
+              
+
+
+                     }
+        }
+
+
+    }
+
+
+    public function logout(){
+        
+        unset( $_SESSION["NIC"]);
+        unset($_SESSION["Fname"]);
+        $this->view->render('login');
+
+    }
+
+
 }
