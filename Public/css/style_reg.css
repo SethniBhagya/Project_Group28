@@ -564,3 +564,66 @@ input[type="radio"]:checked:after {
   font-style: initial;
   color: #1c201d;
 }
+#errorMessage{
+  /* display: none; */
+  position: fixed;
+  width : 58%; 
+  /* top :10%; */
+  z-index: 1;
+  margin-top: 6%;
+  margin-left: 20.5%;
+  margin-right:20%;
+  height: auto;
+  background-color: rgba(0, 100, 0, 0.802);
+  border-radius: 10px;
+  text-align: center;
+  animation-name: animatelreg-messager;
+  animation-duration: 2s;
+  color: white;
+
+}
+#reg-messager{
+  display: none;
+  position: fixed;
+  width : 58%; 
+  /* top :10%; */
+  z-index: 1;
+  margin-top: 6%;
+  margin-left: 21.2%;
+  margin-right:20%;
+  height: 200px;
+  background-color: rgb(17, 109, 30);
+  padding-top: 25px;
+  border-radius: 10px;
+  text-align: center;
+  animation-name: animatelreg-messager;
+  animation-duration: 2s;
+  color: white;
+}
+
+#reg-messager h{
+ padding-top: 10px;
+ text-align: center;
+ color: #d1d3d1;
+ font-size: 20px;
+}
+
+#reg-messager .login-btn {
+ 
+position: inherit;
+ padding: 10px 10px;
+ margin-top: 10px;
+ background-color: rgb(11, 56, 2);
+ width : 8%;
+ margin-left: 24%;
+ display: block;
+}
+
+#reg-messager .login-btn:hover{
+ background: rgb(40, 167, 40);
+
+}
+@keyframes animatelreg-messager { 
+ from{ top:-200px; opacity:0 } 
+ to{ top:0; opacity:1 }
+}

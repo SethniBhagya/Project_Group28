@@ -6,19 +6,19 @@ class villager_model extends Model{
         parent::__construct();
     }
     
-    function selectData($userName){
-        return $this->db->runQuery("SELECT * from user WHERE NIC='$userName'");
+    function selectData(){
+        return $this->db->runQuery("SELECT * FROM `user`");
+   }
 
-    }
-      
     function insertData($firstName, $lastName, $address, $gender ,$userNic,$userPassword, $userEmail, $userMobileNumber, $userDataofBirth, $GNDivision,$province,$district){                                                    
 
-        $this->db->runQuery("INSERT INTO `user`(`NIC`, `Fname`, `Lname`, `gender`, `email` , `mobileNo`, `BOD`, `Address`, `jobType`) VALUES ('$userNic','$firstName','$lastName','$gender','$userEmail','$userMobileNumber','$userDataofBirth','$address','villager')");
+        $this->db->runQuery("INSERT INTO `user`(`NIC`, `Fname`, `Lname`, `mobileNo`, `BOD`, `Address`, `jobType`, `email`, `gender`) VALUES ('$userNic','$firstName','$lastName','$userMobileNumber','$userDataofBirth','$address','villager','$userEmail', '$gender')");
         $hashPassword = sha1($userPassword);
-        $this->db->runQuery("INSERT INTO `login`(`userName`, `password`) VALUES ('$userNic','$hashPassword')");   
-        $this->db->runQuery("INSERT INTO `login`(`userName`, `password`) VALUES ('$userNic','$hashPassword')");  
+        $this->db->runQuery("INSERT INTO `login`(`userName`, `userpassword`) VALUES ('$userNic','$hashPassword')");    
+        $this->db->runQuery("INSERT INTO `villager`(`NIC`) VALUES ('$userNic')");
  
     }
+   
 
 
 }

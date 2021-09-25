@@ -14,35 +14,40 @@
 
 
     public function index(){
-        
+    
     }
 
     public function register(){
+      
+        $this->view->data = $this->model->selectData();     
         $this->view->render('register1');
-             
+        
         if(isset($_POST['submit'])){
-          if($this->checkNic($_POST['nic'])){
+           if($this->checkNic()){
            $this->model->insertData($_POST['fname'],$_POST['lname'],$_POST['address'],$_POST['gender'],$_POST['nic'],$_POST['password'],$_POST['email'],$_POST['tp'],$_POST['dob'],$_POST['gndivision'],$_POST['district'],$_POST['province']);
-             return true; 
+           return true; 
            }
          }
-   
        
     }
-         
-    function checkNic($result){
-      if(isset($_POST['submit'])){
-        $result = $this->model->selectData($_POST['nic']);
+    function checkNic(){
+        $result = $this->model->selectData();
+        if(isset($_POST['submit'])){
+            foreach ($result as $row){
+                if($_POST['nic'] === $row['NIC'] ){  
+                   
+                   return false;
+                 
+                }
+
+            }
+           return true;
         }
-      
-      if($result){
-           echo "Already Have";
-           return false;
-      }else{
-           return true; 
-      }
     }
+          
+       
 
 }
 
 ?>
+
