@@ -62,3 +62,7 @@ function validation(){
     return true;
 
 }
+function closeView() {
+    errorMessage.style.display = 'none';
+
+}
