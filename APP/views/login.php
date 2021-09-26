@@ -25,8 +25,8 @@
             <ul>
 
                 <li id="home"><a href="vvvvv">HOME</a></li>
-                <li id="report"><a href="vvvv">REPORT</a></li>
-                <li id="register"><a href="vvvv">REGISTER</a></li>
+                <li id="report"><a href="./">REPORT</a></li>
+                <li id="register"><a href="../villager/register">REGISTER</a></li>
                 <li id="login"><a id=login_text href="">LOGIN</a></li>
                 <li class="dropdown">
                     <button onclick="myFunction_2()" class="dropbtn">Language <i class="down"></i></button>
