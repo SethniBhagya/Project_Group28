@@ -6,7 +6,6 @@ class user extends Controller{
     private $address;
     private $gender;
     private $userNic;
-    private $password;
     private $userEmail;
     private $userMobileNumber;
     private $userDataofBirth;
@@ -21,16 +20,19 @@ class user extends Controller{
        // print_r($user);
     //    $this->view->render('user');
     //    if(isset($_POST['submit'])){
-            $this->view->users = $this->model->getData();
-            $this->view->render('user');
+            // $this->view->users = $this->model->getData();
+            // $this->view->render('user');
 
      //    }
-    } 
+
+      $this->view->render('login');
+    }
+     
+   
 
     public function login()
     {
-        $this->view->render('login');
-        
+                
         if($_SERVER["REQUEST_METHOD"]=="POST"){
 
             $_POST=filter_input_array(INPUT_POST,FILTER_SANITIZE_STRING);
@@ -51,7 +53,7 @@ class user extends Controller{
                   $_SESSION["Fname"]= $loginUser["Fname"];
                   switch($loginUser["jobtype"])
                   {
-                    case "villager": $this->view->render('villager');
+                    case "villager": $this->view->render('villager',$loginUser);
                     break;
                     // case "wildlifeofficer": $this->view->render('wildlifeofficer');
                     // break;
@@ -78,8 +80,8 @@ class user extends Controller{
 
     public function logout(){
         
-        unset( $_SESSION["NIC"]);
-        unset($_SESSION["Fname"]);
+        session_start();
+        session_destroy();
         $this->view->render('login');
 
     }
