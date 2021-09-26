@@ -26,7 +26,7 @@
               <li id="home"><a href="aa">HOME</a></li>
               <li id="report"><a href="aaa">REPORT</a></li>
               <li id="register"><a href="">REGISTER</a></li>
-              <li id="login"><a id=login_text href="aaa">LOGIN</a></li>
+              <li id="login"><a id=login_text href="../user/index">LOGIN</a></li>
               <li class="dropdown">
                   <button onclick="myFunction_2()" class="dropbtn">Language <i class="down"></i></button>
                   <div id="myDropdown" class="dropdown-content">
