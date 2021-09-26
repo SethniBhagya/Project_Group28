@@ -2,9 +2,9 @@
  include "user.php";
  class villager extends user {
     
-    public $GNDivision;
-    public $province;
-    public $district;
+    private $GNDivision;
+    private $province;
+    private $district;
  
 
     function __construct()
@@ -20,7 +20,7 @@
     public function register(){
       
         $this->view->data = $this->model->selectData();     
-        $this->view->render('register1');
+        $this->view->render('register');
         
         if(isset($_POST['submit'])){
            if($this->checkNic()){

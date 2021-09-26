@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../Public/css/style_reg.css">
     <link rel="stylesheet" href="../Public/css/header.css">
-    <script src="../Public/Javascript/login.js"></script>
+    <script src="../Public/javascript/login.js"></script>
+    <script src="../Public/javascript/register.js"></script>
     <title>Registration Form</title>
   </head>
   <body>
@@ -31,38 +32,47 @@
                   <div id="myDropdown" class="dropdown-content">
                     <a href="">English</a>
                     <a href="">සිංහල</a>
-                    <a href="">சிங்களம்</a>
+                    <a href="">தமிழ்</a>
                   </div>
               </li>
           </ul>
   </header>
-<!--   
- <div class="reg-messager">
-      <h>Thank You For Registration Wildlife Care Managemnet System</h>
-      <li class='login-btn'><a href="">Login</a> </li>
-</div> -->
+    
+ <h id="errorMessage"></h>
+  <div id="reg-messager">
+    <h1>Wildlife Care</h1><br></br>
+    <h>Thank You For Registration</h>
+    <a href=""  class="login-btn">Login</a>
+  </div>
 
 
+  <?php 
+     $result = $this->data;
+     $status = "false"; 
+     if(isset($_POST['submit'])){
+     foreach ($result as $row){
+         if($_POST['nic'] === $row['NIC'] ){  ?>
+            
+            <div id="errorMessage" style="padding: 10px;">
+            <h1>Wildlife Care</h1></br></br>
+            <h>Your Id Number is Already Registered</h>
+            <a href=""  class="login-btn" style="color: darkred;">Login</a>
+            </div>
+          <?php
+          
+          }
+     }
+     }
+     ?>
+ 
   <div class="contanier2">
     <div class="register_header">
           <h3>Registration</h3>
+    
       </div>
+  
 
-      <?php 
-        function check(){
-         if(isset($_POST['submit'])) {
-            $password = $_POST['password'];
-            $cpassword = $_POST['cpassword'];
-            if( $password===$cpassword){
-              return true ;}
-              else{
-                return false ;
-              }
-            }   
-         }
-       ?>
-
-    <form class="form2" action="<?php if(check()){ echo "confirmMail";}else { echo ""; } ?>" method="post">
+    <form class="form2" action=""   method="post">
    	
      <table id="form1">
       <tr>
@@ -70,14 +80,14 @@
           <label for="fname">First Name</label>
         </td>
       </tr>
-      <tr><td ><input type="text" class="text" id="fname" name="fname" placeholder="  Type your first name" required /></td></tr>
+      <tr><td ><input type="text" class="text" id="fname" name="fname" placeholder="  Type your first name" /></td></tr>
       <tr>
         <td>
           <label for="lname">Last Name</label>
         </td>
       </tr>
       <tr>
-        <td><input type="text" class="text" id="lname" name="lname" placeholder="  Type your last name" required /></td>
+        <td><input type="text" class="text" id="lname" name="lname" placeholder="  Type your last name"/></td>
       </tr>
       <tr>
         <td><label for="gender">Gender</label></td>
@@ -86,9 +96,9 @@
         <tr>
         
         <td>
-          <input type="radio" id="male" name="gender" value="male"/>
+          <input type="radio" id="male" name="gender" value="M"/>
           <label for="male">Male</label>
-          <input type="radio" id="female " name="gender" value="female" />
+          <input type="radio" id="female " name="gender" value="F" />
           <label for="female">Female</label><br />
         </td>
       
@@ -100,7 +110,7 @@
         </td>
         <tr>
           <td>
-          <input class="text" type="date" id="dob" name="dob" required />
+          <input class="text" type="date" id="dob" name="dob"/>
       </td>
       </tr>
       
@@ -112,7 +122,7 @@
       </tr>
       <tr>
         <td>
-          <textarea class="text" id="address" name="address" rows="2" required >  Type here your address
+          <textarea class="text" id="address" name="address" rows="2" >  Type here your address
               </textarea>
         </td>
       </tr>
@@ -125,7 +135,7 @@
         <tr>
 
         <td>
-          <select class="text" name="province" id="province" required>
+          <select class="text" name="province" id="province">
             <option value="">  Choose here</option>
             <option value="central province">Central Province</option>
             <option value="eastern province">Eastern Province</option>
@@ -152,7 +162,7 @@
        
         <tr>
         <td>
-          <select class="text" name="district" id="district" required>
+          <select class="text" name="district" id="district">
             <option value="">  Choose here</option>
             <option value="Gampaha">Gampaha District</option>
             <option value="Colombo">Colombo</option>
@@ -188,7 +198,7 @@
         </td>
       </tr>
       <tr>
-        <td><input class="text" type="text" id="gndivision" name="gndivision" placeholder="  Type your gramaniladhari division" required /></td>
+        <td><input class="text" type="text" id="gndivision" name="gndivision" placeholder="  Type your gramaniladhari division" /></td>
       </tr>
       <tr>
         <td>
@@ -196,7 +206,7 @@
         </td>
         </tr>
         <tr>
-        <td><input class="text" type="text" id="nic" name="nic" placeholder="  Type your NIC" required /></td>
+        <td><input class="text" type="text" id="nic" name="nic" placeholder="  Type your NIC" /></td>
       </tr>
       <tr>
         <td>
@@ -212,14 +222,14 @@
         </td>
       </tr>
       <tr>
-        <td><input class="text" type="tp" id="tp" name="tp" placeholder="  Type your telephone number"  required /></td>
+        <td><input class="text" type="tp" id="tp" name="tp" placeholder="  Type your telephone number" /></td>
       </tr>
       <tr>
         <td>
           <label for="password">Password</label>
         </td>
       </tr>
-        <td><input class="text" type="password" id="password" name="password" placeholder="  Type a password for your profile"  required /></td>
+        <td><input class="text" type="password" id="password" name="password" placeholder="  Type a password for your profile"/></td>
       </tr>
       <tr>
       <tr>
@@ -228,24 +238,23 @@
         </td>
       </tr>
       <tr>
-        <td><input class="text" type="password" id="cpassword" name="cpassword" placeholder="  Reype the password" required /></td>
+        <td><input class="text" type="password" id="cpassword" name="cpassword" placeholder="  Reype the password" /></td>
       </tr>
       <tr>
         <td></td>
       </tr>
        </table>
+       
         <div class="sumbit2">
           <input
-            type="submit" name="submit"
-            onclick=""
-            value="Next"/>
+            type="submit" name="submit" onclick="return validation()"
+            value="Register"/>
    </div>
    <div class="last">
          
    </div>
 
     </form>
-  
 </div>
 </div>  
   </body>
