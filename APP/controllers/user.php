@@ -66,7 +66,7 @@ class user extends Controller{
 
                }
                else{
-                 $this->view->render('login');
+                 $this->view->render('login',$loginUser["Error"]);
                }
               
 

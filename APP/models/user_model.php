@@ -26,7 +26,9 @@ class user_model extends Model{
 
     	];
         $stmt="SELECT * FROM Login WHERE userName='$username'";
-    	$row=$this->db->runQuery($stmt)[0];
+    	$row=$this->db->runQuery($stmt);
+        if(!empty($row))
+            $row=$row[0];
     	if(!empty($row))
     	{     
               $hashPassword=$row["userPassword"];
@@ -38,6 +40,7 @@ class user_model extends Model{
              	 $loginData["Lname"]=$row["Lname"];
              	 $loginData["NIC"]=$row["NIC"];
              	 $loginData["jobtype"]=$row["jobType"];
+
              	 
              	 return $loginData;
                

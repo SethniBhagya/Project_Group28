@@ -73,6 +73,27 @@
   background-color: darkgreen;
   color: white;
 }
+
+.login_form #username_error,
+.login_form #pass_error
+{
+
+  margin-top: 2px;
+  position: absolute;
+  width: 345px;
+  font-size: 18px;
+  color: #c62828;
+  background-color: rgba(255,0,0,0.1);
+  text-align: center;
+  padding: 0px 3px;
+  border-radius: 3px;
+  border: 1px solid #EF9A9A;
+  left: 37.5%;
+  display: none;
+
+}
+
+
 @media (max-width: 900px) {
 
   .contanier {

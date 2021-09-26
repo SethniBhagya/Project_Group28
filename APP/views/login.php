@@ -40,19 +40,22 @@
     </header>
     </div> 
     <div class="contanier">
+        
         <div class="login-header">
             <h3>LOGIN</h3>
         </div>
         </br>
-        <form action="login" method="POST" class="login_form">
+        <form action="login" method="POST" class="login_form" name="form" onsubmit="return validated()">
             <div class="group">
                 <label for="username">Username</label><br>
                 <input type="text" name="username"><br>
+                <div id="username_error">Please fill up your Username</div>
             </div>
             <br>
             <div class="group">
                 <label for="password">Password</label><br>
                 <input type="password" name="password"><br>
+                <div id="pass_error">Please fill up your Password</div>
             </div>
             <br>
             <div class="group_link">
@@ -60,9 +63,66 @@
             </div>
             <div class="sumbit">
                 <!-- <input name="submit" type="button" value="LOGIN"> -->
-                <button>Login</button>
+                <button type="submit">Login</button>
             </div>
         </form>
+
+         <script >
+            var username=document.forms["form"]["username"];
+            var pass=document.forms["form"]["password"];
+
+
+           var username_error=document.getElementById("username_error");
+           var pass_error=document.getElementById("pass_error");
+           username.addEventListener('textInput', username_verify);
+           pass.addEventListener('textInput', pass_verify);
+
+
+           function validated(){
+     
+                 if(pass.value.length===0 && username.value.length===0){
+                
+                 pass_error.style.display="block";
+          
+                 username_error.style.display="block";
+                 username.focus();
+         
+                 return false;
+                 }
+  
+
+    
+
+                 else if(pass.value.length===0){
+        
+                 pass_error.style.display="block";
+                 pass.focus();
+                 return false;
+                 }
+  
+                else if(username.value.length===0){
+                 
+                username_error.style.display="block";
+                username.focus();
+                return false;
+                }
+
+     
+                 }
+
+           function username_verify(){
+            if(username.value.length>0){
+                return true;
+            }
+           }
+
+            function pass_verify(){
+            if(pass.value.length>0){
+                return true;
+            }
+           }
+        </script>
+
     </div>
 </body>
 
