@@ -16,7 +16,7 @@ class Route{
 		$url  = isset($_GET['url'])? $_GET['url']: null;
 		$url  = rtrim($url,'/');
 		$url  = filter_var($url,FILTER_SANITIZE_URL);
-		$this->_routes = explode('/',$url);
+		$this->_routes = explode('/',$url);//user/register= [0]=>user,[1]=>register
 	}
 	private function _loadController(){
 		$file = 'APP/controllers/'.$this->_routes[0].'.php';
