@@ -112,9 +112,9 @@
                         <td><label for="gender">Gender</label></td>
         
                         <td>
-                            <input type="radio" id="male" name="gender" value="male"/>
+                            <input type="radio" id="male" name="gender" value="M"/>
                             <label for="male">Male</label>
-                            <input type="radio" id="female " name="gender" value="female" />
+                            <input type="radio" id="female " name="gender" value="F" />
                             <label for="female">Female</label><br />
                         </td>
       
@@ -234,7 +234,10 @@
 
                 </table>
                 <button>back</button>
-                 <button type="submit" name="submit" value="grama niladhari">Submit</button>
+                
+                    <button type="submit" name="submit" value="grama niladhari">Submit</button>
+                
+                 
 
 
 
@@ -243,7 +246,7 @@
             </form>
 
 
-             <form class="vetform">
+             <form class="vetform" method="POST" action="">
                 <table>
 
                     <tr>
@@ -286,9 +289,9 @@
                         <td><label for="gender">Gender</label></td>
         
                         <td>
-                            <input type="radio" id="male" name="gender" value="male"/>
+                            <input type="radio" id="male" name="gender" value="M"/>
                             <label for="male">Male</label>
-                            <input type="radio" id="female " name="gender" value="female" />
+                            <input type="radio" id="female " name="gender" value="F" />
                             <label for="female">Female</label><br />
                         </td>
       
@@ -408,7 +411,7 @@
 
                 </table>
                 <button>back</button>
-                <button type="submit">Submit</button>
+                <button type="submit" name="submit" value="veterinarian">Submit</button>
                 
 
 
@@ -418,7 +421,7 @@
             </form>
 
 
-             <form class="vilform">
+             <form class="vilform"  method="POST" action="../admin/addUser">
                 <table>
 
                     <tr>
@@ -453,9 +456,9 @@
                         <td><label for="gender">Gender</label></td>
         
                         <td>
-                            <input type="radio" id="male" name="gender" value="male"/>
+                            <input type="radio" id="male" name="gender" value="M"/>
                             <label for="male">Male</label>
-                            <input type="radio" id="female " name="gender" value="female" />
+                            <input type="radio" id="female " name="gender" value="F" />
                             <label for="female">Female</label><br />
                         </td>
       
@@ -575,7 +578,7 @@
 
                 </table>
                 <button>back</button>
-                <button type="submit">Submit</button>
+                <button type="submit" name="submit" value="villager">Submit</button>
                 
 
           
@@ -584,7 +587,7 @@
 
             </form>
 
-             <form class="woform" method="POST" action="">
+             <form class="woform"  method="POST" action="">
                 <table>
 
                     <tr>
@@ -614,14 +617,23 @@
                         </td>
                     </tr>
 
+                    <tr>
+                        <td>
+                            <label for="nic">NIC</label>
+                        </td>
+                        <td>
+                            <input type="text" name="nic" id="nic" required>
+                        </td>
+                    </tr>
+
                     
                     <tr>
                         <td><label for="gender">Gender</label></td>
         
                         <td>
-                            <input type="radio" id="male" name="gender" value="male"/>
+                            <input type="radio" id="male" name="gender" value="M"/>
                             <label for="male">Male</label>
-                            <input type="radio" id="female " name="gender" value="female" />
+                            <input type="radio" id="female " name="gender" value="F" />
                             <label for="female">Female</label><br />
                         </td>
       
@@ -699,6 +711,16 @@
                                </select>
                            </td>
                </tr>
+
+               <tr>
+                        <td>
+                            <label for="gnd">Work GN Division</label>
+                        </td>
+                        <td>
+                            <input type="text" name="gnd" id="gnd" required>
+                        </td>
+                    </tr>
+
 
                <tr>
                         <td>
@@ -751,7 +773,7 @@
 
 
 
-            <form class="roform">
+            <form class="roform"  method="POST" action="">
                 <table>
 
                     <tr>
@@ -781,14 +803,23 @@
                         </td>
                     </tr>
 
+                    <tr>
+                        <td>
+                            <label for="nic">NIC</label>
+                        </td>
+                        <td>
+                            <input type="text" name="nic" id="nic" required>
+                        </td>
+                    </tr>
+
                     
                     <tr>
                         <td><label for="gender">Gender</label></td>
         
                         <td>
-                            <input type="radio" id="male" name="gender" value="male"/>
+                            <input type="radio" id="male" name="gender" value="M"/>
                             <label for="male">Male</label>
-                            <input type="radio" id="female " name="gender" value="female" />
+                            <input type="radio" id="female " name="gender" value="F" />
                             <label for="female">Female</label><br />
                         </td>
       
@@ -912,7 +943,7 @@
 
 
               <button>back</button>
-              <button type="submit">Submit</button>
+              <button type="submit" name="submit" value="veterinarian">Submit</button>
 
             </form>
 

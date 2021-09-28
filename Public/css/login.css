@@ -2,57 +2,53 @@
   margin-left: 33%;
   margin-right: 35%;
   margin-top: 30px;
-  background-color: rgb(11, 100, 23);
+  background-color: rgb(255,255,255,0.8);
   width: 30%;
   min-height: 350px;
-  border-radius: 30px;
   padding: 15px;
   padding-top: 50px;
-  border: 5px green solid;
+  padding-bottom: 30px;
+  border-radius: 10px;
   line-height: 1.6em;
+  color: black;
 }
 
-.login-header {
-  text-align: center;
-  margin-right: 20%;
-  margin-left: 16%;
-  margin-top: 15px;
-  width: 68%;
-  height: 40px;
-  background-color: rgba(255, 255, 255, 0.36);
-  border-radius: 10px;
-}
+
 .login-header h3 {
-  top: 50px;
+  position: absolute;
+  font-size: 32px;
+
+  top: 120px;
+  left:45%;
+ color: rgb(20,103,8,1);
+  font-weight: 100;
 }
 
 .group label {
+  position: relative;
   margin-left: 18%;
-  color: white;
-  font-size: 15px;
+  color: black;
+  top: 27px;
+  font-size: 17px;
 }
 
 .login_form input[type="text"],
 .login_form input[type="password"],
 .sumbit  button {
   position: inherit;
+  margin-top: 25px;
   margin-right: 16%;
   margin-left: 16%;
   width: 65%;
-  height: 25px;
-  text-align: center;
+  height: 35px;
+  background-color: rgb(0,251,10,0.16);
   border-radius: 10px;
+  
+  border: none;
 }
 
-.group_link {
-  margin-right: 20%;
-  margin-left: 20%;
-  text-align: center;
-}
 
-.group_link a {
-  font-size: small;
-}
+
 
 .sumbit button {
   text-align: center;
@@ -62,17 +58,26 @@
   margin-top: 10px;
   height: 40px;
   width: 68%;
-  background-color: #00fb0a;
   border-radius: 10px;
-  color: darkgreen;
+ background-color: #14671c;
+ box-shadow: 0px 4px 4px rgba(0, 251, 10, 0.16);
+  color: white;
+  font-size: 18px;
   font-weight: 900;
   position: inherit;
 }
 
 .sumbit button:hover {
-  background-color: darkgreen;
+ background-color: darkgreen;
   color: white;
 }
+
+.error{
+  
+
+
+}
+
 
 .login_form #username_error,
 .login_form #pass_error
@@ -83,15 +88,32 @@
   width: 345px;
   font-size: 18px;
   color: #c62828;
-  background-color: rgba(255,0,0,0.1);
+ 
   text-align: center;
   padding: 0px 3px;
   border-radius: 3px;
-  border: 1px solid #EF9A9A;
+  
   left: 37.5%;
   display: none;
 
 }
+
+
+.group_link {
+  margin-right: 20%;
+  margin-left: 20%;
+  text-align: center;
+
+}
+
+.group_link a {
+  font-size: small;
+  color: black;
+}
+
+
+
+
 
 
 @media (max-width: 900px) {

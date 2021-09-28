@@ -1,6 +1,7 @@
 <?php
+require 'user.php';
 
-class admin extends Controller{
+class admin extends user{
 
 	private $adminId;
 
@@ -15,7 +16,7 @@ class admin extends Controller{
 
 		if($_SERVER["REQUEST_METHOD"]=="POST"){
 			$_POST=filter_input_array(INPUT_POST,FILTER_SANITIZE_STRING);
-
+           
 			$userType=$_POST["submit"];
 			$data=[
 				
@@ -49,13 +50,14 @@ class admin extends Controller{
 				switch($userType){
 					case "grama niladhari":{
 						$specificData=[
-							"gic"=>trim($_POST["gnd"])
+							"gic"=>trim($_POST["gic"])
 
 						];
-
+                         
 						$allData=array_merge($data,$specificData);
 						$this->model->gnAdd($allData);
 					}
+					break;
 
 					case "wildlife officer":{
 						$specificData=[
@@ -67,6 +69,30 @@ class admin extends Controller{
 						$allData=array_merge($data,$specificData);
 						$this->model->woAdd($allData);
 					}
+
+					break;
+
+					case "veterinarian":{
+						$specificData=[
+							"vid"=>trim($_POST["vid"])
+							
+
+						];
+
+						$allData=array_merge($data,$specificData);
+						$this->model->vetAdd($allData);
+					}
+
+
+					break;
+
+					case "villager":{
+						
+						$this->model->vilAdd($data);
+					}
+
+
+
 				}
 			}
 		}

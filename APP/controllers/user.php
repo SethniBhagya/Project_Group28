@@ -25,13 +25,15 @@ class user extends Controller{
 
      //    }
 
-      $this->view->render('login');
+       $this->view->render('login');
+      
     }
      
    
 
     public function login()
     {
+          
                 
         if($_SERVER["REQUEST_METHOD"]=="POST"){
 

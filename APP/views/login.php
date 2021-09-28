@@ -39,6 +39,19 @@
             </ul>
     </header>
     </div> 
+    <div class="error" style=" margin-top: 2px;
+  position: absolute;
+  width: 345px;
+  font-size: 18px;
+  color: #c62828;
+ 
+  text-align: center;
+  top: 180px;
+  
+  /*border: 1px solid #EF9A9A;*/
+  left: 37.5%; ">
+                 <?php if(!empty($data))  echo $data;?>
+            </div>
     <div class="contanier">
         
         <div class="login-header">
@@ -58,9 +71,11 @@
                 <div id="pass_error">Please fill up your Password</div>
             </div>
             <br>
+           
             <div class="group_link">
-                <a href="">Forgotten your username or password?</a>
+                <a href="" style="color:blue">Forgotten your username or password?</a>
             </div>
+            <br>
             <div class="sumbit">
                 <!-- <input name="submit" type="button" value="LOGIN"> -->
                 <button type="submit">Login</button>

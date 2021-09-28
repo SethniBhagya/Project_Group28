@@ -47,7 +47,7 @@ class user_model extends Model{
 
              }
              else{
-             	$loginData["Error"]="Wrong password";
+             	$loginData["Error"]="Wrong password!! Please try again..";
              	return $loginData;
              }
 
@@ -55,7 +55,7 @@ class user_model extends Model{
     	}
     	else
     	{
-    		$loginData["Error"]="Wrong username";
+    		$loginData["Error"]="Wrong username!! Please try again..";
             return $loginData;
     	}
 
