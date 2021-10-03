@@ -252,10 +252,10 @@ body {
       top:15px;
     
     }
-    .dropdown-content{
-      position:fixed;
+    /* .dropdown-content{
+      position:inherit;
       top:15px;
-    }
+    } */
     .mybar.responsive {
       position: absolute;
       width: 100%;
@@ -275,44 +275,45 @@ body {
       display: block;
       width: 100%;
     }
-    .mybar.responsive  .dropdown-content{
-      position: fixed;
+    /* .mybar.responsive .dropdown-content{
+      position: absolute;
+      margin-top: 1000px;
       float: none;
-      top: 250px;
-      left :0px;
+      left :15px;
       display: block;
-      width: 90%;
-    }
-    .mybar.responsive  .dropdown-content a{
+      width: 80%;
+    } */
+    /* .responsive .dropdown-content a{
        height: 40px;
-       padding : 1px 8px;
-    }
+       margin-left: 35px;
+       margin-right: 0px;
+    } */
 
     .mybar.responsive .dropbtn {
       position: relative;
       float: none;
-      top: 0px;
+      top: 100px;
       display: block;
       width: 100%;
     }
    
-    .mybar.responsive div.icon  {
+    .mybar.responsive div .icon  {
       position: absolute;
       right: 5%;
       top: 20px;
       background-color: rgba(15, 95, 4, 0.048);
     }
-    .mybar.responsive li div{
+    /* .mybar.responsive li div{
         position: absolute;
         width:80%;
         padding-left: 0px;
         margin-left: 20px;
-    }
-    .mybar.responsive li div a{
+    } */
+    /* .mybar.responsive li div a{
       width:80%;
       margin-left: 40px;
       border-radius: 10px;
-  }
+  } */
     .mybar.responsive div.bar1 {
       -webkit-transform: rotate(-45deg) translate(-9px, 6px);
       transform: rotate(-45deg) translate(-9px, 6px);
@@ -327,4 +328,3 @@ body {
       transform: rotate(45deg) translate(-8px, -8px);
     }
   }
-  
