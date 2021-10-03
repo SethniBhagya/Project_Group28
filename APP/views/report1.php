@@ -41,7 +41,7 @@
             <label for="numberOfelephants"><b>How many Elephants  : </b></label>
             <input type="number" name="noOfelephant" id="number"> <br><br>
             <label for="status"><b>In Your Registered Village : Yes </b></label>
-            <input type="radio" name="yes" id="t">
+            <input type="radio" name="yes" id=" ">
             <label for="status"><b>No</b></label>
             <input type="radio" name="No" id=""><br>
             <div class="photo">
