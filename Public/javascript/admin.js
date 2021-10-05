@@ -70,3 +70,60 @@ window.onclick = function myFunction_2(event) {
               
 
                }
+
+
+                function selectInci(x){
+                  
+                var parent=document.getElementsByClassName("container2-inci");
+                var allInci=parent[0].children;
+
+                for(var i=0;i<allInci.length;i++)
+                {
+                    allInci[i].style.display="none";
+                }
+
+
+
+                   
+
+
+
+                 var inci=document.getElementsByClassName(x);
+                 
+                  inci[0].style.display="block";
+                  
+                 ;
+
+
+
+
+
+              
+
+               }
+
+
+      function selectDis(x){
+                  
+          var parent=document.getElementsByClassName("container3-dis");
+          var allDis=parent[0].children;
+
+          for(var i=0;i<allDis.length;i++)
+            {
+               allDis[i].style.display="none";
+            }
+
+
+
+                   
+
+
+
+          var dis=document.getElementsByClassName(x);
+                 
+          dis[0].style.display="block";
+                  
+                 
+
+               }
+

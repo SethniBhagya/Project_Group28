@@ -1,0 +1,1126 @@
+body {
+  margin: 0px;
+ 
+  /*background-color: rgb(47,191,87,0.2);*/
+  background-color: rgb(47,191,87,0.6);
+  /*background: radial-gradient(82.57% 163.28% at 50% 50%, rgba(47, 191, 87, 0.56) 3.85%, rgba(181, 218, 191, 0) 100%);*/
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#main {
+  width: 100%;
+  height: auto;
+  background-color: #14671c;
+  position: sticky;
+  top: 0px;
+}
+
+.mybar {
+  float: right;
+  margin-top: 10px;
+  margin-right: 15px;
+} 
+a {
+  text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 100;
+  color:black;
+  line-height: 1.6em;
+  text-align-last: center;
+  font-size: medium;
+}
+
+ul {
+  margin-top: 0px;
+  margin-right: 0%;
+}
+li {
+  display: inline-block;
+  text-align-last: center;
+  padding: 16px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+#navbar_1{
+  position: relative;
+  float: right;
+  margin-top: 0px;
+  padding :0px;
+
+}
+a:visited {
+    font-weight: bold;
+    color: white;
+    background-color: darkgreen;
+}
+#icon {
+  margin-left: 20px;
+  width: 150px;
+  height: 80px;
+}
+
+#home {
+  background-color: #14671c;
+}
+
+#home:hover , #home_1:hover {
+  background-color: darkgreen;
+}
+#home_1{
+  position: absolute;
+  top:20px;
+  right:200px;
+  text-align: center;
+}
+#report_1{
+  position: absolute;
+  top:20px;
+  right:100px;
+  text-align: center;
+}
+#report {
+  background-color: #14671c;
+}
+
+#report:hover ,#report_1:hover {
+  background-color: darkgreen;
+}
+
+#register {
+  background-color: #14671c;
+}
+
+#register:hover {
+  background-color: rgba(255, 255, 255, 0.36);
+}
+
+#login {
+  background-color: #14671c;
+}
+
+#login_text {
+  color: white;
+}
+#login_text:hover{
+    color: #00fb0a;
+  }
+#login:hover {
+  background-color: rgba(0, 251, 10, 0.16);
+}
+#login:visited{
+  font-weight: bold;
+  background-color: bisque;
+}
+.user_btn {
+  float: none;
+  margin-top: 0px;
+  padding: 2px 0px;
+  padding-left: 5px;
+  width: 40px;
+  height:40px;
+  margin-right:10px;
+  cursor: pointer;
+}
+.dropbtn {
+  background-color: rgba(16, 87, 7, 0.467);
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  width:120px;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+  background-color: green;
+}
+.dot{
+  height: 48px;
+  width: 52px;
+  padding: 1px 1px;
+  border: 2px solid #ddd;
+  border-radius: 50%;
+  background-color: #14671c;
+  display: inline-block;
+}
+.dropdown {
+  position: relative
+  ;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: fixed;
+  right:1px;
+  background-color: rgba(15, 95, 4, 0.911);
+  padding: 0px 16px;
+  overflow: auto;
+  border-radius: 10px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  width:100px;
+}
+
+.dropdown-content a {
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  border-radius: 10px;;
+  background-color: rgba(15, 95, 4, 0.911);
+}
+.dropdown a:hover {
+    background-color: #ddd;
+    color : black;
+ }
+
+.show {display: block;}
+.down {
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+@media (max-width: 900px) {
+  #navbar {
+    float: none;
+    height: auto;
+  }
+  li{
+    display: block;
+    width: 100%;
+  }
+
+  ul{
+      margin-right: 5%;
+  }
+}
+@media screen and (max-width: 900px) {
+  .mybar li{
+    display: none;
+  }
+  
+  #home_1, #report_1{
+    position: inherit;
+  }
+
+  .mybar .icon {
+    position: absolute;
+    right: 5%;
+    top: 20px;
+    height: 40px;
+    background-color: rgb(3, 85, 3);
+  }
+
+  .mybar div .bar1,
+  .bar2,
+  .bar3 {
+    position: relative;
+    display: block;
+    width: 35px;
+    height: 5px;
+    background-color: rgb(241, 237, 237);
+    margin: 6px 10px;
+    transition: 0.4s;
+  }
+}
+
+@media (max-width: 900px) {
+  #navbar {
+    float: none;
+    height: auto;
+  }
+  button , li {
+    display: block;
+    width: 100%;
+  }
+  .user_btn{
+    position: fixed;
+    padding-top: 5px;
+    right:2%;
+    top:15px;
+  }
+  .dot{
+    position: fixed;
+    right:2%;
+    top:15px;
+  
+  }
+  .dropdown-content{
+    position:fixed;
+    top:15px;
+  }
+  .mybar.responsive {
+    position: absolute;
+    width: 100%;
+    height: 500px;
+    top: 68px;
+    background-color: rgba(15, 95, 4, 0.911);
+  }
+
+  .mybar.responsive ul {
+    top: 0px;
+    padding-top: 60px;
+    width: 80%;
+  }
+  .mybar.responsive li {
+    float: none;
+    top: 0px;
+    display: block;
+    width: 100%;
+  }
+  .mybar.responsive  .dropdown-content{
+    position: fixed;
+    float: none;
+    top: 250px;
+    left :0px;
+    display: block;
+    width: 90%;
+  }
+  .mybar.responsive  .dropdown-content a{
+     height: 40px;
+     padding : 1px 8px;
+  }
+
+  .mybar.responsive .dropbtn {
+    position: relative;
+    float: none;
+    top: 0px;
+    display: block;
+    width: 100%;
+  }
+ 
+  .mybar.responsive div.icon  {
+    position: absolute;
+    right: 5%;
+    top: 20px;
+    background-color: rgba(15, 95, 4, 0.048);
+  }
+  .mybar.responsive li div{
+      position: absolute;
+      width:80%;
+      padding-left: 0px;
+      margin-left: 20px;
+  }
+  .mybar.responsive li div a{
+    width:80%;
+    margin-left: 40px;
+    border-radius: 10px;
+}
+  .mybar.responsive div.bar1 {
+    -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+    transform: rotate(-45deg) translate(-9px, 6px);
+  }
+
+  .mybar.responsive div.bar2 {
+    opacity: 0;
+  }
+
+  .mybar.responsive div.bar3 {
+    -webkit-transform: rotate(45deg) translate(-8px, -8px);
+    transform: rotate(45deg) translate(-8px, -8px);
+  }
+}
+.container1{
+  position: absolute;
+}
+.container1 h1{
+  color: darkgreen;
+  text-align: center;
+  margin-left: 600px;
+}
+/*.incidentsNumber{
+  position: relative;
+}
+
+.incidentsNumber ul {
+
+  display: inline-block;
+}
+
+.h1{
+   background: linear-gradient(89.98deg, #14671C 4.7%, rgba(75, 189, 107, 0) 114.86%);
+   margin-right: 40%;
+   margin-left: 60px;
+   color: white;
+
+}
+
+*/
+
+
+.user-btn button{
+  position: absolute;
+  top: 70px;
+  margin-left: 450px;
+  background-color: #14671C;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  font-size: 30px;
+  cursor: pointer;
+  padding-left: 60px;
+  padding-right: 40px;
+  color: white;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius:20px;
+}
+
+.notice-btn button{
+  position: absolute;
+  top: 70px;
+ margin-left: 596px;
+  background-color: #E44240;
+  cursor: pointer;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  font-size: 30px;
+  padding-left: 40px;
+  padding-right: 60px;
+  color: white;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius:20px;
+}
+.container2{
+ position: absolute;
+ top: 40vh;
+ width: 100%;
+
+
+
+
+}
+
+.container2 select{
+  background: linear-gradient(89.98deg, #14671C 4.7%, rgba(75, 189, 107, 0) 114.86%);
+  padding-right: 200px;
+  padding-left: 50px;
+  font-size: 16px;
+  padding-top:5px;
+  padding-bottom: 5px;
+  margin-left: 30px;
+  border:none;
+
+
+}
+
+.container2-inci{
+
+  margin-top: 30px;
+}
+.active{
+  display: block;
+}
+
+.week{
+
+  display: none;
+}
+
+.month{
+
+  display: none;
+}
+
+.year{
+
+  display: none;
+}
+
+
+ .inci {
+  display: inline-block;
+
+}
+
+.inci{
+  margin-left: 40px;
+  box-shadow: 0px 4px 4px rgba(0, 251, 10, 0.16);
+  border-radius: 10px;
+  box-shadow: 10px;
+
+  width: 200px;
+  background-color: white;
+  height: 150px;
+ 
+}
+
+.inci img{
+
+  width: 90px;
+  height: 70px;
+  position: absolute;
+}
+
+.inci h2{
+
+  margin-left: 110px;
+  margin-top: 60px;
+  margin-bottom: 0;
+  color: darkgreen;
+  font-size: 60px;
+}
+.inci p{
+
+  margin-top: 0;
+  color: darkgreen;
+  margin-left: 60px;
+}
+.inci label{
+
+  margin-top: 0;
+  margin-left: 120px;
+  color: blue;
+  color: darkgreen;
+  cursor: pointer;
+}
+
+.detail1{
+
+  width: 800px;
+  height: 600px;
+  background-color: white;
+  border:2px solid green;
+  position: absolute;
+  margin-top: 20px;
+  left: 20%;
+  z-index: 999;
+  display: none;
+
+}
+.detail1 h1{
+  color: darkgreen;
+}
+
+#show1:checked ~ .detail1{
+  display: block;
+}
+
+.detail1 .close-btn1{
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  color: darkgreen;
+}
+
+
+.detail2{
+
+  width: 800px;
+  height: 600px;
+  background-color: white;
+  border:2px solid green;
+  position: absolute;
+  margin-top: 20px;
+  z-index: 999;
+  left: 20%;
+  display: none;
+
+}
+
+#show2:checked ~ .detail2{
+  display: block;
+}
+
+.detail3{
+
+  width: 800px;
+  height: 600px;
+  background-color: white;
+  border:2px solid green;
+  position: absolute;
+  margin-top: 20px;
+  z-index: 999;
+  left: 20%;
+  display: none;
+
+}
+
+#show3:checked ~ .detail3{
+  display: block;
+}
+
+.detail4{
+
+  width: 800px;
+  height: 600px;
+  background-color: white;
+  border:2px solid green;
+  position: absolute;
+  margin-top: 20px;
+  z-index: 999;
+  left: 20%;
+  display: none;
+
+}
+
+#show4:checked ~ .detail4{
+  display: block;
+}
+
+.detail5{
+
+  width: 800px;
+  height: 600px;
+  background-color: white;
+  border:2px solid green;
+  position: absolute;
+  z-index: 999;
+  margin-top: 20px;
+  left: 20%;
+  display: none;
+
+}
+
+#show5:checked ~ .detail5{
+  display: block;
+}
+
+.detail6{
+
+  width: 800px;
+  height: 600px;
+  background-color: white;
+  border:2px solid green;
+  position: absolute;
+  margin-top: 20px;
+  z-index: 999;
+  left: 20%;
+  display: none;
+
+}
+
+#show6:checked ~ .detail6{
+  display: block;
+}
+
+
+.detail2 .close-btn1{
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  color: darkgreen;
+}
+.detail3 .close-btn1{
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  color: darkgreen;
+}
+.detail4 .close-btn1{
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  color: darkgreen;
+}
+.detail5 .close-btn1{
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  color: darkgreen;
+}
+.detail6 .close-btn1{
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  color: darkgreen;
+}
+
+
+.detail2 h1{
+  color: darkgreen;
+  text-align: center;
+}
+
+.detail3 h1{
+  color: darkgreen;
+  text-align: center;
+}
+
+.detail4 h1{
+  color: darkgreen;
+  text-align: center;
+}
+
+.detail5 h1{
+  color: darkgreen;
+  text-align: center;
+}
+
+.detail6 h1{
+  color: darkgreen;
+  text-align: center;
+}
+
+
+.inci table{
+      margin-top: 40px;
+      margin-left: 50px;
+      width: 700px;
+      margin-right: 60px;
+      font-size: 20px;
+
+    }
+
+.inci table thead{
+
+      background-color: rgb(67,173,71,0.6);
+
+
+    }
+
+.inci table tbody{
+      background-color: rgb(0,251,10,0.16);
+      text-align: center;
+    }
+.inci table thead th{
+      padding-bottom: 10px;
+      padding-top: 10px;
+       border-radius: 10px;
+    } 
+
+.inci table tbody td{
+      
+       border-radius: 10px;
+    }
+
+.inci table tbody tr{
+      line-height: 40px;
+    }
+
+
+input[type="checkbox"]{
+  display: none;
+}
+
+#map{
+  margin-top: 55px;
+  margin-left: 20px;
+  width: 700px;
+  height: 500px;
+  border:4px solid darkgreen;
+}
+
+
+.active-dis-chart{
+  position: absolute;
+  background-color: #ffffff;
+  width: 600px;
+  top: 37vh;
+  height: 500px;
+  margin-left: 900px;
+  border:4px solid darkgreen;
+}
+#active-dis{
+  margin-top: 60px;
+}
+
+.active-dis-chart h3{
+
+  margin-left: 170px;
+
+}
+
+.week-dis-chart{
+
+  width: 500px;
+  height: 400px;
+  position: absolute;
+  background-color: #ffffff;
+  margin-top: 100px;
+  border:4px solid darkgreen;
+
+}
+#week-dis{
+   margin-top: 40px;
+}
+.week-dis-chart h3{
+
+  margin-left: 30px;
+  
+
+}
+
+
+.week-inci-chart{
+
+  width: 400px;
+  height: 500px;
+  position: absolute;
+  background-color: #ffffff;
+  margin-left: 600px;
+  margin-top: 40px;
+  border:4px solid darkgreen;
+
+}
+
+
+.week-inci-chart h3{
+
+  margin-left: 30px;
+
+}
+
+
+.week-status-chart{
+
+  width: 400px;
+  height: 500px;
+  position: absolute;
+  margin-left: 1100px;
+  background-color: #ffffff;
+  margin-top: 40px;
+  border:4px solid darkgreen;
+
+}
+.week-status-chart h3{
+
+  margin-left: 30px;
+
+}
+
+
+.month-dis-chart{
+
+ width: 500px;
+  height: 400px;
+  position: absolute;
+  background-color: #ffffff;
+  margin-top: 100px;
+  border:4px solid darkgreen;
+
+}
+
+.month-inci-chart{
+
+  width: 400px;
+  height: 500px;
+  position: absolute;
+  background-color: #ffffff;
+  margin-left: 600px;
+  margin-top: 40px;
+  border:4px solid darkgreen;
+}
+
+.month-status-chart{
+
+  width: 400px;
+  height: 500px;
+  position: absolute;
+  margin-left: 1100px;
+  background-color: #ffffff;
+  margin-top: 40px;
+  border:4px solid darkgreen;
+
+}
+
+
+
+.year-dis-chart{
+
+  width: 500px;
+  height: 400px;
+  position: absolute;
+  margin-top: 100px;
+  background-color: #ffffff;
+  border:4px solid darkgreen;
+
+}
+
+.year-inci-chart{
+
+ width: 400px;
+  height: 500px;
+  position: absolute;
+  margin-left: 600px;
+  background-color: #ffffff;
+  margin-top: 40px;
+  border:4px solid darkgreen;
+
+}
+
+.year-status-chart{
+
+  width: 400px;
+  height: 500px;
+  position: absolute;
+  margin-left: 1100px;
+  background-color: #ffffff;
+  margin-top: 40px;
+  border:4px solid darkgreen;
+
+}
+
+
+.container3{
+
+  position: absolute;
+  top:165vh;
+
+
+}
+
+
+.container3 select{
+  background: linear-gradient(89.98deg, #14671C 4.7%, rgba(75, 189, 107, 0) 114.86%);
+  padding-right: 1200px;
+  padding-left: 50px;
+  font-size: 16px;
+  padding-top:5px;
+  padding-bottom: 5px;
+  margin-left: 30px;
+  border:none;
+
+
+}
+
+.container3-dis{
+  margin-top: 20px;
+}
+
+
+.polonnaruwa{
+
+  display: block;
+}
+
+.anuradhapura{
+  display: none;
+}
+
+.ampara{
+  display: none;
+}
+
+.hambanthota{
+  display: none;
+}
+
+
+#map-polonnaruwa{
+  margin-top: 30px;
+  margin-left: 20px;
+  width: 700px;
+  height: 500px;
+  border:4px darkgreen solid;
+  
+}
+#map-polonnaruwa iframe{
+  
+  width: 696px;
+  height: 496px;
+  
+  
+}
+
+.polonnaruwa-status-chart{
+
+  width: 400px;
+  height: 450px;
+  background-color: #ffffff;
+  top: 200px;
+  position: absolute;
+  margin-left: 1000px;
+  margin-top: 40px;
+  border:4px darkgreen solid;
+
+}
+
+#map-anuradhapura{
+ margin-top: 30px;
+  margin-left: 20px;
+  width: 700px;
+  height: 500px;
+  border:4px darkgreen solid;
+  
+}
+
+#map-anuradhapura iframe{
+  
+  width: 696px;
+  height: 496px;
+  
+  
+}
+
+
+.anuradhapura-status-chart{
+
+  width: 400px;
+  height: 450px;
+  top: 200px;
+  position: absolute;
+  background-color: #ffffff;
+  margin-left: 1000px;
+  margin-top: 40px;
+  border:4px darkgreen solid;
+
+}
+
+
+#map-ampara{
+  margin-top: 30px;
+  margin-left: 20px;
+  width: 700px;
+  height: 500px;
+  border:4px darkgreen solid;
+  
+}
+
+#map-ampara iframe{
+  
+  width: 696px;
+  height: 496px;
+  
+  
+}
+
+
+
+.ampara-status-chart{
+
+ width: 400px;
+  height: 450px;
+  top: 200px;
+  position: absolute;
+  margin-left: 1000px;
+  background-color: #ffffff;
+  margin-top: 40px;
+  border:4px darkgreen solid;
+
+}
+
+
+#map-hambanthota{
+ margin-top: 30px;
+  margin-left: 20px;
+  width: 700px;
+  height: 500px;
+  border:4px darkgreen solid;
+  
+}
+#map-hambanthota iframe{
+  
+  width: 696px;
+  height: 496px;
+  
+  
+}
+
+
+.hambanthota-status-chart{
+
+  width: 400px;
+  height: 450px;
+  top: 200px;
+  position: absolute;
+  margin-left: 1000px;
+  background-color: #ffffff;
+  margin-top: 40px;
+  border:4px darkgreen solid;
+
+}
+
+
+.container3-dis label{
+
+  margin-left: 60px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.container4{
+  position: absolute;
+  top: 276vh;
+
+}
+.container4 h1{
+   background: linear-gradient(89.98deg, #14671C 4.7%, rgba(75, 189, 107, 0) 114.86%);
+   color: white;
+  
+  padding-right: 100px;
+  padding-left: 50px;
+  font-size: 16px;
+  padding-top:5px;
+  padding-bottom: 5px;
+  margin-left: 30px;
+  border:none;
+
+
+}
+
+.container4 ul{
+  display: inline-block;
+}
+
+.allUsers{
+  width: 500px;
+  height: 400px;
+  margin-left: 50px;
+  background-color: #ffffff;
+  border:1px solid green;
+}
+
+.activeUsers{
+  width: 500px;
+  height: 400px;
+  margin-left: 180px;
+  background-color: #ffffff;
+  border:1px solid green;
+}
+
+.table{
+
+  border-collapse: collapse;
+  margin:25px 0;
+  margin-left: 40px;
+  font-size: 0.9em;
+  min-width: 400px;
+}
+
+.table thead tr{
+  background-color: #009879;
+  color:#ffffff;
+  text-align: left;
+  font-weight: bold;
+}
+
+.table th,
+.table td{
+  padding:12px 15px;
+}
+
+
+.table tbody tr{
+  border-bottom: 1px solid #dddddd;
+}
+
+.table tbody tr:nth-of-type(even){
+  background-color: #f3f3f3;
+}
+
+.table tbody tr:last-of-type{
+
+  border-bottom: 2px solid #009879;
+}
+
+
+
+
+
+

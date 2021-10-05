@@ -62,7 +62,7 @@ class admin extends user{
 					case "wildlife officer":{
 						$specificData=[
 							"wid"=>trim($_POST["wid"]),
-							"officeNum"=>trim($_POST["on"])
+							"officeNum"=>trim($_POST["ofn"])
 
 						];
 
@@ -98,5 +98,12 @@ class admin extends user{
 		}
 
 		
+	}
+
+
+	public function viewUser(){
+
+				$data=$this->model->getUser();
+				$this->view->render("user_view",$data);
 	}
 }

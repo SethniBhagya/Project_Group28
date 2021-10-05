@@ -8,7 +8,8 @@ class view{
 		}
 	
 		function render($viewName,$data=""){
-			require 'App/views/'.$viewName.'.php';
+			if(file_exists('App/views/'.$viewName.'.php'))
+			   require 'App/views/'.$viewName.'.php';
 		}
 
 	

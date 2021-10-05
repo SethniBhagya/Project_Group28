@@ -69,7 +69,7 @@
 
         <div class="container2">
 
-            <form class="gnform" method="POST" action="">
+            <form class="gnform" method="POST" action="../admin/addUser">
                 <table>
 
                     <tr>
@@ -246,7 +246,7 @@
             </form>
 
 
-             <form class="vetform" method="POST" action="">
+             <form class="vetform" method="POST" action="../admin/addUser">
                 <table>
 
                     <tr>
@@ -587,7 +587,7 @@
 
             </form>
 
-             <form class="woform"  method="POST" action="">
+             <form class="woform"  method="POST" action="../admin/addUser">
                 <table>
 
                     <tr>
@@ -724,10 +724,10 @@
 
                <tr>
                         <td>
-                            <label for="on">Office Number</label>
+                            <label for="ofn">Office Number</label>
                         </td>
                         <td>
-                            <input type="text" name="on" id="on" required>
+                            <input type="text" name="ofn" id="ofn" required>
                         </td>
                     </tr>
 
@@ -773,7 +773,7 @@
 
 
 
-            <form class="roform"  method="POST" action="">
+            <form class="roform"  method="POST" action="../admin/addUser">
                 <table>
 
                     <tr>

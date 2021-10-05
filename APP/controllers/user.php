@@ -59,7 +59,7 @@ class user extends Controller{
                     break;
                     // case "wildlifeofficer": $this->view->render('wildlifeofficer');
                     // break;
-                     case "admin": $this->view->render('admin_register');
+                     case "admin": $this->view->render('admin_page');
                      break;
                     // case "veterinarian": $this->view->render('veterinarian');
 
