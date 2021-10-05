@@ -8,6 +8,7 @@ class view{
 		}
 	
 		function render($viewName,$data=""){
+			
 			require 'App/views/'.$viewName.'.php';
 		}
 

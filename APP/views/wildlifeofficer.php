@@ -1,12 +1,13 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../Public/css/wildlifeofficer_view.css">
-    <link rel="stylesheet" href="../Public/css/header.css">
-    <script src="../Public/Javascript/login.js"></script>
+    <link rel="stylesheet" href="../Public/css/wildlifeofficer_view.css" type="text/css">
+    <link rel="stylesheet" href="../Public/css/header.css" type="text/css">
+    <script src="../Public/javascript/login.js"></script>
     <title>Document</title>
 </head>
 <body>
@@ -25,7 +26,7 @@
                 <li class="dropdown">
                     <span class="dot"> <img onclick="myFunction_2(this)" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
                     <div id="myDropdown" class="dropdown-content">
-                        <a href="">View Profile</a>
+                        <a href="../wildlifeofficer/viewProfile">View Profile</a>
                         <a href="">Logout</a>
                     </div>
                 </li>
@@ -33,7 +34,10 @@
         </nav>
     </header>
     <div class="name">
-        <span class="dot2"><img src="../Public/images/user_icon.png" id="user-icon2" ></span><label><b>M.N.Perera</b></label>
+        <span class="dot2"><img src="../Public/images/user_icon.png" id="user-icon2" ></span><label><b><?php
+        
+        echo $_SESSION["Fname"]." ".$_SESSION["Lname"];
+        ?></b></label>
     </div>
     <div class="main-view">
     <button class="report">
@@ -51,5 +55,7 @@
     <!-- <button class="View-Report">
         <h2>View Reported Incidents</h2>
     </button> -->
+    
 </body>
 </html>
+

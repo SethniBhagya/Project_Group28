@@ -251,7 +251,7 @@
             value="Register"/>
    </div>
    <div class="last">
-         
+
    </div>
 
     </form>
