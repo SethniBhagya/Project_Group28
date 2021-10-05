@@ -7,6 +7,11 @@ class Route{
     function __construct()
 	{
 		$this->_getURL();
+		if(file_exists($this->_routes[0])){
+            $this->_loadDefaultController();
+			//echo "home In";
+            return exit;
+        }
 		if($this->_loadController()){
             $this->_loadcontrollermethod();
         }
@@ -31,6 +36,13 @@ class Route{
 		}
       
 	}
+
+    private function _loadDefaultController(){
+		require 'APP/controllers/index.php';
+		$this->_params = new index();
+        $this->_params->index();
+	}
+
 	private function _loadcontrollermethod(){
 		$urllenght = count($this->_routes); 
 		if($urllenght>1){

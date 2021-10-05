@@ -23,8 +23,8 @@
 
           <ul>
 
-              <li id="home"><a href="aa">HOME</a></li>
-              <li id="report"><a href="aaa">REPORT</a></li>
+              <li id="home"><a href="../">HOME</a></li>
+              <li id="report"><a href="../report/index">REPORT</a></li>
               <li id="register"><a href="">REGISTER</a></li>
               <li id="login"><a id=login_text href="../user/index">LOGIN</a></li>
               <li class="dropdown">
