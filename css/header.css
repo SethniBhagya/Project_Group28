@@ -16,6 +16,7 @@ body {
   top: 0px;
 }
 
+
 .mybar {
   float: right;
   margin-top: 10px;
@@ -49,6 +50,13 @@ li {
   padding :0px;
 
 }
+.dashboard{
+  position: absolute;
+  top:20px;
+  right:200px;
+  text-align: center;
+
+}
 a:visited {
     font-weight: bold;
     color: white;
@@ -67,10 +75,22 @@ a:visited {
 #home:hover , #home_1:hover {
   background-color: darkgreen;
 }
+#dashboard{
+  position: absolute;
+  top:20px;
+  right:120px;
+  text-align: center;
+
+}
+#dashboard:hover{
+  background-color: darkgreen;
+
+}
+ 
 #home_1{
   position: absolute;
   top:20px;
-  right:200px;
+  right:250px;
   text-align: center;
 }
 #report_1{
