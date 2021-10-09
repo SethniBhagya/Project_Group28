@@ -73,14 +73,13 @@ a:visited {
 }
 
 #home:hover , #home_1:hover{
-  background-color: darkgreen;
+  background-color: darkgreen; 
 }
 #dashboard{
   position: absolute;
   top:20px;
   right:120px;
   text-align: center;
-
 }
 #dashboard:hover{
   background-color: darkgreen;
