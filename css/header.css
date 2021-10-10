@@ -92,6 +92,12 @@ a:visited {
   right:250px;
   text-align: center;
 }
+#home_2{
+  position: absolute;
+  top:20px;
+  right:210px;
+  text-align: center;
+}
 #report_1{
   position: absolute;
   top:20px;
