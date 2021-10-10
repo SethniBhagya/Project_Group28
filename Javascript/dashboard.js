@@ -51,7 +51,7 @@ let labels3 = ['12.00 am','01.00 am','02.00 am','03.00 am','04.00 am','05.00 am'
 let data3 = [6 , 5 , 8 , 8 , 5 , 5 , 4 ,8 ,7 ,9 ,7,9,8,6,5,1,2,3,4,7,6,5,4,3] ;
 let colors3= ['#49A9EA','#36CAAB','#884EA0','#A6ACAF','#0E6251'];
 
-// let myChart1 = document.getElementById("myChart1").getContext('2d');
+ 
 
 let mychart3 = new Chart(myChart3,{
     type : 'line',
