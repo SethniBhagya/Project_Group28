@@ -120,11 +120,7 @@ class wildlifeofficer extends user
         // $this->view->data=$this->model->selectData($_SESSION["NIC"]);
         $this->view->render('wildlifeoffficer_view_incidents_indetail');
     }
-    public function filterUsingReportCatagory(){
-        $this->view->data[0]['selected'] = $_POST['report_catagory'];
-        /////////////////////// do from here////////
-        
-    }
+   
     public function viewDashboard(){
         // session_start();
         // $this->view->data=$this->model->selectData($_SESSION["NIC"]);
