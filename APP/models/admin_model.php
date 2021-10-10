@@ -166,11 +166,14 @@ class admin_model extends Model{
 		$stmt1="INSERT INTO user VALUES('$nic','$fname','$lname','$mob','$dob','$address','$userType','$email','$gender')";
 		$stmt2="INSERT INTO villager VALUES('$nic')";
 		$stmt3="INSERT INTO login VALUES('$nic','$hashPassword')";
-		// $stmt4="INSERT INTO lives VALUES('$nic',SELECT village.grama_niladhari_NIC FROM village,gn_division,district,province WHERE province.Name='$province' AND district.Name='$district' AND gn_division.name='$gnd' AND village.name='$village', SELECT village.village_code FROM village,gn_division,district,province WHERE province.Name='$province' AND district.Name='$district' AND gn_division.name='$gnd' AND village.name='$village')";
+		$gramaniladhari_NIC=(($this->db->runQuery("SELECT village.grama_niladhari_NIC FROM village,gn_division,district,province WHERE province.Name='$province' AND district.Name='$district' AND gn_division.name='$gnd' AND village.name='$village'"))[0])["grama_niladhari_NIC"];
+		$village_code=(($this->db->runQuery("SELECT village.village_code FROM village,gn_division,district,province WHERE province.Name='$province' AND district.Name='$district' AND gn_division.name='$gnd' AND village.name='$village'"))[0])["village_code"];
+		$stmt4="INSERT INTO lives VALUES('$nic','$gramaniladhari_NIC','$village_code')";
 		
 		$this->db->runQuery($stmt1);
 		$this->db->runQuery($stmt2);
 		$this->db->runQuery($stmt3);
+		$this->db->runQuery($stmt4);
 	}
 
 

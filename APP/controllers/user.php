@@ -24,6 +24,7 @@ class user extends Controller{
       $this->view->render("404");
     }
 
+   
 
      
    

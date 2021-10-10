@@ -219,9 +219,9 @@ The location of the reported incident can also view </p>
              <li>
                 <div id="site-map">
                     <h2>Site Map</h2>
-                    <h3><a href="">-HOME</a></h3>
-                    <h3><a href="">-LOGIN</a></h3>
-                    <h3><a href="">-REGISTER</a></a></h3>
+                    <h3><a href="../wildlifecare">-HOME</a></h3>
+                    <h3><a href="user/index">-LOGIN</a></h3>
+                    <h3><a href="villager/register">-REGISTER</a></a></h3>
 
                 </div>
 

@@ -170,4 +170,11 @@ class admin extends user{
 	    	
 
 	}
+
+	 public function dashboard(){
+
+      $this->view->render('admin_page');
+
+    }
+
 }

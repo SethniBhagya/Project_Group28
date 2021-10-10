@@ -21,7 +21,7 @@
 
             <ul>
                 <li id="home_1"><a href="">HOME</a></li>
-                <li id="report_1"><a href="">REPORT</a></li>
+                <li id="report_1"><a href="../admin/dashboard">DASHBOARD</a></li>
                 <li class="dropdown">
                     <span class="dot"> <img onclick="myFunction_2(this)" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
                     <div id="myDropdown" class="dropdown-content">
@@ -39,7 +39,7 @@
         <div class="registrationHeader">
             <ul>
                 <li><h3>ADD USER</h3></li>
-                <li><button id="profile">Go to Profile</button></li>
+                <li><button id="profile" onclick="location.href='../admin/dashboard'">Go to Profile</button></li>
                 
             </ul>
          
@@ -451,15 +451,15 @@
                           <td>
                                <select class="text" name="province" id="province" required>
                                      <option value="">  Choose here</option>
-                                     <option value="central province">Central Province</option>
-                                     <option value="eastern province">Eastern Province</option>
-                                     <option value="northern province">Northern Province</option>
-                                     <option value="southern  province">Southern Province</option>
-                                     <option value="western province">Western Province</option>
-                                     <option value="north western province">  North Western Province</option>
-                                     <option value="north central province"> North Central Province</option>
-                                     <option value="uva province">Uva Province</option>
-                                     <option value="sabaragamuwa province"> Sabaragamuwa Province</option>
+                                     <option value="central">Central Province</option>
+                                     <option value="eastern">Eastern Province</option>
+                                     <option value="northern">Northern Province</option>
+                                     <option value="southern">Southern Province</option>
+                                     <option value="western">Western Province</option>
+                                     <option value="north western">  North Western Province</option>
+                                     <option value="north central"> North Central Province</option>
+                                     <option value="uva">Uva Province</option>
+                                     <option value="sabaragamuwa"> Sabaragamuwa Province</option>
                                </select>
                            </td>
                     </tr>
@@ -766,7 +766,7 @@
                             <label for="on">Office Number</label>
                         </td>
                         <td>
-                            <input type="text" name="on" id="on" required>
+                            <input type="text" name="ofn" id="ofn" required>
                         </td>
                     </tr>
 
