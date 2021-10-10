@@ -58,6 +58,8 @@ class wildlifeofficer extends user
                 if (empty($update_result[0]) && empty($update_result[1]))
                 {
                    
+                   $_SESSION["Fname"]=$data["fName"];
+                   $_SESSION["Lname"]=$data["lName"];
                     $this->view->data=$this->model->selectData($_SESSION["NIC"]);
                     $this->view->data[0]['message']="succcessfully updated";
                     $this->view->render('wildlifeofficer_view_profile',$this->view->data);
