@@ -14,20 +14,17 @@ class user extends Controller{
         parent::__construct();
 
     }
-    function index(){
-       // $this->view->id = false;
-       // $user = $this->model->getData();
-       // print_r($user);
-    //    $this->view->render('user');
-    //    if(isset($_POST['submit'])){
-            // $this->view->users = $this->model->getData();
-            // $this->view->render('user');
-
-     //    }
-
+    public function index(){
+       
        $this->view->render('login');
       
     }
+
+    public function error(){
+      $this->view->render("404");
+    }
+
+
      
    
 
@@ -52,7 +49,8 @@ class user extends Controller{
                {  
                   session_start();
                   $_SESSION["NIC"]= $loginUser["NIC"];
-                  $_SESSION["Fname"]= $loginUser["Fname"];
+                  $_SESSION["jobtype"]=$loginUser["jobtype"];
+                  
                   switch($loginUser["jobtype"])
                   {
 
@@ -63,9 +61,9 @@ class user extends Controller{
                          // render the villager page  
                          $this->view->render('villagersPage');
                     break;
-                    // case "wildlifeofficer": $this->view->render('wildlifeofficer');
-                    // break;
-                     case "admin": $this->view->render('admin_register');
+                     case "Wildlife Officer": $this->view->render('wildlifeofficer');
+                    break;
+                     case "admin": $this->view->render('admin_page');
                      break;
                     // case "veterinarian": $this->view->render('veterinarian');
 
@@ -89,6 +87,8 @@ class user extends Controller{
     public function logout(){
         
         session_start();
+        unset($_SESSION["NIC"]);
+        unset($_SESSION["jobtype"]);
         session_destroy();
         $this->view->render('login');
 
