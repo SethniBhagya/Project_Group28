@@ -27,7 +27,7 @@
                     <span class="dot"> <img onclick="myFunction_2(this)" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
                     <div id="myDropdown" class="dropdown-content">
                         <a href="">View Profile</a>
-                        <a href="logout">Logout</a>
+                        <a href="../user/logout">Logout</a>
                     </div>
                 </li>
             </ul>

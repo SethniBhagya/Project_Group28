@@ -26,7 +26,7 @@
                     <span class="dot"> <img onclick="myFunction_2(this)" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
                     <div id="myDropdown" class="dropdown-content">
                         <a href="">View Profile</a>
-                        <a href="logout">Logout</a>
+                        <a href="../user/logout">Logout</a>
                     </div>
                 </li>
             </ul>
@@ -66,7 +66,21 @@
             
         </div>
 
+        <div class="error" style=" margin-top: 2px;
+  position: absolute;
+  width: 345px;
+  font-size: 18px;
+  color: #c62828;
+ 
+  text-align: center;
+  top: 180px;
+  
+  /*border: 1px solid #EF9A9A;*/
+  left: 37.5%; ">
+                 <?php if(!empty($data))  echo $data; ?>
+            </div>
 
+             <!--  -->
         <div class="container2">
 
             <form class="gnform" method="POST" action="../admin/addUser">
@@ -186,7 +200,7 @@
                                      <option value="Ampara">Ampara</option>
                                      <option value="Badulla">Badulla</option>
                                      <option value="Monaragala">Monaragala</option>
-                                     <option value="Hambantota">Hambantota</option>
+                                     <option value="Hambanthota">Hambantota</option>
                                      <option value="Matara">Matara</option>
                                      <option value="Galle">Galle</option>
                                </select>
@@ -207,7 +221,7 @@
                             <label for="mobile">Mobile number</label>
                         </td>
                         <td>
-                            <input type="number" name="mobile" id="mobile" required>
+                            <input type="text" name="mobile" id="mobile" required>
                         </td>
                     </tr>
 
@@ -251,6 +265,15 @@
 
                     <tr>
                         <td>
+                            <label for="nic">NIC</label>
+                        </td>
+                        <td>
+                            <input type="text" name="nic" id="nic" required>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
                             <label for="vid">VID Number</label>
                         </td>
                         <td>
@@ -276,14 +299,7 @@
                         </td>
                     </tr>
 
-                    <tr>
-                        <td>
-                            <label for="nic">NIC</label>
-                        </td>
-                        <td>
-                            <input type="text" name="nic" id="nic" required>
-                        </td>
-                    </tr>
+                    
 
                     <tr>
                         <td><label for="gender">Gender</label></td>
@@ -314,77 +330,24 @@
                             <input type="text" name="address" id="address" required>
                         </td>
                     </tr>
+
+                     <tr>
+                        <td>
+                            <label for="ofn">Office Number</label>
+                        </td>
+                        <td>
+                            <input type="text" name="ofn" id="ofn" required>
+                        </td>
+                    </tr>
                     
-                    <tr>
-                          <td><label for="province">Work Province</label></td>
-
-                          <td>
-                               <select class="text" name="province" id="province" required>
-                                     <option value="">  Choose here</option>
-                                     <option value="central province">Central Province</option>
-                                     <option value="eastern province">Eastern Province</option>
-                                     <option value="northern province">Northern Province</option>
-                                     <option value="southern  province">Southern Province</option>
-                                     <option value="western province">Western Province</option>
-                                     <option value="north western province">  North Western Province</option>
-                                     <option value="north central province"> North Central Province</option>
-                                     <option value="uva province">Uva Province</option>
-                                     <option value="sabaragamuwa province"> Sabaragamuwa Province</option>
-                               </select>
-                           </td>
-                    </tr>
-
-                    <tr>
-                           <td>
-                                 <label for="district"> Work District</label>
-                           </td>
-                           <td>
-                                <select class="text" name="district" id="district" required>
-                                     <option value="">  Choose here</option>
-                                     <option value="Gampaha">Gampaha District</option>
-                                     <option value="Colombo">Colombo</option>
-                                     <option value="Kalutara">Kalutara</option>
-                                     <option value="Anuradhapura">Anuradhapura District</option>
-                                      <option value="Polonnaruwa">Polonnaruwa</option>
-                                      <option value="Jaffna">Jaffna</option>
-                                     <option value="Kilinochchi">Kilinochchi</option>
-                                     <option value="Mannar">Mannar</option>
-                                     <option value="Mullaitivu">Mullaitivu District</option>
-                                     <option value="Vavuniya">Vavuniya</option>
-                                     <option value="Puttalam">Puttalam</option>
-                                     <option value="Kurunegala">Kurunegala</option>
-                                     <option value="Matale">Matale</option>
-                                     <option value="Kandy">Kandy</option>
-                                     <option value="Nuwara Eliya">Nuwara Eliya District</option>
-                                     <option value="Kegalle">Kegalle</option>
-                                     <option value="Ratnapura">Ratnapura</option>
-                                     <option value="Trincomalee">Trincomalee</option>
-                                     <option value="Batticaloa">Batticaloa</option>
-                                     <option value="Ampara">Ampara</option>
-                                     <option value="Badulla">Badulla</option>
-                                     <option value="Monaragala">Monaragala</option>
-                                     <option value="Hambantota">Hambantota</option>
-                                     <option value="Matara">Matara</option>
-                                     <option value="Galle">Galle</option>
-                               </select>
-                           </td>
-               </tr>
-
-               <tr>
-                        <td>
-                            <label for="gnd">Work GN Division</label>
-                        </td>
-                        <td>
-                            <input type="text" name="gnd" id="gnd" required>
-                        </td>
-                    </tr>
+                    
 
                     <tr>
                         <td>
                             <label for="mobile">Mobile number</label>
                         </td>
                         <td>
-                            <input type="number" name="mobile" id="mobile" required>
+                            <input type="text" name="mobile" id="mobile" required>
                         </td>
                     </tr>
 
@@ -483,7 +446,7 @@
                     </tr>
                     
                     <tr>
-                          <td><label for="province">Work Province</label></td>
+                          <td><label for="province">Province</label></td>
 
                           <td>
                                <select class="text" name="province" id="province" required>
@@ -503,7 +466,7 @@
 
                     <tr>
                            <td>
-                                 <label for="district"> Work District</label>
+                                 <label for="district">District</label>
                            </td>
                            <td>
                                 <select class="text" name="district" id="district" required>
@@ -530,7 +493,7 @@
                                      <option value="Ampara">Ampara</option>
                                      <option value="Badulla">Badulla</option>
                                      <option value="Monaragala">Monaragala</option>
-                                     <option value="Hambantota">Hambantota</option>
+                                     <option value="Hambanthota">Hambanthota</option>
                                      <option value="Matara">Matara</option>
                                      <option value="Galle">Galle</option>
                                </select>
@@ -539,7 +502,7 @@
 
                <tr>
                         <td>
-                            <label for="gnd">Work GN Division</label>
+                            <label for="gnd">GN Division</label>
                         </td>
                         <td>
                             <input type="text" name="gnd" id="gnd" required>
@@ -548,10 +511,19 @@
 
                     <tr>
                         <td>
+                            <label for="gnd">Village</label>
+                        </td>
+                        <td>
+                            <input type="text" name="village" id="village" required>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
                             <label for="mobile">Mobile number</label>
                         </td>
                         <td>
-                            <input type="number" name="mobile" id="mobile" required>
+                            <input type="text" name="mobile" id="mobile" required>
                         </td>
                     </tr>
 
@@ -592,6 +564,15 @@
 
                     <tr>
                         <td>
+                            <label for="nic">NIC</label>
+                        </td>
+                        <td>
+                            <input type="text" name="nic" id="nic" required>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
                             <label for="wid">WID</label>
                         </td>
                         <td>
@@ -617,14 +598,7 @@
                         </td>
                     </tr>
 
-                    <tr>
-                        <td>
-                            <label for="nic">NIC</label>
-                        </td>
-                        <td>
-                            <input type="text" name="nic" id="nic" required>
-                        </td>
-                    </tr>
+                    
 
                     
                     <tr>
@@ -657,69 +631,8 @@
                         </td>
                     </tr>
                     
-                    <tr>
-                          <td><label for="province">Work Province</label></td>
-
-                          <td>
-                               <select class="text" name="province" id="province" required>
-                                     <option value="">  Choose here</option>
-                                     <option value="central province">Central Province</option>
-                                     <option value="eastern province">Eastern Province</option>
-                                     <option value="northern province">Northern Province</option>
-                                     <option value="southern  province">Southern Province</option>
-                                     <option value="western province">Western Province</option>
-                                     <option value="north western province">  North Western Province</option>
-                                     <option value="north central province"> North Central Province</option>
-                                     <option value="uva province">Uva Province</option>
-                                     <option value="sabaragamuwa province"> Sabaragamuwa Province</option>
-                               </select>
-                           </td>
-                    </tr>
-
-                    <tr>
-                           <td>
-                                 <label for="district"> Work District</label>
-                           </td>
-                           <td>
-                                <select class="text" name="district" id="district" required>
-                                     <option value="">  Choose here</option>
-                                     <option value="Gampaha">Gampaha District</option>
-                                     <option value="Colombo">Colombo</option>
-                                     <option value="Kalutara">Kalutara</option>
-                                     <option value="Anuradhapura">Anuradhapura District</option>
-                                      <option value="Polonnaruwa">Polonnaruwa</option>
-                                      <option value="Jaffna">Jaffna</option>
-                                     <option value="Kilinochchi">Kilinochchi</option>
-                                     <option value="Mannar">Mannar</option>
-                                     <option value="Mullaitivu">Mullaitivu District</option>
-                                     <option value="Vavuniya">Vavuniya</option>
-                                     <option value="Puttalam">Puttalam</option>
-                                     <option value="Kurunegala">Kurunegala</option>
-                                     <option value="Matale">Matale</option>
-                                     <option value="Kandy">Kandy</option>
-                                     <option value="Nuwara Eliya">Nuwara Eliya District</option>
-                                     <option value="Kegalle">Kegalle</option>
-                                     <option value="Ratnapura">Ratnapura</option>
-                                     <option value="Trincomalee">Trincomalee</option>
-                                     <option value="Batticaloa">Batticaloa</option>
-                                     <option value="Ampara">Ampara</option>
-                                     <option value="Badulla">Badulla</option>
-                                     <option value="Monaragala">Monaragala</option>
-                                     <option value="Hambantota">Hambantota</option>
-                                     <option value="Matara">Matara</option>
-                                     <option value="Galle">Galle</option>
-                               </select>
-                           </td>
-               </tr>
-
-               <tr>
-                        <td>
-                            <label for="gnd">Work GN Division</label>
-                        </td>
-                        <td>
-                            <input type="text" name="gnd" id="gnd" required>
-                        </td>
-                    </tr>
+                    
+                   
 
 
                <tr>
@@ -736,7 +649,7 @@
                             <label for="mobile">Mobile number</label>
                         </td>
                         <td>
-                            <input type="number" name="mobile" id="mobile" required>
+                            <input type="text" name="mobile" id="mobile" required>
                         </td>
                     </tr>
 
@@ -776,12 +689,22 @@
             <form class="roform"  method="POST" action="../admin/addUser">
                 <table>
 
-                    <tr>
+
+                     <tr>
                         <td>
-                            <label for="wid">WID</label>
+                            <label for="nic">NIC</label>
                         </td>
                         <td>
-                            <input type="text" name="wid" id="wid" required>
+                            <input type="text" name="nic" id="nic" required>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <label for="rid">RID</label>
+                        </td>
+                        <td>
+                            <input type="text" name="rid" id="rid" required>
                         </td>
                     </tr>
 
@@ -803,14 +726,7 @@
                         </td>
                     </tr>
 
-                    <tr>
-                        <td>
-                            <label for="nic">NIC</label>
-                        </td>
-                        <td>
-                            <input type="text" name="nic" id="nic" required>
-                        </td>
-                    </tr>
+                   
 
                     
                     <tr>
@@ -843,60 +759,7 @@
                         </td>
                     </tr>
                     
-                    <tr>
-                          <td><label for="province">Work Province</label></td>
-
-                          <td>
-                               <select class="text" name="province" id="province" required>
-                                     <option value="">  Choose here</option>
-                                     <option value="central province">Central Province</option>
-                                     <option value="eastern province">Eastern Province</option>
-                                     <option value="northern province">Northern Province</option>
-                                     <option value="southern  province">Southern Province</option>
-                                     <option value="western province">Western Province</option>
-                                     <option value="north western province">  North Western Province</option>
-                                     <option value="north central province"> North Central Province</option>
-                                     <option value="uva province">Uva Province</option>
-                                     <option value="sabaragamuwa province"> Sabaragamuwa Province</option>
-                               </select>
-                           </td>
-                    </tr>
-
-                    <tr>
-                           <td>
-                                 <label for="district"> Work District</label>
-                           </td>
-                           <td>
-                                <select class="text" name="district" id="district" required>
-                                     <option value="">  Choose here</option>
-                                     <option value="Gampaha">Gampaha District</option>
-                                     <option value="Colombo">Colombo</option>
-                                     <option value="Kalutara">Kalutara</option>
-                                     <option value="Anuradhapura">Anuradhapura District</option>
-                                      <option value="Polonnaruwa">Polonnaruwa</option>
-                                      <option value="Jaffna">Jaffna</option>
-                                     <option value="Kilinochchi">Kilinochchi</option>
-                                     <option value="Mannar">Mannar</option>
-                                     <option value="Mullaitivu">Mullaitivu District</option>
-                                     <option value="Vavuniya">Vavuniya</option>
-                                     <option value="Puttalam">Puttalam</option>
-                                     <option value="Kurunegala">Kurunegala</option>
-                                     <option value="Matale">Matale</option>
-                                     <option value="Kandy">Kandy</option>
-                                     <option value="Nuwara Eliya">Nuwara Eliya District</option>
-                                     <option value="Kegalle">Kegalle</option>
-                                     <option value="Ratnapura">Ratnapura</option>
-                                     <option value="Trincomalee">Trincomalee</option>
-                                     <option value="Batticaloa">Batticaloa</option>
-                                     <option value="Ampara">Ampara</option>
-                                     <option value="Badulla">Badulla</option>
-                                     <option value="Monaragala">Monaragala</option>
-                                     <option value="Hambantota">Hambantota</option>
-                                     <option value="Matara">Matara</option>
-                                     <option value="Galle">Galle</option>
-                               </select>
-                           </td>
-               </tr>
+                    
 
                <tr>
                         <td>
@@ -912,7 +775,7 @@
                             <label for="mobile">Mobile number</label>
                         </td>
                         <td>
-                            <input type="number" name="mobile" id="mobile" required>
+                            <input type="text" name="mobile" id="mobile" required>
                         </td>
                     </tr>
 
@@ -943,7 +806,7 @@
 
 
               <button>back</button>
-              <button type="submit" name="submit" value="veterinarian">Submit</button>
+              <button type="submit" name="submit" value="regional officer">Submit</button>
 
             </form>
 

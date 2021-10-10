@@ -1,4 +1,7 @@
 <?php
+session_start();
+session_regenerate_id();
+
  
 class report extends Controller{
     
@@ -13,7 +16,17 @@ class report extends Controller{
     }
     
     function index(){
-        $this->view->render('report');
+
+        
+
+        if(!empty($_SESSION["NIC"]) and ($_SESSION["jobtype"]=="villager" or $_SESSION["jobtype"]=="grama niladhari")){
+            
+                      $this->view->render('report');
+             
+          }
+      else{
+        header("Location: ../user/index");
+      }
     }
     
     public function setIncident(){

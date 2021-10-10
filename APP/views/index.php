@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="Public/javascript/home.js"></script>
     <link rel="stylesheet" href="Public/css/home.css">
-    <link rel="stylesheet" href="Public/css/header.css">
+    
      
     <title>Home page</title>
 </head>

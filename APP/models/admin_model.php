@@ -20,6 +20,28 @@ class admin_model extends Model{
 			return true;
 	}
 
+	public function checkMobile($mobile){
+
+		$stmt="SELECT * FROM user where mobileNo='$mobile'";
+		$row=$this->db->runQuery($stmt);
+
+		if(empty($row))
+			return false;
+		else
+			return true;
+	}
+
+	public function checkNIC($nic){
+
+		$stmt="SELECT * FROM user where NIC='$nic'";
+		$row=$this->db->runQuery($stmt);
+
+		if(empty($row))
+			return false;
+		else
+			return true;
+	}
+
 	public function gnAdd($data){
 
 		$nic=$data["nic"];
@@ -31,16 +53,22 @@ class admin_model extends Model{
 		$userType="Grama Niladhari";
 		$email=$data["email"];
 		$gender=$data["gender"];
+		$province=$data["province"];
+		$district=$data["district"];
+		$gnd=$data["gnd"];
 		$gic=$data["gic"];
 		$hashPassword=password_hash($data["password"], PASSWORD_DEFAULT);
         
-		$stmt1="INSERT INTO user VALUES('$nic','$fName','$lName','$mob','$dob','$address','$userType','$email','$gender')";
+		$stmt1="INSERT INTO user VALUES('$nic','$fname','$lname','$mob','$dob','$address','$userType','$email','$gender')";
 		$stmt2="INSERT INTO grama_niladhari VALUES('$nic','$gic')";
 		$stmt3="INSERT INTO login VALUES('$nic','$hashPassword')";
-
+		$gnd_code=(($this->db->runQuery("SELECT GND_Code FROM gn_division WHERE name='$gnd' AND district_name='$district'"))[0])["GND_Code"];
+		$stmt4="UPDATE village SET grama_niladhari_NIC='$nic' WHERE GND_Code='$gnd_code'";
+        
 		$this->db->runQuery($stmt1);
 		$this->db->runQuery($stmt2);
 		$this->db->runQuery($stmt3);
+		$this->db->runQuery($stmt4);
 	}
 
 	public function woAdd($data){
@@ -68,6 +96,31 @@ class admin_model extends Model{
 	}
 
 
+	public function roAdd($data){
+
+		$nic=$data["nic"];
+		$fname=$data["fName"];
+		$lname=$data["lName"];
+		$mob=$data["mob"];
+		$dob=$data["dob"];
+		$address=$data["address"];
+		$userType="regional Officer";
+		$email=$data["email"];
+		$gender=$data["gender"];
+		$rid=$data["rid"];
+		$officeNum=$data["officeNum"];
+		$hashPassword=password_hash($data["password"], PASSWORD_DEFAULT);
+
+		$stmt1="INSERT INTO user VALUES('$nic','$fname','$lname','$mob','$dob','$address','$userType','$email','$gender')";
+		$stmt2="INSERT INTO regional_officer VALUES('$nic','$rid','$officeNum')";
+		$stmt3="INSERT INTO login VALUES('$nic','$hashPassword')";
+		
+		$this->db->runQuery($stmt1);
+		$this->db->runQuery($stmt2);
+		$this->db->runQuery($stmt3);
+	}
+
+
 	public function vetAdd($data){
 
 		$nic=$data["nic"];
@@ -76,14 +129,15 @@ class admin_model extends Model{
 		$mob=$data["mob"];
 		$dob=$data["dob"];
 		$address=$data["address"];
-		$userType="Wildlife Officer";
+		$userType="veterinarian";
 		$email=$data["email"];
 		$gender=$data["gender"];
 		$vid=$data["vid"];
+		$officeNum=$data["officeNum"];
 		$hashPassword=password_hash($data["password"], PASSWORD_DEFAULT);
 
 		$stmt1="INSERT INTO user VALUES('$nic','$fname','$lname','$mob','$dob','$address','$userType','$email','$gender')";
-		$stmt2="INSERT INTO veterinarian VALUES('$nic','$vid')";
+		$stmt2="INSERT INTO veterinarian VALUES('$nic','$vid','$officeNum')";
 		$stmt3="INSERT INTO login VALUES('$nic','$hashPassword')";
 		
 		$this->db->runQuery($stmt1);
@@ -100,14 +154,19 @@ class admin_model extends Model{
 		$mob=$data["mob"];
 		$dob=$data["dob"];
 		$address=$data["address"];
-		$userType="Wildlife Officer";
+		$userType="villager";
 		$email=$data["email"];
 		$gender=$data["gender"];
+		$village=$data["village"];
+		$province=$data["province"];
+		$district=$data["district"];
+		$gnd=$data["gnd"];
 		$hashPassword=password_hash($data["password"], PASSWORD_DEFAULT);
 
 		$stmt1="INSERT INTO user VALUES('$nic','$fname','$lname','$mob','$dob','$address','$userType','$email','$gender')";
 		$stmt2="INSERT INTO villager VALUES('$nic')";
 		$stmt3="INSERT INTO login VALUES('$nic','$hashPassword')";
+		// $stmt4="INSERT INTO lives VALUES('$nic',SELECT village.grama_niladhari_NIC FROM village,gn_division,district,province WHERE province.Name='$province' AND district.Name='$district' AND gn_division.name='$gnd' AND village.name='$village', SELECT village.village_code FROM village,gn_division,district,province WHERE province.Name='$province' AND district.Name='$district' AND gn_division.name='$gnd' AND village.name='$village')";
 		
 		$this->db->runQuery($stmt1);
 		$this->db->runQuery($stmt2);

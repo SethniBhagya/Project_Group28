@@ -12,6 +12,7 @@ class Route{
 			//echo "home In";
             return exit;
         }
+
 		if($this->_loadController()){
             $this->_loadcontrollermethod();
         }
@@ -30,8 +31,9 @@ class Route{
 			$this->_params = new $this->_routes[0];
 			$this->_params->loadModel($this->_routes[0]);
 			return true;
-		}else{
-			echo "not find url";
+		}
+		else{
+			header("Location: ../wildlifecare/user/error");
 			return false;
 		}
       
@@ -47,7 +49,7 @@ class Route{
 		$urllenght = count($this->_routes); 
 		if($urllenght>1){
 			if(!method_exists($this->_params, $this->_routes[1])){
-				echo "No  Request Method Found";
+				header("Location: ../user/error");
 				exit;
 			}
 		   
