@@ -5,10 +5,15 @@ class villager_model extends Model{
     {
         parent::__construct();
     }
+   
+    function getGrmaniladariDivision(){
+        return $this->db->runQuery("SELECT * FROM `gn_division` ");
+    }
     
     function selectData(){
         return $this->db->runQuery("SELECT * FROM `user`");
    }
+
 
     function insertData($firstName, $lastName, $address, $gender ,$userNic,$userPassword, $userEmail, $userMobileNumber, $userDataofBirth, $GNDivision,$province,$district){                                                    
 
@@ -16,6 +21,8 @@ class villager_model extends Model{
         $hashPassword = password_hash($userPassword,PASSWORD_DEFAULT);
         $this->db->runQuery("INSERT INTO `login`(`userName`, `userpassword`) VALUES ('$userNic','$hashPassword')");    
         $this->db->runQuery("INSERT INTO `villager`(`NIC`) VALUES ('$userNic')");
+       
+        $this->db->runQuery("INSERT INTO `lives`(`villager_NIC`, `gramaniladhari_NIC`, `village_code`) VALUES ((SELECT `NIC` FROM `villager` WHERE NIC= '$userNic' ), (SELECT `gramaniladari_NIC` FROM `grama_niladhari` WHERE GND= (SELECT `GND_Code`  FROM `gn_division` WHERE name= '$GNDivision'  )) ,(SELECT `village_code` FROM `village` WHERE GND_Code=(SELECT `GND_Code`  FROM `gn_division` WHERE name= '$GNDivision' ))) ");
  
     }
    

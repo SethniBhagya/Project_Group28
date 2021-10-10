@@ -24,7 +24,7 @@
           <ul>
 
               <li id="home"><a href="../">HOME</a></li>
-              <li id="report"><a href="../report/index">REPORT</a></li>
+              <li id="report"><a href="../incident/index">REPORT</a></li>
               <li id="register"><a href="">REGISTER</a></li>
               <li id="login"><a id=login_text href="../user/index">LOGIN</a></li>
               <li class="dropdown">
@@ -45,9 +45,13 @@
     <a href=""  class="login-btn">Login</a>
   </div>
 
-
+  <?php 
+     $division = $this->division;
+   //  print_r($division);
+  ?>
   <?php 
      $result = $this->data;
+   //  print_r($this->division);
      $status = "false"; 
      if(isset($_POST['submit'])){
      foreach ($result as $row){
@@ -198,7 +202,13 @@
         </td>
       </tr>
       <tr>
-        <td><input class="text" type="text" id="gndivision" name="gndivision" placeholder="  Type your gramaniladhari division" /></td>
+        <td><select class="text" name="gndivision" id="district">
+          <option value="" >Choose here</option>
+          <?php
+             
+            foreach ($division  as $row){ ?>
+            <option value="<?php echo $row['name'];?>" ><?php echo $row['name']; ?></option>       
+          <?php }?>  
       </tr>
       <tr>
         <td>

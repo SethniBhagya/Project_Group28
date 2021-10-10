@@ -13,5 +13,12 @@ class Database extends PDO{
         $stmt->execute();
         return $stmt->fetchAll(\PDO::FETCH_ASSOC);   
     }
+    public function numberofrows($query){
+        $stmt = $this->prepare($query); 
+        $stmt->execute();
+        $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);   
+        return reset($result);
+         
+    }
 
 }

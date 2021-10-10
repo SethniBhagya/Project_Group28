@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../Public/css/report.css">
+    <link rel="stylesheet" href="../Public/css/Report.css">
     <link rel="stylesheet" href="../Public/css/header.css">
     <script src="../Public/Javascript/login.js"></script>
     <title>Report Page</title>
@@ -20,13 +20,14 @@
             </div>
 
             <ul>
-                <li id="home_1"><a href="../">HOME</a></li>
+                <li id="home_2"><a href="../">HOME</a></li>
+                <li id="dashboard_1"><a href="../user/viewpage?user=villager">DASHBOARD</a></li>
                 <li id="report_1"><a href="">REPORT</a></li>
                 <li class="dropdown">
                     <span class="dot"> <img onclick="myFunction_3(this)" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
                     <div id="myDropdown" class="dropdown-content">
                         <a href="">View Profile</a>
-                        <a href="">Logout</a>
+                        <a href="../user/logout">Logout</a>
                     </div>
                 </li>
             </ul>

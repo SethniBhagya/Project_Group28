@@ -19,8 +19,9 @@
             </div>
  
             <ul>
-                <li id="home_1"><a href="">HOME</a></li>
-                <li id="report_1"><a href="./">REPORT</a></li>
+            <li id="home_2"><a href="../">HOME</a></li>
+                <li id="dashboard_1"><a href="../user/viewpage?user=villager">DASHBOARD</a></li>
+                <li id="report_1"><a href="">REPORT</a></li>
                 <li class="dropdown">
                     <span class="dot"> <img onclick="myFunction_2(this)" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
                     <div id="myDropdown" class="dropdown-content">

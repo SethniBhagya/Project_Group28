@@ -34,7 +34,7 @@ class admin_model extends Model{
 		$gic=$data["gic"];
 		$hashPassword=password_hash($data["password"], PASSWORD_DEFAULT);
         
-		$stmt1="INSERT INTO user VALUES('$nic','$fName','$lName','$mob','$dob','$address','$userType','$email','$gender')";
+		$stmt1="INSERT INTO user VALUES('$nic','$fname','$lname','$mob','$dob','$address','$userType','$email','$gender')";
 		$stmt2="INSERT INTO grama_niladhari VALUES('$nic','$gic')";
 		$stmt3="INSERT INTO login VALUES('$nic','$hashPassword')";
 
