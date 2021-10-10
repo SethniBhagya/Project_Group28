@@ -35,7 +35,7 @@ class user extends Controller{
                 
         if($_SERVER["REQUEST_METHOD"]=="POST"){
 
-            $_POST=filter_input_array(INPUT_POST,FILTER_SANITIZE_STRING);
+            $_POST=filter_input_array(INPUT_POST,FILTER_SANITIZE_STRING);  
 
             
             $data=[
@@ -54,10 +54,16 @@ class user extends Controller{
                   
                   switch($loginUser["jobtype"])
                   {
-                    case "villager": $this->view->render('villager',$loginUser);
+
+                    case "villager":
+                         //get the data in Database  
+                         $this->view->data = $this->model->selectData($_POST["username"]);   
+                         //echo $this->data;  
+                         // render the villager page  
+                         $this->view->render('villagersPage');
                     break;
-                    // case "wildlifeofficer": $this->view->render('wildlifeofficer');
-                    // break;
+                     case "Wildlife Officer": $this->view->render('wildlifeofficer');
+                    break;
                      case "admin": $this->view->render('admin_page');
                      break;
                     // case "veterinarian": $this->view->render('veterinarian');
@@ -87,6 +93,18 @@ class user extends Controller{
         session_destroy();
         $this->view->render('login');
 
+    }
+
+    function viewpage(){
+        
+        switch($_GET['user']){
+            case 'villager':
+             session_start();
+                
+             $this->view->data = $this->model->selectData( $_SESSION["NIC"]);   
+
+            $this->view->render('villagersPage');
+        }
     }
 
 

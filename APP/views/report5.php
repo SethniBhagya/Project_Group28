@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Public/css/header.css">
-    <link rel="stylesheet" href="../Public/css/report1.css">
+    <link rel="stylesheet" href="../Public/css/report4.css">
     <title>Other Wild Animals are in the Village</title>
 </head>
 <body>
@@ -19,8 +19,9 @@
             </div>
 
             <ul>
-                <li id="home_1"><a href="">HOME</a></li>
-                <li id="report_1"><a href="./">REPORT</a></li>
+            <li id="home_2"><a href="../">HOME</a></li>
+                <li id="dashboard_1"><a href="../user/viewpage?user=villager">DASHBOARD</a></li>
+                <li id="report_1"><a href="">REPORT</a></li>
                 <li class="dropdown">
                     <span class="dot"> <img onclick="myFunction_2(this)" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
                     <div id="myDropdown" class="dropdown-content">
@@ -67,13 +68,13 @@
             <option value="Other">Other</option>
         </select><br>
             <label for="numberOfelephants"><b>How many Animals  : </b></label>
-            <input type="number" name="noOfelephant" id="number"> <br><br>
+            <input type="number" name="noOfanimals" id="number"> <br><br>
             <label for="status"><b>Verterinary Support : Need </b></label>
-            <input type="radio" name="need" id="">
+            <input type="radio" name="support" value ="yes" id="">
             <label for="status"><b>No Need</b></label>
-            <input type="radio" name="noNeed" id=""><br>
+            <input type="radio" name="support" id="" value="no"><br>
             <label for="status"><b>Short Decription </b></label>
-            <textarea class="text" id="discription" name="latitude" rows="2"></textarea>
+            <textarea class="text" id="discription" name="discription" rows="2"></textarea>
             <div class="photo">
             <label for="addPhoto"><b>Add Photo : </b></label>
             <input type="file" name="Photo" class="file"> </div>

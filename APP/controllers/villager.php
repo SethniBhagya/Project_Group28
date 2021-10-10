@@ -18,7 +18,8 @@
     }
 
     public function register(){
-      
+        $this->view->division = $this->model->getGrmaniladariDivision();
+      //  echo print_r($this->view->division);
         $this->view->data = $this->model->selectData();     
         $this->view->render('register');
         
