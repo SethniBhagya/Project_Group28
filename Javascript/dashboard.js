@@ -61,7 +61,7 @@ let mychart3 = new Chart(myChart3,{
             {
                 label: 'Hourly Update',
                 data: data3,
-              //  backgroundColor : colors3
+              
               fill: false,
               borderColor: 'red',
           
