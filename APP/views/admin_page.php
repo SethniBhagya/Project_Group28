@@ -15,7 +15,7 @@
     
     <title>Document</title>
 </head>
-<body>
+<body style=" background: radial-gradient(82.57% 163.28% at 50% 50%, rgba(47, 191, 87, 0.56) 3.85%, rgba(181, 218, 191, 0) 100%);">
     <header id="main">
         <img src="../Public/images/icon.png" alt="icon" id="icon">
         <nav id="navbar" class="mybar">
@@ -26,13 +26,13 @@
             </div>
 
             <ul>
-                <li id="home_1"><a href="">HOME</a></li>
-                <li id="report_1"><a href="">REPORT</a></li>
+                <li id="home_1"><a href="../">HOME</a></li>
+                
                 <li class="dropdown">
                     <span class="dot"> <img onclick="myFunction_2(this)" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
                     <div id="myDropdown" class="dropdown-content">
                         <a href="">View Profile</a>
-                        <a href="logout">Logout</a>
+                        <a href="../user/logout">Logout</a>
                     </div>
                 </li>
             </ul>
