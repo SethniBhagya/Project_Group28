@@ -8,8 +8,9 @@
     <link rel="stylesheet" href="../Public/css/header.css">
     <link rel="stylesheet" href="../Public/css/wildlifeofficer_view_profile.css">
     <script src="../Public/Javascript/login.js"></script>
-    <script src="../Public/Javascript/viewReport.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=myMap"></script>
+    <!-- <script src="../Public/Javascript/viewReport.js"></script> -->
+    <script src="../Public/javascript/wildlifeofficer.js"></script>
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=myMap"></script> -->
     <title>User Profile</title>
 </head>
 
@@ -24,12 +25,16 @@
             </div>
 
             <ul>
-                <li id="home_1"><a href="nnn">HOME</a></li>
+            <!-- <li><h6>BACK</h6></li>
+            <li><h6>DASHBOARD</h6></li>
+            <li><h6>SPECIAL NOTICES</h6></li> -->
+                <li id="home_1"><a href="../">HOME</a></li>
                 <li id="report_1"><a href="nnn">REPORT</a></li>
+                
                 <li class="dropdown">
                     <span class="dot"> <img onclick="myFunction_3()" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
                     <div id="myDropdown" class="dropdown-content">
-                        <a href="">View Profile</a>
+                        <a href="../wildlifeofficer/viewProfile">View Profile</a>
                         <a href="">Logout</a>
                     </div>
                 </li>
@@ -37,17 +42,27 @@
         </nav>
        
     </header>
-    <nav class="links_to_pages">
+    <!-- <nav class="links_to_pages">
       <ul>
         <li>BACK</li>
         <li>SPECIAL NOTICES</li>
         <li>DASHBOARD</li>
       </ul>
-    </nav>
+    </nav> -->
     
     </div>
     <body>
     <div class="contanier_2">
+    <div class="row1">
+      <?php if (isset($data[0]['message'])) {
+         echo $data[0]['message'];
+         unset($data[0]['message']);
+        
+      }
+     
+      
+      ?>
+      </div>
 
        <div class="contanier_2-1">
         <div class="view_profile">
@@ -64,7 +79,7 @@
       </div>
       <div class="row">
         <div class="col_1">First Name</div>
-        <div class="col_2"><?php echo $data[0]["Fname"] ?>></div>
+        <div class="col_2"><?php echo $data[0]["Fname"] ?></div>
       </div>
       <div class="row">
         <div class="col_1">Last Name</div>
@@ -89,7 +104,7 @@
         <div class="col_2"><?php echo $data[0]["BOD"] ?></div>
       </div>
       <div class="row">
-        <div class="col_1">Address</div>
+        <div class="col_1">Home Address</div>
         <div class="col_2"><?php echo $data[0]["Address"]  ?></div>
       </div>
       <div class="row">
@@ -97,7 +112,7 @@
         <div class="col_2"><?php echo $data[0]["email"] ?></div>
       </div>
       <div class="row">
-        <div class="col_1">Current Working District</div>
+        <div class="col_1">Office Address</div>
         <div class="col_2"><?php echo $data[1]["address"]?></div>
       </div>
       <div class="row">
@@ -106,21 +121,21 @@
       </div>
        <div class="row1">
        
-              <input
-                type="submit" 
-                onclick=""
-                value="BACK"/>
+              <a href="../wildlifeofficer/">BACK</a>
+            
               </div>
-   
+            
+
+
        <div class="last">
              
        </div>
- <div>
+ <!-- <div>
    <?php
    print_r($data) ;
    ?>
  </div>
-    
+     -->
         </form>
       
     </div>

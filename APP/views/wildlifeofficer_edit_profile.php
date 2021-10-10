@@ -8,8 +8,9 @@
     <link rel="stylesheet" href="../Public/css/header.css">
     <link rel="stylesheet" href="../Public/css/wildlifeofficer_edit_profile.css">
     <script src="../Public/Javascript/login.js"></script>
-    <script src="../Public/Javascript/viewReport.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=myMap"></script>
+    <!-- <script src="../Public/Javascript/viewReport.js"></script> -->
+    <script src="../Public/javascript/wildlifeofficer.js"></script>
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=myMap"></script> -->
     <title>Edit Profile</title>
 </head>
 
@@ -24,12 +25,12 @@
             </div>
 
             <ul>
-                <li id="home_1"><a href="nnn">HOME</a></li>
+                <li id="home_1"><a href="../">HOME</a></li>
                 <li id="report_1"><a href="nnn">REPORT</a></li>
                 <li class="dropdown">
                     <span class="dot"> <img onclick="myFunction_3()" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
                     <div id="myDropdown" class="dropdown-content">
-                        <a href="">View Profile</a>
+                        <a href="../wildlifeofficer/viewProfile">View Profile</a>
                         <a href="">Logout</a>
                     </div>
                 </li>
@@ -37,7 +38,7 @@
         </nav>
        
     </header>
-    <div class="nav_edit">
+    <!-- <div class="nav_edit">
       <div class="links_to_pages">
         <ul>
           <li>BACK</li>
@@ -45,14 +46,20 @@
           <li>DASHBOARD</li>
         </ul>
       </div>
-    </div>
+    </div> -->
   
     <body>
     <div class="contanier_2">
-
+    <div>
+      <?php if (isset($data[0]['message'])) {
+         echo $data[0]['message'];
+      }
+     
+      ?>
+      </div>
        <div class="contanier_2-1">
         <div class="view_profile">
-            <h3><a href="#" >Profile</a></h3>
+            <h3><a href="../wildlifeofficer/viewProfile" >Profile</a></h3>
         </div>
         <div class="edit_profile">
           <h3><a href="#" >Edit Profile</a></h3>
@@ -62,17 +69,17 @@
     
       <div class="row">
         <div class="col_1">First Name</div>
-        <div class="col_2"><input type="text" class="text" id="fname" name="fname" required value="<?php echo $_SESSION['Fname']?>"/><img src="../Public/images/edit.png"  class="edit_icon"></div>
+        <div class="col_2"><input type="text" class="text" id="fname" name="fname" required value="<?php echo $data[0]["Fname"] ?>"/><img src="../Public/images/edit.png"  class="edit_icon"></div>
       </div>
       <div class="row">
         <div class="col_1">Last Name</div>
-        <div class="col_2"><input type="text" class="text" id="lname" name="lname" required value="<?php echo $_SESSION['Lname']?>"/><img src="../Public/images/edit.png"  class="edit_icon"></div>
+        <div class="col_2"><input type="text" class="text" id="lname" name="lname" required value="<?php echo $data[0]["Lname"] ?>"/><img src="../Public/images/edit.png"  class="edit_icon"></div>
       </div>
-      <div class="row">
+      <!-- <div class="row">
         <div class="col_1">NIC</div>
-        <div class="col_2"><input class="text" type="text" id="nic" name="nic" value ="<?php echo $data[0]["NIC"] ?>" required /><img src="../Public/images/edit.png"  class="edit_icon"></div>
-      </div>
-      <div class="row">
+        <div class="col_2">99v</div>
+      </div> -->
+      <!-- <div class="row">
         <div class="col_1">Gender</div>
         <div class="col_2">
             <input type="radio" id="male" name="gender" value="Male" required <?php
@@ -88,7 +95,7 @@
            <?php }?> 
              />
             <label for="female">Female</label></div>
-      </div>
+      </div> -->
       <div class="row">
         <div class="col_1">Date of Birth</div>
         <div class="col_2">
@@ -96,9 +103,15 @@
         </div>
       </div>
       <div class="row">
-        <div class="col_1">Address</div>
-        <div class="col_2"><textarea class="text" id="address" name="address" rows="2" required " ><?php echo $data[0]["Address"]  ?>
+        <div class="col_1">Home Address</div>
+        <div class="col_2"><textarea class="text" id="address" name="address" rows="2" required  ><?php echo $data[0]["Address"]  ?>
         </textarea><img src="../Public/images/edit.png"  class="edit_icon"></div>
+      </div>
+      <div class="row">
+        <div class="col_1">Telephone Number</div>
+        <div class="col_2">
+        <input class="text" type="text" id="mobileNo" name="mobileNo" value="<?php echo $data[0]["mobileNo"] ?>" required  />
+            <img src="../Public/images/edit.png"  class="edit_icon"></div>
       </div>
       <div class="row">
         <div class="col_1">Email</div>
@@ -107,14 +120,15 @@
             <img src="../Public/images/edit.png"  class="edit_icon"></div>
       </div>
       <div class="row">
-        <div class="col_1">Current Working District</div>
-        <div class="col_2"><input class="text" type="text" id="wd" name="working_dis" value="<?php echo $data[1]['address'] ?>" required /><img src="../Public/images/edit.png"  class="edit_icon"></div>
+        <div class="col_1">Office Address</div>
+        <div class="col_2"><input class="text" type="text" id="off_add" name="office_address" value="<?php echo $data[1]['address'] ?>" required /><img src="../Public/images/edit.png"  class="edit_icon"></div>
       </div>
       
        <div class="row">
         <div class="cancel_button">
        
         <input
+        name="cancel"
           type="submit" 
           onclick=""
           value="CANCEL"/>
@@ -128,6 +142,7 @@
                 onclick=""
                 value="SAVE"/>
               </div>
+              
 
               </div>
    

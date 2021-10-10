@@ -20,12 +20,15 @@ class Wildlifeofficer_model extends Model
         
 		$fname=$data["fName"];
 		$lname=$data["lName"];
-		$nic=$data["nic"];
+		//$nic=$data["nic"];
 		// $mob=$data["mob"];
-		$gender=$data["gender"];
+		//$gender=$data["gender"];
 		$dob=$data["dob"];
 		$address=$data["address"];
+		$mob=$data["mob"];
 		$email=$data["email"];
+		$office_address=$data["office_address"];
+		$office_no=$this->db->runQuery("SELECT officeNo from regional_wildlife_office WHERE address= '$office_address'")[0]['officeNo'];
 		
 		
 		
@@ -33,14 +36,15 @@ class Wildlifeofficer_model extends Model
 		
 	
 
-		$stmt1="UPDATE user SET NIC='$nic', Fname='$fname', Lname='$lname', BOD='$dob',Address='$address',email='$email', gender='$gender' WHERE NIC= '$userName'";
-		//$stmt2="INSERT INTO wildlife_officer VALUES('$nic','$wid','$officeNum')";
+		$stmt1="UPDATE user SET  Fname='$fname', Lname='$lname', mobileNo='$mob', BOD='$dob',Address='$address',email='$email' WHERE NIC= '$userName'";
+		$stmt2="UPDATE wildlife_officer SET officeNo='$office_no' WHERE NIC='$userName'";
 		//$stmt3="INSERT INTO login VALUES('$nic','$hashPassword')";
 		
-		$result=$this->db->runQuery($stmt1);
-		return $result;
-		//$this->db->runQuery($stmt2);
+		$result[0]=$this->db->runQuery($stmt1);
+		// //return $result;
+		$result[1]=$this->db->runQuery($stmt2);
 		//$this->db->runQuery($stmt3);
+		return $result;
     }
 
     
