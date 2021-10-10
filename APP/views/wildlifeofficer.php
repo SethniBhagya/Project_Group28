@@ -36,7 +36,8 @@
     </header>
     <div class="name">
    
-        <span class="dot2"><img src="../Public/images/user_icon.png" id="user-icon2" ></span><b><?php
+        <span class="dot2"><img src="../Public/images/user_icon.png" id="user-icon2" ></span><b>
+            <?php
          if (session_status() === PHP_SESSION_NONE) {
             session_start();
             
@@ -51,7 +52,7 @@
     
     </button>
     </a>
-    <a  href="#">
+    <a  href="404">
     <button class="specialNotice">
         <div class="notification"><span class="dot-1"><img src="../Public/images/bell.png" alt="1" srcset=""></span></div>
         <h1>Special notices </h1>
