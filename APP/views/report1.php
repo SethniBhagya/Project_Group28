@@ -20,8 +20,9 @@
             </div>
 
             <ul>
-                <li id="home_1"><a href="">HOME</a></li>
-                <li id="report_1"><a href="./">REPORT</a></li>
+                 <li id="home_2"><a href="../">HOME</a></li>
+                <li id="dashboard_1"><a href="../user/viewpage?user=villager">DASHBOARD</a></li>
+                <li id="report_1"><a href="">REPORT</a></li> 
                 <li class="dropdown">
                     <span class="dot"> <img onclick="myFunction_2(this)" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
                     <div id="myDropdown" class="dropdown-content">
@@ -41,9 +42,9 @@
             <label for="numberOfelephants"><b>How many Elephants  : </b></label>
             <input type="number" name="noOfelephant" id="number"> <br><br>
             <label for="status"><b>In Your Registered Village : Yes </b></label>
-            <input type="radio" name="yes" id=" ">
+            <input type="radio" name="Reg" id=" " value="yes">
             <label for="status"><b>No</b></label>
-            <input type="radio" name="No" id=""><br>
+            <input type="radio" name="Reg" id="" value="no"><br>
             <div class="photo">
             <label for="addPhoto"><b>Add Photo : </b></label>
             <input type="file" name="Photo" class="file"> </div>

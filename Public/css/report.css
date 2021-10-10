@@ -17,7 +17,7 @@ h1{
 .container-1{
     position: inherit;
     margin-left: 10%;
-    margin-top: 10px;
+    margin-top: 100px;
     width: 80%;
     height : 250px;
     display: inline-block;
@@ -45,7 +45,7 @@ button{
     width: 33.33%;
     border-radius: 10px;
     border: none;
-    background-color: rgba(250, 240, 240, 0.734);
+    background-color: rgba(250, 240, 240, 0.09);
 
 }
 .report-1 {
@@ -66,7 +66,7 @@ button{
 
 .report-1  h1{
     font-size: 20px;
-    color: rgb(12, 8, 8);
+    color: rgb(255, 255, 255);
 }
 
 
@@ -76,7 +76,7 @@ button{
     height: 100px;
     padding-left: 10px;
 }
-
+      
 .dot1{
  margin-top: 10px;
  padding-top: 10px;
@@ -85,7 +85,7 @@ button{
  padding: 1px 1px;
  border: 2px solid rgba(248, 244, 244, 0.022);
  border-radius: 50%;
- background: rgba(200, 67, 67, 0.5);
+ background: rgba(220, 232, 218, 0.96);
  display: inline-block;
 }
 .report-2-2{
@@ -96,7 +96,9 @@ button{
     width: 33.33%;    
     border: none;
     border-radius: 10px;
-    background-color: rgba(250, 240, 240, 0.734);
+    background-color: rgba(250, 240, 240, 0.09);
+
+    /* background-color: rgba(250, 240, 240, 0.734); */
     
 }
 
@@ -125,12 +127,12 @@ button{
     padding: 1px 1px;
     border: 2px solid rgba(247, 242, 242, 0);
     border-radius: 50%;
-    background: rgba(200, 67, 67, 0.5);
+    background: rgba(220, 232, 218, 0.96);
     display: inline-block;
    }
    .report-2 h1{
     font-size: 20px;
-    color: rgb(12, 8, 8);
+    color: rgb(255, 255, 255);
 } 
 .report-2 :hover{
     color: rgb(221, 8, 8);
@@ -143,7 +145,9 @@ button{
     height: 250px;
     width: 32.33%;    
     border-radius: 10px;
-    background-color: rgba(250, 240, 240, 0.734);
+    background-color: rgba(250, 240, 240, 0.09);
+
+    /* background-color: rgba(250, 240, 240, 0.734); */
 
 } 
 .report3{
@@ -164,7 +168,7 @@ button{
 }
 .report-3 h1{
     font-size: 20px;
-    color: rgb(12, 8, 8);
+    color: rgb(255, 255, 255);
 }
 
 .dot3{
@@ -175,7 +179,7 @@ button{
     padding: 1px 1px;
     border: 2px solid rgba(242, 232, 232, 0);
     border-radius: 50%;
-    background: rgba(200, 67, 67, 0.5);
+    background: rgba(220, 232, 218, 0.96);
     display: inline-block;
    }
    .report-3-3 :hover{
@@ -193,8 +197,10 @@ button{
     position: inherit;
     border: none;
     height: 250px;
+    background-color: rgba(250, 240, 240, 0.09);
+
     border-radius: 10px;
-    background-color: rgba(250, 240, 240, 0.734);
+    /* background-color: rgba(250, 240, 240, 0.734); */
 
 }   
 .report-4{
@@ -209,7 +215,7 @@ button{
 }
 .report-4 h1{
     font-size: 20px;
-    color: rgb(12, 8, 8);
+    color: rgb(255, 255, 255);
 }
 .report-4-4 :hover{
     color: rgb(221, 8, 8);
@@ -224,7 +230,7 @@ button{
     padding: 1px 1px;
     border: 2px solid rgba(255, 253, 253, 0);
     border-radius: 50%;
-    background: rgba(200, 67, 67, 0.5);
+    background:rgba(220, 232, 218, 0.96);
     display: inline-block;
    }
 .report5{
@@ -240,7 +246,8 @@ button{
     height: 250px;
     width: 33.33%;
     border-radius: 10px;
-    background-color: rgba(250, 240, 240, 0.734);
+    /* background-color: rgba(250, 240, 240, 0.734); */
+    background-color: rgba(250, 240, 240, 0.09);
 
 }
 
@@ -256,7 +263,7 @@ button{
 }
 .report-5 h1{
     font-size: 20px;
-    color: rgb(12, 8, 8);
+    color: rgb(255, 255, 255);
 
 }
 
@@ -268,7 +275,7 @@ button{
     padding: 1px 1px;
     border: 2px solid rgba(247, 247, 247, 0);
     border-radius: 50%;
-    background: rgba(200, 67, 67, 0.5);
+    background: rgba(220, 232, 218, 0.96);
     display: inline-block;
    }
    .report-5-5 :hover{
@@ -288,7 +295,9 @@ button{
     height: 250px;
     width: 32%;
     border-radius: 10px;
-    background-color: rgba(250, 240, 240, 0.734);
+    background-color: rgba(250, 240, 240, 0.09);
+
+    /* background-color: rgba(250, 240, 240, 0.734); */
 
 }
 
@@ -305,7 +314,8 @@ button{
 }
 .report-6 h1{
     font-size: 20px;
-    color: rgb(12, 8, 8);
+    color: rgb(255, 255, 255);
+    text-align: center;
 
 }
 
@@ -317,7 +327,7 @@ button{
     padding: 1px 1px;
     border: 2px solid rgba(245, 245, 245, 0);
     border-radius: 50%;
-    background: rgba(200, 67, 67, 0.5);
+    background: rgba(230, 32, 32, 0.802);
     display: inline-block;
    }
    .report-6-6 :hover{
