@@ -40,7 +40,7 @@
             /></span>
             <div id="myDropdown" class="dropdown-content">
               <a href="../wildlifeofficer/viewProfile">View Profile</a>
-              <a href="">Logout</a>
+              <a href="../user/index">Logout</a>
             </div>
           </li>
         </ul>

@@ -189,18 +189,18 @@ class admin_model extends Model{
 
 				$stmt4="SELECT user.NIC,veterinarian.VID,user.Fname,user.Lname,user.BOD,user.mobileNo,veterinarian.officeNo,district.Name AS 'district_name',province.Name FROM                                                                           user,veterinarian,regional_wildlife_office,village,gn_division,district,province WHERE user.jobType='veterinarian' AND  user.NIC=veterinarian.NIC  AND veterinarian.officeNo=regional_wildlife_office.officeNo AND regional_wildlife_office.officeNo=village.officeNo AND village.GND_Code=gn_division.GND_Code AND gn_division.district_name=district.Name AND district.province_name=province.Name";
 
-				$stmt5="SELECT user.NIC,grama_niladhari.GID,user.Fname,user.Lname,user.BOD,user.mobileNo,user.Address,village.name,gn_division.name AS 'gnd_name',district.Name AS 'district_name',province.Name FROM user,grama_niladhari,lives,village,gn_division,district,province WHERE user.jobType='grama niladhari' AND user.NIC=grama_niladhari.NIC AND grama_niladhari.NIC=lives.gramaniladhari_NIC AND  lives.village_code=village.village_code AND village.GND_Code=gn_division.GND_Code AND gn_division.district_name=district.Name AND district.province_name=province.Name";
+				// $stmt5="SELECT user.NIC,grama_niladhari.GID,user.Fname,user.Lname,user.BOD,user.mobileNo,user.Address,village.name,gn_division.name AS 'gnd_name',district.Name AS 'district_name',province.Name FROM user,grama_niladhari,lives,village,gn_division,district,province WHERE user.jobType='grama niladhari' AND user.NIC=grama_niladhari.NIC AND grama_niladhari.NIC=lives.gramaniladhari_NIC AND  lives.village_code=village.village_code AND village.GND_Code=gn_division.GND_Code AND gn_division.district_name=district.Name AND district.province_name=province.Name";
 
 				$rows1=$this->db->runQuery($stmt1);
 				$rows2=$this->db->runQuery($stmt2);
 				$rows3=$this->db->runQuery($stmt3);
 				$rows4=$this->db->runQuery($stmt4);
-				$rows5=$this->db->runQuery($stmt5);
+				// $rows5=$this->db->runQuery($stmt5);
 				$allUsers=["villager"=>$rows1,
 				            "regional officer"=>$rows2,
 				            "wildlife officer"=>$rows3,
 				            "veterinarian"=>$rows4,
-				            "grama niladhari"=>$rows5
+				            // "grama niladhari"=>$rows5
 
 			                ];
 				return $allUsers;

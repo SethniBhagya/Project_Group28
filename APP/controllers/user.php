@@ -51,6 +51,11 @@ class user extends Controller{
                   session_start();
                   $_SESSION["NIC"]= $loginUser["NIC"];
                   $_SESSION["jobtype"]=$loginUser["jobtype"];
+                  $_SESSION["Fname"]=$loginUser["Fname"];
+                  $_SESSION["Lname"]=$loginUser["Lname"];
+                  
+                  
+
                   
                   switch($loginUser["jobtype"])
                   {
