@@ -53,6 +53,11 @@ class user extends Controller{
                   $_SESSION["Fname"]= $loginUser["Fname"];
                   $_SESSION["Lname"]= $loginUser["Lname"];
                   $_SESSION["jobtype"]=$loginUser["jobtype"];
+                  $_SESSION["Fname"]=$loginUser["Fname"];
+                  $_SESSION["Lname"]=$loginUser["Lname"];
+                  
+                  
+
                   
                   switch($loginUser["jobtype"])
                   {

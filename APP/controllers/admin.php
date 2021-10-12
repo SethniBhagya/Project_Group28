@@ -68,19 +68,19 @@ class admin extends user{
 			if(empty($data["Error"]))
 			{
 				switch($userType){
-					case "grama niladhari":{
-						$specificData=[
-							"province"=>trim($_POST["province"]),
-				            "district"=>trim($_POST["district"]),
-				             "gnd"=>trim($_POST["gnd"]),
-							"gic"=>trim($_POST["gic"])
+					// case "grama niladhari":{
+					// 	$specificData=[
+					// 		"province"=>trim($_POST["province"]),
+				 //            "district"=>trim($_POST["district"]),
+				 //             "gnd"=>trim($_POST["gnd"]),
+					// 		"gic"=>trim($_POST["gic"])
 
-						];
+					// 	];
                          
-						$allData=array_merge($data,$specificData);
-						$this->model->gnAdd($allData);
-					}
-					break;
+					// 	$allData=array_merge($data,$specificData);
+					// 	$this->model->gnAdd($allData);
+					// }
+					// break;
 
 					case "wildlife officer":{
 						$specificData=[
