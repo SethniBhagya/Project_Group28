@@ -82,8 +82,7 @@ class incident extends Controller{
     }
     }
     function viewReport(){
-        // $this->view->data = $this->model->getdata();
-        //print_r($this->model->getReportrows());
+        
         $rows =  $this->model->getReportrows();
         $noOfrows =  $rows['total_rows'];
         $rowsPer = 15;
@@ -107,26 +106,9 @@ class incident extends Controller{
             break;
     
         }
-        // $this->view->render('villagerReportView1');
-
-        // if(isset)
-     //   echo "hello";
-       // print_r($this->view->data);
+   
     }
     function getReportrows(){
 
     }
-    // function getaddress($lat,$lng)
-    //  {
-    //     echo $lat;
-    //     $url = 'https://maps.googleapis.com/maps/api/geocode/json?latlng='.trim($lat).','.trim($lng).'&sensor=false';
-    //     $json = @file_get_contents($url);
-    //     $data=json_decode($json);
-    //     $status = $data->status;
-    //     echo $status;
-    //     echo  $data->results[0]->formatted_address;
-    //     if($status=="OK") return $data->results[0]->formatted_address;
-    //     else
-    //     return$data->results[0]->formatted_address;
-// }
-}
+} 
