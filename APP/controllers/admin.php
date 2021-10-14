@@ -16,11 +16,51 @@ class admin extends user{
 
 	public function addUser(){
         
+        $province=$this->model->getProvince();
+        $office=$this->model->getOfficeNum();
+
+        $dropDownData=[
+        	"province"=>$province,
+        	"office"=>$office
+        ];
+        if(isset($_POST["provinceName"])){
+
+
+        	   $district=$this->model->getDistrict($_POST["provinceName"]);
+
+        	   foreach($district as $row)
+        	   	  echo "<option value=".$row["Name"].">".$row["Name"]."</option>";
+
+        	   	
+         	
+         	
+         
+        }
+
+
+        if(isset($_POST["districtName"])){
+        	   		$gnDivision=$this->model->getGN($_POST["districtName"]);
+                     
+        	   		 foreach($gnDivision as $row)
+        	   	          echo "<option value=".$row["name"].">".$row["name"]."</option>";
+
+        	   	}
+
+        if(isset($_POST["gnName"])){
+        	   		 $village=$this->model->getVillage($_POST["gnName"]);
+
+                     
+        	   		  foreach($village as $row)
+        	   	           echo "<option value=".$row["name"].">".$row["name"]."</option>";
+
+        	   	}
+        
+
         
         
         if(!empty($_SESSION["NIC"]) and $_SESSION["jobtype"]=="admin"){
             
-		$this->view->render("admin_register");
+		$this->view->render("admin_register",$dropDownData);
              
 	        }
 	    else{
@@ -68,19 +108,19 @@ class admin extends user{
 			if(empty($data["Error"]))
 			{
 				switch($userType){
-					// case "grama niladhari":{
-					// 	$specificData=[
-					// 		"province"=>trim($_POST["province"]),
-				 //            "district"=>trim($_POST["district"]),
-				 //             "gnd"=>trim($_POST["gnd"]),
-					// 		"gic"=>trim($_POST["gic"])
+					case "grama niladhari":{
+						$specificData=[
+							"province"=>trim($_POST["province"]),
+				            "district"=>trim($_POST["district"]),
+				             "gnd"=>trim($_POST["gnd"]),
+							"gic"=>trim($_POST["gic"])
 
-					// 	];
+						];
                          
-					// 	$allData=array_merge($data,$specificData);
-					// 	$this->model->gnAdd($allData);
-					// }
-					// break;
+						$allData=array_merge($data,$specificData);
+						$this->model->gnAdd($allData);
+					}
+					break;
 
 					case "wildlife officer":{
 						$specificData=[

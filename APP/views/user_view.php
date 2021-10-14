@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../Public/css/user_view.css">
     <link rel="stylesheet" href="../Public/css/header.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script> -->
     <script src="../Public/Javascript/login.js"></script>
     <title>Users</title>
 </head>
@@ -19,8 +20,9 @@
                 <div class="bar2"></div>
                 <div class="bar3"></div>
             </div>
-
+              
             <ul>
+                
                 <li id="home_1"><a href="../">HOME</a></li>
                 <li id="report_1"><a href="../admin/dashboard">Dashboard</a></li>
                 <li class="dropdown">
@@ -30,9 +32,17 @@
                         <a href="../user/logout">Logout</a>
                     </div>
                 </li>
+                <!-- <li><button id="lan">lan</button></li> -->
             </ul>
         </nav>
     </header>
+
+   <!--  <script type="text/javascript">
+function googleTranslateElementInit() {
+new google.translate.TranslateElement({pageLanguage: 'en'}, 'lan');
+}
+</script>
+ -->
 
     <div class="container1">
 

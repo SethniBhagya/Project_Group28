@@ -99,6 +99,88 @@
 }
 
 
+.resetPassword{
+
+  width: 500px;
+  min-height: 432px;
+  position: absolute;
+  left: 32.5%;
+  background-color: white;
+  top: 16vh;
+  box-shadow:8px 8px  rgba(20,103,28,0.5);
+  display: none;
+  border-radius: 10px;
+
+
+
+}
+
+.resetPassword h1{
+  color: darkgreen;
+  text-align: center;
+}
+
+.reset-input{
+  position: inherit;
+  margin-top: 25px;
+  margin-right: 16%;
+  margin-left: 16%;
+  width: 65%;
+  height: 35px;
+  background-color: rgb(0,251,10,0.16);
+  border-radius: 10px;
+  
+  border: none;
+}
+
+.reset-label{
+   position: relative;
+  margin-left: 18%;
+  color: black;
+  top: 27px;
+  font-size: 17px;
+}
+
+.reset-button{
+
+  text-align: center;
+  position: relative;
+  margin-right: 15%;
+  margin-left: 16%;
+  margin-top: 50px;
+  height: 40px;
+  width: 68%;
+  border-radius: 10px;
+ background-color: #14671c;
+ box-shadow: 0px 4px 4px rgba(0, 251, 10, 0.16);
+  color: white;
+  font-weight: 900;
+  position: inherit;
+
+}
+
+#show:checked~.resetPassword{
+  display: block;
+}
+
+#show{
+  display: none;
+}
+.link{
+  color: blue;
+  cursor: pointer;
+}
+
+.close-btn{
+  right: 7px;
+  position: absolute;
+  color: black;
+  font-size:16px; 
+  cursor: pointer;
+
+}
+
+
 .group_link {
   margin-right: 20%;
   margin-left: 20%;
@@ -111,6 +193,16 @@
   color: black;
 }
 
+.email-sent{
+  color: green;
+  margin-left: 80px;
+
+}
+
+.email-error{
+  color: red;
+  margin-left: 80px;
+}
 
 
 

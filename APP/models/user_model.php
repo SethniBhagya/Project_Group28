@@ -62,4 +62,47 @@ class user_model extends Model{
 
 
     }
+
+    public function resetPasswordStore($userName,$selector,$token,$url,$expire){
+       
+        $hashedToken=password_hash($token, PASSWORD_DEFAULT);
+        $email=(($this->db->runQuery("SELECT email FROM user WHERE NIC='$userName'"))[0])["email"];
+       if(!empty($email)){
+        $stmt1="DELETE FROM reset_password WHERE resetUserName='$userName'";
+       $this->db->runQuery($stmt1);
+
+       $stmt2="INSERT INTO reset_password (resetEmail,resetUserName,resetSelector,resetToken,resetExpire) VALUES('$email','$userName','$selector','$hashedToken','$expire') ";
+        $this->db->runQuery($stmt2);
+
+        return $email;
+    }
+    
+
+    }
+
+    public function resetPassword($nic,$password,$selector,$validator){
+        $hashPassword=password_hash($password, PASSWORD_DEFAULT);
+
+        $row=($this->db->runQuery("SELECT * FROM reset_password WHERE resetUserName='$nic'"))[0];
+        if(!empty($row)){
+            $validatorBin=hex2bin($validator);
+            if(password_verify($validatorBin, $row["resetToken"])){
+
+                $this->db->runQuery("UPDATE login SET userPassword='$hashPassword' WHERE userName='$nic'");
+                return true;
+
+            }
+            else{
+                return false;
+            }
+
+        }
+        else{
+            return false;
+        }
+
+
+
+
+    }
 }

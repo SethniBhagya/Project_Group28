@@ -8,7 +8,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Public/css/login.css">
+    <!-- <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script> -->
     <link rel="stylesheet" href="../Public/css/header.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="../Public/Javascript/login.js"></script>
     <title>Login</title>
 </head>
@@ -25,7 +27,7 @@
             </div>
 
             <ul>
-
+                <li id="lan"></li>
                 <li id="home"><a href="../">HOME</a></li>
                 <li id="report"><a href="../report/index">REPORT</a></li>
                 <li id="register"><a href="../villager/register">REGISTER</a></li>
@@ -41,6 +43,17 @@
             </ul>
     </header>
     </div> 
+
+    <!-- <script type="text/javascript">
+function googleTranslateElementInit() {
+new google.translate.TranslateElement({pageLanguage: 'en'}, 'lan');
+}
+</script> -->
+
+
+
+
+
     <div class="error" style=" margin-top: 2px;
   position: absolute;
   width: 345px;
@@ -60,6 +73,38 @@
             <h3>LOGIN</h3>
         </div>
         </br>
+        <div>
+          <?php
+
+          if(isset($_GET["reset"])){
+            if($_GET["reset"]=="success")
+              echo "<p class=\"email-sent\" >Sent an email for reset password </p>";
+            else if($_GET["reset"]=="emailError")
+               echo "<p class=\"email-error\">Invalid user name. Please try again.. </p>";
+
+          }
+
+          ?>
+
+          
+        </div>
+        <br>
+        <div>
+          <?php
+
+          if(isset($_GET["resetSuc"])){
+            if($_GET["resetSuc"]=="error"||$_GET["resetSuc"]=="fail")
+              echo "<p class=\"email-error\">Something went wrong. Please try again.. </p>";
+            else if($_GET["resetSuc"]=="success")
+               echo "<p class=\"email-sent\">Password reset Successful. Now you can login </p>";
+
+          }
+
+          ?>
+
+          
+        </div>
+        <br>
         <form action="login" method="POST" class="login_form" name="form" onsubmit="return validated()">
             <div class="group">
                 <label for="username">Username</label><br>
@@ -75,7 +120,7 @@
             <br>
            
             <div class="group_link">
-                <a href="" style="color:blue">Forgotten your username or password?</a>
+               <label for="show" class="link">Forgotten your password?</label>
             </div>
             <br>
             <div class="sumbit">
@@ -141,6 +186,26 @@
         </script>
 
     </div>
+
+    <input type="checkbox" id="show">
+
+
+    <div class="resetPassword">
+      <label for="show" class="close-btn fas fa-times"></label>
+      <h1>Reset Password</h1>
+          <form action="resetPasswordRequest" method="POST">
+            <label class="reset-label">User Name</label>
+            <br>
+            <input type="text" name="userName" required class="reset-input">
+            <br>
+            
+            <button type="submit" class="reset-button" name="sendEmail" >Send Email</button>
+          </form>
+          
+
+        </div>
+
+
 </body>
 
 </html>
