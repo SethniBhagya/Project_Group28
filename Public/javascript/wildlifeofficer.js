@@ -69,9 +69,9 @@ function filterFunction() {
 
 function loadMap()
 {
-  // The location of Uluru
+  // The location of matara
   var Matara = { lat: 5.9549, lng: 80.5550 };
-  // The map, centered at Uluru
+  // The map, centered at matara
   var map = new google.maps.Map(document.getElementById("map"),
     {
       zoom: 100,
