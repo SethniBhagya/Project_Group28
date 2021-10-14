@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="Public/javascript/home.js"></script>
+    <!-- <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="Public/css/home.css">
     
      
@@ -24,11 +26,12 @@
             </div>
 
             <ul>
-
+                 <!-- <li id="lan"></li> -->
                 <li id="home"><a href="">HOME</a></li>
                 <li id="report"><a href="incident/index">REPORT</a></li>
                 <li id="register"><a href="villager/register">REGISTER</a></li>
                 <li id="login"><a id=login_text href="user/index">LOGIN</a></li>
+                
                 <li class="dropdown">
                     <button onclick="myFunction_2()" class="dropbtn">Language <i class="down"></i></button>
                     <div id="myDropdown" class="dropdown-content">
@@ -43,14 +46,20 @@
 
     </div>
 
-<div class="banner">
+<div class="banner" id="banner">
       
         
-        <img src="Public/images/wlimg3.png" class="imgs" >
+        
         <img src="Public/images/wlimg2.png" class="imgs">
-        <img src="Public/images/wlimg6.png" class="imgs">
+        <img src="Public/images/wlimg3.png" class="imgs">
         <img src="Public/images/wlimg4.png" class="imgs">
+        <img src="Public/images/wlimg6.png" class="imgs">
         <img src="Public/images/wlimg8.png" class="imgs">
+
+
+       
+
+        
         
         
             <!-- <h1>Wildlife is sbhs</h1>
@@ -62,6 +71,20 @@
         </form>
         
     </div>
+
+
+
+<!-- <script type="text/javascript">
+function googleTranslateElementInit() {
+new google.translate.TranslateElement({pageLanguage: 'en'}, 'lan');
+}
+</script>
+
+
+ -->
+
+
+
    
    <script type="text/javascript">
     var imgs=document.querySelectorAll(".banner .imgs");
@@ -127,9 +150,20 @@ function nextImage(){
 
                <li>
                     <div id="fr1-1">
-                         <img src="Public/images/elephant.png"  >
+                         
+                         <img src="Public/images/reportinci.png">
+                         <div id="fr1-1-side">
+                          <i class="fas fa-republican"></i>
+                            <h4>Report Incidents</h4>
+                            
+                         </div>
+                         <div id="fr1-1-class">
+
+                            <img src="Public/images/elephant.png"  >
                          <h2>Report Incidents</h2>
                          <p>Wildlife Care have facilitated users to report incidents regarding wildlifes. Accordingly, it can allow users to inform those  informations  quickly  </p>
+                             
+                         </div>
 
 
                     </div>
@@ -138,9 +172,21 @@ function nextImage(){
                 <li>
 
                     <div id="fr1-2">
-                        <img src="Public/images/bell.png" >
-                        <h2>GET ALERTS</h2>
+                        <img src="Public/images/alertinci.png">
+                        <div id="fr1-2-side">
+                            <i class="fas fa-bell"></i>
+                            <h4>Get Alerts</h4>
+
+                            
+                         </div>
+                        
+                        <div id="fr1-2-class">
+
+                            <img src="Public/images/bell.png" >
+                        <h2>Get Alerts</h2>
                         <p>Wildlife Care have facilitated to inform relevant villagers quickly  when reporting about  wild elephants coming  to villages </p>
+                             
+                         </div>
 
 
                     </div>
@@ -149,9 +195,20 @@ function nextImage(){
                 <li>
 
                     <div id="fr1-3">
-                        <img src="Public/images/vet.png" >
-                        <h2>VTERINARIAN SUPPORT</h2>
+                        <img src="Public/images/vetinci.png">
+                        <div id="fr1-3-side">
+                          <i class="fas fa-laptop-medical"></i>
+                            <h4>Veterinarian Support</h4>
+                            
+                         </div>
+
+
+                        <div id="fr1-3-class">
+                            <img src="Public/images/vet.png" >
+                        <h2>Veterinarian Support</h2>
                         <p>Wildlife officials have facilities to alert veterinarians using Wildlife Care system as soon as a wild animal is in danger.  </p>
+                             
+                         </div>
 
 
                     </div>
@@ -166,23 +223,47 @@ function nextImage(){
 
                <li>
                     <div id="fr2-1">
-                         <img src="Public/images/map.png"  >
+                        <img src="Public/images/mapinci.png">
+
+                        <div id="fr2-1-side">
+                          <i class="fas fa-map-signs"></i>
+                            <h4>Maps</h4>
+                            
+                         </div>
+                        
+                        <div id="fr2-1-class">
+                             <img src="Public/images/map.png"  >
+                          
                          <h2>Maps</h2>
                          <p>The Wildlife Care  allows users to mark the location when reporting an incident.
 The location of the reported incident can also view </p>
-
+                             
+                         </div>
+                         
 
                     </div>
+
+                    
                 </li>
 
                 <li>
 
                     <div id="fr2-2">
-                        <img src="Public/images/mobile.png" >
-                        <h2>REGISTER WITHOUT SMARTPHONES</h2>
+                        <img src="Public/images/reginci.png">
+                        <div id="fr2-2-side">
+                          <i class="fas fa-phone"></i>
+                            <h4>Register Without Smartphones</h4>
+                            
+                         </div>
+                        
+                        <div id="fr2-2-class">
+
+                            <img src="Public/images/mobile.png" >
+                        <h2>Register Without Smartphones</h2>
                         <p>Villagers who don't have smart phones but have mobile phones can register and  get alerts from this system.
  </p>
-
+                             
+                         </div>
 
                     </div>
                 </li>
@@ -190,9 +271,20 @@ The location of the reported incident can also view </p>
                 <li>
 
                     <div id="fr2-3">
-                        <img src="Public/images/dash.png" >
+                        <img src="Public/images/dashinci.png">
+                        <div id="fr2-3-side">
+                          <i class="fas fa-chart-line"></i>
+                            <h4>Analytical Dashboard</h4>
+                            
+                         </div>
+                        
+                        <div id="fr2-3-class">
+
+                            <img src="Public/images/dash.png" >
                         <h2>Analytical Dashboard</h2>
                         <p>Wildlife Care Provides detailed dashboard for required analytical works. </p>
+                             
+                         </div>
 
 
                     </div>
@@ -201,63 +293,58 @@ The location of the reported incident can also view </p>
             
 
         </div>
-        <div id="conclusion">
-    <ul>
+         <div class="footer">
 
-        <li>
-                <div id="address">
-                    <p>Address:</p>
-                     <p>Keas 69 Str.</p>
-                     <p>15234, Chalandri</p>
-                      <p>Athens,</p>
-                      <p>Greece</p>
+            <div class="conclusion">
+
+                <div class="row">
+
+                    <div class="footer-col">
+
+                        
+                        <ul>
+                            <li><h4>Address</h4></li>
+                            <li>No18</li>
+                            <li>Kandy Road</li>
+                            <li>Pilimathalawa</li>
+                        </ul>
+                        
+                    </div>
+
+                     <div class="footer-col">
+
+                        
+                        <ul><li><h4>Site Map</h4></li>
+                            <li><a href="">Home</a></li>
+                            <li><a href="">Register</a></li>
+                            <li><a href="">Login</a></li>
+                            
+                        </ul>
+                        
+                    </div>
+
+                     <div class="footer-col">
+
+                        <h4>Follow Us</h4>
+                        <div class="social-links">
+                            <a href=""><i class="fab fa-facebook-f"></i></a>
+                            <a href=""><i class="fas fa-phone"></i></a>
+                            <a href=""><i class="fas fa-envelope"></i></a>
+                            <a href=""><i class="fab fa-linkedin-in"></i></a>
+                            
+
+                        </div>
+                        
+                    </div>
+                    
 
                 </div>
+                
 
-            </li>
-
-             <li>
-                <div id="site-map">
-                    <h2>Site Map</h2>
-                    <h3><a href="../wildlifecare">-HOME</a></h3>
-                    <h3><a href="user/index">-LOGIN</a></h3>
-                    <h3><a href="villager/register">-REGISTER</a></a></h3>
-
-                </div>
-
-            </li>
-
-            <li>
-                <div id="contact">
-                    <ul>
-                    <ul>
-                         <img src="Public/images/icon.png">
-                    </ul>
-                   
-                    <ul>
-                    <li><img src="Public/images/envlop.png"></li>
-                    <li><p>+94817177272</p></li>
-                    </ul>
-                    <ul>
-                    <li><img src="Public/images/phone.png"></li>
-                    <li><p>wildlifecare@gmail.com</p></li>
-                    </ul>
-                </ul>
-
-                      
-
-                </div>
-
-            </li>
-        
-
-    </ul>
+            </div>
     
 
-</div>
-
-</div>
-
+         </div>
 
 
 

@@ -45,11 +45,9 @@
 <div class="banner">
       
         
-        <img src="../Public/images/wlimg3.png" class="imgs" >
-        <img src="../Public/images/wlimg2.png" class="imgs">
-        <img src="../Public/images/wlimg6.png" class="imgs">
-        <img src="../Public/images/wlimg4.png" class="imgs">
-        <img src="../Public/images/wlimg8.png" class="imgs">
+        
+        <video src="Public/images/video.mp4" class="video" autoplay loop muted></video>
+
         
         
             <!-- <h1>Wildlife is sbhs</h1>
@@ -59,7 +57,7 @@
         <button id="regButton">REGISTER</button>
     </div>
    
-   <script type="text/javascript">
+  <!--  <script type="text/javascript">
     var imgs=document.querySelectorAll(".banner .imgs");
     
     var nextImgDelay=3000;
@@ -82,7 +80,7 @@ function nextImage(){
 
 }
 
-   </script>
+   </script> -->
 
 <!-- 
   <div class="banner-area">

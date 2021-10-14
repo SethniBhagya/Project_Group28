@@ -72,10 +72,10 @@ window.onclick = function myFunction_2(event) {
                }
 
 
-                function selectInci(x){
+function selectInci(x){
                   
-                var parent=document.getElementsByClassName("container2-inci");
-                var allInci=parent[0].children;
+    var parent=document.getElementsByClassName("container2-inci");
+    var allInci=parent[0].children;
 
                 for(var i=0;i<allInci.length;i++)
                 {
@@ -127,3 +127,6 @@ window.onclick = function myFunction_2(event) {
 
                }
 
+
+
+  

@@ -60,15 +60,22 @@ class admin_model extends Model{
 		$hashPassword=password_hash($data["password"], PASSWORD_DEFAULT);
         
 		$stmt1="INSERT INTO user VALUES('$nic','$fname','$lname','$mob','$dob','$address','$userType','$email','$gender')";
-		$stmt2="INSERT INTO grama_niladhari VALUES('$nic','$gic')";
-		$stmt3="INSERT INTO login VALUES('$nic','$hashPassword')";
 		$gnd_code=(($this->db->runQuery("SELECT GND_Code FROM gn_division WHERE name='$gnd' AND district_name='$district'"))[0])["GND_Code"];
+<<<<<<< HEAD
+		$stmt2="INSERT INTO grama_niladhari VALUES('$nic','$gic','$gnd_code')";
+		$stmt3="INSERT INTO login VALUES('$nic','$hashPassword')";
+		$stmt4="UPDATE village SET grama_niladhari_NIC='$nic' WHERE GND_Code='$gnd_code'";
+		// $stmt5="UPDATE lives SET gramaniladhari_NIC='$nic' WHERE GND_Code='$gnd_code'";
+		$stmt6="UPDATE grama_niladhari SET NIC='$nic',GID='$gic' WHERE GND_Code='$gnd_code'";
+=======
 		$stmt4="UPDATE village SET gramaniladari_NIC='$nic' WHERE GND_Code='$gnd_code'";
+>>>>>>> 06b214de4ded0b383ec69af23bf60f619581df8a
         
 		$this->db->runQuery($stmt1);
 		$this->db->runQuery($stmt2);
 		$this->db->runQuery($stmt3);
 		$this->db->runQuery($stmt4);
+		$this->db->runQuery($stmt6);
 	}
 
 	public function woAdd($data){
@@ -189,18 +196,18 @@ class admin_model extends Model{
 
 				$stmt4="SELECT user.NIC,veterinarian.VID,user.Fname,user.Lname,user.BOD,user.mobileNo,veterinarian.officeNo,district.Name AS 'district_name',province.Name FROM                                                                           user,veterinarian,regional_wildlife_office,village,gn_division,district,province WHERE user.jobType='veterinarian' AND  user.NIC=veterinarian.NIC  AND veterinarian.officeNo=regional_wildlife_office.officeNo AND regional_wildlife_office.officeNo=village.officeNo AND village.GND_Code=gn_division.GND_Code AND gn_division.district_name=district.Name AND district.province_name=province.Name";
 
-				// $stmt5="SELECT user.NIC,grama_niladhari.GID,user.Fname,user.Lname,user.BOD,user.mobileNo,user.Address,village.name,gn_division.name AS 'gnd_name',district.Name AS 'district_name',province.Name FROM user,grama_niladhari,lives,village,gn_division,district,province WHERE user.jobType='grama niladhari' AND user.NIC=grama_niladhari.NIC AND grama_niladhari.NIC=lives.gramaniladhari_NIC AND  lives.village_code=village.village_code AND village.GND_Code=gn_division.GND_Code AND gn_division.district_name=district.Name AND district.province_name=province.Name";
+				$stmt5="SELECT user.NIC,grama_niladhari.GID,user.Fname,user.Lname,user.BOD,user.mobileNo,user.Address,village.name,gn_division.name AS 'gnd_name',district.Name AS 'district_name',province.Name FROM user,grama_niladhari,lives,village,gn_division,district,province WHERE user.jobType='grama niladhari' AND user.NIC=grama_niladhari.NIC AND grama_niladhari.NIC=lives.gramaniladhari_NIC AND  lives.village_code=village.village_code AND village.GND_Code=gn_division.GND_Code AND gn_division.district_name=district.Name AND district.province_name=province.Name";
 
 				$rows1=$this->db->runQuery($stmt1);
 				$rows2=$this->db->runQuery($stmt2);
 				$rows3=$this->db->runQuery($stmt3);
 				$rows4=$this->db->runQuery($stmt4);
-				// $rows5=$this->db->runQuery($stmt5);
+				$rows5=$this->db->runQuery($stmt5);
 				$allUsers=["villager"=>$rows1,
 				            "regional officer"=>$rows2,
 				            "wildlife officer"=>$rows3,
 				            "veterinarian"=>$rows4,
-				            // "grama niladhari"=>$rows5
+				            "grama niladhari"=>$rows5
 
 			                ];
 				return $allUsers;
@@ -208,6 +215,37 @@ class admin_model extends Model{
 			
 		
 	}
+
+
+
+	public function getProvince(){
+		$stmt="SELECT * FROM Province";
+		return $this->db->runQuery($stmt);
+	}
+
+	public function getOfficeNum(){
+		$stmt="SELECT officeNo FROM regional_wildlife_office";
+		return $this->db->runQuery($stmt);
+	}
+
+    public function getDistrict($provinceName){
+		$stmt="SELECT * FROM district WHERE province_name='$provinceName'";
+		return $this->db->runQuery($stmt);
+	}
+
+	public function getGN($districtName){
+		$stmt="SELECT * FROM gn_division WHERE district_name='$districtName'";
+		return $this->db->runQuery($stmt);
+	}
+
+
+	public function getVillage($gnName){
+		$gnd_code=(($this->db->runQuery("SELECT GND_Code FROM gn_division WHERE name='$gnName'"))[0])["GND_Code"];
+		$stmt="SELECT * FROM village WHERE GND_Code='$gnd_code'";
+		return $this->db->runQuery($stmt);
+	}
+
+
 
 
 
