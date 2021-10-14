@@ -1,14 +1,14 @@
 <?php
 class user extends Controller{
 
-    private $firstName;
-    private $lastName;
-    private $address;
-    private $gender;
-    private $userNic;
-    private $userEmail;
-    private $userMobileNumber;
-    private $userDataofBirth;
+    private $_firstName;
+    private $_lastName;
+    private $_address;
+    private $_gender;
+    private $_userNic;
+    private $_userEmail;
+    private $_userMobileNumber;
+    private $_userDataofBirth;
 
     function __construct(){
         parent::__construct();
@@ -102,13 +102,13 @@ class user extends Controller{
 
     }
 
-    function viewpage(){
+    public function viewpage(){
         
         switch($_GET['user']){
             case 'villager':
              session_start();
-                
-             $this->view->data = $this->model->selectData( $_SESSION["NIC"]);   
+             $_userNic = $_SESSION["NIC"];     
+             $this->view->data = $this->model->selectData($_userNic);   
 
             $this->view->render('villagersPage');
         }

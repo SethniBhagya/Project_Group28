@@ -20,9 +20,18 @@
             </div>
 
             <ul>
-                <li id="home_2"><a href="../">HOME</a></li>
-                <li id="dashboard_1"><a href="../user/viewpage?user=villager">DASHBOARD</a></li>
-                <li id="report_1"><a href="">REPORT</a></li>
+            <li id="home_2"><a href="../">Home</a></li>
+                <li id="dashboard_1"   ><a href="" >Dashboard</a></li>
+                <li id="report_2"><a href="">Incidents Report</a></li>
+                <li id="special_1"><a href="">SpecialNotice </a></li> 
+                <div class="dropdown-1">
+                    <button class="dropbtn-1">Language</button>
+                    <div class="dropdown-content-1">
+                        <a href="">English</a>
+                        <a href="">සිංහල</a>
+                        <a href="">தமிழ்</a>
+                    </div>
+                  </div>
                 <li class="dropdown">
                     <span class="dot"> <img onclick="myFunction_3(this)" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
                     <div id="myDropdown" class="dropdown-content">
