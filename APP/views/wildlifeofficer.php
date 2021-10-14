@@ -1,6 +1,6 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,6 +11,7 @@
     <script src="../Public/javascript/wildlifeofficer.js"></script>
     <title>Document</title>
 </head>
+
 <body>
     <header id="main">
         <img src="../Public/images/icon.png" alt="icon" id="icon">
@@ -35,39 +36,43 @@
         </nav>
     </header>
     <div class="name">
-   
-        <span class="dot2"><img src="../Public/images/user_icon.png" id="user-icon2" ></span><b>
+
+        <span class="dot2"><img src="../Public/images/user_icon.png" id="user-icon2"></span><b>
             <?php
-         if (session_status() === PHP_SESSION_NONE) {
-            session_start();
-            
-        }
-         echo $_SESSION["Fname"] ." ".$_SESSION["Lname"] ?>
+            if (session_status() === PHP_SESSION_NONE) {
+                session_start();
+            }
+            echo $_SESSION["Fname"] . " " . $_SESSION["Lname"] ?>
         </b></label>
     </div>
     <div class="main-view">
-    <a href="../wildlifeofficer/viewIncidents">
-    <button class="report" >
-        <h1> Incidents</br>! </h1>
-    
-    </button>
-    </a>
-    <a  href="404">
-    <button class="specialNotice">
-        <div class="notification"><span class="dot-1"><img src="../Public/images/bell.png" alt="1" srcset=""></span></div>
-        <h1>Special notices </h1>
-    </button>
-    </a>
-   <a href="../wildlifeofficer/viewDashboard">
-   <button class="dashboard">
-       <h1>Dashboard<div class="line"><img src="../Public/images/list.png"></div></h1>
-    </button>
-   </a>
+        <a href="../wildlifeofficer/viewIncidents">
+            <button class="report">
+                <h1> Reported </br>Incidents</h1>
+                <div class="line"><img src="../Public/images/emergency.png"></div>
+
+            </button>
+        </a>
+        <a href="404">
+            <button class="specialNotice">
+                <div class="notification"><span class="dot-1"><img src="../Public/images/bell.png" alt="1" srcset=" "></span>
+                </div>
+                <h1>Emergency Notifications</h1>
+                <div class="line"><img src="../Public/images/notifi.png"></div>
+            </button>
+        </a>
+        <a href="../wildlifeofficer/viewDashboard">
+            <button class="dashboard">
+                <h1>Dashboard<div class="line"><img src="../Public/images/dashIcon.png"></div>
+                </h1>
+            </button>
+        </a>
     </div>
     <!-- <button class="View-Report">
         <h2>View Reported Incidents</h2>
     </button> -->
-    
-</body>
-</html>
+    <!-- <div><img scr="../Public/images/Untitled-1-01.png"></div> -->
 
+</body>
+
+</html>
