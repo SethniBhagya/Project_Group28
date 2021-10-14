@@ -6,21 +6,9 @@ require 'Core/Model.php';
 require 'Core/view.php';
 require 'Config/Database.php';
 require 'Core/Database.php';
-
-// $tempUrl=$_GET['url'];
-// echo $tempUrl;
-// exit;
-
-// if($tempUrl=="index.php")
-// {
-// 	require 'home.php';
-// 	exit;
-
-// }
-
-
-	   
-
+ 
+ 
+// create the object 
 $route=new Route();
 
 

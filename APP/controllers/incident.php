@@ -2,7 +2,7 @@
  
 class incident extends Controller{
     
-    private $_incidentId ;
+    private $_incidentId ;  
     private $_incidentCategory;
     private $_incidentDate;
     private $_incidentLocation;
@@ -11,122 +11,122 @@ class incident extends Controller{
     {
         parent::__construct();
     }
-    
+    //create the index function for loading default incident file
     function index(){
+        //Get the session variable 
         session_start();
+        //Check the is session varible already have in session 
         if(!isset($_SESSION['NIC'])){
-           // echo  "number" .$_SESSION['NIC'];
+            //if not have goto login page
             header('Location: ../user/index');
         }else{ 
+            //if have load report page
             $this->view->render('report');
         }
     }
-    
+    //Create the setIncident function for load incident report type
     public function setIncident(){
+        //if check when router path enter if user already or not
         session_start();
+        //if not goto the login page
         if(!isset($_SESSION['NIC'])){
-            echo  "number" .$_SESSION['NIC'];
+            //routing the login page
             header('Location: ../user/index');
-        }else{ 
-       $value = $_GET['report'];
-       //echo $value;
+        }else{
+            //if user already log then pass report page   
+            // get value in report
+            $value = $_GET['report'];
+        //switch in the incident report type page
        switch ($value) {
             case "1" : $this->view->render('report1');
+            //user submit the form 
             if(isset($_POST['Submit'])){
+                //call insertReport function in incident_model class 
                 $this->model->insertReport1($_SESSION['NIC'], $_POST['noOfelephant'], $_POST['Reg'], $_POST['Photo'], $_POST['latitude'],$_POST['longitude'] );
-                // $this->_incidentId = $this->_incidentId + 1; 
-            } 
-
-        //     if(isset($_POST['Submit'])){
-        //     $lat=$_POST['latitude'];
-        //     $lng=$_POST['longitude'];
-        //     echo $lat; 
-        //     $address= $this->getaddress($lat,$lng);
-        //     if($address)
-        //     {
-        //        echo $address;
-        //     }
-        //     else
-        //     {
-        //        echo "Not found";
-        //     }
-        // }
-          break;
-          case "2" : $this->view->render('report2'); 
+                  
+            }  
+            break;
+            case "2" : $this->view->render('report2');
+            //user submit the form 
              if(isset($_POST['Submit'])){
+                 //call insertReport function in incident_model class
                  $this->model->insertReport2($_SESSION['NIC'],$_POST['animal'],$_POST['noOfanimals'],$_POST['discription'],$_POST['Photo'],$_POST['latitude'],$_POST['longitude']);
              }  
-          break;
+            break;
 
-          case "3" : $this->view->render('report3');
+            case "3" : $this->view->render('report3');
+            //user submit the form
               if(isset($_POST['Submit'])){
+                  //call insertReport function in incident_model class
                   $this->model->insertReport3($_SESSION['NIC'],$_POST['Photo'],$_POST['latitude'],$_POST['longitude']);
               }
-          break;
-          case "4" : $this->view->render('report4');
+            break;
+            case "4" : $this->view->render('report4');
+            //user submit the form
               if(isset($_POST['Submit'])){
+                  //call insertReport function in incident_model class
                   $this->model->insertReport4($_SESSION['NIC'],$_POST['animal'],$_POST['cultivatedCrop'],$_POST['cultivatedLand'] ,$_POST['Photo'],$_POST['damageLand'],$_POST['latitude'],$_POST['longitude']);
               }
-          break;
-          case "5" : $this->view->render('report5');
-          if(isset($_POST['Submit'])){
-            $this->model->insertReport5($_SESSION['NIC'],$_POST['animal'],$_POST['noOfanimals'],$_POST['support'],$_POST['discription'],$_POST['Photo'],$_POST['latitude'],$_POST['longitude']);
-        }
-          break;
-          case "6" : $this->view->render('report6');
-          if(isset($_POST['Submit'])){
-            $this->model->insertReport6($_SESSION['NIC'],$_POST['Photo'],$_POST['latitude'],$_POST['longitude']);
-          }
-          break;
+            break;
+            case "5" : $this->view->render('report5');
+            //user submit the form
+              if(isset($_POST['Submit'])){
+                  //call insertReport function in incident_model class
+                  $this->model->insertReport5($_SESSION['NIC'],$_POST['animal'],$_POST['noOfanimals'],$_POST['support'],$_POST['discription'],$_POST['Photo'],$_POST['latitude'],$_POST['longitude']);
+              }
+            break;
+            case "6" : $this->view->render('report6');
+            //user submit the form
+              if(isset($_POST['Submit'])){
+                  //call insertReport function in incident_model class
+                  $this->model->insertReport6($_SESSION['NIC'],$_POST['Photo'],$_POST['latitude'],$_POST['longitude']);
+              }
+            break;
        }
     }
     }
-    function viewReport(){
-        // $this->view->data = $this->model->getdata();
-        //print_r($this->model->getReportrows());
+    //Create the viewReport function for villager user ViewTable  
+    public function viewReport(){
+        //get the number of rows reports in assocaiative array
         $rows =  $this->model->getReportrows();
+        //assign value to $%noOfrows
         $noOfrows =  $rows['total_rows'];
+        //each page get the rows
         $rowsPer = 15;
+        //Get the page number 
         $pageNumber = $_GET['page'];
+        //view the page number view in report
         $start =  ($pageNumber -1) * $rowsPer;
+        //call the getdataPending function in incident_model class  
         $this->view->data1 = $this->model->getdataPending($start,$rowsPer);
+        //get the lastpage number
         $lastpage = ceil($noOfrows/$rowsPer);
+        //pass the value
         $this->view->lastpage = $lastpage;
+        //if check the already have type
         if(isset($_GET['type'])){
+            //assign the value
             $type = $_GET['type'];
         }
+        //switch each the page when get the $type value
         switch($type){
             case 1 :
+            //display villagerReportView1     
             $this->view->render('villagerReportView1');
             break;
             case 2 :
+            //display villagerReportView2
             $this->view->render('villagerReportView2');
             break;
             case 3 :
+            //display villagerReportView3    
             $this->view->render('villagerReportView3');
             break;
     
         }
-        // $this->view->render('villagerReportView1');
-
-        // if(isset)
-     //   echo "hello";
-       // print_r($this->view->data);
+   
     }
     function getReportrows(){
 
     }
-    // function getaddress($lat,$lng)
-    //  {
-    //     echo $lat;
-    //     $url = 'https://maps.googleapis.com/maps/api/geocode/json?latlng='.trim($lat).','.trim($lng).'&sensor=false';
-    //     $json = @file_get_contents($url);
-    //     $data=json_decode($json);
-    //     $status = $data->status;
-    //     echo $status;
-    //     echo  $data->results[0]->formatted_address;
-    //     if($status=="OK") return $data->results[0]->formatted_address;
-    //     else
-    //     return$data->results[0]->formatted_address;
-// }
-}
+} 

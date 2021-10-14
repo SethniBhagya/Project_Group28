@@ -60,7 +60,7 @@
             <div id="errorMessage" style="padding: 10px;">
             <h1>Wildlife Care</h1></br></br>
             <h>Your Id Number is Already Registered</h>
-            <a href=""  class="login-btn" style="color: darkred;">Login</a>
+            <a href="../user/index"  class="login-btn" style="color: darkred;">Login</a>
             </div>
           <?php
           

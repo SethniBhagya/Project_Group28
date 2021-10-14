@@ -48,7 +48,7 @@
     <a class="report" href="../incident/index">
        <h1> Report </br><br><br>! </h1>
     </a>
-    <a class="specialNotice">
+    <a class="specialNotice" href="nn">
         <div class="notification"><span class="dot-1"><img src="../Public/images/bell.png" alt="1" srcset=""></span></div>
         <h1>Special </br><br><br>  Notice</h1>
     </a>

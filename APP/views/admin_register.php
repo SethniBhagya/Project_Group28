@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../Public/css/admin_register.css">
     <link rel="stylesheet" href="../Public/css/header.css">
     <script src="../Public/Javascript/admin.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" referrerpolicy="no-referrer"></script>
     <title>User Registration</title>
 </head>
 <body>
@@ -40,6 +41,9 @@
             <ul>
                 <li><h3>ADD USER</h3></li>
                 <li><button id="profile" onclick="location.href='../admin/dashboard'">Go to Profile</button></li>
+                <form>
+    
+</form>
                 
             </ul>
          
@@ -59,6 +63,7 @@
             </select>
            
              
+      
 
             
             
@@ -66,7 +71,8 @@
             
         </div>
 
-        <div class="error" style=" margin-top: 2px;
+
+       <!--  <div class="error" style=" margin-top: 2px;
   position: absolute;
   width: 345px;
   font-size: 18px;
@@ -77,11 +83,12 @@
   
   /*border: 1px solid #EF9A9A;*/
   left: 37.5%; ">
-                 <?php if(!empty($data))  echo $data; ?>
-            </div>
+                 <?php if(!empty($data))  echo $data["province"]; ?>
+            </div> -->
 
              <!--  -->
         <div class="container2">
+
 
             <form class="gnform" method="POST" action="../admin/addUser">
                 <table>
@@ -151,70 +158,51 @@
                             <input type="text" name="address" id="address" required>
                         </td>
                     </tr>
+
+                    <tr>
+                        <td>
+                            <label for="gndgrama">Work GN Division</label>
+                        </td>
+                        <td>
+                            <select  name="gnd" id="gndgrama" required>
+                                     
+                         
+                            </select>
+                        </td>
+                    </tr>
+
+
+
+
+                    <tr>
+                           <td>
+                                 <label for="districtgrama"> Work District</label>
+                           </td>
+                           <td>
+                                <select class="text" name="district" id="districtgrama"  onchange ="selectGN1(this.value)" required>
+                                     
+                         
+                               </select>
+                           </td>
+               </tr>
                     
                     <tr>
                           <td><label for="province">Work Province</label></td>
 
                           <td>
-                               <select class="text" name="province" id="province"  required>
-                                     <option value="">  Choose here</option>
-                                     <option value="central province">Central Province</option>
-                                     <option value="eastern province">Eastern Province</option>
-                                     <option value="northern province">Northern Province</option>
-                                     <option value="southern  province">Southern Province</option>
-                                     <option value="western province">Western Province</option>
-                                     <option value="north western province">  North Western Province</option>
-                                     <option value="north central province"> North Central Province</option>
-                                     <option value="uva province">Uva Province</option>
-                                     <option value="sabaragamuwa province"> Sabaragamuwa Province</option>
+                               <select class="text" name="province" id="province"   onchange ="selectDistrict1(this.value)"  required>
+                                  <option>Select Province</option>
+                                   <?php $rows=$data["province"]; foreach($rows as $row){ echo "<option"?><?php echo " value=".$row["Name"]." >".$row["Name"]."</option>";}?> 
+                                    
                                </select>
+
+                            
                            </td>
                     </tr>
 
-                    <tr>
-                           <td>
-                                 <label for="district"> Work District</label>
-                           </td>
-                           <td>
-                                <select class="text" name="district" id="district" required>
-                                     <option value="">  Choose here</option>
-                                     <option value="Gampaha">Gampaha District</option>
-                                     <option value="Colombo">Colombo</option>
-                                     <option value="Kalutara">Kalutara</option>
-                                     <option value="Anuradhapura">Anuradhapura District</option>
-                                      <option value="Polonnaruwa">Polonnaruwa</option>
-                                      <option value="Jaffna">Jaffna</option>
-                                     <option value="Kilinochchi">Kilinochchi</option>
-                                     <option value="Mannar">Mannar</option>
-                                     <option value="Mullaitivu">Mullaitivu District</option>
-                                     <option value="Vavuniya">Vavuniya</option>
-                                     <option value="Puttalam">Puttalam</option>
-                                     <option value="Kurunegala">Kurunegala</option>
-                                     <option value="Matale">Matale</option>
-                                     <option value="Kandy">Kandy</option>
-                                     <option value="Nuwara Eliya">Nuwara Eliya District</option>
-                                     <option value="Kegalle">Kegalle</option>
-                                     <option value="Ratnapura">Ratnapura</option>
-                                     <option value="Trincomalee">Trincomalee</option>
-                                     <option value="Batticaloa">Batticaloa</option>
-                                     <option value="Ampara">Ampara</option>
-                                     <option value="Badulla">Badulla</option>
-                                     <option value="Monaragala">Monaragala</option>
-                                     <option value="Hambanthota">Hambantota</option>
-                                     <option value="Matara">Matara</option>
-                                     <option value="Galle">Galle</option>
-                               </select>
-                           </td>
-               </tr>
+                    
 
-               <tr>
-                        <td>
-                            <label for="gnd">Work GN Division</label>
-                        </td>
-                        <td>
-                            <input type="text" name="gnd" id="gnd" required>
-                        </td>
-                    </tr>
+               
 
                     <tr>
                         <td>
@@ -336,7 +324,12 @@
                             <label for="ofn">Office Number</label>
                         </td>
                         <td>
-                            <input type="text" name="ofn" id="ofn" required>
+                            <select class="text" name="ofn" id="ofn" required>
+                                <option>Select Office Number</option>
+                                <?php $rows=$data["office"]; foreach($rows as $row){ echo "<option"?><?php echo " value=".$row["officeNo"]." >".$row["officeNo"]."</option>";}?> 
+
+                                
+                            </select>
                         </td>
                     </tr>
                     
@@ -386,6 +379,7 @@
 
              <form class="vilform"  method="POST" action="../admin/addUser">
                 <table>
+                    
 
                     <tr>
                         <td>
@@ -394,6 +388,9 @@
                         <td>
                             <input type="text" name="nic" id="nic" required>
                         </td>
+                        
+
+                        
                     </tr>
 
                     <tr>
@@ -444,79 +441,77 @@
                             <input type="text" name="address" id="address" required>
                         </td>
                     </tr>
+
+                    <tr>
+                        <td>
+                            <label for="villagevil">Village</label>
+                        </td>
+                        <td>
+                            <select class="text" name="village" id="villagevil"    required>
+                                
+                                  
+                               </select>
+                        </td>
+                    </tr>
+
+
+
+                    <tr>
+                        <td>
+                            <label for="gndvil">GN Division</label>
+
+                        </td>
+
+                        <td>
+                            <select  name="gnd" id="gndvi" onchange ="selectVil(this.value)" required>
+                                     
+                         
+                            </select>
+                            
+                        </td>
+                        
+                             
+
+
+                        
+                    </tr>
+
+                    <tr>
+
+                        <td>
+                                 <label for="districtvil">District</label>
+                           </td>
+                         <td>
+                                <select class="text" name="district" id="districtvil"  onchange ="selectGN(this.value)" required>
+                                     
+                         
+                               </select>
+                           </td>
+
+
+                        
+                    </tr>
                     
                     <tr>
-                          <td><label for="province">Province</label></td>
+                       
+                            <td><label for="province">Province</label></td>
 
                           <td>
-                               <select class="text" name="province" id="province" required>
-                                     <option value="">  Choose here</option>
-                                     <option value="central">Central Province</option>
-                                     <option value="eastern">Eastern Province</option>
-                                     <option value="northern">Northern Province</option>
-                                     <option value="southern">Southern Province</option>
-                                     <option value="western">Western Province</option>
-                                     <option value="north western">  North Western Province</option>
-                                     <option value="north central"> North Central Province</option>
-                                     <option value="uva">Uva Province</option>
-                                     <option value="sabaragamuwa"> Sabaragamuwa Province</option>
+                               <select class="text" name="province" id="province"   onchange ="selectDistrict(this.value)"  required>
+                                  <option>Select Province</option>
+                                   <?php $rows=$data["province"]; foreach($rows as $row){ echo "<option"?><?php echo " value=".$row["Name"]." >".$row["Name"]."</option>";}?> 
+                                    
                                </select>
+
+                            
                            </td>
+
+                          
+                          
                     </tr>
 
-                    <tr>
-                           <td>
-                                 <label for="district">District</label>
-                           </td>
-                           <td>
-                                <select class="text" name="district" id="district" required>
-                                     <option value="">  Choose here</option>
-                                     <option value="Gampaha">Gampaha District</option>
-                                     <option value="Colombo">Colombo</option>
-                                     <option value="Kalutara">Kalutara</option>
-                                     <option value="Anuradhapura">Anuradhapura District</option>
-                                      <option value="Polonnaruwa">Polonnaruwa</option>
-                                      <option value="Jaffna">Jaffna</option>
-                                     <option value="Kilinochchi">Kilinochchi</option>
-                                     <option value="Mannar">Mannar</option>
-                                     <option value="Mullaitivu">Mullaitivu District</option>
-                                     <option value="Vavuniya">Vavuniya</option>
-                                     <option value="Puttalam">Puttalam</option>
-                                     <option value="Kurunegala">Kurunegala</option>
-                                     <option value="Matale">Matale</option>
-                                     <option value="Kandy">Kandy</option>
-                                     <option value="Nuwara Eliya">Nuwara Eliya District</option>
-                                     <option value="Kegalle">Kegalle</option>
-                                     <option value="Ratnapura">Ratnapura</option>
-                                     <option value="Trincomalee">Trincomalee</option>
-                                     <option value="Batticaloa">Batticaloa</option>
-                                     <option value="Ampara">Ampara</option>
-                                     <option value="Badulla">Badulla</option>
-                                     <option value="Monaragala">Monaragala</option>
-                                     <option value="Hambanthota">Hambanthota</option>
-                                     <option value="Matara">Matara</option>
-                                     <option value="Galle">Galle</option>
-                               </select>
-                           </td>
-               </tr>
 
-               <tr>
-                        <td>
-                            <label for="gnd">GN Division</label>
-                        </td>
-                        <td>
-                            <input type="text" name="gnd" id="gnd" required>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>
-                            <label for="gnd">Village</label>
-                        </td>
-                        <td>
-                            <input type="text" name="village" id="village" required>
-                        </td>
-                    </tr>
+                
 
                     <tr>
                         <td>
@@ -549,11 +544,12 @@
 
 
                 </table>
+
                 <button>back</button>
                 <button type="submit" name="submit" value="villager">Submit</button>
                 
 
-          
+                
 
 
 
@@ -640,7 +636,14 @@
                             <label for="ofn">Office Number</label>
                         </td>
                         <td>
-                            <input type="text" name="ofn" id="ofn" required>
+                            
+
+                            <select class="text" name="ofn" id="ofn" required>
+                                <option>Select Office Number</option>
+                                <?php $rows=$data["office"]; foreach($rows as $row){ echo "<option"?><?php echo " value=".$row["officeNo"]." >".$row["officeNo"]."</option>";}?> 
+
+                                
+                            </select>
                         </td>
                     </tr>
 
@@ -766,7 +769,12 @@
                             <label for="on">Office Number</label>
                         </td>
                         <td>
-                            <input type="text" name="ofn" id="ofn" required>
+                            <select class="text" name="ofn" id="ofn" required>
+                                <option>Select Office Number</option>
+                                <?php $rows=$data["office"]; foreach($rows as $row){ echo "<option"?><?php echo " value=".$row["officeNo"]." >".$row["officeNo"]."</option>";}?> 
+
+                                
+                            </select>
                         </td>
                     </tr>
 
@@ -820,5 +828,78 @@
 
 
     </div>
+
+       <script >
+
+        
+
+
+
+        function selectDistrict(x){
+                                
+
+    $.post("../admin/addUser",{provinceName:x},function(data,status){
+          
+        $("#districtvil").html(data);
+
+
+        
+    });
+
+  }
+
+  function selectDistrict1(x){
+                                
+
+    $.post("../admin/addUser",{provinceName:x},function(data,status){
+          
+        $("#districtgrama").html(data);
+
+
+        
+    });
+
+  }
+
+  function selectGN(x){
+    
+    
+    $.post("../admin/addUser",{districtName:x},function(data,status){
+         
+          $('#gndvi').html(data);
+        
+        
+    });
+
+
+  }
+
+  function selectGN1(x){
+    
+    
+    $.post("../admin/addUser",{districtName:x},function(data,status){
+         
+          $('#gndgrama').html(data);
+        
+        
+    });
+
+
+  }
+
+  function selectVil(x){
+    
+    
+    $.post("../admin/addUser",{gnName:x},function(data,status){
+           
+          $('#villagevil').html(data);
+        
+        
+    });
+
+
+  }
+
+</script>
 
 </body>
