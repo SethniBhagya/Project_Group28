@@ -226,7 +226,7 @@ class user extends Controller{
               $pwd=$_POST["newPassword"];
               $conPwd=$_POST["confirmPassword"];
               if($pwd===$conPwd){
-                echo "amdo";
+                
 
                 if($this->model->resetPassword($userName,$pwd,$selector,$validator)){
                   header("Location: ../user/index?resetSuc=success");
@@ -249,7 +249,7 @@ class user extends Controller{
         else
            {
             header("Location: ../user/index?resetSuc=error");
-            echo "haha";
+            
            }
 
       }
