@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../Public/css/header.css">
+    <link rel="stylesheet" href="../Public/css/wildlifeofficer_header.css">
     <link rel="stylesheet" href="../Public/css/wildlifeofficer_dashboard.css">
     <script src="../Public/Javascript/login.js"></script>
     <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <!-- <script src="../Javascript/dashboard.js"></script> -->
-    <title></title>
+    <title>Dashboard</title>
 </head>
 
 <body style="background-image: none; background-color: rgba(164, 255, 228, 0.624);">
@@ -25,9 +25,8 @@
             </div>
 
             <ul>
-                <li id="home_2"><a href="../">HOME</a></li>
-                <li id="dashboard_1"><a href="../user/viewpage?user=villager">DASHBOARD</a></li>
-                <li id="report_1"><a href="">REPORT</a></li>
+                <li id="home"><a href="../">HOME</a></li>
+                <li id="dashboard"><a href="../wildlifeofficer/viewDashboard">DASHBOARD</a></li>
                 <li class="dropdown">
                     <span class="dot"> <img onclick="myFunction_2(this)" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
                     <div id="myDropdown" class="dropdown-content">
