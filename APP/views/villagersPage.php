@@ -27,9 +27,9 @@
                 <div class="dropdown-1" style="  padding-left:  300px ">
                     <button class="dropbtn-1">Language</button>
                     <div class="dropdown-content-1">
-                        <a href="../incident/index?lang=1">English</a>
-                        <a href="../incident/index?lang=2">සිංහල</a> 
-                        <a href="../incident/index?lang=3">தமிழ்</a>
+                        <a href=" ">English</a>
+                        <a href=" ">සිංහල</a> 
+                        <a href=" ">தமிழ்</a>
                     </div>
                   </div>
                 <li class="dropdown">
