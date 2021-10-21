@@ -20,15 +20,15 @@
 
             <ul>
             <li id="home_2"><a href="../">Home</a></li>
-                <li id="dashboard_1" style=" background-color: rgb(168, 175, 168);"  ><a href="" >Dashboard</a></li>
-                <li id="report_2"><a href="">Incidents Report</a></li>
+                <li id="dashboard_1"  ><a href="../user/viewpage?user=villager" >Dashboard</a></li>
+                <li id="report_2"><a href="../incident/index?lang=1">Report Incidents</a></li>
                 <li id="special_1"><a href="">SpecialNotice </a></li> 
                 <div class="dropdown-1">
                     <button class="dropbtn-1">Language</button>
                     <div class="dropdown-content-1">
-                        <a href="">English</a>
-                        <a href="">සිංහල</a>
-                        <a href="">தமிழ்</a>
+                    <a href="?lang=1&report=6">English</a>
+                        <a href="?lang=2&report=6">සිංහල</a> 
+                        <a href="?lang=3&report=6">தமிழ்</a>
                     </div>
                   </div>
                 <li class="dropdown">
@@ -53,6 +53,8 @@
             <input type="radio" name="yes" id="">
             <label for="status"><b>No</b></label>
             <input type="radio" name="No" id=""><br> -->
+            <lable for="place"><b>Enter the Place name <b></lable>
+            <input type="text" name="place" class="text" ><br><br>  
             <div class="photo">
             <label for="addPhoto"><b>Add Photo : </b></label>
             <input type="file" name="Photo" class="file"> </div>

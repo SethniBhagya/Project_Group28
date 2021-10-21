@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Public/css/header.css">
-    <link rel="stylesheet" href="../Public/css/report2.css">
+    <link rel="stylesheet" href="../Public/css/report-2.css">
     <script src="../Public/javascript/login.js"></script>
     <title>Other Wild Animals are in the Village</title>
 </head>
@@ -21,15 +21,15 @@
 
             <ul>
             <li id="home_2"><a href="../">Home</a></li>
-                <li id="dashboard_1" style=" background-color: rgb(168, 175, 168);"  ><a href="" >Dashboard</a></li>
-                <li id="report_2"><a href="">Incidents Report</a></li>
+                <li id="dashboard_1"  ><a href="../user/viewpage?user=villager" >Dashboard</a></li>
+                <li id="report_2"><a href="">Report Incidents</a></li>
                 <li id="special_1"><a href="">SpecialNotice </a></li> 
                 <div class="dropdown-1">
                     <button class="dropbtn-1">Language</button>
                     <div class="dropdown-content-1">
-                        <a href="">English</a>
-                        <a href="">සිංහල</a>
-                        <a href="">தமிழ்</a>
+                    <a href="?lang=1&report=2">English</a>
+                        <a href="?lang=2&report=2">සිංහල</a> 
+                        <a href="?lang=3&report=2">தமிழ்</a>
                     </div>
                   </div>
                 <li class="dropdown">

@@ -258,5 +258,12 @@ class user extends Controller{
 
     }
 
+    public function editprofile(){
+         
+      session_start();
+         $this->view->userData = $this->model->profileData( $_SESSION['NIC']);  
+         $this->view->render('editProfile');
+    }
+
 
 }

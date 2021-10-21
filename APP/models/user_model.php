@@ -12,7 +12,7 @@ class user_model extends Model{
     function selectData($userName){
         return $this->db->runQuery("SELECT * from user WHERE NIC= '$userName'");
     }
-
+    
     public function login($username,$password){
 
     	$loginData=[
@@ -104,5 +104,8 @@ class user_model extends Model{
 
 
 
+    }
+    public function profileData($userid){
+          return $this->db->runQuery("SELECT * FROM `user` WHERE NIC ='$userid' ");
     }
 }

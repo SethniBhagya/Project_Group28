@@ -22,14 +22,14 @@
             <ul>
             <li id="home_2"><a href="../">Home</a></li>
                 <li id="dashboard_1" ><a href="../user/viewpage?user=villager" >Dashboard</a></li>
-                <li id="report_2"><a href="">Incidents Report</a></li>
+                <li id="report_2"><a href="../incident/index?lang=1">Report Incidents</a></li>
                 <li id="special_1"><a href="">SpecialNotice </a></li> 
                 <div class="dropdown-1">
                     <button class="dropbtn-1">Language</button>
                     <div class="dropdown-content-1">
-                        <a href="">English</a>
-                        <a href="">සිංහල</a>
-                        <a href="">தமிழ்</a>
+                        <a href="?lang=1&report=3">English</a>
+                        <a href="?lang=2&report=3">සිංහල</a> 
+                        <a href="?lang=3&report=3">தமிழ்</a>
                     </div>
                   </div>
                 <li class="dropdown">

@@ -1,3 +1,27 @@
+let labelsMain = ['Wild Elephants Arrival','Wild Animals Arrival','Elephants fence damages','Crop Damages','Others' ];
+let dataMain = [69,31,15,20,10];
+let colorsMain= ['#49A9EA','#36CAAB','#884EA0','#A6ACAF','#0E6251'];
+
+// let myChart1 = document.getElementById("myChart1").getContext('2d');
+
+let mychart  = new Chart(myChartmain,{
+    type : 'doughnut',
+    data: {
+        labels : labelsMain,
+        datasets : [
+            {
+                data: dataMain,
+                backgroundColor : colorsMain
+            }
+        ]
+    },
+    options: {
+        title: {
+            text:"",
+            display: true 
+        }
+    }
+});
 let labels1 = ['Wild Elephants Arrival','Wild Animals Arrival','Elephants fence damages','Crop Damages','Others' ];
 let data1 = [69,31,15,20,10];
 let colors1= ['#49A9EA','#36CAAB','#884EA0','#A6ACAF','#0E6251'];
