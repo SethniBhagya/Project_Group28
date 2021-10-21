@@ -58,60 +58,22 @@ a:visited {
   width: 150px;
   height: 80px;
 }
-
-#home {
-  background-color: #14671c;
-}
-
 #home:hover,
-#home_1:hover {
-  background-color: darkgreen;
+#dashboard:hover {
+  background-color: rgb(14, 121, 14);
+  color: #00fb0a;
 }
-#home_1 {
+#home {
   position: absolute;
   top: 20px;
-  right: 200px;
+  right: 250px;
   text-align: center;
 }
-#report_1 {
+#dashboard {
   position: absolute;
   top: 20px;
   right: 100px;
   text-align: center;
-}
-#report {
-  background-color: #14671c;
-}
-
-#report:hover,
-#report_1:hover {
-  background-color: darkgreen;
-}
-
-#register {
-  background-color: #14671c;
-}
-
-#register:hover {
-  background-color: rgba(255, 255, 255, 0.36);
-}
-
-#login {
-  background-color: #14671c;
-}
-
-#login_text {
-  color: white;
-}
-#login_text:hover {
-  color: #00fb0a;
-}
-#login:hover {
-  background-color: rgba(0, 251, 10, 0.16);
-}
-#login:visited {
-  font-weight: bold;
-  background-color: bisque;
 }
 .user_btn {
   float: none;

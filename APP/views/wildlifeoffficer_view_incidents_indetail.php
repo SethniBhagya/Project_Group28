@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../Public/css/header.css">
+  <link rel="stylesheet" href="../Public/css/wildlifeofficer_header.css">
   <link rel="stylesheet" href="../Public/css/wildlifeoffficer_view_incidents_indetail.css">
   <script src="../Public/Javascript/login.js"></script>
   <script src="../Public/Javascript/viewReport.js"></script>
@@ -25,8 +25,8 @@
       </div>
 
       <ul>
-        <li id="home_1"><a href="nnn">HOME</a></li>
-        <li id="report_1"><a href="nnn">REPORT</a></li>
+        <li id="home"><a href="../">HOME</a></li>
+        <li id="dashboard"><a href="../wildlifeofficer/viewDashboard">DASHBOARD</a></li>
         <li class="dropdown">
           <span class="dot"> <img onclick="myFunction_3()" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
           <div id="myDropdown" class="dropdown-content">

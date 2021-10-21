@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../Public/css/wildlifeofficer_header.css" type="text/css">
     <script src="../Public/javascript/login.js"></script>
     <script src="../Public/javascript/wildlifeofficer.js"></script>
-    <title>Document</title>
+    <title>WildlifeCare</title>
 </head>
 
 <body>
@@ -23,8 +23,8 @@
             </div>
 
             <ul>
-                <li id="home_1"><a href="../">HOME</a></li>
-                <!-- <li id="report_1"><a href="">REPORT</a></li> -->
+                <li id="home"><a href="../">HOME</a></li>
+                <li id="dashboard"><a href="../wildlifeofficer/viewDashboard">DASHBOARD</a></li>
                 <li class="dropdown">
                     <span class="dot"> <img onclick="myFunction_2(this)" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
                     <div id="myDropdown" class="dropdown-content">

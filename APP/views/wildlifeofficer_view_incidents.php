@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="../Public/css/header.css" />
+  <link rel="stylesheet" href="../Public/css/wildlifeofficer_header.css" />
   <link rel="stylesheet" href="../Public/css/wildlifeofficer_view_incidents.css" />
   <script src="../Public/Javascript/login.js"></script>
   <script src="../Public/Javascript/viewReport.js"></script>
@@ -25,8 +25,8 @@
       </div>
 
       <ul>
-        <li id="home_1"><a href="nnn">HOME</a></li>
-        <li id="report_1"><a href="nnn">REPORT</a></li>
+        <li id="home"><a href="../">HOME</a></li>
+        <li id="dashboard"><a href="../wildlifeofficer/viewDashboard">DASHBOARD</a></li>
         <li class="dropdown">
           <span class="dot">
             <img onclick="myFunction_3()" src="../Public/images/user_icon.png" id="user_icon" class="user_btn" /></span>
@@ -100,6 +100,7 @@
             <th>Report Type</th>
             <th>Place</th>
             <th>Action</th>
+            <td></td>
           </tr>
           <?php
           foreach ($data as $row) {
@@ -127,14 +128,17 @@
             <td>" . $row['date'] . "</td>
             <td> 1</td>
             
-            
+            <td>Saman Perera</td>
             <td>" . $row['reporttype'] . "</td>
             <td>" . $row['Place'] . "</td>
             <td><input type='button'class='button' value='ACCEPT' name='accept'/></td>
-            <td><input type='button' value='REPORT' /></td>
+            <td><input type='button'class='button' value='VIEW' name='accept'/></td>
           </tr>";
           }
           ?>
+          <!-- <td><button type="submit" class="searchButton" id="view" onclick="">
+              <i class="fa fa-search"><a href="../wildlifeofficer/viewIncidentDetails">view</a></i>
+            </button></td> -->
 
 
 
