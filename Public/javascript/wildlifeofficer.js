@@ -51,7 +51,7 @@ function filterFunction() {
       tr[i].style.display = "";
     }
     else{
-      td = tr[i].getElementsByTagName("td")[2];
+      td = tr[i].getElementsByTagName("td")[3];
     if (td) {
       txtValue = td.Content || td.innerText;
       if (txtValue==filter) {

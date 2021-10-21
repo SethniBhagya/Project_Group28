@@ -14,7 +14,7 @@
     <title>Dashboard</title>
 </head>
 
-<body style="background-image: none; background-color: rgba(164, 255, 228, 0.624);">
+<body style="background-image: none; background-color: white;">
     <header id="main">
         <img src="../Public/images/icon.png" alt="icon" id="icon">
         <nav id="navbar" class="mybar">
@@ -40,7 +40,7 @@
 
     <div class="header-name">
         <h>
-            <pre style="font-size: larger;font-style: normal; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Total in Sri Lanka                       LastModified 30/09/2021</pre>
+            <pre style="font-size: larger;font-style: normal; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Total in Sri Lanka                      LastModified 30/09/2021</pre>
         </h>
     </div>
     <div class="main-update-col-1">

@@ -2,14 +2,15 @@
   position: inherit;
   margin-top: 10px;
   margin-left: 20px;
-  width: 40%;
+  width: 50%;
   /* padding: 2px 0px; */
   padding-left: 10px;
-  background: linear-gradient(
+  /* background: linear-gradient(
     89.98deg,
     #14671c 4.7%,
     rgba(75, 189, 107, 0) 114.86%
-  );
+  ); */
+  background-color: #10400d;
   color: honeydew;
   font-weight: bold;
 }
@@ -38,6 +39,7 @@
   position: inherit;
   margin-left: 20px;
   width: 40%;
+
   /* background-color: indigo; */
 }
 .last-week {
@@ -64,6 +66,7 @@
 .last-week-number h1 {
   margin-left: 13px;
 }
+
 .last-Month {
   position: inherit;
   margin-top: 7px;
