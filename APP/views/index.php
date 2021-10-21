@@ -28,7 +28,7 @@
             <ul>
                  <!-- <li id="lan"></li> -->
                 <li id="home"><a href="">HOME</a></li>
-                <li id="report"><a href="incident/index">REPORT</a></li>
+                <li id="report"><a href="incident/index?lang=1">REPORT</a></li>
                 <li id="register"><a href="villager/register">REGISTER</a></li>
                 <li id="login"><a id=login_text href="user/index">LOGIN</a></li>
                 

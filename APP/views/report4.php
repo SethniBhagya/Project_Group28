@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Public/css/header.css">
     <link rel="stylesheet" href="../Public/css/report4.css">
+    <script src="../Public/javascript/login.js"></script>
     <title>Crop Damages</title> 
 </head>
 <body>
@@ -19,9 +20,18 @@
             </div>
 
             <ul>
-            <li id="home_2"><a href="../">HOME</a></li>
-                <li id="dashboard_1"><a href="../user/viewpage?user=villager">DASHBOARD</a></li>
-                <li id="report_1"><a href="">REPORT</a></li>
+            <li id="home_2"><a href="../">Home</a></li>
+                <li id="dashboard_1"  ><a href="../user/viewpage?user=villager" >Dashboard</a></li>
+                <li id="report_2"><a href="../incident/index?lang=1">Report Incidents</a></li>
+                <li id="special_1"><a href="">SpecialNotice </a></li> 
+                <div class="dropdown-1">
+                    <button class="dropbtn-1">Language</button>
+                    <div class="dropdown-content-1">
+                        <a href="">English</a>
+                        <a href="">සිංහල</a>
+                        <a href="">தமிழ்</a>
+                    </div>
+                  </div>
                 <li class="dropdown">
                     <span class="dot"> <img onclick="myFunction_2(this)" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
                     <div id="myDropdown" class="dropdown-content">
@@ -67,6 +77,8 @@
             <option value="Wolf">Wolf</option>
             <option value="Other">Other</option>
         </select><br>
+            <lable for="place"><b>Enter the Place name <b></lable>
+            <input type="text" name="place" class="text" ><br><br>  
             <label for="Cultivated Crop"><b>Cultivated Crop  : </b></label>
             <input type="text" name="cultivatedCrop" id=""> <br><br>
             <label for="Culktivatedland"><b>Extend Cultivated land: </b></label>

@@ -1,5 +1,6 @@
-function openView() {
+function openView(idname) {
     document.getElementById('myview').style.display = 'block'
+    console.log( idname.value) 
 
 }
 
@@ -15,27 +16,27 @@ function closeView() {
         }
     }
 }
-function myMap() {
-    var mapOptions = {
-        center: new google.maps.LatLng(51.5, -0.12),
-        zoom: 10,
-        mapTypeId: google.maps.MapTypeId.HYBRID
-    }
-    var map = new google.maps.Map(document.getElementById("map"), mapOptions);
-    }
+// function myMap() {
+//     var mapOptions = {
+//         center: new google.maps.LatLng(51.5, -0.12),
+//         zoom: 10,
+//         mapTypeId: google.maps.MapTypeId.HYBRID
+//     }
+//     var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+//     }
 
-    function selectForm(x){
+//     function selectForm(x){
                   
-        var parent=document.getElementsByClassName("subcontainer_3-3");
-        var allForms=parent[0].children;
+//         var parent=document.getElementsByClassName("subcontainer_3-3");
+//         var allForms=parent[0].children;
        
-        for(var i=0;i<allForms.length;i++)
-         {
-             allForms[i].style.display="none";
-         }
+//         for(var i=0;i<allForms.length;i++)
+//          {
+//              allForms[i].style.display="none";
+//          }
        
-               var form=document.getElementsByClassName(x);
+//                var form=document.getElementsByClassName(x);
                 
-                 form[0].style.display="block";
+//                  form[0].style.display="block";
                   
-       } 
+//        } 

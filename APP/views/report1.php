@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Public/css/header.css">
-    <link rel="stylesheet" href="../Public/css/report1.css">
+    <link rel="stylesheet" href="../Public/css/report-1.css">
     <script src="../Public/javascript/login.js"></script>
     <title>Elephant are in The Elephant</title>
 </head>
@@ -20,9 +20,18 @@
             </div>
 
             <ul>
-                 <li id="home_2"><a href="../">HOME</a></li>
-                <li id="dashboard_1"><a href="../user/viewpage?user=villager">DASHBOARD</a></li>
-                <li id="report_1"><a href="">REPORT</a></li> 
+            <li id="home_2"><a href="../">Home</a></li>
+                <li id="dashboard_1"   ><a href="../user/viewpage?user=villager" >Dashboard</a></li>
+                <li id="report_2"><a href="../incident/index?lang=1">Report Incidents</a></li>
+                <li id="special_1"><a href="">SpecialNotice </a></li> 
+                <div class="dropdown-1">
+                    <button class="dropbtn-1">Language</button>
+                    <div class="dropdown-content-1">
+                      <a href="?lang=1&report=1">English</a>
+                        <a href="?lang=2&report=1">සිංහල</a> 
+                        <a href="?lang=3&report=1">தமிழ்</a>
+                    </div>
+                  </div>
                 <li class="dropdown">
                     <span class="dot"> <img onclick="myFunction_2(this)" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
                     <div id="myDropdown" class="dropdown-content">
@@ -41,6 +50,8 @@
         <form class="form-report" action="" method="post">
             <label for="numberOfelephants"><b>How many Elephants  : </b></label>
             <input type="number" name="noOfelephant" id="number"> <br><br>
+            <lable for="place"><b>Name of the Place Where you are :<b></lable>
+            <input type="text" name="place" class="text" ><br><br>   
             <label for="status"><b>In Your Registered Village : Yes </b></label>
             <input type="radio" name="Reg" id=" " value="yes">
             <label for="status"><b>No</b></label>
@@ -49,7 +60,7 @@
             <label for="addPhoto"><b>Add Photo : </b></label>
             <input type="file" name="Photo" class="file"> </div>
             <div class="location">
-                <label class="label-1">Where is the location</label>
+                <label class="label-1">Mark  the location in Map</label>
                 <button onclick="return getLocation()">Click Me Track location</button>
             </div>
             <div class="map" id="">

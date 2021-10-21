@@ -11,14 +11,14 @@ use PHPMailer\PHPMailer\Exception;
 class user extends Controller
 {
 
-  private $firstName;
-  private $lastName;
-  private $address;
-  private $gender;
-  private $userNic;
-  private $userEmail;
-  private $userMobileNumber;
-  private $userDataofBirth;
+  private $_firstName;
+  private $_lastName;
+  private $_address;
+  private $_gender;
+  private $_userNic;
+  private $_userEmail;
+  private $_userMobileNumber;
+  private $_userDataofBirth;
 
   function __construct()
   {
@@ -84,9 +84,6 @@ class user extends Controller
             case "admin":
               $this->view->render('admin_page');
               break;
-            case "veterinarian":
-              $this->view->render('veterinarian');
-              break;
               // case "veterinarian": $this->view->render('veterinarian');
 
           }
@@ -108,14 +105,14 @@ class user extends Controller
     $this->view->render('login');
   }
 
-  function viewpage()
+  public function viewpage()
   {
 
     switch ($_GET['user']) {
       case 'villager':
         session_start();
-
-        $this->view->data = $this->model->selectData($_SESSION["NIC"]);
+        $_userNic = $_SESSION["NIC"];
+        $this->view->data = $this->model->selectData($_userNic);
 
         $this->view->render('villagersPage');
     }
@@ -225,5 +222,13 @@ class user extends Controller
         header("Location: ../user/index?resetSuc=error");
       }
     }
+  }
+
+  public function editprofile()
+  {
+
+    session_start();
+    $this->view->userData = $this->model->profileData($_SESSION['NIC']);
+    $this->view->render('editProfile');
   }
 }

@@ -25,7 +25,7 @@
             <ul>
 
                 <li id="home"><a href="vvvvv">HOME</a></li>
-                <li id="report"><a href="vvvv">REPORT</a></li>
+                <li id="report"><a href="../incident/index?lang=1">REPORT</a></li>
                 <li id="register"><a href="vvvv">REGISTER</a></li>
                 <li id="login"><a id=login_text href="">LOGIN</a></li>
                 <li class="dropdown">
