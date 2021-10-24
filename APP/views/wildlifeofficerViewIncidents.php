@@ -5,8 +5,8 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="../Public/css/wildlifeofficer_header.css" />
-  <link rel="stylesheet" href="../Public/css/wildlifeofficer_view_incidents.css" />
+  <link rel="stylesheet" href="../Public/css/wildlifeofficerHeader.css" />
+  <link rel="stylesheet" href="../Public/css/wildlifeofficerViewIncidents.css" />
   <script src="../Public/Javascript/login.js"></script>
   <script src="../Public/Javascript/viewReport.js"></script>
   <script src="../Public/javascript/wildlifeofficer.js"></script>
@@ -27,6 +27,16 @@
       <ul>
         <li id="home"><a href="../">HOME</a></li>
         <li id="dashboard"><a href="../wildlifeofficer/viewDashboard">DASHBOARD</a></li>
+        <li>
+          <div class="dropdown-1" style="  padding-left:  300px ">
+            <button class="dropbtn-1">Language</button>
+            <div class="dropdown-content-1">
+              <a href=" ">English</a>
+              <a href=" ">සිංහල</a>
+              <a href=" ">தமிழ்</a>
+            </div>
+          </div>
+        </li>
         <li class="dropdown">
           <span class="dot">
             <img onclick="myFunction_3()" src="../Public/images/user_icon.png" id="user_icon" class="user_btn" /></span>
@@ -91,7 +101,7 @@
       <div class="subcontainer_3-3" style="overflow-x: auto">
         <table id="myTable">
           <tr class="firstRow">
-            <th>Date</th>
+            <th>Reported Date</th>
             <th>Report Number</th>
             <th>Accepted Wildlifeofficer</th>
 
@@ -122,25 +132,30 @@
             //     $row['reporttype'] = 1;
             //     break;
             // }
-            echo " <tr>
+
+            if ($row['status'] == 'pending') {
+              $stat = "<form method='POST' action='../wildlifeofficer/trigerRequest'><input type='text' style='display:none' name='acc' value=" . $row['incidentID'] . "><button class='buttonAccept' id='acceptId' value='ACCEPT' name='accept'/>ACCEPT</button></form>";
+            } else {
+              $stat = "<form method='POST' action='../wildlifeofficer/trigerRequest'><input type='text' style='display:none'  name='can' value=" . $row['incidentID'] . "><button class='buttonCancel' id='cancelId' value='CANCEl' name='cancel'/>CANCEL</button></form>";
+            }
+            echo "<tr>
             <td>" . $row['date'] . "</td>
-            <td> 1</td>
+            <td>" . $row['incidentID'] . "</td>
             
             <td>Saman Perera</td>
             <td>" . $row['reporttype'] . "</td>
             <td>" . $row['Place'] . "</td>
-            
-            <td><input type='button'class='button' value='ACCEPT' name='accept'/></td>
-            <td><input type='button'class='button' value='VIEW' name='accept'/></td>
-          </tr>";
+            <td>" . $stat . "</td>
+            <td><button type='submit' class='viewButton' id='view' onclick='' >
+              <a href='../wildlifeofficer/viewIncidentDetails'>VIEW</a>
+            </button></td>
+            </tr>
+          ";
           }
           ?>
-          <!-- <td><button type="submit" class="searchButton" id="view" onclick="">
-              <i class="fa fa-search"><a href="../wildlifeofficer/viewIncidentDetails">view</a></i>
-            </button></td> -->
-          <button type="submit" class="searchButton" id="view" onclick="">
-            <i class="fa fa-search"><a href="../wildlifeofficer/viewIncidentDetails">view</a></i>
-          </button>
+
+
+
 
 
 

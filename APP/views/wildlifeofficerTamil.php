@@ -23,11 +23,11 @@
             </div>
 
             <ul>
-                <li id="home"><a href="../">HOME</a></li>
-                <li id="dashboard"><a href="../wildlifeofficer/viewDashboard">DASHBOARD</a></li>
+                <li id="home"><a href="../">முகப்பு பக்கம்</a></li>
+                <li id="dashboard"><a href="../wildlifeofficer/viewDashboard">தரவு பலகை</a></li>
                 <li>
                     <div class="dropdown-1" style="  padding-left:  300px ">
-                        <button class="dropbtn-1">Language</button>
+                        <button class="dropbtn-1">மொழி</button>
                         <div class="dropdown-content-1">
                             <a href=" ">English</a>
                             <a href=" ">සිංහල</a>
@@ -38,8 +38,8 @@
                 <li class="dropdown">
                     <span class="dot"> <img onclick="myFunction_2(this)" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
                     <div id="myDropdown" class="dropdown-content">
-                        <a href="../wildlifeofficer/viewProfile">View Profile</a>
-                        <a href="../user/index">Logout</a>
+                        <a href="../wildlifeofficer/viewProfile">பயனர் சுயவிவரம்</a>
+                        <a href="../user/index">வெளியேறு</a>
                     </div>
                 </li>
             </ul>
@@ -58,7 +58,7 @@
     <div class="main-view">
         <a href="../wildlifeofficer/viewIncidents">
             <button class="report">
-                <h1> Reported </br>Incidents</h1>
+                <h1>சம்பவங்கள்</h1>
                 <div class="line"><img src="../Public/images/emergency.png"></div>
 
             </button>
@@ -67,13 +67,13 @@
             <button class="specialNotice">
                 <div class="notification"><span class="dot-1"><img src="../Public/images/bell.png" alt="1" srcset=" "></span>
                 </div>
-                <h1>Emergency Notifications</h1>
+                <h1>அவசர<br>அறிவிப்புகள்</h1>
                 <div class="line"><img src="../Public/images/notifi.png"></div>
             </button>
         </a>
         <a href="../wildlifeofficer/viewDashboard">
             <button class="dashboard">
-                <h1>Dashboard<div class="line"><img src="../Public/images/dashIcon.png"></div>
+                <h1>தரவு பலகை<div class="line"><img src="../Public/images/dashIcon.png"></div>
                 </h1>
             </button>
         </a>

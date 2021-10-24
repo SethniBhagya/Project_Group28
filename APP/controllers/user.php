@@ -84,8 +84,9 @@ class user extends Controller
             case "admin":
               $this->view->render('admin_page');
               break;
-              // case "veterinarian": $this->view->render('veterinarian');
-
+            case "veterinarian":
+              $this->view->render('veterinarian');
+              break;
           }
         } else {
           $this->view->render('login', $loginUser["Error"]);

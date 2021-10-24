@@ -66,13 +66,13 @@ a:visited {
 #home {
   position: absolute;
   top: 20px;
-  right: 250px;
+  right: 375px;
   text-align: center;
 }
 #dashboard {
   position: absolute;
   top: 20px;
-  right: 100px;
+  right: 245px;
   text-align: center;
 }
 .user_btn {
@@ -151,6 +151,54 @@ a:visited {
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
 }
+
+.dropbtn-1 {
+  position: absolute;
+  right: 10px;
+  margin-top: -50px;
+  background-color: darkgreen;
+  border-radius: 20px;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+
+.dropdown-1 {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content-1 {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  top: 0.1px;
+  right: 10px;
+  border-radius: 10px;
+  min-width: 100px;
+  box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content-1 a {
+  color: black;
+  padding: 4px 8px;
+  text-decoration: none;
+  display: block;
+  border-radius: 10px;
+}
+.dropdown-content-1 a:hover {
+  background-color: #ddd;
+}
+
+.dropdown-1:hover .dropdown-content-1 {
+  display: block;
+}
+
+.dropdown-1:hover .dropbtn-1 {
+  background-color: #3e8e41;
+}
 @media (max-width: 900px) {
   #navbar {
     float: none;
@@ -170,8 +218,8 @@ a:visited {
     display: none;
   }
 
-  #home_1,
-  #report_1 {
+  #home,
+  #dashboard {
     position: inherit;
   }
 
@@ -217,10 +265,20 @@ a:visited {
     right: 2%;
     top: 15px;
   }
-  /* .dropdown-content{
-      position:inherit;
-      top:15px;
-    } */
+  .dropbtn-1 {
+    position: fixed;
+    top: 200px;
+    display: none;
+    right: -100px;
+  }
+  .dropdown-content-1 {
+    position: fixed;
+    right: 20px;
+  }
+  .dropdown-content {
+    position: inherit;
+    top: 15px;
+  }
   .mybar.responsive {
     position: absolute;
     width: 100%;

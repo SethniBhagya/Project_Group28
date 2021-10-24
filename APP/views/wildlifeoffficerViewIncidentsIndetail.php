@@ -5,8 +5,8 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../Public/css/wildlifeofficer_header.css">
-  <link rel="stylesheet" href="../Public/css/wildlifeoffficer_view_incidents_indetail.css">
+  <link rel="stylesheet" href="../Public/css/wildlifeofficerHeader.css">
+  <link rel="stylesheet" href="../Public/css/wildlifeoffficerViewIncidentsIndetail.css">
   <script src="../Public/Javascript/login.js"></script>
   <script src="../Public/Javascript/viewReport.js"></script>
   <script src="../Public/Javascript/wildlifeofficer.js"></script>
@@ -27,6 +27,16 @@
       <ul>
         <li id="home"><a href="../">HOME</a></li>
         <li id="dashboard"><a href="../wildlifeofficer/viewDashboard">DASHBOARD</a></li>
+        <li>
+          <div class="dropdown-1" style="  padding-left:  300px ">
+            <button class="dropbtn-1">Language</button>
+            <div class="dropdown-content-1">
+              <a href=" ">English</a>
+              <a href=" ">සිංහල</a>
+              <a href=" ">தமிழ்</a>
+            </div>
+          </div>
+        </li>
         <li class="dropdown">
           <span class="dot"> <img onclick="myFunction_3()" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
           <div id="myDropdown" class="dropdown-content">
@@ -69,7 +79,7 @@
       <div class="row">
         <div class="col_1">Wild Animal in the village</div>
         <div class="col_2">Report_Number</div>
-        <div class="col_2">Status</div>
+        <div class="col_2">Status<input type='button' class='button' value='ACCEPT' name='accept' /></div>
       </div>
       <div class="map" id="map">
         <div class="map">

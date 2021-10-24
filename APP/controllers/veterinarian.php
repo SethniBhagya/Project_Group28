@@ -131,6 +131,6 @@ class veterinarian extends user
     {
         // session_start();
         // $this->view->data=$this->model->selectData($_SESSION["NIC"]);
-        $this->view->render('wildlifeofficer_dashboard');
+        $this->view->render('veterinarian_dashboard');
     }
 }

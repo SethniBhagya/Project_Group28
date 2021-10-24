@@ -47,7 +47,8 @@
 }
 .report:hover,
 .specialNotice:hover,
-.dashboard:hover ,.view:hover{
+.dashboard:hover,
+.view:hover {
   background: rgba(199, 223, 197, 0.644);
 }
 .report h1 {
@@ -130,9 +131,9 @@
   width: 100px;
   position: relative;
 }
-.view{
-  margin-top:  -300px;
-  margin-left:  71%;
+.view {
+  margin-top: -300px;
+  margin-left: 71%;
   width: 20.5%;
   height: 300px;
   background: #115918;
@@ -140,7 +141,6 @@
   text-align: center;
   border: none;
   border-radius: 6px;
-  
 }
 /* } */
 .view h1 {
@@ -149,15 +149,15 @@
 }
 .view :hover {
   font-size: 30px;
-   /* background-color: rgba(228, 224, 220, 0.063); */
+  /* background-color: rgba(228, 224, 220, 0.063); */
 }
-.view h1:hover{
+.view h1:hover {
   color: #10400d;
 }
 #user-icon2 {
   float: none;
   margin-top: 0px;
-  padding: 2px 0px; 
+  padding: 2px 0px;
   padding-left: 7px;
   width: 40px;
   height: 40px;

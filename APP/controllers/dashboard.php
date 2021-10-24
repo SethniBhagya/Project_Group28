@@ -22,7 +22,3 @@ class dashboard extends controller{
         // $this->view->render('dashboardVillager');
     }
 }
-
-
-
-?>

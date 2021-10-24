@@ -1,6 +1,6 @@
 .name {
   position: inherit;
-  margin-top: 25px;
+  margin-top: 50px;
   width: 60%;
   height: 55px;
   background-color: rgba(197, 236, 193, 0.514);
@@ -21,12 +21,12 @@
   margin-right: 77%;
   padding: 0px 0px;
   color: rgb(11, 68, 11);
-  font-size: 20px;
+  font-size: 30px;
 }
 
 .main-view {
   position: inherit;
-  margin-top: 30px;
+  margin-top: 40px;
   display: inline-block;
   height: 300px;
   width: 60%;

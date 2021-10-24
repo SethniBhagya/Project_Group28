@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../Public/css/wildlifeofficer_header.css">
-    <link rel="stylesheet" href="../Public/css/wildlifeofficer_dashboard.css">
+    <link rel="stylesheet" href="../Public/css/wildlifeofficerHeader.css">
+    <link rel="stylesheet" href="../Public/css/wildlifeofficerDashboard.css">
     <script src="../Public/Javascript/login.js"></script>
     <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
@@ -27,6 +27,16 @@
             <ul>
                 <li id="home"><a href="../">HOME</a></li>
                 <li id="dashboard"><a href="../wildlifeofficer/viewDashboard">DASHBOARD</a></li>
+                <li>
+                    <div class="dropdown-1" style="  padding-left:  300px ">
+                        <button class="dropbtn-1">Language</button>
+                        <div class="dropdown-content-1">
+                            <a href=" ">English</a>
+                            <a href=" ">සිංහල</a>
+                            <a href=" ">தமிழ்</a>
+                        </div>
+                    </div>
+                </li>
                 <li class="dropdown">
                     <span class="dot"> <img onclick="myFunction_2(this)" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
                     <div id="myDropdown" class="dropdown-content">
@@ -39,10 +49,11 @@
     </header>
 
     <div class="header-name">
-        <h>
-            <pre style="font-size: larger;font-style: normal; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Total in Sri Lanka                      LastModified 30/09/2021</pre>
-        </h>
+        <h>Total in Sri Lanka </h>
+        <h style="float:right">LastModified 30/09/2021</h>
     </div>
+    <!-- <div class="header-name"><h><pre  style="font-size: larger;font-style: normal; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Total in Sri Lanka                                                                                                                                                               LastModified 30/09/2021</pre></h> </div> -->
+
     <div class="main-update-col-1">
         <div class="last-week">
             Last Week <div class="last-week-number">
@@ -67,77 +78,92 @@
         </div>
     </div>
     <div class="main-update-col-2">
-        <div class="update-report">
-            <a> Report ! </a>
-        </div>
-        <div class="specialNotice">
-            <a> SpecialNotice<img src="../images/bell.png" alt="1" srcset="" id="bell"> </a>
+        <div class="linechartmain">
+            <!-- <h3>Report Incidents Polonnaruwa </h3> -->
+            <div class="mychartmain">
+                <canvas id="myChartmain"></canvas>
+                <script>
+                    let myChartmain = document.getElementById("myChartmain").getContext('2d');
+                </script>
+                <!-- <script src="../Javascript/dashboard.js"></script> -->
+            </div>
         </div>
         <div class="detail">
             Time Duration -3 Month <br>
             Last Modification 02/09/2021
         </div>
-        <div class="row1">
-
-            <a href="../wildlifeofficer/">BACK</a>
+        <div class="date">
+            <h2>Today</h2>
+            <h3>
+                <?php date_default_timezone_set('Asia/Kolkata');
+                echo date('d F, Y') ?>
+            </h3>
+            <h2>
+                Time
+            </h2>
+            <h3>
+                <?php date_default_timezone_set('Asia/Kolkata');
+                echo date('G:i:s'); ?>
+            </h3>
 
         </div>
+        <!-- <h>Today</h> -->
     </div>
     <div class="district-name">
         <h2>Polonnaruwa District</h2>
     </div>
     <div class="district-report">
-        <div class="incident">
-            Incidents <h1 data-target="20" class="count">0</h1>
+        <div class="users-1">
+            Wildlife Officers <h1 data-target="20" class="count">0</h1>
         </div>
-        <div class="users">
-            Users <h1 data-target="23" class="count">0</h1>
+        <div class="users-2">
+            Grama Niladharis <h1 data-target="23" class="count">0</h1>
         </div>
-        <div class="human">
-            Humans <h1 data-target="10" class="count">0</h1>
+        <div class="users-3">
+            Veterinarians <h1 data-target="10" class="count">0</h1>
         </div>
-        <div class="elephants">
-            Elephants <h1 data-target="10" class="count">0</h1>
+        <div class="users-4">
+            Villagers <h1 data-target="10" class="count">0</h1>
         </div>
-        <div class="report-type">
-            <div for="" class="name">Wild Elephants Arrival <h1 data-target="90" class="count">0</h1>
-            </div>
-            <div for="" class="name">Wild Animals Arrival <h1 data-target="80" class="count">0</h1>
-            </div>
-            <div for="" class="name">Elephants fence <h1 data-target="60" class="count">0</h1>
-            </div>
-            <div for="" class="name">Crop Damages <h1 data-target="30" class="count">0</h1>
-            </div>
-            <div for="" class="name">Other <h1 data-target="50" class="count">0</h1>
-            </div><br>
+        <!-- <div class="report-type">
+             <div for="" class="name">Wild Elephants Arrival <h1  data-target="90"  class="count">0</h1>  </div>  
+             <div for="" class="name">Wild Animals Arrival <h1  data-target="80"  class="count">0</h1> </div>  
+             <div for="" class="name">Elephants fence <h1  data-target="60"  class="count">0</h1>    </div> 
+             <div for="" class="name">Crop Damages <h1  data-target="30"  class="count">0</h1> </div> 
+             <div for="" class="name">Other  <h1  data-target="50"  class="count">0</h1></div><br>
+         </div>
+         <div class="user-type">
+             <div for="" class="name">Regional Wildlife Officer <h1  data-target="10"  class="count">0</h1></div> 
+             <div for="" class="name">Wildlife Officers <h1  data-target="30"  class="count">0</h1></div> 
+             <div for="" class="name">Gramaniladari <h1  data-target="50"  class="count">0</h1></div> 
+             <div for="" class="name">Vertinarian <h1  data-target="10"  class="count">0 </h1> </div> 
+             <div for=""class="name">Vilager <h1  data-target="160"  class="count">0</h1></div>
+         </div> -->
+        <div class="report-1">
+            Wild Elephants Arrival <h1 data-target="20" class="count">0</h1>
         </div>
-        <div class="user-type">
-            <div for="" class="name">Regional Wildlife Officer <h1 data-target="10" class="count">0</h1>
-            </div>
-            <div for="" class="name">Wildlife Officers <h1 data-target="30" class="count">0</h1>
-            </div>
-            <div for="" class="name">Gramaniladari <h1 data-target="50" class="count">0</h1>
-            </div>
-            <div for="" class="name">Vertinarian <h1 data-target="10" class="count">0 </h1>
-            </div>
-            <div for="" class="name">Vilager <h1 data-target="160" class="count">0</h1>
-            </div>
+        <div class="report-2">
+            Elephants fence <h1 data-target="20" class="count">0</h1>
         </div>
-        <div class="human-injery">
-            Human Injuries <h1 data-target="20" class="count">0</h1>
+        <div class="report-3">
+            Wild Animals Arrival <h1 data-target="20" class="count">0</h1>
         </div>
-        <div class="elephant-injery">
-            Elephant Injuries <h1 data-target="16" class="count">0</h1>
+        <div class="report-4">
+            Crop Damages <h1 data-target="20" class="count">0</h1>
+        </div>
+        <div class="report-5">
+            Illegal Thing happening in the Forest<h1 data-target="20" class="count">0</h1>
+        </div>
+
+        <div class="report-6">
+            Breakdown of Elephant Fence <h1 data-target="16" class="count">0</h1>
         </div>
         <div class="update-col">
-            Percentage of Polonnaruwa incidents Report <h1 data-target="90" class="count">0 </h1>
+            Polonnaruwa District Incidents report Percentage<h1 data-target="90" class="count">0 </h1>
             <h2>%</h2>
         </div>
     </div>
-    <div class="header-name-1">
-        <pre style="font-size: larger;font-style: normal; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;"><h>Polonnaruwa District            LastModified 30/09/2021</h></pre>
-        </h>
-    </div>
+
 
     <div class="main-update-col-3">
         <div class="last-week-1">
@@ -214,7 +240,8 @@
                 <script>
                     let myChart4 = document.getElementById("myChart3").getContext('2d');
                 </script>
-                <script src="../Public/Javascript/dashboard.js"></script>
+
+                <script src="../Public/javascript/dashboard.js"></script>
 
             </div>
         </div>
