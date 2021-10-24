@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="Public/css/home.css">
     
      
-    <title>Home page</title>
+    <title>மானிய பக்கம்</title>
 </head>
 
 <body> 
@@ -25,19 +25,19 @@
                 <div class="bar3"></div>
             </div>
 
-            <ul class="nav-menu">
+            <ul>
                  <!-- <li id="lan"></li> -->
-                <li id="home"><a href="">Home</a></li>
-                <li id="report"><a href="incident/index?lang=1">Report Incidents</a></li>
-                <li id="register"><a href="villager/register?lang=1">Register</a></li>
-                <li id="login"><a id=login_text href="user/index?lang=1">Login</a></li>
+                <li id="home"><a href="">மானிய பக்கம்</a></li>
+                <li id="report"><a href="incident/index?lang=3">நிகழ்வுகளைப் புகாரளிக்கவும்</a></li>
+                <li id="register"><a href="villager/register?lang=3">பதிவு</a></li>
+                <li id="login"><a id=login_text href="user/index?lang=3">உள்நுழைய</a></li>
                 
                 <li class="dropdown">
-                    <button onmouseover="myFunction_2()" class="dropbtn">Language <i class="down"></i></button>
+                    <button onmouseover="myFunction_2()" class="dropbtn">மொழி <i class="down"></i></button>
                     <div id="myDropdown" class="dropdown-content">
                       <a href="../wildlifecare?lang=1">English</a>
                       <a href="../wildlifecare?lang=2">සිංහල</a>
-                      <a href="../wildlifecare?lang=3">தமிழ்</a>
+                      <a href="">தமிழ்</a>
                     </div>
                 </li>
             </ul>
@@ -65,9 +65,9 @@
             <!-- <h1>Wildlife is sbhs</h1>
             <p>gg bs hgwygwb hwbwqugwqh</p>
          -->
-        <button id="header">“The real wealth of the Nation lies in the resources of the earth - soil, water, forests, minerals, and wildlife.”</button>
+        <button id="header">“ஒரு தேசத்தின் உண்மையான செல்வம் அதன் நிலம், மண், நீர், காடுகள், தாதுக்கள் மற்றும் வனவிலங்கு வளங்களில் உள்ளது.”</button>
         <form action="villager/register">
-            <button id="regButton" >REGISTER</button>
+            <button id="regButton" >பதிவு</button>
         </form>
         
     </div>
@@ -137,8 +137,8 @@ function nextImage(){
 <div id="intro">
         <img src="Public/images/logo.png">
         
-        <h1 >What is wildlife Care?</h1>
-        <p>Wildlife Care is a web based and mobilebased system which facilitates to minimize the communication distance between  wildlifeofficials and the villagers who are living near to sanctuaries. Therefore it facilitated efficient and effective communication between villagers and wildlife officials. The main purpose of Wildlife Care is to protect the lives of animals, human lives and properties .
+        <h1 >Wildlife Care என்ன?</h1>
+        <p>Wildlife Care இது ஒரு வலை மற்றும் மொபைல் அடிப்படையிலான அமைப்பாகும், இது வனவிலங்கு அதிகாரிகள் மற்றும் கிராமவாசிகளுக்கு இடையேயான தூரத்தைக் குறைக்கும்..எனவே Wildlife Care பயனுள்ள மற்றும் திறமையான தகவல்தொடர்புகளை வழங்குகிறது. இதன் முக்கிய நோக்கம் மக்கள், வனவிலங்குகள் மற்றும் இரண்டையும் ஏதோ ஒரு வகையில் பாதுகாப்பதாகும்.
   </p>
         
     </div>
@@ -154,14 +154,14 @@ function nextImage(){
                          <img src="Public/images/reportinci.png">
                          <div id="fr1-1-side">
                           <i class="fas fa-republican"></i>
-                            <h4>Report Incidents</h4>
+                            <h4>அவசர அறிக்கை</h4>
                             
                          </div>
                          <div id="fr1-1-class">
 
                             <img src="Public/images/elephant.png"  >
-                         <h2>Report Incidents</h2>
-                         <p>Wildlife Care have facilitated users to report incidents regarding wildlifes. Accordingly, it can allow users to inform those  informations  quickly  </p>
+                         <h2>அவசர அறிக்கை</h2>
+                         <p>வனவிலங்கு பராமரிப்பு பயனர்களுக்கு வனவிலங்கு தொடர்பான சம்பவங்களைப் புகாரளிக்க அனுமதிக்கிறது, இதனால் பயனர்களுக்கு விரைவாக அறிவிக்கப்படும்.  </p>
                              
                          </div>
 
@@ -175,7 +175,7 @@ function nextImage(){
                         <img src="Public/images/alertinci.png">
                         <div id="fr1-2-side">
                             <i class="fas fa-bell"></i>
-                            <h4>Get Alerts</h4>
+                            <h4>எச்சரிக்கைகளைப் பெறுங்கள்.</h4>
 
                             
                          </div>
@@ -183,8 +183,8 @@ function nextImage(){
                         <div id="fr1-2-class">
 
                             <img src="Public/images/bell.png" >
-                        <h2>Get Alerts</h2>
-                        <p>Wildlife Care have facilitated to inform relevant villagers quickly  when reporting about  wild elephants coming  to villages </p>
+                        <h2>எச்சரிக்கைகளைப் பெறுங்கள்.</h2>
+                        <p>காட்டு யானைகள் கிராமங்களுக்கு வருவதாக தகவல் கிடைத்தவுடன் சம்பந்தப்பட்ட கிராம மக்களுக்கு தகவல் தெரிவிக்க வனவிலங்கு பராமரிப்பு வசதிகள் அமைக்கப்பட்டுள்ளன. </p>
                              
                          </div>
 
@@ -198,15 +198,15 @@ function nextImage(){
                         <img src="Public/images/vetinci.png">
                         <div id="fr1-3-side">
                           <i class="fas fa-laptop-medical"></i>
-                            <h4>Veterinarian Support</h4>
+                            <h4>கால்நடை உதவி</h4>
                             
                          </div>
 
 
                         <div id="fr1-3-class">
                             <img src="Public/images/vet.png" >
-                        <h2>Veterinarian Support</h2>
-                        <p>Wildlife officials have facilities to alert veterinarians using Wildlife Care system as soon as a wild animal is in danger.  </p>
+                        <h2>கால்நடை உதவி</h2>
+                        <p>ஒரு விலங்கு ஆபத்தில் இருக்கும் போதே வனவிலங்கு பராமரிப்பைப் பயன்படுத்தி கால்நடை மருத்துவர்களை எச்சரிக்கும் வசதி வனவிலங்கு அதிகாரிகளிடம் உள்ளது.</p>
                              
                          </div>
 
@@ -227,16 +227,16 @@ function nextImage(){
 
                         <div id="fr2-1-side">
                           <i class="fas fa-map-signs"></i>
-                            <h4>Maps</h4>
+                            <h4>வரைபடங்கள்</h4>
                             
                          </div>
                         
                         <div id="fr2-1-class">
                              <img src="Public/images/map.png"  >
                           
-                         <h2>Maps</h2>
-                         <p>The Wildlife Care  allows users to mark the location when reporting an incident.
-The location of the reported incident can also view </p>
+                         <h2>வரைபடங்கள்</h2>
+                         <p>ஒரு நிகழ்வைப் புகாரளிக்கும் போது வனவிலங்கு பராமரிப்பு பயனர்களை இருப்பிடத்தைக் குறிக்க அனுமதிக்கிறது.
+புகாரளிக்கப்பட்ட சம்பவத்தின் இருப்பிடத்தையும் நீங்கள் பார்க்கலாம்.</p>
                              
                          </div>
                          
@@ -252,15 +252,15 @@ The location of the reported incident can also view </p>
                         <img src="Public/images/reginci.png">
                         <div id="fr2-2-side">
                           <i class="fas fa-phone"></i>
-                            <h4>Register Without Smartphones</h4>
+                            <h4>ஸ்மார்ட்போன் இல்லாமல் பதிவு செய்யவும்</h4>
                             
                          </div>
                         
                         <div id="fr2-2-class">
 
                             <img src="Public/images/mobile.png" >
-                        <h2>Register Without Smartphones</h2>
-                        <p>Villagers who don't have smart phones but have mobile phones can register and  get alerts from this system.
+                        <h2>ஸ்மார்ட்போன் இல்லாமல் பதிவு செய்யவும்</h2>
+                        <p>ஸ்மார்ட் போன்கள் இல்லாத ஆனால் மொபைல் போன்கள் உள்ள கிராம மக்கள் இந்த அமைப்பில் பதிவு செய்து எச்சரிக்கைகளைப் பெறலாம்.
  </p>
                              
                          </div>
@@ -274,15 +274,15 @@ The location of the reported incident can also view </p>
                         <img src="Public/images/dashinci.png">
                         <div id="fr2-3-side">
                           <i class="fas fa-chart-line"></i>
-                            <h4>Analytical Dashboard</h4>
+                            <h4>பகுப்பாய்வு கருவி குழு</h4>
                             
                          </div>
                         
                         <div id="fr2-3-class">
 
                             <img src="Public/images/dash.png" >
-                        <h2>Analytical Dashboard</h2>
-                        <p>Wildlife Care Provides detailed dashboard for required analytical works. </p>
+                        <h2>பகுப்பாய்வு கருவி குழு</h2>
+                        <p>Wildlife Care பகுப்பாய்வு பணிக்கு விரிவான டாஷ்போர்டை வழங்குகிறது.</p>
                              
                          </div>
 
@@ -303,7 +303,7 @@ The location of the reported incident can also view </p>
 
                         
                         <ul>
-                            <li><h4>Address</h4></li>
+                            <li><h4>முகவரி</h4></li>
                             <li>No18</li>
                             <li>Kandy Road</li>
                             <li>Pilimathalawa</li>
@@ -314,10 +314,10 @@ The location of the reported incident can also view </p>
                      <div class="footer-col">
 
                         
-                        <ul><li><h4>Site Map</h4></li>
-                            <li><a href="">Home</a></li>
-                            <li><a href="villager/register?lang=1">Register</a></li>
-                            <li><a href="user/index?lang=1">Login</a></li>
+                        <ul><li><h4>பட்டியல்</h4></li>
+                            <li><a href="">மானிய பக்கம்</a></li>
+                            <li><a href="villager/register?lang=3">பதிவு</a></li>
+                            <li><a href="user/index?lang=3">உள்நுழைய</a></li>
                             
                         </ul>
                         
@@ -325,7 +325,7 @@ The location of the reported incident can also view </p>
 
                      <div class="footer-col">
 
-                        <h4>Follow Us</h4>
+                        <h4>எங்களை தொடர்பு கொள்ள</h4>
                         <div class="social-links">
                             <a href=""><i class="fab fa-facebook-f"></i></a>
                             <a href=""><i class="fas fa-phone"></i></a>

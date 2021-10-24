@@ -5,8 +5,8 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../Public/css/wildlifeofficer_header.css">
-  <link rel="stylesheet" href="../Public/css/wildlifeofficer_view_profile.css">
+  <link rel="stylesheet" href="../Public/css/wildlifeofficerHeader.css">
+  <link rel="stylesheet" href="../Public/css/wildlifeofficerViewProfile.css">
   <script src="../Public/Javascript/login.js"></script>
   <!-- <script src="../Public/Javascript/viewReport.js"></script> -->
   <script src="../Public/javascript/wildlifeofficer.js"></script>
@@ -30,7 +30,16 @@
             <li><h6>SPECIAL NOTICES</h6></li> -->
         <li id="home"><a href="../">HOME</a></li>
         <li id="dashboard"><a href="../wildlifeofficer/viewDashboard">DASHBOARD</a></li>
-
+        <li>
+          <div class="dropdown-1" style="  padding-left:  300px ">
+            <button class="dropbtn-1">Language</button>
+            <div class="dropdown-content-1">
+              <a href=" ">English</a>
+              <a href=" ">සිංහල</a>
+              <a href=" ">தமிழ்</a>
+            </div>
+          </div>
+        </li>
         <li class="dropdown">
           <span class="dot"> <img onclick="myFunction_3()" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
           <div id="myDropdown" class="dropdown-content">
@@ -54,6 +63,7 @@
 
   <body>
     <div class="contanier_2">
+
       <div class="row1">
         <?php if (isset($data[0]['message'])) {
           echo $data[0]['message'];

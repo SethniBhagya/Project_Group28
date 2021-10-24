@@ -54,69 +54,14 @@ body {
     padding :0px;
 
   }
-  a:visited {
-      font-weight: bold;
-      color: white;
-      background-color: darkgreen;
-  }
+  
   #icon {
     margin-left: 20px;
     width: 150px;
     height: 80px;
   }
 
-  #home {
-    background-color: #14671c;
-  }
-  
-  #home:hover , #home_1:hover {
-    background-color: darkgreen;
-  }
-  #home_1{
-    position: absolute;
-    top:20px;
-    right:200px;
-    text-align: center;
-  }
-  #report_1{
-    position: absolute;
-    top:20px;
-    right:100px;
-    text-align: center;
-  }
-  #report {
-    background-color: #14671c;
-  }
-  
-  #report:hover ,#report_1:hover {
-    background-color: darkgreen;
-  }
-  
-  #register {
-    background-color: #14671c;
-  }
-  
-  #register:hover {
-    background-color: rgba(255, 255, 255, 0.36);
-  }
-  
-  #login {
-    background-color: #14671c;
-  }
-  
-  #login_text {
-    color: white;
-  }
-  #login_text:hover{
-      color: #00fb0a;
-    }
-  #login:hover {
-    background-color: rgba(0, 251, 10, 0.16);
-  }
-  #login:visited{
-    font-weight: bold;
-    background-color: bisque;
-  }
+ 
   .user_btn {
     float: none;
     margin-top: 0px;
@@ -140,7 +85,7 @@ body {
   }
   
   .dropbtn:hover, .dropbtn:focus {
-    background-color: green;
+    background-color:  rgb(168, 175, 168);
   }
   .dot{
     height: 48px;
@@ -159,24 +104,25 @@ body {
   
   .dropdown-content {
     display: none;
-    position: fixed;
-    right:1px;
-    background-color: rgba(15, 95, 4, 0.911);
-    padding: 0px 16px;
-    overflow: auto;
-    border-radius: 10px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    
-    width:100px;
+  position: fixed;
+  right:1px;
+  background-color: rgb(168, 175, 168);
+  padding: 0px 16px;
+  overflow: auto;
+  border-radius: 10px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  width:80px;
+  height: 100px;
   }
   
   .dropdown-content a {
-    color: white;
+    color: black;
     text-align: center;
     text-decoration: none;
     display: block;
     border-radius: 10px;;
-    background-color: rgba(15, 95, 4, 0.911);
+    background-color: rgb(168, 175, 168);
   }
   .dropdown a:hover {
       background-color: #ddd;
@@ -217,6 +163,69 @@ width: 100%;
 }
 */
 
+#home {
+  background-color: darkgreen;
+  border-radius: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 13px;
+  padding-bottom: 13px;
+}
+#report {
+  background-color: darkgreen;
+  border-radius: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 13px;
+  padding-bottom: 13px;
+}
+#register {
+  background-color: darkgreen;
+  border-radius: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 13px;
+  padding-bottom: 13px;
+}
+#login {
+  background-color: darkgreen;
+  border-radius: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 13px;
+  padding-bottom: 13px;
+}
+
+#home:hover,#report:hover,#register:hover,#login:hover{
+  background-color:  rgb(168, 175, 168);
+}
+
+#home:visited,#report:visited,#register:visited,#login:visited{
+  background-color:  rgb(168, 175, 168);
+}
+
+.nav-menu li a{
+ /* margin-right: 2px;
+  padding-left: 20px;
+  padding-right: 20px;*/
+  padding: 16px;
+ }
+
+ .nav-menu li a{
+  color: white;
+ }
+
+ .nav-menu li #myDropdown a{
+  margin-right: 2px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 0;
+  padding-bottom: 0;
+  
+ }
+
+
+ 
 
 
 .banner{

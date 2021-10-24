@@ -23,11 +23,11 @@
             </div>
 
             <ul>
-                <li id="home"><a href="../">HOME</a></li>
-                <li id="dashboard"><a href="../wildlifeofficer/viewDashboard">DASHBOARD</a></li>
+                <li id="home"><a href="../">මුල් පිටුව</a></li>
+                <li id="dashboard"><a href="../wildlifeofficer/viewDashboard">දත්ත පුවරුව</a></li>
                 <li>
                     <div class="dropdown-1" style="  padding-left:  300px ">
-                        <button class="dropbtn-1">Language</button>
+                        <button class="dropbtn-1">භාෂාව</button>
                         <div class="dropdown-content-1">
                             <a href=" ">English</a>
                             <a href=" ">සිංහල</a>
@@ -38,8 +38,8 @@
                 <li class="dropdown">
                     <span class="dot"> <img onclick="myFunction_2(this)" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
                     <div id="myDropdown" class="dropdown-content">
-                        <a href="../wildlifeofficer/viewProfile">View Profile</a>
-                        <a href="../user/index">Logout</a>
+                        <a href="../wildlifeofficer/viewProfile">පරිශීලක පැතිකඩ</a>
+                        <a href="../user/index">ඉවත් වීම</a>
                     </div>
                 </li>
             </ul>
@@ -58,7 +58,7 @@
     <div class="main-view">
         <a href="../wildlifeofficer/viewIncidents">
             <button class="report">
-                <h1> Reported </br>Incidents</h1>
+                <h1> වාර්තා වූ </br>සිදුවීම්</h1>
                 <div class="line"><img src="../Public/images/emergency.png"></div>
 
             </button>
@@ -67,13 +67,13 @@
             <button class="specialNotice">
                 <div class="notification"><span class="dot-1"><img src="../Public/images/bell.png" alt="1" srcset=" "></span>
                 </div>
-                <h1>Emergency Notifications</h1>
+                <h1>හදිසි<br>දැනුම්දීම්</h1>
                 <div class="line"><img src="../Public/images/notifi.png"></div>
             </button>
         </a>
         <a href="../wildlifeofficer/viewDashboard">
             <button class="dashboard">
-                <h1>Dashboard<div class="line"><img src="../Public/images/dashIcon.png"></div>
+                <h1>දත්ත<br>පුවරුව<div class="line"><img src="../Public/images/dashIcon.png"></div>
                 </h1>
             </button>
         </a>

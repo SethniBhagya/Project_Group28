@@ -6,16 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     
-    <link rel="stylesheet" href="../Public/css/admin_page.css">
+    
      <script src="../Public/Javascript/admin.js"></script>
+     <link rel="stylesheet" href="../Public/css/admin_page.css">
       <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
       <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js" ></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.min.js" ></script>
+
       <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     
     
     <title>Document</title>
 </head>
-<body style=" background: radial-gradient(82.57% 163.28% at 50% 50%, rgba(47, 191, 87, 0.56) 3.85%, rgba(181, 218, 191, 0) 100%);">
+<body>
     <header id="main">
         <img src="../Public/images/icon.png" alt="icon" id="icon">
         <nav id="navbar" class="mybar">
@@ -25,40 +30,39 @@
                 <div class="bar3"></div>
             </div>
 
-            <ul>
-                <li id="home_1"><a href="../">HOME</a></li>
-                
+            <ul class="nav-menu">
+                <li id="home" class="nav-menu-item"><a href="">Home</a></li>
+                <li id="add" class="nav-menu-item"><a href="../admin/viewUser">Users</a></li>
+                <li id="view" class="nav-menu-item"><a href="../admin/placeNotice">Notice</a></li>
                 <li class="dropdown">
                     <span class="dot"> <img onclick="myFunction_2(this)" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
                     <div id="myDropdown" class="dropdown-content">
                         <a href="">View Profile</a>
-                        <a href="../user/logout">Logout</a>
+                        <a href="logout">Logout</a>
                     </div>
                 </li>
             </ul>
         </nav>
     </header>
+    <input type="checkbox" id="check" >
+    <label for="check"><i class="fas fa-bars" id="side-btn"></i></label>
+    
 
-    <div class="container1">
-        <h1>Administrator</h1>
-        <div class="btn">
-            <ul>
-                <li>
-                    <div class="user-btn">
-                          <button onclick="location.href='../admin/viewUser'">Users</button>
-                    
-                    </div>
-                </li>
-                <li>
-                     <div class="notice-btn">
-                        <button>Notices</button>
-                     </div>
-                    
-                </li>
+    <div class="sidebar">
+      <label for="check"><i class="fas fa-times" id="cancel"></i></label>
+      <h1>Wildlife Care</h1>
+      <ul>
+        <li><a href="../admin/viewUser"><i class="fas fa-users"></i>Users</a></li>
+        <li><a href="../admin/placeNotice"><i class="fas fa-bell"></i>Notice</a></li>
+        
+      </ul>
 
-            </ul>
-        </div>
 
+      
+    </div>
+
+    
+  <h1 id="actor">ADMINISTRATOR</h1>
             
            
             
@@ -67,7 +71,7 @@
          <div class="container2">
            
 
-             <select id="selectInci" name="selectInci" onchange ="selectInci(this.value)">
+             <select id="selectInci" name="selectInci" onchange ="selectInci(this.value);count()" >
                 <option value="active">Active Cases</option>
                  <option value="week">This Week</option>
                  <option value="month">This Month</option>
@@ -78,11 +82,12 @@
              <div class="container2-inci">
                 <div class="active">
 
-                 <div class="inci">
-                    <img src="../Public/images/elephant.png">
-                    <h2>1</h2>
+                 <div class="inci" id="ele-1-box">
+                    <img src="../Public/images/elephantDash.png" id="ele-1">
+                    <p id="ele-1-para">Elephants Attack</p>
+                    <h2 class="counter">10</h2>
                     <input type="checkbox" id="show1">
-                    <label for="show1">View</label>
+                    <label for="show1" class="show-lbl">View</label>
 
                     <div class="detail1">
                          <label for="show1" class="close-btn1 fas fa-times"></label>
@@ -143,11 +148,12 @@
                     </div>
                         
                  </div>
-                 <div class="inci">
-                    <img src="../Public/images/animal.png">
-                    <h2>2</h2>
+                 <div class="inci" id="ani-1-box">
+                    <img src="../Public/images/animalDash.png" id="ani-1">
+                    <p id="ani-1-para">Animals In Village</p>
+                    <h2 class="counter">12</h2>
                     <input type="checkbox" id="show2">
-                    <label for="show2">View</label>
+                    <label for="show2" class="show-lbl">View</label>
                     <div class="detail2">
                         <label for="show2" class="close-btn1 fas fa-times"></label>
                         <h1>Detailed Details about active Other animals are in village</h1>
@@ -213,11 +219,12 @@
                     </div>
                         
                  </div>
-                 <div class="inci">
-                    <img src="../Public/images/danger.png">
-                    <h2>1</h2>
+                 <div class="inci" id="dan-1-box">
+                    <img src="../Public/images/dangerDash.png" id="dan-1">
+                    <p id="dan-1-para">Animals in Danger</p>
+                    <h2 class="counter">7</h2>
                     <input type="checkbox" id="show3">
-                    <label for="show3">View</label>
+                    <label for="show3" class="show-lbl">View</label>
                     <div class="detail3">
                         <label for="show3" class="close-btn1 fas fa-times"></label>
                         <h1>Detailed Details about active animals are in danger</h1>
@@ -284,11 +291,12 @@
                     </div>
                         
                  </div>
-                 <div class="inci">
-                    <img src="../Public/images/illegal.png">
-                    <h2>0</h2>
+                 <div class="inci" id="ill-1-box">
+                    <img src="../Public/images/illegalDash.png" id="ill-1">
+                    <p id="ill-1-para">Illegal Things</p>
+                    <h2 class="counter">8</h2>
                     <input type="checkbox" id="show4">
-                    <label for="show4">View</label>
+                    <label for="show4" class="show-lbl">View</label>
                     <div class="detail4">
                         <label for="show4" class="close-btn1 fas fa-times"></label>
                         <h1>Detailed Details about active illegal thinsg</h1>
@@ -352,11 +360,12 @@
                     </div>
                         
                  </div>
-                 <div class="inci">
-                    <img src="../Public/images/crop.png">
-                    <h2>0</h2>
+                 <div class="inci" id="crop-1-box">
+                    <img src="../Public/images/cropDash.png" id="crop-1">
+                    <p id="crop-1-para">Crop Damages</p>
+                    <h2 class="counter">3</h2>
                     <input type="checkbox" id="show5">
-                    <label for="show5">View</label>
+                    <label for="show5" class="show-lbl">View</label>
                     <div class="detail5">
                         <label for="show5" class="close-btn1 fas fa-times"></label>
                         <h1>Detailed Details about active elephnats are in village</h1>
@@ -433,11 +442,12 @@
                     </div>
                         
                  </div>
-                 <div class="inci">
-                    <img src="../Public/images/fence.png">
-                    <h2>0</h2>
+                 <div class="inci" id="fen-1-box">
+                    <img src="../Public/images/fenceDash.png" id="fen-1">
+                    <p id="fen-1-para">Damaged Fences</p>
+                    <h2 class="counter">19</h2>
                     <input type="checkbox" id="show6">
-                    <label for="show6">View</label>
+                    <label for="show6" class="show-lbl">View</label>
                     <div class="detail6">
                         <label for="show6" class="close-btn1 fas fa-times"></label>
                         <h1>Detailed Details about active damge fences</h1>
@@ -504,6 +514,7 @@
                  </div>
 
                  <div id="map">
+
              <script >
                
                function initMap(){
@@ -529,6 +540,8 @@
           <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA6bqTtd9axLl6pZb3eeSkRgRfXVjW1zkQ&callback=initMap">
     </script> 
+
+
        </div>
 
                  <div class="active-dis-chart">
@@ -570,44 +583,50 @@
 
              <div class="week">
 
-                 <div class="inci">
-                    <img src="../Public/images/elephant.png">
-                    <h2>4</h2>
+                 <div class="inci" id="ele-2-box">
+                    <img src="../Public/images/elephantDash.png" id="ele-2">
+                    <p id="ele-2-para">Elephants Attack</p>
+                    <h2 class="counter">4</h2>
                     
                     <p>Incidets Reported</p>
                         
                  </div>
-                 <div class="inci">
-                    <img src="../Public/images/animal.png">
-                    <h2>3</h2>
+                 <div class="inci" id="ani-2-box">
+                    <img src="../Public/images/animalDash.png" id="ani-2">
+                     <p id="ani-2-para">Animals In Village</p>
+                    <h2 class="counter">3</h2>
                     
                     <p>Incidets Reported</p>
                         
                  </div>
-                 <div class="inci">
-                    <img src="../Public/images/danger.png">
-                    <h2>3</h2>
+                 <div class="inci" id="dan-2-box">
+                    <img id="dan-2" src="../Public/images/dangerDash.png">
+                     <p id="dan-2-para">Animals in Danger</p>
+                    <h2 class="counter">3</h2>
                     
                     <p>Incidets Reported</p>
                         
                  </div>
-                 <div class="inci">
-                    <img src="../Public/images/illegal.png">
-                    <h2>1</h2>
+                 <div class="inci" id="ill-2-box">
+                    <img id="ill-2" src="../Public/images/illegalDash.png">
+                     <p id="ill-2-para">Illegal Things</p>
+                    <h2 class="counter">1</h2>
                     
                     <p>Incidets Reported</p>
                         
                  </div>
-                 <div class="inci">
-                    <img src="../Public/images/crop.png">
-                    <h2>2</h2>
+                 <div class="inci" id="crop-2-box">
+                    <img id="crop-2" src="../Public/images/cropDash.png">
+                     <p id="crop-2-para">Crop Damages</p>
+                    <h2 class="counter">2</h2>
                     
                     <p>Incidets Reported</p>
                         
                  </div>
-                 <div class="inci">
-                    <img src="../Public/images/fence.png">
-                    <h2>4</h2>
+                 <div class="inci" id="fen-2-box">
+                    <img id="fen-2" src="../Public/images/fenceDash.png">
+                     <p id="fen-2-para">Damaged Fences</p>
+                    <h2 class="counter">4</h2>
                     
                     <p>Incidets Reported</p>
                         
@@ -716,44 +735,50 @@
 
              <div class="month">
 
-                  <div class="inci">
-                    <img src="../Public/images/elephant.png">
-                    <h2>10</h2>
+                  <div class="inci" id="ele-3-box">
+                    <img id="ele-3" src="../Public/images/elephantDash.png">
+                     <p id="ele-3-para">Elephants Attack</p>
+                    <h2 class="counter">10</h2>
                     
                     <p>Incidets Reported</p>
                         
                  </div>
-                 <div class="inci">
-                    <img src="../Public/images/animal.png">
-                     <h2>8</h2>
+                 <div class="inci" id="ani-3-box">
+                    <img id="ani-3" src="../Public/images/animalDash.png">
+                     <p id="ani-3-para">Animals In Village</p>
+                     <h2 class="counter">8</h2>
                      
                     <p>Incidets Reported</p>
                         
                  </div>
-                 <div class="inci">
-                    <img src="../Public/images/danger.png">
-                     <h2>6</h2>
+                 <div class="inci" id="dan-3-box">
+                    <img id="dan-3" src="../Public/images/dangerDash.png">
+                     <p id="dan-3-para">Animals in Danger</p>
+                     <h2 class="counter">6</h2>
                    
                     <p>Incidets Reported</p>
                         
                  </div>
-                 <div class="inci">
-                    <img src="../Public/images/illegal.png">
-                     <h2>1</h2>
+                 <div class="inci" id="ill-3-box">
+                    <img id="ill-3" src="../Public/images/illegalDash.png">
+                     <p id="ill-3-para">Illegal Things</p>
+                     <h2 class="counter">1</h2>
                     
                     <p>Incidets Reported</p>
                         
                  </div>
-                 <div class="inci">
-                    <img src="../Public/images/crop.png">
-                     <h2>1</h2>
+                 <div class="inci" id="crop-3-box">
+                    <img id="crop-3" src="../Public/images/cropDash.png">
+                     <p id="crop-3-para">Crop Damages</p>
+                     <h2 class="counter">1</h2>
                      
                     <p>Incidets Reported</p>
                         
                  </div>
-                 <div class="inci">
-                    <img src="../Public/images/fence.png">
-                    <h2>4</h2>
+                 <div class="inci" id="fen-3-box">
+                    <img id="fen-3" src="../Public/images/fenceDash.png">
+                     <p id="fen-3-para">Damaged Fences</p>
+                    <h2 class="counter">4</h2>
                    
                     <p>Incidets Reported</p>
                  </div>
@@ -864,44 +889,50 @@
              
              <div class="year">
 
-                <div class="inci">
-                    <img src="../Public/images/elephant.png">
-                    <h2>121</h2>
+                <div class="inci" id="ele-4-box">
+                    <img id="ele-4" src="../Public/images/elephantDash.png">
+                     <p id="ele-4-para">Elephants Attack</p>
+                    <h2 class="counter">121</h2>
                     
                     <p>Incidets Reported</p>
                         
                  </div>
-                 <div class="inci">
-                    <img src="../Public/images/animal.png">
-                    <h2>24</h2>
+                 <div class="inci" id="ani-4-box">
+                    <img id="ani-4" src="../Public/images/animalDash.png">
+                     <p id="ani-4-para">Animals In Village</p>
+                    <h2 class="counter">24</h2>
                     
                     <p>Incidets Reported</p>
                         
                  </div>
-                 <div class="inci">
-                    <img src="../Public/images/danger.png">
-                    <h2>62</h2>
+                 <div class="inci" id="dan-4-box">
+                    <img id="dan-4" src="../Public/images/dangerDash.png">
+                     <p id="dan-4-para">Animals in Danger</p>
+                    <h2 class="counter">62</h2>
                     
                     <p>Incidets Reported</p>
                         
                  </div>
-                 <div class="inci">
-                    <img src="../Public/images/illegal.png">
-                    <h2>15</h2>
+                 <div class="inci" id="ill-4-box">
+                    <img id="ill-4" src="../Public/images/illegalDash.png">
+                     <p id="ill-4-para">Illegal Things</p>
+                    <h2 class="counter">15</h2>
                    
                     <p>Incidets Reported</p>
                         
                  </div>
-                 <div class="inci">
-                    <img src="../Public/images/crop.png">
-                    <h2>98</h2>
+                 <div class="inci" id="crop-4-box">
+                    <img id="crop-4" src="../Public/images/cropDash.png">
+                     <p id="crop-4-para">Crop Damages</p>
+                    <h2 class="counter">98</h2>
                     
                     <p>Incidets Reported</p>
                         
                  </div>
-                 <div class="inci">
-                    <img src="../Public/images/fence.png">
-                    <h2>28</h2>
+                 <div class="inci" id="fen-4-box">
+                    <img id="fen-4" src="../Public/images/fenceDash.png">
+                     <p id="fen-4-para">Damaged Fences</p>
+                    <h2 class="counter">28</h2>
 
                     <p>Incidets Reported</p>
                         
@@ -914,6 +945,29 @@
 
                      
                  </div>
+                 <script >
+                   
+                   
+                   $(document).ready(function(){
+                    $(".counter").counterUp({
+                      delay:100,
+                      time:3000
+                    })
+                   })
+
+                   function count(){
+
+                    $(".counter").counterUp({
+                      delay:100,
+                      time:3000
+                    })
+
+                   }
+
+                 </script>
+
+
+
                      <script >
                      let yearDis=document.getElementById("year-dis").getContext("2d");
     let yearDisLabels=["polonnaruwa","anuradhapura","ampara","hambanthota"];
@@ -1012,7 +1066,7 @@
              </div>
 
              </div>
-           
+           <h3 id="active-map-header">Active Cases In Map</h3>
         </div>
 
 
@@ -1081,7 +1135,7 @@
 
     <div class="container3">
        
-           <select  id="selectDis" name="selectDis" onchange ="selectDis(this.value)">
+           <select  id="selectDis" name="selectDis" onchange ="selectDis(this.value);count()">
                <option value="polonnaruwa">Polonnaruwa</option>
                <option value="anuradhapura">Anuradhapura</option>
                <option value="ampara">Ampara</option>
@@ -1091,41 +1145,47 @@
            <div class="container3-dis">
              <div class="polonnaruwa">
 
-                 <div class="inci">
-                    <img src="../Public/images/elephant.png">
-                    <h2>1</h2>
+                 <div class="inci" id="ele-5-box">
+                    <img id="ele-5" src="../Public/images/elephantDash.png">
+                     <p id="ele-5-para">Elephants Attack</p>
+                    <h2 class="counter">12</h2>
                    
                     <label > Active Incidents </label>
                     
                         
                  </div>
-                 <div class="inci">
-                    <img src="../Public/images/animal.png">
-                    <h2>2</h2>
+                 <div class="inci" id="ani-5-box">
+                    <img id="ani-5" src="../Public/images/animalDash.png">
+                     <p id="ani-5-para">Animals In Village</p>
+                    <h2 class="counter">21</h2>
                     <label >Active Incidents </label>
                         
                  </div>
-                 <div class="inci">
-                    <img src="../Public/images/danger.png">
-                    <h2>1</h2>
+                 <div class="inci" id="dan-5-box">
+                    <img id="dan-5" src="../Public/images/dangerDash.png">
+                     <p id="dan-5-para">Animals in Danger</p>
+                    <h2 class="counter">11</h2>
                     <label >Active Incidents </label>
                         
                  </div>
-                 <div class="inci">
-                    <img src="../Public/images/illegal.png">
-                    <h2>0</h2>
+                 <div class="inci" id="ill-5-box">
+                    <img id="ill-5" src="../Public/images/illegalDash.png">
+                     <p id="ill-5-para">Illegal Things</p>
+                    <h2 class="counter">10</h2>
                     <label >Active Incidents </label>
                         
                  </div>
-                 <div class="inci">
-                    <img src="../Public/images/crop.png">
-                    <h2>0</h2>
+                 <div class="inci" id="crop-5-box">
+                    <img id="crop-5" src="../Public/images/cropDash.png">
+                     <p id="crop-5-para">Crop Damages</p>
+                    <h2 class="counter">10</h2>
                     <label >Active Incidents </label>
                         
                  </div>
-                 <div class="inci">
-                    <img src="../Public/images/fence.png">
-                    <h2>0</h2>
+                 <div class="inci" id="fen-5-box">
+                    <img id="fen-5" src="../Public/images/fenceDash.png">
+                     <p id="fen-5-para">Damaged Fences</p>
+                    <h2 class="counter">13</h2>
                     <label >Active Incidents </label>
                         
                  </div>
@@ -1190,46 +1250,54 @@
 
     });
                  </script>
+
+        <h3 class="map-dis-header">Polonnaruwa Active Cases In Map</h3>
          </div>
 
 
              <div class="anuradhapura">
 
-                 <div class="inci">
-                    <img src="../Public/images/elephant.png">
-                    <h2>3</h2>
+                 <div class="inci" id="ele-6-box">
+                    <img id="ele-6" src="../Public/images/elephantDash.png">
+                     <p id="ele-6-para">Elephants Attack</p>
+                    <h2 class="counter">32</h2>
                    
                     <label >Active Incidents </label>
                     
                         
                  </div>
-                 <div class="inci">
-                    <img src="../Public/images/animal.png">
-                    <h2>1</h2>
+                 <div class="inci" id="ani-6-box">
+                    <img id="ani-6" src="../Public/images/animalDash.png">
+                     <p id="ani-6-para">Animals In Village</p>
+                    <h2 class="counter">11</h2>
                     <label >Active Incidents </label>
                         
                  </div>
-                 <div class="inci">
-                    <img src="../Public/images/danger.png">
-                    <h2>0</h2>
+                 <div class="inci" id="dan-6-box">
+                    <img id="dan-6" src="../Public/images/dangerDash.png">
+                     <p id="dan-6-para">Animals in Danger</p>
+                    <h2 class="counter">9</h2>
                     <label >Active Incidents </label>
                         
                  </div>
-                 <div class="inci">
-                    <img src="../Public/images/illegal.png">
-                    <h2>0</h2>
+                 <div class="inci" id="ill-6-box">
+                    <img id="ill-6" src="../Public/images/illegalDash.png">
+                     <p id="ill-6-para">Illegal Things</p>
+                    <h2 class="counter">8</h2>
                     <label >Active Incidents </label>
                         
                  </div>
-                 <div class="inci">
-                    <img src="../Public/images/crop.png">
-                    <h2>0</h2>
+                 <div class="inci" id="crop-6-box">
+                    <img id="crop-6" src="../Public/images/cropDash.png">
+                     <p id="crop-6-para">Crop Damages</p>
+                    <h2 class="counter">17</h2>
                     <label >Active Incidents </label>
                         
                  </div>
-                 <div class="inci">
-                    <img src="../Public/images/fence.png">
-                    <h2>0</h2>
+                 <div class="inci" id="fen-6-box">
+                    <img id="fen-6" src="../Public/images/fenceDash.png">
+                     <p id="fen-6-para">Damaged Fences</p>
+                    <h2 class="counter">18</h2>
                     <label >Active Incidents </label>
                         
                  </div>
@@ -1295,45 +1363,53 @@
 
     });
                  </script>
+
+          <h3 class="map-dis-header">Anuradhapura Active Cases In Map</h3>
          </div>
                
                <div class="ampara">
 
-                 <div class="inci">
-                    <img src="../Public/images/elephant.png">
-                    <h2>1</h2>
+                 <div class="inci" id="ele-7-box">
+                    <img id="ele-7" src="../Public/images/elephantDash.png">
+                     <p id="ele-7-para">Elephants Attack</p>
+                    <h2 class="counter">111</h2>
                    
                     <label >Active Incidents </label>
                     
                         
                  </div>
-                 <div class="inci">
-                    <img src="../Public/images/animal.png">
-                    <h2>2</h2>
+                 <div class="inci" id="ani-7-box">
+                    <img id="ani-7" src="../Public/images/animalDash.png">
+                     <p id="ani-7-para">Animals In Village</p>
+                    <h2 class="counter">23</h2>
                     <label >Active Incidents </label>
                         
                  </div>
-                 <div class="inci">
-                    <img src="../Public/images/danger.png">
-                    <h2>1</h2>
+                 <div class="inci" id="dan-7-box">
+                    <img id="dan-7" src="../Public/images/dangerDash.png">
+                     <p id="dan-7-para">Animals in Danger</p>
+                    <h2 class="counter">14</h2>
                     <label >Active Incidents </label>
                         
                  </div>
-                 <div class="inci">
-                    <img src="../Public/images/illegal.png">
-                    <h2>1</h2>
+                 <div class="inci" id="ill-7-box">
+                    <img id="ill-7" src="../Public/images/illegalDash.png">
+                     <p id="ill-7-para">Illegal Things</p>
+                    <h2 class="counter">1</h2>
                     <label >Active Incidents </label>
                         
                  </div>
-                 <div class="inci">
-                    <img src="../Public/images/crop.png">
-                    <h2>3</h2>
+                 <div class="inci" id="crop-7-box">
+                    <img id="crop-7" src="../Public/images/cropDash.png">
+                     <p id="crop-7-para">Crop Damages</p>
+                    <h2 class="counter">3</h2>
                     <label >Active Incidents </label>
                         
                  </div>
-                 <div class="inci">
-                    <img src="../Public/images/fence.png">
-                    <h2>2</h2>
+                 <div class="inci" id="fen-7-box">
+                    <img id="fen-7" src="../Public/images/fenceDash.png">
+                     <p id="fen-7-para">Damaged Fences</p>
+                    <h2 class="counter">2</h2>
                     <label >Active Incidents </label>
                         
                  </div>
@@ -1401,46 +1477,53 @@
 
     });
                  </script>
+                 <h3 class="map-dis-header">Ampara Active Cases In Map</h3>
          </div>
                
 
                <div class="hambanthota">
 
-                 <div class="inci">
-                    <img src="../Public/images/elephant.png">
-                    <h2>1</h2>
+                 <div class="inci" id="ele-8-box">
+                    <img id="ele-8" src="../Public/images/elephantDash.png">
+                     <p id="ele-8-para">Elephants Attack</p>
+                    <h2 class="counter">1</h2>
                    
                     <label >Active Incidents </label>
                     
                         
                  </div>
-                 <div class="inci">
-                    <img src="../Public/images/animal.png">
-                    <h2>2</h2>
+                 <div class="inci" id="ani-8-box">
+                    <img id="ani-8" src="../Public/images/animalDash.png">
+                     <p id="ani-8-para">Animals In Village</p>
+                    <h2 class="counter">2</h2>
                     <label >Active Incidents </label>
                         
                  </div>
-                 <div class="inci">
-                    <img src="../Public/images/danger.png">
-                    <h2>1</h2>
+                 <div class="inci" id="dan-8-box">
+                    <img id="dan-8" src="../Public/images/dangerDash.png">
+                     <p id="dan-8-para">Elephants Attack</p>
+                    <h2 class="counter">13</h2>
                     <label >Active Incidents </label>
                         
                  </div>
-                 <div class="inci">
-                    <img src="../Public/images/illegal.png">
-                    <h2>4</h2>
+                 <div class="inci" id="ill-8-box">
+                    <img id="ill-8" src="../Public/images/illegalDash.png">
+                     <p id="ill-8-para">Illegal Things</p>
+                    <h2 class="counter">46</h2>
                     <label >Active Incidents </label>
                         
                  </div>
-                 <div class="inci">
-                    <img src="../Public/images/crop.png">
-                    <h2>5</h2>
+                 <div class="inci" id="crop-8-box">
+                    <img id="crop-8" src="../Public/images/cropDash.png">
+                     <p id="crop-8-para">Crop Damages</p>
+                    <h2 class="counter">52</h2>
                     <label >Active Incidents </label>
                         
                  </div>
-                 <div class="inci">
-                    <img src="../Public/images/fence.png">
-                    <h2>6</h2>
+                 <div class="inci" id="fen-8-box">
+                    <img id="fen-8" src="../Public/images/fenceDash.png">
+                     <p id="fen-8-para">Damaged Fences</p>
+                    <h2 class="counter">68</h2>
                     <label >Active Incidents </label>
                         
                  </div>
@@ -1505,13 +1588,15 @@
     });
                  </script>
 
+                 <h3 class="map-dis-header">Hambanthota Active Cases In Map</h3>
+
          </div>
                
                
           
            </div>
         
-
+ 
         
 
     </div>
@@ -1535,23 +1620,23 @@
                         </thead>
                         <tr>
                             <td>Regional Officers</td>
-                            <td>6</td>
+                            <td class="counter">6</td>
                         </tr>
                         <tr>
                             <td>Wildlife Officers</td>
-                            <td>125</td>
+                            <td class="counter">125</td>
                         </tr>
                         <tr>
                             <td>Villagers</td>
-                            <td>1200</td>
+                            <td class="counter">1200</td>
                         </tr>
                         <tr>
                             <td>Grama Niladhari</td>
-                            <td>45</td>
+                            <td class="counter">45</td>
                         </tr>
                         <tr>
                             <td>Veterinarian</td>
-                            <td>45</td>
+                            <td class="counter">45</td>
                         </tr>
                         
 
@@ -1578,23 +1663,23 @@
                         </thead>
                         <tr>
                             <td>Regional Officers</td>
-                            <td>2</td>
+                            <td class="counter">2</td>
                         </tr>
                         <tr>
                             <td>Wildlife Officers</td>
-                            <td>53</td>
+                            <td class="counter">53</td>
                         </tr>
                         <tr>
                             <td>Villagers</td>
-                            <td>700</td>
+                            <td class="counter">700</td>
                         </tr>
                         <tr>
                             <td>Grama Niladhari</td>
-                            <td>42</td>
+                            <td class="counter">42</td>
                         </tr>
                         <tr>
                             <td>Veterinarian</td>
-                            <td>12</td>
+                            <td class="counter">12</td>
                         </tr>
                         
 
@@ -1617,3 +1702,5 @@
 
 </body>
 </html>
+
+

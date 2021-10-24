@@ -1,4 +1,61 @@
 
+#dashboard {
+  background-color: darkgreen;
+  border-radius: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 13px;
+  padding-bottom: 13px;
+}
+#notice {
+  background-color: darkgreen;
+  border-radius: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 13px;
+  padding-bottom: 13px;
+}
+
+
+#dashboard:hover,#notice:hover{
+  background-color:  rgb(168, 175, 168);
+}
+
+#dashboard:visited,#notice:visited{
+  background-color:  rgb(168, 175, 168);
+}
+
+..nav-menu .nav-menu-item a{
+ /* margin-right: 2px;
+  padding-left: 20px;
+  padding-right: 20px;*/
+  padding: 16px;
+ }
+
+ .nav-menu li  a{
+  color: white;
+ }
+
+ .nav-menu li #myDropdown a{
+  margin-right: 2px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 0;
+  padding-bottom: 0;
+  
+ }
+
+
+
+ .nav-menu-item{
+  position:relative;
+  z-index: 1;
+  top: -20px;
+}
+
+
+
+
   
 
   .container1{
@@ -47,7 +104,7 @@
     
    }
 
-    .select-user ul li label{
+    .select-user ul li label a{
       color: black;
       padding-right: 12px;
       position: relative;
@@ -57,12 +114,26 @@
       font-size: 24px;
       border-radius: 10px;
       border:none;
+      cursor: pointer;
     }
 
-    .select-user ul li label:hover{
+    .select-user ul li label a:hover{
 
       background-color: darkgreen;
     }
+
+    .select-user ul li label a:active{
+
+      background-color: darkgreen;
+
+    }
+
+    .select-user ul li label a:visited{
+
+      background-color: red;
+      color: red;
+    }
+
 
     
 
@@ -147,13 +218,13 @@
     table ul li{
       margin-bottom:0;
       margin-top: 0;
-      padding-top: 0;
+      padding-top: 13px;
       padding-bottom: 0;
     }
     table img{
       background-color: rgb(0,251,10,0.16);
-      width: 20px;
-      height: 20px;
+      width: 25px;
+      height: 25px;
     }
 
 

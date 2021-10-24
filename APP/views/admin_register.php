@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -71,26 +72,21 @@
             
         </div>
 
+        <div>
+            <?php
+              if(isset($_GET["error"]))
+                echo "<h2 id=\"error\">".$_GET["error"]."</h2>";
 
-       <!--  <div class="error" style=" margin-top: 2px;
-  position: absolute;
-  width: 345px;
-  font-size: 18px;
-  color: #c62828;
- 
-  text-align: center;
-  top: 180px;
-  
-  /*border: 1px solid #EF9A9A;*/
-  left: 37.5%; ">
-                 <?php if(!empty($data))  echo $data["province"]; ?>
-            </div> -->
+            ?>
+        </div>
 
-             <!--  -->
+       
+
+       
         <div class="container2">
 
 
-            <form class="gnform" method="POST" action="../admin/addUser">
+            <form class="gnform" method="POST" action="../admin/addUser?error=&success=">
                 <table>
 
                     <tr>
@@ -193,7 +189,6 @@
                                <select class="text" name="province" id="province"   onchange ="selectDistrict1(this.value)"  required>
                                   <option>Select Province</option>
                                    <?php $rows=$data["province"]; foreach($rows as $row){ echo "<option"?><?php echo " value=".$row["Name"]." >".$row["Name"]."</option>";}?> 
-                                    
                                </select>
 
                             
@@ -235,7 +230,7 @@
 
 
                 </table>
-                <button>back</button>
+                <button onclick="location.href='../admin/addUser'" >back</button>
                 
                     <button type="submit" name="submit" value="grama niladhari">Submit</button>
                 
@@ -248,7 +243,7 @@
             </form>
 
 
-             <form class="vetform" method="POST" action="../admin/addUser">
+             <form class="vetform" method="POST" action="../admin/addUser?error=&success=">
                 <table>
 
                     <tr>
@@ -327,8 +322,6 @@
                             <select class="text" name="ofn" id="ofn" required>
                                 <option>Select Office Number</option>
                                 <?php $rows=$data["office"]; foreach($rows as $row){ echo "<option"?><?php echo " value=".$row["officeNo"]." >".$row["officeNo"]."</option>";}?> 
-
-                                
                             </select>
                         </td>
                     </tr>
@@ -366,7 +359,7 @@
 
 
                 </table>
-                <button>back</button>
+                <button onclick="location.href='../admin/addUser'">back</button>
                 <button type="submit" name="submit" value="veterinarian">Submit</button>
                 
 
@@ -377,7 +370,7 @@
             </form>
 
 
-             <form class="vilform"  method="POST" action="../admin/addUser">
+             <form class="vilform"  method="POST" action="../admin/addUser?error=&success=">
                 <table>
                     
 
@@ -500,8 +493,7 @@
                                <select class="text" name="province" id="province"   onchange ="selectDistrict(this.value)"  required>
                                   <option>Select Province</option>
                                    <?php $rows=$data["province"]; foreach($rows as $row){ echo "<option"?><?php echo " value=".$row["Name"]." >".$row["Name"]."</option>";}?> 
-                                    
-                               </select>
+                                    </select>
 
                             
                            </td>
@@ -545,7 +537,7 @@
 
                 </table>
 
-                <button>back</button>
+                <button onclick="location.href='../admin/addUser'">back</button>
                 <button type="submit" name="submit" value="villager">Submit</button>
                 
 
@@ -555,7 +547,7 @@
 
             </form>
 
-             <form class="woform"  method="POST" action="../admin/addUser">
+             <form class="woform"  method="POST" action="../admin/addUser?error=&success=">
                 <table>
 
                     <tr>
@@ -641,8 +633,6 @@
                             <select class="text" name="ofn" id="ofn" required>
                                 <option>Select Office Number</option>
                                 <?php $rows=$data["office"]; foreach($rows as $row){ echo "<option"?><?php echo " value=".$row["officeNo"]." >".$row["officeNo"]."</option>";}?> 
-
-                                
                             </select>
                         </td>
                     </tr>
@@ -680,7 +670,7 @@
                 </table>
                 
 
-               <button>back</button>
+               <button onclick="location.href='../admin/addUser'">back</button>
                <button type="submit"  name="submit" value="wildlife officer">Submit</button>
 
 
@@ -689,7 +679,7 @@
 
 
 
-            <form class="roform"  method="POST" action="../admin/addUser">
+            <form class="roform"  method="POST" action="../admin/addUser?error=&success=">
                 <table>
 
 
@@ -772,8 +762,6 @@
                             <select class="text" name="ofn" id="ofn" required>
                                 <option>Select Office Number</option>
                                 <?php $rows=$data["office"]; foreach($rows as $row){ echo "<option"?><?php echo " value=".$row["officeNo"]." >".$row["officeNo"]."</option>";}?> 
-
-                                
                             </select>
                         </td>
                     </tr>
@@ -813,7 +801,7 @@
 
 
 
-              <button>back</button>
+              <button onclick="location.href='../admin/addUser'">back</button>
               <button type="submit" name="submit" value="regional officer">Submit</button>
 
             </form>

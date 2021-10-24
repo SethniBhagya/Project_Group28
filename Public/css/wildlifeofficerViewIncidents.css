@@ -23,7 +23,7 @@
   margin-top: 10px;
   width: 90%;
   color: rgb(14, 73, 7);
-  background: rgba(95, 219, 99, 0.616);
+
   margin-left: 5%;
   margin-right: 5%;
   height: auto;
@@ -153,12 +153,9 @@ option .group-3:hover {
   background: #10400d;
   text-align: center;
   color: #fff;
-  border-radius: 0 5px 5px 0;
+  border-radius: 0 0px 0px 0;
   cursor: pointer;
-  font-size: 10px;
-}
-#view {
-  border-radius: 5px 0 0 5px;
+  font-size: 15px;
 }
 
 /*Resize the wrap to see the search bar change!*/
@@ -218,7 +215,33 @@ tr:nth-child(even) {
 .links_to_pages li:hover {
   color: rgb(16, 165, 41);
 }
-.button {
+.buttonAccept {
+  background-color: #4caf50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  height: auto;
+}
+.buttonCancel {
+  background-color: #af7c4c;
+  border: block;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  height: auto;
+}
+.viewButton {
   background-color: #4caf50;
   border: none;
   color: white;
@@ -229,6 +252,7 @@ tr:nth-child(even) {
   font-size: 16px;
   margin: 4px 2px;
   cursor: pointer;
+  height: auto;
 }
 /* back */
 .row1 {

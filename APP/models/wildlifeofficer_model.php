@@ -52,4 +52,11 @@ class Wildlifeofficer_model extends Model
 		//$this->db->runQuery($stmt3);
 		return $result;
 	}
+
+	public function incidentStatUpdate($state, $ID)
+	{
+		$stmt2 = "UPDATE reported_incident SET status='$state' WHERE incidentID='$ID'";
+		$result = $this->db->runQuery($stmt2);
+		return $result;
+	}
 }
