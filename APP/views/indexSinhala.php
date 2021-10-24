@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="Public/css/home.css">
     
      
-    <title>Home page</title>
+    <title>ප්‍රදාන පිටුව</title>
 </head>
 
 <body> 
@@ -25,15 +25,15 @@
                 <div class="bar3"></div>
             </div>
 
-            <ul class="nav-menu">
+            <ul>
                  <!-- <li id="lan"></li> -->
-                <li id="home"><a href="">Home</a></li>
-                <li id="report"><a href="incident/index?lang=1">Report Incidents</a></li>
-                <li id="register"><a href="villager/register?lang=1">Register</a></li>
-                <li id="login"><a id=login_text href="user/index?lang=1">Login</a></li>
+                <li id="home"><a href="">ප්‍රදාන පිටුව</a></li>
+                <li id="report"><a href="incident/index?lang=2">සිදුවීම් වාර්තා කරන්න</a></li>
+                <li id="register"><a href="villager/register?lang=2">ලියාපදිංචිය</a></li>
+                <li id="login"><a id=login_text href="user/index?lang=2">ඇතුල් වන්න</a></li>
                 
                 <li class="dropdown">
-                    <button onmouseover="myFunction_2()" class="dropbtn">Language <i class="down"></i></button>
+                    <button onmouseover="myFunction_2()" class="dropbtn">භාශාව <i class="down"></i></button>
                     <div id="myDropdown" class="dropdown-content">
                       <a href="../wildlifecare?lang=1">English</a>
                       <a href="../wildlifecare?lang=2">සිංහල</a>
@@ -65,9 +65,9 @@
             <!-- <h1>Wildlife is sbhs</h1>
             <p>gg bs hgwygwb hwbwqugwqh</p>
          -->
-        <button id="header">“The real wealth of the Nation lies in the resources of the earth - soil, water, forests, minerals, and wildlife.”</button>
+        <button id="header">“ජාතියක සැබෑ ධනය පවතින්නේ පොලොව, පස, ජලය, වනාන්තර, ඛණිජ, සහ වනජීවී සම්පත් වලය.”</button>
         <form action="villager/register">
-            <button id="regButton" >REGISTER</button>
+            <button id="regButton" >ලියාපදිංචිය</button>
         </form>
         
     </div>
@@ -137,8 +137,8 @@ function nextImage(){
 <div id="intro">
         <img src="Public/images/logo.png">
         
-        <h1 >What is wildlife Care?</h1>
-        <p>Wildlife Care is a web based and mobilebased system which facilitates to minimize the communication distance between  wildlifeofficials and the villagers who are living near to sanctuaries. Therefore it facilitated efficient and effective communication between villagers and wildlife officials. The main purpose of Wildlife Care is to protect the lives of animals, human lives and properties .
+        <h1 >Wildlife Care යනු කුමක්ද?</h1>
+        <p>Wildlife Care යනු වෙබ් සහ මොබයිල් පදනම් කරගත් පද්ධතියක් වන අතර මෙය මගින් වනජීවි නිළදාරීන් හා ගම්මුන් අතර පවතින දුරස්ත භාවය අඩු කිරීමට සමත් වේ.එම නිසා Wildlife Care මගින් ඵලදායී සහ කාර්යක්ශම සන්නිවේදනයක් ඇති කරයි. මෙහි ප්‍රධාන අරමුණ වනුයේ මිනිසුන්ගෙ, වනසතුන්ගේ ජීවිත මෙන්ම දෙපළද යම් කිසි අකාරයකින් ආරක්ශා කර ගැනීමයි.
   </p>
         
     </div>
@@ -154,14 +154,14 @@ function nextImage(){
                          <img src="Public/images/reportinci.png">
                          <div id="fr1-1-side">
                           <i class="fas fa-republican"></i>
-                            <h4>Report Incidents</h4>
+                            <h4>හදිසි සිදුවීම් වාර්තා කිරීම</h4>
                             
                          </div>
                          <div id="fr1-1-class">
 
                             <img src="Public/images/elephant.png"  >
-                         <h2>Report Incidents</h2>
-                         <p>Wildlife Care have facilitated users to report incidents regarding wildlifes. Accordingly, it can allow users to inform those  informations  quickly  </p>
+                         <h2>හදිසි සිදුවීම් වාර්තා කිරීම</h2>
+                         <p>වන සතුන් සම්බන්ධ සිදුවීම් වාර්තා කිරීමට Wildlife Care පරිශීලකයින්ට පහසුකම් සලසා ඇත.එම තොරතුරු ඉක්මනින් පරිශීලකයින්ට දැනුම් දීමට හැකියි.  </p>
                              
                          </div>
 
@@ -175,7 +175,7 @@ function nextImage(){
                         <img src="Public/images/alertinci.png">
                         <div id="fr1-2-side">
                             <i class="fas fa-bell"></i>
-                            <h4>Get Alerts</h4>
+                            <h4>අනතුරු ඇගවීම් ලබා ගන්න.</h4>
 
                             
                          </div>
@@ -183,8 +183,8 @@ function nextImage(){
                         <div id="fr1-2-class">
 
                             <img src="Public/images/bell.png" >
-                        <h2>Get Alerts</h2>
-                        <p>Wildlife Care have facilitated to inform relevant villagers quickly  when reporting about  wild elephants coming  to villages </p>
+                        <h2>අනතුරු ඇගවීම් ලබා ගන්න.</h2>
+                        <p>වන අලි ගම්වලට පැමිණෙන බව වාර්තා වන විට අදාළ ගම්වාසීන්ට කඩිනමින් දැනුම් දීමට Wildlife Care පහසුකම් සලසා ඇත. </p>
                              
                          </div>
 
@@ -198,15 +198,15 @@ function nextImage(){
                         <img src="Public/images/vetinci.png">
                         <div id="fr1-3-side">
                           <i class="fas fa-laptop-medical"></i>
-                            <h4>Veterinarian Support</h4>
+                            <h4>පශු වෛද්ය සහාය</h4>
                             
                          </div>
 
 
                         <div id="fr1-3-class">
                             <img src="Public/images/vet.png" >
-                        <h2>Veterinarian Support</h2>
-                        <p>Wildlife officials have facilities to alert veterinarians using Wildlife Care system as soon as a wild animal is in danger.  </p>
+                        <h2>පශු වෛද්ය සහාය</h2>
+                        <p>වන සතෙකු අනතුරට පත් වූ විගස Wildlife Care භාවිතා කර පශු වෛද්‍යවරුන් දැනුවත් කිරීමට වනජීවී නිලධාරීන්ට පහසුකම් ඇත. </p>
                              
                          </div>
 
@@ -227,16 +227,16 @@ function nextImage(){
 
                         <div id="fr2-1-side">
                           <i class="fas fa-map-signs"></i>
-                            <h4>Maps</h4>
+                            <h4>සිතියම්</h4>
                             
                          </div>
                         
                         <div id="fr2-1-class">
                              <img src="Public/images/map.png"  >
                           
-                         <h2>Maps</h2>
-                         <p>The Wildlife Care  allows users to mark the location when reporting an incident.
-The location of the reported incident can also view </p>
+                         <h2>සිතියම්</h2>
+                         <p>සිද්ධියක් වාර්තා කිරීමේදී පරිශීලකයින්ට ස්ථානය සලකුණු කිරීමට Wildlife Care ඉඩ සලසයි.
+වාර්තා වූ සිද්ධියේ ස්ථානය ද බැලීමට හැකිය.</p>
                              
                          </div>
                          
@@ -252,15 +252,15 @@ The location of the reported incident can also view </p>
                         <img src="Public/images/reginci.png">
                         <div id="fr2-2-side">
                           <i class="fas fa-phone"></i>
-                            <h4>Register Without Smartphones</h4>
+                            <h4>ස්මාර්ට් ජංගම දුරකථන නොමැතිව ලියාපදිංචි වන්න</h4>
                             
                          </div>
                         
                         <div id="fr2-2-class">
 
                             <img src="Public/images/mobile.png" >
-                        <h2>Register Without Smartphones</h2>
-                        <p>Villagers who don't have smart phones but have mobile phones can register and  get alerts from this system.
+                        <h2>ස්මාර්ට් ජංගම දුරකථන නොමැතිව ලියාපදිංචි වන්න</h2>
+                        <p>ස්මාර්ට් ජංගම දුරකථන නොමැති නමුත් ජංගම දුරකථන ඇති ගමේ අයට මෙම පද්ධතියෙන් ලියාපදිංචි වී අනතුරු ඇඟවීම් ලබා ගත හැකිය.
  </p>
                              
                          </div>
@@ -274,15 +274,15 @@ The location of the reported incident can also view </p>
                         <img src="Public/images/dashinci.png">
                         <div id="fr2-3-side">
                           <i class="fas fa-chart-line"></i>
-                            <h4>Analytical Dashboard</h4>
+                            <h4>විශ්ලේෂණ උපකරණ පුවරුව</h4>
                             
                          </div>
                         
                         <div id="fr2-3-class">
 
                             <img src="Public/images/dash.png" >
-                        <h2>Analytical Dashboard</h2>
-                        <p>Wildlife Care Provides detailed dashboard for required analytical works. </p>
+                        <h2>විශ්ලේෂණ උපකරණ පුවරුව</h2>
+                        <p>Wildlife Care විශ්ලේෂණ කටයුතු සඳහා සවිස්තර උපකරණ පුවරුවක් සපයයි.</p>
                              
                          </div>
 
@@ -303,7 +303,7 @@ The location of the reported incident can also view </p>
 
                         
                         <ul>
-                            <li><h4>Address</h4></li>
+                            <li><h4>ලිපිනය</h4></li>
                             <li>No18</li>
                             <li>Kandy Road</li>
                             <li>Pilimathalawa</li>
@@ -314,10 +314,10 @@ The location of the reported incident can also view </p>
                      <div class="footer-col">
 
                         
-                        <ul><li><h4>Site Map</h4></li>
-                            <li><a href="">Home</a></li>
-                            <li><a href="villager/register?lang=1">Register</a></li>
-                            <li><a href="user/index?lang=1">Login</a></li>
+                        <ul><li><h4>මෙනුව</h4></li>
+                            <li><a href="">ප්‍රදාන පිටුව</a></li>
+                            <li><a href="villager/register?lang=2">ලියාපදිංචිය</a></li>
+                            <li><a href="user/index?lang=2">ඇතුල් වන්න</a></li>
                             
                         </ul>
                         
@@ -325,7 +325,7 @@ The location of the reported incident can also view </p>
 
                      <div class="footer-col">
 
-                        <h4>Follow Us</h4>
+                        <h4>අප හා සම්බන්ධ වන්න</h4>
                         <div class="social-links">
                             <a href=""><i class="fab fa-facebook-f"></i></a>
                             <a href=""><i class="fas fa-phone"></i></a>

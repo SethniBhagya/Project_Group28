@@ -18,6 +18,7 @@ class admin extends user{
         
         $province=$this->model->getProvince();
         $office=$this->model->getOfficeNum();
+        
 
         $dropDownData=[
         	"province"=>$province,
@@ -119,6 +120,7 @@ class admin extends user{
                          
 						$allData=array_merge($data,$specificData);
 						$this->model->gnAdd($allData);
+						// $_GET["success"]="User added successfully.";
 					}
 					break;
 
@@ -131,6 +133,7 @@ class admin extends user{
 
 						$allData=array_merge($data,$specificData);
 						$this->model->woAdd($allData);
+						// $_GET["success"]="User added successfully.";
 					}
 
 					break;
@@ -145,6 +148,7 @@ class admin extends user{
 
 						$allData=array_merge($data,$specificData);
 						$this->model->vetAdd($allData);
+						// $_GET["success"]="User added successfully.";
 					}
 
 
@@ -161,6 +165,7 @@ class admin extends user{
 						
 						$allData=array_merge($data,$specificData);
 						$this->model->vilAdd($allData);
+						// $_GET["success"]="User added successfully.";
 					}
 
 					break;
@@ -175,6 +180,7 @@ class admin extends user{
 
 						$allData=array_merge($data,$specificData);
 						$this->model->roAdd($allData);
+						// $_GET["success"]="User added successfully.";
 
 
 					}
@@ -186,7 +192,9 @@ class admin extends user{
 
 			// else
 			// {   
-			// 	$this->view->render("admin_register",$data["Error"]);
+              
+   //            header("Location: ../admin/addUser?error");
+               
 
 			// }
 		}
@@ -214,6 +222,12 @@ class admin extends user{
 	 public function dashboard(){
 
       $this->view->render('admin_page');
+
+    }
+
+    public function placeNotice(){
+
+    	$this->view->render('adminNotice');
 
     }
 

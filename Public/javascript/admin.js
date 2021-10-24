@@ -74,8 +74,10 @@ window.onclick = function myFunction_2(event) {
 
 function selectInci(x){
                   
-    var parent=document.getElementsByClassName("container2-inci");
-    var allInci=parent[0].children;
+                var parent=document.getElementsByClassName("container2-inci");
+                var allInci=parent[0].children;
+                var mapHeader=document.getElementById("active-map-header");
+
 
                 for(var i=0;i<allInci.length;i++)
                 {
@@ -91,11 +93,16 @@ function selectInci(x){
                  var inci=document.getElementsByClassName(x);
                  
                   inci[0].style.display="block";
+
+                  if(x=="active"){
+                     mapHeader.style.display="block";
+                  }
+                  else
+                  {
+                    mapHeader.style.display="none";
+
+                  }
                   
-                 ;
-
-
-
 
 
               

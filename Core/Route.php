@@ -54,6 +54,7 @@ class Route{
     //Create the loadDefaultController() function for load default page(home page)
     private function _loadDefaultController(){
 		//require the file 
+		
 		require 'APP/controllers/index.php';
 		// Create the object
 		$this->_params = new index();

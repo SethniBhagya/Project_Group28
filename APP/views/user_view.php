@@ -21,10 +21,11 @@
                 <div class="bar3"></div>
             </div>
               
-            <ul>
+            <ul class="nav-menu">
                 
-                <li id="home_1"><a href="../">HOME</a></li>
-                <li id="report_1"><a href="../admin/dashboard">Dashboard</a></li>
+                <li id="dashboard" class="nav-menu-item"><a href="../admin/dashboard">Dashboard</a></li>
+                <li id="notice" class="nav-menu-item"><a href="../admin/placeNotice">Notice</a></li>
+                
                 <li class="dropdown">
                     <span class="dot"> <img onclick="myFunction_2(this)" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
                     <div id="myDropdown" class="dropdown-content">
@@ -75,11 +76,11 @@ new google.translate.TranslateElement({pageLanguage: 'en'}, 'lan');
         <button id="add-user" onclick="location.href='addUser'">Add Users</button>
         <div class="select-user">
             <ul>
-                <li><label for="villager" id="vil">Villager</label></li>
-                <li><label for="regional-officer" id="reg">Regional Officer</label></li>
-                <li><label for="wildlife-officer" id="wil">Wildlife Officer</label></li>
-                <li><label for="veterinarian" id="vet">Veterinarian</label></li>
-                <li><label for="grama-niladhari" id="gra">Grama Niladhari</label></li>
+                <li><label for="villager" id="vil"><a>Villager</a></label></li>
+                <li><label for="regional-officer" id="reg"><a>Regional Officer</a></label></li>
+                <li><label for="wildlife-officer" id="wil"><a>Wildlife Officer</a></label></li>
+                <li><label for="veterinarian" id="vet"><a>Veterinarian</a></label></li>
+                <li><label for="grama-niladhari" id="gra"><a>Grama Niladhari</a></label></li>
             </ul>
 
            
@@ -290,7 +291,6 @@ new google.translate.TranslateElement({pageLanguage: 'en'}, 'lan');
                         <th>Birth Date</th>
                         <th>Mobile</th>
                         <th>Address</th>
-                        <th>Village</th>
                         <th>Division</th>
                         <th>District</th>
                         <th>Province</th>
@@ -302,7 +302,6 @@ new google.translate.TranslateElement({pageLanguage: 'en'}, 'lan');
                        <td>".$row["Lname"]."</td>
                        <td>".$row["BOD"]."</td><td>".$row["mobileNo"]."</td>
                        <td>".$row["Address"]."</td>
-                       <td>".$row["name"]."</td>
                        <td>".$row["gnd_name"]."</td>
                        <td>".$row["district_name"]."</td><td>".$row["Name"]."</td><td><ul>
                           <li><button><img src='../Public/images/edit.png'></button></li>

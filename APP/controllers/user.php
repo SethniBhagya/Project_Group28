@@ -24,7 +24,22 @@ class user extends Controller{
     }
     public function index(){
        
-       $this->view->render('login');
+       
+       if(isset($_GET["lang"])){
+
+        if($_GET["lang"]=="2")
+          $this->view->render('loginSinhala');
+        elseif($_GET["lang"]=="1")
+          $this->view->render('login');
+        elseif ($_GET["lang"]=="3")
+          $this->view->render('loginTamil');
+
+          
+
+
+      }
+      else
+          $this->view->render('login');
       
     }
 
@@ -64,9 +79,58 @@ class user extends Controller{
                   $_SESSION["Fname"]=$loginUser["Fname"];
                   $_SESSION["Lname"]=$loginUser["Lname"];
                   
-                  
+                  if(isset($_GET["lang"])){
 
-                  
+                     if($_GET["lang"]=="1"){
+                          switch($loginUser["jobtype"])
+                               {
+
+                                 case "villager":
+                                 //get the data in Database  
+                                 $this->view->data = $this->model->selectData($_POST["username"]);   
+                                 //echo $this->data;  
+                                 // render the villager page  
+                                 $this->view->render('villagersPage');
+                                 break;
+                                 case "Wildlife Officer": $this->view->render('wildlifeofficer');
+                                 break;
+                                 case "admin": $this->view->render('admin_page');
+                                  break;
+                                 // case "veterinarian": $this->view->render('veterinarian');
+
+                               }
+
+
+                           }
+                      elseif($_GET["lang"]=="2"){
+
+                           switch($loginUser["jobtype"])
+                               {
+
+                                 case "villager":
+                                 //get the data in Database  
+                                 $this->view->data = $this->model->selectData($_POST["username"]);   
+                                 //echo $this->data;  
+                                 // render the villager page  
+                                 $this->view->render('villagersPage');
+                                 break;
+                                 case "Wildlife Officer": $this->view->render('wildlifeofficer');
+                                 break;
+                                 case "admin": $this->view->render('admin_page');
+                                  break;
+                                 // case "veterinarian": $this->view->render('veterinarian');
+
+
+                           
+                           }
+
+
+
+
+                  }
+                }
+                else{
+
                   switch($loginUser["jobtype"])
                   {
 
@@ -85,6 +149,12 @@ class user extends Controller{
 
                   }
 
+
+                }
+                  
+
+                  
+                  
 
                }
                else{
@@ -106,7 +176,7 @@ class user extends Controller{
         unset($_SESSION["NIC"]);
         unset($_SESSION["jobtype"]);
         session_destroy();
-        $this->view->render('login');
+        header("Location: ../user/index");
 
     }
 
