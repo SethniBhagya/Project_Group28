@@ -36,6 +36,10 @@ function validation(){
         errorMessage.innerHTML = "Please Enter Your Nic ";
         return false;
     }
+    if(document.getElementById('nic').value.length < 11){
+        errorMessage.innerHTML = "Please Enter Valid Nic ";
+        return false;
+    }
     if(document.getElementById('email').value.length == 0){
         errorMessage.innerHTML = "Please Enter Your Email";
         return false;

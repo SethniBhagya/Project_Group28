@@ -5,11 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Public/css/header.css">
-    <link rel="stylesheet" href="../Public/css/report3.css">
+    <link rel="stylesheet" href="../Public/css/report_3.css">
     <script src="../Public/javascript/login.js"></script>
+    <script src="../Public/javascript/report3.js"></script>
+
     <title>Breakdown of Elephants Fences</title>
 </head>
 <body>
+    
     <header id="main">
         <img src="../Public/images/icon.png" alt="icon" id="icon">
         <nav id="navbar" class="mybar">
@@ -23,7 +26,7 @@
             <li id="home_2"><a href="../">Home</a></li>
                 <li id="dashboard_1" ><a href="../user/viewpage?user=villager" >Dashboard</a></li>
                 <li id="report_2"><a href="../incident/index?lang=1">Report Incidents</a></li>
-                <li id="special_1"><a href="">SpecialNotice </a></li> 
+                <li id="special_1"><a href="../user/viewSpecialNotice?lang=1">SpecialNotice </a></li> 
                 <div class="dropdown-1">
                     <button class="dropbtn-1">Language</button>
                     <div class="dropdown-content-1">
@@ -35,14 +38,37 @@
                 <li class="dropdown">
                     <span class="dot"> <img onclick="myFunction_2(this)" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
                     <div id="myDropdown" class="dropdown-content">
-                        <a href="">View Profile</a>
-                        <a href="">Logout</a>
+                    <a href="../user/editprofile">View Profile</a>
+                        <a href="../user/logout">Logout</a>
                     </div>
                 </li>
             </ul>
         </nav>
     </header> 
-
+    <?php 
+      
+      if(isset($_POST['Submit'])){
+      ?>
+         
+         <div id="message1" style="padding: 10px; background-color:aliceblue">
+         <!-- <h1>Wildlife Care</h1></br></br> -->
+         <img src="../Public/images/success-mesaage.png" style="width:90px;  height:90px">
+         <h1>Your Report Incident Submit Sucessfully</h1>
+         <!-- <h>Your Incident Report Submit Sucessfully</h> -->
+         
+         <a href="../incident/viewReport?type=1&page=2&lang=1"  class="login-btn" style=" border-radius: 10px; padding: 10px 10px; background-color:#056412;  color: white;">View Report</a>
+         </div>
+       <?php
+       
+       }
+      //  }
+      //ss}
+      ?>
+       ?> 
+        <div id="message" style="display: none;">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+        <h id="errorMessage"></h>
+    </div>
     <div class="container1-1">
         <div class="header">
             <b>Breakdown of Elephant Fence</b>
@@ -55,7 +81,7 @@
             <label for="status"><b>No</b></label>
             <input type="radio" name="No" id=""><br> -->
             <lable for="place"><b>Enter the Place name <b></lable>
-            <input type="text" name="place" class="text" ><br><br>  
+            <input type="text" name="place" class="text" id="place" ><br><br>  
             <div class="photo">
             <label for="addPhoto"><b>Add Photo : </b></label>
             <input type="file" name="Photo" class="file"> </div>
@@ -73,13 +99,13 @@
 
             </div>
             <div class="report">
-                <input type="submit" value="Report" name="Submit">
+                <input type="submit" value="Report" name="Submit" onclick="return validation()">
             </div>
         </form>
     </div>
     <?php $latitude  = "<script>document.write(lat)</script>" ; 
           $longitude = "<script>document.write(long)</script>"; ?>
-    <a href="./" class="back">Back</a>
+    <!-- <a  class="back">Back</a> -->
     <script>
         var x = document.getElementById("lat");
         var y = document.getElementById("lang");

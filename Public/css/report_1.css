@@ -1,9 +1,9 @@
 .container1-1{
     position: inherit;
     width: 80%;
-    height: 450px;
+    height: 520px;
     margin-top: 20px;
-    margin-left: 10%;
+    margin-left: 9%;
     background-color: rgba(192, 192, 209, 0.453);
     top: 20px;
     padding-top: 1px;
@@ -16,21 +16,34 @@
     margin-left: 10%;
     margin-top: 8px;
     border-radius: 10px;
-    background-color: rgba(230, 28, 14, 0.494);
+    background-color: #056412;
     width: 80%;
     color: ivory;
     text-align: center;
 }
 .photo{
     position:inherit;
-    top : 200px;
-    /* right: 200px; */
-    margin-top: 10px;
+    /* top : 200px;
+    right: 200px; */
+    float: right;
+    margin-top: -100px;
+    margin-right: 90px;
+    /* margin-top: 10px; */
 }
 input[type=number] {
     width: 10%;
     background-color: #c8e2c9b8;
-    color: white;
+    color: rgb(2, 2, 2);
+    padding: 8px 8px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  input[type=text] {
+    width: 10%;
+    background-color: #c8e2c9b8;
+    color: rgb(5, 4, 4);
     padding: 8px 8px;
     margin: 8px 0;
     border: none;
@@ -69,9 +82,10 @@ input[type=number] {
     width: 98.3%;
     /* text-align: center; */
     padding: 9px 9px;
+    z-index: 100;
     height: 20px;
     border-radius: 10px;
-    background-color: rgba(221, 41, 41, 0.652);
+    background-color: #056412;
 }
 .location button{
     position: relative;
@@ -103,7 +117,7 @@ input[type=number] {
 }
 input[type=submit] {
     width: 100%;
-    background-color: #cc1f1f9e;
+    background-color: #056412;
     color: white;
     padding: 8px 8px;
     margin: 7px 0px;
@@ -113,9 +127,10 @@ input[type=submit] {
     font-size: 17px;
   }
 input[type=submit]:hover{
-    background-color:  red;
+    background-color:  #056412  ;
 }
 .back{
+    display: none;
     position:relative;
     float: right;
     margin-right: 150px;
@@ -125,4 +140,86 @@ input[type=submit]:hover{
     height: 20px;
     border-radius: 10px;
     background-color: lawngreen;
+}
+#message1{
+    position: absolute;
+    height: auto;
+    width: 50%;
+    /* text-align: ; */
+    z-index: 101;
+    left:22.5%;
+    text-align: center;
+    border-radius: 20px ; 
+    background-color: #e3e3e3;
+}
+#message {  
+    position: absolute;
+    padding: 10px;
+    width: 75%;
+    left:12%;
+     
+    background-color: #022b08;
+    color: white;
+    /* text-align: center; */
+    border-radius:10px ;
+  }
+  
+  .closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .closebtn:hover {
+    color: black;
+  }
+@media (max-width: 900px) {
+    .photo{
+        position:inherit;
+        top : 380px;
+        left: 85px;
+        margin-top: 10px;
+    }
+    input[type=number]{
+        width:90%
+    }
+    input[type=text]{
+        width:90%;
+        right: 5%;
+    }
+    .label-1{
+        /* width:100%; */
+        padding-left: 10px;
+        padding-right: 10px;
+        left:0px;
+        margin-left: -20px;
+        width: 94%;
+    }
+    .location button{
+        margin-left:  70%;
+        position: inherit;
+        margin-top: -30px;
+        width:100px; 
+    }
+    .location{
+        margin-top: 10px;
+        margin-left: -5%;
+        width: 100%;
+    }
+    .container1-1{
+        height: auto;
+        width: 94%;
+        margin-left: 1%;
+    }
+    .photo{
+        float: none;
+    }
+    .map{
+        margin-left: -2%;
+    }
 }

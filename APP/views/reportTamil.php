@@ -23,7 +23,7 @@
              <li id="home_2" style="right:750px"  ><a href="../"  ">முகப்பு பக்கம்</a></li>
                 <li id="dashboard_1" style="right:600px"  ><a href="../user/viewpage?user=villager" >டாஷ்போர்டு</a></li>
                 <li id="report_2" style=" background-color: rgb(168, 175, 168); right:380px" ><a  href="">சம்பவங்கள் அறிக்கை</a></li>
-                <li id="special_1"style="right:210px"  ><a href="">சிறப்பு அறிவிப்பு</a></li> 
+                <li id="special_1"style="right:210px"  ><a href="../user/viewSpecialNotice?lang=3">சிறப்பு அறிவிப்பு</a></li> 
                 <div class="dropdown-1" style="  padding-left:  300px ">
                     <button class="dropbtn-1">மொழி</button>
                     <div class="dropdown-content-1">
@@ -35,7 +35,7 @@
                 <li class="dropdown">
                     <span class="dot"> <img onclick="myFunction_3(this)" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
                     <div id="myDropdown" class="dropdown-content">
-                        <a href="">View Profile</a>
+                    <a href="../user/editprofile">View Profile</a>
                         <a href="../user/logout">Logout</a>
                     </div>
                 </li>

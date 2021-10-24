@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../Public/css/style_reg.css">
     <link rel="stylesheet" href="../Public/css/header.css">
     <script src="../Public/javascript/login.js"></script>
-    <script src="../Public/javascript/register.js"></script>
+    <script src="../Public/javascript/villagerRegister.js"></script>
     <title>Registration Form</title>
   </head>
   <body>
@@ -55,7 +55,7 @@
      $status = "false"; 
      if(isset($_POST['submit'])){
      foreach ($result as $row){
-         if($_POST['nic'] === $row['NIC'] ){  ?>
+         if($_POST['nic'] ==  $row['NIC'] ){  ?>
             
             <div id="errorMessage" style="padding: 10px;">
             <h1>Wildlife Care</h1></br></br>
@@ -202,13 +202,13 @@
         </td>
       </tr>
       <tr>
-        <td><select class="text" name="gndivision" id="district">
+        <td><select class="text" name="gndivision" id="gndivision">
           <option value="" >Choose here</option>
           <?php
              
             foreach ($division  as $row){ ?>
             <option value="<?php echo $row['name'];?>" ><?php echo $row['name']; ?></option>       
-          <?php }?>  
+          <?php } ?>  
       </tr>
       <tr>
         <td>

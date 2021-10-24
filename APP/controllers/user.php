@@ -264,6 +264,28 @@ class user extends Controller{
          $this->view->userData = $this->model->profileData( $_SESSION['NIC']);  
          $this->view->render('editProfile');
     }
+    function viewSpecialNotice(){
+      if(isset($_GET['lang'])){
+          //assign the value
+          $lang = $_GET['lang'];
+      }
+      switch($lang){
+          case 1 :
+          //display special Notice     
+          $this->view->render('specialNotice');
+          break;
+          case 2 :
+          //display special Notice     
 
+          $this->view->render('specialNoticeSinhala');
+          break;
+          case 3 :
+          //display special Notice     
+    
+          $this->view->render('specialNoticeTamil');
+          break;
+  
+      }
+   }  
 
 }

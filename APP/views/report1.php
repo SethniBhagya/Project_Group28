@@ -5,8 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Public/css/header.css">
-    <link rel="stylesheet" href="../Public/css/report-1.css">
+    <link rel="stylesheet" href="../Public/css/report_1.css">
     <script src="../Public/javascript/login.js"></script>
+    <script src="../Public/javascript/report1.js"></script>
     <title>Elephant are in The Elephant</title>
 </head>
 <body>
@@ -35,8 +36,8 @@
                 <li class="dropdown">
                     <span class="dot"> <img onclick="myFunction_2(this)" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
                     <div id="myDropdown" class="dropdown-content">
-                        <a href="">View Profile</a>
-                        <a href="">Logout</a>
+                    <a href="../user/editprofile">View Profile</a>
+                        <a href="../user/logout">Logout</a>
                     </div>
                 </li>
             </ul>
@@ -47,18 +48,42 @@
         <div class="header">
             <b>Wild Elephant are in The Village</b>
         </div>
+    <?php 
+      
+       if(isset($_POST['Submit'])){
+    ?>
+            
+            <div id="message1" style="padding: 10px; background-color:aliceblue">
+            <!-- <h1>Wildlife Care</h1></br></br> -->
+            <img src="../Public/images/success-mesaage.png" style="width:90px;  height:90px">
+            <h1>Your Report Incident Submit Sucessfully</h1>
+            <!-- <h>Your Incident Report Submit Sucessfully</h> -->
+            
+            <a href="../incident/viewReport?type=1&page=2&lang=1"  class="login-btn" style=" border-radius: 10px; padding: 10px 10px; background-color:#056412;  color: white;">View Report</a>
+            </div>
+          <?php
+          
+          }
+    //  }
+     //ss}
+     ?>
+        <!-- <h id="errorMessage"></h> -->
+        <div id="message" style="display: none;">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+        <h id="errorMessage"></h>
+        </div>
         <form class="form-report" action="" method="post">
             <label for="numberOfelephants"><b>How many Elephants  : </b></label>
             <input type="number" name="noOfelephant" id="number"> <br><br>
             <lable for="place"><b>Name of the Place Where you are :<b></lable>
-            <input type="text" name="place" class="text" ><br><br>   
+            <input type="text" name="place" id="place"  class="text" ><br><br>   
             <label for="status"><b>In Your Registered Village : Yes </b></label>
-            <input type="radio" name="Reg" id=" " value="yes">
+            <input type="radio" name="Reg" id="Reg" value="yes">
             <label for="status"><b>No</b></label>
             <input type="radio" name="Reg" id="" value="no"><br>
             <div class="photo">
             <label for="addPhoto"><b>Add Photo : </b></label>
-            <input type="file" name="Photo" class="file"> </div>
+            <input type="file" name="Photo" id ="file" class="file"> </div>
             <div class="location">
                 <label class="label-1">Mark  the location in Map</label>
                 <button onclick="return getLocation()">Click Me Track location</button>
@@ -72,7 +97,7 @@
 
             </div>
             <div class="report">
-                <input type="submit" value="Report" name="Submit">
+                <input type="submit" value="Report" name="Submit"  onclick="return validation()">
             </div>
         </form>
     </div>

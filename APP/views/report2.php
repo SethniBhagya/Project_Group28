@@ -5,8 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Public/css/header.css">
-    <link rel="stylesheet" href="../Public/css/report-2.css">
+    <link rel="stylesheet" href="../Public/css/report_2.css">
     <script src="../Public/javascript/login.js"></script>
+    <script src="../Public/javascript/report2.js"></script>
+
     <title>Other Wild Animals are in the Village</title>
 </head>
 <body>
@@ -22,8 +24,9 @@
             <ul>
             <li id="home_2"><a href="../">Home</a></li>
                 <li id="dashboard_1"  ><a href="../user/viewpage?user=villager" >Dashboard</a></li>
-                <li id="report_2"><a href="">Report Incidents</a></li>
-                <li id="special_1"><a href="">SpecialNotice </a></li> 
+                <li id="report_2"><a a href="../incident/index?lang=1">Report Incidents</a></li>
+
+                <li id="special_1"><a href="../villager/viewSpecialNotice?lang=1">SpecialNotice </a></li> 
                 <div class="dropdown-1">
                     <button class="dropbtn-1">Language</button>
                     <div class="dropdown-content-1">
@@ -42,14 +45,36 @@
             </ul>
         </nav>
     </header> 
-
+    
     <div class="container1-1">
         <div class="header">
             <b>Other Wild Animal Come To Village </b>
         </div>
+        <?php
+        if(isset($_POST['Submit'])){
+        ?>
+           
+           <div id="message1" style="padding: 10px; background-color:aliceblue">
+           <!-- <h1>Wildlife Care</h1></br></br> -->
+           <img src="../Public/images/success-mesaage.png" style="width:90px;  height:90px">
+           <h1>Your Report Incident Submit Sucessfully</h1>
+           <!-- <h>Your Incident Report Submit Sucessfully</h> -->
+           
+           <a href="../incident/viewReport?type=1&page=2&lang=1"  class="login-btn" style=" border-radius: 10px; padding: 10px 10px; background-color:#056412;  color: white;">View Report</a>
+           </div>
+         <?php
+         
+         }
+        //  }
+        //ss}
+        ?> 
+        <div id="message" style="display: none;">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+        <h id="errorMessage"></h>
+        </diV>
         <form class="form-report" action="" method="post">
         <label><b>Select Animal :</b></label>
-        <select class="text-1" name="animal" id="">
+        <select class="text-1" name="animal" id="animal">
             <option value="">  Choose here</option>
             <option value="Alligator">AlligatorLion </option>
             <option value="Antelope">Antelope</option>
@@ -80,7 +105,7 @@
             <label for="numberOfelephants"><b>How many Animals  : </b></label>
             <input type="number" name="noOfanimals" id="number"> <br><br>
             <lable for="place"><b>Enter the Place name <b></lable>
-            <input type="text" name="place" class="text" ><br><br>  
+            <input type="text" name="place" id="place"  class="text" ><br><br> 
             <label for="status"><b>Short Decription </b></label>
             <textarea class="text" id="discription" name="discription" rows="2"></textarea>
             <div class="photo">
@@ -100,7 +125,7 @@
 
             </div>
             <div class="report">
-                <input type="submit" value="Report" name="Submit">
+                <input type="submit" value="Report" name="Submit" onclick="return validation()" >
             </div>
         </form>
     </div>

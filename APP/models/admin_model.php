@@ -61,15 +61,15 @@ class admin_model extends Model{
         
 		$stmt1="INSERT INTO user VALUES('$nic','$fname','$lname','$mob','$dob','$address','$userType','$email','$gender')";
 		$gnd_code=(($this->db->runQuery("SELECT GND_Code FROM gn_division WHERE name='$gnd' AND district_name='$district'"))[0])["GND_Code"];
-<<<<<<< HEAD
+ 
 		$stmt2="INSERT INTO grama_niladhari VALUES('$nic','$gic','$gnd_code')";
 		$stmt3="INSERT INTO login VALUES('$nic','$hashPassword')";
 		$stmt4="UPDATE village SET grama_niladhari_NIC='$nic' WHERE GND_Code='$gnd_code'";
 		// $stmt5="UPDATE lives SET gramaniladhari_NIC='$nic' WHERE GND_Code='$gnd_code'";
 		$stmt6="UPDATE grama_niladhari SET NIC='$nic',GID='$gic' WHERE GND_Code='$gnd_code'";
-=======
+ 
 		$stmt4="UPDATE village SET gramaniladari_NIC='$nic' WHERE GND_Code='$gnd_code'";
->>>>>>> 06b214de4ded0b383ec69af23bf60f619581df8a
+ 
         
 		$this->db->runQuery($stmt1);
 		$this->db->runQuery($stmt2);

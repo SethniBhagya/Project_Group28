@@ -210,13 +210,25 @@
 @media (max-width: 900px) {
   .name {
     width: 90%;
+    /* float: right; */
     margin-left: 5%;
+    padding: 0px 0px;
+    /* background-color: ivory; */
+  }.name .dot2{
+    margin-left: 0%;
   }
-  .name label {
+  .name #name{
+    float: left;
+    margin-left: 15%;
+    margin-top: -40px;
+    /* background-color: ivory; */
+    width: 200px;
+  }
+  /* .name label {
     position: inherit;
-    margin-right: 60%;
-    margin-top: 20px;
-  }
+    /* margin-right: 60%; */
+    /* margin-top: 20px;
+  } */  
   .main-view {
     margin-top: 50px;
     margin-left: 0px;
@@ -245,7 +257,7 @@
     margin-left: 5%;
     margin-top: 0px;
     border-radius: 10px;
-    height: auto;
+    height: 200px;
     width: 90%;
     font-size: 20px;
   }
@@ -256,6 +268,7 @@
   .dashboard {
     position: inherit;
     margin-left: 5%;
+    margin-top: 0px;
     border-radius: 10px;
     height: 90%;
     width: 90%;
@@ -279,7 +292,19 @@
   .dashboard :hover {
     font-size: 30px;
   }
-
+  .report h1:hover,view h1:hover,
+  .specialNotice h1:hover,
+  .dashboard h1:hover {
+    color: #10400d;
+    font-size: 20.5px;
+  }
+  .view{
+    /* position: inherit; */
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 0px;
+    height: 180px;
+  }
   .notification {
     margin-top: -30px;
   }
