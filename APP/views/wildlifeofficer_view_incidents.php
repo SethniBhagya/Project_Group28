@@ -80,9 +80,7 @@
             <input type="text" class="searchTerm" placeholder="Search here report number" id="myInput" onkeyup="myFunction()" />
             <button type="submit" class="searchButton">
               <i class="fa fa-search">search</i>
-              <button type="submit" class="searchButton" id="view" onclick="">
-                <i class="fa fa-search"><a href="../wildlifeofficer/viewIncidentDetails">view</a></i>
-              </button>
+
             </button>
           </div>
         </div>
@@ -131,6 +129,7 @@
             <td>Saman Perera</td>
             <td>" . $row['reporttype'] . "</td>
             <td>" . $row['Place'] . "</td>
+            
             <td><input type='button'class='button' value='ACCEPT' name='accept'/></td>
             <td><input type='button'class='button' value='VIEW' name='accept'/></td>
           </tr>";
@@ -139,6 +138,9 @@
           <!-- <td><button type="submit" class="searchButton" id="view" onclick="">
               <i class="fa fa-search"><a href="../wildlifeofficer/viewIncidentDetails">view</a></i>
             </button></td> -->
+          <button type="submit" class="searchButton" id="view" onclick="">
+            <i class="fa fa-search"><a href="../wildlifeofficer/viewIncidentDetails">view</a></i>
+          </button>
 
 
 
