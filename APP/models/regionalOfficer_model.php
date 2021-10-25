@@ -1,6 +1,6 @@
 <?php
 
-class admin_model extends Model
+class regionalOfficer_model extends Model
 {
 
 	function __construct()

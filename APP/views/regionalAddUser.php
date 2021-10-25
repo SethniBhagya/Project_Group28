@@ -21,8 +21,8 @@
             </div>
 
             <ul class="nav-menu">
-                <li id="home" class="nav-menu-item"><a href="">Home</a></li>
-                <li id="dashboard" class="nav-menu-item"><a href="../admin/dashboard">Dashboard</a></li>
+                <li id="home" class="nav-menu-item"><a href="../">Home</a></li>
+                <li id="dashboard" class="nav-menu-item"><a href="../regionalOfficer/dashboard">Dashboard</a></li>
                 <li class="dropdown">
                     <span class="dot"> <img onclick="myFunction_2(this)" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
                     <div id="myDropdown" class="dropdown-content">
@@ -40,7 +40,7 @@
         <div class="registrationHeader">
             <ul>
                 <li><h3>ADD USER</h3></li>
-                <li><button id="profile" onclick="location.href='../admin/dashboard'">Go to Profile</button></li>
+                <li><button id="profile" onclick="location.href='../regionalOfficer/dashboard'">Go to Profile</button></li>
                 <form>
     
 </form>
@@ -85,7 +85,7 @@
         <div class="container2">
 
 
-            <form class="gnform" method="POST" action="../admin/addUser?error=&success=">
+            <form class="gnform" method="POST" action="../regionalOfficer/addUser?error=&success=">
                 <table>
 
                     <tr>
@@ -229,7 +229,7 @@
 
 
                 </table>
-                <button onclick="location.href='../admin/addUser'" >back</button>
+                <button onclick="location.href='../regionalOfficer/addUser'" >back</button>
                 
                     <button type="submit" name="submit" value="grama niladhari">Submit</button>
                 
@@ -242,7 +242,7 @@
             </form>
 
 
-             <form class="vetform" method="POST" action="../admin/addUser?error=&success=">
+             <form class="vetform" method="POST" action="../regionalOfficer/addUser?error=&success=">
                 <table>
 
                     <tr>
@@ -358,7 +358,7 @@
 
 
                 </table>
-                <button onclick="location.href='../admin/addUser'">back</button>
+                <button onclick="location.href='../regionalOfficer/addUser'">back</button>
                 <button type="submit" name="submit" value="veterinarian">Submit</button>
                 
 
@@ -369,7 +369,7 @@
             </form>
 
 
-             <form class="vilform"  method="POST" action="../admin/addUser">
+             <form class="vilform"  method="POST" action="../regionalOfficer/addUser?error=&success=">
                 <table>
                     
 
@@ -536,7 +536,7 @@
 
                 </table>
 
-                <button onclick="location.href='../admin/addUser'">back</button>
+                <button onclick="location.href='../regionalOfficer/addUser'">back</button>
                 <button type="submit" name="submit" value="villager">Submit</button>
                 
 
@@ -546,7 +546,7 @@
 
             </form>
 
-             <form class="woform"  method="POST" action="../admin/addUser?error=&success=">
+             <form class="woform"  method="POST" action="../regionalOfficer/addUser?error=&success=">
                 <table>
 
                     <tr>
@@ -669,7 +669,7 @@
                 </table>
                 
 
-               <button onclick="location.href='../admin/addUser'">back</button>
+               <button onclick="location.href='../regionalOfficer/addUser'">back</button>
                <button type="submit"  name="submit" value="wildlife officer">Submit</button>
 
 
@@ -678,7 +678,7 @@
 
 
 
-            <form class="roform"  method="POST" action="../admin/addUser?error=&success=">
+            <form class="roform"  method="POST" action="../regionalOfficer/addUser?error=&success=">
                 <table>
 
 
@@ -800,7 +800,7 @@
 
 
 
-              <button onclick="location.href='../admin/addUser'">back</button>
+              <button onclick="location.href='../regionalOfficer/addUser'">back</button>
               <button type="submit" name="submit" value="regional officer">Submit</button>
 
             </form>
@@ -825,7 +825,7 @@
         function selectDistrict(x){
                                 
 
-    $.post("../admin/addUser",{provinceName:x},function(data,status){
+    $.post("../regionalOfficer/addUser",{provinceName:x},function(data,status){
           
         $("#districtvil").html(data);
 
@@ -838,7 +838,7 @@
   function selectDistrict1(x){
                                 
 
-    $.post("../admin/addUser",{provinceName:x},function(data,status){
+    $.post("../regionalOfficer/addUser",{provinceName:x},function(data,status){
           
         $("#districtgrama").html(data);
 
@@ -851,7 +851,7 @@
   function selectGN(x){
     
     
-    $.post("../admin/addUser",{districtName:x},function(data,status){
+    $.post("../regionalOfficer/addUser",{districtName:x},function(data,status){
          
           $('#gndvi').html(data);
         
@@ -864,7 +864,7 @@
   function selectGN1(x){
     
     
-    $.post("../admin/addUser",{districtName:x},function(data,status){
+    $.post("../regionalOfficer/addUser",{districtName:x},function(data,status){
          
           $('#gndgrama').html(data);
         
@@ -877,7 +877,7 @@
   function selectVil(x){
     
     
-    $.post("../admin/addUser",{gnName:x},function(data,status){
+    $.post("../regionalOfficer/addUser",{gnName:x},function(data,status){
            
           $('#villagevil').html(data);
         

@@ -23,8 +23,8 @@
               
             <ul class="nav-menu">
                 
-                <li id="dashboard" class="nav-menu-item"><a href="../admin/dashboard">Dashboard</a></li>
-                <li id="notice" class="nav-menu-item"><a href="../admin/placeNotice">Notice</a></li>
+                <li id="dashboard" class="nav-menu-item"><a href="../regionalOfficer/dashboard">Dashboard</a></li>
+                <li id="notice" class="nav-menu-item"><a href="../regionalOfficer/placeNotice">Notice</a></li>
                 
                 <li class="dropdown">
                     <span class="dot"> <img onclick="myFunction_2(this)" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
