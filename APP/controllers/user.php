@@ -20,8 +20,6 @@ class user extends Controller
   private $_userMobileNumber;
   private $_userDataofBirth;
 
-<<<<<<< HEAD
-    }
     public function index(){
        
        
@@ -41,20 +39,11 @@ class user extends Controller
       else
           $this->view->render('login');
       
-    }
-=======
-  function __construct()
-  {
-    parent::__construct();
-  }
-  public function index()
-  {
->>>>>>> 053b695a3ad032b8b62f02132eb959d85f05764b
+    
 
-    $this->view->render('login');
+    // $this->view->render('login');
   }
 
-<<<<<<< HEAD
    
 
      
@@ -173,72 +162,12 @@ class user extends Controller
 
                      }
         }
-=======
-  public function error()
-  {
-    $this->view->render("404");
-  }
 
-
-
-
-
-
-  public function login()
-  {
-
-
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-      $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-
-
-      $data = [
-        "username" => trim($_POST["username"]),
-        "password" => trim($_POST["password"])
-      ];
->>>>>>> 053b695a3ad032b8b62f02132eb959d85f05764b
-
-      if (!empty($data["username"]) && !empty($data["password"])) {
-
-        $loginUser = $this->model->login($data["username"], $data["password"]);
-        if (empty($loginUser["Error"])) {
-          session_start();
-          $_SESSION["NIC"] = $loginUser["NIC"];
-          $_SESSION["Fname"] = $loginUser["Fname"];
-          $_SESSION["Lname"] = $loginUser["Lname"];
-          $_SESSION["jobtype"] = $loginUser["jobtype"];
-          $_SESSION["Fname"] = $loginUser["Fname"];
-          $_SESSION["Lname"] = $loginUser["Lname"];
-
-
-
-
-          switch ($loginUser["jobtype"]) {
-
-            case "villager":
-              //get the data in Database  
-              $this->view->data = $this->model->selectData($_POST["username"]);
-              //echo $this->data;  
-              // render the villager page  
-              $this->view->render('villagersPage');
-              break;
-            case "Wildlife Officer":
-              $this->view->render('wildlifeofficer');
-              break;
-            case "admin":
-              $this->view->render('admin_page');
-              break;
-            case "veterinarian":
-              $this->view->render('veterinarian');
-              break;
-          }
-        } else {
-          $this->view->render('login', $loginUser["Error"]);
-        }
-      }
+      
+      
     }
-  }
+//   }
+// }
 
 
   public function logout()
@@ -257,15 +186,8 @@ class user extends Controller
     switch ($_GET['user']) {
       case 'villager':
         session_start();
-<<<<<<< HEAD
-        unset($_SESSION["NIC"]);
-        unset($_SESSION["jobtype"]);
-        session_destroy();
-        header("Location: ../user/index");
-=======
         $_userNic = $_SESSION["NIC"];
         $this->view->data = $this->model->selectData($_userNic);
->>>>>>> 053b695a3ad032b8b62f02132eb959d85f05764b
 
         $this->view->render('villagersPage');
     }
@@ -375,8 +297,8 @@ class user extends Controller
         header("Location: ../user/index?resetSuc=error");
       }
     }
-<<<<<<< HEAD
-    function viewSpecialNotice(){
+  }
+    public function viewSpecialNotice(){
       if(isset($_GET['lang'])){
           //assign the value
           $lang = $_GET['lang'];
@@ -399,13 +321,7 @@ class user extends Controller
   
       }
    }  
-=======
-  }
-
-  public function editprofile()
-  {
->>>>>>> 16cb7314957fe3dccda8c2ac61f3fe3bc4606db2
-
+    public function  editProfile(){ 
     session_start();
     $this->view->userData = $this->model->profileData($_SESSION['NIC']);
     $this->view->render('editProfile');
