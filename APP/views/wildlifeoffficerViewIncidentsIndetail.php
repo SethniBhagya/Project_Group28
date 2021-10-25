@@ -48,13 +48,7 @@
     </nav>
 
   </header>
-  <!-- <nav class="links_to_pages">
-      <ul>
-        <li>BACK</li>
-        <li>SPECIAL NOTICES</li>
-        <li>DASHBOARD</li>
-      </ul>
-    </nav> -->
+
 
   </div>
 
@@ -70,22 +64,48 @@
         <div class="col_1_first">
           <div class="row_in_firstrow">
             <div class="col_1_first"><img src="../Public/images/user_icon4-01.png" class="image"></div>
-            <div class="col_2_first"> User_ID : W001</div>
+            <div class="col_2_first"> <br>User_ID : W001</div>
           </div>
         </div>
         <div class="col_2_first">Name : S.Disanayaka </div>
 
+
+
       </div>
       <div class="row">
-        <div class="col_1">Wild Animal in the village</div>
-        <div class="col_2">Report_Number</div>
-        <div class="col_2">Status<input type='button' class='button' value='ACCEPT' name='accept' /></div>
+        <div class="col_1"><?php echo $data[2]['description']  ?></div>
+        <div class="col_2">Report_Number - <?php echo $data[2]['incidentID']  ?></div>
+        <div class="col_2">Date - <?php echo $data[2]['date']  ?>
+        </div>
       </div>
+      <div class="row_last">
+        <div class="col_2_last"><button type='submit' class='backButton' id='view' onclick=''>
+            <a href='../wildlifeofficer/viewIncidents'>BACK</a>
+
+        </div>
+        <div class="col_2_last"><?php
+                                if ($data[0]['status'] == 'pending') {
+                                  $stat = "<form method='POST' action='../wildlifeofficer/trigerRequest'><input type='text' style='display:none' name='acc' value=" . $data[2]['incidentID'] . "><button class='buttonAccept' id='acceptId' value='ACCEPT' name='accept'/>ACCEPT</button></form>";
+                                } else {
+                                  $stat = "<form method='POST' action='../wildlifeofficer/trigerRequest'><input type='text' style='display:none'  name='can' value=" . $data[2]['incidentID'] . "><button class='buttonCancel' id='cancelId' value='CANCEl' name='cancel'/>CANCEL</button></form>";
+                                }
+                                echo "$stat"; ?>
+        </div>
+        <div class="col_2_last">
+          <?php
+          if ($data[0]['status'] == 'pending') {
+            $stat = "<form method='POST' action='../wildlifeofficer/trigerRequest'><input type='text' style='display:none' name='acc' value=" . $data[0]['incidentID'] . "><button class='buttonSend' id='acceptId' value='ACCEPT' name='accept'/>SEND</button></form>";
+          } else {
+            $stat = "<form method='POST' action='../wildlifeofficer/trigerRequest'><input type='text' style='display:none'  name='can' value=" . $data[0]['incidentID'] . "><button class='buttonSent' id='cancelId' value='CANCEl' name='cancel'/>SENT</button></form>";
+          }
+          echo "$stat"; ?> </div>
+
+      </div>
+
+
       <div class="map" id="map">
         <div class="map">
-          <div class="header-map">
-            Incidents Report Areas
-          </div>
+
           <div class="map-area">
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126452.02111388237!2d80.94313801331407!3d7.934107447297657!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3afb44ba3b16ce27%3A0xc34997a2b3032b7c!2sPolonnaruwa!5e0!3m2!1sen!2slk!4v1633098856489!5m2!1sen!2slk" width="100%" height="510" style="border:0; border-radius: 10px;" allowfullscreen="" loading="lazy"></iframe>
           </div>
@@ -95,24 +115,24 @@
       </div>
 
 
-      <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAnodzrfhq7KjgE_XJjwTA4oFIgAe8nQNk&callback=loadMap">
-      </script>
 
-      <div class="row1">
 
-        <a href="../wildlifeofficer/viewIncidents">BACK</a>
 
-      </div>
+
+
+
+
 
 
       <div class="last">
 
       </div>
 
-      </form>
+
+
 
     </div>
-    </div>
+
   </body>
 
 </html>

@@ -20,160 +20,139 @@ class user extends Controller
   private $_userMobileNumber;
   private $_userDataofBirth;
 
-    public function index(){
-       
-       
-       if(isset($_GET["lang"])){
-
-        if($_GET["lang"]=="2")
-          $this->view->render('loginSinhala');
-        elseif($_GET["lang"]=="1")
-          $this->view->render('login');
-        elseif ($_GET["lang"]=="3")
-          $this->view->render('loginTamil');
-
-          
+  public function index()
+  {
 
 
-      }
-      else
-          $this->view->render('login');
-      
-    
+    if (isset($_GET["lang"])) {
+
+      if ($_GET["lang"] == "2")
+        $this->view->render('loginSinhala');
+      elseif ($_GET["lang"] == "1")
+        $this->view->render('login');
+      elseif ($_GET["lang"] == "3")
+        $this->view->render('loginTamil');
+    } else
+      $this->view->render('login');
+
+
 
     // $this->view->render('login');
   }
 
-   
-
-     
-   
-
-    public function login()
-    {
-          
-                
-        if($_SERVER["REQUEST_METHOD"]=="POST"){
-
-            $_POST=filter_input_array(INPUT_POST,FILTER_SANITIZE_STRING);  
-
-            
-            $data=[
-                "username"=>trim($_POST["username"]),
-                "password"=>trim($_POST["password"])
-                ];
-
-            if(!empty($data["username"])&&!empty($data["password"])){
-               
-               $loginUser=$this->model->login($data["username"],$data["password"]);
-               if(empty($loginUser["Error"]))
-               {  
-                  session_start();
-                  $_SESSION["NIC"]= $loginUser["NIC"];
-                  $_SESSION["Fname"]= $loginUser["Fname"];
-                  $_SESSION["Lname"]= $loginUser["Lname"];
-                  $_SESSION["jobtype"]=$loginUser["jobtype"];
-                  $_SESSION["Fname"]=$loginUser["Fname"];
-                  $_SESSION["Lname"]=$loginUser["Lname"];
-                  
-                  if(isset($_GET["lang"])){
-
-                     if($_GET["lang"]=="1"){
-                          switch($loginUser["jobtype"])
-                               {
-
-                                 case "villager":
-                                 //get the data in Database  
-                                 $this->view->data = $this->model->selectData($_POST["username"]);   
-                                 //echo $this->data;  
-                                 // render the villager page  
-                                 $this->view->render('villagersPage');
-                                 break;
-                                 case "Wildlife Officer": $this->view->render('wildlifeofficer');
-                                 break;
-                                 case "admin": $this->view->render('admin_page');
-                                  break;
-                                  case "regional officer":$this->view->render('regionalDashboard');
-                                  break;
-                                 // case "veterinarian": $this->view->render('veterinarian');
-
-                               }
-
-
-                           }
-                      elseif($_GET["lang"]=="2"){
-
-                           switch($loginUser["jobtype"])
-                               {
-
-                                 case "villager":
-                                 //get the data in Database  
-                                 $this->view->data = $this->model->selectData($_POST["username"]);   
-                                 //echo $this->data;  
-                                 // render the villager page  
-                                 $this->view->render('villagersPage');
-                                 break;
-                                 case "Wildlife Officer": $this->view->render('wildlifeofficer');
-                                 break;
-                                 case "admin": $this->view->render('admin_page');
-                                  break;
-                                  case "regional officer":$this->view->render('regionalDashboard');
-                                  break;
-                                 // case "veterinarian": $this->view->render('veterinarian');
-
-
-                           
-                           }
 
 
 
 
-                  }
-                }
-                else{
 
-                  switch($loginUser["jobtype"])
-                  {
-
-                    case "villager":
-                         //get the data in Database  
-                         $this->view->data = $this->model->selectData($_POST["username"]);   
-                         //echo $this->data;  
-                         // render the villager page  
-                         $this->view->render('villagersPage');
-                    break;
-                     case "Wildlife Officer": $this->view->render('wildlifeofficer');
-                    break;
-                     case "admin": $this->view->render('admin_page');
-                     break;
-                     case "regional officer":$this->view->render('regionalDashboard');
-                     break;
-                    // case "veterinarian": $this->view->render('veterinarian');
-
-                  }
+  public function login()
+  {
 
 
-                }
-                  
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-                  
-                  
-
-               }
-               else{
-                 $this->view->render('login',$loginUser["Error"]);
-               }
-              
+      $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
 
-                     }
+      $data = [
+        "username" => trim($_POST["username"]),
+        "password" => trim($_POST["password"])
+      ];
+
+      if (!empty($data["username"]) && !empty($data["password"])) {
+
+        $loginUser = $this->model->login($data["username"], $data["password"]);
+        if (empty($loginUser["Error"])) {
+          session_start();
+          $_SESSION["NIC"] = $loginUser["NIC"];
+          $_SESSION["Fname"] = $loginUser["Fname"];
+          $_SESSION["Lname"] = $loginUser["Lname"];
+          $_SESSION["jobtype"] = $loginUser["jobtype"];
+          $_SESSION["Fname"] = $loginUser["Fname"];
+          $_SESSION["Lname"] = $loginUser["Lname"];
+
+          if (isset($_GET["lang"])) {
+
+            if ($_GET["lang"] == "1") {
+              switch ($loginUser["jobtype"]) {
+
+                case "villager":
+                  //get the data in Database  
+                  $this->view->data = $this->model->selectData($_POST["username"]);
+                  //echo $this->data;  
+                  // render the villager page  
+                  $this->view->render('villagersPage');
+                  break;
+                case "Wildlife Officer":
+                  $this->view->render('wildlifeofficer');
+                  break;
+                case "admin":
+                  $this->view->render('admin_page');
+                  break;
+                case "regional officer":
+                  $this->view->render('regionalDashboard');
+                  break;
+                  // case "veterinarian": $this->view->render('veterinarian');
+
+              }
+            } elseif ($_GET["lang"] == "2") {
+
+              switch ($loginUser["jobtype"]) {
+
+                case "villager":
+                  //get the data in Database  
+                  $this->view->data = $this->model->selectData($_POST["username"]);
+                  //echo $this->data;  
+                  // render the villager page  
+                  $this->view->render('villagersPage');
+                  break;
+                case "Wildlife Officer":
+                  $this->view->render('wildlifeofficer');
+                  break;
+                case "admin":
+                  $this->view->render('admin_page');
+                  break;
+                case "regional officer":
+                  $this->view->render('regionalDashboard');
+                  break;
+                  // case "veterinarian": $this->view->render('veterinarian');
+
+
+
+              }
+            }
+          } else {
+
+            switch ($loginUser["jobtype"]) {
+
+              case "villager":
+                //get the data in Database  
+                $this->view->data = $this->model->selectData($_POST["username"]);
+                //echo $this->data;  
+                // render the villager page  
+                $this->view->render('villagersPage');
+                break;
+              case "Wildlife Officer":
+                $this->view->render('wildlifeofficer');
+                break;
+              case "admin":
+                $this->view->render('admin_page');
+                break;
+              case "regional officer":
+                $this->view->render('regionalDashboard');
+                break;
+                // case "veterinarian": $this->view->render('veterinarian');
+
+            }
+          }
+        } else {
+          $this->view->render('login', $loginUser["Error"]);
         }
-
-      
-      
+      }
     }
-//   }
-// }
+  }
+  //   }
+  // }
 
 
   public function logout()
@@ -304,30 +283,31 @@ class user extends Controller
       }
     }
   }
-    public function viewSpecialNotice(){
-      if(isset($_GET['lang'])){
-          //assign the value
-          $lang = $_GET['lang'];
-      }
-      switch($lang){
-          case 1 :
-          //display special Notice     
-          $this->view->render('specialNotice');
-          break;
-          case 2 :
-          //display special Notice     
+  public function viewSpecialNotice()
+  {
+    if (isset($_GET['lang'])) {
+      //assign the value
+      $lang = $_GET['lang'];
+    }
+    switch ($lang) {
+      case 1:
+        //display special Notice     
+        $this->view->render('specialNotice');
+        break;
+      case 2:
+        //display special Notice     
 
-          $this->view->render('specialNoticeSinhala');
-          break;
-          case 3 :
-          //display special Notice     
-    
-          $this->view->render('specialNoticeTamil');
-          break;
-  
-      }
-   }  
-    public function  editProfile(){ 
+        $this->view->render('specialNoticeSinhala');
+        break;
+      case 3:
+        //display special Notice     
+
+        $this->view->render('specialNoticeTamil');
+        break;
+    }
+  }
+  public function  editProfile()
+  {
     session_start();
     $this->view->userData = $this->model->profileData($_SESSION['NIC']);
     $this->view->render('editProfile');
