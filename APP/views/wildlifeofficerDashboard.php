@@ -90,7 +90,8 @@
         </div>
         <div class="detail">
             Time Duration -3 Month <br>
-            Last Modification 02/09/2021
+            Last Modification 02/09/2021<br>
+            <a href='../wildlifeofficer/index'>BACK</a>
         </div>
         <div class="date">
             <h2>Today</h2>

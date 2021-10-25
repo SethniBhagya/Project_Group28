@@ -116,6 +116,13 @@ class wildlifeofficer extends user
     public function viewIncidentDetails()
     {
         // session_start();
+        $this->view->data = $this->model->selectIncidentData();
+        $this->view->render('wildlifeoffficerViewIncidentsIndetail', $this->view->data);
+    }
+    // sendIncidentDetailsToVet function to send incident to veterinarian.
+    public function sendIncidentDetailsToVet()
+    {
+        // session_start();
         // $this->view->data=$this->model->selectData($_SESSION["NIC"]);
         $this->view->render('wildlifeoffficerViewIncidentsIndetail');
     }

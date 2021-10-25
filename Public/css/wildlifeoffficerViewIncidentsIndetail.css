@@ -159,6 +159,22 @@
         text-align: center; */
   border-radius: none;
 }
+.row_last {
+  display: flex;
+  position: inherit;
+
+  width: 100%;
+  color: rgb(14, 73, 7);
+  font-size: medium;
+  font-style: bold;
+  font-weight: 500;
+  background: none;
+  padding-left: 30%;
+  height: 40%;
+  /* padding: 1px 10px;
+        text-align: center; */
+  border-radius: none;
+}
 .row_in_firstrow {
   display: flex;
   position: inherit;
@@ -194,6 +210,12 @@
 .col_2_first {
   padding-bottom: 1%;
   width: 50%;
+}
+.col_1_last,
+.col_2_last {
+  padding-bottom: 1%;
+  width: auto;
+  align-items: center;
 }
 
 /* .subcontainer_3-3 {
@@ -260,7 +282,71 @@
   cursor: pointer;
   height: auto;
 }
+.buttonAccept {
+  background-color: #4caf50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  height: 50px;
+}
+.buttonCancel {
+  background-color: #af7c4c;
+  border: block;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
 
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  height: 50px;
+}
+.buttonSend {
+  background-color: #4caf50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  height: 50px;
+}
+.buttonSent {
+  background-color: #4c82af;
+  border: block;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  height: 50px;
+}
+.backButton {
+  background-color: #4caf50;
+  border: block;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  height: 50px;
+}
 @media screen and (max-width: 800px) {
   .contanier_2 {
     position: relative;
@@ -310,5 +396,8 @@
   .col_2_first {
     padding-bottom: 1%;
     width: 100%;
+  }
+  .row_last {
+    padding: 0;
   }
 }

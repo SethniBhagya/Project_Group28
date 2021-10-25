@@ -108,7 +108,8 @@
             <th>Report Type</th>
             <th>Place</th>
             <th>Action</th>
-            <td></td>
+            <th></th>
+
           </tr>
           <?php
           foreach ($data as $row) {
@@ -149,6 +150,7 @@
             <td><button type='submit' class='viewButton' id='view' onclick='' >
               <a href='../wildlifeofficer/viewIncidentDetails'>VIEW</a>
             </button></td>
+            
             </tr>
           ";
           }
