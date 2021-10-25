@@ -11,6 +11,9 @@
   padding-top: 2px;
   padding-bottom: 5px;
 }
+a {
+  text-decoration: none;
+}
 .name label {
   position: inherit;
   padding-bottom: 10px;

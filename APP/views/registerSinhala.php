@@ -27,13 +27,13 @@
 
           <ul class="nav-menu">
                  <!-- <li id="lan"></li> -->
-                <li id="home"><a href="">මුල් පිටුව</a></li>
-                <li id="report"><a href="../incident/index?lang=1">සිදුවීම් වාර්තා කරන්න</a></li>
-                <li id="register"><a href="../villager/register?lang=1">ලියාපදිංචි කරන්න</a></li>
-                <li id="login"><a id=login_text href="user/index?lang=1">ඇතුල් වන්න</a></li>
+                <li id="home"><a href="">Home</a></li>
+                <li id="report"><a href="../incident/index?lang=1">Report Incidents</a></li>
+                <li id="register"><a href="../villager/register?lang=1">Register</a></li>
+                <li id="login"><a id=login_text href="user/index?lang=1">Login</a></li>
                 
               <li class="dropdown">
-                  <button onclick="myFunction_2()" class="dropbtn">භාෂාව <i class="down"></i></button>
+                  <button onclick="myFunction_2()" class="dropbtn">Language <i class="down"></i></button>
                   <div id="myDropdown" class="dropdown-content">
                     <a href="">English</a>
                     <a href="">සිංහල</a>
@@ -88,7 +88,7 @@
             <div id="message1" style="padding: 10px; background-color:aliceblue">
            <!-- <h1>Wildlife Care</h1></br></br> -->
            <img src="../Public/images/error-icon.png" style="width:90px;  height:90px">
-           <h1>ඔබේ ජාතික හැඳුනුම්පත දැනටමත් ලියාපදිංචි වී ඇත </h1>
+           <h1>Your National ID Card is already Register </h1>
            <!-- <h>Your Incident Report Submit Sucessfully</h> -->
            
            <a href="../user/index?lang=1"  class="login-btn" style=" border-radius: 10px; padding: 10px 10px; background-color:#056412;  color: white;">login</a>
@@ -102,7 +102,7 @@
       <div id="message1" style="padding: 10px; background-color:aliceblue">
            <!-- <h1>Wildlife Care</h1></br></br> -->
            <img src="../Public/images/success-mesaage.png" style="width:90px;  height:90px">
-           <h1>වනජීවී රැකවරණයේ ලියාපදිංචි වීම ගැන ඔබට ස්තුතියි </h1>
+           <h1>Your Report Incident Submit Sucessfully</h1>
            <!-- <h>Your Incident Report Submit Sucessfully</h> -->
            
            <a href="../incident/viewReport?type=1&page=2&lang=1"  class="login-btn" style=" border-radius: 10px; padding: 10px 10px; background-color:#056412;  color: white;">View Report</a>
@@ -111,7 +111,7 @@
  
   <div class="contanier2">
     <div class="register_header">
-          <h3>ලියාපදිංචි කිරීමේ පෝරමය</h3>
+          <h3>Registration</h3>
     
       </div>
   
@@ -121,36 +121,36 @@
      <table id="form1">
       <tr>
         <td >
-          <label for="fname">මුල් නම</label>
+          <label for="fname">First Name</label>
         </td>
       </tr>
       <tr><td ><input type="text" class="text" id="fname" name="fname" placeholder="  Type your first name" /></td></tr>
       <tr>
         <td>
-          <label for="lname">අවසන් නම</label>
+          <label for="lname">Last Name</label>
         </td>
       </tr>
       <tr>
         <td><input type="text" class="text" id="lname" name="lname" placeholder="  Type your last name"/></td>
       </tr>
       <tr>
-        <td><label for="gender">ස්ත්රී පුරුෂ භාවය</label></td>
+        <td><label for="gender">Gender</label></td>
         </tr>
         
         <tr>
         
         <td>
           <input type="radio" id="male" name="gender" value="M"/>
-          <label for="male">පිරිමි</label>
+          <label for="male">Male</label>
           <input type="radio" id="female " name="gender" value="F" />
-          <label for="female">ගැහැණු</label><br />
+          <label for="female">Female</label><br />
         </td>
       
       </tr>
    
       <tr>
         <td>
-          <label for="dob">උපන්දිනය</label>
+          <label for="dob">Date of Birth</label>
         </td>
         <tr>
           <td>
@@ -161,18 +161,18 @@
       </tr>
       <tr>
         <td>
-          <label for="address">ලිපිනය</label>
+          <label for="address">Address</label>
         </td>
       </tr>
       <tr>
         <td>
-          <textarea class="text" id="address" name="address" rows="2" > ඔබේ ලිපිනය මෙහි ටයිප් කරන්න
+          <textarea class="text" id="address" name="address" rows="2" >  Type here your address
               </textarea>
         </td>
       </tr>
       <tr>
         <td>
-          <label for="province">පළාත</label>
+          <label for="province">Province</label>
         </td>
         
         </tr>
@@ -180,21 +180,21 @@
 
         <td>
           <select class="text" name="province" id="province">
-            <option value="">මෙතැනින් තෝරන්න</option>
-            <option value="central province">මධ්‍යම පළාත</option>
-            <option value="eastern province">නැගෙනහිර පළාත</option>
-            <option value="northern province">උතුරු පළාත</option>
-            <option value="southern  province">දකුණු පළාත</option>
-            <option value="western province">බස්නාහිර පළාත</option>
+            <option value="">  Choose here</option>
+            <option value="central province">Central Province</option>
+            <option value="eastern province">Eastern Province</option>
+            <option value="northern province">Northern Province</option>
+            <option value="southern  province">Southern Province</option>
+            <option value="western province">Western Province</option>
             <option value="north western province">
-            වයඹ පළාත
+              North Western Province
             </option>
             <option value="north central province">
-            උතුරු මැද පළාත
+              North Central Province
             </option>
             <option value="uva province">Uva Province</option>
             <option value="sabaragamuwa province">
-            සබරගමුව පළාත
+              Sabaragamuwa Province
             </option>
           </select>
         </td>
@@ -207,43 +207,43 @@
         <tr>
         <td>
           <select class="text" name="district" id="district">
-            <option value="">  මෙතැනින් තෝරන්න</option>
-            <option value="Gampaha">ගම්පහ දිස්ත්‍රික්කය</option>
-            <option value="Colombo">කොළඹ</option>
-            <option value="Kalutara">කළුතර</option>
-            <option value="Anuradhapura">අනුරාධපුර දිස්ත්‍රික්කය</option>
-            <option value="Polonnaruwa">පොළොන්නරුව</option>
-            <option value="Jaffna">යාපනය</option>
-            <option value="Kilinochchi">කිලිනොච්චි</option>
-            <option value="Mannar">මන්නාරම</option>
-            <option value="Mullaitivu">මුලතිව් දිස්ත්රික්කය</option>
-            <option value="Vavuniya">වවුනියාව</option>
-            <option value="Puttalam">පුත්තලම</option>
-            <option value="Kurunegala">කුරුණෑගල</option>
-            <option value="Matale">මාතලේ</option>
-            <option value="Kandy">මහනුවර</option>
-            <option value="Nuwara Eliya">නුවරඑළිය දිස්ත්‍රික්කය</option>
-            <option value="Kegalle">කෑගල්ල</option>
-            <option value="Ratnapura">රත්නපුරය</option>
-            <option value="Trincomalee">ත්රිකුණාමලය</option>
-            <option value="Batticaloa">මඩකලපුව</option>
-            <option value="Ampara">අම්පාර</option>
-            <option value="Badulla">බදුල්ල</option>
-            <option value="Monaragala">මොනරාගල</option>
-            <option value="Hambantota">හම්බන්තොට</option>
-            <option value="Matara">මාතර</option>
-            <option value="Galle">ගාල්ල</option>
+            <option value="">  Choose here</option>
+            <option value="Gampaha">Gampaha District</option>
+            <option value="Colombo">Colombo</option>
+            <option value="Kalutara">Kalutara</option>
+            <option value="Anuradhapura">Anuradhapura District</option>
+            <option value="Polonnaruwa">Polonnaruwa</option>
+            <option value="Jaffna">Jaffna</option>
+            <option value="Kilinochchi">Kilinochchi</option>
+            <option value="Mannar">Mannar</option>
+            <option value="Mullaitivu">Mullaitivu District</option>
+            <option value="Vavuniya">Vavuniya</option>
+            <option value="Puttalam">Puttalam</option>
+            <option value="Kurunegala">Kurunegala</option>
+            <option value="Matale">Matale</option>
+            <option value="Kandy">Kandy</option>
+            <option value="Nuwara Eliya">Nuwara Eliya District</option>
+            <option value="Kegalle">Kegalle</option>
+            <option value="Ratnapura">Ratnapura</option>
+            <option value="Trincomalee">Trincomalee</option>
+            <option value="Batticaloa">Batticaloa</option>
+            <option value="Ampara">Ampara</option>
+            <option value="Badulla">Badulla</option>
+            <option value="Monaragala">Monaragala</option>
+            <option value="Hambantota">Hambantota</option>
+            <option value="Matara">Matara</option>
+            <option value="Galle">Galle</option>
           </select>
         </td>
       </tr>
       <tr>
         <td>
-          <label  for="gndivision">ග්‍රාම නිලධාරී වසම</label>
+          <label  for="gndivision">Gramaniladari Division</label>
         </td>
       </tr>
       <tr>
         <td><select class="text" name="gndivision" id="gndivision">
-          <option value="" >මෙතැනින් තෝරන්න</option>
+          <option value="" >Choose here</option>
           <?php
              
             foreach ($division  as $row){ ?>
@@ -260,7 +260,7 @@
       </tr>
       <tr>
         <td>
-          <label for="email">විද්යුත් තැපෑල</label>
+          <label for="email">Email</label>
         </td>
       </tr>
       <tr>
@@ -268,7 +268,7 @@
       </tr>
       <tr>
         <td>
-          <label for="email">දුරකථන අංකය</label>
+          <label for="email">Telephone Number</label>
         </td>
       </tr>
       <tr>
@@ -276,7 +276,7 @@
       </tr>
       <tr>
         <td>
-          <label for="password">රහස් පදය</label>
+          <label for="password">Password</label>
         </td>
       </tr>
         <td><input class="text" type="password" id="password" name="password" placeholder="  Type a password for your profile"/></td>
@@ -284,7 +284,7 @@
       <tr>
       <tr>
         <td>
-          <label for="cpassword">මුරපදය තහවුරු කරන්න</label>
+          <label for="cpassword">Confirm Password</label>
         </td>
       </tr>
       <tr>
