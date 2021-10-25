@@ -93,6 +93,8 @@ class user extends Controller
                                  break;
                                  case "admin": $this->view->render('admin_page');
                                   break;
+                                  case "regional officer":$this->view->render('regionalDashboard');
+                                  break;
                                  // case "veterinarian": $this->view->render('veterinarian');
 
                                }
@@ -114,6 +116,8 @@ class user extends Controller
                                  case "Wildlife Officer": $this->view->render('wildlifeofficer');
                                  break;
                                  case "admin": $this->view->render('admin_page');
+                                  break;
+                                  case "regional officer":$this->view->render('regionalDashboard');
                                   break;
                                  // case "veterinarian": $this->view->render('veterinarian');
 
@@ -141,6 +145,8 @@ class user extends Controller
                      case "Wildlife Officer": $this->view->render('wildlifeofficer');
                     break;
                      case "admin": $this->view->render('admin_page');
+                     break;
+                     case "regional officer":$this->view->render('regionalDashboard');
                      break;
                     // case "veterinarian": $this->view->render('veterinarian');
 

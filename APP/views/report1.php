@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../Public/css/header1.css">
+    <link rel="stylesheet" href="../Public/css/header.css">
     <link rel="stylesheet" href="../Public/css/report-1.css">
-    <script src="../Public/javascript/login.js"></script>
+    <script src="../Public/javascript/login1.js"></script>
     <script src="../Public/javascript/report1.js"></script>
     <title>Elephant are in The Elephant</title>
 </head>

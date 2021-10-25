@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="Public/javascript/home.js"></script>
-    <!-- <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="Public/css/home.css">
     
@@ -62,9 +61,7 @@
         
         
         
-            <!-- <h1>Wildlife is sbhs</h1>
-            <p>gg bs hgwygwb hwbwqugwqh</p>
-         -->
+           
         <button id="header">“The real wealth of the Nation lies in the resources of the earth - soil, water, forests, minerals, and wildlife.”</button>
         <form action="villager/register">
             <button id="regButton" >REGISTER</button>
@@ -74,14 +71,6 @@
 
 
 
-<!-- <script type="text/javascript">
-function googleTranslateElementInit() {
-new google.translate.TranslateElement({pageLanguage: 'en'}, 'lan');
-}
-</script>
-
-
- -->
 
 
 
@@ -111,23 +100,7 @@ function nextImage(){
 
    </script>
 
-<!-- 
-  <div class="banner-area">
-        <div class="banner-text">
-                 
-                
-                    <h1>What is lorem ipsum</h1>
-                
-            
-                    <p>Lorem ipsum Lorem ipsum  Lorem ipsum  Lorem ipsum  Lorem ipsum  Lorem ipsum Lorem ipsum  Lorem ipsum</p>
-            
-            
 
-        </div>
-
-        <button>REGISTER</button>
-        
-    </div> -->
 
 
  
@@ -144,7 +117,7 @@ function nextImage(){
     </div>
 
     <div id="feature">
-       <!--  <h1>Features</h1> -->
+       
         <div id="fr1">
             <ul>
 

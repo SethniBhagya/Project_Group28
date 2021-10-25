@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="Public/javascript/home.js"></script>
-    <!-- <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="Public/css/home.css">
     
@@ -25,8 +24,8 @@
                 <div class="bar3"></div>
             </div>
 
-            <ul>
-                 <!-- <li id="lan"></li> -->
+            <ul class="nav-menu">
+                 
                 <li id="home"><a href="">மானிய பக்கம்</a></li>
                 <li id="report"><a href="incident/index?lang=3">நிகழ்வுகளைப் புகாரளிக்கவும்</a></li>
                 <li id="register"><a href="villager/register?lang=3">பதிவு</a></li>
@@ -62,9 +61,7 @@
         
         
         
-            <!-- <h1>Wildlife is sbhs</h1>
-            <p>gg bs hgwygwb hwbwqugwqh</p>
-         -->
+            
         <button id="header">“ஒரு தேசத்தின் உண்மையான செல்வம் அதன் நிலம், மண், நீர், காடுகள், தாதுக்கள் மற்றும் வனவிலங்கு வளங்களில் உள்ளது.”</button>
         <form action="villager/register">
             <button id="regButton" >பதிவு</button>
@@ -74,14 +71,9 @@
 
 
 
-<!-- <script type="text/javascript">
-function googleTranslateElementInit() {
-new google.translate.TranslateElement({pageLanguage: 'en'}, 'lan');
-}
-</script>
 
 
- -->
+ 
 
 
 
@@ -111,24 +103,6 @@ function nextImage(){
 
    </script>
 
-<!-- 
-  <div class="banner-area">
-        <div class="banner-text">
-                 
-                
-                    <h1>What is lorem ipsum</h1>
-                
-            
-                    <p>Lorem ipsum Lorem ipsum  Lorem ipsum  Lorem ipsum  Lorem ipsum  Lorem ipsum Lorem ipsum  Lorem ipsum</p>
-            
-            
-
-        </div>
-
-        <button>REGISTER</button>
-        
-    </div> -->
-
 
  
 
@@ -138,13 +112,13 @@ function nextImage(){
         <img src="Public/images/logo.png">
         
         <h1 >Wildlife Care என்ன?</h1>
-        <p>Wildlife Care இது ஒரு வலை மற்றும் மொபைல் அடிப்படையிலான அமைப்பாகும், இது வனவிலங்கு அதிகாரிகள் மற்றும் கிராமவாசிகளுக்கு இடையேயான தூரத்தைக் குறைக்கும்..எனவே Wildlife Care பயனுள்ள மற்றும் திறமையான தகவல்தொடர்புகளை வழங்குகிறது. இதன் முக்கிய நோக்கம் மக்கள், வனவிலங்குகள் மற்றும் இரண்டையும் ஏதோ ஒரு வகையில் பாதுகாப்பதாகும்.
+        <p>Wildlife Care இது ஒரு வலை மற்றும் மொபைல் அடிப்படையிலான அமைப்பாகும், இது வனவிலங்கு அதிகாரிகள் மற்றும் கிராமவாசிகளுக்கு இடையேயான தூரத்தைக் குறைக்கும்..எனவே Wildlife Care பயனுள்ள மற்றும் திறமையான தகவல்தொடர்புகளை வழங்குகிறது.
   </p>
         
     </div>
 
     <div id="feature">
-       <!--  <h1>Features</h1> -->
+       
         <div id="fr1">
             <ul>
 

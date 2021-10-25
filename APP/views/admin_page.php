@@ -1074,63 +1074,7 @@
 
        
 
-   <!--  <div class="container2">
-       
-       
-
-        <span>
-           <div id="map">
-             <script >
-               
-               function initMap(){
-
-                var location={lat:7.216440,lng:80.848387};
-                var location1={lat:7.316440,lng:80.948387};
-                 var location2={lat:7.116440,lng:80.448387};
-                var map= new google.maps.Map(document.getElementById("map"),{
-                    zoom:10,
-                    center:location
-                });
-
-                
-
-
-                var marker=new google.maps.Marker({
-                    position:location,
-                    map: map
-                });
-
-                var marker1=new google.maps.Marker({
-                    position:location1,
-                    map: map
-                });
-
-                var marker2=new google.maps.Marker({
-                    position:location2,
-                    map: map
-                });
-               }
-           </script>
- -->          <!--   <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false&callback=initMap">  </script> -->
-         <!--    <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA6bqTtd9axLl6pZb3eeSkRgRfXVjW1zkQ&callback=initMap">
-    </script> -->
-            
-            <!--  <script type="text/javascript" src="https://maps.google.com/maps?q=Tangesir%20Dates%20Products">  </script> -->
-
-        <!--    </div>
-          
-            
-        </span>
-        <span>
-           
-             
-            
-        </span>
-
-        
-
-    </div> -->
+   
 
 
     <div class="container3">
@@ -1192,29 +1136,7 @@
 
 
                   <div id="map-polonnaruwa">
-             <!-- <script >
-               
-               function initMap1(){
-
-                var location1={lat:7.316440,lng:80.848387};
-                
-                var map1= new google.maps.Map(document.getElementById("map-polonnaruwa"),{
-                    zoom:10,
-                    center:location
-                });
-
-                
-
-
-                var marker1=new google.maps.Marker({
-                    position:location1,
-                    map: map1
-                });
-
-                
-               }
-           </script>
-         <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script> -->
+             
          <iframe src="http://maps.google.com/maps?q=7.316440,80.848387&z=10&output=embed" height="500" width="600"></iframe>
              </div>
 
@@ -1304,31 +1226,7 @@
 
 
                  <div id="map-anuradhapura">
-            <!--  <script >
-               
-               function initMap2(){
-
-                var location={lat:7.216440,lng:80.848387};
-                
-                var map= new google.maps.Map(document.getElementById("map-anuradhapura"),{
-                    zoom:10,
-                    center:location
-                });
-
-                
-
-
-                var marker=new google.maps.Marker({
-                    position:location,
-                    map: map
-                });
-
-                
-               }
-           </script>
-          <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA6bqTtd9axLl6pZb3eeSkRgRfXVjW1zkQ&callback=initMap2">
-    </script>  -->
+            
     <iframe src="http://maps.google.com/maps?q=7.216440,80.848387&z=10&output=embed" height="500" width="600"></iframe>
              </div>
 
@@ -1414,31 +1312,7 @@
                         
                  </div>
                    <div id="map-ampara">
-             <!-- <script >
-               
-               function initMap3(){
-
-                var location={lat:7.216440,lng:80.848387};
-                
-                var map= new google.maps.Map(document.getElementById("map-ampara"),{
-                    zoom:10,
-                    center:location
-                });
-
-                
-
-
-                var marker=new google.maps.Marker({
-                    position:location,
-                    map: map
-                });
-
-                
-               }
-           </script>
-          <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA6bqTtd9axLl6pZb3eeSkRgRfXVjW1zkQ&callback=initMap3">
-    </script>  -->
+             
 
             <iframe src="http://maps.google.com/maps?q=7.416440,80.848387&z=10&output=embed" height="500" width="600"></iframe>
 
@@ -1528,31 +1402,7 @@
                         
                  </div>
                    <div id="map-hambanthota">
-            <!--  <script >
-               
-               function initMap4(){
-
-                var location={lat:7.416440,lng:80.848387};
-                
-                var map= new google.maps.Map(document.getElementById("map-hambanthota"),{
-                    zoom:10,
-                    center:location
-                });
-
-                
-
-
-                var marker=new google.maps.Marker({
-                    position:location,
-                    map: map
-                });
-
-                
-               }
-           </script>
-          <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA6bqTtd9axLl6pZb3eeSkRgRfXVjW1zkQ&callback=initMap4">
-    </script>  -->
+            
     <iframe src="http://maps.google.com/maps?q=7.316440,80.448387&z=10&output=embed" height="500" width="600"></iframe>
              </div>
 

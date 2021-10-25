@@ -33,7 +33,7 @@
                     </div>
                   </div>
                 <li class="dropdown">
-                    <span class="dot"> <img onclick="myFunction_3(this)" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
+                    <span class="dot"> <img onclick="myFunction_2(this)" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
                     <div id="myDropdown" class="dropdown-content">
                         <a href="../user/editprofile">View Profile</a>
                         <a href="../user/logout">Logout</a>

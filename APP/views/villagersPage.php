@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Public/css/header.css">
     <link rel="stylesheet" href="../Public/css/Villagerpage.css">
-    <script src="../Public/Javascript/login.js"></script>
+    <script src="../Public/Javascript/login1.js"></script>
     <title>Dashboard</title>
 </head>
 
