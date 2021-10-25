@@ -13,7 +13,7 @@
       <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     
     
-    <title>Document</title>
+    <title>Place Notice</title>
 </head>
 <body >
     <header id="main">
@@ -25,9 +25,9 @@
                 <div class="bar3"></div>
             </div>
 
-            <ul>
-                <li id="home_1"><a href="../">Home</a></li>
-                <li id="dash"><a href="../">Dashboard</a></li>
+            <ul class="nav-menu">
+                <li id="home" class="nav-menu-item"><a href="../">Home</a></li>
+                <li id="dashboard" class="nav-menu-item"><a href="../">Dashboard</a></li>
                 
                 <li class="dropdown">
                     <span class="dot"> <img onclick="myFunction_2(this)" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>

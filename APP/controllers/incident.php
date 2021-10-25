@@ -120,45 +120,43 @@ class incident extends Controller{
                 //user submit the form 
                 if(isset($_POST['Submit'])){
                     //call insertReport function in incident_model class 
-                    $this->model->insertReport1($_SESSION['NIC'], $_POST['noOfelephant'], $_POST['Reg'], $_POST['Photo'], $_POST['latitude'],$_POST['longitude'] );
+                    $this->model->insertReport1($_SESSION['NIC'], $_POST['noOfelephant'], $_POST['Reg'], $_POST['Photo'],$_POST['place'], $_POST['latitude'],$_POST['longitude'] );
                       
-                }  
+                }
                 break;
-                case "2" : $this->view->render('report2Sinhala');
-                //user submit the form 
+                 //user submit the form 
                  if(isset($_POST['Submit'])){
-                     //call insertReport function in incident_model class
-                     $this->model->insertReport2($_SESSION['NIC'],$_POST['animal'],$_POST['noOfanimals'],$_POST['discription'],$_POST['Photo'],$_POST['latitude'],$_POST['longitude']);
-                 }  
+                    //call insertReport function in incident_model class
+                    $this->model->insertReport2($_SESSION['NIC'],$_POST['animal'],$_POST['noOfanimals'],$_POST['discription'],$_POST['Photo'],$_POST['place'],$_POST['latitude'],$_POST['longitude']);
+                }  
                 break;
     
                 case "3" : $this->view->render('report3Sinhala');
                 //user submit the form
-                  if(isset($_POST['Submit'])){
-                      //call insertReport function in incident_model class
-                      $this->model->insertReport3($_SESSION['NIC'],$_POST['Photo'],$_POST['latitude'],$_POST['longitude']);
-                  }
+                if(isset($_POST['Submit'])){
+                    //call insertReport function in incident_model class
+                    $this->model->insertReport3($_SESSION['NIC'],$_POST['Photo'],$_POST['place'],$_POST['latitude'],$_POST['longitude']);
+                }
                 break;
                 case "4" : $this->view->render('report4Sinhala');
                 //user submit the form
-                  if(isset($_POST['Submit'])){
-                      //call insertReport function in incident_model class
-                      $this->model->insertReport4($_SESSION['NIC'],$_POST['animal'],$_POST['cultivatedCrop'],$_POST['cultivatedLand'] ,$_POST['Photo'],$_POST['damageLand'],$_POST['latitude'],$_POST['longitude']);
-                  }
+                if(isset($_POST['Submit'])){
+                    //call insertReport function in incident_model class
+                    $this->model->insertReport4($_SESSION['NIC'],$_POST['animal'],$_POST['cultivatedCrop'],$_POST['cultivatedLand'] ,$_POST['Photo'],$_POST['place'],$_POST['damageLand'],$_POST['latitude'],$_POST['longitude']);
+                }
                 break;
                 case "5" : $this->view->render('report5Sinhala');
                 //user submit the form
-                  if(isset($_POST['Submit'])){
-                      //call insertReport function in incident_model class
-                      $this->model->insertReport5($_SESSION['NIC'],$_POST['animal'],$_POST['noOfanimals'],$_POST['support'],$_POST['discription'],$_POST['Photo'],$_POST['latitude'],$_POST['longitude']);
-                  }
+                if(isset($_POST['Submit'])){
+                    //call insertReport function in incident_model class
+                    $this->model->insertReport5($_SESSION['NIC'],$_POST['animal'],$_POST['noOfanimals'],$_POST['support'],$_POST['discription'],$_POST['Photo'],$_POST['place'],$_POST['latitude'],$_POST['longitude']);
+                }
                 break;
                 case "6" : $this->view->render('report6Sinhala');
-                //user submit the form
-                  if(isset($_POST['Submit'])){
-                      //call insertReport function in incident_model class
-                      $this->model->insertReport6($_SESSION['NIC'],$_POST['Photo'],$_POST['latitude'],$_POST['longitude']);
-                  }
+                if(isset($_POST['Submit'])){
+                    //call insertReport function in incident_model class
+                    $this->model->insertReport6($_SESSION['NIC'],$_POST['Photo'],$_POST['place'],$_POST['latitude'],$_POST['longitude']);
+                }
                 break;
                }
             break;
@@ -170,9 +168,9 @@ class incident extends Controller{
             //user submit the form 
             if(isset($_POST['Submit'])){
                 //call insertReport function in incident_model class 
-                $this->model->insertReport1($_SESSION['NIC'], $_POST['noOfelephant'], $_POST['Reg'], $_POST['Photo'], $_POST['latitude'],$_POST['longitude'] );
+                $this->model->insertReport1($_SESSION['NIC'], $_POST['noOfelephant'], $_POST['Reg'], $_POST['Photo'],$_POST['place'], $_POST['latitude'],$_POST['longitude'] );
                   
-            }  
+            } 
             break;
             case "2" : $this->view->render('report2Tamil');
             //user submit the form 
@@ -215,9 +213,9 @@ class incident extends Controller{
               header('Location: ../user/error'); 
             break;
        }
-       default:
-       header('Location: ../user/error'); 
-       break;
+    //    default:
+    //    header('Location: ../user/error'); 
+    //    break;
  
     }
  }
@@ -230,7 +228,7 @@ class incident extends Controller{
         //assign value to $%noOfrows
         $noOfrows =  $rows['total_rows'];
         //each page get the rows
-        $rowsPer = 15;
+        $rowsPer = 10;
         //Get the page number 
         $pageNumber = $_GET['page'];
         //view the page number view in report
@@ -307,7 +305,33 @@ class incident extends Controller{
         }
     }
     }
-    function getReportrows(){
-
-    }
-} 
+    function viewReportpage(){
+        // $this->view->dataAll  = $this->model->getDatareport( );
+        if(isset($_GET['reportNo'])){
+           $reportNo = $_GET['reportNo'];
+           $this->view->dataReport  = $this->model->getreport($reportNo);
+  
+        }else{
+            header("../user/error");
+        }
+        if(isset($_GET['lang'])){
+            //assign the value
+            $lang = $_GET['lang'];
+        }
+        switch($lang){
+            case 1 :
+            //display villagerReportView1     
+            $this->view->render('reportpage');
+            break;
+            case 2 :
+            //display villagerReportView2
+            $this->view->render('reportpageSinhala');
+            break;
+            case 3 :
+            //display villagerReportView3    
+            $this->view->render('reportpageTamil');
+            break;
+    
+        }
+     }  
+        } 

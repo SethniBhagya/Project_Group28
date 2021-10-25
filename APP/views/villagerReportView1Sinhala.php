@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Public/css/header.css">
-    <link rel="stylesheet" href="../Public/css/reportViewpage.css">
+    <link rel="stylesheet" href="../Public/css/reportView-page.css">
     <script src="../Public/Javascript/login.js"></script>
     <!-- <script src="../Public/Javascript/viewReport.js"></script> -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=myMap"></script>
@@ -28,7 +28,7 @@
             <li id="home_2"><a href="../">මුල් පිටුව</a></li>
                 <li id="dashboard_1"   ><a href="../user/viewpage?user=villager" >මුල් පුවරුව</a></li>
                 <li id="report_2" style=" padding-right:20px ; right:345px  "><a href="../incident/index?lang=2"> වර්තා කිරීම</a></li>
-                <li id="special_1"><a href="">විශේෂ දැන්වීම</a></li> 
+                <li id="special_1"><a href="../user/viewSpecialNotice?lang=2">විශේෂ දැන්වීම</a></li> 
                 <div class="dropdown-1" style="  padding-left:  300px ">
                     <button style="margin-right:10px;  margin-top:  -50px;   " class="dropbtn-1">භාෂාව</button>
                     <div class="dropdown-content-1">
@@ -39,8 +39,8 @@
                   </div>
                     <span class="dot"  style="margin-right:10px;  margin-top:  10px;"  > <img onclick="myFunction_3()" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
                     <div id="myDropdown" class="dropdown-content">
-                        <a href="">View Profile</a>
-                        <a href="">Logout</a>
+                    <a href="../user/editprofile">View Profile</a>
+                        <a href="../user/logout">Logout</a>
                     </div>
                 </li>
             </ul>
@@ -100,7 +100,7 @@
                     <td><?php echo $row['time_in'] ?></td>
                     <td><?php echo $row['Place'] ?></td>
                     <td><?php echo $row['reporttype'] ?></td>
-                    <td id="view"><a onclick="openView()" href="aaa"><img src="../Public/images/view.png" class="view" ></a></td>
+                    <td id="view"><a href="../incident/viewReportpage?lang=1&reportNo=<?php echo $row['incidentID'] ?>"><img src="../Public/images/view.png" class="view" ></a></td>
                     
                 </tr>
                 <?php }  } ?>
@@ -126,7 +126,7 @@
                     <td><?php echo $row['time_in'] ?></td>
                     <td><?php echo $row['Place'] ?></td>
                     <td><?php echo $row['reporttype'] ?></td>
-                    <td id="view"><a href="?type=1&page=1&status=<?php echo $row['reporttype']; ?>"><img src="../Public/images/view.png" class="view" ></a></td>
+                    <td id="view"><a href="../incident/viewReportpage?lang=1&reportNo=<?php echo $row['incidentID'] ?>"><img src="../Public/images/view.png" class="view" ></a></td>
                     
                 </tr>
                 <?php if(isset($_GET['status'])) { ?>
@@ -163,9 +163,17 @@
         </div>
         
     <!-- </div> -->
-  <div class="subcontainer_3-4">
-            <li id="previous"><a href="?type=1&page=1">Previous</a>
-            <li id="last"><a href="?type=1&page=<?php echo $this->lastpage ?>">last</a></li>
+    <div class="subcontainer_3-4">
+             <a  id="first"  href="?type=1&lang=1&page=1">First</a>
+            <?php if($_GET['page']<=1) {?>
+                  <a>Previous</a>
+            <?php }else{?> 
+             <a id="previous" href="?type=1&lang=1&page=<?php echo $_GET['page']-1 ?>">Previous</a> <?php } ?>
+            <?php if($_GET['page']==$this->lastpage) {?>
+                 <li id="next"><a>Next</a>
+            <?php }else{?> 
+             <a id="next" href="?type=1&lang=1&page=<?php echo $_GET['page']+1 ?>">Next</a> <?php } ?>
+             <a id="last" href="?type=1&lang=1&page=<?php echo $this->lastpage ?>">Last</a></li>
         </div>
          
     </div>

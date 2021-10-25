@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Public/css/header.css">
-    <link rel="stylesheet" href="../Public/css/report3.css">
+    <link rel="stylesheet" href="../Public/css/report_3.css">
     <script src="../Public/javascript/login.js"></script>
     <title>Breakdown of Elephants Fences</title>
 </head>
@@ -23,7 +23,7 @@
             <li id="home_2" style="right:750px"  ><a href="../"  ">முகப்பு பக்கம்</a></li>
                 <li id="dashboard_1" style="right:600px"  ><a href="../user/viewpage?user=villager" >டாஷ்போர்டு</a></li>
                 <li id="report_2" style="   right:380px" ><a  href="../incident/index?lang=3">சம்பவங்கள் அறிக்கை</a></li>
-                <li id="special_1"style="right:210px"  ><a href="">சிறப்பு அறிவிப்பு</a></li> 
+                <li id="special_1"style="right:210px"  ><a href="../user/viewSpecialNotice?lang=3">சிறப்பு அறிவிப்பு</a></li> 
                 <div class="dropdown-1" style="  padding-left:  300px ">
                     <button class="dropbtn-1">மொழி</button>
                     <div class="dropdown-content-1">
@@ -35,8 +35,8 @@
                 <li class="dropdown">
                     <span class="dot"> <img onclick="myFunction_2(this)" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
                     <div id="myDropdown" class="dropdown-content">
-                        <a href="">View Profile</a>
-                        <a href="">Logout</a>
+                    <a href="../user/editprofile">View Profile</a>
+                        <a href="../user/logout">Logout</a>
                     </div>
                 </li>
             </ul>
@@ -47,6 +47,28 @@
         <div class="header">
             <b>யானை வேலிகள் உடைப்பு</b>
         </div>
+        <?php
+        if(isset($_POST['Submit'])){
+        ?>
+           
+           <div id="message1" style="padding: 10px; background-color:aliceblue">
+           <!-- <h1>Wildlife Care</h1></br></br> -->
+           <img src="../Public/images/success-mesaage.png" style="width:90px;  height:90px">
+           <h1>Your Report Incident Submit Sucessfully</h1>
+           <!-- <h>Your Incident Report Submit Sucessfully</h> -->
+           
+           <a href="../incident/viewReport?type=1&page=2&lang=1"  class="login-btn" style=" border-radius: 10px; padding: 10px 10px; background-color:#056412;  color: white;">View Report</a>
+           </div>
+         <?php
+         
+         }
+        //  }
+        //ss}
+        ?> 
+        <div id="message" style="display: none;">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+        <h id="errorMessage"></h>
+        </diV>
         <form class="form-report" action="" method="post">
             <!-- <label for="numberOfelephants"><b>How many Elephants  : </b></label>
             <input type="number" name="noOfelephant" id="number"> <br><br>

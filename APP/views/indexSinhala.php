@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="Public/javascript/home.js"></script>
-    <!-- <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="Public/css/home.css">
     
@@ -25,8 +24,8 @@
                 <div class="bar3"></div>
             </div>
 
-            <ul>
-                 <!-- <li id="lan"></li> -->
+            <ul class="nav-menu">
+                 
                 <li id="home"><a href="">ප්‍රදාන පිටුව</a></li>
                 <li id="report"><a href="incident/index?lang=2">සිදුවීම් වාර්තා කරන්න</a></li>
                 <li id="register"><a href="villager/register?lang=2">ලියාපදිංචිය</a></li>
@@ -62,9 +61,7 @@
         
         
         
-            <!-- <h1>Wildlife is sbhs</h1>
-            <p>gg bs hgwygwb hwbwqugwqh</p>
-         -->
+            
         <button id="header">“ජාතියක සැබෑ ධනය පවතින්නේ පොලොව, පස, ජලය, වනාන්තර, ඛණිජ, සහ වනජීවී සම්පත් වලය.”</button>
         <form action="villager/register">
             <button id="regButton" >ලියාපදිංචිය</button>
@@ -74,14 +71,7 @@
 
 
 
-<!-- <script type="text/javascript">
-function googleTranslateElementInit() {
-new google.translate.TranslateElement({pageLanguage: 'en'}, 'lan');
-}
-</script>
 
-
- -->
 
 
 
@@ -111,23 +101,6 @@ function nextImage(){
 
    </script>
 
-<!-- 
-  <div class="banner-area">
-        <div class="banner-text">
-                 
-                
-                    <h1>What is lorem ipsum</h1>
-                
-            
-                    <p>Lorem ipsum Lorem ipsum  Lorem ipsum  Lorem ipsum  Lorem ipsum  Lorem ipsum Lorem ipsum  Lorem ipsum</p>
-            
-            
-
-        </div>
-
-        <button>REGISTER</button>
-        
-    </div> -->
 
 
  
@@ -144,7 +117,7 @@ function nextImage(){
     </div>
 
     <div id="feature">
-       <!--  <h1>Features</h1> -->
+       
         <div id="fr1">
             <ul>
 

@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Public/css/header.css">
-    <link rel="stylesheet" href="../Public/css/report4.css">
+    <link rel="stylesheet" href="../Public/css/report_5.css">
     <title>Other Wild Animals are in the Village</title>
 </head>
 <body>
@@ -22,7 +22,7 @@
             <li id="home_2"><a href="../">මුල් පිටුව</a></li>
                 <li id="dashboard_1"   ><a href="../user/viewpage?user=villager" >මුල් පුවරුව</a></li>
                 <li id="report_2" style=" padding-right:20px ; right:345px  "><a href="../incident/index?lang=2"> වර්තා කිරීම</a></li>
-                <li id="special_1"><a href="">විශේෂ දැන්වීම</a></li> 
+                <li id="special_1"><a href="../user/viewSpecialNotice?lang=2">විශේෂ දැන්වීම</a></li> 
                 <div class="dropdown-1" style="  padding-left:  300px ">
                     <button class="dropbtn-1">භාෂාව</button>
                     <div class="dropdown-content-1">
@@ -34,18 +34,40 @@
                 <li class="dropdown">
                     <span class="dot"> <img onclick="myFunction_2(this)" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
                     <div id="myDropdown" class="dropdown-content">
-                        <a href="">View Profile</a>
-                        <a href="">Logout</a>
+                        <a href="../user/editprofile">View Profile</a>
+                        <a href="../user/logout">Logout</a>
                     </div>
                 </li>
             </ul>
         </nav>
     </header> 
-
+    <?php
+        if(isset($_POST['Submit'])){
+        ?>
+           
+           <div id="message1" style="padding: 10px; background-color:aliceblue">
+           <!-- <h1>Wildlife Care</h1></br></br> -->
+           <img src="../Public/images/success-mesaage.png" style="width:90px;  height:90px">
+           <h1>Your Report Incident Submit Sucessfully</h1>
+           <!-- <h>Your Incident Report Submit Sucessfully</h> -->
+           
+           <a href="../incident/viewReport?type=1&page=2&lang=1"  class="login-btn" style=" border-radius: 10px; padding: 10px 10px; background-color:#056412;  color: white;">View Report</a>
+           </div>
+         <?php
+         
+         }
+        //  }
+        //ss}
+        ?> 
+        <div id="message" style="display: none;">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+        <h id="errorMessage"></h>
+        </diV>
     <div class="container1-1">
         <div class="header">
             <b>වන සතුන් අනතුරේ </b>
         </div>
+        
         <form class="form-report" action="" method="post">
         <label><b> සත්ව තෝරන්න :</b></label>
         <select class="text" name="animal" id="">

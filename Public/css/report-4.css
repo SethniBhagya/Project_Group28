@@ -1,7 +1,7 @@
 .container1-1{
     position: inherit;
     width: 80%;
-    height: 580px;
+    height: auto;
     margin-top: 20px;
     margin-left: 10%;
     background-color: rgba(192, 192, 209, 0.453);
@@ -16,25 +16,14 @@
     margin-left: 10%;
     margin-top: 8px;
     border-radius: 10px;
-    background-color: rgba(230, 28, 14, 0.494);
+    background-color: #056412;
     width: 80%;
     color: ivory;
     text-align: center;
 }
-.text{
-    display: inline-block;
-    border-radius: 5px;
-    width: 100%;
-    height: 30px;
-    border: none;
-    background-color: #daeee1c2;
-    font-size: 16px;
-    color: rgb(0, 0, 0);
-    font-weight: 1000px;
-}
 .photo{
-    position:absolute;
-    top : 210px;
+    position:inherit;
+    top : 250px;
     right: 200px;
     margin-top: 10px;
 }
@@ -82,7 +71,7 @@ input[type=number] {
     padding: 9px 9px;
     height: 20px;
     border-radius: 10px;
-    background-color: rgba(221, 41, 41, 0.652);
+    background-color: #056412;
 }
 .location button{
     position: relative;
@@ -114,7 +103,7 @@ input[type=number] {
 }
 input[type=submit] {
     width: 100%;
-    background-color: #cc1f1f9e;
+    background-color: #056412;
     color: white;
     padding: 8px 8px;
     margin: 7px 0px;
@@ -124,33 +113,7 @@ input[type=submit] {
     font-size: 17px;
   }
 input[type=submit]:hover{
-    background-color:  red;
-}
-.text::-webkit-file-upload-button {
-    visibility: hidden;
-  }
- .text{
-    display: inline-block;
-    border-radius: 5px;
-    width: 100%;
-    height: 30px;
-    border: none;
-    background-color: #daeee1c2;
-    font-size: 16px;
-    color: rgb(0, 0, 0);
-    font-weight: 1000px;  
-}
-.text-1{
-    display: inline-block;
-    border-radius: 5px;
-    width: 40%;
-    height: 30px;
-    border: none;
-    background-color: #daeee1c2;
-    font-size: 16px;
-    color: rgb(0, 0, 0);
-    font-weight: 1000px;  
-
+    background-color:  #056412;
 }
 .back{
     position:relative;
@@ -161,6 +124,76 @@ input[type=submit]:hover{
     width: 140px;
     height: 20px;
     border-radius: 10px;
-    display: none;
     background-color: lawngreen;
 }
+.text{
+    display: inline-block;
+    border-radius: 5px;
+    width: 40%;
+    height: 20px;
+    border: none;
+    background-color: #daeee1c2;
+    font-size: 16px;
+    color: rgb(0, 0, 0);
+    font-weight: 1000px;  
+
+}
+input[type=text] {
+    width: 90%;
+    background-color: #c8e2c9b8;
+    color: rgb(12, 11, 11);
+    padding: 6px 4px;
+    margin: 8px 0px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  .text{
+    display: inline-block;
+    border-radius: 5px;
+    width: 91%;
+    height: 30px;
+    border: none;
+    background-color: #daeee1c2;
+    font-size: 16px;
+    color: rgb(0, 0, 0);
+    font-weight: 1000px;
+}
+ 
+#message1{
+    position: absolute;
+    height: auto;
+    width: 50%;
+    /* text-align: ; */
+    z-index: 101;
+    left:22.5%;
+    text-align: center;
+    border-radius: 20px ; 
+    background-color: #e3e3e3;
+}
+#message {  
+    position: absolute;
+    padding: 10px;
+    width: 75%;
+    left:12%;
+     top: 400px;
+    background-color: #022b08;
+    color: white;
+    /* text-align: center; */
+    border-radius:10px ;
+  }
+  
+  .closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .closebtn:hover {
+    color: black;
+  }

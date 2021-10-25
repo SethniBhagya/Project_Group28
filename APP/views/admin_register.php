@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Public/css/admin_register.css">
-    <link rel="stylesheet" href="../Public/css/header.css">
     <script src="../Public/Javascript/admin.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" referrerpolicy="no-referrer"></script>
     <title>User Registration</title>
@@ -21,9 +20,9 @@
                 <div class="bar3"></div>
             </div>
 
-            <ul>
-                <li id="home_1"><a href="">HOME</a></li>
-                <li id="report_1"><a href="../admin/dashboard">DASHBOARD</a></li>
+            <ul class="nav-menu">
+                <li id="home" class="nav-menu-item"><a href="">Home</a></li>
+                <li id="dashboard" class="nav-menu-item"><a href="../admin/dashboard">Dashboard</a></li>
                 <li class="dropdown">
                     <span class="dot"> <img onclick="myFunction_2(this)" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
                     <div id="myDropdown" class="dropdown-content">
@@ -370,7 +369,7 @@
             </form>
 
 
-             <form class="vilform"  method="POST" action="../admin/addUser?error=&success=">
+             <form class="vilform"  method="POST" action="../admin/addUser">
                 <table>
                     
 

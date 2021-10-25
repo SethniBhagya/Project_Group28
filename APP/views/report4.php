@@ -5,7 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Public/css/header.css">
-    <link rel="stylesheet" href="../Public/css/report4.css">
+    <link rel="stylesheet" href="../Public/css/report-4.css">
+    <script src="../Public/javascript/report-4.js"></script>
+    
     <script src="../Public/javascript/login.js"></script>
     <title>Crop Damages</title> 
 </head>
@@ -23,7 +25,7 @@
             <li id="home_2"><a href="../">Home</a></li>
                 <li id="dashboard_1"  ><a href="../user/viewpage?user=villager" >Dashboard</a></li>
                 <li id="report_2"><a href="../incident/index?lang=1">Report Incidents</a></li>
-                <li id="special_1"><a href="">SpecialNotice </a></li> 
+                <li id="special_1"><a href="../user/viewSpecialNotice?lang=1">SpecialNotice </a></li> 
                 <div class="dropdown-1">
                     <button class="dropbtn-1">Language</button>
                     <div class="dropdown-content-1">
@@ -35,8 +37,8 @@
                 <li class="dropdown">
                     <span class="dot"> <img onclick="myFunction_2(this)" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
                     <div id="myDropdown" class="dropdown-content">
-                        <a href="">View Profile</a>
-                        <a href="">Logout</a>
+                    <a href="../user/editprofile">View Profile</a>
+                        <a href="../user/logout">Logout</a>
                     </div>
                 </li>
             </ul>
@@ -47,9 +49,31 @@
         <div class="header">
             <b>Crop Damages</b>
         </div>
+        <?php
+        if(isset($_POST['Submit'])){
+        ?>
+           
+           <div id="message1" style="padding: 10px; background-color:aliceblue">
+           <!-- <h1>Wildlife Care</h1></br></br> -->
+           <img src="../Public/images/success-mesaage.png" style="width:90px;  height:90px">
+           <h1>Your Report Incident Submit Sucessfully</h1>
+           <!-- <h>Your Incident Report Submit Sucessfully</h> -->
+           
+           <a href="../incident/viewReport?type=1&page=2&lang=1"  class="login-btn" style=" border-radius: 10px; padding: 10px 10px; background-color:#056412;  color: white;">View Report</a>
+           </div>
+         <?php
+         
+         }
+        //  }
+        //ss}
+        ?> 
+        <div id="message" style="display: none;">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+        <h id="errorMessage"></h>
+        </diV>
         <form class="form-report" action="" method="post">
         <label><b>Which Animal caused to damage :</b></label>
-        <select class="text" name="animal" id="">
+        <select class="text" name="animal" id="animal">
             <option value="">  Choose here</option>
             <option value="Alligator">AlligatorLion </option>
             <option value="Antelope">Antelope</option>
@@ -77,14 +101,14 @@
             <option value="Wolf">Wolf</option>
             <option value="Other">Other</option>
         </select><br>
-            <lable for="place"><b>Enter the Place name <b></lable>
-            <input type="text" name="place" class="text" ><br><br>  
+            <lable for="place"><b>Enter the Place name :<b></lable>
+            <input type="text" name="place" class="text" id="place" ><br><br>  
             <label for="Cultivated Crop"><b>Cultivated Crop  : </b></label>
-            <input type="text" name="cultivatedCrop" id=""> <br><br>
+            <input type="text" name="cultivatedCrop" id="cCrop"> <br><br>
             <label for="Culktivatedland"><b>Extend Cultivated land: </b></label>
-            <input type="text" name="cultivatedLand" id=""> <br><br>
+            <input type="text" name="cultivatedLand" id="eCrop"> <br><br>
             <label for="Damagedland"><b>Extend Damaged land: </b></label>
-            <input type="text" name="damageLand" id=""> <br><br>
+            <input type="text" name="damageLand" id="eLand"> <br><br>
        
             <!-- <textarea class="text" id="discription" name="latitude" rows="2"></textarea> -->
             <div class="photo">
@@ -103,13 +127,13 @@
 
             </div>
             <div class="report">
-                <input type="submit" value="Report" name="Submit">
+                <input type="submit" value="Report" onclick="return validation()" name="Submit" >
             </div>
         </form>
     </div>
     <?php $latitude  = "<script>document.write(lat)</script>" ; 
           $longitude = "<script>document.write(long)</script>"; ?>
-    <a href="./" class="back">Back</a>
+    <!-- <a href="./" class="back">Back</a> -->
     <script>
         var x = document.getElementById("lat");
         var y = document.getElementById("lang");

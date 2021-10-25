@@ -8,7 +8,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Public/css/login.css">
-    <!-- <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script> -->
     
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="../Public/Javascript/login.js"></script>
@@ -26,7 +25,7 @@
                 <div class="bar3"></div>
             </div>
 
-            <ul>
+            <ul class="nav-menu">
                 <li id="lan"></li>
                 <li id="home"><a href="../?lang=3">மானிய பக்கம்</a></li>
                 <li id="report"><a href="../user/index?lang=3">நிகழ்வுகளைப் புகாரளிக்கவும்</a></li>
@@ -44,29 +43,13 @@
     </header>
     </div> 
 
-    <!-- <script type="text/javascript">
-function googleTranslateElementInit() {
-new google.translate.TranslateElement({pageLanguage: 'en'}, 'lan');
-}
-</script> -->
+   
 
 
 
-
-
-    <div class="error" style=" margin-top: 2px;
-  position: absolute;
-  width: 345px;
-  font-size: 18px;
-  color: #c62828;
- 
-  text-align: center;
-  top: 180px;
-  
-  /*border: 1px solid #EF9A9A;*/
-  left: 37.5%; ">
+    <div class="error" >
                  <?php if(!empty($data))  echo $data;?>
-            </div>
+    </div>
     <div class="contanier">
         
         <div class="login-header">

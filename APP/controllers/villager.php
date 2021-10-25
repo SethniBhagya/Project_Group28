@@ -53,7 +53,27 @@
         }
     }
           
-       
+     function viewNotification(){
+        if(isset($_GET['lang'])){
+            //assign the value
+            $lang = $_GET['lang'];
+        }
+        switch($lang){
+            case 1 :
+            //display villagerReportView1     
+            $this->view->render('notification');
+            break;
+            case 2 :
+            //display villagerReportView2
+            $this->view->render('notificationSinhala');
+            break;
+            case 3 :
+            //display villagerReportView3    
+            $this->view->render('notificationTamil');
+            break;
+    
+        }
+     }  
 
 }
 

@@ -22,7 +22,7 @@ class villager_model extends Model{
         $this->db->runQuery("INSERT INTO `login`(`userName`, `userpassword`) VALUES ('$userNic','$hashPassword')");    
         $this->db->runQuery("INSERT INTO `villager`(`NIC`) VALUES ('$userNic')");
        
-        $this->db->runQuery("INSERT INTO `lives`(`villager_NIC`, `gramaniladhari_NIC`, `village_code`) VALUES ((SELECT `NIC` FROM `villager` WHERE NIC= '$userNic' ), (SELECT `gramaniladari_NIC` FROM `grama_niladhari` WHERE GND= (SELECT `GND_Code`  FROM `gn_division` WHERE name= '$GNDivision'  )) ,(SELECT `village_code` FROM `village` WHERE GND_Code=(SELECT `GND_Code`  FROM `gn_division` WHERE name= '$GNDivision' ))) ");
+        $this->db->runQuery("INSERT INTO `lives`(`villager_NIC`, `gramaniladhari_NIC`, `village_code`) VALUES ((SELECT `NIC` FROM `villager` WHERE NIC= '$userNic' ), (SELECT `NIC` FROM `grama_niladhari` WHERE GND= (SELECT `GND_Code`  FROM `gn_division` WHERE name= '$GNDivision'  )) ,(SELECT `village_code` FROM `village` WHERE GND_Code=(SELECT `GND_Code`  FROM `gn_division` WHERE name= '$GNDivision' ))) ");
  
     }
    

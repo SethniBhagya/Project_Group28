@@ -14,13 +14,19 @@ body {
   background-color: #14671c;
   position: sticky;
   top: 0px;
+  z-index: 1000;
 }
 
 .mybar {
   float: right;
   margin-top: 10px;
   margin-right: 15px;
+<<<<<<< HEAD
+  z-index: 1000;
+} 
+=======
 }
+>>>>>>> 16cb7314957fe3dccda8c2ac61f3fe3bc4606db2
 a {
   text-decoration: none;
   font-family: Arial, Helvetica, sans-serif;

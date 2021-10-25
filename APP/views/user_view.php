@@ -5,10 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Public/css/user_view.css">
-    <link rel="stylesheet" href="../Public/css/header.css">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!-- <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script> -->
-    <script src="../Public/Javascript/login.js"></script>
+    
+    <script src="../Public/Javascript/admin.js"></script>
     <title>Users</title>
 </head>
 <body>
@@ -33,32 +33,15 @@
                         <a href="../user/logout">Logout</a>
                     </div>
                 </li>
-                <!-- <li><button id="lan">lan</button></li> -->
+                
             </ul>
         </nav>
     </header>
 
-   <!--  <script type="text/javascript">
-function googleTranslateElementInit() {
-new google.translate.TranslateElement({pageLanguage: 'en'}, 'lan');
-}
-</script>
- -->
-
+  
     <div class="container1">
 
-        <!-- <script type="text/javascript">
-
-            function autoSubmit(x){
-                var formObject = document.forms['form1'];
-
-                formObject.submit();
-                
-                
-                
-            }
-            
-        </script> -->
+        
          
                <input type="radio" name="type" id="villager" value="villager"   >
                <input type="radio" name="type" id="regional-officer" value="regional-officer"   >
@@ -66,11 +49,7 @@ new google.translate.TranslateElement({pageLanguage: 'en'}, 'lan');
                <input type="radio" name="type" id="veterinarian" value="veterinarian"  >
                <input type="radio" name="type" id="grama-niladhari" value="grama-niladhari"  >
 
-               <!-- <form method="POST" action="../admin/userView" id="form1">
-                   
-
-               </form> -->
-             
+              
          
 
         <button id="add-user" onclick="location.href='addUser'">Add Users</button>

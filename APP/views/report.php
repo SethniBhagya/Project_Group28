@@ -23,7 +23,7 @@
             <li id="home_2"><a href="../">Home</a></li>
                 <li id="dashboard_1"   ><a href="../user/viewpage?user=villager" >Dashboard</a></li>
                 <li id="report_2" style=" background-color: rgb(168, 175, 168);" ><a href="">Report Incidents</a></li>
-                <li id="special_1"><a href="">SpecialNotice </a></li> 
+                <li id="special_1"><a href="../user/viewSpecialNotice?lang=1">SpecialNotice </a></li> 
                 <div class="dropdown-1" style="  padding-left:  300px ">
                     <button class="dropbtn-1">Language</button>
                     <div class="dropdown-content-1">
@@ -35,7 +35,7 @@
                 <li class="dropdown">
                     <span class="dot"> <img onclick="myFunction_3(this)" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
                     <div id="myDropdown" class="dropdown-content">
-                        <a href="">View Profile</a>
+                        <a href="../user/editprofile">View Profile</a>
                         <a href="../user/logout">Logout</a>
                     </div>
                 </li>
@@ -65,7 +65,7 @@
         <button class="report-5-5" href="" ><a class="report-5" href="./setincident?lang=1&report=5"><span class="dot5"><img class="report5" src="../Public/images/report-5.png"></span>
            <h1>Wild Animal is in Danger</h1></a>
         </button>
-        <button class="report-6-6" href="" ><a class="report-6" href="./setIncident?lang=1&report=6"><span class="dot5"><img class="report5" src="../Public/images/report-5.png"></span>
+        <button class="report-6-6" href="" ><a class="report-6" href="./setIncident?lang=1&report=6"><span class="dot5"><img class="report5" src="../Public/images/illegal.png"></span>
            <h1>Illegal Happing </h1></a>
         </button>
     </div>
