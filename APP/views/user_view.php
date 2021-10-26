@@ -51,8 +51,9 @@
 
               
          
-
+        <button id="back" onclick="location.href='dashboard'">Back</button>
         <button id="add-user" onclick="location.href='addUser'">Add Users</button>
+
         <div class="select-user">
             <ul>
                 <li><label for="villager" id="vil"><a>Villager</a></label></li>
@@ -109,7 +110,7 @@
                        <td>".$row["district_name"]."</td><td>".$row["Name"]."</td><td><ul>
                           <li><button><img src='../Public/images/edit.png'></button></li>
                           <li><button><img src='../Public/images/delete.png'></button></li>
-                          <li><button><img src='../Public/images/view.png'></button></li>
+                          <li><button onclick=\"location.href='viewUserProfile'\"><img src='../Public/images/view.png'></button></li>
                        </ul></td></tr>";} ?>
 
 
@@ -156,7 +157,7 @@
                        <td>".$row["district_name"]."</td><td>".$row["Name"]."</td><td><ul>
                           <li><button><img src='../Public/images/edit.png'></button></li>
                           <li><button><img src='../Public/images/delete.png'></button></li>
-                          <li><button><img src='../Public/images/view.png'></button></li>
+                          <li><button onclick=\"location.href='viewUserProfile'\"><img src='../Public/images/view.png'></button></li>
                        </ul></td></tr>";} ?>
                     
               
@@ -200,7 +201,7 @@
                        <td>".$row["district_name"]."</td><td>".$row["Name"]."</td><td><ul>
                           <li><button><img src='../Public/images/edit.png'></button></li>
                           <li><button><img src='../Public/images/delete.png'></button></li>
-                          <li><button><img src='../Public/images/view.png'></button></li>
+                          <li><button onclick=\"location.href='viewUserProfile'\"><img src='../Public/images/view.png'></button></li>
                        </ul></td></tr>";} ?>
 
                 </tbody>
@@ -242,7 +243,7 @@
                        <td>".$row["district_name"]."</td><td>".$row["Name"]."</td><td><ul>
                           <li><button><img src='../Public/images/edit.png'></button></li>
                           <li><button><img src='../Public/images/delete.png'></button></li>
-                          <li><button><img src='../Public/images/view.png'></button></li>
+                          <li><button onclick=\"location.href='viewUserProfile'\"><img src='../Public/images/view.png'></button></li>
                        </ul></td></tr>";} ?>
                    
                 </tbody>
@@ -285,7 +286,7 @@
                        <td>".$row["district_name"]."</td><td>".$row["Name"]."</td><td><ul>
                           <li><button><img src='../Public/images/edit.png'></button></li>
                           <li><button><img src='../Public/images/delete.png'></button></li>
-                          <li><button><img src='../Public/images/view.png'></button></li>
+                          <li><button onclick=\"location.href='viewUserProfile'\"><img src='../Public/images/view.png'></button></li>
                        </ul></td></tr>";} ?>
 
                 <tbody>
