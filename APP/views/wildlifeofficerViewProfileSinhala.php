@@ -32,16 +32,16 @@
                     <div class="dropdown-1" style="  padding-left:  300px ">
                         <button class="dropbtn-1">භාෂාව</button>
                         <div class="dropdown-content-1">
-                            <a href=" ">English</a>
-                            <a href=" ">සිංහල</a>
-                            <a href=" ">தமிழ்</a>
+                            <a href="?lang=1">English</a>
+                            <a href="?lang=2">සිංහල</a>
+                            <a href="?lang=3">தமிழ்</a>
                         </div>
                     </div>
                 </li>
                 <li class="dropdown">
                     <span class="dot"> <img onclick="myFunction_3()" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
                     <div id="myDropdown" class="dropdown-content">
-                        <a href="../wildlifeofficer/viewProfile">පරිශීලක පැතිකඩ</a>
+                        <a href="../wildlifeofficer/viewProfile?lang=2">පරිශීලක පැතිකඩ</a>
                         <a href="../user/index">ඉවත් වීම</a>
                     </div>
                 </li>
@@ -76,7 +76,7 @@
                     <h3><a href="#">පරිශීලක පැතිකඩ</a></h3>
                 </div>
                 <div class="edit_profile">
-                    <h3><a href="../wildlifeofficer/editProfile">පරිශීලක පැතිකඩ යාවත්කාලීන කිරීම</a></h3>
+                    <h3><a href="../wildlifeofficer/editProfile?lang=2">පරිශීලක පැතිකඩ යාවත්කාලීන කිරීම</a></h3>
                 </div>
             </div>
             <div>
@@ -128,7 +128,7 @@
             </div>
             <div class="row1">
 
-                <a href="../wildlifeofficer/">ආපසු</a>
+                <a href="../wildlifeofficer/?lang=2">ආපසු</a>
 
             </div>
 

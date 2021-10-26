@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../Public/css/wildlifeofficerHeader.css" type="text/css">
     <script src="../Public/javascript/login.js"></script>
     <script src="../Public/javascript/wildlifeofficer.js"></script>
+    <script src="../Public/javascript/admin.js"></script>
     <title>WildlifeCare</title>
 </head>
 
@@ -31,14 +32,15 @@
                         <div class="dropdown-content-1">
                             <a href="../wildlifeofficer/index?lang=1 ">English</a>
                             <a href=" ../wildlifeofficer/index?lang=2">සිංහල</a>
-                            <a href=" ">தமிழ்</a>
+                            <a href=" ../wildlifeofficer/index?lang=3">தமிழ்</a>
                         </div>
                     </div>
                 </li>
                 <li class="dropdown">
                     <span class="dot"> <img onclick="myFunction_2(this)" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
+
                     <div id="myDropdown" class="dropdown-content">
-                        <a href="../wildlifeofficer/viewProfile">View Profile</a>
+                        <a href="../wildlifeofficer/viewProfile?lang=1">View Profile</a>
                         <a href="../user/index">Logout</a>
                     </div>
                 </li>
@@ -56,7 +58,7 @@
         </b></label>
     </div>
     <div class="main-view">
-        <a href="../wildlifeofficer/viewIncidents">
+        <a href="../wildlifeofficer/viewIncidents?lang=1">
             <button class="report">
                 <h1> Reported </br>Incidents</h1>
                 <div class="line"><img src="../Public/images/emergency.png"></div>
@@ -71,7 +73,7 @@
                 <div class="line"><img src="../Public/images/notifi.png"></div>
             </button>
         </a>
-        <a href="../wildlifeofficer/viewDashboard">
+        <a href="../wildlifeofficer/viewDashboard?lang=1">
             <button class="dashboard">
                 <h1>Dashboard<div class="line"><img src="../Public/images/dashIcon.png"></div>
                 </h1>
