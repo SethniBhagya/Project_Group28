@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../Public/css/wildlifeofficer_header.css" />
+    <link rel="stylesheet" href="../Public/css/wildlifeofficerHeader.css" />
     <link rel="stylesheet" href="../Public/css/veterinarian_view_incidents.css" />
     <script src="../Public/Javascript/login.js"></script>
     <script src="../Public/Javascript/viewReport.js"></script>
@@ -91,30 +91,63 @@
             <div class="subcontainer_3-3" style="overflow-x: auto">
                 <table id="myTable">
                     <tr class="firstRow">
-                        <th>Date</th>
+                        <th>Reported Date</th>
                         <th>Report Number</th>
                         <th>Accepted Wildlifeofficer</th>
 
                         <th>Report Type</th>
                         <th>Place</th>
                         <th>Action</th>
-                        <td></td>
+                        <th></th>
+
                     </tr>
-                    <tr>
-                        <th>Date</th>
-                        <th>Report Number</th>
-                        <th>Accepted Wildlifeofficer</th>
+                    <?php
+                    foreach ($data as $row) {
+                        // switch ($data['reporttype']) {
+                        //   case 'Other Wild Animals in The Village':
+                        //     $row['reporttype'] = 2;
+                        //     break;
+                        //   case 'Breakdown of Elephant Fences':
+                        //     $row['reporttype'] = 3;
+                        //     break;
+                        //   case 'Crop Damages':
+                        //     $row['reporttype'] = 5;
+                        //     break;
+                        //   case 'Wild Animal is in Danger':
+                        //     $row['reporttype'] = 4;
+                        //     break;
+                        //   case 'Illegal Happing':
+                        //     $row['reporttype'] = 6;
+                        //     break;
+                        //   case 'Elephants are in The Village':
+                        //     $row['reporttype'] = 1;
+                        //     break;
+                        // }
 
-                        <th>Report Type</th>
-                        <th>Place</th>
-                        <th>Action</th>
-                        <td></td>
-                    </tr>
+                        if ($row['status'] == 'pending') {
+                            $stat = "<form method='POST' action='../wildlifeofficer/trigerRequest'><input type='text' style='display:none' name='acc' value=" . $row['incidentID'] . "><button class='buttonAccept' id='acceptId' value='ACCEPT' name='accept'/>ACCEPT</button></form>";
+                        } else {
+                            $stat = "<form method='POST' action='../wildlifeofficer/trigerRequest'><input type='text' style='display:none'  name='can' value=" . $row['incidentID'] . "><button class='buttonCancel' id='cancelId' value='CANCEl' name='cancel'/>CANCEL</button></form>";
+                        }
+                        echo "<tr>
+            <td>" . $row['date'] . "</td>
+            <td>" . $row['incidentID'] . "</td>
+            
+            <td>Saman Perera</td>
+            <td>" . $row['reporttype'] . "</td>
+            <td>" . $row['Place'] . "</td>
+            <td>" . $stat . "</td>
+            <td><button type='submit' class='viewButton' id='view' onclick='' >
+              <a href='../veterinarian/viewIncidentDetails'>VIEW</a>
+            </button></td>
+            
+            </tr>
+          ";
+                    }
+                    ?>
 
 
-                    <button type="submit" class="searchButton" id="view" onclick="">
-                        <i class="fa fa-search"><a href="../veterinarian/viewIncidentDetails">view</a></i>
-                    </button>
+
 
 
 
@@ -127,7 +160,7 @@
             </div>
 
         </div>
-        <div><?php print_r($data) ?></div>
+        <!-- <div><?php print_r($data) ?></div> -->
 
 </body>
 

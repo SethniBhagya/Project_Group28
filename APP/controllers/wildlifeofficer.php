@@ -162,4 +162,8 @@ class wildlifeofficer extends user
             $this->view->render('wildlifeofficerViewIncidents', $this->view->data);
         }
     }
+    function viewNotification()
+    {
+        $this->view->render('wildlifeofficerNotifications');
+    }
 }

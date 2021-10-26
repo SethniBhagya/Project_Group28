@@ -61,7 +61,9 @@
 
   <body>
     <div class="contanier_2">
+
       <div>
+
         <?php if (isset($data[0]['message'])) {
           echo $data[0]['message'];
         }

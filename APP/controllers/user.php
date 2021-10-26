@@ -92,8 +92,8 @@ class user extends Controller
                 case "regional officer":
                   $this->view->render('regionalDashboard');
                   break;
-                  // case "veterinarian": $this->view->render('veterinarian');
-
+                case "veterinarian":
+                  $this->view->render('veterinarian');
               }
             } elseif ($_GET["lang"] == "2") {
 

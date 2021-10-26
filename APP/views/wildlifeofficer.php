@@ -63,7 +63,7 @@
 
             </button>
         </a>
-        <a href="404">
+        <a href="../wildlifeofficer/viewNotification?lang=1">
             <button class="specialNotice">
                 <div class="notification"><span class="dot-1"><img src="../Public/images/bell.png" alt="1" srcset=" "></span>
                 </div>
