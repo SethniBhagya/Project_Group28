@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../Public/css/wildlifeofficerHeader.css">
+  <link rel="stylesheet" href="../Public/css/adminHeader.css">
   <link rel="stylesheet" href="../Public/css/wildlifeofficerViewProfile.css">
   <script src="../Public/Javascript/login.js"></script>
   <!-- <script src="../Public/Javascript/viewReport.js"></script> -->
@@ -24,20 +24,13 @@
         <div class="bar3"></div>
       </div>
 
-      <ul>
+      <ul class="nav-menu">
         <!-- <li><h6>BACK</h6></li>
             <li><h6>DASHBOARD</h6></li>
             <li><h6>SPECIAL NOTICES</h6></li> -->
-        <li id="home"><a href="../">Home</a></li>
-        <li id="dashboard"><a href="../wildlifeofficer/viewDashboard">Dashboard</a></li>
-        <li>
-          <div class="dropdown-1" style="  padding-left:  300px ">
-            <button class="dropbtn-1">Language</button>
-            <div class="dropdown-content-1">
-              <a href=" ">English</a>
-              <a href=" ">සිංහල</a>
-              <a href=" ">தமிழ்</a>
-            </div>
+        <li id="home" class="nav-menu-item"><a href="../">Home</a></li>
+        <li id="dashboard" class="nav-menu-item"><a href="../admin/dashboard">Dashboard</a></li>
+        
           </div>
         </li>
         <li class="dropdown">
@@ -64,18 +57,9 @@
   <body>
     <div class="contanier_2">
 
-      <div class="row1">
-        <p>No23, Anuradhapura</p>
-      </div>
+      
 
-      <div class="contanier_2-1">
-        <div class="view_profile">
-          <h3><a href="#">Profile</a></h3>
-        </div>
-        <div class="edit_profile">
-          <h3><a href="../wildlifeofficer/editProfile">Edit Profile</a></h3>
-        </div>
-      </div>
+      
       <div>
 
         <img src="../Public/images/user_icon4-01.png" class="image">
@@ -119,7 +103,7 @@
       </div>
       <div class="row1">
 
-        <a href="../wildlifeofficer/">BACK</a>
+        <a href="../admin/viewUser"><button>BACK</button></a>
 
       </div>
 

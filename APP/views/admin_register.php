@@ -41,7 +41,7 @@
         <div class="registrationHeader">
             <ul>
                 <li><h3>ADD USER</h3></li>
-                <li><button id="profile" onclick="location.href='../admin/dashboard'">Go to Profile</button></li>
+                <li><button id="profile" onclick="location.href='../admin/viewUser'">Back</button></li>
                 <form>
     
 </form>
@@ -72,12 +72,12 @@
             
         </div>
 
-        <div>
+        <div id="notification">
             <?php
               if(!empty($_GET["error"]))
-                echo "<div id=\"error-div\"><h2 id=\"error\"> Unsuccessfull!!".$_GET["error"]."</h2></div>";
+                echo "<h2 id=\"error\"> Unsuccessfull!!".$_GET["error"]."</h2>";
               else if(!empty($_GET["success"]))
-                echo "<div id=\"success-div\"><h2 id=\"success\">".$_GET["success"]."</h2></div>";
+                echo "<h2 id=\"success\">".$_GET["success"]."</h2>";
             ?>
               
         </div>
