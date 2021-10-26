@@ -38,7 +38,7 @@
                 <li class="dropdown">
                     <span class="dot"> <img onclick="myFunction_2(this)" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
                     <div id="myDropdown" class="dropdown-content">
-                        <a href="../wildlifeofficer/viewProfile">පරිශීලක පැතිකඩ</a>
+                        <a href="../wildlifeofficer/viewProfile?lang=2">පරිශීලක පැතිකඩ</a>
                         <a href="../user/index">ඉවත් වීම</a>
                     </div>
                 </li>
@@ -63,7 +63,7 @@
 
             </button>
         </a>
-        <a href="404">
+        <a href="../wildlifeofficer/viewNotification?lang=1">
             <button class="specialNotice">
                 <div class="notification"><span class="dot-1"><img src="../Public/images/bell.png" alt="1" srcset=" "></span>
                 </div>
@@ -71,7 +71,7 @@
                 <div class="line"><img src="../Public/images/notifi.png"></div>
             </button>
         </a>
-        <a href="../wildlifeofficer/viewDashboard">
+        <a href="../wildlifeofficer/viewDashboard?lang=2">
             <button class="dashboard">
                 <h1>දත්ත<br>පුවරුව<div class="line"><img src="../Public/images/dashIcon.png"></div>
                 </h1>
