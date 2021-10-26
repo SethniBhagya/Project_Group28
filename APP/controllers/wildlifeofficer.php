@@ -19,10 +19,27 @@ class wildlifeofficer extends user
     // view profile function to view profile of wildlife officer
     public function viewProfile()
     {
+        if (isset($_GET['lang'])) {
+            //assign the value
+            $lang = $_GET['lang'];
+        }
         session_start();
         $this->view->data = $this->model->selectData($_SESSION["NIC"]);
 
-        $this->view->render('wildlifeofficerViewProfile', $this->view->data);
+        switch ($lang) {
+            case 1:
+                //display profile page     
+                $this->view->render('wildlifeofficerViewProfile', $this->view->data);
+                break;
+            case 2:
+                //display profile page  
+                $this->view->render('wildlifeofficerViewProfileSinhala', $this->view->data);
+                break;
+            case 3:
+                //display profile page   
+                $this->view->render('wildlifeofficerViewProfileTamil', $this->view->data);
+                break;
+        }
     }
     // Edit profile function to view edit profile page of wildlife officer
     public function editProfile()
