@@ -7,6 +7,7 @@
     
     
     <link rel="stylesheet" href="../Public/css/adminNotice.css">
+    <link rel="stylesheet" href="../Public/css/adminHeader.css">
      <script src="../Public/Javascript/admin.js"></script>
       <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
       <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>

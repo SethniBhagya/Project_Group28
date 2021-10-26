@@ -1,6 +1,6 @@
 <?php
 include "user.php";
-class wildlifeofficer extends user
+class gramaniladari extends user
 {
 
     function __construct()
@@ -13,7 +13,7 @@ class wildlifeofficer extends user
     {
         // session_start();
         // $this->view->data=$this->model->selectData($_SESSION["NIC"]);
-        $this->view->render('wildlifeofficer');
+        $this->view->render('gramaniladari');
     }
 
     // view profile function to view profile of wildlife officer
@@ -22,7 +22,7 @@ class wildlifeofficer extends user
         session_start();
         $this->view->data = $this->model->selectData($_SESSION["NIC"]);
 
-        $this->view->render('wildlifeofficerViewProfile', $this->view->data);
+        $this->view->render('gramaniladari_view_profile', $this->view->data);
     }
     // Edit profile function to view edit profile page of wildlife officer
     public function editProfile()
@@ -30,7 +30,7 @@ class wildlifeofficer extends user
         session_start();
         $this->view->data = $this->model->selectData($_SESSION["NIC"]);
 
-        $this->view->render('wildlifeofficerEditProfile', $this->view->data);
+        $this->view->render('gramaniladari_edit_profile', $this->view->data);
     }
     // update profile function to update profile of wildlife officer after editing edit page
     public function updateProfile()
@@ -67,11 +67,11 @@ class wildlifeofficer extends user
                     $_SESSION["Lname"] = $data["lName"];
                     $this->view->data = $this->model->selectData($_SESSION["NIC"]);
                     $this->view->data[0]['message'] = "succcessfully updated";
-                    $this->view->render('wildlifeofficerViewProfile', $this->view->data);
+                    $this->view->render('gramaniladari_view_profile', $this->view->data);
                 } else {
                     $this->view->data = $this->model->selectData($_SESSION["NIC"]);
                     $this->view->data[0]['message'] = "fail updating";
-                    $this->view->render('wildlifeofficerEditProfile', $this->view->data);
+                    $this->view->render('gramaniladari_edit_profile', $this->view->data);
                 }
             } elseif (isset($_POST["cancel"])) {
                 // $data=[
@@ -93,7 +93,7 @@ class wildlifeofficer extends user
                 // ];
                 // $this->model->updateData($_SESSION["NIC"],$data);
                 $this->view->data = $this->model->selectData($_SESSION["NIC"]);
-                $this->view->render('wildlifeofficerEditProfile', $this->view->data);
+                $this->view->render('gramaniladari_edit_profile', $this->view->data);
             }
 
 
@@ -105,28 +105,21 @@ class wildlifeofficer extends user
 
         }
     }
-    // view Incidents function to view list of all reported incidents 
-    public function viewIncidents()
+    // view Cropdamage function to view list of all reported incidents 
+    public function viewCropdamage()
     {
         // session_start();
-        $this->view->data = $this->model->selectIncidentData();
-        $this->view->render('wildlifeofficerViewIncidents', $this->view->data);
+        $this->view->data = $this->model->selectCropdamageData();
+        $this->view->render('gramaniladari_view_cropdamage', $this->view->data);
     }
-    // view Incidents indetail function to view full details of a reported incident.
-    public function viewIncidentDetails()
-    {
-        // session_start();
-        $this->view->data = $this->model->selectIncidentData();
-        $this->view->render('wildlifeoffficerViewIncidentsIndetail', $this->view->data);
-    }
-    // sendIncidentDetailsToVet function to send incident to veterinarian.
-    public function sendIncidentDetailsToVet()
+    // view Cropdamage indetail function to view full details of a reported incident.
+    public function viewCropdamageDetails()
     {
         // session_start();
         // $this->view->data=$this->model->selectData($_SESSION["NIC"]);
-        $this->view->render('wildlifeoffficerViewIncidentsIndetail');
+        $this->view->render('gramaniladari_view_cropdamages_indetail');
     }
-    //filter incidents using report catagory in view reported incidents page.
+    //filter Cropdamage using report catagory in view reported incidents page.
     public function filterUsingReportCatagory()
     {
         $this->view->data[0]['selected'] = $_POST['report_catagory'];
@@ -138,32 +131,6 @@ class wildlifeofficer extends user
     {
         // session_start();
         // $this->view->data=$this->model->selectData($_SESSION["NIC"]);
-        $this->view->render('wildlifeofficerDashboard');
-    }
-
-
-
-
-    //when tap the accept button or cancel button
-    public function trigerRequest()
-    {
-        if (isset($_POST['accept'])) {
-            $id = trim($_POST['acc']);
-            $result = $this->model->incidentStatUpdate("success", $id);
-
-            $this->view->data = $this->model->selectIncidentData();
-            $this->view->render('wildlifeofficerViewIncidents', $this->view->data);
-        }
-        if (isset($_POST['cancel'])) {
-            $id = trim($_POST['can']);
-            $result = $this->model->incidentStatUpdate("pending", $id);
-
-            $this->view->data = $this->model->selectIncidentData();
-            $this->view->render('wildlifeofficerViewIncidents', $this->view->data);
-        }
-    }
-    function viewNotification()
-    {
-        $this->view->render('wildlifeofficerNotifications');
+        $this->view->render('gramaniladari_dashboard');
     }
 }

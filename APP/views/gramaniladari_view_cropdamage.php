@@ -5,8 +5,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../Public/css/wildlifeofficerHeader.css" />
-    <link rel="stylesheet" href="../Public/css/veterinarian_view_incidents.css" />
+    <link rel="stylesheet" href="../Public/css/wildlifeofficer_header.css" />
+    <link rel="stylesheet" href="../Public/css/gramaniladari_view_cropdamage.css" />
     <script src="../Public/Javascript/login.js"></script>
     <script src="../Public/Javascript/viewReport.js"></script>
     <script src="../Public/javascript/wildlifeofficer.js"></script>
@@ -26,12 +26,12 @@
 
             <ul>
                 <li id="home"><a href="../">HOME</a></li>
-                <li id="dashboard"><a href="../veterinarian/viewDashboard">DASHBOARD</a></li>
+                <li id="dashboard"><a href="../wildlifeofficer/viewDashboard">DASHBOARD</a></li>
                 <li class="dropdown">
                     <span class="dot">
                         <img onclick="myFunction_3()" src="../Public/images/user_icon.png" id="user_icon" class="user_btn" /></span>
                     <div id="myDropdown" class="dropdown-content">
-                        <a href="../veterinarian/viewProfile">View Profile</a>
+                        <a href="../gramaniladari/viewProfile">View Profile</a>
                         <a href="../user/index">Logout</a>
                     </div>
                 </li>
@@ -51,12 +51,12 @@
         <div class="row1" id="back">
 
             <div class="subcontainer_3-1">
-                <h3 id="table-name">View Report Details</h3>
+                <h3 id="table-name">View Cropdamage Report Details</h3>
             </div>
             <div class="subcontainer_3-2">
 
                 <div class="report_catagory">
-                    <Form action="../veterinarian/filterUsingReportCatagory" method="POST">
+                    <Form action="../gramaniladari/filterUsingReportCatagory" method="POST">
                         <select name="report_catagory" id="filter" onchange="filterFunction()">
                             <option class="group-1">Select The Report Catogary</option>
 
@@ -91,63 +91,30 @@
             <div class="subcontainer_3-3" style="overflow-x: auto">
                 <table id="myTable">
                     <tr class="firstRow">
-                        <th>Reported Date</th>
+                        <th>Date</th>
+                        <th>Report Number</th>
+                        <th>Accepted Wildlifeoffice</th>
+
+                        <th>Report Type</th>
+                        <th>Place</th>
+                        <th>Action</th>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>Date</th>
                         <th>Report Number</th>
                         <th>Accepted Wildlifeofficer</th>
 
                         <th>Report Type</th>
                         <th>Place</th>
                         <th>Action</th>
-                        <th></th>
-
+                        <td></td>
                     </tr>
-                    <?php
-                    foreach ($data as $row) {
-                        // switch ($data['reporttype']) {
-                        //   case 'Other Wild Animals in The Village':
-                        //     $row['reporttype'] = 2;
-                        //     break;
-                        //   case 'Breakdown of Elephant Fences':
-                        //     $row['reporttype'] = 3;
-                        //     break;
-                        //   case 'Crop Damages':
-                        //     $row['reporttype'] = 5;
-                        //     break;
-                        //   case 'Wild Animal is in Danger':
-                        //     $row['reporttype'] = 4;
-                        //     break;
-                        //   case 'Illegal Happing':
-                        //     $row['reporttype'] = 6;
-                        //     break;
-                        //   case 'Elephants are in The Village':
-                        //     $row['reporttype'] = 1;
-                        //     break;
-                        // }
-
-                        if ($row['status'] == 'pending') {
-                            $stat = "<form method='POST' action='../wildlifeofficer/trigerRequest'><input type='text' style='display:none' name='acc' value=" . $row['incidentID'] . "><button class='buttonAccept' id='acceptId' value='ACCEPT' name='accept'/>ACCEPT</button></form>";
-                        } else {
-                            $stat = "<form method='POST' action='../wildlifeofficer/trigerRequest'><input type='text' style='display:none'  name='can' value=" . $row['incidentID'] . "><button class='buttonCancel' id='cancelId' value='CANCEl' name='cancel'/>CANCEL</button></form>";
-                        }
-                        echo "<tr>
-            <td>" . $row['date'] . "</td>
-            <td>" . $row['incidentID'] . "</td>
-            
-            <td>Saman Perera</td>
-            <td>" . $row['reporttype'] . "</td>
-            <td>" . $row['Place'] . "</td>
-            <td>" . $stat . "</td>
-            <td><button type='submit' class='viewButton' id='view' onclick='' >
-              <a href='../veterinarian/viewIncidentDetails'>VIEW</a>
-            </button></td>
-            
-            </tr>
-          ";
-                    }
-                    ?>
 
 
-
+                    <button type="submit" class="searchButton" id="view" onclick="">
+                        <i class="fa fa-search"><a href="../gramaniladari/viewIncidentDetails">view</a></i>
+                    </button>
 
 
 
@@ -155,12 +122,12 @@
             </div>
             <div class="subcontainer_3-1">
 
-                <a href="../veterinarian/">BACK</a>
+                <a href="../gramaniladari/">BACK</a>
 
             </div>
 
         </div>
-        <!-- <div><?php print_r($data) ?></div> -->
+        <div><?php print_r($data) ?></div>
 
 </body>
 

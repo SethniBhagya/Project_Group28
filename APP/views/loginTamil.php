@@ -27,10 +27,10 @@
 
             <ul class="nav-menu">
                 <li id="lan"></li>
-                <li id="home"><a href="../?lang=3">மானிய பக்கம்</a></li>
-                <li id="report"><a href="../user/index?lang=3">நிகழ்வுகளைப் புகாரளிக்கவும்</a></li>
-                <li id="register"><a href="../villager/register?lang=3">பதிவு</a></li>
-                <li id="login"><a id=login_text href="">உள்நுழைய</a></li>
+                <li id="home" class="nav-menu-item"><a href="../?lang=3">மானிய பக்கம்</a></li>
+                <li id="report" class="nav-menu-item"><a href="../user/index?lang=3">நிகழ்வுகளைப் புகாரளிக்கவும்</a></li>
+                <li id="register" class="nav-menu-item"><a href="../villager/register?lang=3">பதிவு</a></li>
+                <li id="login" class="nav-menu-item"><a id=login_text href="">உள்நுழைய</a></li>
                 <li class="dropdown">
                     <button onmouseover="myFunction_2()" class="dropbtn">மொழி<i class="down"></i></button>
                     <div id="myDropdown" class="dropdown-content">

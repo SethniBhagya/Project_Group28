@@ -18,7 +18,7 @@ class user extends Controller
   private $_userNic;
   private $_userEmail;
   private $_userMobileNumber;
-  private $_userDataofBirth;
+  private $_userDateofBirth;
 
   public function index()
   {
@@ -92,8 +92,8 @@ class user extends Controller
                 case "regional officer":
                   $this->view->render('regionalDashboard');
                   break;
-                  // case "veterinarian": $this->view->render('veterinarian');
-
+                case "veterinarian":
+                  $this->view->render('veterinarian');
               }
             } elseif ($_GET["lang"] == "2") {
 

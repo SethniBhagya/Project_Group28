@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Public/css/admin_register.css">
+    <link rel="stylesheet" href="../Public/css/adminHeader.css">
     <script src="../Public/Javascript/admin.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" referrerpolicy="no-referrer"></script>
     <title>User Registration</title>
@@ -40,7 +41,7 @@
         <div class="registrationHeader">
             <ul>
                 <li><h3>ADD USER</h3></li>
-                <li><button id="profile" onclick="location.href='../admin/dashboard'">Go to Profile</button></li>
+                <li><button id="profile" onclick="location.href='../admin/viewUser'">Back</button></li>
                 <form>
     
 </form>
@@ -71,12 +72,14 @@
             
         </div>
 
-        <div>
+        <div id="notification">
             <?php
-              if(isset($_GET["error"]))
-                echo "<h2 id=\"error\">".$_GET["error"]."</h2>";
-
+              if(!empty($_GET["error"]))
+                echo "<h2 id=\"error\"> Unsuccessfull!!".$_GET["error"]."</h2>";
+              else if(!empty($_GET["success"]))
+                echo "<h2 id=\"success\">".$_GET["success"]."</h2>";
             ?>
+              
         </div>
 
        

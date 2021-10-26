@@ -621,3 +621,14 @@ li {
   padding-left: 20px;
   padding-right: 20px;
  }
+
+ .nav-menu .nav-menu-item  a{
+ /* margin-right: 2px;
+  padding-left: 20px;
+  padding-right: 20px;*/
+  padding: 16px;
+ }
+
+ .nav-menu  li a{
+  color: white;
+ }
