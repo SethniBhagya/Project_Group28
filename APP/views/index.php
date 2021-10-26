@@ -111,7 +111,7 @@ function nextImage(){
         <img src="Public/images/logo.png">
         
         <h1 >What is wildlife Care?</h1>
-        <p>Wildlife Care is a web based and mobilebased system which facilitates to minimize the communication distance between  wildlifeofficials and the villagers who are living near to sanctuaries. Therefore it facilitated efficient and effective communication between villagers and wildlife officials. The main purpose of Wildlife Care is to protect the lives of animals, human lives and properties .
+        <p>Wildlife Care is a web based and mobilebased system which facilitates to minimize the communication distance between  wildlifeofficials and the villagers who are living near to sanctuaries. Therefore it facilitated efficient and effective communication between villagers and wildlife officials. The main purpose of Wildlife Care is to protect the lives of animals, human lives and properties.
   </p>
         
     </div>
@@ -134,7 +134,7 @@ function nextImage(){
 
                             <img src="Public/images/elephant.png"  >
                          <h2>Report Incidents</h2>
-                         <p>Wildlife Care have facilitated users to report incidents regarding wildlifes. Accordingly, it can allow users to inform those  informations  quickly  </p>
+                         <p>Wildlife Care have facilitated users to report incidents regarding wildlifes. Accordingly, it can allow users to inform those  informations  quickly.  </p>
                              
                          </div>
 
@@ -157,7 +157,7 @@ function nextImage(){
 
                             <img src="Public/images/bell.png" >
                         <h2>Get Alerts</h2>
-                        <p>Wildlife Care have facilitated to inform relevant villagers quickly  when reporting about  wild elephants coming  to villages </p>
+                        <p>Wildlife Care have facilitated to inform relevant villagers quickly  when reporting about  wild elephants coming  to villages. </p>
                              
                          </div>
 
@@ -209,7 +209,7 @@ function nextImage(){
                           
                          <h2>Maps</h2>
                          <p>The Wildlife Care  allows users to mark the location when reporting an incident.
-The location of the reported incident can also view </p>
+                            The location of the reported incident can also view. </p>
                              
                          </div>
                          
@@ -233,8 +233,7 @@ The location of the reported incident can also view </p>
 
                             <img src="Public/images/mobile.png" >
                         <h2>Register Without Smartphones</h2>
-                        <p>Villagers who don't have smart phones but have mobile phones can register and  get alerts from this system.
- </p>
+                        <p>Villagers who don't have smartphones but have mobile phones can register and  get alerts from this system.</p>
                              
                          </div>
 

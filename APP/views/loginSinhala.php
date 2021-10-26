@@ -27,10 +27,10 @@
 
             <ul class="nav-menu">
                 <li id="lan"></li>
-                <li id="home"><a href="../?lang=2">ප්‍රදාන පිටුව</a></li>
-                <li id="report"><a href="../user/index?lang=2">සිදුවීම් වාර්තා කරන්න</a></li>
-                <li id="register"><a href="../villager/register?lang=2">ලියාපදිංචිය</a></li>
-                <li id="login"><a id=login_text href="">ඇතුල් වන්න</a></li>
+                <li id="home" class="nav-menu-item"><a href="../?lang=2">ප්‍රදාන පිටුව</a></li>
+                <li id="report" class="nav-menu-item"><a href="../user/index?lang=2">සිදුවීම් වාර්තා කරන්න</a></li>
+                <li id="register" class="nav-menu-item"><a href="../villager/register?lang=2">ලියාපදිංචිය</a></li>
+                <li id="login" class="nav-menu-item"><a id=login_text href="">ඇතුල් වන්න</a></li>
                 <li class="dropdown">
                     <button onmouseover="myFunction_2()" class="dropbtn">භාශාව<i class="down"></i></button>
                     <div id="myDropdown" class="dropdown-content">

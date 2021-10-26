@@ -18,7 +18,7 @@ class user extends Controller
   private $_userNic;
   private $_userEmail;
   private $_userMobileNumber;
-  private $_userDataofBirth;
+  private $_userDateofBirth;
 
   public function index()
   {

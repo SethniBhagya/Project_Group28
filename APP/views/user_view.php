@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Public/css/user_view.css">
-    
+    <link rel="stylesheet" href="../Public/css/adminHeader.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     
     <script src="../Public/Javascript/admin.js"></script>
@@ -23,8 +23,8 @@
               
             <ul class="nav-menu">
                 
+                <li id="home" class="nav-menu-item"><a href="../">Home</a></li>
                 <li id="dashboard" class="nav-menu-item"><a href="../admin/dashboard">Dashboard</a></li>
-                <li id="notice" class="nav-menu-item"><a href="../admin/placeNotice">Notice</a></li>
                 
                 <li class="dropdown">
                     <span class="dot"> <img onclick="myFunction_2(this)" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>

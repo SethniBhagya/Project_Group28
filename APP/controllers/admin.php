@@ -107,7 +107,8 @@ class admin extends user{
 			
 
 			if(empty($data["Error"]))
-			{
+			{     
+				$success="Successfully Added";
 				switch($userType){
 					case "grama niladhari":{
 						$specificData=[
@@ -120,7 +121,7 @@ class admin extends user{
                          
 						$allData=array_merge($data,$specificData);
 						$this->model->gnAdd($allData);
-						// $_GET["success"]="User added successfully.";
+						echo"<script>location.href='../admin/addUser?error=".$data["Error"]."&success=".$success."';</script>";
 					}
 					break;
 
@@ -133,7 +134,8 @@ class admin extends user{
 
 						$allData=array_merge($data,$specificData);
 						$this->model->woAdd($allData);
-						// $_GET["success"]="User added successfully.";
+						echo"<script>location.href='../admin/addUser?error=".$data["Error"]."&success=".$success."';</script>";
+						
 					}
 
 					break;
@@ -148,7 +150,8 @@ class admin extends user{
 
 						$allData=array_merge($data,$specificData);
 						$this->model->vetAdd($allData);
-						// $_GET["success"]="User added successfully.";
+						echo"<script>location.href='../admin/addUser?error=".$data["Error"]."&success=".$success."';</script>";
+						
 					}
 
 
@@ -165,7 +168,8 @@ class admin extends user{
 						
 						$allData=array_merge($data,$specificData);
 						$this->model->vilAdd($allData);
-						// $_GET["success"]="User added successfully.";
+						echo"<script>location.href='../admin/addUser?error=".$data["Error"]."&success=".$success."';</script>";
+						
 					}
 
 					break;
@@ -180,7 +184,8 @@ class admin extends user{
 
 						$allData=array_merge($data,$specificData);
 						$this->model->roAdd($allData);
-						// $_GET["success"]="User added successfully.";
+						echo"<script>location.href='../admin/addUser?error=".$data["Error"]."&success=".$success."';</script>";
+						
 
 
 					}
@@ -190,13 +195,14 @@ class admin extends user{
 				}
 			}
 
-			// else
-			// {   
+			else
+			{   
               
-   //            header("Location: ../admin/addUser?error");
+              
+				echo"<script>location.href='../admin/addUser?error=".$data["Error"]."&success=';</script>";
                
 
-			// }
+			}
 		}
 
 		
@@ -229,6 +235,10 @@ class admin extends user{
 
     	$this->view->render('adminNotice');
 
+    }
+
+    public function viewUserProfile(){
+    	$this->view->render('adminViewUserProfile');
     }
 
 }
