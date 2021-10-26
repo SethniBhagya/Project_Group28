@@ -325,12 +325,12 @@ input[type=radio]{
 
 #error{
   color: darkred;
-  margin-left: 250px;
+  margin-left: 120px;
 }
 
 #success{
-  color:green;
-  margin-left: 250px;
+  color:darkgreen;
+  margin-left: 120px;
 
 }
 
