@@ -4,8 +4,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../Public/css/style_reg.css">
+    <link rel="stylesheet" href="../Public/css/register.css">
     <link rel="stylesheet" href="../Public/css/header.css">
+    <link rel="stylesheet" href="Public/css/home.css">
+
     <script src="../Public/javascript/login.js"></script>
     <script src="../Public/javascript/villagerRegister.js"></script>
     <title>Registration Form</title>
@@ -23,10 +25,13 @@
 
           <ul>
 
-              <li id="home"><a href="../">HOME</a></li>
-              <li id="report"><a href="../incident/index">INCIDENT REPORT</a></li>
-              <li id="register"><a href="">REGISTER</a></li>
-              <li id="login"><a id=login_text href="../user/index">LOGIN</a></li>
+          <ul class="nav-menu">
+                 <!-- <li id="lan"></li> -->
+                <li id="home"><a href="../">Home</a></li>
+                <li id="report"><a href="../incident/index?lang=1">Report Incidents</a></li>
+                <li id="register"><a href="../villager/register?lang=1">Register</a></li>
+                <li id="login"><a id=login_text href="user/index?lang=1">Login</a></li>
+                
               <li class="dropdown">
                   <button onclick="myFunction_2()" class="dropbtn">Language <i class="down"></i></button>
                   <div id="myDropdown" class="dropdown-content">
@@ -37,13 +42,36 @@
               </li>
           </ul>
   </header>
-    
- <h id="errorMessage"></h>
+  <?php 
+      
+      if(isset($_POST['submit'])){
+   ?>
+           
+           <div id="message1" style="padding: 10px; background-color:aliceblue">
+           <!-- <h1>Wildlife Care</h1></br></br> -->
+           <img src="../Public/images/success-mesaage.png" style="width:90px;  height:90px">
+           <h1>Your Registration is Sucessfully </h1>
+           <!-- <h>Your Incident Report Submit Sucessfully</h> -->
+           
+           <a href="../incident/viewReport?type=1&page=2&lang=1"  class="login-btn" style=" border-radius: 10px; padding: 10px 10px; background-color:#056412;  color: white;">View Report</a>
+           </div>
+         <?php
+         
+         }
+   //  }
+    //ss}
+    ?>
+       <h id="errorMessage"></h>
+       <div id="message" style="display: none;">
+       <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+       <!-- <h id="errorMessage"></h> -->
+       </div> 
+ <!-- <h id="errorMessage"></h>
   <div id="reg-messager">
     <h1>Wildlife Care</h1><br></br>
     <h>Thank You For Registration</h>
     <a href=""  class="login-btn">Login</a>
-  </div>
+  </div> -->
 
   <?php 
      $division = $this->division;
@@ -57,17 +85,29 @@
      foreach ($result as $row){
          if($_POST['nic'] ==  $row['NIC'] ){  ?>
             
-            <div id="errorMessage" style="padding: 10px;">
-            <h1>Wildlife Care</h1></br></br>
-            <h>Your Id Number is Already Registered</h>
-            <a href="../user/index"  class="login-btn" style="color: darkred;">Login</a>
-            </div>
+            <div id="message1" style="padding: 10px; background-color:aliceblue">
+           <!-- <h1>Wildlife Care</h1></br></br> -->
+           <img src="../Public/images/error-icon.png" style="width:90px;  height:90px">
+           <h1>Your National ID Card is already Register </h1>
+           <!-- <h>Your Incident Report Submit Sucessfully</h> -->
+           
+           <a href="../user/index?lang=1"  class="login-btn" style=" border-radius: 10px; padding: 10px 10px; background-color:#056412;  color: white;">login</a>
+           </div>
           <?php
           
-          }
-     }
-     }
+          // }
+    //  }
+     }else{ 
      ?>
+      <div id="message1" style="padding: 10px; background-color:aliceblue">
+           <!-- <h1>Wildlife Care</h1></br></br> -->
+           <img src="../Public/images/success-mesaage.png" style="width:90px;  height:90px">
+           <h1>Thank You Registration Wildlife Care Management system</h1>
+           <!-- <h>Your Incident Report Submit Sucessfully</h> -->
+           
+           <a href="../user/index?lang=1"  class="login-btn" style=" border-radius: 10px; padding: 10px 10px; background-color:#056412;  color: white;">login</a>
+           </div>
+       <?php } }  }  ?>
  
   <div class="contanier2">
     <div class="register_header">

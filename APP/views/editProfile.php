@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../Public/css/header.css">
   <link rel="stylesheet" href="../Public/css/editProfile.css">
-  <script src="../Public/Javascript/login.js"></script>
+  <script src="../Public/Javascript/login1.js"></script>
   <!-- <script src="../Public/Javascript/viewReport.js"></script> -->
  
   <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=myMap"></script> -->
@@ -28,7 +28,7 @@
             <li id="home_2"><a href="../">Home</a></li>
                 <li id="dashboard_1"   ><a href="../user/viewpage?user=villager" >Dashboard</a></li>
                 <li id="report_2"><a href="../incident/index?lang=1">Report Incidents</a></li>
-                <li id="special_1"><a href="">SpecialNotice </a></li> 
+                <li id="special_1"><a href="../villager/viewSpecialNotice?lang=1">SpecialNotice </a></li> 
                 <div class="dropdown-1">
                     <button class="dropbtn-1" style="margin-top:  -50px;">Language</button>
                     <div class="dropdown-content-1">
@@ -39,8 +39,9 @@
                   </div>
           <span class="dot"  style="margin-right:10px;  margin-top:  10px;"> <img onclick="myFunction_3()" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
           <div id="myDropdown" class="dropdown-content">
-            <a href=" ">View Profile</a>
-            <a href="">Logout</a>
+                       <a href="../user/editprofile">View Profile</a>
+                        <a href="../user/logout">Logout</a>
+                    
           </div>
         </li>
       </ul>

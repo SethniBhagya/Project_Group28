@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Public/css/header.css">
     <link rel="stylesheet" href="../Public/css/reportView-page.css">
-    <script src="../Public/Javascript/login.js"></script>
+    <script src="../Public/Javascript/login1.js"></script>
     <script src="../Public/Javascript/viewReport.js"></script>
     <script src="../Public/javascript/villagerMyreportview.js "></script>
 
@@ -44,7 +44,7 @@
                 <li class="dropdown">
                     <span class="dot"> <img onclick="myFunction_3()" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
                     <div id="myDropdown" class="dropdown-content">
-                    <a href="../user/editprofile">View Profile</a>
+                    <a href="../user/editprofile?lang=2">View Profile</a>
                         <a href="../user/logout">Logout</a>
                     </div>
                 </li>

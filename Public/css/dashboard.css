@@ -11,6 +11,9 @@
     color: honeydew;
     font-weight: bold;
 }
+a {
+    text-decoration: none;
+  }
 .main-update-col-1{
     position: inherit;
     margin-left: 20px;

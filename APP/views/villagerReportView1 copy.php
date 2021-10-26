@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Public/css/header.css">
     <link rel="stylesheet" href="../Public/css/reportViewpage.css">
-    <script src="../Public/Javascript/login.js"></script>
+    <script src="../Public/Javascript/login1.js"></script>
     <!-- <script src="../Public/Javascript/viewReport.js"></script> -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=myMap"></script>
     <title>Report View</title>

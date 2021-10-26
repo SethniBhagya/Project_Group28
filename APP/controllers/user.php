@@ -310,6 +310,26 @@ class user extends Controller
   {
     session_start();
     $this->view->userData = $this->model->profileData($_SESSION['NIC']);
-    $this->view->render('editProfile');
+    if (isset($_GET['lang'])) {
+      //assign the value
+      $lang = $_GET['lang'];
+    }
+    switch ($lang) {
+      case 1:
+        //display special Notice     
+        $this->view->render('editProfile');
+        break;
+      case 2:
+        //display special Notice     
+
+        $this->view->render('editProfileSinhala');
+        break;
+      case 3:
+        //display special Notice     
+
+        $this->view->render('editProfileTamil');
+        break;
+    }
+    // $this->view->render('editProfile');
   }
 }

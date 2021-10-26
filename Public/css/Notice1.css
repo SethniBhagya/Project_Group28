@@ -6,6 +6,9 @@
     background-color: rgba(202, 202, 189, 0.398);
     border-radius: 10px;
 }
+a {
+    text-decoration: none;
+  }
 .container-1 h1{
     text-align: center;
     padding: 10px 10px;

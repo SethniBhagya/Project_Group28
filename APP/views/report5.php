@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="../Public/css/header.css">
     <link rel="stylesheet" href="../Public/css/report_5.css">
     <script src="../Public/javascript/report5.js"></script>
-
+    <script src="../Public/javascript/login1.js"></script>
+    
     <title>Other Wild Animals are in the Village</title>
 </head>
 <body>

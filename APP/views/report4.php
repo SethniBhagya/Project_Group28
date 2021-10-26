@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../Public/css/report-4.css">
     <script src="../Public/javascript/report-4.js"></script>
     
-    <script src="../Public/javascript/login.js"></script>
+    <script src="../Public/javascript/login1.js"></script>
     <title>Crop Damages</title> 
 </head>
 <body>

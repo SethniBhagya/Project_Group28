@@ -231,7 +231,9 @@ td{
 button{
   border: none;
 }
-
+a {
+  text-decoration: none;
+}
 .view-1 {
     /* display: none;  */
     position: fixed;

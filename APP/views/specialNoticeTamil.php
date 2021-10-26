@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Public/css/Notice1.css">
     
-    <script src="../Public/Javascript/login.js"></script>
+    <script src="../Public/Javascript/login1.js"></script>
 
     <title>Special Notice</title>
 </head>
@@ -37,8 +37,8 @@
                 <li class="dropdown">
                     <span class="dot"> <img onclick="myFunction_2(this)" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
                     <div id="myDropdown" class="dropdown-content">
-                        <a href="">View Profile</a>
-                        <a href="">Logout</a>
+                    <a href="../user/editprofile?lang=3">View Profile</a> 
+                    <a href="../user/logout">Logout</a>
                     </div>
                 </li>
             </ul>

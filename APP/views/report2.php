@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Public/css/header.css">
     <link rel="stylesheet" href="../Public/css/report_2.css">
-    <script src="../Public/javascript/login.js"></script>
+    <script src="../Public/javascript/login1.js"></script>
     <script src="../Public/javascript/report2.js"></script>
 
     <title>Other Wild Animals are in the Village</title>

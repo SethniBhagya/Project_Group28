@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Public/css/Report.css">
     <link rel="stylesheet" href="../Public/css/header.css">
-    <script src="../Public/Javascript/login.js"></script>
+    <script src="../Public/Javascript/login1.js"></script>
     <title>Report Page</title>
 </head>
 <body>
@@ -35,7 +35,7 @@
                 <li class="dropdown">
                     <span class="dot"> <img onclick="myFunction_3(this)" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
                     <div id="myDropdown" class="dropdown-content">
-                    <a href="../user/editprofile">View Profile</a>
+                    <a href="../user/editprofile?lang=2">View Profile</a>
                         <a href="../user/logout">Logout</a>
                     </div>
                 </li>

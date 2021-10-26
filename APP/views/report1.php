@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Public/css/header.css">
-    <link rel="stylesheet" href="../Public/css/report_1.css">
-    <script src="../Public/javascript/login.js"></script>
+    <link rel="stylesheet" href="../Public/css/report-1.css">
+    <script src="../Public/javascript/login1.js"></script>
     <script src="../Public/javascript/report1.js"></script>
     <title>Elephant are in The Elephant</title>
 </head>
@@ -24,7 +24,7 @@
             <li id="home_2"><a href="../">Home</a></li>
                 <li id="dashboard_1"   ><a href="../user/viewpage?user=villager" >Dashboard</a></li>
                 <li id="report_2"><a href="../incident/index?lang=1">Report Incidents</a></li>
-                <li id="special_1"><a href="">SpecialNotice </a></li> 
+                <li id="special_1"><a href="../villager/viewSpecialNotice?lang=1">SpecialNotice </a></li> 
                 <div class="dropdown-1">
                     <button class="dropbtn-1">Language</button>
                     <div class="dropdown-content-1">
@@ -36,7 +36,7 @@
                 <li class="dropdown">
                     <span class="dot"> <img onclick="myFunction_2(this)" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
                     <div id="myDropdown" class="dropdown-content">
-                    <a href="../user/editprofile">View Profile</a>
+                    <a href="../user/editprofile?lang=1">View Profile</a>
                         <a href="../user/logout">Logout</a>
                     </div>
                 </li>
