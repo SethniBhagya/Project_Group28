@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="../Public/css/header.css">
     <script src="../Public/javascript/report6.js"></script>
     <link rel="stylesheet" href="../Public/css/report_3.css">
+    <script src="../Public/javascript/login1.js"></script>
+
     <title>Illegal Thing happening in the Forest</title>
 </head>
 <body>
@@ -35,7 +37,7 @@
                 <li class="dropdown">
                     <span class="dot"> <img onclick="myFunction_2(this)" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
                     <div id="myDropdown" class="dropdown-content">
-                    <a href="../user/editprofile">View Profile</a>
+                    <a href="../user/editprofile?lang=1">View Profile</a>
                         <a href="../user/logout">Logout</a>
                     </div>
                 </li>

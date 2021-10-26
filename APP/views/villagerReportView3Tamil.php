@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Public/css/header.css">
     <link rel="stylesheet" href="../Public/css/reportView-page.css">
-    <script src="../Public/Javascript/login.js"></script>
+    <script src="../Public/Javascript/login1.js"></script>
     <script src="../Public/Javascript/viewReport.js"></script>
     <script src="../Public/javascript/villagerMyreportview.js "></script>
 
@@ -43,8 +43,8 @@
                 <li class="dropdown">
                     <span class="dot"> <img onclick="myFunction_3()" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
                     <div id="myDropdown" class="dropdown-content">
-                    <a href="../user/editprofile">View Profile</a>
-                        <a href="../user/logout">Logout</a>
+                    <a href="../user/editprofile?lang=3">View Profile</a> 
+                    <a href="../user/logout">Logout</a>
                     </div>
                 </li>
             </ul>
@@ -149,30 +149,7 @@
         </div>
          
     </div>
-    <div id="myview" class="view-1">
-     <span onclick="closeView()" class="close"> <button style="background-color: none;">&times</button> </span> 
-        <div class="subcontainer_3-5">
-            <div class="subcontainer_3-6">
-                <h3      class="id"> </h3>
-            </div></br>
-            <table>
-                <tr>
-                    <th>Date</th>
-                    <th>2021/08/03</th>
-                </tr>
-                <tr>
-                    <th>Accept Wilflife Ofiicer Number</th>
-                    <th>000000000V</th>
-                </tr>
-                <tr>
-                    <th>Accept Wilflife Ofiicer Name</th>
-                    <th> J D K Silva</th>
-                </tr>
-                <tr>
-                    <th>Report Type</th>
-                    <th>Crop Damages</th>
-                </tr>
-                
+       
             </table>
             <div id="map">
                 
@@ -181,5 +158,4 @@
         </div>
     </div>
 </body>
-<script src="../Public/javascript/villagerMyreportview.js "></script>
-</html>
+ </html><s

@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Public/css/Notice1.css">
     
-    <script src="../Public/Javascript/login.js"></script>
+    <script src="../Public/Javascript/login1.js"></script>
 
     <title>Notification</title>
 </head>
@@ -24,7 +24,7 @@
             <ul>
             <li id="home_2"><a href="../">Home</a></li>
                 <li id="dashboard_1"   ><a href="../user/viewpage?user=villager" >Dashboard</a></li>
-                <li id="report_2" style=" background-color: rgb(168, 175, 168);" ><a href="">Report Incidents</a></li>
+                <li id="report_2"  ><a href="">Report Incidents</a></li>
                 <li id="special_1"><a href="../user/viewSpecialNotice?lang=1">SpecialNotice </a></li> 
                 <div class="dropdown-1" style="  padding-left:  300px ">
                     <button class="dropbtn-1">Language</button>
@@ -45,8 +45,8 @@
                 <li class="dropdown">
                     <span class="dot"> <img onclick="myFunction_2(this)" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
                     <div id="myDropdown" class="dropdown-content">
-                        <a href="">View Profile</a>
-                        <a href="">Logout</a>
+                    <a href="../user/editprofile?lang=1">View Profile</a> 
+                    <a href="../user/logout">Logout</a>
                     </div>
                 </li>
             </ul>

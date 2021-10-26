@@ -9,6 +9,8 @@
      <!-- <script src="../Public/javascript/dashboard.js"></script> -->
      <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
      <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src="../Public/Javascript/login1.js"></script>
+
      <!-- <script src="../Public/javascript/dashboard.js"></script> -->
      <title>Statistical Analyze Board</title>
 </head>
@@ -38,8 +40,9 @@
                 <li class="dropdown">
                     <span class="dot"> <img onclick="myFunction_2(this)" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
                     <div id="myDropdown" class="dropdown-content">
-                        <a href="">View Profile</a>
-                        <a href="logout">Logout</a>
+                    <a href="../user/editprofile">View Profile</a>
+                        <a href="../user/logout">Logout</a>
+                    
                     </div>
                 </li>
             </ul>

@@ -10,6 +10,8 @@
      <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
      <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
      <!-- <script src="../Public/javascript/dashboard.js"></script> -->
+    <script src="../Public/Javascript/login1.js"></script>
+     
      <title>Statistical Analyze Board</title>
 </head>
 <body style="background-image: none; background-color: rgba(236, 242, 240, 0.624);">
@@ -26,7 +28,7 @@
             <li id="home_2"><a href="../">මුල් පිටුව</a></li>
                 <li id="dashboard_1"   ><a href="../user/viewpage?user=villager" >මුල් පුවරුව</a></li>
                 <li id="report_2" style="   padding-right:20px ; right:345px  "><a href="../incident/index?lang=2"> වර්තා කිරීම</a></li>
-                <li id="special_1"><a href="">විශේෂ දැන්වීම</a></li> 
+                <li id="special_1"><a href="../villager/viewSpecialNotice?lang=2">විශේෂ දැන්වීම</a></li> 
                 <div class="dropdown-1" style="  padding-left:  300px ">
                     <button class="dropbtn-1">භාෂාව</button>
                     <div class="dropdown-content-1">
@@ -38,8 +40,9 @@
                 <li class="dropdown">
                     <span class="dot"> <img onclick="myFunction_2(this)" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
                     <div id="myDropdown" class="dropdown-content">
-                        <a href="">View Profile</a>
-                        <a href="logout">Logout</a>
+                    <a href="../user/editprofile?lang=2">View Profile</a>
+                        <a href="../user/logout">Logout</a>
+                    
                     </div>
                 </li>
             </ul>

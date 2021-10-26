@@ -62,6 +62,10 @@ class incident_model extends Model{
         return $this->db->runQuery("SELECT * FROM   `reported_incident`");
         
     }
+    function getdatalimitpending($start,$rowsPer){
+        return $this->db->runQuery("SELECT * FROM `reported_incident`   LIMIT {$start} , {$rowsPer}  ");
+
+    }
     function getReport($incidentID){
         return $this->db->runQuery("SELECT * FROM   `reported_incident` WHERE incidentID='$incidentID' ");
     }

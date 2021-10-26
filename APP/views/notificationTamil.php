@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Public/css/Notice1.css">
     
-    <script src="../Public/Javascript/login.js"></script>
+    <script src="../Public/Javascript/login1.js"></script>
 
     <title>Notification</title>
 </head>
@@ -22,23 +22,23 @@
             </div>
 
             <ul>
-                <li id="home_2"><a href="">Home</a></li>    
-                <li id="dashboard_1"    ><a href="" >Dashboard</a></li>
-                <li id="report_2"><a href="">Incidents Report</a></li>
-                <li id="special_1"  ><a href="">SpecialNotice </a></li> 
-                <div class="dropdown-1">
-                    <button class="dropbtn-1">Language</button>
+            <li id="home_2" style="right:750px"  ><a href="../"  ">முகப்பு பக்கம்</a></li>
+                <li id="dashboard_1" style="right:600px"  ><a href="../user/viewpage?user=villager" >டாஷ்போர்டு</a></li>
+                <li id="report_2" style="   right:380px" ><a  href="../incident/index?lang=3">சம்பவங்கள் அறிக்கை</a></li>
+                <li id="special_1"style="right:210px"  ><a href="../villager/viewSpecialNotice?lang=3">சிறப்பு அறிவிப்பு</a></li> 
+                <div class="dropdown-1" style="  padding-left:  300px ">
+                    <button class="dropbtn-1">மொழி</button>
                     <div class="dropdown-content-1">
-                    <a href="?lang=1">English</a>
-                        <a href="?lang=2">සිංහල</a> 
-                        <a href="?lang=3">தமிழ்</a>
+                        <a href="?lang=1&report=1">English</a>
+                        <a href="?lang=2&report=1">සිංහල</a> 
+                        <a href="?lang=3&report=1">தமிழ்</a>
                     </div>
-                  </div> 
+                  </div>
                 <li class="dropdown">
                     <span class="dot"> <img onclick="myFunction_2(this)" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
                     <div id="myDropdown" class="dropdown-content">
-                        <a href="">View Profile</a>
-                        <a href="">Logout</a>
+                    <a href="../user/editprofile?lang=3">View Profile</a> 
+                    <a href="../user/logout">Logout</a>/a>
                     </div>
                 </li>
             </ul>
