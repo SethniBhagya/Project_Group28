@@ -325,12 +325,12 @@ input[type=radio]{
 
 #error{
   color: darkred;
-  margin-left: 250px;
+  
 }
 
 #success{
-  color:green;
-  margin-left: 250px;
+  color:darkgreen;
+  
 
 }
 
@@ -351,7 +351,7 @@ input[type=radio]{
     cursor: pointer;
   }
 
-  #notification{
+#notification{
     background-color: rgb(255,255,255,0.5);
     margin-left: 60px;
     margin-top: 40px;
@@ -359,3 +359,23 @@ input[type=radio]{
     width: 800px;
     height: 200px;
   }
+
+
+#notification div{
+  width: 900px;
+  height: 200px;
+
+}
+
+#notification div h2{
+ margin-left: 300px;
+}
+
+
+
+#notification div img{
+  margin-left: 380px;
+  margin-top: 30px;
+  width: 60px;
+  height: 60px;
+}

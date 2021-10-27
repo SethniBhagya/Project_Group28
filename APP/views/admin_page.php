@@ -31,7 +31,7 @@
             </div>
 
             <ul class="nav-menu">
-                <li id="home" class="nav-menu-item"><a href="">Home</a></li>
+                <li id="home" class="nav-menu-item"><a href="../">Home</a></li>
                 <li id="add" class="nav-menu-item"><a href="../admin/dashboard">Dashboard</a></li>
                 
                 <li class="dropdown">
