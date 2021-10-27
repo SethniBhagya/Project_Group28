@@ -11,7 +11,19 @@
   color: honeydew;
   font-weight: bold;
 }
+a {
+  text-decoration: none;
+}
+.first {
+  padding-left: 70%;
+  padding-top: 10px;
+}
+.first a {
+  padding-left: 40px;
+  color: darkgreen;
+}
 .main-update-col-1 {
+  display: none;
   position: inherit;
   margin-left: 20px;
   width: 40%;
@@ -110,6 +122,7 @@
   color: red;
 }
 .main-update-col-2 {
+  display: none;
   position: inherit;
   float: right;
   margin-top: -245px;
@@ -371,7 +384,7 @@ color: white;
 .report-1 {
   position: inherit;
   /* float: right; */
-  margin-top: 2px;
+  margin-top: 6px;
   margin-left: 4%;
   padding: 5px 5px;
   border-radius: 5px;
@@ -411,7 +424,7 @@ color: white;
 .report-3 {
   position: inherit;
   /* float: right; */
-  margin-top: -105.9px;
+  margin-top: -103.9px;
   margin-left: 28.5%;
   padding: 5px 5px;
   border-radius: 5px;
@@ -431,7 +444,7 @@ color: white;
 .report-4 {
   position: inherit;
   /* float: right; */
-  margin-top: -218px;
+  margin-top: -215px;
   margin-left: 28.5%;
   padding: 5px 5px;
   border-radius: 5px;

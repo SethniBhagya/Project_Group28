@@ -25,23 +25,23 @@
             </div>
 
             <ul>
-                <li id="home"><a href="../">முகப்பு பக்கம்</a></li>
-                <li id="dashboard"><a href="../wildlifeofficer/viewDashboard">தரவு பலகை</a></li>
+                <li id="home"><a href="../?lang=3">முகப்பு பக்கம்</a></li>
+                <li id="dashboard"><a href="../wildlifeofficer/viewDashboard?lang=3">தரவு பலகை</a></li>
                 <li>
                     <div class="dropdown-1" style="  padding-left:  300px ">
                         <button class="dropbtn-1">மொழி</button>
                         <div class="dropdown-content-1">
-                            <a href=" ">English</a>
-                            <a href=" ">සිංහල</a>
-                            <a href=" ">தமிழ்</a>
+                            <a href="?lang=1">English</a>
+                            <a href="?lang=2">සිංහල</a>
+                            <a href="?lang=3">தமிழ்</a>
                         </div>
                     </div>
                 </li>
                 <li class="dropdown">
                     <span class="dot"> <img onclick="myFunction_2(this)" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
                     <div id="myDropdown" class="dropdown-content">
-                        <a href="../wildlifeofficer/viewProfile">பயனர் சுயவிவரம்</a>
-                        <a href="../user/index">வெளியேறு</a>
+                        <a href="../wildlifeofficer/viewProfile?lang=3">பயனர் சுயவிவரம்</a>
+                        <a href="../user/index?lang=3">வெளியேறு</a>
                     </div>
                 </li>
             </ul>
@@ -141,7 +141,7 @@
             
             <td><input type='button'class='button' value='ACCEPT' name='accept'/></td>
             <td><button type='submit' class='button' id='view' onclick='' >
-              <a href='../wildlifeofficer/viewIncidentDetails'>VIEW</a>
+              <a href='../wildlifeofficer/viewIncidentDetails?lang=3'>VIEW</a>
             </button></td>
             </tr>
           ";
@@ -157,12 +157,12 @@
             </div>
             <div class="subcontainer_3-1">
 
-                <a href="../wildlifeofficer/">மீண்டும்</a>
+                <a href="../wildlifeofficer/?lang=3">மீண்டும்</a>
 
             </div>
 
         </div>
-        <div><?php print_r($data) ?></div>
+
 
 </body>
 

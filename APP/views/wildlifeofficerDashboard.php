@@ -25,15 +25,15 @@
             </div>
 
             <ul>
-                <li id="home"><a href="../">HOME</a></li>
-                <li id="dashboard"><a href="../wildlifeofficer/viewDashboard">DASHBOARD</a></li>
+                <li id="home"><a href="../?lang=1">HOME</a></li>
+                <li id="dashboard"><a href="../wildlifeofficer/viewDashboard?lang=1">DASHBOARD</a></li>
                 <li>
                     <div class="dropdown-1" style="  padding-left:  300px ">
                         <button class="dropbtn-1">Language</button>
                         <div class="dropdown-content-1">
-                            <a href=" ">English</a>
-                            <a href=" ">සිංහල</a>
-                            <a href=" ">தமிழ்</a>
+                            <a href="?lang=1">English</a>
+                            <a href="?lang=2">සිංහල</a>
+                            <a href="?lang=3">தமிழ்</a>
                         </div>
                     </div>
                 </li>
@@ -48,12 +48,12 @@
         </nav>
     </header>
 
-    <div class="header-name">
-        <h>Total in Sri Lanka </h>
-        <h style="float:right">LastModified 30/09/2021</h>
-    </div>
     <!-- <div class="header-name"><h><pre  style="font-size: larger;font-style: normal; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Total in Sri Lanka                                                                                                                                                               LastModified 30/09/2021</pre></h> </div> -->
+    <div class="first">
+        Time Duration -3 Month <a href="../wildlifeofficer/?lang=1">BACK</a><br>
+        Last Modification 02/09/2021<br>
 
+    </div>
     <div class="main-update-col-1">
         <div class="last-week">
             Last Week <div class="last-week-number">
@@ -90,8 +90,7 @@
         </div>
         <div class="detail">
             Time Duration -3 Month <br>
-            Last Modification 02/09/2021<br>
-            <a href='../wildlifeofficer/index'>BACK</a>
+            Last Modification 02/09/2021
         </div>
         <div class="date">
             <h2>Today</h2>

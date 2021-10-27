@@ -27,9 +27,18 @@
             <ul>
                 <li id="home"><a href="../">HOME</a></li>
                 <li id="dashboard"><a href="../veterinarian/viewDashboard">DASHBOARD</a></li>
+                <li>
+                    <div class="dropdown-1" style="  padding-left:  300px ">
+                        <button class="dropbtn-1">Language</button>
+                        <div class="dropdown-content-1">
+                            <a href="../wildlifeofficer/index?lang=1 ">English</a>
+                            <a href=" ../wildlifeofficer/index?lang=2">සිංහල</a>
+                            <a href=" ">தமிழ்</a>
+                        </div>
+                    </div>
+                </li>
                 <li class="dropdown">
-                    <span class="dot">
-                        <img onclick="myFunction_3()" src="../Public/images/user_icon.png" id="user_icon" class="user_btn" /></span>
+                    <span class="dot"> <img onclick="myFunction_2(this)" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
                     <div id="myDropdown" class="dropdown-content">
                         <a href="../veterinarian/viewProfile">View Profile</a>
                         <a href="../user/index">Logout</a>
@@ -77,7 +86,7 @@
 
                 <div class="wrap">
                     <div class="search">
-                        <input type="text" class="searchTerm" placeholder="Search here report number" id="myInput" onkeyup="myFunction()" />
+                        <input type="text" class="searchTerm" placeholder="Search date here" id="myInput" onkeyup="myFunction()" />
                         <button type="submit" class="searchButton">
                             <i class="fa fa-search">search</i>
 
@@ -124,11 +133,11 @@
                         //     break;
                         // }
 
-                        if ($row['status'] == 'pending') {
-                            $stat = "<form method='POST' action='../wildlifeofficer/trigerRequest'><input type='text' style='display:none' name='acc' value=" . $row['incidentID'] . "><button class='buttonAccept' id='acceptId' value='ACCEPT' name='accept'/>ACCEPT</button></form>";
-                        } else {
-                            $stat = "<form method='POST' action='../wildlifeofficer/trigerRequest'><input type='text' style='display:none'  name='can' value=" . $row['incidentID'] . "><button class='buttonCancel' id='cancelId' value='CANCEl' name='cancel'/>CANCEL</button></form>";
-                        }
+                        // if ($row['status'] == 'pending') {
+                        //     $stat = "<form method='POST' action='../wildlifeofficer/trigerRequest'><input type='text' style='display:none' name='acc' value=" . $row['incidentID'] . "><button class='buttonAccept' id='acceptId' value='ACCEPT' name='accept'/>ACCEPT</button></form>";
+                        // } else {
+                        //     $stat = "<form method='POST' action='../wildlifeofficer/trigerRequest'><input type='text' style='display:none'  name='can' value=" . $row['incidentID'] . "><button class='buttonCancel' id='cancelId' value='CANCEl' name='cancel'/>CANCEL</button></form>";
+                        // }
                         echo "<tr>
             <td>" . $row['date'] . "</td>
             <td>" . $row['incidentID'] . "</td>
@@ -136,7 +145,7 @@
             <td>Saman Perera</td>
             <td>" . $row['reporttype'] . "</td>
             <td>" . $row['Place'] . "</td>
-            <td>" . $stat . "</td>
+            
             <td><button type='submit' class='viewButton' id='view' onclick='' >
               <a href='../veterinarian/viewIncidentDetails'>VIEW</a>
             </button></td>

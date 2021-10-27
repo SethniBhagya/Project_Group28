@@ -25,33 +25,35 @@
             </div>
 
             <ul>
-                <li id="home"><a href="../">முகப்பு பக்கம்</a></li>
-                <li id="dashboard"><a href="../wildlifeofficer/viewDashboard">தரவு பலகை</a></li>
+                <li id="home"><a href="../?lang=3">முகப்பு பக்கம்</a></li>
+                <li id="dashboard"><a href="../wildlifeofficer/viewDashboard?lang=3">தரவு பலகை</a></li>
                 <li>
                     <div class="dropdown-1" style="  padding-left:  300px ">
                         <button class="dropbtn-1">மொழி</button>
                         <div class="dropdown-content-1">
-                            <a href=" ">English</a>
-                            <a href=" ">සිංහල</a>
-                            <a href=" ">தமிழ்</a>
+                            <a href="?lang=1">English</a>
+                            <a href="?lang=2">සිංහල</a>
+                            <a href="?lang=3">தமிழ்</a>
                         </div>
                     </div>
                 </li>
                 <li class="dropdown">
                     <span class="dot"> <img onclick="myFunction_2(this)" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
                     <div id="myDropdown" class="dropdown-content">
-                        <a href="../wildlifeofficer/viewProfile">பயனர் சுயவிவரம்</a>
-                        <a href="../user/index">வெளியேறு</a>
+                        <a href="../wildlifeofficer/viewProfile?lang=3">பயனர் சுயவிவரம்</a>
+                        <a href="../user/index?lang=3">வெளியேறு</a>
                     </div>
                 </li>
             </ul>
         </nav>
     </header>
+    <div class="first">
+        இலங்கையில் மொத்தம் <a href="../wildlifeofficer/?lang=3">மீண்டும்</a><br>
+        டைசியாக மாற்றியமைக்கப்பட்ட நாள் 30/09/2021<br>
 
-    <div class="header-name">
-        <h>இலங்கையில் மொத்தம் </h>
-        <h style="float:right">கடைசியாக மாற்றியமைக்கப்பட்ட நாள் 30/09/2021</h>
     </div>
+
+
     <!-- <div class="header-name"><h><pre  style="font-size: larger;font-style: normal; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Total in Sri Lanka                                                                                                                                                               LastModified 30/09/2021</pre></h> </div> -->
 
     <div class="main-update-col-1">

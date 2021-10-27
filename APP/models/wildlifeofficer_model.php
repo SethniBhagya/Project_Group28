@@ -17,7 +17,7 @@ class Wildlifeofficer_model extends Model
 	}
 	function selectIncidentData()
 	{
-		$details = $this->db->runQuery("SELECT * from reported_incident");
+		$details = $this->db->runQuery("SELECT * from reported_incident order by date desc");
 
 		return $details;
 	}

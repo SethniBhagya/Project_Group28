@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../Public/css/wildlifeofficer_header.css">
+    <link rel="stylesheet" href="../Public/css/wildlifeofficerHeader.css">
     <link rel="stylesheet" href="../Public/css/veterinarian_view_profile.css">
     <script src="../Public/Javascript/login.js"></script>
     <!-- <script src="../Public/Javascript/viewReport.js"></script> -->

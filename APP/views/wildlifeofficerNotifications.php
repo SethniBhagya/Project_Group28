@@ -24,15 +24,15 @@
             </div>
 
             <ul>
-                <li id="home"><a href="../">HOME</a></li>
-                <li id="dashboard"><a href="../wildlifeofficer/viewDashboard">DASHBOARD</a></li>
+                <li id="home"><a href="../?lang=1">HOME</a></li>
+                <li id="dashboard"><a href="../wildlifeofficer/viewDashboard?lang=1">DASHBOARD</a></li>
                 <li>
                     <div class="dropdown-1" style="  padding-left:  300px ">
                         <button class="dropbtn-1">Language</button>
                         <div class="dropdown-content-1">
-                            <a href=" ">English</a>
-                            <a href=" ">සිංහල</a>
-                            <a href=" ">தமிழ்</a>
+                            <a href="?lang=1">English</a>
+                            <a href="?lang=2">සිංහල</a>
+                            <a href="?lang=3">தமிழ்</a>
                         </div>
                     </div>
                 </li>
@@ -63,7 +63,7 @@
 
         </div>
         <div class="col_2_last"><button type='submit' class='backButton' id='view' onclick=''>
-                <a href='../wildlifeofficer/index'>BACK</a>
+                <a href='../wildlifeofficer/index?lang=1'>BACK</a>
 
         </div>
     </div>

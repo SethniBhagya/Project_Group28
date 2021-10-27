@@ -23,8 +23,8 @@
             </div>
 
             <ul>
-                <li id="home"><a href="../">මුල් පිටුව</a></li>
-                <li id="dashboard"><a href="../wildlifeofficer/viewDashboard">දත්ත පුවරුව</a></li>
+                <li id="home"><a href="../?lang=2">මුල් පිටුව</a></li>
+                <li id="dashboard"><a href="../wildlifeofficer/viewDashboard?lang=2">දත්ත පුවරුව</a></li>
                 <li>
                     <div class="dropdown-1" style="  padding-left:  300px ">
                         <button class="dropbtn-1">භාෂාව</button>
@@ -56,14 +56,14 @@
         </b></label>
     </div>
     <div class="main-view">
-        <a href="../wildlifeofficer/viewIncidents">
+        <a href="../wildlifeofficer/viewIncidents?lang=2">
             <button class="report">
                 <h1> වාර්තා වූ </br>සිදුවීම්</h1>
                 <div class="line"><img src="../Public/images/emergency.png"></div>
 
             </button>
         </a>
-        <a href="../wildlifeofficer/viewNotification?lang=1">
+        <a href="../wildlifeofficer/viewNotification?lang=2">
             <button class="specialNotice">
                 <div class="notification"><span class="dot-1"><img src="../Public/images/bell.png" alt="1" srcset=" "></span>
                 </div>
