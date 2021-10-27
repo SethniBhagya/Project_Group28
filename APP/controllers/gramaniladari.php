@@ -13,7 +13,7 @@ class gramaniladari extends user
     {
         // session_start();
         // $this->view->data=$this->model->selectData($_SESSION["NIC"]);
-        $this->view->render('gramaniladari');
+         $this->view->render('gramaniladari');
     }
 
     // view profile function to view profile of wildlife officer

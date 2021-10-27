@@ -172,6 +172,7 @@ class user extends Controller
               case "regional Officer":
                 $this->view->render('regionalDashboard');
                 break;
+              
                 // case "veterinarian": $this->view->render('veterinarian');
 
             }

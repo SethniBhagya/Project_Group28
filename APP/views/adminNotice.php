@@ -47,7 +47,23 @@
     </div>
 
      <div id="container2">
-       <select>
+        <select id="province">
+         <option>Select Province</option>
+         <option>southern</option>
+         
+       </select>
+       <select id="district">
+         <option>Select District</option>
+         <option>hambanthota</option>
+         <option>galle</option>
+         <option>matara</option>
+       </select>
+        <select id="gn">
+         <option>Select GN division</option>
+         <option>sooriyawewa</option>
+         <option>hambanthota</option>
+       </select>
+       <select id="village">
          <option>Select Village</option>
          <option>Darmigama</option>
          <option>Sooriyawewa</option>
@@ -58,12 +74,12 @@
          <br>
          <label for="Description" id="lbl-description">Description :</label>
          <textarea rows="10" cols="10" form="fmr" id="Description"></textarea>
-         <button type="submit" name="back" id="back" > <a href="../admin/dashboard">Back</a> </button>
+         
          <button type="submit" name="submit" id="submit">Submit</button>
 
            
        </form>
-      
+       <button   id="back" onclick="location.href='dashboard'" > Back </button>
       
        
        
