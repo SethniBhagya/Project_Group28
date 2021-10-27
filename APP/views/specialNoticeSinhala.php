@@ -23,7 +23,7 @@
 
             <ul>
             <li id="home_2"><a href="../">මුල් පිටුව</a></li>
-                <li id="dashboard_1"   ><a href="../user/viewpage?user=villager" >මුල් පුවරුව</a></li>
+                <li id="dashboard_1"   ><a href="../user/viewpage?lang=2" >මුල් පුවරුව</a></li>
                 <li id="report_2" style="   padding-right:20px ; right:345px  "><a href="../incident/index?lang=2"> වර්තා කිරීම</a></li>
                 <li id="special_1" style=" background-color: rgb(168, 175, 168);"s><a href="">විශේෂ දැන්වීම</a></li> 
                 <div class="dropdown-1" style="  padding-left:  300px ">
@@ -34,7 +34,7 @@
                         <a href="?lang=3">தமிழ்</a>
                     </div>
                   </div>
-                    <button class="dropbtn-1">Language</button>
+                    <button class="dropbtn-1">භාෂාව</button>
                     <div class="dropdown-content-1">
                         <a href="">English</a>
                         <a href="">සිංහල</a>

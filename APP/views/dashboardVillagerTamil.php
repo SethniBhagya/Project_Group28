@@ -26,7 +26,7 @@
 
             <ul>
             <li id="home_2" style="right:750px"  ><a href="../"  ">முகப்பு பக்கம்</a></li>
-                <li id="dashboard_1" style="right:600px"  ><a href="../user/viewpage?user=villager" >டாஷ்போர்டு</a></li>
+                <li id="dashboard_1" style="right:600px"  ><a href="../user/viewpage?lang=3" >டாஷ்போர்டு</a></li>
                 <li id="report_2" style="   right:380px" ><a  href="../incident/index?lang=3">சம்பவங்கள் அறிக்கை</a></li>
                 <li id="special_1"style="right:210px"  ><a href="">சிறப்பு அறிவிப்பு</a></li> 
                 <div class="dropdown-1" style="  padding-left:  300px ">
@@ -40,7 +40,7 @@
                 <li class="dropdown">
                     <span class="dot"> <img onclick="myFunction_2(this)" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
                     <div id="myDropdown" class="dropdown-content">
-                    <a href="../user/editprofile">View Profile</a>
+                    <a href="../user/editprofile?lang=3">View Profile</a>
                         <a href="../user/logout">Logout</a>
                     
                     </div>

@@ -24,7 +24,7 @@
  
             <ul>
             <li id="home_2"><a href="../">Home</a></li>
-                <li id="dashboard_1" ><a href="../user/viewpage?user=villager" >Dashboard</a></li>
+                <li id="dashboard_1" ><a href="../user/viewpage?lang=1" >Dashboard</a></li>
                 <li id="report_2"><a href="../incident/index?lang=1">Report Incidents</a></li>
                 <li id="special_1"><a href="../user/viewSpecialNotice?lang=1">SpecialNotice </a></li> 
                 <div class="dropdown-1">
