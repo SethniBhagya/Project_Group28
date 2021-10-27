@@ -6,7 +6,7 @@
     private $province;
     private $district;
  
-
+     //create construct function
     function __construct()
     {
         parent::__construct();      
@@ -65,11 +65,11 @@
             break;
             case 2 :
             //display villagerReportView2
-            $this->view->render('notificationSinhala');
+            $this->view->render('notificationsinhala');
             break;
             case 3 :
             //display villagerReportView3    
-            $this->view->render('notificationTamil');
+            $this->view->render('notificationtamil');
             break;
     
         }

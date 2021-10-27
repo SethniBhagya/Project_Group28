@@ -9,7 +9,7 @@
     <script src="../Public/javascript/report1.js"></script>
 
     <script src="../Public/javascript/login1.js"></script>
-    <title>Elephant are in The Elephant</title>
+    <title>யானைகள் யானையில் உள்ளன</title>
 </head>
 <body>
     <header id="main">

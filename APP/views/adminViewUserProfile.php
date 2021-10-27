@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../Public/css/adminHeader.css">
-  <link rel="stylesheet" href="../Public/css/wildlifeofficerViewProfile.css">
+  <link rel="stylesheet" href="../Public/css/adminViewUserProfile.css">
   <script src="../Public/Javascript/login.js"></script>
   <!-- <script src="../Public/Javascript/viewReport.js"></script> -->
   <script src="../Public/javascript/wildlifeofficer.js"></script>
@@ -103,7 +103,7 @@
       </div>
       <div class="row1">
 
-        <a href="../admin/viewUser"><button>BACK</button></a>
+        <a href="../admin/viewUser"><button id="back">BACK</button></a>
 
       </div>
 

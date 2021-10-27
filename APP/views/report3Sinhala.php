@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../Public/css/header.css">
     <link rel="stylesheet" href="../Public/css/report_3.css">
     <script src="../Public/javascript/login1.js"></script>
-    <title>Breakdown of Elephants Fences</title>
+    <title>අලි වැට කැඩීම</title>
 </head>
 <body>
     <header id="main">

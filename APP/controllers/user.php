@@ -21,10 +21,37 @@ class user extends Controller
   private $_userDateofBirth;
 
   public function index()
-  {
+  {  session_start();
+     session_regenerate_id(); 
+    if(!empty($_SESSION["NIC"]))
+    {  $jobType=$_SESSION["jobtype"];
+      switch($jobType)
+      {
+                 // case "villager":
+                 //  //get the data in Database  
+                 //  $this->view->data = $this->model->selectData($_POST["username"]);
+                 //  //echo $this->data;  
+                 //  // render the villager page  
+                 //  $this->view->render('villagersPage');
+                 //  break;
+                case "Wildlife Officer":
+                  $this->view->render('wildlifeofficer');
+                  break;
+                case "admin":
+                  $this->view->render('admin_page');
+                  break;
+                case "regional Officer":
+                  $this->view->render('regionalDashboard');
+                  break;
+                case "veterinarian":
+                  $this->view->render('veterinarian');
+      }
 
+    }
 
-    if (isset($_GET["lang"])) {
+    else
+    {
+      if (isset($_GET["lang"])) {
 
       if ($_GET["lang"] == "2")
         $this->view->render('loginSinhala');
@@ -35,9 +62,13 @@ class user extends Controller
     } else
       $this->view->render('login');
 
+    }
+
+    
 
 
-    // $this->view->render('login');
+
+     
   }
 
 
@@ -89,7 +120,7 @@ class user extends Controller
                 case "admin":
                   $this->view->render('admin_page');
                   break;
-                case "regional officer":
+                case "regional Officer":
                   $this->view->render('regionalDashboard');
                   break;
                 case "veterinarian":
@@ -112,7 +143,7 @@ class user extends Controller
                 case "admin":
                   $this->view->render('admin_page');
                   break;
-                case "regional officer":
+                case "regional Officer":
                   $this->view->render('regionalDashboard');
                   break;
                   // case "veterinarian": $this->view->render('veterinarian');
@@ -138,7 +169,7 @@ class user extends Controller
               case "admin":
                 $this->view->render('admin_page');
                 break;
-              case "regional officer":
+              case "regional Officer":
                 $this->view->render('regionalDashboard');
                 break;
                 // case "veterinarian": $this->view->render('veterinarian');
@@ -160,7 +191,7 @@ class user extends Controller
 
     session_start();
     unset($_SESSION["NIC"]);
-    unset($_SESSION["jobtype"]);
+    unset($_SESSION["jobtype"]); 
     session_destroy();
     $this->view->render('login');
   }
@@ -297,12 +328,12 @@ class user extends Controller
       case 2:
         //display special Notice     
 
-        $this->view->render('specialNoticeSinhala');
+        $this->view->render('specialNoticesinhala');
         break;
       case 3:
         //display special Notice     
 
-        $this->view->render('specialNoticeTamil');
+        $this->view->render('specialNoticetamil');
         break;
     }
   }
@@ -322,12 +353,12 @@ class user extends Controller
       case 2:
         //display special Notice     
 
-        $this->view->render('editProfileSinhala');
+        $this->view->render('editProfilesinhala');
         break;
       case 3:
         //display special Notice     
 
-        $this->view->render('editProfileTamil');
+        $this->view->render('editProfiletamil');
         break;
     }
     // $this->view->render('editProfile');

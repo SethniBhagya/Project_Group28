@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="Public/css/home.css">
 
     <script src="../Public/javascript/login.js"></script>
-    <script src="../Public/javascript/villagerRegister.js"></script>
+    <script src="../Public/javascript/villagerRegister1.js"></script>
     <title>Registration Form</title>
   </head>
   <body>
@@ -30,7 +30,7 @@
                 <li id="home"><a href="../">Home</a></li>
                 <li id="report"><a href="../incident/index?lang=1">Report Incidents</a></li>
                 <li id="register"><a href="../villager/register?lang=1">Register</a></li>
-                <li id="login"><a id=login_text href="user/index?lang=1">Login</a></li>
+                <li id="login"><a id=login_text href="../user/index?lang=1">Login</a></li>
                 
               <li class="dropdown">
                   <button onclick="myFunction_2()" class="dropbtn">Language <i class="down"></i></button>

@@ -75,9 +75,9 @@
         <div id="notification">
             <?php
               if(!empty($_GET["error"]))
-                echo "<h2 id=\"error\"> Unsuccessfull!!".$_GET["error"]."</h2>";
+                echo "<div><img src=\"../Public/images/error-icon.png\" alt=\"icon\" class=\"icon\"><h2 id=\"error\"> Unsuccessfull!!".$_GET["error"]."</h2></div>";
               else if(!empty($_GET["success"]))
-                echo "<h2 id=\"success\">".$_GET["success"]."</h2>";
+                echo "<div><img src=\"../Public/images/success.png\" alt=\"icon\" class=\"icon\"><h2 id=\"success\">".$_GET["success"]."</h2></div>";
             ?>
               
         </div>
@@ -891,7 +891,7 @@
   }
 
   $(document).ready(function(){
-    $("#notification").delay(3000).fadeOut();
+    $("#notification").delay(2000).fadeOut();
   })
 
 </script>
