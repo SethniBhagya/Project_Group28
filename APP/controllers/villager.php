@@ -6,7 +6,7 @@
     private $province;
     private $district;
  
-
+     //create construct function
     function __construct()
     {
         parent::__construct();      
