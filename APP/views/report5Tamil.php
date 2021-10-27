@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../Public/css/report_5.css">
     <script src="../Public/javascript/login1.js"></script>
 
-    <title>Other Wild Animals are in the Village</title>
+    <title>மற்ற வன விலங்குகள் கிராமத்தில் உள்ளன</title>
 </head>
 <body>
     <header id="main">

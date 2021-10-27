@@ -9,7 +9,7 @@
     
     <script src="../Public/Javascript/login1.js"></script>
 
-    <title>Special Notice</title>
+    <title>சிறப்பு அறிவிப்பு</title>
 </head>
 <body>
     <header id="main">

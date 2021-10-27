@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../Public/css/Report.css">
     <link rel="stylesheet" href="../Public/css/header.css">
     <script src="../Public/Javascript/login1.js"></script>
-    <title>Report Page</title>
+    <title>அறிக்கை பக்கம்</title>
 </head>
 <body>
     <header id="main">

@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../Public/css/header.css">
     <link rel="stylesheet" href="../Public/css/report_4.css">
     <script src="../Public/javascript/login1.js"></script>
-    <title>Crop Damages</title> 
+    <title>பயிர் சேதங்கள்</title> 
 </head>
 <body>
     <header id="main">

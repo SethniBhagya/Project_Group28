@@ -23,7 +23,7 @@
             <li id="home_2"><a href="../">Home</a></li>
                 <li id="dashboard_1"   ><a href="../user/viewpage?user=villager" >Dashboard</a></li>
                 <li id="report_2" style=" background-color: rgb(168, 175, 168);" ><a href="">Report Incidents</a></li>
-                <li id="special_1"><a href="../user/viewSpecialNotice?lang=1">SpecialNotice </a></li> 
+                <li id="special_1"><a href="../villager/viewSpecialNotice?lang=1">SpecialNotice </a></li> 
                 <div class="dropdown-1" style="  padding-left:  300px ">
                     <button class="dropbtn-1">Language</button>
                     <div class="dropdown-content-1">

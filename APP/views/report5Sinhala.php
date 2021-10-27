@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../Public/css/report_5.css">
     <script src="../Public/javascript/login1.js"></script>
 
-    <title>Other Wild Animals are in the Village</title>
+    <title>අනෙක් වන සතුන් ගමේ ඉන්නවා</title>
 </head>
 <body>
     <header id="main">

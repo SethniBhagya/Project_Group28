@@ -9,7 +9,7 @@
     
     <script src="../Public/Javascript/login1.js"></script>
 
-    <title>විශේෂ නිවේදනය</title>
+    <title>විශේෂ  නිවේදනය</title>
 </head>
 <body>
     <header id="main">
