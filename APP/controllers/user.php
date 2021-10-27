@@ -191,7 +191,7 @@ class user extends Controller
 
     session_start();
     unset($_SESSION["NIC"]);
-    unset($_SESSION["jobtype"]);
+    unset($_SESSION["jobtype"]); 
     session_destroy();
     $this->view->render('login');
   }
@@ -328,12 +328,12 @@ class user extends Controller
       case 2:
         //display special Notice     
 
-        $this->view->render('specialNoticeSinhala');
+        $this->view->render('specialNoticesinhala');
         break;
       case 3:
         //display special Notice     
 
-        $this->view->render('specialNoticeTamil');
+        $this->view->render('specialNoticetamil');
         break;
     }
   }
@@ -353,12 +353,12 @@ class user extends Controller
       case 2:
         //display special Notice     
 
-        $this->view->render('editProfileSinhala');
+        $this->view->render('editProfilesinhala');
         break;
       case 3:
         //display special Notice     
 
-        $this->view->render('editProfileTamil');
+        $this->view->render('editProfiletamil');
         break;
     }
     // $this->view->render('editProfile');
