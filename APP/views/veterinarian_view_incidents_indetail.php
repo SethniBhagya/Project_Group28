@@ -56,6 +56,25 @@
         <div class="contanier_2">
 
             <div class="contanier_2-1">
+                <?php
+
+                if (isset($_POST['send'])) {
+                ?>
+
+                    <div id="message1" style="padding: 10px; background-color:aliceblue">
+
+
+                        <h1>You Accept the Duty</h1>
+
+
+                        <a href="../veterinarian/viewIncidents?lang=1" class="login-btn" style=" border-radius: 10px; padding: 10px 10px; background-color:#056412;  color: white;">OK</a>
+                    </div>
+                <?php
+
+                }
+                //  }
+                //ss}
+                ?>
 
             </div>
 
@@ -84,10 +103,12 @@
 
                 </div>
 
-                <div class="col_2_last"><button type='submit' class='backButton' id='view' onclick=''>
-                        <a href='../veterinarian/viewIncidentDetails'>ACCEPT</a>
+                <form method="POST">
+                    <div class="save_button">
 
-                </div>
+                        <input name="send" class='backButton' type="submit" onclick="" value="ACCEPT" />
+                    </div>
+                </form>
 
 
 

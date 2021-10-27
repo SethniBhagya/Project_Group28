@@ -47,11 +47,13 @@
             </ul>
         </nav>
     </header>
+    <div class="first">
+        இலங்கையில் மொத்தம் <a href="../wildlifeofficer/?lang=3">மீண்டும்</a><br>
+        டைசியாக மாற்றியமைக்கப்பட்ட நாள் 30/09/2021<br>
 
-    <div class="header-name">
-        <h>இலங்கையில் மொத்தம் </h>
-        <h style="float:right">கடைசியாக மாற்றியமைக்கப்பட்ட நாள் 30/09/2021</h>
     </div>
+
+
     <!-- <div class="header-name"><h><pre  style="font-size: larger;font-style: normal; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Total in Sri Lanka                                                                                                                                                               LastModified 30/09/2021</pre></h> </div> -->
 
     <div class="main-update-col-1">

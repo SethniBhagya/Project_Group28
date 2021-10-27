@@ -48,6 +48,12 @@
             </ul>
         </nav>
     </header>
+    <div class="first">
+        කාලය -මාස 3 යි
+        <a href="../wildlifeofficer/?lang=2">ආපසු</a><br>
+        අවසාන වෙනස් කිරීම 02/09/2021<br>
+
+    </div>
     <div class="header-name">
         <h>ලංකාවේ මුළු එකතුව </h>
         <h style="float:right">අවසන් වරට වෙනස් කළේ 30/09/2021</h>

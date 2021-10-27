@@ -23,8 +23,8 @@
             </div>
 
             <ul>
-                <li id="home"><a href="../">මුල් පිටුව</a></li>
-                <li id="dashboard"><a href="../wildlifeofficer/viewDashboard">දත්ත පුවරුව</a></li>
+                <li id="home"><a href="../?lang=2">මුල් පිටුව</a></li>
+                <li id="dashboard"><a href="../wildlifeofficer/viewDashboard?lang=2">දත්ත පුවරුව</a></li>
                 <li>
                     <div class="dropdown-1" style="  padding-left:  300px ">
                         <button class="dropbtn-1">භාෂාව</button>

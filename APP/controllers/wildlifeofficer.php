@@ -263,9 +263,30 @@ class wildlifeofficer extends user
     //view dashboard of wildlife officer.
     public function viewDashboard()
     {
+        if (isset($_GET['lang'])) {
+            //assign the value
+            $lang = $_GET['lang'];
+        }
+        // session_start();
+        // $this->view->data = $this->model->selectData($_SESSION["NIC"]);
+
+        switch ($lang) {
+            case 1:
+                //display profile page     
+                $this->view->render('wildlifeofficerDashboard');
+                break;
+            case 2:
+                //display profile page  
+                $this->view->render('wildlifeofficerDashboardSinhala');
+                break;
+            case 3:
+                //display profile page   
+                $this->view->render('wildlifeofficerDashboardTamil');
+                break;
+        }
         // session_start();
         // $this->view->data=$this->model->selectData($_SESSION["NIC"]);
-        $this->view->render('wildlifeofficerDashboard');
+
     }
 
 

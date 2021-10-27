@@ -25,8 +25,8 @@
       </div>
 
       <ul>
-        <li id="home"><a href="../">HOME</a></li>
-        <li id="dashboard"><a href="../wildlifeofficer/viewDashboard">DASHBOARD</a></li>
+        <li id="home"><a href="../?lang=1">HOME</a></li>
+        <li id="dashboard"><a href="../wildlifeofficer/viewDashboard?lang=1">DASHBOARD</a></li>
         <li>
           <div class="dropdown-1" style="  padding-left:  300px ">
             <button class="dropbtn-1">Language</button>

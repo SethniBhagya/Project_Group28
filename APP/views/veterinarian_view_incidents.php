@@ -86,7 +86,7 @@
 
                 <div class="wrap">
                     <div class="search">
-                        <input type="text" class="searchTerm" placeholder="Search here report number" id="myInput" onkeyup="myFunction()" />
+                        <input type="text" class="searchTerm" placeholder="Search date here" id="myInput" onkeyup="myFunction()" />
                         <button type="submit" class="searchButton">
                             <i class="fa fa-search">search</i>
 
@@ -133,11 +133,11 @@
                         //     break;
                         // }
 
-                        if ($row['status'] == 'pending') {
-                            $stat = "<form method='POST' action='../wildlifeofficer/trigerRequest'><input type='text' style='display:none' name='acc' value=" . $row['incidentID'] . "><button class='buttonAccept' id='acceptId' value='ACCEPT' name='accept'/>ACCEPT</button></form>";
-                        } else {
-                            $stat = "<form method='POST' action='../wildlifeofficer/trigerRequest'><input type='text' style='display:none'  name='can' value=" . $row['incidentID'] . "><button class='buttonCancel' id='cancelId' value='CANCEl' name='cancel'/>CANCEL</button></form>";
-                        }
+                        // if ($row['status'] == 'pending') {
+                        //     $stat = "<form method='POST' action='../wildlifeofficer/trigerRequest'><input type='text' style='display:none' name='acc' value=" . $row['incidentID'] . "><button class='buttonAccept' id='acceptId' value='ACCEPT' name='accept'/>ACCEPT</button></form>";
+                        // } else {
+                        //     $stat = "<form method='POST' action='../wildlifeofficer/trigerRequest'><input type='text' style='display:none'  name='can' value=" . $row['incidentID'] . "><button class='buttonCancel' id='cancelId' value='CANCEl' name='cancel'/>CANCEL</button></form>";
+                        // }
                         echo "<tr>
             <td>" . $row['date'] . "</td>
             <td>" . $row['incidentID'] . "</td>
@@ -145,7 +145,7 @@
             <td>Saman Perera</td>
             <td>" . $row['reporttype'] . "</td>
             <td>" . $row['Place'] . "</td>
-            <td>" . $stat . "</td>
+            
             <td><button type='submit' class='viewButton' id='view' onclick='' >
               <a href='../veterinarian/viewIncidentDetails'>VIEW</a>
             </button></td>
