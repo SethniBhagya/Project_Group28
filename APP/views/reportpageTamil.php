@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../Public/css/reportViewpage.css">
     <link rel="stylesheet" href="../Public/css/header.css">
     <script src="../Public/Javascript/login1.js"></script>
-    <title>Report Page</title>
+    <title>அறிக்கை பக்கம்</title>
 </head>
 <body>
     <header id="main">
@@ -35,8 +35,8 @@
                 <li class="dropdown">
                     <span class="dot"> <img onclick="myFunction_3(this)" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
                     <div id="myDropdown" class="dropdown-content">
-                    <a href="../user/editprofile?lang=3">View Profile</a> 
-                    <a href="../user/logout">Logout</a>
+                    <a href="../user/editprofile?lang=3">சுயவிவரம் காண</a> 
+                    <a href="../user/logout">வெளியேறு</a>
                     </div>
                 </li>
             </ul>
