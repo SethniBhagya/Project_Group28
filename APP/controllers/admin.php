@@ -93,17 +93,43 @@ class admin extends user{
 
 			];
 
-			//checking e mail already exists
-			if($this->model->checkMail($data["email"]))
-				$data["Error"]="E mail is already taken";
-			else{//checking mobile number already exists
-				if($this->model->checkMobile($data["mob"]))
-					$data["Error"]="Mobile number is already taken";
-				else{  //checking NIC already exists
-					if($this->model->checkNIC($data["nic"]))
-						$data["Error"]="NIC is already taken";
+			if(!empty($userType))
+			{
+
+
+
+				 if(strlen($data["nic"])!=10)
+             	     $data["Error"]="Invalid NIC 10k nane ";
+             else
+             {  if(($data["nic"])[9]!="V" and ($data["nic"])[9]!="X")
+                     $data["Error"]="Invalid NIC x or v nane ";
+                else{
+                	  if(($data["nic"])[0]!=$data["dob"][2] or ($data["nic"])[1]!=$data["dob"][3])
+                	  	$data["Error"]="Invalid NIC dob aul ";
+                	  else{
+
+                	  	//checking e mail already exists
+             	         if($this->model->checkMail($data["email"]))
+				            $data["Error"]="E mail is already taken";
+			             else{//checking mobile number already exists
+				             if($this->model->checkMobile($data["mob"]))
+					            $data["Error"]="Mobile number is already taken";
+				            else{  //checking NIC already exists
+					              if($this->model->checkNIC($data["nic"]))
+						            $data["Error"]="NIC is already taken";
 				}
-			}
+			  }
+
+                	  }
+
+                	
+
+                }
+
+
+             }
+             			
+			
 			
 
 			if(empty($data["Error"]))
@@ -203,6 +229,10 @@ class admin extends user{
                
 
 			}
+
+			}
+            
+            
 		}
 
 		

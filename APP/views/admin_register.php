@@ -75,9 +75,9 @@
         <div id="notification">
             <?php
               if(!empty($_GET["error"]))
-                echo "<div><img src=\"../Public/images/error-icon.png\" alt=\"icon\" class=\"icon\"><h2 id=\"error\"> Unsuccessfull!!".$_GET["error"]."</h2></div>";
+                echo "<div id=\"errordiv\"><img src=\"../Public/images/error-icon.png\" alt=\"icon\" class=\"icon\"><br><h2 id=\"error\"> Unsuccessfull!!".$_GET["error"]."</h2></div>";
               else if(!empty($_GET["success"]))
-                echo "<div><img src=\"../Public/images/success.png\" alt=\"icon\" class=\"icon\"><h2 id=\"success\">".$_GET["success"]."</h2></div>";
+                echo "<div id=\"successdiv\"><img src=\"../Public/images/success.png\" alt=\"icon\" class=\"icon\"><br><h2 id=\"success\">".$_GET["success"]."</h2></div>";
             ?>
               
         </div>
@@ -88,7 +88,7 @@
         <div class="container2">
 
 
-            <form class="gnform" method="POST" action="../admin/addUser?error=&success=">
+            <form class="gnform" method="POST" action="../admin/addUser?error=&success=" onsubmit="return gnValidate()">
                 <table>
 
                     <tr>
@@ -115,6 +115,8 @@
                         </td>
                         <td>
                             <input type="text" name="lname" id="lname" required>
+                           
+
                         </td>
                     </tr>
 
@@ -124,7 +126,10 @@
                         </td>
                         <td>
                             <input type="text" name="nic" id="nic" required>
+                             
+
                         </td>
+                        
                     </tr>
 
                     <tr>
@@ -893,6 +898,50 @@
   $(document).ready(function(){
     $("#notification").delay(2000).fadeOut();
   })
+
+   
+
+
+   // var nicError=document.getElementById("gnNicError");
+   // gnNic.addEventListener('textinput',nic_varify);
+   
+   // function gnValidate(){
+   //  var gnNic=document.forms["gnform"]["nic"];
+   //  var gnDate=document.forms["gnform"]["dob"];
+   //  alert(gnNic.value);
+   //  if(gnNic.value.length!=10)
+   //  {
+   //      nicError.style.display="block";
+   //      gnNic.focus();
+   //      return false;
+   //  }
+   //  else
+   //  {
+   //      var nicFirstChar=(String(gnNic.value))[0];
+   //      var nicSecondChar=(String(gnNic.value))[1];
+   //     var dobYearFirstChar=(String(gnDate.value))[9];
+   //      var dobYearSecondChar=(String(gnDate.value))[10];
+   //      if(nicFirstChar!=dobYearFirstChar || nicSecondChar!=dobYearSecondChar )
+   //          nicError.style.display="block";
+   //          gnNic.focus();
+   //         return false;
+
+   //  }
+   // }
+
+   // function nic_varify(){
+   
+   //  if(gnNic.value.length==10)
+   //  { var nicFirstChar=(String(gnNic.value))[0];
+   //    var nicSecondChar=(String(gnNic.value))[1];
+   //    var dobYearFirstChar=(String(gnDate.value))[9];
+   //    var dobYearSecondChar=(String(gnDate.value))[10];
+   //    if(nicFirstChar==dobYearFirstChar && nicSecondChar==dobYearSecondChar )
+   //      return true;
+
+
+   //  }
+   // }
 
 </script>
 

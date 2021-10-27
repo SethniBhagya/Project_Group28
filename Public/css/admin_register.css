@@ -361,21 +361,49 @@ input[type=radio]{
   }
 
 
-#notification div{
-  width: 900px;
+#errordiv{
+  margin-left:50px;
+  width: 700px;
   height: 200px;
+   background-color: rgb(255,255,255,0.7);
+  text-align: center;
+  font-size: 24px;
+
+}
+#errordiv img{
+  position: relative;
+  margin-left: 50px;
+  margin-top: 20px;
+  width: 80px;
+  height: 80px;
+
+}
+#successdiv{
+  margin-left:50px;
+  width: 700px;
+  height: 200px;
+  background-color: rgb(255,255,255,0.7);
+  text-align: center;
+  font-size: 24px;
+
+}
+#successdiv img{
+  position: relative;
+  margin-left: 50px;
+  margin-top: 20px;
+  width: 80px;
+  height: 80px;
 
 }
 
-#notification div h2{
- margin-left: 300px;
+/*#errordiv h2{
+  position: absolute;
+  margin-left: 80px;
 }
 
+*/
 
 
-#notification div img{
-  margin-left: 380px;
-  margin-top: 30px;
-  width: 60px;
-  height: 60px;
-}
+
+
+
