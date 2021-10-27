@@ -127,10 +127,32 @@ class gramaniladari extends user
 
     }
     //view dashboard of wildlife officer.
+
     public function viewDashboard()
     {
         // session_start();
         // $this->view->data=$this->model->selectData($_SESSION["NIC"]);
         $this->view->render('gramaniladari_dashboard');
+    }
+    public function trigerRequest()
+    {
+        if (isset($_POST['accept'])) {
+            $id = trim($_POST['acc']);
+            $result = $this->model->cropdamageStatUpdate("success", $id);
+
+            $this->view->data = $this->model->selectCropdamageData();
+            $this->view->render('wildlifeofficerViewIncidents', $this->view->data);
+        }
+        if (isset($_POST['cancel'])) {
+            $id = trim($_POST['can']);
+            $result = $this->model->cropdamageStatUpdate("pending", $id);
+
+            $this->view->data = $this->model->selectIncidentData();
+            $this->view->render('gramaniladariViewIncidents', $this->view->data);
+        }
+    }
+    function viewNotification()
+    {
+        $this->view->render('wildlifeofficerNotifications');
     }
 }

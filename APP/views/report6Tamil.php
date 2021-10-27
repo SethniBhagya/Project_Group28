@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../Public/css/report_3.css">
     <script src="../Public/javascript/login1.js"></script>
 
-    <title>Illegal Thing happening in the Forest</title>
+    <title>காட்டில் சட்டவிரோதமான செயல் நடக்கிறது</title>
 </head>
 <body>
     <header id="main">

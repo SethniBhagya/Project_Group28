@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../Public/css/wildlifeofficerHeader.css" type="text/css">
     <script src="../Public/javascript/login.js"></script>
     <script src="../Public/javascript/wildlifeofficer.js"></script>
+    <script src="../Public/javascript/admin.js"></script>
     <title>WildlifeCare</title>
 </head>
 

@@ -11,10 +11,29 @@ class wildlifeofficer extends user
     //index function to load wildlifeofficer default page
     public function index()
     {
+        if (isset($_GET['lang'])) {
+            //assign the value
+            $lang = $_GET['lang'];
+        }
         // session_start();
-        // $this->view->data=$this->model->selectData($_SESSION["NIC"]);
-        $this->view->render('wildlifeofficer');
+        // $this->view->data = $this->model->selectData($_SESSION["NIC"]);
+
+        switch ($lang) {
+            case 1:
+                //display profile page     
+                $this->view->render('wildlifeofficer');
+                break;
+            case 2:
+                //display profile page  
+                $this->view->render('wildlifeofficerSinhala');
+                break;
+            case 3:
+                //display profile page   
+                $this->view->render('wildlifeofficerTamil');
+                break;
+        }
     }
+
 
     // view profile function to view profile of wildlife officer
     public function viewProfile()
@@ -44,17 +63,40 @@ class wildlifeofficer extends user
     // Edit profile function to view edit profile page of wildlife officer
     public function editProfile()
     {
+        if (isset($_GET['lang'])) {
+            //assign the value
+            $lang = $_GET['lang'];
+        }
         session_start();
         $this->view->data = $this->model->selectData($_SESSION["NIC"]);
 
-        $this->view->render('wildlifeofficerEditProfile', $this->view->data);
+        switch ($lang) {
+            case 1:
+                //display profile page     
+                $this->view->render('wildlifeofficerEditProfile', $this->view->data);
+                break;
+            case 2:
+                //display profile page  
+                $this->view->render('wildlifeofficerEditProfileSinhala', $this->view->data);
+                break;
+            case 3:
+                //display profile page   
+                $this->view->render('wildlifeofficerEditProfileTamil', $this->view->data);
+                break;
+        }
     }
+
+
     // update profile function to update profile of wildlife officer after editing edit page
     public function updateProfile()
     {
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
             session_start();
+            if (isset($_GET['lang'])) {
+                //assign the value
+                $lang = $_GET['lang'];
+            }
 
             //chack whether wildlife officer have save the changes
             if (isset($_POST["save"])) {
@@ -77,6 +119,7 @@ class wildlifeofficer extends user
 
 
                 ];
+
                 $update_result = $this->model->updateData($_SESSION["NIC"], $data);
                 if (empty($update_result[0]) && empty($update_result[1])) {
 
@@ -84,11 +127,37 @@ class wildlifeofficer extends user
                     $_SESSION["Lname"] = $data["lName"];
                     $this->view->data = $this->model->selectData($_SESSION["NIC"]);
                     $this->view->data[0]['message'] = "succcessfully updated";
-                    $this->view->render('wildlifeofficerViewProfile', $this->view->data);
+                    switch ($lang) {
+                        case 1:
+                            //display profile page     
+                            $this->view->render('wildlifeofficerEditProfile', $this->view->data);
+                            break;
+                        case 2:
+                            //display profile page  
+                            $this->view->render('wildlifeofficerEditProfileSinhala', $this->view->data);
+                            break;
+                        case 3:
+                            //display profile page   
+                            $this->view->render('wildlifeofficerEditProfileTamil', $this->view->data);
+                            break;
+                    }
                 } else {
                     $this->view->data = $this->model->selectData($_SESSION["NIC"]);
                     $this->view->data[0]['message'] = "fail updating";
-                    $this->view->render('wildlifeofficerEditProfile', $this->view->data);
+                    switch ($lang) {
+                        case 1:
+                            //display profile page     
+                            $this->view->render('wildlifeofficerEditProfile', $this->view->data);
+                            break;
+                        case 2:
+                            //display profile page  
+                            $this->view->render('wildlifeofficerEditProfileSinhala', $this->view->data);
+                            break;
+                        case 3:
+                            //display profile page   
+                            $this->view->render('wildlifeofficerEditProfileTamil', $this->view->data);
+                            break;
+                    }
                 }
             } elseif (isset($_POST["cancel"])) {
                 // $data=[
@@ -110,14 +179,21 @@ class wildlifeofficer extends user
                 // ];
                 // $this->model->updateData($_SESSION["NIC"],$data);
                 $this->view->data = $this->model->selectData($_SESSION["NIC"]);
-                $this->view->render('wildlifeofficerEditProfile', $this->view->data);
-            }
-
-
-
-
-
-            //if else ekak
+                switch ($lang) {
+                    case 1:
+                        //display profile page     
+                        $this->view->render('wildlifeofficerEditProfile', $this->view->data);
+                        break;
+                    case 2:
+                        //display profile page  
+                        $this->view->render('wildlifeofficerEditProfileSinhala', $this->view->data);
+                        break;
+                    case 3:
+                        //display profile page   
+                        $this->view->render('wildlifeofficerEditProfileTamil', $this->view->data);
+                        break;
+                }
+            } //if else ekak
 
 
         }
@@ -125,16 +201,50 @@ class wildlifeofficer extends user
     // view Incidents function to view list of all reported incidents 
     public function viewIncidents()
     {
+        if (isset($_GET['lang'])) {
+            //assign the value
+            $lang = $_GET['lang'];
+        }
         // session_start();
         $this->view->data = $this->model->selectIncidentData();
-        $this->view->render('wildlifeofficerViewIncidents', $this->view->data);
+        switch ($lang) {
+            case 1:
+
+                $this->view->render('wildlifeofficerViewIncidents', $this->view->data);
+                break;
+            case 2:
+                //display profile page  
+                $this->view->render('wildlifeofficerViewIncidentsSinhala', $this->view->data);
+                break;
+            case 3:
+                //display profile page   
+                $this->view->render('wildlifeofficerViewIncidentsTamil', $this->view->data);
+                break;
+        }
     }
     // view Incidents indetail function to view full details of a reported incident.
     public function viewIncidentDetails()
     {
+        if (isset($_GET['lang'])) {
+            //assign the value
+            $lang = $_GET['lang'];
+        }
         // session_start();
         $this->view->data = $this->model->selectIncidentData();
-        $this->view->render('wildlifeoffficerViewIncidentsIndetail', $this->view->data);
+        switch ($lang) {
+            case 1:
+
+                $this->view->render('wildlifeoffficerViewIncidentsIndetail', $this->view->data);
+                break;
+            case 2:
+                //display profile page  
+                $this->view->render('wildlifeoffficerViewIncidentsIndetailSinhala', $this->view->data);
+                break;
+            case 3:
+                //display profile page   
+                $this->view->render('wildlifeoffficerViewIncidentsIndetailTamil', $this->view->data);
+                break;
+        }
     }
     // sendIncidentDetailsToVet function to send incident to veterinarian.
     public function sendIncidentDetailsToVet()
@@ -153,9 +263,30 @@ class wildlifeofficer extends user
     //view dashboard of wildlife officer.
     public function viewDashboard()
     {
+        if (isset($_GET['lang'])) {
+            //assign the value
+            $lang = $_GET['lang'];
+        }
+        // session_start();
+        // $this->view->data = $this->model->selectData($_SESSION["NIC"]);
+
+        switch ($lang) {
+            case 1:
+                //display profile page     
+                $this->view->render('wildlifeofficerDashboard');
+                break;
+            case 2:
+                //display profile page  
+                $this->view->render('wildlifeofficerDashboardSinhala');
+                break;
+            case 3:
+                //display profile page   
+                $this->view->render('wildlifeofficerDashboardTamil');
+                break;
+        }
         // session_start();
         // $this->view->data=$this->model->selectData($_SESSION["NIC"]);
-        $this->view->render('wildlifeofficerDashboard');
+
     }
 
 
@@ -180,7 +311,27 @@ class wildlifeofficer extends user
         }
     }
     function viewNotification()
+
     {
-        $this->view->render('wildlifeofficerNotifications');
+        if (isset($_GET['lang'])) {
+            //assign the value
+            $lang = $_GET['lang'];
+        }
+        // session_start();
+        // $this->view->data = $this->model->selectIncidentData();
+        switch ($lang) {
+            case 1:
+
+                $this->view->render('wildlifeofficerNotifications');
+                break;
+            case 2:
+                //display profile page  
+                $this->view->render('wildlifeofficerNotifications');
+                break;
+            case 3:
+                //display profile page   
+                $this->view->render('wildlifeofficerNotifications');
+                break;
+        }
     }
 }

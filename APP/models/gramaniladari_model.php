@@ -9,7 +9,7 @@ class gramaniladari_model extends Model
     function selectData($userName)
     {
         $details = $this->db->runQuery("SELECT * from user WHERE NIC= '$userName'");
-        $office_no = $this->db->runQuery("SELECT officeNo from gramaniladari WHERE NIC= '$userName'");
+        $office_no = $this->db->runQuery("SELECT officeNo from grama_niladari WHERE NIC= '$userName'");
         $no = $office_no[0]['officeNo'];
         $details[1] = $this->db->runQuery("SELECT address from regional_wildlife_office WHERE officeNo= '$no' ")[0]; //get district
 
@@ -17,7 +17,7 @@ class gramaniladari_model extends Model
     }
     function selectCropdamage()
     {
-        $details = $this->db->runQuery("SELECT * from reported_cropdamage");
+        $details = $this->db->runQuery("SELECT * from crop_damage");
 
         return $details;
     }
@@ -43,7 +43,7 @@ class gramaniladari_model extends Model
 
 
         $stmt1 = "UPDATE user SET  Fname='$fname', Lname='$lname', mobileNo='$mob', BOD='$dob',Address='$address',email='$email' WHERE NIC= '$userName'";
-        $stmt2 = "UPDATE gramaniladari SET officeNo='$office_no' WHERE NIC='$userName'";
+        $stmt2 = "UPDATE grama_niladari SET officeNo='$office_no' WHERE NIC='$userName'";
         //$stmt3="INSERT INTO login VALUES('$nic','$hashPassword')";
 
         $result[0] = $this->db->runQuery($stmt1);

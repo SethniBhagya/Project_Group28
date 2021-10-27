@@ -26,22 +26,22 @@
       </div>
 
       <ul>
-        <li id="home"><a href="../">HOME</a></li>
-        <li id="dashboard"><a href="../wildlifeofficer/viewDashboard">DASHBOARD</a></li>
+        <li id="home"><a href="../?lang=1">HOME</a></li>
+        <li id="dashboard"><a href="../wildlifeofficer/viewDashboard?lang=1">DASHBOARD</a></li>
         <li>
           <div class="dropdown-1" style="  padding-left:  300px ">
             <button class="dropbtn-1">Language</button>
             <div class="dropdown-content-1">
-              <a href=" ">English</a>
-              <a href=" ">සිංහල</a>
-              <a href=" ">தமிழ்</a>
+              <a href="?lang=1">English</a>
+              <a href="?lang=2">සිංහල</a>
+              <a href="?lang=3">தமிழ்</a>
             </div>
           </div>
         </li>
         <li class="dropdown">
           <span class="dot"> <img onclick="myFunction_3()" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
           <div id="myDropdown" class="dropdown-content">
-            <a href="../wildlifeofficer/viewProfile">View Profile</a>
+            <a href="../wildlifeofficer/viewProfile?lang=1">View Profile</a>
             <a href="">Logout</a>
           </div>
         </li>
@@ -60,25 +60,48 @@
     </div> -->
 
   <body>
+
+    <?php
+
+    if (isset($_POST['save'])) {
+    ?>
+
+      <div id="message1" style="padding: 10px; background-color:aliceblue">
+
+
+        <h2><img src="../Public/images/success-mesaage.png" style="width:25px;  height:25px">Your Profile Details Updated Sucessfully </h2><a href="../wildlifeofficer/viewProfile?lang=1" class="login-btn" style=" border-radius: 10px; padding: 10px 10px; background-color:#056412;  color: white;">View Profile</a>
+      </div>
+    <?php
+
+    }
+    //  }
+    //ss}
+    ?>
+    <div id="message" style="display: none;">
+      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+      <h id="errorMessage"></h>
+    </div>
+
     <div class="contanier_2">
+
 
       <div>
 
         <?php if (isset($data[0]['message'])) {
-          echo $data[0]['message'];
+          // echo $data[0]['message'];
         }
 
         ?>
       </div>
       <div class="contanier_2-1">
         <div class="view_profile">
-          <h3><a href="../wildlifeofficer/viewProfile">Profile</a></h3>
+          <h3><a href="../wildlifeofficer/viewProfile?lang=1">Profile</a></h3>
         </div>
         <div class="edit_profile">
           <h3><a href="#">Edit Profile</a></h3>
         </div>
       </div>
-      <form method="POST" action="../wildlifeofficer/updateProfile">
+      <form method="POST" action="../wildlifeofficer/updateProfile?lang=1">
 
         <div class="row">
           <div class="col_1">First Name</div>

@@ -25,15 +25,15 @@
       </div>
 
       <ul>
-        <li id="home"><a href="../">HOME</a></li>
-        <li id="dashboard"><a href="../wildlifeofficer/viewDashboard">DASHBOARD</a></li>
+        <li id="home"><a href="../lang=1">HOME</a></li>
+        <li id="dashboard"><a href="../wildlifeofficer/viewDashboardlang=1">DASHBOARD</a></li>
         <li>
           <div class="dropdown-1" style="  padding-left:  300px ">
             <button class="dropbtn-1">Language</button>
             <div class="dropdown-content-1">
-              <a href=" ">English</a>
-              <a href=" ">සිංහල</a>
-              <a href=" ">தமிழ்</a>
+              <a href="lang=1">English</a>
+              <a href="lang=2">සිංහල</a>
+              <a href="lang=3">தமிழ்</a>
             </div>
           </div>
         </li>
@@ -53,9 +53,29 @@
   </div>
 
   <body>
+
     <div class="contanier_2">
 
       <div class="contanier_2-1">
+        <?php
+
+        if (isset($_POST['send'])) {
+        ?>
+
+          <div id="message1" style="padding: 10px; background-color:aliceblue">
+
+
+            <h1>Your message sent to the veterinarian Sucessfully</h1>
+
+
+            <a href="../wildlifeofficer/viewIncidents?lang=1" class="login-btn" style=" border-radius: 10px; padding: 10px 10px; background-color:#056412;  color: white;">OK</a>
+          </div>
+        <?php
+
+        }
+        //  }
+        //ss}
+        ?>
 
       </div>
 
@@ -80,7 +100,7 @@
       </div>
       <div class="row_last">
         <div class="col_2_last"><button type='submit' class='backButton' id='view' onclick=''>
-            <a href='../wildlifeofficer/viewIncidents'>BACK</a>
+            <a href='../wildlifeofficer/viewIncidents?lang=1'>BACK</a>
 
         </div>
         <div class="col_2_last"><?php
@@ -91,14 +111,12 @@
                                 }
                                 echo "$stat"; ?>
         </div>
-        <div class="col_2_last">
-          <?php
-          if ($data[0]['status'] == 'pending') {
-            $stat = "<form method='POST' action='../wildlifeofficer/trigerRequest'><input type='text' style='display:none' name='acc' value=" . $data[0]['incidentID'] . "><button class='buttonSend' id='acceptId' value='ACCEPT' name='accept'/>SEND</button></form>";
-          } else {
-            $stat = "<form method='POST' action='../wildlifeofficer/trigerRequest'><input type='text' style='display:none'  name='can' value=" . $data[0]['incidentID'] . "><button class='buttonSent' id='cancelId' value='CANCEl' name='cancel'/>SENT</button></form>";
-          }
-          echo "$stat"; ?> </div>
+        <form method="POST">
+          <div class="save_button">
+
+            <input name="send" class="buttonAccept" type="submit" onclick="" value="SEND" />
+          </div>
+        </form>
 
       </div>
 

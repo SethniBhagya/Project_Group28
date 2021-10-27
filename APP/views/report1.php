@@ -54,10 +54,10 @@
     ?>
             
             <div id="message1" style="padding: 10px; background-color:aliceblue">
-            <!-- <h1>Wildlife Care</h1></br></br> -->
+          
             <img src="../Public/images/success-mesaage.png" style="width:90px;  height:90px">
             <h1>Your Report Incident Submit Sucessfully</h1>
-            <!-- <h>Your Incident Report Submit Sucessfully</h> -->
+            
             
             <a href="../incident/viewReport?type=1&page=2&lang=1"  class="login-btn" style=" border-radius: 10px; padding: 10px 10px; background-color:#056412;  color: white;">View Report</a>
             </div>

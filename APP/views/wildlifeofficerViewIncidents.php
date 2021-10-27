@@ -25,15 +25,15 @@
       </div>
 
       <ul>
-        <li id="home"><a href="../">HOME</a></li>
-        <li id="dashboard"><a href="../wildlifeofficer/viewDashboard">DASHBOARD</a></li>
+        <li id="home"><a href="../?lang=1">HOME</a></li>
+        <li id="dashboard"><a href="../wildlifeofficer/viewDashboard?lang=1">DASHBOARD</a></li>
         <li>
           <div class="dropdown-1" style="  padding-left:  300px ">
             <button class="dropbtn-1">Language</button>
             <div class="dropdown-content-1">
-              <a href=" ">English</a>
-              <a href=" ">සිංහල</a>
-              <a href=" ">தமிழ்</a>
+              <a href="?lang=1">English</a>
+              <a href="?lang=2">සිංහල</a>
+              <a href="?lang=3">தமிழ்</a>
             </div>
           </div>
         </li>
@@ -41,8 +41,8 @@
           <span class="dot">
             <img onclick="myFunction_3()" src="../Public/images/user_icon.png" id="user_icon" class="user_btn" /></span>
           <div id="myDropdown" class="dropdown-content">
-            <a href="../wildlifeofficer/viewProfile">View Profile</a>
-            <a href="../user/index">Logout</a>
+            <a href="../wildlifeofficer/viewProfile?lang=1">View Profile</a>
+            <a href="../user/index?lang=1">Logout</a>
           </div>
         </li>
       </ul>
@@ -58,6 +58,7 @@
     </div> -->
 
   <div class="container_3">
+
     <div class="row1" id="back">
 
       <div class="subcontainer_3-1">
@@ -66,7 +67,7 @@
       <div class="subcontainer_3-2">
 
         <div class="report_catagory">
-          <Form action="../wildlifeofficer/filterUsingReportCatagory" method="POST">
+          <Form action="../wildlifeofficer/filterUsingReportCatagory?lang=1" method="POST">
             <select name="report_catagory" id="filter" onchange="filterFunction()">
               <option class="group-1">Select The Report Catogary</option>
 
@@ -82,12 +83,9 @@
           </Form>
         </div>
 
-
-
-
         <div class="wrap">
           <div class="search">
-            <input type="text" class="searchTerm" placeholder="Search here report number" id="myInput" onkeyup="myFunction()" />
+            <input type="text" class="searchTerm" placeholder="Search here Date" id="myInput" onkeyup="myFunction()" />
             <button type="submit" class="searchButton">
               <i class="fa fa-search">search</i>
 
@@ -135,9 +133,9 @@
             // }
 
             if ($row['status'] == 'pending') {
-              $stat = "<form method='POST' action='../wildlifeofficer/trigerRequest'><input type='text' style='display:none' name='acc' value=" . $row['incidentID'] . "><button class='buttonAccept' id='acceptId' value='ACCEPT' name='accept'/>ACCEPT</button></form>";
+              $stat = "<form method='POST' action='../wildlifeofficer/trigerRequest?lang=1'><input type='text' style='display:none' name='acc' value=" . $row['incidentID'] . "><button class='buttonAccept' id='acceptId' value='ACCEPT' name='accept'/>ACCEPT</button></form>";
             } else {
-              $stat = "<form method='POST' action='../wildlifeofficer/trigerRequest'><input type='text' style='display:none'  name='can' value=" . $row['incidentID'] . "><button class='buttonCancel' id='cancelId' value='CANCEl' name='cancel'/>CANCEL</button></form>";
+              $stat = "<form method='POST' action='../wildlifeofficer/trigerRequest?lang=1'><input type='text' style='display:none'  name='can' value=" . $row['incidentID'] . "><button class='buttonCancel' id='cancelId' value='CANCEl' name='cancel'/>CANCEL</button></form>";
             }
             echo "<tr>
             <td>" . $row['date'] . "</td>
@@ -148,29 +146,23 @@
             <td>" . $row['Place'] . "</td>
             <td>" . $stat . "</td>
             <td><button type='submit' class='viewButton' id='view' onclick='' >
-              <a href='../wildlifeofficer/viewIncidentDetails'>VIEW</a>
+              <a href='../wildlifeofficer/viewIncidentDetails?lang=1'>VIEW</a>
             </button></td>
             
             </tr>
           ";
           }
           ?>
-
-
-
-
-
-
         </table>
       </div>
       <div class="subcontainer_3-1">
 
-        <a href="../wildlifeofficer/">BACK</a>
+        <a href="../wildlifeofficer/?lang=1">BACK</a>
 
       </div>
 
     </div>
-    <div><?php print_r($data) ?></div>
+
 
 </body>
 

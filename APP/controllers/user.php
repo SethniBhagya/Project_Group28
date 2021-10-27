@@ -135,7 +135,7 @@ class user extends Controller
                   $this->view->data = $this->model->selectData($_POST["username"]);
                   //echo $this->data;  
                   // render the villager page  
-                  $this->view->render('villagersPage');
+                  $this->view->render('villagersPagesinhala');
                   break;
                 case "Wildlife Officer":
                   $this->view->render('wildlifeofficer');
@@ -161,7 +161,7 @@ class user extends Controller
                 $this->view->data = $this->model->selectData($_POST["username"]);
                 //echo $this->data;  
                 // render the villager page  
-                $this->view->render('villagersPage');
+                $this->view->render('villagersPagetamil');
                 break;
               case "Wildlife Officer":
                 $this->view->render('wildlifeofficer');
@@ -192,22 +192,50 @@ class user extends Controller
 
     session_start();
     unset($_SESSION["NIC"]);
-    unset($_SESSION["jobtype"]);
+    unset($_SESSION["jobtype"]); 
     session_destroy();
     $this->view->render('login');
   }
 
   public function viewpage()
   {
-
-    switch ($_GET['user']) {
+    session_start();
+    if (isset($_GET['lang'])) {
+      //assign the value
+      $lang = $_GET['lang'];
+    }
+    switch($lang){ 
+      case 1:
+      switch ($_SESSION["jobtype"]) {
       case 'villager':
-        session_start();
+        // session_start();
         $_userNic = $_SESSION["NIC"];
         $this->view->data = $this->model->selectData($_userNic);
 
         $this->view->render('villagersPage');
-    }
+      }
+      break;
+      case 2:
+        switch ($_SESSION["jobtype"]) {
+          case 'villager':
+            // session_start();
+            $_userNic = $_SESSION["NIC"];
+            $this->view->data = $this->model->selectData($_userNic);
+    
+            $this->view->render('villagersPagesinhala');
+          }
+      break;
+      case 3:
+        switch ($_SESSION["jobtype"]) {
+          case 'villager':
+            // session_start();
+            $_userNic = $_SESSION["NIC"];
+            $this->view->data = $this->model->selectData($_userNic);
+    
+            $this->view->render('villagersPagetamil');
+          }
+          break;
+        } 
   }
 
 
@@ -317,6 +345,7 @@ class user extends Controller
   }
   public function viewSpecialNotice()
   {
+    
     if (isset($_GET['lang'])) {
       //assign the value
       $lang = $_GET['lang'];
@@ -329,12 +358,12 @@ class user extends Controller
       case 2:
         //display special Notice     
 
-        $this->view->render('specialNoticeSinhala');
+        $this->view->render('specialNoticesinhala');
         break;
       case 3:
         //display special Notice     
 
-        $this->view->render('specialNoticeTamil');
+        $this->view->render('specialNoticetamil');
         break;
     }
   }
@@ -354,12 +383,12 @@ class user extends Controller
       case 2:
         //display special Notice     
 
-        $this->view->render('editProfileSinhala');
+        $this->view->render('editProfilesinhala');
         break;
       case 3:
         //display special Notice     
 
-        $this->view->render('editProfileTamil');
+        $this->view->render('editProfiletamil');
         break;
     }
     // $this->view->render('editProfile');

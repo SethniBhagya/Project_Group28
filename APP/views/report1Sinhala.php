@@ -8,7 +8,7 @@
     <script src="../Public/javascript/report1.js"></script>
     <link rel="stylesheet" href="../Public/css/report_1.css">
     <script src="../Public/javascript/login1.js"></script>
-    <title>Elephant are in The Elephant</title>
+    <title>අලි ඇතා ඇතා ඇතුලේ</title>
 </head>
 <body>
     <header id="main">

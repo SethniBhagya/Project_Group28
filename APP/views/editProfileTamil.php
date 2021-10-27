@@ -25,7 +25,7 @@
       </div>
 
       <ul>
-      <li id="home_2" style="right:750px"  ><a href="../"  ">முகப்பு பக்கம்</a></li>
+              <li id="home_2" style="right:750px"  ><a href="../"  ">முகப்பு பக்கம்</a></li>
                 <li id="dashboard_1" style="right:600px"  ><a href="../user/viewpage?user=villager" >டாஷ்போர்டு</a></li>
                 <li id="report_2" style="   right:380px" ><a  href="../incident/index?lang=3">சம்பவங்கள் அறிக்கை</a></li>
                 <li id="special_1"style="right:210px"  ><a href="../villager/viewSpecialNotice?lang=3">சிறப்பு அறிவிப்பு</a></li> 
@@ -37,14 +37,14 @@
                         <a href="?lang=3&report=1">தமிழ்</a>
                     </div>
                   </div> 
-                <div class="dropdown-1">
+                <!-- <div class="dropdown-1">
                     <button class="dropbtn-1" style="margin-top:  -50px;">Language</button>
                     <div class="dropdown-content-1">
                       <a href="?lang=1&report=1">English</a>
                         <a href="?lang=2&report=1">සිංහල</a> 
                         <a href="?lang=3&report=1">தமிழ்</a>
                     </div>
-                  </div>
+                  </div> -->
           <span class="dot"  style="margin-right:10px;  margin-top:  10px;"> <img onclick="myFunction_3()" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
           <div id="myDropdown" class="dropdown-content">
                    <a href="../user/editprofile?lang=3">View Profile</a> 

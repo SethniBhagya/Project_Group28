@@ -8,9 +8,9 @@
     <link rel="stylesheet" href="../Public/css/header.css">
     <link rel="stylesheet" href="Public/css/home.css">
 
-    <script src="../Public/javascript/login.js"></script>
+    <script src="../Public/javascript/login2.js"></script>
     <script src="../Public/javascript/villagerRegister.js"></script>
-    <title>Registration Form</title>
+    <title>ලියාපදිංචි කිරීමේ පෝරමය</title>
   </head>
   <body>
      
@@ -35,79 +35,48 @@
               <li class="dropdown">
                   <button onclick="myFunction_2()" class="dropbtn">භාෂාව <i class="down"></i></button>
                   <div id="myDropdown" class="dropdown-content">
-                    <a href="">English</a>
-                    <a href="">සිංහල</a>
-                    <a href="">தமிழ்</a>
+                    <a href="?lang=1">English</a>
+                    <a href="?lang=2">සිංහල</a>
+                    <a href="?lang=3">தமிழ்</a>
                   </div>
               </li>
           </ul>
   </header>
   <?php 
-      
-      if(isset($_POST['submit'])){
-   ?>
-           
-           <div id="message1" style="padding: 10px; background-color:aliceblue">
-           <!-- <h1>Wildlife Care</h1></br></br> -->
-           <img src="../Public/images/success-mesaage.png" style="width:90px;  height:90px">
-           <h1>Your Registration is Sucessfully </h1>
-           <!-- <h>Your Incident Report Submit Sucessfully</h> -->
-           
-           <a href="../incident/viewReport?type=1&page=2&lang=1"  class="login-btn" style=" border-radius: 10px; padding: 10px 10px; background-color:#056412;  color: white;">View Report</a>
-           </div>
-         <?php
-         
-         }
-   //  }
-    //ss}
-    ?>
-       <h id="errorMessage"></h>
-       <div id="message" style="display: none;">
-       <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
-       <!-- <h id="errorMessage"></h> -->
-       </div> 
- <!-- <h id="errorMessage"></h>
-  <div id="reg-messager">
-    <h1>Wildlife Care</h1><br></br>
-    <h>Thank You For Registration</h>
-    <a href=""  class="login-btn">Login</a>
-  </div> -->
-
-  <?php 
-     $division = $this->division;
-   //  print_r($division);
-  ?>
-  <?php 
      $result = $this->data;
+    //  print_r($result);
    //  print_r($this->division);
-     $status = "false"; 
+     $status = false; 
      if(isset($_POST['submit'])){
      foreach ($result as $row){
-         if($_POST['nic'] ==  $row['NIC'] ){  ?>
+         if($_POST['nic'] ==   $row['NIC'] ){ 
+           $status = true;
+           ?>
             
             <div id="message1" style="padding: 10px; background-color:aliceblue">
            <!-- <h1>Wildlife Care</h1></br></br> -->
            <img src="../Public/images/error-icon.png" style="width:90px;  height:90px">
-           <h1>ඔබේ ජාතික හැඳුනුම්පත දැනටමත් ලියාපදිංචි වී ඇත </h1>
+           <h1>ඔබගේ ජාතික හැඳුනුම්පත දැනටමත් ලියාපදිංචි වී ඇත </h1>
            <!-- <h>Your Incident Report Submit Sucessfully</h> -->
            
            <a href="../user/index?lang=1"  class="login-btn" style=" border-radius: 10px; padding: 10px 10px; background-color:#056412;  color: white;">login</a>
            </div>
           <?php
           
-          // }
-    //  }
-     }else{ 
+     
+     }}} ?>
+     <?php  
+     if(isset($_POST['submit'])){
+      
+        if($status ==  false){ 
      ?>
       <div id="message1" style="padding: 10px; background-color:aliceblue">
-           <!-- <h1>Wildlife Care</h1></br></br> -->
+          
            <img src="../Public/images/success-mesaage.png" style="width:90px;  height:90px">
-           <h1>වනජීවී රැකවරණයේ ලියාපදිංචි වීම ගැන ඔබට ස්තුතියි </h1>
-           <!-- <h>Your Incident Report Submit Sucessfully</h> -->
-           
-           <a href="../incident/viewReport?type=1&page=2&lang=1"  class="login-btn" style=" border-radius: 10px; padding: 10px 10px; background-color:#056412;  color: white;">View Report</a>
+           <h1>ලියාපදිංචි වනජීවී සත්කාර කළමනාකරණ පද්ධතියට ස්තූතියි</h1> 
+           <a href="../user/index?lang=1"  class="login-btn" style=" border-radius: 10px; padding: 10px 10px; background-color:#056412;  color: white;">login</a>
            </div>
-       <?php } }  }  ?>
+       <?php } }  ?>
  
   <div class="contanier2">
     <div class="register_header">
@@ -124,14 +93,14 @@
           <label for="fname">මුල් නම</label>
         </td>
       </tr>
-      <tr><td ><input type="text" class="text" id="fname" name="fname" placeholder="  Type your first name" /></td></tr>
+      <tr><td ><input type="text" class="text" id="fname" name="fname" placeholder="ඔබේ මුල් නම ටයිප් කරන්න" /></td></tr>
       <tr>
         <td>
           <label for="lname">අවසන් නම</label>
         </td>
       </tr>
       <tr>
-        <td><input type="text" class="text" id="lname" name="lname" placeholder="  Type your last name"/></td>
+        <td><input type="text" class="text" id="lname" name="lname" placeholder="ඔබගේ අවසාන නම ටයිප් කරන්න"/></td>
       </tr>
       <tr>
         <td><label for="gender">ස්ත්රී පුරුෂ භාවය</label></td>
@@ -192,7 +161,7 @@
             <option value="north central province">
             උතුරු මැද පළාත
             </option>
-            <option value="uva province">Uva Province</option>
+            <option value="uva province">ඌව පළාත</option>
             <option value="sabaragamuwa province">
             සබරගමුව පළාත
             </option>
@@ -200,7 +169,7 @@
         </td>
         <tr>
         <td>
-          <label for="district">District</label>
+          <label for="district">දිසා</label>
         </td>
       </tr>
        
@@ -256,7 +225,7 @@
         </td>
         </tr>
         <tr>
-        <td><input class="text" type="text" id="nic" name="nic" placeholder="  Type your NIC" /></td>
+        <td><input class="text" type="text" id="nic" name="nic" placeholder="ඔබේ ජාතික හැඳුනුම්පත ටයිප් කරන්න" /></td>
       </tr>
       <tr>
         <td>
@@ -264,7 +233,7 @@
         </td>
       </tr>
       <tr>
-        <td><input class="text" type="email" id="email" name="email" placeholder="  Type your email" /></td>
+        <td><input class="text" type="email" id="email" name="email" placeholder="ඔබගේ විද්‍යුත් තැපෑල ටයිප් කරන්න" /></td>
       </tr>
       <tr>
         <td>
@@ -272,14 +241,14 @@
         </td>
       </tr>
       <tr>
-        <td><input class="text" type="tp" id="tp" name="tp" placeholder="  Type your telephone number" /></td>
+        <td><input class="text" type="tp" id="tp" name="tp" placeholder="ඔබගේ දුරකථන අංකය ටයිප් කරන්න" /></td>
       </tr>
       <tr>
         <td>
           <label for="password">රහස් පදය</label>
         </td>
       </tr>
-        <td><input class="text" type="password" id="password" name="password" placeholder="  Type a password for your profile"/></td>
+        <td><input class="text" type="password" id="password" name="password" placeholder="ඔබගේ පැතිකඩ සඳහා මුරපදයක් ටයිප් කරන්න"/></td>
       </tr>
       <tr>
       <tr>
@@ -288,7 +257,7 @@
         </td>
       </tr>
       <tr>
-        <td><input class="text" type="password" id="cpassword" name="cpassword" placeholder="  Reype the password" /></td>
+        <td><input class="text" type="password" id="cpassword" name="cpassword" placeholder="මුරපදය නැවත ලියන්න" /></td>
       </tr>
       <tr>
         <td></td>

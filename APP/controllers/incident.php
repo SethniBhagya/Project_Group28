@@ -116,7 +116,7 @@ class incident extends Controller{
            
             switch ($value) {
 
-                case "1" : $this->view->render('report1Sinhala');
+                case "1" : $this->view->render('report1sinhala');
                 //user submit the form 
                 if(isset($_POST['Submit'])){
                     //call insertReport function in incident_model class 
@@ -131,28 +131,28 @@ class incident extends Controller{
                 }  
                 break;
     
-                case "3" : $this->view->render('report3Sinhala');
+                case "3" : $this->view->render('report3sinhala');
                 //user submit the form
                 if(isset($_POST['Submit'])){
                     //call insertReport function in incident_model class
                     $this->model->insertReport3($_SESSION['NIC'],$_POST['Photo'],$_POST['place'],$_POST['latitude'],$_POST['longitude']);
                 }
                 break;
-                case "4" : $this->view->render('report4Sinhala');
+                case "4" : $this->view->render('report4sinhala');
                 //user submit the form
                 if(isset($_POST['Submit'])){
                     //call insertReport function in incident_model class
                     $this->model->insertReport4($_SESSION['NIC'],$_POST['animal'],$_POST['cultivatedCrop'],$_POST['cultivatedLand'] ,$_POST['Photo'],$_POST['place'],$_POST['damageLand'],$_POST['latitude'],$_POST['longitude']);
                 }
                 break;
-                case "5" : $this->view->render('report5Sinhala');
+                case "5" : $this->view->render('report5sinhala');
                 //user submit the form
                 if(isset($_POST['Submit'])){
                     //call insertReport function in incident_model class
                     $this->model->insertReport5($_SESSION['NIC'],$_POST['animal'],$_POST['noOfanimals'],$_POST['support'],$_POST['discription'],$_POST['Photo'],$_POST['place'],$_POST['latitude'],$_POST['longitude']);
                 }
                 break;
-                case "6" : $this->view->render('report6Sinhala');
+                case "6" : $this->view->render('report6sinhala');
                 if(isset($_POST['Submit'])){
                     //call insertReport function in incident_model class
                     $this->model->insertReport6($_SESSION['NIC'],$_POST['Photo'],$_POST['place'],$_POST['latitude'],$_POST['longitude']);
@@ -164,7 +164,7 @@ class incident extends Controller{
             //Tamil Type    
             switch ($value) {
 
-            case "1" : $this->view->render('report1Tamil');
+            case "1" : $this->view->render('report1tamil');
             //user submit the form 
             if(isset($_POST['Submit'])){
                 //call insertReport function in incident_model class 
@@ -172,7 +172,7 @@ class incident extends Controller{
                   
             } 
             break;
-            case "2" : $this->view->render('report2Tamil');
+            case "2" : $this->view->render('report2tamil');
             //user submit the form 
              if(isset($_POST['Submit'])){
                  //call insertReport function in incident_model class
@@ -180,28 +180,28 @@ class incident extends Controller{
              }  
             break;
 
-            case "3" : $this->view->render('report3Tamil');
+            case "3" : $this->view->render('report3tamil');
             //user submit the form
               if(isset($_POST['Submit'])){
                   //call insertReport function in incident_model class
                   $this->model->insertReport3($_SESSION['NIC'],$_POST['Photo'],$_POST['latitude'],$_POST['longitude']);
               }
             break;
-            case "4" : $this->view->render('report4Tamil');
+            case "4" : $this->view->render('report4tamil');
             //user submit the form
               if(isset($_POST['Submit'])){
                   //call insertReport function in incident_model class
                   $this->model->insertReport4($_SESSION['NIC'],$_POST['animal'],$_POST['cultivatedCrop'],$_POST['cultivatedLand'] ,$_POST['Photo'],$_POST['damageLand'],$_POST['latitude'],$_POST['longitude']);
               }
             break;
-            case "5" : $this->view->render('report5Tamil');
+            case "5" : $this->view->render('report5tamil');
             //user submit the form
               if(isset($_POST['Submit'])){
                   //call insertReport function in incident_model class
                   $this->model->insertReport5($_SESSION['NIC'],$_POST['animal'],$_POST['noOfanimals'],$_POST['support'],$_POST['discription'],$_POST['Photo'],$_POST['latitude'],$_POST['longitude']);
               }
             break;
-            case "6" : $this->view->render('report6Tamil');
+            case "6" : $this->view->render('report6tamil');
             //user submit the form
               if(isset($_POST['Submit'])){
                   //call insertReport function in incident_model class
@@ -271,15 +271,15 @@ class incident extends Controller{
                 switch($type){
                 case 1 :
                 //display villagerReportView1     
-                $this->view->render('villagerReportView1Sinhala');
+                $this->view->render('villagerReportView1sinhala');
                 break;
                 case 2 :
                 //display villagerReportView2
-                $this->view->render('villagerReportView2Sinhala');
+                $this->view->render('villagerReportView2sinhala');
                 break;
                 case 3 :
                 //display villagerReportView3    
-                $this->view->render('villagerReportView3Sinhala');
+                $this->view->render('villagerReportView3sinhala');
                 break;
         
             }
@@ -291,15 +291,15 @@ class incident extends Controller{
           switch($type){
             case 1 :
             //display villagerReportView1     
-            $this->view->render('villagerReportView1Tamil');
+            $this->view->render('villagerReportView1tamil');
             break;
             case 2 :
             //display villagerReportView2
-            $this->view->render('villagerReportView2Tamil');
+            $this->view->render('villagerReportView2tamil');
             break;
             case 3 :
             //display villagerReportView3    
-            $this->view->render('villagerReportView3Tamil');
+            $this->view->render('villagerReportView3tamil');
             break;
     
         }
@@ -325,11 +325,11 @@ class incident extends Controller{
             break;
             case 2 :
             //display villagerReportView2
-            $this->view->render('reportpageSinhala');
+            $this->view->render('reportpagesinhala');
             break;
             case 3 :
             //display villagerReportView3    
-            $this->view->render('reportpageTamil');
+            $this->view->render('reportpagetamil');
             break;
     
         }
