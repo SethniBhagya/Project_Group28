@@ -8,7 +8,7 @@
   height: auto;
   margin-left: 20%;
   margin-right: 20%;
-  margin-top: 70px;
+  margin-top: 140px;
   margin-bottom: 70px;
   padding-bottom: 0%;
   border-radius: 10px;
@@ -225,6 +225,46 @@ input[type="radio"]:checked:after {
   background-color: rgb(210, 228, 216);
   outline: none;
 }
+/* popup message */
+#message1 {
+  position: absolute;
+  height: auto;
+  width: 50%;
+  /* text-align: ; */
+  z-index: 101;
+  left: 22.5%;
+  text-align: center;
+  border-radius: 20px;
+  background-color: #e3e3e3;
+  font-size: 13px;
+}
+#message {
+  position: absolute;
+  padding: 10px;
+  width: 75%;
+  left: 12%;
+
+  background-color: #022b08;
+  color: white;
+  /* text-align: center; */
+  border-radius: 10px;
+}
+
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.closebtn:hover {
+  color: black;
+}
+
 @media screen and (max-width: 900px) {
   .contanier_2 {
     position: relative;

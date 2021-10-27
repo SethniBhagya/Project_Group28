@@ -43,7 +43,7 @@
         <li class="dropdown">
           <span class="dot"> <img onclick="myFunction_3()" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
           <div id="myDropdown" class="dropdown-content">
-            <a href="../wildlifeofficer/viewProfile">View Profile</a>
+            <a href="../wildlifeofficer/viewProfile?lang=1">View Profile</a>
             <a href="">Logout</a>
           </div>
         </li>
@@ -79,7 +79,7 @@
           <h3><a href="#">Profile</a></h3>
         </div>
         <div class="edit_profile">
-          <h3><a href="../wildlifeofficer/editProfile">Edit Profile</a></h3>
+          <h3><a href="../wildlifeofficer/editProfile?lang=1">Edit Profile</a></h3>
         </div>
       </div>
       <div>
@@ -131,7 +131,7 @@
       </div>
       <div class="row1">
 
-        <a href="../wildlifeofficer/">BACK</a>
+        <a href="../wildlifeofficer/?lang=1">BACK</a>
 
       </div>
 

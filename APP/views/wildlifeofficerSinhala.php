@@ -56,14 +56,14 @@
         </b></label>
     </div>
     <div class="main-view">
-        <a href="../wildlifeofficer/viewIncidents">
+        <a href="../wildlifeofficer/viewIncidents?lang=2">
             <button class="report">
                 <h1> වාර්තා වූ </br>සිදුවීම්</h1>
                 <div class="line"><img src="../Public/images/emergency.png"></div>
 
             </button>
         </a>
-        <a href="../wildlifeofficer/viewNotification?lang=1">
+        <a href="../wildlifeofficer/viewNotification?lang=2">
             <button class="specialNotice">
                 <div class="notification"><span class="dot-1"><img src="../Public/images/bell.png" alt="1" srcset=" "></span>
                 </div>

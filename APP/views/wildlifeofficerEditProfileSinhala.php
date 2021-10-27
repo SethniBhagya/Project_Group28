@@ -32,17 +32,17 @@
                     <div class="dropdown-1" style="  padding-left:  300px ">
                         <button class="dropbtn-1">භාෂාව</button>
                         <div class="dropdown-content-1">
-                            <a href=" ">English</a>
-                            <a href=" ">සිංහල</a>
-                            <a href=" ">தமிழ்</a>
+                            <a href="?lang=1">English</a>
+                            <a href="?lang=2">සිංහල</a>
+                            <a href="?lang=3">தமிழ்</a>
                         </div>
                     </div>
                 </li>
                 <li class="dropdown">
                     <span class="dot"> <img onclick="myFunction_3()" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
                     <div id="myDropdown" class="dropdown-content">
-                        <a href="../wildlifeofficer/viewProfile">පරිශීලක පැතිකඩ</a>
-                        <a href="../user/index">ඉවත් වීම</a>
+                        <a href="../wildlifeofficer/viewProfile?lang=2">පරිශීලක පැතිකඩ</a>
+                        <a href="../user/index?lang=2">ඉවත් වීම</a>
                     </div>
                 </li>
             </ul>
@@ -70,13 +70,13 @@
             </div>
             <div class="contanier_2-1">
                 <div class="view_profile">
-                    <h3><a href="../wildlifeofficer/viewProfile">පරිශීලක පැතිකඩ</a></h3>
+                    <h3><a href="../wildlifeofficer/viewProfile?lang=2">පරිශීලක පැතිකඩ</a></h3>
                 </div>
                 <div class="edit_profile">
                     <h3><a href="#">පරිශීලක පැතිකඩ යාවත්කාලීන කිරීම</a></h3>
                 </div>
             </div>
-            <form method="POST" action="../wildlifeofficer/updateProfile">
+            <form method="POST" action="../wildlifeofficer/updateProfile?lang=2">
 
                 <div class="row">
                     <div class="col_1">මුල් නම</div>

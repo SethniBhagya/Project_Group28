@@ -26,23 +26,23 @@
 
             <ul>
 
-                <li id="home"><a href="../">මුල් පිටුව</a></li>
-                <li id="dashboard"><a href="../wildlifeofficer/viewDashboard">දත්ත පුවරුව</a></li>
+                <li id="home"><a href="../?lang=2">මුල් පිටුව</a></li>
+                <li id="dashboard"><a href="../wildlifeofficer/viewDashboard?lang=2">දත්ත පුවරුව</a></li>
                 <li>
                     <div class="dropdown-1" style="  padding-left:  300px ">
                         <button class="dropbtn-1">භාෂාව</button>
                         <div class="dropdown-content-1">
-                            <a href=" ">English</a>
-                            <a href=" ">සිංහල</a>
-                            <a href=" ">தமிழ்</a>
+                            <a href="?lang=1">English</a>
+                            <a href="?lang=2">සිංහල</a>
+                            <a href="?lang=3">தமிழ்</a>
                         </div>
                     </div>
                 </li>
                 <li class="dropdown">
                     <span class="dot"> <img onclick="myFunction_3()" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
                     <div id="myDropdown" class="dropdown-content">
-                        <a href="../wildlifeofficer/viewProfile">පරිශීලක පැතිකඩ</a>
-                        <a href="../user/index">ඉවත් වීම</a>
+                        <a href="../wildlifeofficer/viewProfile?lang=2">පරිශීලක පැතිකඩ</a>
+                        <a href="../user/index?lang=2">ඉවත් වීම</a>
                     </div>
                 </li>
             </ul>

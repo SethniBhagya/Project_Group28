@@ -23,23 +23,23 @@
             </div>
 
             <ul>
-                <li id="home"><a href="../">முகப்பு பக்கம்</a></li>
-                <li id="dashboard"><a href="../wildlifeofficer/viewDashboard">தரவு பலகை</a></li>
+                <li id="home"><a href="../?lang=3">முகப்பு பக்கம்</a></li>
+                <li id="dashboard"><a href="../wildlifeofficer/viewDashboard?lang=3">தரவு பலகை</a></li>
                 <li>
                     <div class="dropdown-1" style="  padding-left:  300px ">
                         <button class="dropbtn-1">மொழி</button>
                         <div class="dropdown-content-1">
-                            <a href=" ">English</a>
-                            <a href=" ">සිංහල</a>
-                            <a href=" ">தமிழ்</a>
+                            <a href="?lang=1">English</a>
+                            <a href="?lang=2">සිංහල</a>
+                            <a href="?lang=3">தமிழ்</a>
                         </div>
                     </div>
                 </li>
                 <li class="dropdown">
                     <span class="dot"> <img onclick="myFunction_2(this)" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
                     <div id="myDropdown" class="dropdown-content">
-                        <a href="../wildlifeofficer/viewProfile">பயனர் சுயவிவரம்</a>
-                        <a href="../user/index">வெளியேறு</a>
+                        <a href="../wildlifeofficer/viewProfile?lang=3">பயனர் சுயவிவரம்</a>
+                        <a href="../user/index?lang=3">வெளியேறு</a>
                     </div>
                 </li>
             </ul>
@@ -56,14 +56,14 @@
         </b></label>
     </div>
     <div class="main-view">
-        <a href="../wildlifeofficer/viewIncidents">
+        <a href="../wildlifeofficer/viewIncidents?lang=3">
             <button class="report">
                 <h1>சம்பவங்கள்</h1>
                 <div class="line"><img src="../Public/images/emergency.png"></div>
 
             </button>
         </a>
-        <a href="404">
+        <a href="../wildlifeofficer/viewNotification?lang=3">
             <button class="specialNotice">
                 <div class="notification"><span class="dot-1"><img src="../Public/images/bell.png" alt="1" srcset=" "></span>
                 </div>
@@ -71,7 +71,7 @@
                 <div class="line"><img src="../Public/images/notifi.png"></div>
             </button>
         </a>
-        <a href="../wildlifeofficer/viewDashboard">
+        <a href="../wildlifeofficer/viewDashboard?lang=3">
             <button class="dashboard">
                 <h1>தரவு பலகை<div class="line"><img src="../Public/images/dashIcon.png"></div>
                 </h1>

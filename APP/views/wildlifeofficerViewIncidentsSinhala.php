@@ -32,17 +32,17 @@
                     <div class="dropdown-1" style="  padding-left:  300px ">
                         <button class="dropbtn-1">භාෂාව</button>
                         <div class="dropdown-content-1">
-                            <a href=" ">English</a>
-                            <a href=" ">සිංහල</a>
-                            <a href=" ">தமிழ்</a>
+                            <a href="?lang=1">English</a>
+                            <a href="?lang=2">සිංහල</a>
+                            <a href="?lang=3">தமிழ்</a>
                         </div>
                     </div>
                 </li>
                 <li class="dropdown">
                     <span class="dot"> <img onclick="myFunction_3()" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
                     <div id="myDropdown" class="dropdown-content">
-                        <a href="../wildlifeofficer/viewProfile">පරිශීලක පැතිකඩ</a>
-                        <a href="../user/index">ඉවත් වීම</a>
+                        <a href="../wildlifeofficer/viewProfile?lang=2">පරිශීලක පැතිකඩ</a>
+                        <a href="../user/index?lang=2">ඉවත් වීම</a>
                     </div>
                 </li>
             </ul>
@@ -66,7 +66,7 @@
             <div class="subcontainer_3-2">
 
                 <div class="report_catagory">
-                    <Form action="../wildlifeofficer/filterUsingReportCatagory" method="POST">
+                    <Form action="../wildlifeofficer/filterUsingReportCatagory?lang=2" method="POST">
                         <select name="report_catagory" id="filter" onchange="filterFunction()">
                             <option class="group-1">වාර්තාව තෝරන්න</option>
 
@@ -142,7 +142,7 @@
             
             <td><input type='button'class='button' value='ACCEPT' name='accept'/></td>
             <td><button type='submit' class='button' id='view' onclick='' >
-              <a href='../wildlifeofficer/viewIncidentDetails'>VIEW</a>
+              <a href='../wildlifeofficer/viewIncidentDetails?lang=2'>VIEW</a>
             </button></td>
             </tr>
           ";
@@ -158,12 +158,12 @@
             </div>
             <div class="subcontainer_3-1">
 
-                <a href="../wildlifeofficer/">ආපසු</a>
+                <a href="../wildlifeofficer/?lang=2">ආපසු</a>
 
             </div>
 
         </div>
-        <div><?php print_r($data) ?></div>
+
 
 </body>
 

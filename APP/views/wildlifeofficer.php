@@ -41,7 +41,7 @@
 
                     <div id="myDropdown" class="dropdown-content">
                         <a href="../wildlifeofficer/viewProfile?lang=1">View Profile</a>
-                        <a href="../user/index">Logout</a>
+                        <a href="../user/index?lang=1">Logout</a>
                     </div>
                 </li>
             </ul>
