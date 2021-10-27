@@ -66,7 +66,7 @@
            <h1>Wild Animal is in Danger</h1></a>
         </button>
         <button class="report-6-6" href="" ><a class="report-6" href="./setIncident?lang=1&report=6"><span class="dot5"><img class="report5" src="../Public/images/illegal.png"></span>
-           <h1>Illegal Happing </h1></a>
+           <h1>Illegal Thing happening in the Forest</h1></a>
         </button>
     </div>
 

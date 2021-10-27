@@ -23,7 +23,7 @@
 
             <ul>
                 <li id="home_2"><a href="../">Home</a></li>
-                <li id="dashboard_1" style=" background-color: rgb(168, 175, 168);"><a href="../user/viewpage?user=villager">Dashboard</a></li>
+                <li id="dashboard_1" style=" background-color: rgb(168, 175, 168);"><a href="../user/viewpage?lang=1">Dashboard</a></li>
                 <li id="report_2"><a a href="../incident/index?lang=1">Report Incidents</a></li>
  
                 <li id="special_1"><a href="../villager/viewSpecialNotice?lang=1">SpecialNotice </a></li> 
@@ -33,9 +33,9 @@
                 <div class="dropdown-1" style="  padding-left:  300px ">
                     <button class="dropbtn-1">Language</button>
                     <div class="dropdown-content-1">
-                        <a href=" ">English</a>
-                        <a href=" ">සිංහල</a>
-                        <a href=" ">தமிழ்</a>
+                        <a href="?lang=1">English</a>
+                        <a href="?lang=2">සිංහල</a>
+                        <a href="?lang=3">தமிழ்</a>
                     </div>
                 </div>
                 <li class="dropdown">

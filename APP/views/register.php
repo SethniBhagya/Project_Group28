@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../Public/css/header.css">
     <link rel="stylesheet" href="Public/css/home.css">
 
-    <script src="../Public/javascript/login.js"></script>
+    <script src="../Public/javascript/login2.js"></script>
     <script src="../Public/javascript/villagerRegister1.js"></script>
     <title>Registration Form</title>
   </head>
@@ -35,43 +35,19 @@
               <li class="dropdown">
                   <button onclick="myFunction_2()" class="dropbtn">Language <i class="down"></i></button>
                   <div id="myDropdown" class="dropdown-content">
-                    <a href="">English</a>
-                    <a href="">සිංහල</a>
-                    <a href="">தமிழ்</a>
+                    <a href="?lang=1">English</a>
+                    <a href="?lang=2">සිංහල</a>
+                    <a href="?lang=3">தமிழ்</a>
                   </div>
               </li>
           </ul>
   </header>
-  <?php 
-      
-      if(isset($_POST['submit'])){
-   ?>
-           
-           <div id="message1" style="padding: 10px; background-color:aliceblue">
-           <!-- <h1>Wildlife Care</h1></br></br> -->
-           <img src="../Public/images/success-mesaage.png" style="width:90px;  height:90px">
-           <h1>Your Registration is Sucessfully </h1>
-           <!-- <h>Your Incident Report Submit Sucessfully</h> -->
-           
-           <a href="../incident/viewReport?type=1&page=2&lang=1"  class="login-btn" style=" border-radius: 10px; padding: 10px 10px; background-color:#056412;  color: white;">View Report</a>
-           </div>
-         <?php
-         
-         }
-   //  }
-    //ss}
-    ?>
-       <h id="errorMessage"></h>
+        <h id="errorMessage"></h>
        <div id="message" style="display: none;">
        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
        <!-- <h id="errorMessage"></h> -->
        </div> 
- <!-- <h id="errorMessage"></h>
-  <div id="reg-messager">
-    <h1>Wildlife Care</h1><br></br>
-    <h>Thank You For Registration</h>
-    <a href=""  class="login-btn">Login</a>
-  </div> -->
+ 
 
   <?php 
      $division = $this->division;
@@ -79,11 +55,14 @@
   ?>
   <?php 
      $result = $this->data;
+    //  print_r($result);
    //  print_r($this->division);
-     $status = "false"; 
+     $status = false; 
      if(isset($_POST['submit'])){
      foreach ($result as $row){
-         if($_POST['nic'] ==  $row['NIC'] ){  ?>
+         if($_POST['nic'] ==   $row['NIC'] ){ 
+           $status = true;
+           ?>
             
             <div id="message1" style="padding: 10px; background-color:aliceblue">
            <!-- <h1>Wildlife Care</h1></br></br> -->
@@ -95,19 +74,20 @@
            </div>
           <?php
           
-          // }
-    //  }
-     }else{ 
+     
+     }}} ?>
+     <?php  
+     if(isset($_POST['submit'])){
+      
+        if($status ==  false){ 
      ?>
       <div id="message1" style="padding: 10px; background-color:aliceblue">
-           <!-- <h1>Wildlife Care</h1></br></br> -->
+          
            <img src="../Public/images/success-mesaage.png" style="width:90px;  height:90px">
-           <h1>Thank You Registration Wildlife Care Management system</h1>
-           <!-- <h>Your Incident Report Submit Sucessfully</h> -->
-           
+           <h1>Thank You Registration Wildlife Care Management system</h1> 
            <a href="../user/index?lang=1"  class="login-btn" style=" border-radius: 10px; padding: 10px 10px; background-color:#056412;  color: white;">login</a>
            </div>
-       <?php } }  }  ?>
+       <?php } }  ?>
  
   <div class="contanier2">
     <div class="register_header">
