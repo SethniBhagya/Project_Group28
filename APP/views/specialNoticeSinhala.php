@@ -22,7 +22,7 @@
             </div>
 
             <ul>
-            <li id="home_2"><a href="../">මුල් පිටුව</a></li>
+            <li id="home_2"><a href="../?lang=2">මුල් පිටුව</a></li>
                 <li id="dashboard_1"   ><a href="../user/viewpage?lang=2" >මුල් පුවරුව</a></li>
                 <li id="report_2" style="   padding-right:20px ; right:345px  "><a href="../incident/index?lang=2"> වර්තා කිරීම</a></li>
                 <li id="special_1" style=" background-color: rgb(168, 175, 168);"s><a href="">විශේෂ දැන්වීම</a></li> 
@@ -60,11 +60,47 @@
             <h3 style="float:right">දිනය 08/08/2021</h3>
             <div class="container-sub-1">
                 <p>
-                    හිතවත් ගම්වාසීනි, <br>gir
+                    හිතවත් ගම්වාසීනි, <br> 
                     මාදිරිය ගම්මානයට පැමිණෙන වන අලියා ඔබේ ගම හරහා පලවා හැරීමෙන් ප්‍රවේශම් වන්න
                 </p>
             </div>
         </div>    
+        <div class="container-2">
+            <h2>
+            අලි වැට සම්බන්ධයෙන්
+            </h2>
+            <h3 style="float:right">දිනය 08/08/2021</h3>
+            <div class="container-sub-1">
+                <p>
+                    හිතවත් ගම්වාසීනි, <br>gir
+                    මාදිරිය ගම්මානයට පැමිණෙන වන අලියා ඔබේ ගම හරහා පලවා හැරීමෙන් ප්‍රවේශම් වන්න
+                </p>
+            </div>
+        </div>   
+        <div class="container-2">
+            <h2>
+            අලි වැට සම්බන්ධයෙන්
+            </h2>
+            <h3 style="float:right">දිනය 08/08/2021</h3>
+            <div class="container-sub-1">
+                <p>
+                    හිතවත් ගම්වාසීනි, <br>gir
+                    මාදිරිය ගම්මානයට පැමිණෙන වන අලියා ඔබේ ගම හරහා පලවා හැරීමෙන් ප්‍රවේශම් වන්න
+                </p>
+            </div>
+        </div>   
+        <div class="container-2">
+            <h2>
+            අලි වැට සම්බන්ධයෙන්
+            </h2>
+            <h3 style="float:right">දිනය 08/08/2021</h3>
+            <div class="container-sub-1">
+                <p>
+                    හිතවත් ගම්වාසීනි, <br>gir
+                    මාදිරිය ගම්මානයට පැමිණෙන වන අලියා ඔබේ ගම හරහා පලවා හැරීමෙන් ප්‍රවේශම් වන්න
+                </p>
+            </div>
+        </div>   
     </div>
 </body>
 </html>

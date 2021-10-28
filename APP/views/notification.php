@@ -66,6 +66,42 @@
                 </p>
             </div>
         </div>    
+        <div class="container-2">
+            <h2>
+                 Regarding Crop Damages
+            </h2>
+            <h3 style="float:right">Date 08/08/2021</h3>
+            <div class="container-sub-1">
+                <p>
+                    Dear Villager , <br>
+                    Come to the Grama Niladhari office to get your compensation
+                </p>
+            </div>
+        </div>    
+        <div class="container-2">
+            <h2>
+                 Regarding Crop Damages
+            </h2>
+            <h3 style="float:right">Date 08/08/2021</h3>
+            <div class="container-sub-1">
+                <p>
+                    Dear Villager , <br>
+                    Come to the Grama Niladhari office to get your compensation
+                </p>
+            </div>
+        </div>    
+        <div class="container-2">
+            <h2>
+                 Regarding Crop Damages
+            </h2>
+            <h3 style="float:right">Date 08/08/2021</h3>
+            <div class="container-sub-1">
+                <p>
+                    Dear Villager , <br>
+                    Come to the Grama Niladhari office to get your compensation
+                </p>
+            </div>
+        </div>    
     </div>
 </body>
 </html>
