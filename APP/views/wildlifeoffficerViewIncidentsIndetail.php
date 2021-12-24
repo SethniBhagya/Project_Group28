@@ -93,9 +93,9 @@
 
       </div>
       <div class="row">
-        <div class="col_1"><?php echo $data[2]['description']  ?></div>
-        <div class="col_2">Report_Number - <?php echo $data[2]['incidentID']  ?></div>
-        <div class="col_2">Date - <?php echo $data[2]['date']  ?>
+        <div class="col_1"><?php echo $data[$_GET['index']]['description']  ?></div>
+        <div class="col_2">Report_Number - <?php echo $data[$_GET['index']]['incidentID']  ?></div>
+        <div class="col_2">Date - <?php echo $data[$_GET['index']]['date']  ?>
         </div>
       </div>
       <div class="row_last">
@@ -103,11 +103,13 @@
             <a href='../wildlifeofficer/viewIncidents?lang=1'>BACK</a>
 
         </div>
+
+
         <div class="col_2_last"><?php
-                                if ($data[0]['status'] == 'pending') {
-                                  $stat = "<form method='POST' action='../wildlifeofficer/trigerRequest'><input type='text' style='display:none' name='acc' value=" . $data[2]['incidentID'] . "><button class='buttonAccept' id='acceptId' value='ACCEPT' name='accept'/>ACCEPT</button></form>";
+                                if ($data[$_GET['index']]['status'] == 'pending') {
+                                  $stat = "<form method='POST' action='../wildlifeofficer/trigerRequest'><input type='text' style='display:none' name='acc' value=" . $data[$_GET['index']]['incidentID'] . "><button class='buttonAccept' id='acceptId' value='ACCEPT' name='accept'/>ACCEPT</button></form>";
                                 } else {
-                                  $stat = "<form method='POST' action='../wildlifeofficer/trigerRequest'><input type='text' style='display:none'  name='can' value=" . $data[2]['incidentID'] . "><button class='buttonCancel' id='cancelId' value='CANCEl' name='cancel'/>CANCEL</button></form>";
+                                  $stat = "<form method='POST' action='../wildlifeofficer/trigerRequest'><input type='text' style='display:none'  name='can' value=" . $data[$_GET['index']]['incidentID'] . "><button class='buttonCancel' id='cancelId' value='CANCEl' name='cancel'/>CANCEL</button></form>";
                                 }
                                 echo "$stat"; ?>
         </div>

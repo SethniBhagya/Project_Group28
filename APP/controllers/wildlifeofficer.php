@@ -295,16 +295,20 @@ class wildlifeofficer extends user
     //when tap the accept button or cancel button
     public function trigerRequest()
     {
+        session_start();
+        $nic = $_SESSION["NIC"];
         if (isset($_POST['accept'])) {
             $id = trim($_POST['acc']);
-            $result = $this->model->incidentStatUpdate("success", $id);
+
+            $result = $this->model->incidentStatUpdate("success", $id, $nic);
 
             $this->view->data = $this->model->selectIncidentData();
             $this->view->render('wildlifeofficerViewIncidents', $this->view->data);
         }
         if (isset($_POST['cancel'])) {
+            $nic = "";
             $id = trim($_POST['can']);
-            $result = $this->model->incidentStatUpdate("pending", $id);
+            $result = $this->model->incidentStatUpdate("pending", $id, $nic);
 
             $this->view->data = $this->model->selectIncidentData();
             $this->view->render('wildlifeofficerViewIncidents', $this->view->data);

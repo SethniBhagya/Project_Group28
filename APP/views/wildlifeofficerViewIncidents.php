@@ -110,6 +110,8 @@
 
           </tr>
           <?php
+
+          $count = 0;
           foreach ($data as $row) {
             // switch ($data['reporttype']) {
             //   case 'Other Wild Animals in The Village':
@@ -146,11 +148,12 @@
             <td>" . $row['Place'] . "</td>
             <td>" . $stat . "</td>
             <td><button type='submit' class='viewButton' id='view' onclick='' >
-              <a href='../wildlifeofficer/viewIncidentDetails?lang=1'>VIEW</a>
+              <a href='../wildlifeofficer/viewIncidentDetails?lang=1&index=" . $count . "'>VIEW</a>
             </button></td>
             
             </tr>
           ";
+            $count += 1;
           }
           ?>
         </table>
@@ -159,8 +162,8 @@
 
         <a href="../wildlifeofficer/?lang=1">BACK</a>
 
-
       </div>
+      <div></div>
 
     </div>
 
