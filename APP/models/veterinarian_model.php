@@ -15,11 +15,31 @@ class veterinarian_model extends Model
 
         return $details;
     }
-    function selectIncidentData()
+    function selectIncidentDataEx()
     {
-        $details = $this->db->runQuery("SELECT * from reported_incident");
+        $details = $this->db->runQuery("SELECT * from reported_incident WHERE sendToVetStatus= 'visible'");
 
         return $details;
+    }
+    function selectIncidentData()
+    {
+        $details = $this->db->runQuery("SELECT * from reported_incident WHERE sendToVetStatus= 'visible'");
+        $joindetails = $this->db->runQuery("SELECT work.wildlife_NIC,work.incidentID,reported_incident.status,user.Fname,user.Lname FROM reported_incident INNER JOIN work ON reported_incident.incidentID= work.incidentID INNER JOIN user ON user.NIC=work.wildlife_NIC");
+        // print_r($joindetails);
+        return [$details, $joindetails];
+    }
+    public function incidentStatUpdate($state, $ID, $nic)
+    {
+        if ($state == 'success') {
+            $stmt2 = "UPDATE reported_incident SET vetStatus='$state' WHERE incidentID='$ID'; UPDATE work SET vet_NIC='$nic' WHERE incidentID='$ID'";
+        } else {
+            $stmt2 = "UPDATE reported_incident SET vetStatus='$state' WHERE incidentID='$ID'; UPDATE work SET vet_NIC='$nic' WHERE incidentID='$ID'";
+        }
+
+
+        $result1 = $this->db->runQuery($stmt2);
+
+        return $result1;
     }
     function updateData($userName, $data)
     {

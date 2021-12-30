@@ -115,9 +115,9 @@ class veterinarian extends user
     // view Incidents indetail function to view full details of a reported incident.
     public function viewIncidentDetails()
     {
-        // session_start();
-        // $this->view->data=$this->model->selectData($_SESSION["NIC"]);
-        $this->view->render('veterinarian_view_incidents_indetail');
+        session_start();
+        $this->view->data = $this->model->selectIncidentData();
+        $this->view->render('veterinarian_view_incidents_indetail', $this->view->data);
     }
     //filter incidents using report catagory in view reported incidents page.
     public function filterUsingReportCatagory()
@@ -136,19 +136,24 @@ class veterinarian extends user
     }
     public function trigerRequest()
     {
+        session_start();
+
+        $nic = $_SESSION["NIC"];
         if (isset($_POST['accept'])) {
             $id = trim($_POST['acc']);
-            $result = $this->model->incidentStatUpdate("success", $id);
+
+            $result = $this->model->incidentStatUpdate("success", $id, $nic);
 
             $this->view->data = $this->model->selectIncidentData();
-            $this->view->render('wildlifeofficerViewIncidents', $this->view->data);
+            $this->view->render('veterinarian_view_incidents', $this->view->data);
         }
         if (isset($_POST['cancel'])) {
+            $nic = "w";
             $id = trim($_POST['can']);
-            $result = $this->model->incidentStatUpdate("pending", $id);
+            $result = $this->model->incidentStatUpdate("pending", $id, $nic);
 
             $this->view->data = $this->model->selectIncidentData();
-            $this->view->render('veterinarianViewIncidents', $this->view->data);
+            $this->view->render('veterinarian_view_incidents', $this->view->data);
         }
     }
     function viewNotification()

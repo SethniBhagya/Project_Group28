@@ -306,6 +306,8 @@ class wildlifeofficer extends user
             $this->view->render('wildlifeofficerViewIncidents', $this->view->data);
         }
         if (isset($_POST['cancel'])) {
+
+
             $nic = "";
             $id = trim($_POST['can']);
             $result = $this->model->incidentStatUpdate("pending", $id, $nic);
@@ -336,6 +338,17 @@ class wildlifeofficer extends user
                 //display profile page   
                 $this->view->render('wildlifeofficerNotifications');
                 break;
+        }
+    }
+    function sendToVet()
+    {
+        if (isset($_POST['send'])) {
+            $id = trim($_GET['id']);
+
+            $result = $this->model->sendToVetData($id);
+
+            $this->view->data = $this->model->selectIncidentData();
+            $this->view->render('wildlifeofficerViewIncidents', $this->view->data);
         }
     }
 }

@@ -55,6 +55,7 @@
     <body>
         <div class="contanier_2">
 
+
             <div class="contanier_2-1">
                 <?php
 
@@ -83,18 +84,17 @@
                 <div class="col_1_first">
                     <div class="row_in_firstrow">
                         <div class="col_1_first"><img src="../Public/images/user_icon4-01.png" class="image"></div>
+
                         <div class="col_2_first"> <br>User_ID : W001</div>
                     </div>
                 </div>
-                <div class="col_2_first">Name : S.Disanayaka </div>
-
-
-
+                <div class="col_2_first">Accepted Wildlifeofficer :<br> <?php echo $_GET['name'] ?> </div>
             </div>
             <div class="row">
-                <div class="col_1">Wild Animal In danger</div>
-                <div class="col_2">Report_Number-3</div>
-                <div class="col_2">Date - 2021/09/10
+
+                <div class="col_1"><?php echo $data[0][$_GET['index']]['description']  ?></div>
+                <div class="col_2">Report_Number - <?php echo $data[0][$_GET['index']]['incidentID']  ?></div>
+                <div class="col_2">Date - <?php echo $data[0][$_GET['index']]['date']  ?>
                 </div>
             </div>
             <div class="row_last">
@@ -103,12 +103,23 @@
 
                 </div>
 
-                <form method="POST">
-                    <div class="save_button">
 
-                        <input name="send" class='backButton' type="submit" onclick="" value="ACCEPT" />
-                    </div>
-                </form>
+                <div class="save_button">
+                    <?php
+                    if ($data[0][$_GET['index']]['vetStatus'] == 'pending') {
+
+                        echo "<form method='POST' action='../veterinarian/trigerRequest?lang=1'><input type='text' style='display:none' name='acc' value=" . $data[0][$_GET['index']]['incidentID'] . "><button class='buttonAccept' id='acceptId' value='ACCEPT' name='accept'/>ACCEPT</button></form>";
+                    } else {
+                        echo "<form method='POST' action='../veterinarian/trigerRequest?lang=1'><input type='text' style='display:none'  name='can' value=" . $data[0][$_GET['index']]['incidentID'] . "><button class='buttonCancel' id='cancelId' value='CANCEl' name='cancel'/>CANCEL</button></form>";
+                    }
+
+
+                    ?>
+
+
+
+                </div>
+
 
 
 
@@ -129,7 +140,6 @@
             <div class="last">
 
             </div>
-
 
 
 

@@ -110,8 +110,17 @@
                         <th></th>
 
                     </tr>
+
                     <?php
-                    foreach ($data as $row) {
+
+                    $count = 0;
+                    foreach ($data[0] as $row) {
+                        $d = "";
+                        foreach ($data[1] as $r) {
+                            if ($r['incidentID'] == $row['incidentID']) {
+                                $d = $r['Fname'] . " " . $r['Lname'];
+                            }
+                        }
                         // switch ($data['reporttype']) {
                         //   case 'Other Wild Animals in The Village':
                         //     $row['reporttype'] = 2;
@@ -132,28 +141,31 @@
                         //     $row['reporttype'] = 1;
                         //     break;
                         // }
+                        if ($row['vetStatus'] == 'pending') {
+                            $stat = "<form method='POST' action='../veterinarian/trigerRequest?lang=1'><input type='text' style='display:none' name='acc' value=" . $row['incidentID'] . "><button class='buttonAccept' id='acceptId' value='ACCEPT' name='accept'/>ACCEPT</button></form>";
+                        } else {
+                            $stat = "<form method='POST' action='../veterinarian/trigerRequest?lang=1'><input type='text' style='display:none'  name='can' value=" . $row['incidentID'] . "><button class='buttonCancel' id='cancelId' value='CANCEl' name='cancel'/>CANCEL</button></form>";
+                        }
 
-                        // if ($row['status'] == 'pending') {
-                        //     $stat = "<form method='POST' action='../wildlifeofficer/trigerRequest'><input type='text' style='display:none' name='acc' value=" . $row['incidentID'] . "><button class='buttonAccept' id='acceptId' value='ACCEPT' name='accept'/>ACCEPT</button></form>";
-                        // } else {
-                        //     $stat = "<form method='POST' action='../wildlifeofficer/trigerRequest'><input type='text' style='display:none'  name='can' value=" . $row['incidentID'] . "><button class='buttonCancel' id='cancelId' value='CANCEl' name='cancel'/>CANCEL</button></form>";
-                        // }
+
                         echo "<tr>
-            <td>" . $row['date'] . "</td>
-            <td>" . $row['incidentID'] . "</td>
-            
-            <td>Saman Perera</td>
-            <td>" . $row['reporttype'] . "</td>
-            <td>" . $row['Place'] . "</td>
-            
-            <td><button type='submit' class='viewButton' id='view' onclick='' >
-              <a href='../veterinarian/viewIncidentDetails'>VIEW</a>
-            </button></td>
-            
-            </tr>
-          ";
+                                <td>" . $row['date'] . "</td>
+                                <td>" . $row['incidentID'] . "</td>
+  
+                                <td>" . $d . "</td>
+                                <td>" . $row['reporttype'] . "</td>
+                                <td>" . $row['Place'] . "</td>
+                                <td>" . $stat . "</td>
+                                <td><button type='submit' class='viewButton' id='view' onclick='' >
+                                     <a href='../veterinarian/viewIncidentDetails?name=" . $d . "&lang=1&index=" . $count . "'>VIEW</a>
+                                    </button></td>
+                            </tr>";
+                        $count += 1;
                     }
                     ?>
+
+
+
 
 
 
@@ -167,9 +179,9 @@
                 <a href="../veterinarian/">BACK</a>
 
             </div>
-
+            <?php print_r($data) ?>
         </div>
-        <!-- <div><?php print_r($data) ?></div> -->
+        <!-- <div></div> -->
 
 </body>
 

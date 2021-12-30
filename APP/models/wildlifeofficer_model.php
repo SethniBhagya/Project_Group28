@@ -18,9 +18,18 @@ class Wildlifeofficer_model extends Model
 	function selectIncidentData()
 	{
 		$details = $this->db->runQuery("SELECT * from reported_incident order by date desc");
+		$joindetails = $this->db->runQuery("SELECT work.wildlife_NIC,work.incidentID,reported_incident.status,user.Fname,user.Lname FROM reported_incident INNER JOIN work ON reported_incident.incidentID= work.incidentID INNER JOIN user ON user.NIC=work.wildlife_NIC");
+		// print_r($joindetails);
+		return [$details, $joindetails];
+	}
+	public function selectIncidentDataEx()
+	{
+		$details = $this->db->runQuery("SELECT * from reported_incident order by date desc");
+
 
 		return $details;
 	}
+
 	function updateData($userName, $data)
 	{
 
@@ -55,7 +64,20 @@ class Wildlifeofficer_model extends Model
 
 	public function incidentStatUpdate($state, $ID, $nic)
 	{
-		$stmt2 = "UPDATE reported_incident SET status='$state', accepted_wild_officer='$nic' WHERE incidentID='$ID'";
+		if ($state == 'success') {
+			$stmt2 = "UPDATE reported_incident SET status='$state' WHERE incidentID='$ID'; INSERT INTO work (wildlife_NIC,incidentID) VALUES('$nic','$ID')";
+		} else {
+			$stmt2 = "UPDATE reported_incident SET status='$state' WHERE incidentID='$ID'; DELETE FROM work WHERE incidentID='$ID' ";
+		}
+
+
+		$result1 = $this->db->runQuery($stmt2);
+
+		return $result1;
+	}
+	public function sendToVetData($ID)
+	{
+		$stmt2 = "UPDATE reported_incident SET sendToVetStatus='visible' WHERE incidentID='$ID'";
 		$result = $this->db->runQuery($stmt2);
 		return $result;
 	}

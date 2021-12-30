@@ -112,7 +112,7 @@
           <?php
 
           $count = 0;
-          foreach ($data as $row) {
+          foreach ($data[0] as $row) {
             // switch ($data['reporttype']) {
             //   case 'Other Wild Animals in The Village':
             //     $row['reporttype'] = 2;
@@ -133,7 +133,12 @@
             //     $row['reporttype'] = 1;
             //     break;
             // }
-
+            $d = "";
+            foreach ($data[1] as $r) {
+              if ($r['incidentID'] == $row['incidentID']) {
+                $d = $r['Fname'] . " " . $r['Lname'];
+              }
+            }
             if ($row['status'] == 'pending') {
               $stat = "<form method='POST' action='../wildlifeofficer/trigerRequest?lang=1'><input type='text' style='display:none' name='acc' value=" . $row['incidentID'] . "><button class='buttonAccept' id='acceptId' value='ACCEPT' name='accept'/>ACCEPT</button></form>";
             } else {
@@ -143,12 +148,12 @@
             <td>" . $row['date'] . "</td>
             <td>" . $row['incidentID'] . "</td>
             
-            <td>Saman Perera</td>
+            <td>" . $d . "</td>
             <td>" . $row['reporttype'] . "</td>
             <td>" . $row['Place'] . "</td>
             <td>" . $stat . "</td>
             <td><button type='submit' class='viewButton' id='view' onclick='' >
-              <a href='../wildlifeofficer/viewIncidentDetails?lang=1&index=" . $count . "'>VIEW</a>
+              <a href='../wildlifeofficer/viewIncidentDetails?name=" . $d . "&lang=1&index=" . $count . "'>VIEW</a>
             </button></td>
             
             </tr>

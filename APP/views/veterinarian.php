@@ -40,7 +40,7 @@
                     <span class="dot"> <img onclick="myFunction_2(this)" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
                     <div id="myDropdown" class="dropdown-content">
                         <a href="../veterinarian/viewProfile">View Profile</a>
-                        <a href="../user/index">Logout</a>
+                        <a href="../user/logout?lang=1">Logout</a>
                     </div>
                 </li>
             </ul>
