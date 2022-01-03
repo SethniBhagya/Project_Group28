@@ -66,6 +66,43 @@ a:visited {
 #home {
   position: absolute;
   top: 20px;
+  right: 745px;
+  text-align: center;
+}
+
+#userPage {
+  position: absolute;
+  top: 20px;
+  right: 630px;
+  text-align: center;
+}
+#userPageSinhala {
+  position: absolute;
+  top: 20px;
+  right: 610px;
+  text-align: center;
+}
+#incidents {
+  position: absolute;
+  top: 20px;
+  right: 525px;
+  text-align: center;
+}
+#incidentsSinhala {
+  position: absolute;
+  top: 20px;
+  right: 470px;
+  text-align: center;
+}
+#incidentsTamil {
+  position: absolute;
+  top: 20px;
+  right: 490px;
+  text-align: center;
+}
+#notifications {
+  position: absolute;
+  top: 20px;
   right: 375px;
   text-align: center;
 }

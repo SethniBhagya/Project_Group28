@@ -27,6 +27,9 @@
 
       <ul>
         <li id="home"><a href="../?lang=1">HOME</a></li>
+        <li id="userPage"><a href="../wildlifeofficer/?lang=1">USER PAGE</a></li>
+        <li id="incidents"><a href="../wildlifeofficer/viewIncidents?lang=1">INCIDENTS</a></li>
+        <li id="notifications"><a href="../wildlifeofficer/viewNotification?lang=1">NOTIFICATIONS</a></li>
         <li id="dashboard"><a href="../wildlifeofficer/viewDashboard?lang=1">DASHBOARD</a></li>
         <li>
           <div class="dropdown-1" style="  padding-left:  300px ">

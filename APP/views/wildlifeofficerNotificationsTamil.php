@@ -4,12 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="../Public/css/wildlifeofficerHeader.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../Public/css/wildlifeofficerView.css" type="text/css">
-    <link rel="stylesheet" href="../Public/css/wildlifeofficerHeader.css" type="text/css">
-    <script src="../Public/javascript/login.js"></script>
-    <script src="../Public/javascript/wildlifeofficer.js"></script>
-    <title>WildlifeCare</title>
+    <link rel="stylesheet" href="../Public/css/wildlifeofficerNotifications.css">
+
+    <script src="../Public/Javascript/login.js"></script>
+
+    <title>Notifications</title>
 </head>
 
 <body>
@@ -48,44 +49,27 @@
             </ul>
         </nav>
     </header>
-    <div class="name">
+    <div class="container-1">
+        <h1>Notifications</h1>
+        <div class="container-2">
+            <h2>
+                Regarding Crop Damages
+            </h2>
+            <h3 style="float:right">Date 08/08/2021</h3>
+            <div class="container-sub-1">
+                <p>
+                    Alert!<br>
+                <p>wild elephant in the village!</p>
+                <br>
+                </p>
+            </div>
 
-        <span class="dot2"><img src="../Public/images/user_icon.png" id="user-icon2"></span><b>
-            <?php
-            if (session_status() === PHP_SESSION_NONE) {
-                session_start();
-            }
-            echo $_SESSION["Fname"] . " " . $_SESSION["Lname"] ?>
-        </b></label>
+        </div>
+        <!-- <div class="col_2_last"><button type='submit' class='backButton' id='view' onclick=''>
+                <a href='../wildlifeofficer/index?lang=1'>BACK</a>
+
+        </div> -->
     </div>
-    <div class="main-view">
-        <a href="../wildlifeofficer/viewIncidents?lang=3">
-            <button class="report">
-                <h1>சம்பவங்கள்</h1>
-                <div class="line"><img src="../Public/images/emergency.png"></div>
-
-            </button>
-        </a>
-        <a href="../wildlifeofficer/viewNotification?lang=3">
-            <button class="specialNotice">
-                <div class="notification"><span class="dot-1"><img src="../Public/images/bell.png" alt="1" srcset=" "></span>
-                </div>
-                <h1>அவசர<br>அறிவிப்புகள்</h1>
-                <div class="line"><img src="../Public/images/notifi.png"></div>
-            </button>
-        </a>
-        <a href="../wildlifeofficer/viewDashboard?lang=3">
-            <button class="dashboard">
-                <h1>தரவு பலகை<div class="line"><img src="../Public/images/dashIcon.png"></div>
-                </h1>
-            </button>
-        </a>
-    </div>
-    <!-- <button class="View-Report">
-        <h2>View Reported Incidents</h2>
-    </button> -->
-    <!-- <div><img scr="../Public/images/Untitled-1-01.png"></div> -->
-
 </body>
 
 </html>

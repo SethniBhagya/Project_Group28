@@ -332,11 +332,11 @@ class wildlifeofficer extends user
                 break;
             case 2:
                 //display profile page  
-                $this->view->render('wildlifeofficerNotifications');
+                $this->view->render('wildlifeofficerNotificationsSinhala');
                 break;
             case 3:
                 //display profile page   
-                $this->view->render('wildlifeofficerNotifications');
+                $this->view->render('wildlifeofficerNotificationsTamil');
                 break;
         }
     }

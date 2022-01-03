@@ -25,14 +25,17 @@
 
             <ul>
                 <li id="home"><a href="../">HOME</a></li>
+                <li id="userPage"><a href="../veterinarian">USER PAGE</a></li>
+                <li id="incidents"><a href="../veterinarian/viewIncidents">INCIDENTS</a></li>
+                <li id="notifications"><a href="../veterinarian/viewNotification?lang=1">NOTIFICATIONS</a></li>
                 <li id="dashboard"><a href="../veterinarian/viewDashboard">DASHBOARD</a></li>
                 <li>
                     <div class="dropdown-1" style="  padding-left:  300px ">
                         <button class="dropbtn-1">Language</button>
                         <div class="dropdown-content-1">
-                            <a href="../wildlifeofficer/index?lang=1 ">English</a>
-                            <a href=" ../wildlifeofficer/index?lang=2">සිංහල</a>
-                            <a href=" ">தமிழ்</a>
+                            <a href="../veterinarian/index?lang=1 ">English</a>
+                            <a href="../veterinarian/index?lang=2">සිංහල</a>
+                            <a href="../veterinarian/index?lang=3">தமிழ்</a>
                         </div>
                     </div>
                 </li>

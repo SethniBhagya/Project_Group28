@@ -24,14 +24,14 @@
             </div>
 
             <ul>
-                <li id="home"><a href="../?lang=1">HOME</a></li>
-                <li id="userPage"><a href="../wildlifeofficer/?lang=1">USER PAGE</a></li>
-                <li id="incidents"><a href="../wildlifeofficer/viewIncidents?lang=1">INCIDENTS</a></li>
-                <li id="notifications"><a href="../wildlifeofficer/viewNotification?lang=1">NOTIFICATIONS</a></li>
-                <li id="dashboard"><a href="../wildlifeofficer/viewDashboard?lang=1">DASHBOARD</a></li>
+                <li id="home"><a href="../?lang=2">මුල් පිටුව</a></li>
+                <li id="userPageSinhala"><a href="../wildlifeofficer/?lang=2"> &nbsp; පරිශීලක පිටුව </a></li>
+                <li id="incidentsSinhala"><a href="../wildlifeofficer/viewIncidents?lang=2"> &emsp; වාර්තා වූ සිදුවීම්</a></li>
+                <li id="notifications"><a href="../wildlifeofficer/viewNotification?lang=2">දැනුම්දීම්</a></li>
+                <li id="dashboard"><a href="../wildlifeofficer/viewDashboard?lang=2">දත්ත පුවරුව</a></li>
                 <li>
                     <div class="dropdown-1" style="  padding-left:  300px ">
-                        <button class="dropbtn-1">Language</button>
+                        <button class="dropbtn-1">භාෂාව</button>
                         <div class="dropdown-content-1">
                             <a href="?lang=1">English</a>
                             <a href="?lang=2">සිංහල</a>
@@ -40,10 +40,10 @@
                     </div>
                 </li>
                 <li class="dropdown">
-                    <span class="dot"> <img onclick="myFunction_3()" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
+                    <span class="dot"> <img onclick="myFunction_2(this)" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
                     <div id="myDropdown" class="dropdown-content">
-                        <a href="">View Profile</a>
-                        <a href="">Logout</a>
+                        <a href="../wildlifeofficer/viewProfile?lang=2">පරිශීලක පැතිකඩ</a>
+                        <a href="../user/index">ඉවත් වීම</a>
                     </div>
                 </li>
             </ul>

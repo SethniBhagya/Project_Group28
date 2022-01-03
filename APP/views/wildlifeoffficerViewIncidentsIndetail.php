@@ -26,6 +26,9 @@
 
       <ul>
         <li id="home"><a href="../lang=1">HOME</a></li>
+        <li id="userPage"><a href="../wildlifeofficer/?lang=1">USER PAGE</a></li>
+        <li id="incidents"><a href="../wildlifeofficer/viewIncidents?lang=1">INCIDENTS</a></li>
+        <li id="notifications"><a href="../wildlifeofficer/viewNotification?lang=1">NOTIFICATIONS</a></li>
         <li id="dashboard"><a href="../wildlifeofficer/viewDashboardlang=1">DASHBOARD</a></li>
         <li>
           <div class="dropdown-1" style="  padding-left:  300px ">
@@ -70,7 +73,7 @@
             <div class="col_2_first"> <br>User_ID : W001</div>
           </div>
         </div>
-        <div class="col_2_first">Accepted Wildlifeofficer :<br> <?php echo $_GET['name'] ?>
+        <div class="col_2_first"><b>Accepted Wildlifeofficer :</b><br> <?php echo $_GET['name'] ?>
         </div>
       </div>
       <div class="row">
@@ -81,9 +84,9 @@
         </div>
       </div>
       <div class="row_last">
-        <div class="col_2_last"><button type='submit' class='backButton' id='view' onclick=''>
+        <!-- <div class="col_2_last"><button type='submit' class='backButton' id='view' onclick=''>
             <a href='../wildlifeofficer/viewIncidents?lang=1'>BACK</a>
-        </div>
+        </div> -->
         <div class="col_2_last"><?php
                                 if ($data[0][$_GET['index']]['status'] == 'pending') {
                                   $stat = "<form method='POST' action='../wildlifeofficer/trigerRequest'><input type='text' style='display:none' name='acc' value=" . $data[0][$_GET['index']]['incidentID'] . "><button class='buttonAccept' id='acceptId' value='ACCEPT' name='accept'/>ACCEPT</button></form>";
@@ -91,8 +94,11 @@
                                   $stat = "<form method='POST' action='../wildlifeofficer/trigerRequest'><input type='text' style='display:none'  name='can' value=" . $data[0][$_GET['index']]['incidentID'] . "><button class='buttonCancel' id='cancelId' value='CANCEl' name='cancel'/>CANCEL</button></form>";
                                 }
                                 ?>
+          <br>
+          Send Incident To the Veterinarian?
         </div>
         <form method="POST" action=<?php echo "../wildlifeofficer/sendToVet?id=" . $data[0][$_GET['index']]['incidentID'] ?>>
+
           <div class="save_button">
             <input name="send" class="buttonAccept" type="submit" onclick="" value="SEND" />
           </div>
