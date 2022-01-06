@@ -25,7 +25,7 @@
 
             <ul>
                 <li id="home"><a href="../">HOME</a></li>
-                <li id="userPage"><a href="../veterinarian?lang=1">USER PAGE</a></li>
+                <li id="userPage"><a href="../veterinarian/?lang=1">USER PAGE</a></li>
                 <li id="incidents"><a href="../veterinarian/viewIncidents?lang=1">INCIDENTS</a></li>
                 <li id="notifications"><a href="../veterinarian/viewNotification?lang=1">NOTIFICATIONS</a></li>
                 <li id="dashboard"><a href="../veterinarian/viewDashboard?lang=1">DASHBOARD</a></li>

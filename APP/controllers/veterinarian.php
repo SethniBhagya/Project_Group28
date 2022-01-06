@@ -38,25 +38,65 @@ class veterinarian extends user
     // view profile function to view profile of wildlife officer
     public function viewProfile()
     {
+        if (isset($_GET['lang'])) {
+            //assign the value
+            $lang = $_GET['lang'];
+        }
         session_start();
         $this->view->data = $this->model->selectData($_SESSION["NIC"]);
 
-        $this->view->render('veterinarianViewProfile', $this->view->data);
+        switch ($lang) {
+            case 1:
+                //display profile page     
+                $this->view->render('veterinarianViewProfile', $this->view->data);
+                break;
+            case 2:
+                //display profile page  
+                $this->view->render('veterinarianViewProfileSinhala', $this->view->data);
+                break;
+            case 3:
+                //display profile page   
+                $this->view->render('veterinarianViewProfileTamil', $this->view->data);
+                break;
+        }
     }
     // Edit profile function to view edit profile page of wildlife officer
     public function editProfile()
     {
+        if (isset($_GET['lang'])) {
+            //assign the value
+            $lang = $_GET['lang'];
+        }
         session_start();
         $this->view->data = $this->model->selectData($_SESSION["NIC"]);
 
-        $this->view->render('veterinarianEditProfile', $this->view->data);
+        switch ($lang) {
+            case 1:
+                //display profile page     
+                $this->view->render('veterinarianEditProfile', $this->view->data);
+                break;
+            case 2:
+                //display profile page  
+                $this->view->render('veterinarianEditProfileSinhala', $this->view->data);
+                break;
+            case 3:
+                //display profile page   
+                $this->view->render('veterinarianEditProfileTamil', $this->view->data);
+                break;
+        }
     }
+
+
     // update profile function to update profile of wildlife officer after editing edit page
     public function updateProfile()
     {
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
             session_start();
+            if (isset($_GET['lang'])) {
+                //assign the value
+                $lang = $_GET['lang'];
+            }
 
             //chack whether wildlife officer have save the changes
             if (isset($_POST["save"])) {
@@ -79,6 +119,7 @@ class veterinarian extends user
 
 
                 ];
+
                 $update_result = $this->model->updateData($_SESSION["NIC"], $data);
                 if (empty($update_result[0]) && empty($update_result[1])) {
 
@@ -86,11 +127,37 @@ class veterinarian extends user
                     $_SESSION["Lname"] = $data["lName"];
                     $this->view->data = $this->model->selectData($_SESSION["NIC"]);
                     $this->view->data[0]['message'] = "succcessfully updated";
-                    $this->view->render('veterinarianViewProfile', $this->view->data);
+                    switch ($lang) {
+                        case 1:
+                            //display profile page     
+                            $this->view->render('veterinarianEditProfile', $this->view->data);
+                            break;
+                        case 2:
+                            //display profile page  
+                            $this->view->render('veterinarianEditProfileSinhala', $this->view->data);
+                            break;
+                        case 3:
+                            //display profile page   
+                            $this->view->render('veterinarianEditProfileTamil', $this->view->data);
+                            break;
+                    }
                 } else {
                     $this->view->data = $this->model->selectData($_SESSION["NIC"]);
                     $this->view->data[0]['message'] = "fail updating";
-                    $this->view->render('veterinarianEditProfile', $this->view->data);
+                    switch ($lang) {
+                        case 1:
+                            //display profile page     
+                            $this->view->render('veterinarianEditProfile', $this->view->data);
+                            break;
+                        case 2:
+                            //display profile page  
+                            $this->view->render('veterinarianEditProfileSinhala', $this->view->data);
+                            break;
+                        case 3:
+                            //display profile page   
+                            $this->view->render('veterinarianEditProfileTamil', $this->view->data);
+                            break;
+                    }
                 }
             } elseif (isset($_POST["cancel"])) {
                 // $data=[
@@ -112,14 +179,21 @@ class veterinarian extends user
                 // ];
                 // $this->model->updateData($_SESSION["NIC"],$data);
                 $this->view->data = $this->model->selectData($_SESSION["NIC"]);
-                $this->view->render('veterinarianEditProfile', $this->view->data);
-            }
-
-
-
-
-
-            //if else ekak
+                switch ($lang) {
+                    case 1:
+                        //display profile page     
+                        $this->view->render('veterinarianEditProfile', $this->view->data);
+                        break;
+                    case 2:
+                        //display profile page  
+                        $this->view->render('veterinarianEditProfileSinhala', $this->view->data);
+                        break;
+                    case 3:
+                        //display profile page   
+                        $this->view->render('veterinarianEditProfileTamil', $this->view->data);
+                        break;
+                }
+            } //if else ekak
 
 
         }
@@ -238,6 +312,7 @@ class veterinarian extends user
         if (isset($_POST['cancel'])) {
             $nic = "";
             $id = trim($_POST['can']);
+            $lang = $_GET['lang'];
             $result = $this->model->incidentStatUpdate("pending", $id, $nic);
 
             $this->view->data = $this->model->selectIncidentData();

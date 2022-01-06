@@ -74,16 +74,16 @@
                 <div class="report_catagory">
                     <Form action="../veterinarian/filterUsingReportCatagory" method="POST">
                         <select name="report_catagory" id="filter" onchange="filterFunction()">
-                            <option class="group-1">கேட்டோகரியைத் தேர்ந்தெடுக்கவும்</option>
+                            <option class="group-1">Select The Report Catogary</option>
 
-                            <option class="group-1">1.யானைகள் கிராமத்தில் உள்ளன</option>
+                            <option class="group-1">1.Elephants are in The Village</option>
                             <option class="group-2">
-                                2.மற்ற காட்டு விலங்குகள் கிராமத்தில் உள்ளன
+                                2.Other Wild Animals are in The Village
                             </option>
-                            <option class="group-3">3.யானை வேலிகள் உடைப்பு</option>
-                            <option class="group-3">4.காட்டு விலங்கு ஆபத்தில் உள்ளது</option>
-                            <option class="group-3">5.பயிர் சேதங்கள்</option>
-                            <option class="group-3">6.சட்டத்திற்குப் புறம்பான விஷயங்கள் நடக்கின்றன</option>
+                            <option class="group-3">3.Breakdown of Elephant Fences</option>
+                            <option class="group-3">4.Wild Animal is in Danger</option>
+                            <option class="group-3">5.Crop Damages</option>
+                            <option class="group-3">6.Illegal Things Happening</option>
                         </select>
                     </Form>
                 </div>
@@ -118,8 +118,14 @@
                     </tr>
                     <?php
 
-                    $count = 0;
+
                     foreach ($data[0] as $row) {
+                        $d = "";
+                        foreach ($data[1] as $r) {
+                            if ($r['incidentID'] == $row['incidentID']) {
+                                $d = $r['Fname'] . " " . $r['Lname'];
+                            }
+                        }
                         // switch ($data['reporttype']) {
                         //   case 'Other Wild Animals in The Village':
                         //     $row['reporttype'] = 2;
@@ -140,34 +146,29 @@
                         //     $row['reporttype'] = 1;
                         //     break;
                         // }
-                        $d = "";
-                        foreach ($data[1] as $r) {
-                            if ($r['incidentID'] == $row['incidentID']) {
-                                $d = $r['Fname'] . " " . $r['Lname'];
-                            }
-                        }
-                        if ($row['status'] == 'pending') {
+                        if ($row['vetStatus'] == 'pending') {
                             $stat = "<form method='POST' action='../veterinarian/trigerRequest?lang=3'><input type='text' style='display:none' name='acc' value=" . $row['incidentID'] . "><button class='buttonAccept' id='acceptId' value='ACCEPT' name='accept'/>ACCEPT</button></form>";
                         } else {
                             $stat = "<form method='POST' action='../veterinarian/trigerRequest?lang=3'><input type='text' style='display:none'  name='can' value=" . $row['incidentID'] . "><button class='buttonCancel' id='cancelId' value='CANCEl' name='cancel'/>CANCEL</button></form>";
                         }
+
+
                         echo "<tr>
-  <td>" . $row['date'] . "</td>
-  <td>" . $row['incidentID'] . "</td>
-  
-  <td>" . $d . "</td>
-  <td>" . $row['reporttype'] . "</td>
-  <td>" . $row['Place'] . "</td>
-  <td>" . $stat . "</td>
-  <td><button type='submit' class='viewButton' id='view' onclick='' >
-    <a href='../veterinarian/viewIncidentDetails?name=" . $d . "&lang=3&index=" . $count . "'>VIEW</a>
-  </button></td>
-  
-  </tr>
-";
+            <td>" . $row['date'] . "</td>
+            <td>" . $row['incidentID'] . "</td>
+
+            <td>" . $d . "</td>
+            <td>" . $row['reporttype'] . "</td>
+            <td>" . $row['Place'] . "</td>
+            <td>" . $stat . "</td>
+            <td><button type='submit' class='viewButton' id='view' onclick='' >
+                 <a href='../veterinarian/viewIncidentDetails?name=" . $d . "&lang=1&index=" . $count . "'>VIEW</a>
+                </button></td>
+        </tr>";
                         $count += 1;
                     }
                     ?>
+
 
 
 

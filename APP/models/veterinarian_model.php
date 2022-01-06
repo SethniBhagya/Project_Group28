@@ -15,6 +15,7 @@ class veterinarian_model extends Model
 
         return $details;
     }
+
     function selectIncidentDataEx()
     {
         $details = $this->db->runQuery("SELECT * from reported_incident WHERE sendToVetStatus= 'visible'");

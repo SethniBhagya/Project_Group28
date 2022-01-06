@@ -74,7 +74,7 @@
 
                 <div class="report_catagory">
                     <Form action="../wildlifeofficer/filterUsingReportCatagory?lang=2" method="POST">
-                        <select name="report_catagory" id="filter" onchange="filterFunction()">
+                        <select name="report_catagory" id="filter" onchange="filterFunctionSinhala()">
                             <option class="group-1">වාර්තාව තෝරන්න</option>
 
                             <option class="group-1">1.අලි ගම් වලට පැමිණ ඇත</option>
