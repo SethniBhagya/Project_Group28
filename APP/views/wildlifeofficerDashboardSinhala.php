@@ -52,15 +52,15 @@
         </nav>
     </header>
     <div class="first">
-        කාලය -මාස 3 යි
-        <a href="../wildlifeofficer/?lang=2">ආපසු</a><br>
+        කාලය -මාස 3 යි<br>
+
         අවසාන වෙනස් කිරීම 02/09/2021<br>
 
     </div>
-    <div class="header-name">
+    <!-- <div class="header-name">
         <h>ලංකාවේ මුළු එකතුව </h>
         <h style="float:right">අවසන් වරට වෙනස් කළේ 30/09/2021</h>
-    </div>
+    </div> -->
     <!-- <div class="header-name"><h><pre  style="font-size: larger;font-style: normal; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Total in Sri Lanka                                                                                                                                                               LastModified 30/09/2021</pre></h> </div> -->
 
     <div class="main-update-col-1">

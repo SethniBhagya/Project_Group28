@@ -11,10 +11,29 @@ class veterinarian extends user
     //index function to load wildlifeofficer default page
     public function index()
     {
+        if (isset($_GET['lang'])) {
+            //assign the value
+            $lang = $_GET['lang'];
+        }
         // session_start();
-        // $this->view->data=$this->model->selectData($_SESSION["NIC"]);
-        $this->view->render('veterinarian');
+        // $this->view->data = $this->model->selectData($_SESSION["NIC"]);
+
+        switch ($lang) {
+            case 1:
+                //display profile page     
+                $this->view->render('veterinarian');
+                break;
+            case 2:
+                //display profile page  
+                $this->view->render('veterinarianSinhala');
+                break;
+            case 3:
+                //display profile page   
+                $this->view->render('veterinarianTamil');
+                break;
+        }
     }
+
 
     // view profile function to view profile of wildlife officer
     public function viewProfile()
@@ -22,7 +41,7 @@ class veterinarian extends user
         session_start();
         $this->view->data = $this->model->selectData($_SESSION["NIC"]);
 
-        $this->view->render('veterinarian_view_profile', $this->view->data);
+        $this->view->render('veterinarianViewProfile', $this->view->data);
     }
     // Edit profile function to view edit profile page of wildlife officer
     public function editProfile()
@@ -30,7 +49,7 @@ class veterinarian extends user
         session_start();
         $this->view->data = $this->model->selectData($_SESSION["NIC"]);
 
-        $this->view->render('veterinarian_edit_profile', $this->view->data);
+        $this->view->render('veterinarianEditProfile', $this->view->data);
     }
     // update profile function to update profile of wildlife officer after editing edit page
     public function updateProfile()
@@ -67,11 +86,11 @@ class veterinarian extends user
                     $_SESSION["Lname"] = $data["lName"];
                     $this->view->data = $this->model->selectData($_SESSION["NIC"]);
                     $this->view->data[0]['message'] = "succcessfully updated";
-                    $this->view->render('veterinarian_view_profile', $this->view->data);
+                    $this->view->render('veterinarianViewProfile', $this->view->data);
                 } else {
                     $this->view->data = $this->model->selectData($_SESSION["NIC"]);
                     $this->view->data[0]['message'] = "fail updating";
-                    $this->view->render('veterinarian_edit_profile', $this->view->data);
+                    $this->view->render('veterinarianEditProfile', $this->view->data);
                 }
             } elseif (isset($_POST["cancel"])) {
                 // $data=[
@@ -93,7 +112,7 @@ class veterinarian extends user
                 // ];
                 // $this->model->updateData($_SESSION["NIC"],$data);
                 $this->view->data = $this->model->selectData($_SESSION["NIC"]);
-                $this->view->render('veterinarian_edit_profile', $this->view->data);
+                $this->view->render('veterinarianEditProfile', $this->view->data);
             }
 
 
@@ -108,17 +127,53 @@ class veterinarian extends user
     // view Incidents function to view list of all reported incidents 
     public function viewIncidents()
     {
+        if (isset($_GET['lang'])) {
+            //assign the value
+            $lang = $_GET['lang'];
+        }
         // session_start();
         $this->view->data = $this->model->selectIncidentData();
-        $this->view->render('veterinarian_view_incidents', $this->view->data);
+        switch ($lang) {
+            case 1:
+
+                $this->view->render('veterinarianViewIncidents', $this->view->data);
+                break;
+            case 2:
+                //display profile page  
+                $this->view->render('veterinarianViewIncidentsSinhala', $this->view->data);
+                break;
+            case 3:
+                //display profile page   
+                $this->view->render('veterinarianViewIncidentsTamil', $this->view->data);
+                break;
+        }
     }
+
     // view Incidents indetail function to view full details of a reported incident.
     public function viewIncidentDetails()
     {
-        session_start();
+        if (isset($_GET['lang'])) {
+            //assign the value
+            $lang = $_GET['lang'];
+        }
+        // session_start();
         $this->view->data = $this->model->selectIncidentData();
-        $this->view->render('veterinarian_view_incidents_indetail', $this->view->data);
+        switch ($lang) {
+            case 1:
+
+                $this->view->render('veterinarianViewIncidentsIndetail', $this->view->data);
+                break;
+            case 2:
+                //display profile page  
+                $this->view->render('veterinarianViewIncidentsIndetailSinhala', $this->view->data);
+                break;
+            case 3:
+                //display profile page   
+                $this->view->render('veterinarianViewIncidentsIndetailTamil', $this->view->data);
+                break;
+        }
     }
+
     //filter incidents using report catagory in view reported incidents page.
     public function filterUsingReportCatagory()
     {
@@ -130,10 +185,32 @@ class veterinarian extends user
     //view dashboard of wildlife officer.
     public function viewDashboard()
     {
+        if (isset($_GET['lang'])) {
+            //assign the value
+            $lang = $_GET['lang'];
+        }
+        // session_start();
+        // $this->view->data = $this->model->selectData($_SESSION["NIC"]);
+
+        switch ($lang) {
+            case 1:
+                //display profile page     
+                $this->view->render('veterinarianDashboard');
+                break;
+            case 2:
+                //display profile page  
+                $this->view->render('veterinarianDashboardSinhala');
+                break;
+            case 3:
+                //display profile page   
+                $this->view->render('veterinarianDashboardTamil');
+                break;
+        }
         // session_start();
         // $this->view->data=$this->model->selectData($_SESSION["NIC"]);
-        $this->view->render('veterinarian_dashboard');
+
     }
+
     public function trigerRequest()
     {
         session_start();
@@ -141,23 +218,66 @@ class veterinarian extends user
         $nic = $_SESSION["NIC"];
         if (isset($_POST['accept'])) {
             $id = trim($_POST['acc']);
+            $lang = $_GET['lang'];
 
             $result = $this->model->incidentStatUpdate("success", $id, $nic);
 
             $this->view->data = $this->model->selectIncidentData();
-            $this->view->render('veterinarian_view_incidents', $this->view->data);
+            switch ($lang) {
+                case '1':
+                    $this->view->render('veterinarianViewIncidents', $this->view->data);
+                    break;
+                case '2':
+                    $this->view->render('veterinarianViewIncidentsSinhala', $this->view->data);
+                    break;
+                case '3':
+                    $this->view->render('veterinarianViewIncidentsTamil', $this->view->data);
+                    break;
+            }
         }
         if (isset($_POST['cancel'])) {
-            $nic = "w";
+            $nic = "";
             $id = trim($_POST['can']);
             $result = $this->model->incidentStatUpdate("pending", $id, $nic);
 
             $this->view->data = $this->model->selectIncidentData();
-            $this->view->render('veterinarian_view_incidents', $this->view->data);
+            switch ($lang) {
+                case '1':
+                    $this->view->render('veterinarianViewIncidents', $this->view->data);
+                    break;
+                case '2':
+                    $this->view->render('veterinarianViewIncidentsSinhala', $this->view->data);
+                    break;
+                case '3':
+                    $this->view->render('veterinarianViewIncidentsTamil', $this->view->data);
+                    break;
+            }
         }
     }
+
     function viewNotification()
+
     {
-        $this->view->render('wildlifeofficerNotifications');
+        if (isset($_GET['lang'])) {
+            //assign the value
+            $lang = $_GET['lang'];
+        }
+        // session_start();
+        $this->view->data = $this->model->selectNotificationsData();
+
+        switch ($lang) {
+            case 1:
+
+                $this->view->render('veterinarianNotifications', $this->view->data);
+                break;
+            case 2:
+                //display profile page  
+                $this->view->render('veterinarianNotificationsSinhala', $this->view->data);
+                break;
+            case 3:
+                //display profile page   
+                $this->view->render('veterinarianNotificationsTamil', $this->view->data);
+                break;
+        }
     }
 }

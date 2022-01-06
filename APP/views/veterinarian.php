@@ -24,11 +24,11 @@
             </div>
 
             <ul>
-                <li id="home"><a href="../">HOME</a></li>
-                <li id="userPage"><a href="../veterinarian">USER PAGE</a></li>
-                <li id="incidents"><a href="../veterinarian/viewIncidents">INCIDENTS</a></li>
+                <li id="home"><a href="../?lang=1">HOME</a></li>
+                <li id="userPage"><a href="../veterinarian?lang=1">USER PAGE</a></li>
+                <li id="incidents"><a href="../veterinarian/viewIncidents?lang=1">INCIDENTS</a></li>
                 <li id="notifications"><a href="../veterinarian/viewNotification?lang=1">NOTIFICATIONS</a></li>
-                <li id="dashboard"><a href="../veterinarian/viewDashboard">DASHBOARD</a></li>
+                <li id="dashboard"><a href="../veterinarian/viewDashboard?lang=1">DASHBOARD</a></li>
                 <li>
                     <div class="dropdown-1" style="  padding-left:  300px ">
                         <button class="dropbtn-1">Language</button>
@@ -42,7 +42,7 @@
                 <li class="dropdown">
                     <span class="dot"> <img onclick="myFunction_2(this)" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
                     <div id="myDropdown" class="dropdown-content">
-                        <a href="../veterinarian/viewProfile">View Profile</a>
+                        <a href="../veterinarian/viewProfile?lang=1">View Profile</a>
                         <a href="../user/logout?lang=1">Logout</a>
                     </div>
                 </li>
@@ -60,22 +60,22 @@
         </b></label>
     </div>
     <div class="main-view">
-        <a href="../veterinarian/viewIncidents">
+        <a href="../veterinarian/viewIncidents?lang=1">
             <button class="report">
                 <h1> Reported </br>Incidents</h1>
                 <div class="line"><img src="../Public/images/emergency.png"></div>
 
             </button>
         </a>
-        <a href="404">
+        <a href="../veterinarian/viewNotification?lang=1">
             <button class="specialNotice">
                 <div class="notification"><span class="dot-1"><img src="../Public/images/bell.png" alt="1" srcset=" "></span>
                 </div>
-                <h1>Emergency Notifications</h1>
+                <h1> Notifications</h1>
                 <div class="line"><img src="../Public/images/notifi.png"></div>
             </button>
         </a>
-        <a href="../wildlifeofficer/viewDashboard">
+        <a href="../veterinarian/viewDashboard?lang=1">
             <button class="dashboard">
                 <h1>Dashboard<div class="line"><img src="../Public/images/dashIcon.png"></div>
                 </h1>

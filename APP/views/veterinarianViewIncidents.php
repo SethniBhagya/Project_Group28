@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../Public/css/wildlifeofficerHeader.css" />
-    <link rel="stylesheet" href="../Public/css/veterinarian_view_incidents.css" />
+    <link rel="stylesheet" href="../Public/css/veterinarianViewIncidents.css" />
     <script src="../Public/Javascript/login.js"></script>
     <script src="../Public/Javascript/viewReport.js"></script>
     <script src="../Public/javascript/wildlifeofficer.js"></script>
@@ -25,23 +25,30 @@
             </div>
 
             <ul>
-                <li id="home"><a href="../">HOME</a></li>
-                <li id="dashboard"><a href="../veterinarian/viewDashboard">DASHBOARD</a></li>
+                <li id="home"><a href="../?lang=1">HOME</a></li>
+                <li id="userPage"><a href="../veterinarian?lang=1">USER PAGE</a></li>
+                <li id="incidents"><a href="../veterinarian/viewIncidents?lang=1">INCIDENTS</a></li>
+                <li id="notifications"><a href="../veterinarian/viewNotification?lang=1">NOTIFICATIONS</a></li>
+                <li id="dashboard"><a href="../veterinarian/viewDashboard?lang=1">DASHBOARD</a></li>
                 <li>
                     <div class="dropdown-1" style="  padding-left:  300px ">
                         <button class="dropbtn-1">Language</button>
                         <div class="dropdown-content-1">
-                            <a href="../wildlifeofficer/index?lang=1 ">English</a>
-                            <a href=" ../wildlifeofficer/index?lang=2">සිංහල</a>
-                            <a href=" ">தமிழ்</a>
+                            <?php
+                            $count = 0;
+                            echo "
+                                <a href='?lang=1&index=" . $count . "'>English</a>
+                                <a href='?lang=2&index=" . $count .  "'>සිංහල</a>
+                                <a href='?lang=3&index=" . $count . "'>தமிழ்</a> "
+                            ?>
                         </div>
                     </div>
                 </li>
                 <li class="dropdown">
                     <span class="dot"> <img onclick="myFunction_2(this)" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
                     <div id="myDropdown" class="dropdown-content">
-                        <a href="../veterinarian/viewProfile">View Profile</a>
-                        <a href="../user/index">Logout</a>
+                        <a href="../veterinarian/viewProfile?lang=1">View Profile</a>
+                        <a href="../user/index?lang=1">Logout</a>
                     </div>
                 </li>
             </ul>
@@ -65,7 +72,7 @@
             <div class="subcontainer_3-2">
 
                 <div class="report_catagory">
-                    <Form action="../veterinarian/filterUsingReportCatagory" method="POST">
+                    <Form action="../veterinarian/filterUsingReportCatagory?lang=1" method="POST">
                         <select name="report_catagory" id="filter" onchange="filterFunction()">
                             <option class="group-1">Select The Report Catogary</option>
 
@@ -113,7 +120,7 @@
 
                     <?php
 
-                    $count = 0;
+
                     foreach ($data[0] as $row) {
                         $d = "";
                         foreach ($data[1] as $r) {
@@ -176,10 +183,10 @@
             </div>
             <div class="subcontainer_3-1">
 
-                <a href="../veterinarian/">BACK</a>
+
 
             </div>
-            <?php print_r($data) ?>
+
         </div>
         <!-- <div></div> -->
 

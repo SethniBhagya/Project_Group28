@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../Public/css/wildlifeofficerHeader.css" />
-    <link rel="stylesheet" href="../Public/css/wildlifeofficerViewIncidents.css" />
+    <link rel="stylesheet" href="../Public/css/veterinarianViewIncidents.css" />
     <script src="../Public/Javascript/login.js"></script>
     <script src="../Public/Javascript/viewReport.js"></script>
     <script src="../Public/javascript/wildlifeofficer.js"></script>
@@ -27,10 +27,10 @@
             <ul>
 
                 <li id="home"><a href="../?lang=2">මුල් පිටුව</a></li>
-                <li id="userPageSinhala"><a href="../wildlifeofficer/?lang=2"> &nbsp; පරිශීලක පිටුව </a></li>
-                <li id="incidentsSinhala"><a href="../wildlifeofficer/viewIncidents?lang=2"> &emsp; වාර්තා වූ සිදුවීම්</a></li>
-                <li id="notifications"><a href="../wildlifeofficer/viewNotification?lang=2">දැනුම්දීම්</a></li>
-                <li id="dashboard"><a href="../wildlifeofficer/viewDashboard?lang=2">දත්ත පුවරුව</a></li>
+                <li id="userPageSinhala"><a href="../veterinarian/?lang=2"> &nbsp; පරිශීලක පිටුව </a></li>
+                <li id="incidentsSinhala"><a href="../veterinarian/viewIncidents?lang=2"> &emsp; වාර්තා වූ සිදුවීම්</a></li>
+                <li id="notifications"><a href="../veterinarian/viewNotification?lang=2">දැනුම්දීම්</a></li>
+                <li id="dashboard"><a href="../veterinarian/viewDashboard?lang=2">දත්ත පුවරුව</a></li>
                 <li>
                     <div class="dropdown-1" style="  padding-left:  300px ">
                         <button class="dropbtn-1">භාෂාව</button>
@@ -48,7 +48,7 @@
                 <li class="dropdown">
                     <span class="dot"> <img onclick="myFunction_3()" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
                     <div id="myDropdown" class="dropdown-content">
-                        <a href="../wildlifeofficer/viewProfile?lang=2">පරිශීලක පැතිකඩ</a>
+                        <a href="../veterinarian/viewProfile?lang=2">පරිශීලක පැතිකඩ</a>
                         <a href="../user/index?lang=2">ඉවත් වීම</a>
                     </div>
                 </li>
@@ -73,7 +73,7 @@
             <div class="subcontainer_3-2">
 
                 <div class="report_catagory">
-                    <Form action="../wildlifeofficer/filterUsingReportCatagory?lang=2" method="POST">
+                    <Form action="../veterinarian/filterUsingReportCatagory?lang=2" method="POST">
                         <select name="report_catagory" id="filter" onchange="filterFunction()">
                             <option class="group-1">වාර්තාව තෝරන්න</option>
 
@@ -148,9 +148,9 @@
                             }
                         }
                         if ($row['status'] == 'pending') {
-                            $stat = "<form method='POST' action='../wildlifeofficer/trigerRequest?lang=2'><input type='text' style='display:none' name='acc' value=" . $row['incidentID'] . "><button class='buttonAccept' id='acceptId' value='ACCEPT' name='accept'/>ACCEPT</button></form>";
+                            $stat = "<form method='POST' action='../veterinarian/trigerRequest?lang=2'><input type='text' style='display:none' name='acc' value=" . $row['incidentID'] . "><button class='buttonAccept' id='acceptId' value='ACCEPT' name='accept'/>ACCEPT</button></form>";
                         } else {
-                            $stat = "<form method='POST' action='../wildlifeofficer/trigerRequest?lang=2'><input type='text' style='display:none'  name='can' value=" . $row['incidentID'] . "><button class='buttonCancel' id='cancelId' value='CANCEl' name='cancel'/>CANCEL</button></form>";
+                            $stat = "<form method='POST' action='../veterinarian/trigerRequest?lang=2'><input type='text' style='display:none'  name='can' value=" . $row['incidentID'] . "><button class='buttonCancel' id='cancelId' value='CANCEl' name='cancel'/>CANCEL</button></form>";
                         }
                         echo "<tr>
             <td>" . $row['date'] . "</td>
@@ -161,7 +161,7 @@
             <td>" . $row['Place'] . "</td>
             <td>" . $stat . "</td>
             <td><button type='submit' class='viewButton' id='view' onclick='' >
-              <a href='../wildlifeofficer/viewIncidentDetails?name=" . $d . "&lang=2&index=" . $count . "'>VIEW</a>
+              <a href='../veterinarian/viewIncidentDetails?name=" . $d . "&lang=2&index=" . $count . "'>VIEW</a>
             </button></td>
             
             </tr>

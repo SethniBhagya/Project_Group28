@@ -72,4 +72,11 @@ class veterinarian_model extends Model
         //$this->db->runQuery($stmt3);
         return $result;
     }
+    function selectNotificationsData()
+    {
+        $details = $this->db->runQuery("SELECT * from notice WHERE jobType='veterinarian' order by date,time desc");
+        //$joindetails = $this->db->runQuery("SELECT work.wildlife_NIC,work.incidentID,reported_incident.status,user.Fname,user.Lname FROM reported_incident INNER JOIN work ON reported_incident.incidentID= work.incidentID INNER JOIN user ON user.NIC=work.wildlife_NIC");
+        // print_r($joindetails);
+        return $details;
+    }
 }

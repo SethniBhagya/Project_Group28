@@ -24,14 +24,14 @@
             </div>
 
             <ul>
-                <li id="home"><a href="../?lang=3">முகப்பு பக்கம்</a></li>
-                <li id="userPageSinhala"><a href="../wildlifeofficer/?lang=3"> &nbsp;பயனர் பக்கம் </a></li>
-                <li id="incidentsTamil"><a href="../wildlifeofficer/viewIncidents?lang=3"> &emsp; சம்பவங்கள்</a></li>
-                <li id="notifications"><a href="../wildlifeofficer/viewNotification?lang=3">அறிவிப்புகள்</a></li>
-                <li id="dashboard"><a href="../wildlifeofficer/viewDashboard?lang=3">தரவு பலகை</a></li>
+                <li id="home"><a href="../">HOME</a></li>
+                <li id="userPage"><a href="../veterinarian?lang=1">USER PAGE</a></li>
+                <li id="incidents"><a href="../veterinarian/viewIncidents?lang=1">INCIDENTS</a></li>
+                <li id="notifications"><a href="../veterinarian/viewNotification?lang=1">NOTIFICATIONS</a></li>
+                <li id="dashboard"><a href="../veterinarian/viewDashboard?lang=1">DASHBOARD</a></li>
                 <li>
                     <div class="dropdown-1" style="  padding-left:  300px ">
-                        <button class="dropbtn-1">மொழி</button>
+                        <button class="dropbtn-1">Language</button>
                         <div class="dropdown-content-1">
                             <a href="?lang=1">English</a>
                             <a href="?lang=2">සිංහල</a>
@@ -40,10 +40,10 @@
                     </div>
                 </li>
                 <li class="dropdown">
-                    <span class="dot"> <img onclick="myFunction_2(this)" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
+                    <span class="dot"> <img onclick="myFunction_3()" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
                     <div id="myDropdown" class="dropdown-content">
-                        <a href="../wildlifeofficer/viewProfile?lang=3">பயனர் சுயவிவரம்</a>
-                        <a href="../user/index?lang=3">வெளியேறு</a>
+                        <a href="">View Profile</a>
+                        <a href="">Logout</a>
                     </div>
                 </li>
             </ul>
@@ -55,7 +55,7 @@
             echo "<div class='container-2'><h2>"
                 . $row['district'] . "-" . $row['gn_division'] . "-" . $row['village'] .
                 "</h2>
-                <h3 style='float:right'>தேதி:" . $row['date'] . "நேரம்:" . $row['time'] . "</h3>
+                <h3 style='float:right'>Date:" . $row['date'] . "Time:" . $row['time'] . "</h3>
                 <div class='container-sub-1'>
                 <p> Alert! <br>
                 <p>" . $row['description'] . "</p>

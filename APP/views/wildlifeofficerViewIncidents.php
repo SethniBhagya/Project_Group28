@@ -34,9 +34,13 @@
           <div class="dropdown-1" style="  padding-left:  300px ">
             <button class="dropbtn-1">Language</button>
             <div class="dropdown-content-1">
-              <a href="?lang=1">English</a>
-              <a href="?lang=2">සිංහල</a>
-              <a href="?lang=3">தமிழ்</a>
+              <?php
+              $count = 0;
+              echo "
+                                <a href='?lang=1&index=" . $count . "'>English</a>
+                                <a href='?lang=2&index=" . $count .  "'>සිංහල</a>
+                                <a href='?lang=3&index=" . $count . "'>தமிழ்</a> "
+              ?>
             </div>
           </div>
         </li>
@@ -114,7 +118,7 @@
           </tr>
           <?php
 
-          $count = 0;
+          // $count = 0;
           foreach ($data[0] as $row) {
             // switch ($data['reporttype']) {
             //   case 'Other Wild Animals in The Village':

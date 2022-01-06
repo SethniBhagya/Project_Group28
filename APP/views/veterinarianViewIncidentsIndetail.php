@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Public/css/wildlifeofficerHeader.css">
-    <link rel="stylesheet" href="../Public/css/veterinarian_view_incidents_indetail.css">
+    <link rel="stylesheet" href="../Public/css/veterinarianViewIncidentsIndetail.css">
     <script src="../Public/Javascript/login.js"></script>
     <script src="../Public/Javascript/viewReport.js"></script>
     <script src="../Public/Javascript/wildlifeofficer.js"></script>
@@ -26,7 +26,10 @@
 
             <ul>
                 <li id="home"><a href="../">HOME</a></li>
-                <li id="dashboard"><a href="../wildlifeofficer/viewDashboard">DASHBOARD</a></li>
+                <li id="userPage"><a href="../veterinarian">USER PAGE</a></li>
+                <li id="incidents"><a href="../veterinarian/viewIncidents">INCIDENTS</a></li>
+                <li id="notifications"><a href="../veterinarian/viewNotification?lang=1">NOTIFICATIONS</a></li>
+                <li id="dashboard"><a href="../veterinarian/viewDashboard">DASHBOARD</a></li>
                 <li>
                     <div class="dropdown-1" style="  padding-left:  300px ">
                         <button class="dropbtn-1">Language</button>

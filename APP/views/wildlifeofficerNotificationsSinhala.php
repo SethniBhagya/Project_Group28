@@ -51,24 +51,19 @@
     </header>
     <div class="container-1">
         <h1>Notifications</h1>
-        <div class="container-2">
-            <h2>
-                Regarding Crop Damages
-            </h2>
-            <h3 style="float:right">Date 08/08/2021</h3>
-            <div class="container-sub-1">
-                <p>
-                    Alert!<br>
-                <p>wild elephant in the village!</p>
+        <?php foreach ($data as $row) {
+            echo "<div class='container-2'><h2>"
+                . $row['district'] . "-" . $row['gn_division'] . "-" . $row['village'] .
+                "</h2>
+                <h3 style='float:right'>Date:" . $row['date'] . "Time:" . $row['time'] . "</h3>
+                <div class='container-sub-1'>
+                <p> Alert! <br>
+                <p>" . $row['description'] . "</p>
                 <br>
                 </p>
             </div>
-
-        </div>
-        <!-- <div class="col_2_last"><button type='submit' class='backButton' id='view' onclick=''>
-                <a href='../wildlifeofficer/index?lang=1'>BACK</a>
-
-        </div> -->
+                </div>";
+        } ?>
     </div>
 </body>
 

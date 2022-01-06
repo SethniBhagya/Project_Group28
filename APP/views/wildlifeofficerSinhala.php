@@ -70,7 +70,7 @@
             <button class="specialNotice">
                 <div class="notification"><span class="dot-1"><img src="../Public/images/bell.png" alt="1" srcset=" "></span>
                 </div>
-                <h1>හදිසි<br>දැනුම්දීම්</h1>
+                <h1>දැනුම්දීම්</h1>
                 <div class="line"><img src="../Public/images/notifi.png"></div>
             </button>
         </a>
