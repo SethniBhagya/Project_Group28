@@ -92,4 +92,10 @@ class Wildlifeofficer_model extends Model
 	function selectDashboardData()
 	{
 	}
+	function setIncidentStatus($ID, $state)
+	{
+		$stmt1 = "UPDATE reported_incident SET incidentStatus='$state' WHERE incidentID= '$ID'";
+		$result = $this->db->runQuery($stmt1);
+		return $result;
+	}
 }

@@ -272,6 +272,7 @@ class wildlifeofficer extends user
         // $this->view->data=$this->model->selectData($_SESSION["NIC"]);
         // $this->view->render('wildlifeoffficerViewIncidentsIndetail');
     }
+
     //filter incidents using report catagory in view reported incidents page.
     public function filterUsingReportCatagory()
     {
@@ -396,5 +397,20 @@ class wildlifeofficer extends user
                     break;
             }
         }
+    }
+    public function setIncidentStatus()
+    {
+        if (isset($_GET['status'])) {
+            //assign the value
+            $lang = $_GET['lang'];
+            $incidentId = $_GET['index'];
+            $status = $_GET['status'];
+        }
+        $result = $this->model->setIncidentStatus($incidentId, $status);
+
+
+        //chack whether wildlife officer have save the changes
+
+
     }
 }

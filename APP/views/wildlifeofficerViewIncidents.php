@@ -114,6 +114,7 @@
             <th>Place</th>
             <th>Action</th>
             <th></th>
+            <th>Incident Status</th>
 
           </tr>
           <?php
@@ -151,24 +152,57 @@
             } else {
               $stat = "<form method='POST' action='../wildlifeofficer/trigerRequest?lang=1'><input type='text' style='display:none'  name='can' value=" . $row['incidentID'] . "><button class='buttonCancel' id='cancelId' value='CANCEl' name='cancel'/>CANCEL</button></form>";
             }
+            // $select = '';
+            // if ($row['incidentStatus'] == 'Pending') {
+            //   echo 'selected';
+            // }
+            // if ($row['incidentStatus'] == 'Succsses') {
+            //   echo 'selected';
+            // }
+            // if ($row['incidentStatus'] == 'Unsuccsses') {
+            //   echo 'selected';
+            // }
             echo "<tr>
             <td>" . $row['date'] . "</td>
             <td>" . $row['incidentID'] . "</td>
-            
+      
             <td>" . $d . "</td>
             <td>" . $row['reporttype'] . "</td>
             <td>" . $row['Place'] . "</td>
             <td>" . $stat . "</td>
+            
             <td><button type='submit' class='viewButton' id='view' onclick='' >
               <a href='../wildlifeofficer/viewIncidentDetails?name=" . $d . "&lang=1&index=" . $count . "'>VIEW</a>
             </button></td>
+            
+            <td><Form action='../wildlifeofficer/setIncidentStatus?lang=1&index=" . $count . "' method='POST' name='incidentStatus'>
+           
+            <br><br>
+            <select name='incidentStatus' id='incidentStatus'>
+           
+
+            <option class='group-1' value='Pending'><a href='../wildlifeofficer/setIncidentStatus?lang=1&index=" .  $row['incidentID'] . "&status=Pending'>Pending</a></option>
+
+            <option class='group-1' value='Success'><a href='../wildlifeofficer/setIncidentStatus?lang=1&index=" .  $row['incidentID'] . "&status=Succsses'>Success</a></option>
+            <option class='group-2' value='Unsuccsses'><a href='../wildlifeofficer/setIncidentStatus?lang=1&index=" .  $row['incidentID'] . "&status=Unsuccsses'>
+                Unscusses
+              </option></a>
+              <option class='group-2' value='' selected><a style='visible:hidden' href='../wildlifeofficer/setIncidentStatus?lang=1&index=" .  $row['incidentID'] . "&status=Unsuccsses' >
+              " . $row['incidentStatus'] . "
+              </option></a>
+            </select>
+            
+          </Form></td>
             
             </tr>
           ";
             $count += 1;
           }
+
+
           ?>
         </table>
+
       </div>
       <div class="subcontainer_3-1">
 
