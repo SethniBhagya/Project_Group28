@@ -6,13 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <link rel="stylesheet" href="../Public/css/header.css">
      <link rel="stylesheet" href="../Public/css/Dashboard.css">
+     <link rel="stylesheet" href="../Public/css/noticeAlert.css">
      <!-- <script src="../Public/javascript/dashboard.js"></script> -->
      <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
      <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
      <!-- <script src="../Public/javascript/dashboard.js"></script> -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" referrerpolicy="no-referrer"></script>
      <title>Statistical Analyze Board</title>
 </head>
 <body style="background-image: none; background-color: rgba(236, 242, 240, 0.624);">
+
+
     <header id="main">
         <img src="../Public/images/icon.png" alt="icon" id="icon">
         <nav id="navbar" class="mybar">
@@ -45,9 +49,18 @@
             </ul>
         </nav>
     </header>  
+
+    
     <div class="header-name"><h >Total in Sri Lanka </h><h style="float:right">LastModified 30/09/2021</h></div>
     <!-- <div class="header-name"><h><pre  style="font-size: larger;font-style: normal; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Total in Sri Lanka                                                                                                                                                               LastModified 30/09/2021</pre></h> </div> -->
-     
+     <div id="notice-box">
+
+       
+        
+
+        
+
+    </div>
     <div class="main-update-col-1">
         <div class="last-week">
             Last Week  <div class="last-week-number"><h1 data-target="10"  class="count">0</h1><p> incidents </p></div>
@@ -209,7 +222,10 @@
     <div>
     
     </div>
+
+    
     <script>
+
         const counters = document.querySelectorAll(".count");
         const speed = 10;
 
@@ -229,6 +245,51 @@
   };
   updateCount();
 });
+
+
+$(document).ready(function(){
+
+    setInterval(function(){
+        loadNotice();
+    },3000);
+
+
+
+    function loadNotice(){
+
+        $.ajax({
+            url:"../regionalOfficer/getNotice",
+            method:"POST",
+            success:function(data){
+                $("#notice-box").html(data);
+
+
+            }
+        })
+
+          
+ 
+
+    }
+
+    
+});
+
+
+function endNotice(x){
+    
+    
+    $.post("../regionalOfficer/endNotice",{noticeId:x},function(data,status){
+           
+          
+        
+        
+    });
+
+
+  }
+
+
     </script>
 </body>
 </html> 

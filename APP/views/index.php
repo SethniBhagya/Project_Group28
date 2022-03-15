@@ -49,11 +49,11 @@
       
         
         
-        <img src="Public/images/wlimg2.png" class="imgs">
+        <!-- <img src="Public/images/wlimg2.png" class="imgs">
         <img src="Public/images/wlimg3.png" class="imgs">
         <img src="Public/images/wlimg4.png" class="imgs">
         <img src="Public/images/wlimg6.png" class="imgs">
-        <img src="Public/images/wlimg8.png" class="imgs">
+        <img src="Public/images/wlimg8.png" class="imgs"> -->
 
 
        
@@ -63,9 +63,15 @@
         
            
         <button id="header">“The real wealth of the Nation lies in the resources of the earth - soil, water, forests, minerals, and wildlife.”</button>
-        <form action="villager/register">
-            <button id="regButton" >REGISTER</button>
-        </form>
+        
+            <button id="regButton" onclick="location.href='villager/register?lang=1'" >REGISTER</button>
+
+            <video  width="100%" id="vid" preload="" autoplay="" muted="" loop="" >
+              <source src="https://cdn.videvo.net/videvo_files/video/free/2019-11/large_watermarked/190301_1_25_03_preview.mp4" type="video/mp4">
+            </video>
+
+            
+        
         
     </div>
 
@@ -75,7 +81,7 @@
 
 
    
-   <script type="text/javascript">
+   <!-- <script type="text/javascript">
     var imgs=document.querySelectorAll(".banner .imgs");
     
     var nextImgDelay=3000;
@@ -98,8 +104,12 @@ function nextImage(){
 
 }
 
-   </script>
+   </script> -->
+<script type="text/javascript">
+  
+  document.getElementById("vid").play();
 
+</script>
 
 
 
@@ -132,7 +142,7 @@ function nextImage(){
                          </div>
                          <div id="fr1-1-class">
 
-                            <img src="Public/images/elephant.png"  >
+                            <img src="Public/images/elephant1.jpg"  >
                          <h2>Report Incidents</h2>
                          <p>Wildlife Care have facilitated users to report incidents regarding wildlifes. Accordingly, it can allow users to inform those  informations  quickly.  </p>
                              
@@ -155,7 +165,7 @@ function nextImage(){
                         
                         <div id="fr1-2-class">
 
-                            <img src="Public/images/bell.png" >
+                            <img src="Public/images/bell.jpg" >
                         <h2>Get Alerts</h2>
                         <p>Wildlife Care have facilitated to inform relevant villagers quickly  when reporting about  wild elephants coming  to villages. </p>
                              
@@ -177,7 +187,7 @@ function nextImage(){
 
 
                         <div id="fr1-3-class">
-                            <img src="Public/images/vet.png" >
+                            <img src="Public/images/vet.jpg" >
                         <h2>Veterinarian Support</h2>
                         <p>Wildlife officials have facilities to alert veterinarians using Wildlife Care system as soon as a wild animal is in danger.  </p>
                              
@@ -205,7 +215,7 @@ function nextImage(){
                          </div>
                         
                         <div id="fr2-1-class">
-                             <img src="Public/images/map.png"  >
+                             <img src="Public/images/map.jpg"  >
                           
                          <h2>Maps</h2>
                          <p>The Wildlife Care  allows users to mark the location when reporting an incident.
@@ -231,7 +241,7 @@ function nextImage(){
                         
                         <div id="fr2-2-class">
 
-                            <img src="Public/images/mobile.png" >
+                            <img src="Public/images/mobile.jpg" >
                         <h2>Register Without Smartphones</h2>
                         <p>Villagers who don't have smartphones but have mobile phones can register and  get alerts from this system.</p>
                              
@@ -252,7 +262,7 @@ function nextImage(){
                         
                         <div id="fr2-3-class">
 
-                            <img src="Public/images/dash.png" >
+                            <img src="Public/images/dash.jpg" >
                         <h2>Analytical Dashboard</h2>
                         <p>Wildlife Care Provides detailed dashboard for required analytical works. </p>
                              

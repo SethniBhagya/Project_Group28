@@ -551,7 +551,7 @@ li {
 
 .email-sent{
   color: green;
-  margin-top: 100px;
+  margin-top: 30px;
   position: absolute;
   width: 345px;
   font-size: 18px;
@@ -565,7 +565,7 @@ li {
 }
 
 .email-error{
-  margin-top: 100px;
+  margin-top: 30px;
   position: absolute;
   width: 345px;
   font-size: 18px;

@@ -358,6 +358,15 @@
 #grama-niladhari:checked ~ .grama-niladhari{
   display: block;
 }
+#delete-msg{
+  margin-left: 400px;
+  padding-left: 40px;
+  margin-right: 500px;
+  color: darkgreen;
+  background-color: white;
+  /*position: absolute;*/
+  font-size: 24px;
+}
 
 input[type="radio"]{
   display: none;
@@ -366,3 +375,19 @@ input[type="radio"]{
 }
 
 
+@media(max-width: 1080px){
+
+
+  .container1{
+    background-color: rgb(255,255,255,0.36);
+    width: 900px;
+    height: 120vh;
+    position: absolute;
+    margin-top: 30px;
+    margin-left: 40px;
+    border-radius: 10px;
+
+  }
+
+
+}

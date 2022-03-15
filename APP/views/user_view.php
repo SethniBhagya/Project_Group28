@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../Public/css/user_view.css">
     <link rel="stylesheet" href="../Public/css/adminHeader.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     
     <script src="../Public/Javascript/admin.js"></script>
     <title>Users</title>
@@ -53,6 +54,10 @@
          
         <button id="back" onclick="location.href='dashboard'">Back</button>
         <button id="add-user" onclick="location.href='addUser'">Add Users</button>
+        <h1 id="delete-msg"><?php if(isset($_GET["nic"])) echo $_GET["nic"]." Deleted From WildlifeCare";?></h1>
+        <?php if(isset($_GET["job"])) echo "<script>
+          document.getElementById(\"".$_GET["job"]."\").checked=true;
+        </script>"; ?>
 
         <div class="select-user">
             <ul>
@@ -67,7 +72,23 @@
         </div>
 
           
-        
+        <?php 
+
+        $noOfVillagers=$data["noOfVillagers"];
+        $noOfWildlifers=$data["noOfWildlifers"];
+        $noOfRegionals=$data["noOfRegionals"];
+        $noOfVeterinarians=$data["noOfVeterinarians"];
+        $noOfGramaNiladhari=$data["noOfGramaNiladhari"];
+        $noOfPageRow=5;
+        $villagerPageNo=1;
+        $wildOfficerPageNo=1;
+        $veterinarianPageNo=1;
+        $regionalPageNo=1;
+        $gramaPageNo=1;
+
+
+
+        ?>
          
             
             
@@ -103,14 +124,14 @@
                    
                    <?php $rows=$data["villager"]; foreach($rows as $row){echo "<tr><td>".$row["NIC"]."</td> <td>".$row["Fname"]."</td>
                        <td>".$row["Lname"]."</td>
-                       <td>".$row["BOD"]."</td><td>".$row["mobileNo"]."</td>
+                       <td>".$row["BOD"]."</td><td>0".$row["mobileNo"]."</td>
                        <td>".$row["Address"]."</td>
                        <td>".$row["name"]."</td>
                        <td>".$row["gnd_name"]."</td>
                        <td>".$row["district_name"]."</td><td>".$row["Name"]."</td><td><ul>
-                          <li><button><img src='../Public/images/edit.png'></button></li>
-                          <li><button><img src='../Public/images/delete.png'></button></li>
-                          <li><button onclick=\"location.href='viewUserProfile'\"><img src='../Public/images/view.png'></button></li>
+                          <li><button ><img src='../Public/images/edit.png'></button></li>
+                          <li><button onclick=\"location.href='deleteUser?type=villager&id=".$row["NIC"]."'\"><img src='../Public/images/delete.png'></button></li>
+                          <li><button onclick=\"location.href='viewUserProfile?type=villager&id=".$row["NIC"]."'\"><img src='../Public/images/view.png'></button></li>
                        </ul></td></tr>";} ?>
 
 
@@ -139,7 +160,7 @@
                         <th>RID</th>
                         <th>First Name</th>
                         <th>Last Name</th>
-                        <th>Age</th>
+                        <th>Birth Date</th>
                         <th>Mobile</th>
                         <th>Office Number</th>
                         <th>District</th>
@@ -152,12 +173,12 @@
 
                     <?php $rows=$data["regional officer"]; foreach($rows as $row){echo "<tr><td>".$row["NIC"]."</td> <td>".$row["RID"]."</td><td>".$row["Fname"]."</td>
                        <td>".$row["Lname"]."</td>
-                       <td>".$row["BOD"]."</td><td>".$row["mobileNo"]."</td>
+                       <td>".$row["BOD"]."</td><td>0".$row["mobileNo"]."</td>
                        <td>".$row["officeNo"]."</td>
                        <td>".$row["district_name"]."</td><td>".$row["Name"]."</td><td><ul>
                           <li><button><img src='../Public/images/edit.png'></button></li>
-                          <li><button><img src='../Public/images/delete.png'></button></li>
-                          <li><button onclick=\"location.href='viewUserProfile'\"><img src='../Public/images/view.png'></button></li>
+                          <li><button onclick=\"location.href='deleteUser?type=regional-officer&id=".$row["NIC"]."'\"><img src='../Public/images/delete.png'></button></li>
+                          <li><button onclick=\"location.href='viewUserProfile?type=regionalOfficer&id=".$row["NIC"]."'\"><img src='../Public/images/view.png'></button></li>
                        </ul></td></tr>";} ?>
                     
               
@@ -183,7 +204,7 @@
                         <th>WID</th>
                         <th>First Name</th>
                         <th>Last Name</th>
-                        <th>Age</th>
+                        <th>Birth Date</th>
                         <th>Mobile</th>
                         <th>Office Number</th>
                         <th>District</th>
@@ -196,12 +217,12 @@
 
                     <?php $rows=$data["wildlife officer"]; foreach($rows as $row){echo "<tr><td>".$row["NIC"]."</td> <td>".$row["WID"]."</td><td>".$row["Fname"]."</td>
                        <td>".$row["Lname"]."</td>
-                       <td>".$row["BOD"]."</td><td>".$row["mobileNo"]."</td>
+                       <td>".$row["BOD"]."</td><td>0".$row["mobileNo"]."</td>
                        <td>".$row["officeNo"]."</td>
                        <td>".$row["district_name"]."</td><td>".$row["Name"]."</td><td><ul>
                           <li><button><img src='../Public/images/edit.png'></button></li>
-                          <li><button><img src='../Public/images/delete.png'></button></li>
-                          <li><button onclick=\"location.href='viewUserProfile'\"><img src='../Public/images/view.png'></button></li>
+                          <li><button onclick=\"location.href='deleteUser?type=wildlife-officer&id=".$row["NIC"]."'\"><img src='../Public/images/delete.png'></button></li>
+                          <li><button onclick=\"location.href='viewUserProfile?type=wildlifeOfficer&id=".$row["NIC"]."'\"><img src='../Public/images/view.png'></button></li>
                        </ul></td></tr>";} ?>
 
                 </tbody>
@@ -225,7 +246,7 @@
                         <th>VID</th>
                         <th>First Name</th>
                         <th>Last Name</th>
-                        <th>Age</th>
+                        <th>Birth Date</th>
                         <th>Mobile</th>
                         <th>Office Number</th>
                         <th>District</th>
@@ -238,12 +259,12 @@
 
                     <?php $rows=$data["veterinarian"]; foreach($rows as $row){echo "<tr><td>".$row["NIC"]."</td> <td>".$row["VID"]."</td><td>".$row["Fname"]."</td>
                        <td>".$row["Lname"]."</td>
-                       <td>".$row["BOD"]."</td><td>".$row["mobileNo"]."</td>
+                       <td>".$row["BOD"]."</td><td>0".$row["mobileNo"]."</td>
                        <td>".$row["officeNo"]."</td>
                        <td>".$row["district_name"]."</td><td>".$row["Name"]."</td><td><ul>
                           <li><button><img src='../Public/images/edit.png'></button></li>
-                          <li><button><img src='../Public/images/delete.png'></button></li>
-                          <li><button onclick=\"location.href='viewUserProfile'\"><img src='../Public/images/view.png'></button></li>
+                          <li><button onclick=\"location.href='deleteUser?type=veterinarian&id=".$row["NIC"]."'\"><img src='../Public/images/delete.png'></button></li>
+                          <li><button onclick=\"location.href='viewUserProfile?type=veterinarian&id=".$row["NIC"]."'\"><img src='../Public/images/view.png'></button></li>
                        </ul></td></tr>";} ?>
                    
                 </tbody>
@@ -280,13 +301,12 @@
 
                  <?php $rows=$data["grama niladhari"]; foreach($rows as $row){echo "<tr><td>".$row["NIC"]."</td><td>".$row["GID"]."</td> <td>".$row["Fname"]."</td>
                        <td>".$row["Lname"]."</td>
-                       <td>".$row["BOD"]."</td><td>".$row["mobileNo"]."</td>
+                       <td>".$row["BOD"]."</td><td>0".$row["mobileNo"]."</td>
                        <td>".$row["Address"]."</td>
                        <td>".$row["gnd_name"]."</td>
                        <td>".$row["district_name"]."</td><td>".$row["Name"]."</td><td><ul>
                           <li><button><img src='../Public/images/edit.png'></button></li>
-                          <li><button><img src='../Public/images/delete.png'></button></li>
-                          <li><button onclick=\"location.href='viewUserProfile'\"><img src='../Public/images/view.png'></button></li>
+                          <li><button onclick=\"location.href='viewUserProfile?type=gramaNiladhari&id=".$row["NIC"]."'\"><img src='../Public/images/view.png'></button></li>
                        </ul></td></tr>";} ?>
 
                 <tbody>
