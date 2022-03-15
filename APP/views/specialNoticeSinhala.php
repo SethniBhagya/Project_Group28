@@ -22,8 +22,8 @@
             </div>
 
             <ul>
-            <li id="home_2"><a href="../">මුල් පිටුව</a></li>
-                <li id="dashboard_1"   ><a href="../user/viewpage?user=villager" >මුල් පුවරුව</a></li>
+            <li id="home_2"><a href="../?lang=2">මුල් පිටුව</a></li>
+                <li id="dashboard_1"   ><a href="../user/viewpage?lang=2" >මුල් පුවරුව</a></li>
                 <li id="report_2" style="   padding-right:20px ; right:345px  "><a href="../incident/index?lang=2"> වර්තා කිරීම</a></li>
                 <li id="special_1" style=" background-color: rgb(168, 175, 168);"s><a href="">විශේෂ දැන්වීම</a></li> 
                 <div class="dropdown-1" style="  padding-left:  300px ">
@@ -34,7 +34,7 @@
                         <a href="?lang=3">தமிழ்</a>
                     </div>
                   </div>
-                    <button class="dropbtn-1">Language</button>
+                    <button class="dropbtn-1">භාෂාව</button>
                     <div class="dropdown-content-1">
                         <a href="">English</a>
                         <a href="">සිංහල</a>
@@ -44,8 +44,8 @@
                 <li class="dropdown">
                     <span class="dot"> <img onclick="myFunction_2(this)" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
                     <div id="myDropdown" class="dropdown-content">
-                    <a href="../user/editprofile?lang=1">View Profile</a> 
-                    <a href="../user/logout">Logout</a>
+                    <a href="../user/editprofile?lang=1">පැතිකඩ බලන්න</a> 
+                    <a href="../user/logout">පිටවීම</a>
                     </div>
                 </li>
             </ul>
@@ -60,11 +60,47 @@
             <h3 style="float:right">දිනය 08/08/2021</h3>
             <div class="container-sub-1">
                 <p>
-                    හිතවත් ගම්වාසීනි, <br>gir
+                    හිතවත් ගම්වාසීනි, <br> 
                     මාදිරිය ගම්මානයට පැමිණෙන වන අලියා ඔබේ ගම හරහා පලවා හැරීමෙන් ප්‍රවේශම් වන්න
                 </p>
             </div>
         </div>    
+        <div class="container-2">
+            <h2>
+            අලි වැට සම්බන්ධයෙන්
+            </h2>
+            <h3 style="float:right">දිනය 08/08/2021</h3>
+            <div class="container-sub-1">
+                <p>
+                    හිතවත් ගම්වාසීනි, <br>gir
+                    මාදිරිය ගම්මානයට පැමිණෙන වන අලියා ඔබේ ගම හරහා පලවා හැරීමෙන් ප්‍රවේශම් වන්න
+                </p>
+            </div>
+        </div>   
+        <div class="container-2">
+            <h2>
+            අලි වැට සම්බන්ධයෙන්
+            </h2>
+            <h3 style="float:right">දිනය 08/08/2021</h3>
+            <div class="container-sub-1">
+                <p>
+                    හිතවත් ගම්වාසීනි, <br>gir
+                    මාදිරිය ගම්මානයට පැමිණෙන වන අලියා ඔබේ ගම හරහා පලවා හැරීමෙන් ප්‍රවේශම් වන්න
+                </p>
+            </div>
+        </div>   
+        <div class="container-2">
+            <h2>
+            අලි වැට සම්බන්ධයෙන්
+            </h2>
+            <h3 style="float:right">දිනය 08/08/2021</h3>
+            <div class="container-sub-1">
+                <p>
+                    හිතවත් ගම්වාසීනි, <br>gir
+                    මාදිරිය ගම්මානයට පැමිණෙන වන අලියා ඔබේ ගම හරහා පලවා හැරීමෙන් ප්‍රවේශම් වන්න
+                </p>
+            </div>
+        </div>   
     </div>
 </body>
 </html>

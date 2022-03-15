@@ -22,8 +22,8 @@
             </div>
 
             <ul>
-            <li id="home_2"><a href="../">මුල් පිටුව</a></li>
-                <li id="dashboard_1"   ><a href="../user/viewpage?user=villager" >මුල් පුවරුව</a></li>
+            <li id="home_2"><a href="../?lang=2">මුල් පිටුව</a></li>
+                <li id="dashboard_1"   ><a href="../user/viewpage?lang=2" >මුල් පුවරුව</a></li>
                 <li id="report_2" style="   padding-right:20px ; right:345px  "><a href="../incident/index?lang=2"> වර්තා කිරීම</a></li>
                 <li id="special_1"><a href="../villager/viewSpecialNotice?lang=2">විශේෂ දැන්වීම</a></li> 
                 <div class="dropdown-1" style="  padding-left:  300px ">
@@ -35,7 +35,7 @@
                     </div>
                   </div>
                 <div class="dropdown-1">
-                    <button class="dropbtn-1">Language</button>
+                    <button class="dropbtn-1">භාෂාව</button>
                     <div class="dropdown-content-1">
                         <a href="?lang=1">English</a>
                         <a href="?lang=2">සිංහල</a> 
@@ -54,6 +54,41 @@
     </header>
     <div class="container-1">
         <h1>දැනුම්දීම</h1>
+        <div class="container-2">
+            <h2>
+            වගා හානි ගැන
+            </h2>
+            <h3 style="float:right">දිනය 08/08/2021</h3>
+            <div class="container-sub-1">
+                <p>
+                   හිතවත් ගැමියා, <br>
+                   ඔබේ වන්දිය ලබා ගැනීමට ග්‍රාම නිලධාරී කාර්යාලයට එන්න
+                </p>
+            </div>
+        </div>   <div class="container-2">
+            <h2>
+            වගා හානි ගැන
+            </h2>
+            <h3 style="float:right">දිනය 08/08/2021</h3>
+            <div class="container-sub-1">
+                <p>
+                   හිතවත් ගැමියා, <br>
+                   ඔබේ වන්දිය ලබා ගැනීමට ග්‍රාම නිලධාරී කාර්යාලයට එන්න
+                </p>
+            </div>
+        </div>  
+        <div class="container-2">
+            <h2>
+            වගා හානි ගැන
+            </h2>
+            <h3 style="float:right">දිනය 08/08/2021</h3>
+            <div class="container-sub-1">
+                <p>
+                   හිතවත් ගැමියා, <br>
+                   ඔබේ වන්දිය ලබා ගැනීමට ග්‍රාම නිලධාරී කාර්යාලයට එන්න
+                </p>
+            </div>
+        </div>  
         <div class="container-2">
             <h2>
             වගා හානි ගැන

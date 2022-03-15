@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Public/css/wildlifeofficerHeader.css">
-    <link rel="stylesheet" href="../Public/css/veterinarian_view_incidents_indetail.css">
+    <link rel="stylesheet" href="../Public/css/veterinarianViewIncidentsIndetail.css">
     <script src="../Public/Javascript/login.js"></script>
     <script src="../Public/Javascript/viewReport.js"></script>
     <script src="../Public/Javascript/wildlifeofficer.js"></script>
@@ -25,23 +25,30 @@
             </div>
 
             <ul>
-                <li id="home"><a href="../">HOME</a></li>
-                <li id="dashboard"><a href="../wildlifeofficer/viewDashboard">DASHBOARD</a></li>
+
+                <li id="home"><a href="../?lang=2">මුල් පිටුව</a></li>
+                <li id="userPageSinhala"><a href="../veterinarian/?lang=2"> &nbsp; පරිශීලක පිටුව </a></li>
+                <li id="incidentsSinhala"><a href="../veterinarian/viewIncidents?lang=2"> &emsp; වාර්තා වූ සිදුවීම්</a></li>
+                <li id="notifications"><a href="../veterinarian/viewNotification?lang=2">දැනුම්දීම්</a></li>
+                <li id="dashboard"><a href="../veterinarian/viewDashboard?lang=2">දත්ත පුවරුව</a></li>
                 <li>
                     <div class="dropdown-1" style="  padding-left:  300px ">
-                        <button class="dropbtn-1">Language</button>
+                        <button class="dropbtn-1">භාෂාව</button>
                         <div class="dropdown-content-1">
-                            <a href=" ">English</a>
-                            <a href=" ">සිංහල</a>
-                            <a href=" ">தமிழ்</a>
+                            <?php
+                            echo "
+                <a href='?lang=1&index=" . $_GET['index'] . "&name=" . $_GET['name'] . "'>English</a>
+                <a href='?lang=2&index=" . $_GET['index'] . "&name=" . $_GET['name'] .  "'>සිංහල</a>
+                <a href='?lang=3&index=" . $_GET['index'] . "&name=" . $_GET['name'] .  "'>தமிழ்</a> "
+                            ?>
                         </div>
                     </div>
                 </li>
                 <li class="dropdown">
                     <span class="dot"> <img onclick="myFunction_3()" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
                     <div id="myDropdown" class="dropdown-content">
-                        <a href="">View Profile</a>
-                        <a href="">Logout</a>
+                        <a href="../veterinarian/viewProfile?lang=2">පරිශීලක පැතිකඩ</a>
+                        <a href="../user/index?lang=2">ඉවත් වීම</a>
                     </div>
                 </li>
             </ul>
@@ -55,6 +62,7 @@
     <body>
         <div class="contanier_2">
 
+
             <div class="contanier_2-1">
                 <?php
 
@@ -67,7 +75,7 @@
                         <h1>You Accept the Duty</h1>
 
 
-                        <a href="../veterinarian/viewIncidents?lang=1" class="login-btn" style=" border-radius: 10px; padding: 10px 10px; background-color:#056412;  color: white;">OK</a>
+                        <a href="../veterinarian/viewIncidents?lang=2" class="login-btn" style=" border-radius: 10px; padding: 10px 10px; background-color:#056412;  color: white;">OK</a>
                     </div>
                 <?php
 
@@ -83,32 +91,42 @@
                 <div class="col_1_first">
                     <div class="row_in_firstrow">
                         <div class="col_1_first"><img src="../Public/images/user_icon4-01.png" class="image"></div>
-                        <div class="col_2_first"> <br>User_ID : W001</div>
+
+                        <div class="col_2_first"> <br>පරිශීලක_ අංකය : W001</div>
                     </div>
                 </div>
-                <div class="col_2_first">Name : S.Disanayaka </div>
-
-
-
+                <div class="col_2_first">පිළිගත් වනජීවී නිලධාරියා :<br> <?php echo $_GET['name'] ?> </div>
             </div>
             <div class="row">
-                <div class="col_1">Wild Animal In danger</div>
-                <div class="col_2">Report_Number-3</div>
-                <div class="col_2">Date - 2021/09/10
+
+                <div class="col_1"><?php echo $data[0][$_GET['index']]['description']  ?></div>
+                <div class="col_2">වාර්තා_අංකය - <?php echo $data[0][$_GET['index']]['incidentID']  ?></div>
+                <div class="col_2">දිනය - <?php echo $data[0][$_GET['index']]['date']  ?>
                 </div>
             </div>
             <div class="row_last">
                 <div class="col_2_last"><button type='submit' class='backButton' id='view' onclick=''>
-                        <a href='../veterinarian/viewIncidents'>BACK</a>
+
 
                 </div>
 
-                <form method="POST">
-                    <div class="save_button">
 
-                        <input name="send" class='backButton' type="submit" onclick="" value="ACCEPT" />
-                    </div>
-                </form>
+                <div class="save_button">
+                    <?php
+                    if ($data[0][$_GET['index']]['vetStatus'] == 'pending') {
+
+                        echo "<form method='POST' action='../veterinarian/trigerRequest?lang=2'><input type='text' style='display:none' name='acc' value=" . $data[0][$_GET['index']]['incidentID'] . "><button class='buttonAccept' id='acceptId' value='ACCEPT' name='accept'/>ACCEPT</button></form>";
+                    } else {
+                        echo "<form method='POST' action='../veterinarian/trigerRequest?lang=2'><input type='text' style='display:none'  name='can' value=" . $data[0][$_GET['index']]['incidentID'] . "><button class='buttonCancel' id='cancelId' value='CANCEl' name='cancel'/>CANCEL</button></form>";
+                    }
+
+
+                    ?>
+
+
+
+                </div>
+
 
 
 
@@ -129,7 +147,6 @@
             <div class="last">
 
             </div>
-
 
 
 

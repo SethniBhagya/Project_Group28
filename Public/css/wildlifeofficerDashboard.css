@@ -15,8 +15,9 @@ a {
   text-decoration: none;
 }
 .first {
-  padding-left: 70%;
-  padding-top: 10px;
+  padding-left: 75%;
+  padding-top: 5px;
+  height: 15px;
 }
 .first a {
   padding-left: 40px;

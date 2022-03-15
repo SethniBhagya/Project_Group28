@@ -249,10 +249,30 @@ class wildlifeofficer extends user
     // sendIncidentDetailsToVet function to send incident to veterinarian.
     public function sendIncidentDetailsToVet()
     {
+        if (isset($_GET['lang'])) {
+            //assign the value
+            $lang = $_GET['lang'];
+        }
+        $this->view->data = $this->model->selectDashboardData();
+        switch ($lang) {
+            case 1:
+
+                $this->view->render('wildlifeoffficerViewIncidentsIndetail', $this->view->data);
+                break;
+            case 2:
+                //display profile page  
+                $this->view->render('wildlifeoffficerViewIncidentsIndetailSinhala', $this->view->data);
+                break;
+            case 3:
+                //display profile page   
+                $this->view->render('wildlifeoffficerViewIncidentsIndetailTamil', $this->view->data);
+                break;
+        }
         // session_start();
         // $this->view->data=$this->model->selectData($_SESSION["NIC"]);
-        $this->view->render('wildlifeoffficerViewIncidentsIndetail');
+        // $this->view->render('wildlifeoffficerViewIncidentsIndetail');
     }
+
     //filter incidents using report catagory in view reported incidents page.
     public function filterUsingReportCatagory()
     {
@@ -295,16 +315,33 @@ class wildlifeofficer extends user
     //when tap the accept button or cancel button
     public function trigerRequest()
     {
+        session_start();
+        $nic = $_SESSION["NIC"];
         if (isset($_POST['accept'])) {
             $id = trim($_POST['acc']);
-            $result = $this->model->incidentStatUpdate("success", $id);
+            $lang = $_GET['lang'];
+
+            $result = $this->model->incidentStatUpdate("success", $id, $nic);
 
             $this->view->data = $this->model->selectIncidentData();
-            $this->view->render('wildlifeofficerViewIncidents', $this->view->data);
+            switch ($lang) {
+                case '1':
+                    $this->view->render('wildlifeofficerViewIncidents', $this->view->data);
+                    break;
+                case '2':
+                    $this->view->render('wildlifeofficerViewIncidentsSinhala', $this->view->data);
+                    break;
+                case '3':
+                    $this->view->render('wildlifeofficerViewIncidentsTamil', $this->view->data);
+                    break;
+            }
         }
         if (isset($_POST['cancel'])) {
+
+
+            $nic = "";
             $id = trim($_POST['can']);
-            $result = $this->model->incidentStatUpdate("pending", $id);
+            $result = $this->model->incidentStatUpdate("pending", $id, $nic);
 
             $this->view->data = $this->model->selectIncidentData();
             $this->view->render('wildlifeofficerViewIncidents', $this->view->data);
@@ -318,20 +355,62 @@ class wildlifeofficer extends user
             $lang = $_GET['lang'];
         }
         // session_start();
-        // $this->view->data = $this->model->selectIncidentData();
+        $this->view->data = $this->model->selectNotificationsData();
+
         switch ($lang) {
             case 1:
 
-                $this->view->render('wildlifeofficerNotifications');
+                $this->view->render('wildlifeofficerNotifications', $this->view->data);
                 break;
             case 2:
                 //display profile page  
-                $this->view->render('wildlifeofficerNotifications');
+                $this->view->render('wildlifeofficerNotificationsSinhala', $this->view->data);
                 break;
             case 3:
                 //display profile page   
-                $this->view->render('wildlifeofficerNotifications');
+                $this->view->render('wildlifeofficerNotificationsTamil', $this->view->data);
                 break;
         }
+    }
+    function sendToVet()
+    {
+
+
+        if (isset($_POST['send'])) {
+            $id = trim($_GET['id']);
+            $lang = $_GET['lang'];
+
+
+
+            $result = $this->model->sendToVetData($id);
+
+            $this->view->data = $this->model->selectIncidentData();
+            switch ($lang) {
+                case '1':
+                    $this->view->render('wildlifeofficerViewIncidents', $this->view->data);
+                    break;
+                case '2':
+                    $this->view->render('wildlifeofficerViewIncidentsSinhala', $this->view->data);
+                    break;
+                case '3':
+                    $this->view->render('wildlifeofficerViewIncidentsTamil', $this->view->data);
+                    break;
+            }
+        }
+    }
+    public function setIncidentStatus()
+    {
+        if (isset($_GET['status'])) {
+            //assign the value
+            $lang = $_GET['lang'];
+            $incidentId = $_GET['index'];
+            $status = $_GET['status'];
+        }
+        $result = $this->model->setIncidentStatus($incidentId, $status);
+
+
+        //chack whether wildlife officer have save the changes
+
+
     }
 }

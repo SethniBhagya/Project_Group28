@@ -24,6 +24,9 @@
 
             <ul>
                 <li id="home"><a href="../?lang=2">මුල් පිටුව</a></li>
+                <li id="userPageSinhala"><a href="../wildlifeofficer/?lang=2"> &nbsp; පරිශීලක පිටුව </a></li>
+                <li id="incidentsSinhala"><a href="../wildlifeofficer/viewIncidents?lang=2"> &emsp; වාර්තා වූ සිදුවීම්</a></li>
+                <li id="notifications"><a href="../wildlifeofficer/viewNotification?lang=2">දැනුම්දීම්</a></li>
                 <li id="dashboard"><a href="../wildlifeofficer/viewDashboard?lang=2">දත්ත පුවරුව</a></li>
                 <li>
                     <div class="dropdown-1" style="  padding-left:  300px ">
@@ -67,7 +70,7 @@
             <button class="specialNotice">
                 <div class="notification"><span class="dot-1"><img src="../Public/images/bell.png" alt="1" srcset=" "></span>
                 </div>
-                <h1>හදිසි<br>දැනුම්දීම්</h1>
+                <h1>දැනුම්දීම්</h1>
                 <div class="line"><img src="../Public/images/notifi.png"></div>
             </button>
         </a>

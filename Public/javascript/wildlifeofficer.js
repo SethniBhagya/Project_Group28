@@ -43,6 +43,32 @@ function filterFunction() {
     filter="default";
      break;
  }
+//  function filterFunctionSinhala() {
+//   var input, filter, table, tr, td, i, txtValue;
+//   input = document.getElementById("filter").value;
+//   switch (input) {
+//     case "1.අලි ගම් වලට පැමිණ ඇත":
+//     filter="Elephants are in The Village";
+//      break;
+//     case "2.අනෙකුත් වන සතුන් ගම් වලට පැමිණ ඇත":
+//     filter="Other Wild Animals in The Village";
+//       break;
+//     case "3.අලි වැට කැඩීම":
+//     filter="Breakdown of Elephant Fences";
+//      break;
+//     case "4.වන සතුන්ට අනතුරක්":
+//     filter="Wild Animal is in Danger";
+//      break;
+//     case "5.බෝග හානි":
+//     filter="Crop Damages";
+//      break;
+//     case "6.නීති විරෝධී දේ සිදුවෙමින් පවතී":
+//     filter="Illegal Happing";
+//      break;
+//     default:
+//     filter="default";
+//      break;
+//  }
   // filter = input.value.toUpperCase();
   table = document.getElementById("myTable");
   tr = table.getElementsByTagName("tr");

@@ -23,7 +23,7 @@
 
             <ul>
             <li id="home_2"><a href="../">Home</a></li>
-                <li id="dashboard_1"   ><a href="../user/viewpage?user=villager" >Dashboard</a></li>
+                <li id="dashboard_1"   ><a href="../user/viewpage?lang=1" >Dashboard</a></li>
                 <li id="report_2"  ><a href="">Report Incidents</a></li>
                 <li id="special_1"><a href="../user/viewSpecialNotice?lang=1">SpecialNotice </a></li> 
                 <div class="dropdown-1" style="  padding-left:  300px ">
@@ -54,6 +54,42 @@
     </header>
     <div class="container-1">
         <h1>Notification</h1>
+        <div class="container-2">
+            <h2>
+                 Regarding Crop Damages
+            </h2>
+            <h3 style="float:right">Date 08/08/2021</h3>
+            <div class="container-sub-1">
+                <p>
+                    Dear Villager , <br>
+                    Come to the Grama Niladhari office to get your compensation
+                </p>
+            </div>
+        </div>    
+        <div class="container-2">
+            <h2>
+                 Regarding Crop Damages
+            </h2>
+            <h3 style="float:right">Date 08/08/2021</h3>
+            <div class="container-sub-1">
+                <p>
+                    Dear Villager , <br>
+                    Come to the Grama Niladhari office to get your compensation
+                </p>
+            </div>
+        </div>    
+        <div class="container-2">
+            <h2>
+                 Regarding Crop Damages
+            </h2>
+            <h3 style="float:right">Date 08/08/2021</h3>
+            <div class="container-sub-1">
+                <p>
+                    Dear Villager , <br>
+                    Come to the Grama Niladhari office to get your compensation
+                </p>
+            </div>
+        </div>    
         <div class="container-2">
             <h2>
                  Regarding Crop Damages

@@ -25,8 +25,9 @@
       </div>
 
       <ul>
-              <li id="home_2" style="right:750px"  ><a href="../"  ">முகப்பு பக்கம்</a></li>
-                <li id="dashboard_1" style="right:600px"  ><a href="../user/viewpage?user=villager" >டாஷ்போர்டு</a></li>
+      <li id="home_2" style="right:750px"  ><a href="../?lang=3" >முகப்பு பக்கம்</a></li>
+
+                <li id="dashboard_1" style="right:600px"  ><a href="../user/viewpage?lang=3" >டாஷ்போர்டு</a></li>
                 <li id="report_2" style="   right:380px" ><a  href="../incident/index?lang=3">சம்பவங்கள் அறிக்கை</a></li>
                 <li id="special_1"style="right:210px"  ><a href="../villager/viewSpecialNotice?lang=3">சிறப்பு அறிவிப்பு</a></li> 
                 <div class="dropdown-1" style="  padding-left:  300px ">

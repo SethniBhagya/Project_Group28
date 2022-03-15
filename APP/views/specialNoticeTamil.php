@@ -22,12 +22,12 @@
             </div>
 
             <ul>
-            <li id="home_2" style="right:750px"  ><a href="../"  ">முகப்பு பக்கம்</a></li>
-                <li id="dashboard_1" style="right:600px"  ><a href="../user/viewpage?user=villager" >டாஷ்போர்டு</a></li>
+            <li id="home_2" style="right:750px"  ><a href="../?lang=3" >முகப்பு பக்கம்</a></li>
+                <li id="dashboard_1" style="right:600px"  ><a href="../user/viewpage?lang=3" >டாஷ்போர்டு</a></li>
                 <li id="report_2"  style="right:380px" ><a  href="">சம்பவங்கள் அறிக்கை</a></li>
                 <li id="special_1" style=" background-color: rgb(168, 175, 168) " ><a href="">சிறப்பு அறிவிப்பு </a></li> 
                 <div class="dropdown-1">
-                    <button class="dropbtn-1">Language</button>
+                    <button class="dropbtn-1">மொழி</button>
                     <div class="dropdown-content-1">
                         <a href="?lang=1">English</a>
                         <a href="?lang=2">සිංහල</a> 
@@ -37,8 +37,8 @@
                 <li class="dropdown">
                     <span class="dot"> <img onclick="myFunction_2(this)" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
                     <div id="myDropdown" class="dropdown-content">
-                    <a href="../user/editprofile?lang=3">View Profile</a> 
-                    <a href="../user/logout">Logout</a>
+                    <a href="../user/editprofile?lang=3">சுயவிவரம் காண</a> 
+                    <a href="../user/logout">வெளியேறு</a>
                     </div>
                 </li>
             </ul>

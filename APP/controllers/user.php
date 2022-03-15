@@ -22,6 +22,7 @@ class user extends Controller
 
   public function index()
   {
+<<<<<<< HEAD
      
      session_start();
      session_regenerate_id(); 
@@ -54,6 +55,33 @@ class user extends Controller
 
     else
     { //If user not logged in then redirect to login page
+=======
+    session_start();
+    session_regenerate_id();
+    if (!empty($_SESSION["NIC"])) {
+      $jobType = $_SESSION["jobtype"];
+      switch ($jobType) {
+          // case "villager":
+          //  //get the data in Database  
+          //  $this->view->data = $this->model->selectData($_POST["username"]);
+          //  //echo $this->data;  
+          //  // render the villager page  
+          //  $this->view->render('villagersPage');
+          //  break;
+        case "Wildlife Officer":
+          $this->view->render('wildlifeofficer');
+          break;
+        case "admin":
+          $this->view->render('admin_page');
+          break;
+        case "regional Officer":
+          $this->view->render('regionalDashboard');
+          break;
+        case "veterinarian":
+          $this->view->render('veterinarian');
+      }
+    } else {
+>>>>>>> 670367b61c7a244c7953d5e2eb23ba9d4b08b548
       if (isset($_GET["lang"])) {
 
         if ($_GET["lang"] == "2")
@@ -62,16 +90,15 @@ class user extends Controller
           $this->view->render('login');
         elseif ($_GET["lang"] == "3")
           $this->view->render('loginTamil');
+<<<<<<< HEAD
     } else
       $this->view->render('login');
 
+=======
+      } else
+        $this->view->render('login');
+>>>>>>> 670367b61c7a244c7953d5e2eb23ba9d4b08b548
     }
-
-    
-
-
-
-     
   }
 
 
@@ -179,9 +206,10 @@ class user extends Controller
               case "regional Officer":
                 $this->view->render('regionalDashboard');
                 break;
-              
-                // case "veterinarian": $this->view->render('veterinarian');
 
+              case "veterinarian":
+                $this->view->render('veterinarian');
+                break;
             }
           }
         } else {
@@ -198,7 +226,7 @@ class user extends Controller
 
     session_start();
     unset($_SESSION["NIC"]);
-    unset($_SESSION["jobtype"]); 
+    unset($_SESSION["jobtype"]);
     session_destroy();
     $this->view->render('login');
   }
@@ -210,38 +238,38 @@ class user extends Controller
       //assign the value
       $lang = $_GET['lang'];
     }
-    switch($lang){ 
+    switch ($lang) {
       case 1:
-      switch ($_SESSION["jobtype"]) {
-      case 'villager':
-        // session_start();
-        $_userNic = $_SESSION["NIC"];
-        $this->view->data = $this->model->selectData($_userNic);
+        switch ($_SESSION["jobtype"]) {
+          case 'villager':
+            // session_start();
+            $_userNic = $_SESSION["NIC"];
+            $this->view->data = $this->model->selectData($_userNic);
 
-        $this->view->render('villagersPage');
-      }
-      break;
+            $this->view->render('villagersPage');
+        }
+        break;
       case 2:
         switch ($_SESSION["jobtype"]) {
           case 'villager':
             // session_start();
             $_userNic = $_SESSION["NIC"];
             $this->view->data = $this->model->selectData($_userNic);
-    
+
             $this->view->render('villagersPagesinhala');
-          }
-      break;
+        }
+        break;
       case 3:
         switch ($_SESSION["jobtype"]) {
           case 'villager':
             // session_start();
             $_userNic = $_SESSION["NIC"];
             $this->view->data = $this->model->selectData($_userNic);
-    
+
             $this->view->render('villagersPagetamil');
-          }
-          break;
-        } 
+        }
+        break;
+    }
   }
 
 
@@ -352,7 +380,7 @@ class user extends Controller
   }
   public function viewSpecialNotice()
   {
-    
+
     if (isset($_GET['lang'])) {
       //assign the value
       $lang = $_GET['lang'];

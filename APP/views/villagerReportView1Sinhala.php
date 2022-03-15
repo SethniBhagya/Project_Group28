@@ -25,8 +25,8 @@
 
             <ul>
             <ul>
-            <li id="home_2"><a href="../">මුල් පිටුව</a></li>
-                <li id="dashboard_1"   ><a href="../user/viewpage?user=villager" >මුල් පුවරුව</a></li>
+            <li id="home_2"><a href="../?lang=2">මුල් පිටුව</a></li>
+                <li id="dashboard_1"   ><a href="../user/viewpage?lang=2" >මුල් පුවරුව</a></li>
                 <li id="report_2" style=" padding-right:20px ; right:345px  "><a href="../incident/index?lang=2"> වර්තා කිරීම</a></li>
                 <li id="special_1"><a href="../user/viewSpecialNotice?lang=2">විශේෂ දැන්වීම</a></li> 
                 <div class="dropdown-1" style="  padding-left:  300px ">

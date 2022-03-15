@@ -26,6 +26,9 @@
 
             <ul>
                 <li id="home"><a href="../?lang=1">HOME</a></li>
+                <li id="userPage"><a href="../wildlifeofficer/?lang=1">USER PAGE</a></li>
+                <li id="incidents"><a href="../wildlifeofficer/viewIncidents?lang=1">INCIDENTS</a></li>
+                <li id="notifications"><a href="../wildlifeofficer/viewNotification?lang=1">NOTIFICATIONS</a></li>
                 <li id="dashboard"><a href="../wildlifeofficer/viewDashboard?lang=1">DASHBOARD</a></li>
                 <li>
                     <div class="dropdown-1" style="  padding-left:  300px ">
@@ -50,7 +53,7 @@
 
     <!-- <div class="header-name"><h><pre  style="font-size: larger;font-style: normal; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Total in Sri Lanka                                                                                                                                                               LastModified 30/09/2021</pre></h> </div> -->
     <div class="first">
-        Time Duration -3 Month <a href="../wildlifeofficer/?lang=1">BACK</a><br>
+        Time Duration -3 Month<br>
         Last Modification 02/09/2021<br>
 
     </div>
@@ -114,10 +117,10 @@
     </div>
     <div class="district-report">
         <div class="users-1">
-            Wildlife Officers <h1 data-target="20" class="count">0</h1>
+            Wildlife Officers <h1 data-target="" class="count">20</h1>
         </div>
         <div class="users-2">
-            Grama Niladharis <h1 data-target="23" class="count">0</h1>
+            Grama Niladhari <h1 data-target="23" class="count">0</h1>
         </div>
         <div class="users-3">
             Veterinarians <h1 data-target="10" class="count">0</h1>
