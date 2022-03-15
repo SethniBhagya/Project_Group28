@@ -12,6 +12,7 @@
       <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
       <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
       <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" referrerpolicy="no-referrer"></script>
     
     
     <title>Place Notice</title>
@@ -47,33 +48,115 @@
     </div>
 
      <div id="container2">
-        <select id="province">
-         <option>Select Province</option>
-         <option>southern</option>
+        
+       
+       <form id="frm" method="POST" action="placeNotice">
+
+        <table>
+            <tr>
+                <td>
+                    <label for="subject" >Subject :</label>
+                    
+                </td>
+                <td>
+                    <input type="text" name="subject" id="subject" required>
+                </td>
+            </tr>
+
+             <tr>
+                <td>
+                    <label for="description" id="lbl-description">Description :</label>
+                    
+                </td>
+                <td>
+                    <textarea rows="10" cols="10"  id="description" name="description" required></textarea>
+                </td>
+            </tr>
+
+
+             
+
+            <tr>
+                <td>
+                    <label for="village">Village :</label>
+                    
+                </td>
+                <td>
+                     <select id="village" name="village" required>
+            
+                     </select>
+
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label for="gn">GN Division :</label>
+                    
+                </td>
+                <td>
+                    <select id="gn" name="gnd" onchange ="selectVillage(this.value)" required>
+            
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                     <label for="district">District :</label>
+                    
+                </td>
+                <td>
+                    <select id="district" name="district"  onchange ="selectGN(this.value)" required>
+            
+                   </select>
+                </td>
+            </tr>
+
+             <tr>
+                <td>
+                    <label for="province">Province :</label>
+                    
+                </td>
+                <td>
+                    <select id="province" name="province" onchange ="selectDistrict(this.value)" required>
+                        <?php $rows=$data; foreach($rows as $row){ echo "<option"?><?php echo " value=".$row["Name"]." >".$row["Name"]."</option>";}?> 
+            
+                    </select>
+                </td>
+            </tr>
+
+             
+
+
+
+            <tr>
+                <td>
+                    <label for="receiver">Receiver :</label>
+                    
+                </td>
+                <td>
+                     <select id="receiver" name="jobType">
+                        
+                        <option value="wildlifeOfficer">Wildlife Officers</option>
+                        <option value="regionalOfficer">Regional Officers</option>
+                        <option value="villager">Villagers</option>
+                        <option value="gramaNiladhari">Grama Niladhari</option>
+                        <option value="veterinarian">Grama Niladhari</option>
+
+            
+                     </select>
+
+                </td>
+            </tr>
+
+
+        </table>
          
-       </select>
-       <select id="district">
-         <option>Select District</option>
-         <option>hambanthota</option>
-         <option>galle</option>
-         <option>matara</option>
-       </select>
-        <select id="gn">
-         <option>Select GN division</option>
-         <option>sooriyawewa</option>
-         <option>hambanthota</option>
-       </select>
-       <select id="village">
-         <option>Select Village</option>
-         <option>Darmigama</option>
-         <option>Sooriyawewa</option>
-       </select>
-       <form id="frm">
-         <label for="subject" >Subject :</label>
-         <input type="text" name="subject" id="subject">
-         <br>
-         <label for="Description" id="lbl-description">Description :</label>
-         <textarea rows="10" cols="10" form="fmr" id="Description"></textarea>
+         
+       
+    
+        
          
          <button type="submit" name="submit" id="submit">Submit</button>
 
@@ -90,3 +173,51 @@
     </div>
 
 </body>
+
+<script type="text/javascript">
+    
+    function selectDistrict(x){
+                                
+
+    $.post("../admin/placeNotice",{provinceName:x},function(data,status){
+          
+        $("#district").html(data);
+
+
+        
+    });
+
+  }
+
+
+   function selectGN(x){
+    
+    
+    $.post("../admin/placeNotice",{districtName:x},function(data,status){
+         
+          $('#gn').html(data);
+
+        
+        
+    });
+
+
+  }
+
+
+   function selectVillage(x){
+    
+    
+    $.post("../admin/placeNotice",{gnName:x},function(data,status){
+           
+          $('#village').html(data);
+        
+        
+    });
+
+
+  }
+
+
+
+</script>
