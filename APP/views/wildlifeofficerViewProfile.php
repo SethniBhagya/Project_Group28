@@ -1,6 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<?php
+if (!isset($_SESSION['NIC'])) {
+    header("Location:http://localhost/WildlifeCare/user/index");
+}
+if (isset($_SESSION['jobtype'])) {
+    if ($_SESSION['jobtype']=='Wildlife Officer') {
+       
+    }else {
+        header("Location:http://localhost/WildlifeCare/user/mustLogout");
+    }
+}else {
+    header("Location:http://localhost/WildlifeCare/user/mustLogout");
+}
+?>
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">

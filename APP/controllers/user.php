@@ -90,6 +90,7 @@ class user extends Controller
           $_SESSION["jobtype"] = $loginUser["jobtype"];
           $_SESSION["Fname"] = $loginUser["Fname"];
           $_SESSION["Lname"] = $loginUser["Lname"];
+          
 
           if (isset($_GET["lang"])) {
 
@@ -177,6 +178,11 @@ class user extends Controller
   // }
 
 
+  public function mustLogout()
+  {
+    session_start();
+    $this->view->render('logout');
+  }
   public function logout()
   {
 
@@ -332,6 +338,10 @@ class user extends Controller
         header("Location: ../user/index?resetSuc=error");
       }
     }
+  }
+  public function error()
+  {
+    $this->view->render('404');
   }
   public function viewSpecialNotice()
   {

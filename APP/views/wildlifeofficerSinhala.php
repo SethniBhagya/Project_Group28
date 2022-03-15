@@ -1,6 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<?php
+if (!isset($_SESSION['NIC'])) {
+    header("Location:http://localhost/WildlifeCare/user/index");
+}
+if (isset($_SESSION['jobtype'])) {
+    if ($_SESSION['jobtype']=='Wildlife Officer') {
+       
+    }else {
+        header("Location:http://localhost/WildlifeCare/user/mustLogout");
+    }
+}else {
+    header("Location:http://localhost/WildlifeCare/user/mustLogout");
+}
+?>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -24,8 +37,8 @@
 
             <ul>
                 <li id="home"><a href="../?lang=2">මුල් පිටුව</a></li>
-                <li id="userPageSinhala"><a href="../wildlifeofficer/?lang=2"> &nbsp; පරිශීලක පිටුව </a></li>
-                <li id="incidentsSinhala"><a href="../wildlifeofficer/viewIncidents?lang=2"> &emsp; වාර්තා වූ සිදුවීම්</a></li>
+                <li id="userPage"><a href="../wildlifeofficer/?lang=2"> &nbsp; පරිශීලක පිටුව </a></li>
+                <li id="incidents"><a href="../wildlifeofficer/viewIncidents?lang=2"> &emsp; වාර්තා වූ සිදුවීම්</a></li>
                 <li id="notifications"><a href="../wildlifeofficer/viewNotification?lang=2">දැනුම්දීම්</a></li>
                 <li id="dashboard"><a href="../wildlifeofficer/viewDashboard?lang=2">දත්ත පුවරුව</a></li>
                 <li>

@@ -1,6 +1,21 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
-
+<?php
+if (!isset($_SESSION['NIC'])) {
+    header("Location:http://localhost/WildlifeCare/user/index");
+}
+if (isset($_SESSION['jobtype'])) {
+    if ($_SESSION['jobtype']=='Wildlife Officer') {
+       
+    }else {
+      header("Location:http://localhost/WildlifeCare/user/index");
+    }
+}else {
+  header("Location:http://localhost/WildlifeCare/user/index");
+}
+?>
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -113,77 +128,156 @@
 
                         <th>அறிக்கை வகை</th>
                         <th>இடம்</th>
-                        <th>நடவடிக்கை</th>
+                        
+                        <th></th>
+                        <th>சம்பவத்தின் நிலை</th>
                         <td></td>
                     </tr>
                     <?php
 
-                    $count = 0;
-                    foreach ($data[0] as $row) {
-                        // switch ($data['reporttype']) {
-                        //   case 'Other Wild Animals in The Village':
-                        //     $row['reporttype'] = 2;
-                        //     break;
-                        //   case 'Breakdown of Elephant Fences':
-                        //     $row['reporttype'] = 3;
-                        //     break;
-                        //   case 'Crop Damages':
-                        //     $row['reporttype'] = 5;
-                        //     break;
-                        //   case 'Wild Animal is in Danger':
-                        //     $row['reporttype'] = 4;
-                        //     break;
-                        //   case 'Illegal Happing':
-                        //     $row['reporttype'] = 6;
-                        //     break;
-                        //   case 'Elephants are in The Village':
-                        //     $row['reporttype'] = 1;
-                        //     break;
-                        // }
-                        $d = "";
-                        foreach ($data[1] as $r) {
-                            if ($r['incidentID'] == $row['incidentID']) {
-                                $d = $r['Fname'] . " " . $r['Lname'];
-                            }
-                        }
-                        if ($row['status'] == 'pending') {
-                            $stat = "<form method='POST' action='../wildlifeofficer/trigerRequest?lang=3'><input type='text' style='display:none' name='acc' value=" . $row['incidentID'] . "><button class='buttonAccept' id='acceptId' value='ACCEPT' name='accept'/>ACCEPT</button></form>";
-                        } else {
-                            $stat = "<form method='POST' action='../wildlifeofficer/trigerRequest?lang=3'><input type='text' style='display:none'  name='can' value=" . $row['incidentID'] . "><button class='buttonCancel' id='cancelId' value='CANCEl' name='cancel'/>CANCEL</button></form>";
-                        }
-                        echo "<tr>
-  <td>" . $row['date'] . "</td>
-  <td>" . $row['incidentID'] . "</td>
-  
-  <td>" . $d . "</td>
-  <td>" . $row['reporttype'] . "</td>
-  <td>" . $row['Place'] . "</td>
-  <td>" . $stat . "</td>
-  <td><button type='submit' class='viewButton' id='view' onclick='' >
-    <a href='../wildlifeofficer/viewIncidentDetails?name=" . $d . "&lang=3&index=" . $count . "'>VIEW</a>
-  </button></td>
-  
-  </tr>
-";
-                        $count += 1;
-                    }
-                    ?>
+          // $count = 0;
+          foreach ($data[0] as $row) {
+            // switch ($data['reporttype']) {
+            //   case 'Other Wild Animals in The Village':
+            //     $row['reporttype'] = 2;
+            //     break;
+            //   case 'Breakdown of Elephant Fences':
+            //     $row['reporttype'] = 3;
+            //     break;
+            //   case 'Crop Damages':
+            //     $row['reporttype'] = 5;
+            //     break;
+            //   case 'Wild Animal is in Danger':
+            //     $row['reporttype'] = 4;
+            //     break;
+            //   case 'Illegal Happing':
+            //     $row['reporttype'] = 6;
+            //     break;
+            //   case 'Elephants are in The Village':
+            //     $row['reporttype'] = 1;
+            //     break;
+            // }
+            $d = "";
+            $yes=0;
+            foreach ($data[1] as $r) {
+              if ($r['incidentID'] == $row['incidentID']) {
+                $d = $r['Fname'] . " " . $r['Lname'];
+                $_SESSION['nme']=$d;
+                $yes=1;
+                
+              }
+            }
+            if ($row['status'] == 'pending') {
+              $stat = "<form method='POST' action='../wildlifeofficer/trigerRequest?lang=1'><input type='text' style='display:none' name='acc' value=" . $row['incidentID'] . "><button class='buttonAccept' id='acceptId' value='ACCEPT' name='accept'/>ACCEPT</button></form>";
+            } else {
+              if ($yes==1) {
+                $stat = "<form method='POST' action='../wildlifeofficer/trigerRequest?lang=1'><input type='text' style='display:none'  name='can' value=" . $row['incidentID'] . "><button class='buttonCancel' id='cancelId' value='CANCEl' name='cancel'/>CANCEL</button></form>";
+              }else{
+                $stat = "<form method='POST' action='../wildlifeofficer/trigerRequest?lang=1'><input type='text' style='display:none'  name='can' value=" . $row['incidentID'] . "><button class='buttonCancel' id='cancelId' value='CANCEl' name='cancel' disabled />CANCEL</button></form>";
+              }
+             
+            }
+            // $select = '';
+            // if ($row['incidentStatus'] == 'Pending') {
+            //   echo 'selected';
+            // }
+            // if ($row['incidentStatus'] == 'Succsses') {
+            //   echo 'selected';
+            // }
+            // if ($row['incidentStatus'] == 'Unsuccsses') {
+            //   echo 'selected';
+            // }
+            if ($yes==1) {
+              echo "<tr>
+            <td>" . $row['date'] . "</td>
+            <td>" . $row['incidentID'] . "</td>
+      
+            <td>" . $d . "</td>
+            <td>" . $row['reporttype'] . "</td>
+            <td>" . $row['Place'] . "</td>
+            <td>" . $stat . "</td>
+            
+            <td><button type='submit' class='viewButton' id='view' onclick='' >
+              <a href='../wildlifeofficer/viewIncidentDetails?name=" . $d . "&lang=1&index=" . $count . "'>VIEW</a>
+            </button></td>
+            
+            <td><Form action='../wildlifeofficer/setIncidentStatus?lang=1&index=" . $count . "' method='POST' name='incidentStatus'>
+           
+           
+            <select name='incidentStatus' id='incidentStatus' onchange='location = this.value;'>
+           
+
+            <option class='group-1' value='../wildlifeofficer/setIncidentStatus?lang=1&index={$row['incidentID']}&status=Pending'>Pending</option>
+
+            <option class='group-1' value='../wildlifeofficer/setIncidentStatus?lang=1&index={$row['incidentID']}&status=Success'>Success</option>
+            <option class='group-2' value='../wildlifeofficer/setIncidentStatus?lang=1&index={$row['incidentID']}&status=UnSuccess'>
+                Unscusses
+              </option>
+              <option class='group-2' value='../wildlifeofficer/setIncidentStatus?lang=1&index={$row['incidentID']}&status=UnSuccess' selected>
+              {$row['incidentStatus']}
+              </option>
+            </select>
+            
+          </Form></td>
+            
+            </tr>
+          ";
+            }else {
+              echo "<tr>
+            <td>" . $row['date'] . "</td>
+            <td>" . $row['incidentID'] . "</td>
+      
+            <td>" . $d . "</td>
+            <td>" . $row['reporttype'] . "</td>
+            <td>" . $row['Place'] . "</td>
+            <td>" . $stat . "</td>
+            
+            <td><button type='submit' class='viewButton' id='view' onclick='' >
+              <a href='../wildlifeofficer/viewIncidentDetails?name=" . $d . "&lang=1&index=" . $count . "'>VIEW</a>
+            </button></td>
+            
+            <td><Form action='../wildlifeofficer/setIncidentStatus?lang=1&index=" . $count . "' method='POST' name='incidentStatus'>
+           
+           
+            <select name='incidentStatus' id='incidentStatus' onchange='location = this.value;' disabled>
+           
+
+            <option class='group-1' value='../wildlifeofficer/setIncidentStatus?lang=1&index={$row['incidentID']}&status=Pending'>Pending</option>
+
+            <option class='group-1' value='../wildlifeofficer/setIncidentStatus?lang=1&index={$row['incidentID']}&status=Success'>Success</option>
+            <option class='group-2' value='../wildlifeofficer/setIncidentStatus?lang=1&index={$row['incidentID']}&status=UnSuccess'>
+                Unscusses
+              </option>
+              <option class='group-2' value='../wildlifeofficer/setIncidentStatus?lang=1&index={$row['incidentID']}&status=UnSuccess' selected>
+              {$row['incidentStatus']}
+              </option>
+            </select>
+            
+          </Form></td>
+            
+            </tr>
+          ";
+            }
+              
+          $count += 1;
+           
+            
+           
+          }
 
 
+          ?>
+        </table>
 
+      </div>
+      <div class="subcontainer_3-1">
 
+        <!-- <a href="../wildlifeofficer/?lang=1">BACK</a> -->
 
+      </div>
+      <div></div>
 
-                </table>
-            </div>
-            <div class="subcontainer_3-1">
-
-                <!-- <a href="../wildlifeofficer/?lang=3">மீண்டும்</a> -->
-
-            </div>
-
-        </div>
-
+    </div>
 
 </body>
 
