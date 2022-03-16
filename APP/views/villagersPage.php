@@ -26,10 +26,28 @@
                 <li id="home_2"><a href="../">Home</a></li>
                  <li id="dashboard_1" style=" background-color: rgb(168, 175, 168); color:black;"><a href="../user/viewpage?lang=1">Main Menu</a></li>
                 <li id="report_2"><a a href="../incident/index?lang=1">Report Incidents</a></li>
+<<<<<<< HEAD
 
                 <li id="special_1"><a href="../villager/viewSpecialNotice?lang=1">SpecialNotice </a></li>
 
           
+=======
+<<<<<<< HEAD
+
+=======
+>>>>>>> 670367b61c7a244c7953d5e2eb23ba9d4b08b548
+ 
+                <li id="special_1"><a href="../villager/viewSpecialNotice?lang=1">SpecialNotice </a></li> 
+ 
+                <li id="special_1"><a href="">SpecialNotice </a></li>
+ 
+<<<<<<< HEAD
+
+
+
+=======
+>>>>>>> 670367b61c7a244c7953d5e2eb23ba9d4b08b548
+>>>>>>> 13976e7baeef459d45eb6872e11c549fd324edc3
                 <div class="dropdown-1" style="  padding-left:  300px ">
                     <button class="dropbtn-1">Language</button>
                     <div class="dropdown-content-1">
@@ -41,7 +59,17 @@
                 <li class="dropdown">
                     <span class="dot"> <img onclick="myFunction_2(this)" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
                     <div id="myDropdown" class="dropdown-content">
+<<<<<<< HEAD
                         <a href="../user/editprofile?lang=1">View Profile</a>
+=======
+<<<<<<< HEAD
+
+                    <a href="../user/editprofile?lang=1">View Profile</a>
+
+=======
+                    <a href="../user/editprofile?lang=1">View Profile</a>
+>>>>>>> 670367b61c7a244c7953d5e2eb23ba9d4b08b548
+>>>>>>> 13976e7baeef459d45eb6872e11c549fd324edc3
                         <a href="../user/logout">Logout</a>
                     </div>
                 </li>
@@ -138,7 +166,15 @@
                 <div class="line"><img src="../Public/images/notifi.png"></div>
             </button>
         </a>
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+
+=======
+>>>>>>> 670367b61c7a244c7953d5e2eb23ba9d4b08b548
+ 
+>>>>>>> 13976e7baeef459d45eb6872e11c549fd324edc3
         <a href="../dashboard/index?lang=1">
             <button class="dashboard" ">
                <h1>Dashboard <div class=" line"><img src="../Public/images/dashIcon.png">
@@ -153,8 +189,52 @@
         </button>
     </a>
  
+<<<<<<< HEAD
 
     </div>
+=======
+     </div>
+<<<<<<< HEAD
+
+      <a href="../dashboard/index?lang=1">
+            <button class="dashboard" ">
+                <h1>Statistical</br> Analyze Board<div class=" line"><img src="../Public/images/dashIcon.png">
+    </div>
+    </h1>
+    </button>
+    </a>
+    <a href="../incident/viewReport?type=1&page=1&lang=1">
+        <button class="view" ">
+                <h1>View Reported<div class=" line"><img src="../Public/images/list.png"></div>
+            </h1>
+        </button>
+    </a>
+
+
+    </div>
+    =======
+
+   <!--  <a href="../dashboard/index?lang=1">
+        <button class="dashboard" ">
+                <h1>Statistical</br> Analyze Board<div class=" line"><img src="../Public/images/dashIcon.png">
+            </div>
+            </h1>
+        </button>
+    </a>
+    <a href="../incident/viewReport?type=1&page=1&lang=1">
+        <button class="view" ">
+                <h1>View Reported<div class=" line"><img src="../Public/images/list.png"></div>
+            </h1>
+        </button>
+    </a>
+
+
+    </div>
+    >>>>>>> 408284e2034116f17d4471317d61da03bd43b558
+>>>>>>> 0a4ebcbb4765b7d265a0b6b68b476db5a65d64ff -->
+=======
+>>>>>>> 670367b61c7a244c7953d5e2eb23ba9d4b08b548
+>>>>>>> 13976e7baeef459d45eb6872e11c549fd324edc3
     <!-- <a class="View-Report" href="../incident/viewReport?type=1&page=1">
         <h2>View Reported Incidents</h2>
     </a> -->

@@ -73,7 +73,7 @@
         </div>
 
         <div id="notification">
-            <?php
+            <?php  
               if(!empty($_GET["error"]))
                 echo "<div id=\"errordiv\"><img src=\"../Public/images/error-icon.png\" alt=\"icon\" class=\"icon\"><br><h2 id=\"error\"> Unsuccessfull!!".$_GET["error"]."</h2></div>";
               else if(!empty($_GET["success"]))
@@ -88,7 +88,7 @@
         <div class="container2">
 
 
-            <form class="gnform" method="POST" action="../admin/addUser?error=&success=" onsubmit="return gnValidate()">
+            <form  name="gnForm" class="gnform" method="POST" action="../admin/addUser?error=&success=" onsubmit="return nicPasswordValidate('gramaNiladhari')">
                 <table>
 
                     <tr>
@@ -123,9 +123,11 @@
                     <tr>
                         <td>
                             <label for="nic">NIC</label>
+                            
                         </td>
                         <td>
-                            <input type="text" name="nic" id="nic" required>
+                            <input type="text" name="nic" id="gn-nic-input" required>
+                            <label class="id-error" id="gn-NIC">Please Enter NIC Right Format</label>
                              
 
                         </td>
@@ -230,6 +232,8 @@
                         </td>
                         <td>
                             <input type="password" name="password" id="password" required>
+
+                            <label class="error-password" id="gn-pass">Password must conation more than 7 characters and atleast one lowercase, one upprecase, one digit and one special character(@#$%^&*....)</label>
                         </td>
                     </tr>
 
@@ -250,7 +254,7 @@
             </form>
 
 
-             <form class="vetform" method="POST" action="../admin/addUser?error=&success=">
+             <form name="vetForm" class="vetform" method="POST" action="../admin/addUser?error=&success=" onsubmit="return nicPasswordValidate('veterinarian')">
                 <table>
 
                     <tr>
@@ -259,6 +263,7 @@
                         </td>
                         <td>
                             <input type="text" name="nic" id="nic" required>
+                            <label class="id-error" id="vet-NIC">Please Enter NIC Right Format</label>
                         </td>
                     </tr>
 
@@ -359,6 +364,7 @@
                         </td>
                         <td>
                             <input type="password" name="password" id="password" required>
+                            <label class="error-password" id="vet-pass">Password must conation more than 7 characters and atleast one lowercase, one upprecase, one digit and one special character(@#$%^&*....)</label>
                         </td>
                     </tr>
 
@@ -377,7 +383,7 @@
             </form>
 
 
-             <form class="vilform"  method="POST" action="../admin/addUser">
+             <form name="vilForm" class="vilform"  method="POST" action="../admin/addUser" onsubmit="return nicPasswordValidate('villager')">
                 <table>
                     
 
@@ -387,6 +393,7 @@
                         </td>
                         <td>
                             <input type="text" name="nic" id="nic" required>
+                            <label class="id-error" id="vil-NIC">Please Enter NIC Right Format</label>
                         </td>
                         
 
@@ -448,7 +455,7 @@
                         </td>
                         <td>
                             <select class="text" name="village" id="villagevil"    required>
-                                
+                            <option value="Kotapola">Kotapola</option>
                                   
                                </select>
                         </td>
@@ -465,7 +472,7 @@
                         <td>
                             <select  name="gnd" id="gndvi" onchange ="selectVil(this.value)" required>
                                      
-                         
+                         <option value="Kotapola">Kotapola</option>
                             </select>
                             
                         </td>
@@ -536,6 +543,7 @@
                         </td>
                         <td>
                             <input type="password" name="password" id="password" required>
+                            <label class="error-password" id="vil-pass">Password must conation more than 7 characters and atleast one lowercase, one upprecase, one digit and one special character(@#$%^&*..)</label>
                         </td>
                     </tr>
 
@@ -554,7 +562,7 @@
 
             </form>
 
-             <form class="woform"  method="POST" action="../admin/addUser?error=&success=">
+             <form name="wilForm" class="woform"  method="POST" action="../admin/addUser?error=&success=" onsubmit="return nicPasswordValidate('wildlifeOfficer')">
                 <table>
 
                     <tr>
@@ -563,6 +571,7 @@
                         </td>
                         <td>
                             <input type="text" name="nic" id="nic" required>
+                            <label class="id-error" id="wil-NIC">Please Enter NIC Right Format</label>
                         </td>
                     </tr>
 
@@ -668,6 +677,7 @@
                         </td>
                         <td>
                             <input type="password" name="password" id="password" required>
+                            <label class="error-password" id="wil-pass">Password must conation more than 7 characters and atleast one lowercase, one upprecase, one digit and one special character(@#$%^&*..)</label>
                         </td>
                     </tr>
 
@@ -686,7 +696,7 @@
 
 
 
-            <form class="roform"  method="POST" action="../admin/addUser?error=&success=">
+            <form name="regForm" class="roform"  method="POST" action="../admin/addUser?error=&success=" onsubmit="return nicPasswordValidate('regionalOfficer')">
                 <table>
 
 
@@ -696,6 +706,7 @@
                         </td>
                         <td>
                             <input type="text" name="nic" id="nic" required>
+                            <label class="id-error" id="reg-NIC">Please Enter NIC Right Format</label>
                         </td>
                     </tr>
 
@@ -797,6 +808,7 @@
                         </td>
                         <td>
                             <input type="password" name="password" id="password" required>
+                            <label class="error-password" id="reg-pass">Password must conation more than 7 characters and atleast one lowercase, one upprecase, one digit and one special character(@#$%^&*..)</label>
                         </td>
                     </tr>
 
@@ -826,8 +838,9 @@
 
        <script >
 
-        
 
+
+      
 
 
         function selectDistrict(x){
@@ -895,53 +908,139 @@
 
   }
 
+  <?php if(isset($_GET["error"]) || isset($_GET["success"])){?>
+
   $(document).ready(function(){
-    $("#notification").delay(2000).fadeOut();
+    $("#notification").delay(5000).fadeOut();
   })
 
+  <?php } ?>
+
+  <?php if(empty($_GET["error"]) && empty($_GET["success"])){?>
+
+  $(document).ready(function(){
+    $("#notification").hide();
+  })
+
+  <?php } ?>
+
    
 
 
-   // var nicError=document.getElementById("gnNicError");
-   // gnNic.addEventListener('textinput',nic_varify);
-   
-   // function gnValidate(){
-   //  var gnNic=document.forms["gnform"]["nic"];
-   //  var gnDate=document.forms["gnform"]["dob"];
-   //  alert(gnNic.value);
-   //  if(gnNic.value.length!=10)
-   //  {
-   //      nicError.style.display="block";
-   //      gnNic.focus();
-   //      return false;
-   //  }
-   //  else
-   //  {
-   //      var nicFirstChar=(String(gnNic.value))[0];
-   //      var nicSecondChar=(String(gnNic.value))[1];
-   //     var dobYearFirstChar=(String(gnDate.value))[9];
-   //      var dobYearSecondChar=(String(gnDate.value))[10];
-   //      if(nicFirstChar!=dobYearFirstChar || nicSecondChar!=dobYearSecondChar )
-   //          nicError.style.display="block";
-   //          gnNic.focus();
-   //         return false;
+   function nicPasswordValidate(x){
+    switch(x){
+        case "gramaNiladhari":{
+            var NIC=document.forms["gnForm"]["nic"].value;
+            var errorElement=document.getElementById("gn-NIC");
+            var password=document.forms["gnForm"]["password"].value;
+            var passwordErrorElement=document.getElementById("gn-pass");
+        }
+        break;
+        case "veterinarian":{
+            var NIC=document.forms["vetForm"]["nic"].value;
+            var errorElement=document.getElementById("vet-NIC");
+            var password=document.forms["vetForm"]["password"].value;
+            var passwordErrorElement=document.getElementById("vet-pass");
+        }
+        break;
+        case "wildlifeOfficer":{
+            var NIC=document.forms["wilForm"]["nic"].value;
+            var errorElement=document.getElementById("wil-NIC");
+            var password=document.forms["wilForm"]["password"].value;
+            var passwordErrorElement=document.getElementById("wil-pass");
+        }
+        break;
+        case "regionalOfficer":{
+            var NIC=document.forms["regForm"]["nic"].value;
+            var errorElement=document.getElementById("reg-NIC");
+            var password=document.forms["regForm"]["password"].value;
+            var passwordErrorElement=document.getElementById("reg-pass");
+        }
+        break;
+        case "villager":{
+            var NIC=document.forms["vilForm"]["nic"].value;
+            var errorElement=document.getElementById("vil-NIC");
+            var password=document.forms["vilForm"]["password"].value;
+            var passwordErrorElement=document.getElementById("vil-pass");
+        }
+        break;
+    }
+    
+    
 
-   //  }
-   // }
-
-   // function nic_varify(){
-   
-   //  if(gnNic.value.length==10)
-   //  { var nicFirstChar=(String(gnNic.value))[0];
-   //    var nicSecondChar=(String(gnNic.value))[1];
-   //    var dobYearFirstChar=(String(gnDate.value))[9];
-   //    var dobYearSecondChar=(String(gnDate.value))[10];
-   //    if(nicFirstChar==dobYearFirstChar && nicSecondChar==dobYearSecondChar )
-   //      return true;
+    if(NIC.length==10)
+    {
+        if(NIC.charAt(9)=='V' || NIC.charAt(9)=='X')
+        {
+            if(password.length<8)
+             { 
+                alert(password);
+                passwordErrorElement.style.display="block";
+                return false;
 
 
-   //  }
-   // }
+             }
+             else if(password.search(/[a-z]/)==-1|| password.search(/[A-Z]/)==-1 || password.search(/[0-9]/)==-1 || password.search(/[@#$%^&*!.,+]/)==-1 )
+             { 
+                passwordErrorElement.style.display="block";
+                return false;
+
+             }
+             else
+                return true;
+
+            
+        }
+
+        else{
+            errorElement.style.display="block";
+            return false;
+            
+
+        }
+
+            
+    }
+
+    else if(NIC.length==12)
+    {
+        if((NIC.search(/[a-z]/)==-1)&&(NIC.search(/[A-Z]/)==-1)&&(NIC.search(/[!@#\$%\^\&*.+]/)==-1))
+        {
+            if(password.length<8)
+             { 
+                passwordErrorElement.style.display="block";
+                return false;
+
+
+             }
+             else if(password.search(/[a-z]/)==-1|| password.search(/[A-Z]/)==-1 || password.search(/[0-9]/)==-1 || password.search(/[@#$%^&*!.,+]/)==-1 )
+             { 
+                passwordErrorElement.style.display="block";
+                return false;
+
+             }
+             else
+                return true;
+        }
+
+
+            
+        else{
+            errorElement.style.display="block";
+            return false;
+            
+
+        }
+    }
+    else{  
+            errorElement.style.display="block";
+            return false;
+            
+
+        }
+
+
+   }
 
 </script>
 

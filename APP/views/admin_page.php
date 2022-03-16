@@ -12,6 +12,7 @@
       <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
       <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+      <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js" ></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.min.js" ></script>
 
@@ -44,8 +45,9 @@
             </ul>
         </nav>
     </header>
+    <h1 id="actor">ADMINISTRATOR</h1>
     <input type="checkbox" id="check" >
-    <label for="check"><i class="fas fa-bars" id="side-btn"></i></label>
+    <label for="check" id="side-but"><i class="fas fa-bars" id="side-btn"></i></label>
     
 
     <div class="sidebar">
@@ -60,489 +62,331 @@
 
       
     </div>
-
+          
     
-  <h1 id="actor">ADMINISTRATOR</h1>
+  
             
            
             
         </div>
 
+
          <div class="container2">
-           
+           <div class="radios">
 
-             <select id="selectInci" name="selectInci" onchange ="selectInci(this.value);count()" >
-                <option value="active">Active Cases</option>
-                 <option value="week">This Week</option>
-                 <option value="month">This Month</option>
-                 <option value="year">This Year</option>
+            <label class="radio-but" data-radio="active">
 
-             </select>
+              <input type="radio" name="cases" class="radio-input" checked >
+              <span class="radio-mark" id="act">
+                Active Cases
+              </span>
+              
+            </label>
+
+            <label class="radio-but" data-radio="success">
+
+              <input type="radio" name="cases" class="radio-input" >
+              <span class="radio-mark" id="suc">
+                Success Cases
+              </span>
+              
+            </label>
+
+            <label class="radio-but" data-radio="unsuccess">
+
+              <input type="radio" name="cases" class="radio-input" >
+              <span class="radio-mark" id="unsuc">
+                Unsuccess Cases
+              </span>
+              
+            </label>
+
+             
+           </div>
+
+           <script type="text/javascript">
+
+            $(document).ready(function(){
+              $(".container2-inci .radio-content").hide();
+              $(".container2-inci .radio-content:first-child").show();
+
+              $(".radio-but").click(function(){
+
+                var cur_case=$(this).attr("data-radio");
+                $(".container2-inci .radio-content").hide();
+                $("."+cur_case).show();
+
+              });
+
+            });
+             
+           </script>
+             
+              
+             
 
              <div class="container2-inci">
-                <div class="active">
+                <div class="radio-content active">
 
                  <div class="inci" id="ele-1-box">
-                    <img src="../Public/images/elephantDash.png" id="ele-1">
-                    <p id="ele-1-para">Elephants Attack</p>
-                    <h2 class="counter">10</h2>
-                    <input type="checkbox" id="show1">
-                    <label for="show1" class="show-lbl">View</label>
+                   <div class="ele-1-box-front" class="front">
+                    <img src="../Public/images/ele.png" id="ele-1">
+                    <h2 class="counter num" id="front-num1" ><?php echo ($data["activeCases"])["numOfActiveElephantsVillage"];?></h2>
+                    <h2 id="ele-1-para">Elephants Attack</h2>
+                    
+                     
+                   </div>
 
-                    <div class="detail1">
-                         <label for="show1" class="close-btn1 fas fa-times"></label>
-                        <h1>Detailed Details about active elephnats are in village</h1>
-            <table>
-
-                <thead>
-                    <tr>
-                        <th>Incident ID</th>
-                        <th>Reporter NIC</th>
-                        <th>Village</th>
-                        <th>Office No</th>
-                        <th>No of elephants</th>
-                        
-                   </tr>
-                </thead>
-
-                <tbody>
-                    <tr>
-                       <td>1</td>
-                       <td>1234</td>
-                       <td>Gampola</td>
-                       <td>12</td>
-                       <td>5</td>
-                       
-                       
-
-                   </tr>
-                 <tr>
-                    <td>1</td>
-                    <td>1234</td>
-                    <td>Gampola</td>
-                    <td>12</td>
-                    <td>5</td>
+                   <div class="ele-1-box-back">
+                    <h2 class="counter"><?php echo ($data["activeCases"])["numOfActiveElephantsVillage"];?></h2>
+                    <button class="ele-button" onclick="location.href='../admin/viewReportedIncidents?status=active&incident=elephantAttack'">View</button>
+                    
+                    
+                     
+                   </div>
                     
 
-                </tr>
-                 <tr>
-                    <td>1</td>
-                       <td>1234</td>
-                       <td>Gampola</td>
-                       <td>12</td>
-                       <td>5</td>
-                    
 
-                </tr>
-                 <tr>
-                    <td>1</td>
-                       <td>1234</td>
-                       <td>Gampola</td>
-                       <td>12</td>
-                       <td>5</td>
-                    
-
-                </tr>
-                </tbody>
-            </table>
-                    </div>
                         
                  </div>
                  <div class="inci" id="ani-1-box">
-                    <img src="../Public/images/animalDash.png" id="ani-1">
-                    <p id="ani-1-para">Animals In Village</p>
-                    <h2 class="counter">12</h2>
-                    <input type="checkbox" id="show2">
-                    <label for="show2" class="show-lbl">View</label>
-                    <div class="detail2">
-                        <label for="show2" class="close-btn1 fas fa-times"></label>
-                        <h1>Detailed Details about active Other animals are in village</h1>
-
-                         <table>
-
-                <thead>
-                    <tr>
-                        <th>Incident ID</th>
-                        <th>Reporter NIC</th>
-                        <th>Village</th>
-                        <th>Office No</th>
-                        <th>Animal</th>
-                        <th>No of Animals</th>
-                        
-                   </tr>
-                </thead>
-
-                <tbody>
-                    <tr>
-                       <td>1</td>
-                       <td>1234</td>
-                       <td>Gampola</td>
-                       <td>12</td>
-                       <td>Tiger</td>
-                       <td>5</td>
-                       
-                       
-
-                   </tr>
-                 <tr>
-                    <td>1</td>
-                    <td>1234</td>
-                    <td>Gampola</td>
-                    <td>12</td>
-                    <td>Tiger</td>
-                    <td>5</td>
+                    <div class="ani-1-box-front" class="front">
+                    <img src="../Public/images/ani1.png" id="ani-1">
+                    <h2 class="counter" id="front-num2" ><?php echo ($data["activeCases"])["numOfActiveAnimalInVillage"];?></h2>
+                    <h2 id="ani-1-para">Animals in Village</h2>
                     
-
-                </tr>
-                 <tr>
-                    <td>1</td>
-                       <td>1234</td>
-                       <td>Gampola</td>
-                       <td>12</td>
-                       <td>Tiger</td>
-                       <td>5</td>
                     
+                     
+                   </div>
 
-                </tr>
-                 <tr>
-                    <td>1</td>
-                       <td>1234</td>
-                       <td>Gampola</td>
-                       <td>12</td>
-                       <td>Tiger</td>
-                       <td>5</td>
-                    
+                   <div class="ani-1-box-back">
+                    <h2 class="counter"><?php echo ($data["activeCases"])["numOfActiveAnimalInVillage"];?></h2>
+                    <button class="ele-button" onclick="location.href='../admin/viewReportedIncidents?status=active&incident=animalsVillage'">View</button>
 
-                </tr>
-                </tbody>
-            </table>
+                   
                     </div>
                         
                  </div>
                  <div class="inci" id="dan-1-box">
-                    <img src="../Public/images/dangerDash.png" id="dan-1">
-                    <p id="dan-1-para">Animals in Danger</p>
-                    <h2 class="counter">7</h2>
-                    <input type="checkbox" id="show3">
-                    <label for="show3" class="show-lbl">View</label>
-                    <div class="detail3">
-                        <label for="show3" class="close-btn1 fas fa-times"></label>
-                        <h1>Detailed Details about active animals are in danger</h1>
-                           <table>
-
-                <thead>
-                    <tr>
-                        <th>Incident ID</th>
-                        <th>Reporter NIC</th>
-                        <th>Village</th>
-                        <th>Office No</th>
-                        <th>Animal</th>
-                        <th>No of Animals</th>
-                        
-                   </tr>
-                </thead>
-
-                <tbody>
-                    <tr>
-                       <td>1</td>
-                       <td>1234</td>
-                       <td>Gampola</td>
-                       <td>12</td>
-                       <td>Tiger</td>
-                       <td>5</td>
-                       
-                       
-
-                   </tr>
-                 <tr>
-                    <td>1</td>
-                    <td>1234</td>
-                    <td>Gampola</td>
-                    <td>12</td>
-                    <td>Tiger</td>
-                    <td>5</td>
+                  <div class="dan-1-box-front" class="front">
+                    <img src="../Public/images/dan1.png" id="dan-1">
+                    <h2 class="counter" id="front-num3" ><?php echo ($data["activeCases"])["numOfActiveAnimalIsDanger"];?></h2>
+                    <h2 id="dan-1-para">Animal is in Danger</h2>
                     
-
-                </tr>
-                 <tr>
-                    <td>1</td>
-                       <td>1234</td>
-                       <td>Gampola</td>
-                       <td>12</td>
-                       <td>Tiger</td>
-                       <td>5</td>
                     
+                     
+                   </div>
 
-                </tr>
-                 <tr>
-                    <td>1</td>
-                       <td>1234</td>
-                       <td>Gampola</td>
-                       <td>12</td>
-                       <td>Tiger</td>
-                       <td>5</td>
-                    
+                   <div class="dan-1-box-back">
+                    <h2 class="counter"><?php echo ($data["activeCases"])["numOfActiveAnimalIsDanger"];?></h2>
+                    <button class="ele-button" onclick="location.href='../admin/viewReportedIncidents?status=active&incident=animalDanger'">View</button>
 
-                </tr>
-                </tbody>
-            </table>
-
-
+                   
                     </div>
+                    
                         
                  </div>
                  <div class="inci" id="ill-1-box">
-                    <img src="../Public/images/illegalDash.png" id="ill-1">
-                    <p id="ill-1-para">Illegal Things</p>
-                    <h2 class="counter">8</h2>
-                    <input type="checkbox" id="show4">
-                    <label for="show4" class="show-lbl">View</label>
-                    <div class="detail4">
-                        <label for="show4" class="close-btn1 fas fa-times"></label>
-                        <h1>Detailed Details about active illegal thinsg</h1>
-                           <table>
 
-                <thead>
-                    <tr>
-                        <th>Incident ID</th>
-                        <th>Reporter NIC</th>
-                        <th>Village</th>
-                        <th>Office No</th>
-                        
-                        
-                   </tr>
-                </thead>
 
-                <tbody>
-                    <tr>
-                       <td>1</td>
-                       <td>1234</td>
-                       <td>Gampola</td>
-                       <td>12</td>
-                       
-                       
-                       
-                       
-
-                   </tr>
-                 <tr>
-                    <td>1</td>
-                    <td>1234</td>
-                    <td>Gampola</td>
-                    <td>12</td>
+                  <div class="ill-1-box-front" class="front">
+                    <img src="../Public/images/ill1.png" id="ill-1">
+                    <h2 class="counter" id="front-num4" ><?php echo ($data["activeCases"])["numOfActiveIllegal"];?></h2>
+                    <h2 id="ill-1-para">Illegal Things</h2>
                     
                     
-                    
+                     
+                   </div>
 
-                </tr>
-                 <tr>
-                    <td>1</td>
-                       <td>1234</td>
-                       <td>Gampola</td>
-                       <td>12</td>
-                       
-                       
-                    
+                   <div class="ill-1-box-back">
+                    <h2 class="counter"><?php echo ($data["activeCases"])["numOfActiveIllegal"];?></h2>
+                    <button class="ele-button" onclick="location.href='../admin/viewReportedIncidents?status=active&incident=illegal'">View</button>
 
-                </tr>
-                 <tr>
-                    <td>1</td>
-                       <td>1234</td>
-                       <td>Gampola</td>
-                       <td>12</td>
-                       
-                       
-                    
-
-                </tr>
-                </tbody>
-            </table>
+                   
                     </div>
+
+
+
+
+                    
                         
                  </div>
                  <div class="inci" id="crop-1-box">
-                    <img src="../Public/images/cropDash.png" id="crop-1">
-                    <p id="crop-1-para">Crop Damages</p>
-                    <h2 class="counter">3</h2>
-                    <input type="checkbox" id="show5">
-                    <label for="show5" class="show-lbl">View</label>
-                    <div class="detail5">
-                        <label for="show5" class="close-btn1 fas fa-times"></label>
-                        <h1>Detailed Details about active elephnats are in village</h1>
 
-                        <table>
 
-                <thead>
-                    <tr>
-                        <th>Incident ID</th>
-                        <th>Reporter NIC</th>
-                        <th>Village</th>
-                        <th>Grama Niladhari NIC</th>
-                        <th>Cause Animal</th>
-                        <th>Extent of damaged land(ha)</th>
-
-                        
-                        
-                   </tr>
-                </thead>
-
-                <tbody>
-                    <tr>
-                       <td>1</td>
-                       <td>1234</td>
-                       <td>Gampola</td>
-                       <td>12</td>
-                       <td>elephant</td>
-                       <td>8</td>
-
-                       
-                       
-                       
-                       
-
-                   </tr>
-                 <tr>
-                    <td>1</td>
-                    <td>1234</td>
-                    <td>Gampola</td>
-                    <td>12</td>
-                    <td>elephant</td>
-                       <td>8</td>
+                  <div class="crop-1-box-front" class="front">
+                    <img src="../Public/images/crop1.png" id="crop-1">
+                    <h2 class="counter" id="front-num5" ><?php echo ($data["activeCases"])["numOfActiveCropDamage"];?></h2>
+                    <h2 id="crop-1-para">Crop Damages</h2>
                     
                     
-                    
+                     
+                   </div>
 
-                </tr>
-                 <tr>
-                    <td>1</td>
-                       <td>1234</td>
-                       <td>Gampola</td>
-                       <td>12</td>
-                       <td>elephant</td>
-                       <td>8</td>
-                       
-                       
-                    
+                   <div class="crop-1-box-back">
+                    <h2 class="counter"><?php echo ($data["activeCases"])["numOfActiveCropDamage"];?></h2>
+                    <button class="ele-button" onclick="location.href='../admin/viewReportedIncidents?status=active&incident=cropDamage'">View</button>
 
-                </tr>
-                 <tr>
-                    <td>1</td>
-                       <td>1234</td>
-                       <td>Gampola</td>
-                       <td>12</td>
-                       <td>elephant</td>
-                       <td>8</td>
-                       
-                       
-                    
-
-                </tr>
-                </tbody>
-            </table>
+                   
                     </div>
+
                         
                  </div>
                  <div class="inci" id="fen-1-box">
-                    <img src="../Public/images/fenceDash.png" id="fen-1">
-                    <p id="fen-1-para">Damaged Fences</p>
-                    <h2 class="counter">19</h2>
-                    <input type="checkbox" id="show6">
-                    <label for="show6" class="show-lbl">View</label>
-                    <div class="detail6">
-                        <label for="show6" class="close-btn1 fas fa-times"></label>
-                        <h1>Detailed Details about active damge fences</h1>
 
-                        <table>
 
-                <thead>
-                    <tr>
-                        <th>Incident ID</th>
-                        <th>Reporter NIC</th>
-                        <th>Village</th>
-                        <th>Office No</th>
-                        
-                        
-                   </tr>
-                </thead>
-
-                <tbody>
-                    <tr>
-                       <td>1</td>
-                       <td>1234</td>
-                       <td>Gampola</td>
-                       <td>12</td>
-                       
-                       
-                       
-                       
-
-                   </tr>
-                 <tr>
-                    <td>1</td>
-                    <td>1234</td>
-                    <td>Gampola</td>
-                    <td>12</td>
+                  <div class="fen-1-box-front" class="front">
+                    <img src="../Public/images/fen1.png" id="fen-1">
+                    <h2 class="counter" id="front-num6" ><?php echo ($data["activeCases"])["numOfActiveBreakdownFence"];?></h2>
+                    <h2 id="fen-1-para">Fence Damages</h2>
+                   
                     
-                    
-                    
+                     
+                   </div>
 
-                </tr>
-                 <tr>
-                    <td>1</td>
-                       <td>1234</td>
-                       <td>Gampola</td>
-                       <td>12</td>
-                       
-                       
-                    
+                   <div class="fen-1-box-back">
+                    <h2 class="counter"><?php echo ($data["activeCases"])["numOfActiveBreakdownFence"];?></h2>
+                    <button class="ele-button" onclick="location.href='../admin/viewReportedIncidents?status=active&incident=fenceDamage'">View</button>
 
-                </tr>
-                 <tr>
-                    <td>1</td>
-                       <td>1234</td>
-                       <td>Gampola</td>
-                       <td>12</td>
-                       
-                       
-                    
-
-                </tr>
-                </tbody>
-            </table>
+                   
                     </div>
+                   
                         
                  </div>
 
-                 <div id="map">
+                 <div id="active-map"></div>
 
-             <script >
-               
-               function initMap(){
+                 <script type="text/javascript">
 
-                var location={lat:7.216440,lng:80.848387};
+                     function initMapActive(){
+                      var locationActive={lat:7.94033813 , lng:81.01879883};
+                      var mapActive = new google.maps.Map(document.getElementById("active-map"),
+                         {
+                          zoom:10,
+                          center:locationActive,
+                          
+                         }
+
+                        );
+
+                      var activeLocationArray=<?php echo json_encode(($data["activeMapLocation"]));?>;
+
+                     
+
+                      for(let i=0;i<activeLocationArray.length;i++)
+                      {    
+                           var icon="";
+
+                          var type=(activeLocationArray[i])["reporttype"];
+                          switch(type){
+                            case "Crop Damages":{
+                              icon={
+                                       url:"../Public/images/cropDash.png",
+                                       scaledSize: new google.maps.Size(50,50)
+                                    };
+                            };
+                            break;
+                            case "Other Wild Animals are in The Village":{
+                              icon={
+                                       url:"../Public/images/animalDash.png",
+                                       scaledSize: new google.maps.Size(50,50)
+                                    };
+                            };
+                            break;
+                            case "Breakdown of Elephant Fences":{
+                              icon={
+                                       url:"../Public/images/fenceDash.png",
+                                       scaledSize: new google.maps.Size(50,50)
+                                    };
+                            };
+                            break;
+                            case "Wild Animal is in Danger":{
+                              icon={
+                                       url:"../Public/images/dangerDash.png",
+                                       scaledSize: new google.maps.Size(50,50)
+                                    };
+                            };
+                            break;
+                            case "Elephants are in The Village":{
+                              icon={
+                                       url:"../Public/images/elephantDash.png",
+                                       scaledSize: new google.maps.Size(50,50)
+                                    };
+                            };
+                            break;
+                            case "Illegal Happing":{
+                              icon={
+                                       url:"../Public/images/illegalDash.png",
+                                       scaledSize: new google.maps.Size(50,50)
+                                    };
+                            };
+                            break;
+                          }
+                          var lati=parseFloat((activeLocationArray[i])["lat"]);
+                          var long=parseFloat((activeLocationArray[i])["lon"]);
+                          var label=((activeLocationArray[i])["reporttype"]);
+                          var markerContent="<h1>Incident ID:"+(activeLocationArray[i])["incidentID"]+"</h1>";
+                          
+                        var markerActive= new google.maps.Marker({
+
+                          position:{lat:lati,lng:long},
+                          map:mapActive,
+                          icon:icon,
+                          label:label,
+                          
+
+                        }
+
+
+                          );
+
+                        // var infoActiveOptions={
+                        //   content:markerContent,
+                        //   position:{lat:lati,lng:long}
+                        // };
+
+                        // var infoWindowActive=new google.maps.infoWindow(infoActiveOptions);
+
+                        // var infoActiveOpenOptions={
+                        //   map:mapActive
+                        // };
+
+                        // infoWindowActive.open(infoActiveOpenOptions);
+
+                        // mapActive.addListener("center_changed", () => {
+                        //                             // 3 seconds after the center of the map has changed, pan back to the
+                        //                             // marker.
+                        //     window.setTimeout(() => {
+                        //       mapActive.panTo(markerActive.getPosition());
+                        //     }, 3000);
+                        //   });
+                        //   markerActive.addListener("click", () => {
+                        //     mapActive.setZoom(12);
+                        //     mapActive.setCenter(markerActive.getPosition());
+                        //   });
+
+                        
+
+
+                        
+
+
+                      }
+
+                      
+
+
+                    }
+                   
+
+                 </script>
+                   
+
                 
-                var map= new google.maps.Map(document.getElementById("map"),{
-                    zoom:10,
-                    center:location
-                });
 
-                
+                 <script  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOVujYe2-BPc5b66VsL0xVVUKoZHkb5yo&callback=initMapActive"  async></script>
 
-
-                var marker=new google.maps.Marker({
-                    position:location,
-                    map: map
-                });
-
-                
-               }
-           </script>
-          <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA6bqTtd9axLl6pZb3eeSkRgRfXVjW1zkQ&callback=initMap">
-    </script> 
-
-
-       </div>
+              
 
                  <div class="active-dis-chart">
                     <canvas id="active-dis"></canvas>
@@ -550,11 +394,18 @@
                      
                  </div>
 
+
                  <script >
+                  
                      let activeDis=document.getElementById("active-dis").getContext("2d");
     let activeDisLabels=["polonnaruwa","anuradhapura","ampara","hambanthota"];
-    let activeDisData=[1,2,4,3];
+    var activePolonnaruwa=<?php echo json_encode(($data["numOfActiveCasesByDistrict"])["polonnaruwa"]);?>;
+    var activeAnuradhapura=<?php echo json_encode(($data["numOfActiveCasesByDistrict"])["anuradhapura"]);?>;
+    var activeHambanthota=<?php echo json_encode(($data["numOfActiveCasesByDistrict"])["hambanthota"]);?>;
+    var activeAmpara=<?php echo json_encode(($data["numOfActiveCasesByDistrict"])["ampara"]);?>;
+    let activeDisData=[activePolonnaruwa,activeAnuradhapura,activeAmpara,activeHambanthota];
      let activeDisColor=["#6495ED","#7FFFD4","#8A2BE2","#A52A2A"];
+     
     let activeDisChart=new Chart(activeDis, {
       type:"bar",
       data:{
@@ -581,150 +432,314 @@
              </div>
                  
 
-             <div class="week">
+             <div class="radio-content success">
+
+
+                
 
                  <div class="inci" id="ele-2-box">
-                    <img src="../Public/images/elephantDash.png" id="ele-2">
-                    <p id="ele-2-para">Elephants Attack</p>
-                    <h2 class="counter">4</h2>
+                   <div class="ele-2-box-front" class="front">
+                    <img src="../Public/images/ele.png" id="ele-2">
+                    <h2 class="counter" id="front-num1" ><?php echo ($data["successCases"])["numOfActiveElephantsVillage"];?></h2>
+                    <h2 id="ele-2-para">Elephants Attack</h2>
                     
-                    <p>Incidets Reported</p>
+                   
+                     
+                   </div>
+
+                   <div class="ele-2-box-back">
+                    <h2 class="counter"><?php echo ($data["successCases"])["numOfActiveElephantsVillage"];?></h2>
+                    <button class="ele-button" onclick="location.href='../admin/viewReportedIncidents?status=success&incident=elephantAttack'">View</button>
+                    
+                    
+                     
+                   </div>
+                    
+
+
                         
                  </div>
+
                  <div class="inci" id="ani-2-box">
-                    <img src="../Public/images/animalDash.png" id="ani-2">
-                     <p id="ani-2-para">Animals In Village</p>
-                    <h2 class="counter">3</h2>
+                    <div class="ani-2-box-front" class="front">
+                    <img src="../Public/images/ani1.png" id="ani-2">
+                    <h2 class="counter" id="front-num2" ><?php echo ($data["successCases"])["numOfActiveAnimalInVillage"];?></h2>
+                    <h2 id="ani-2-para">Animals in Village</h2>
                     
-                    <p>Incidets Reported</p>
+                    
+                     
+                   </div>
+
+                   <div class="ani-2-box-back">
+                    <h2 class="counter"><?php echo ($data["successCases"])["numOfActiveAnimalInVillage"];?></h2>
+                    <button class="ele-button" onclick="location.href='../admin/viewReportedIncidents?status=success&incident=animalsVillage'">View</button>
+
+                   
+                    </div>
                         
                  </div>
+
                  <div class="inci" id="dan-2-box">
-                    <img id="dan-2" src="../Public/images/dangerDash.png">
-                     <p id="dan-2-para">Animals in Danger</p>
-                    <h2 class="counter">3</h2>
+                  <div class="dan-2-box-front" class="front">
+                    <img src="../Public/images/dan1.png" id="dan-2">
+                    <h2 class="counter" id="front-num3" ><?php echo ($data["successCases"])["numOfActiveAnimalIsDanger"];?></h2>
+                    <h2 id="dan-2-para">Animal is in Danger</h2>
                     
-                    <p>Incidets Reported</p>
+                    
+                     
+                   </div>
+
+                   <div class="dan-2-box-back">
+                    <h2 class="counter"><?php echo ($data["successCases"])["numOfActiveAnimalIsDanger"];?></h2>
+                    <button class="ele-button" onclick="location.href='../admin/viewReportedIncidents?status=success&incident=animalDanger'">View</button>
+
+                   
+                    </div>
+                    
                         
                  </div>
+
                  <div class="inci" id="ill-2-box">
-                    <img id="ill-2" src="../Public/images/illegalDash.png">
-                     <p id="ill-2-para">Illegal Things</p>
-                    <h2 class="counter">1</h2>
+
+
+                  <div class="ill-2-box-front" class="front">
+                    <img src="../Public/images/ill1.png" id="ill-2">
+                    <h2 class="counter" id="front-num4" ><?php echo ($data["successCases"])["numOfActiveIllegal"];?></h2>
+                    <h2 id="ill-2-para">Illegal Things</h2>
                     
-                    <p>Incidets Reported</p>
+                    
+                     
+                   </div>
+
+                   <div class="ill-2-box-back">
+                    <h2 class="counter"><?php echo ($data["successCases"])["numOfActiveIllegal"];?></h2>
+                    <button class="ele-button" onclick="location.href='../admin/viewReportedIncidents?status=success&incident=illegal'">View</button>
+
+                   
+                    </div>
+
+
+
+
+                    
                         
                  </div>
+
+
                  <div class="inci" id="crop-2-box">
-                    <img id="crop-2" src="../Public/images/cropDash.png">
-                     <p id="crop-2-para">Crop Damages</p>
-                    <h2 class="counter">2</h2>
+
+
+                  <div class="crop-2-box-front" class="front">
+                    <img src="../Public/images/crop1.png" id="crop-2">
+                    <h2 class="counter" id="front-num5" ><?php echo ($data["successCases"])["numOfActiveCropDamage"];?></h2>
+                    <h2 id="crop-2-para">Crop Damages</h2>
                     
-                    <p>Incidets Reported</p>
+                   
+                     
+                   </div>
+
+                   <div class="crop-2-box-back">
+                    <h2 class="counter"><?php echo ($data["successCases"])["numOfActiveCropDamage"];?></h2>
+                    <button class="ele-button" onclick="location.href='../admin/viewReportedIncidents?status=success&incident=cropDamage'">View</button>
+
+                   
+                    </div>
+
                         
                  </div>
                  <div class="inci" id="fen-2-box">
-                    <img id="fen-2" src="../Public/images/fenceDash.png">
-                     <p id="fen-2-para">Damaged Fences</p>
-                    <h2 class="counter">4</h2>
+
+
+                  <div class="fen-2-box-front" class="front">
+                    <img src="../Public/images/fen1.png" id="fen-2">
+                    <h2 class="counter" id="front-num6" ><?php echo ($data["successCases"])["numOfActiveBreakdownFence"];?></h2>
+                    <h2 id="fen-2-para">Fence Damages</h2>
                     
-                    <p>Incidets Reported</p>
+                    
+                     
+                   </div>
+
+                   <div class="fen-2-box-back">
+                    <h2 class="counter"><?php echo ($data["successCases"])["numOfActiveBreakdownFence"];?></h2>
+                    <button class="ele-button" onclick="location.href='../admin/viewReportedIncidents?status=success&incident=fenceDamage'">View</button>
+
+                   
+                    </div>
+                   
                         
                  </div>
 
 
-                 <div class="week-dis-chart">
-                    <canvas id="week-dis"></canvas>
-                    <h3>Reported Incidents By districts</h3>
 
+                 <div id="success-map"></div>
+
+                 <script type="text/javascript">
+
+                     function initMapSuccess(){
+                      var locationSuccess={lat:7.94033813 , lng:81.01879883};
+                      var mapSuccess = new google.maps.Map(document.getElementById("success-map"),
+                         {
+                          zoom:8,
+                          center:locationSuccess,
+                          
+                         }
+
+                        );
+
+                      var successLocationArray=<?php echo json_encode(($data["successMapLocation"]));?>;
+
+                    
+
+                      for(let i=0;i<successLocationArray.length;i++)
+                      {    
+                           var icon="";
+
+                          var type=(successLocationArray[i])["reporttype"];
+                          switch(type){
+                            case "Crop Damages":{
+                              icon={
+                                       url:"../Public/images/cropDash.png",
+                                       scaledSize: new google.maps.Size(50,50)
+                                    };
+                            };
+                            break;
+                            case "Other Wild Animals are in The Village":{
+                              icon={
+                                       url:"../Public/images/animalDash.png",
+                                       scaledSize: new google.maps.Size(50,50)
+                                    };
+                            };
+                            break;
+                            case "Breakdown of Elephant Fences":{
+                              icon={
+                                       url:"../Public/images/fenceDash.png",
+                                       scaledSize: new google.maps.Size(50,50)
+                                    };
+                            };
+                            break;
+                            case "Wild Animal is in Danger":{
+                              icon={
+                                       url:"../Public/images/dangerDash.png",
+                                       scaledSize: new google.maps.Size(50,50)
+                                    };
+                            };
+                            break;
+                            case "Elephants are in The Village":{
+                              icon={
+                                       url:"../Public/images/elephantDash.png",
+                                       scaledSize: new google.maps.Size(50,50)
+                                    };
+                            };
+                            break;
+                            case "Illegal Happing":{
+                              icon={
+                                       url:"../Public/images/illegalDash.png",
+                                       scaledSize: new google.maps.Size(50,50)
+                                    };
+                            };
+                            break;
+                          }
+                          var lati=parseFloat((successLocationArray[i])["lat"]);
+                          var long=parseFloat((successLocationArray[i])["lon"]);
+                          var label=((successLocationArray[i])["reporttype"]);
+                          var markerContent="<h1>Incident ID:"+(successLocationArray[i])["incidentID"]+"</h1>";
+                          
+                        var markerSuccess= new google.maps.Marker({
+
+                          position:{lat:lati,lng:long},
+                          map:mapSuccess,
+                          icon:icon,
+                          label:label
+
+                        }
+
+
+                          );
+
+                        // var infoActiveOptions={
+                        //   content:markerContent,
+                        //   position:{lat:lati,lng:long}
+                        // };
+
+                        // var infoWindowActive=new google.maps.infoWindow(infoActiveOptions);
+
+                        // var infoActiveOpenOptions={
+                        //   map:mapActive
+                        // };
+
+                        // infoWindowActive.open(infoActiveOpenOptions);
+
+                        // mapActive.addListener("center_changed", () => {
+                        //                             // 3 seconds after the center of the map has changed, pan back to the
+                        //                             // marker.
+                        //     window.setTimeout(() => {
+                        //       mapActive.panTo(markerActive.getPosition());
+                        //     }, 3000);
+                        //   });
+                        //   markerActive.addListener("click", () => {
+                        //     mapActive.setZoom(12);
+                        //     mapActive.setCenter(markerActive.getPosition());
+                        //   });
+
+                        
+
+
+                        
+
+
+                      }
+
+                      
+
+                      
+
+
+                    }
+                   
+
+                 </script>
+
+                 <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOVujYe2-BPc5b66VsL0xVVUKoZHkb5yo&callback=initMapSuccess" async></script>
+
+
+
+
+                
+
+
+
+                 <div class="success-dis-chart">
+                    <canvas id="success-dis"></canvas>
+                    <h3>Success Cases By districts</h3>
                      
                  </div>
-                     <script >
-                     let weekDis=document.getElementById("week-dis").getContext("2d");
-    let weekDisLabels=["polonnaruwa","anuradhapura","ampara","hambanthota"];
-    let weekDisData=[6,5,4,3];
-     let weekDisColor=["#6495ED","#7FFFD4","#8A2BE2","#A52A2A"];
-    let weekDisChart=new Chart(weekDis, {
+
+                 <script >
+                     let successDis=document.getElementById("success-dis").getContext("2d");
+    let successDisLabels=["polonnaruwa","anuradhapura","ampara","hambanthota"];
+    var successPolonnaruwa=<?php echo json_encode(($data["numOfSuccessCasesByDistrict"])["polonnaruwa"]);?>;
+    var successAnuradhapura=<?php echo json_encode(($data["numOfSuccessCasesByDistrict"])["anuradhapura"]);?>;
+    var successHambanthota=<?php echo json_encode(($data["numOfSuccessCasesByDistrict"])["hambanthota"]);?>;
+    var successAmpara=<?php echo json_encode(($data["numOfSuccessCasesByDistrict"])["ampara"]);?>;
+    let successDisData=[successPolonnaruwa,successAnuradhapura,successAmpara,successHambanthota];
+     let successDisColor=["#6495ED","#7FFFD4","#8A2BE2","#A52A2A"];
+    let successDisChart=new Chart(successDis, {
       type:"bar",
       data:{
-        labels:weekDisLabels,
+        labels:successDisLabels,
         datasets:[{
-          data:weekDisData,
-          backgroundColor:weekDisColor
+          data:successDisData,
+          backgroundColor:successDisColor
         }]
       },
       options:{
         title:{
-          text:"Last week incidents",
+          text:"Success Cases By districts",
           display:true
         },
         legend:{
         display:false
       }
-      }
-      
-
-    });
-                 </script>
-
-
-                 <div class="week-inci-chart">
-                    <canvas id="week-inci"></canvas>
-                    <h3>Reported Incidents By Category</h3>
-
-                     
-                 </div>
-                 <script >
-                     let weekInci=document.getElementById("week-inci").getContext("2d");
-    let weekInciLabels=["Elephants in village","Other animals in village","Animals are in danger","Illegal things","Damage elephnat fence","Crop damage"];
-    let weekInciData=[6,5,4,3,4,5];
-     let weekInciColor=["#DEB887","#5F9EA0","#8A2BE2","#2F4F4F","#BDB76B","brown"];
-    let weekInciChart=new Chart(weekInci, {
-      type:"pie",
-      data:{
-        labels:weekInciLabels,
-        datasets:[{
-          data:weekInciData,
-          backgroundColor:weekInciColor
-        }]
-      },
-      options:{
-        title:{
-          text:"Last week incidents",
-          display:true
-        }
-      }
-      
-
-    });
-                 </script>
-
-                 <div class="week-status-chart">
-                    <canvas id="week-status"></canvas>
-                     <h3>Reported Incidents Status</h3>
-
-                     
-                 </div>
-
-                 <script >
-                     let weekStatus=document.getElementById("week-status").getContext("2d");
-    let weekStatusLabels=["Success","Pending","Unsuccess"];
-    let weekStatusData=[5,2,1];
-     let weekStatusColor=["green","#7FFFD4","red"];
-    let weekStatusChart=new Chart(weekStatus, {
-      type:"doughnut",
-      data:{
-        labels:weekStatusLabels,
-        datasets:[{
-          data:weekStatusData,
-          backgroundColor:weekStatusColor
-        }]
-      },
-      options:{
-        title:{
-          text:"Last week incident status",
-          display:true
-        }
       }
       
 
@@ -733,149 +748,306 @@
 
              </div>
 
-             <div class="month">
+             <div class="radio-content unsuccess">
 
-                  <div class="inci" id="ele-3-box">
-                    <img id="ele-3" src="../Public/images/elephantDash.png">
-                     <p id="ele-3-para">Elephants Attack</p>
-                    <h2 class="counter">10</h2>
+
+                 <div class="inci" id="ele-3-box">
+                   <div class="ele-3-box-front" class="front">
+                    <img src="../Public/images/ele.png" id="ele-3">
+                    <h2 class="counter" id="front-num1" ><?php echo ($data["unSuccessCases"])["numOfActiveElephantsVillage"];?></h2>
+                    <h2 id="ele-3-para">Elephants Attack</h2>
                     
-                    <p>Incidets Reported</p>
+                    
+                     
+                   </div>
+
+                   <div class="ele-3-box-back">
+                    <h2 class="counter"><?php echo ($data["unSuccessCases"])["numOfActiveElephantsVillage"];?></h2>
+                    <button class="ele-button" onclick="location.href='../admin/viewReportedIncidents?status=unsuccess&incident=elephantAttack'">View</button>
+                    
+                    
+                     
+                   </div>
+                    
+
+
                         
                  </div>
+
                  <div class="inci" id="ani-3-box">
-                    <img id="ani-3" src="../Public/images/animalDash.png">
-                     <p id="ani-3-para">Animals In Village</p>
-                     <h2 class="counter">8</h2>
-                     
-                    <p>Incidets Reported</p>
-                        
-                 </div>
-                 <div class="inci" id="dan-3-box">
-                    <img id="dan-3" src="../Public/images/dangerDash.png">
-                     <p id="dan-3-para">Animals in Danger</p>
-                     <h2 class="counter">6</h2>
-                   
-                    <p>Incidets Reported</p>
-                        
-                 </div>
-                 <div class="inci" id="ill-3-box">
-                    <img id="ill-3" src="../Public/images/illegalDash.png">
-                     <p id="ill-3-para">Illegal Things</p>
-                     <h2 class="counter">1</h2>
+                    <div class="ani-3-box-front" class="front">
+                    <img src="../Public/images/ani1.png" id="ani-3">
+                    <h2 class="counter" id="front-num2" ><?php echo ($data["unSuccessCases"])["numOfActiveAnimalInVillage"];?></h2>
+                    <h2 id="ani-3-para">Animals in Village</h2>
                     
-                    <p>Incidets Reported</p>
+                    
+                     
+                   </div>
+
+                   <div class="ani-3-box-back">
+                    <h2 class="counter"><?php echo ($data["unSuccessCases"])["numOfActiveAnimalInVillage"];?></h2>
+                    <button class="ele-button" onclick="location.href='../admin/viewReportedIncidents?status=unsuccess&incident=animalsVillage'">View</button>
+
+                   
+                    </div>
                         
                  </div>
-                 <div class="inci" id="crop-3-box">
-                    <img id="crop-3" src="../Public/images/cropDash.png">
-                     <p id="crop-3-para">Crop Damages</p>
-                     <h2 class="counter">1</h2>
+
+                 <div class="inci" id="dan-3-box">
+                  <div class="dan-3-box-front" class="front">
+                    <img src="../Public/images/dan1.png" id="dan-3">
+                    <h2 class="counter" id="front-num3" ><?php echo ($data["unSuccessCases"])["numOfActiveAnimalIsDanger"];?></h2>
+                    <h2 id="dan-3-para">Animal is in Danger</h2>
+                    
+                    
                      
-                    <p>Incidets Reported</p>
+                   </div>
+
+                   <div class="dan-3-box-back">
+                    <h2 class="counter"><?php echo ($data["unSuccessCases"])["numOfActiveAnimalIsDanger"];?></h2>
+                    <button class="ele-button" onclick="location.href='../admin/viewReportedIncidents?status=unsuccess&incident=animalDanger'">View</button>
+
+                   
+                    </div>
+                    
+                        
+                 </div>
+
+                 <div class="inci" id="ill-3-box">
+
+
+                  <div class="ill-3-box-front" class="front">
+                    <img src="../Public/images/ill1.png" id="ill-3">
+                    <h2 class="counter" id="front-num4" ><?php echo ($data["unSuccessCases"])["numOfActiveIllegal"];?></h2>
+                    <h2 id="ill-3-para">Illegal Things</h2>
+                    
+                    
+                     
+                   </div>
+
+                   <div class="ill-3-box-back">
+                    <h2 class="counter"><?php echo ($data["unSuccessCases"])["numOfActiveIllegal"];?></h2>
+                    <button class="ele-button" onclick="location.href='../admin/viewReportedIncidents?status=unsuccess&incident=illegal'">View</button>
+
+                   
+                    </div>
+
+
+
+
+                    
+                        
+                 </div>
+
+
+                 <div class="inci" id="crop-3-box">
+
+
+                  <div class="crop-3-box-front" class="front">
+                    <img src="../Public/images/crop1.png" id="crop-3">
+                    <h2 class="counter" id="front-num5" ><?php echo ($data["unSuccessCases"])["numOfActiveCropDamage"];?></h2>
+                    <h2 id="crop-3-para">Crop Damages</h2>
+                    
+                    
+                     
+                   </div>
+
+                   <div class="crop-3-box-back">
+                    <h2 class="counter"><?php echo ($data["unSuccessCases"])["numOfActiveCropDamage"];?></h2>
+                    <button class="ele-button" onclick="location.href='../admin/viewReportedIncidents?status=unsuccess&incident=cropDamage'">View</button>
+
+                   
+                    </div>
+
                         
                  </div>
                  <div class="inci" id="fen-3-box">
-                    <img id="fen-3" src="../Public/images/fenceDash.png">
-                     <p id="fen-3-para">Damaged Fences</p>
-                    <h2 class="counter">4</h2>
+
+
+                  <div class="fen-3-box-front" class="front">
+                    <img src="../Public/images/fen1.png" id="fen-3">
+                    <h2 class="counter" id="front-num6" ><?php echo ($data["unSuccessCases"])["numOfActiveBreakdownFence"];?></h2>
+                    <h2 id="fen-3-para">Fence Damages</h2>
+                    
+                    
+                     
+                   </div>
+
+                   <div class="fen-3-box-back">
+                    <h2 class="counter"><?php echo ($data["unSuccessCases"])["numOfActiveBreakdownFence"];?></h2>
+                    <button class="ele-button" onclick="location.href='../admin/viewReportedIncidents?status=unsuccess&incident=fenceDamage'">View</button>
+
                    
-                    <p>Incidets Reported</p>
+                    </div>
+                   
+                        
                  </div>
+                
+                 
+                 
 
+                 <div id="unsuccess-map"></div>
 
-                 <div class="month-dis-chart">
-                    <canvas id="month-dis"></canvas>
-                    <h3>Reported Incidents By districts</h3>
+                 <script type="text/javascript">
+
+                     function initMapUnsuccess(){
+                      var locationUnsuccess={lat:7.94033813 , lng:81.01879883};
+                      var mapUnsuccess = new google.maps.Map(document.getElementById("unsuccess-map"),
+                         {
+                          zoom:8,
+                          center:locationUnsuccess,
+                          
+                         }
+
+                        );
+
+                      var unsuccessLocationArray=<?php echo json_encode(($data["unsuccessMapLocation"]));?>;
 
                      
+
+                      for(let i=0;i<unsuccessLocationArray.length;i++)
+                      {    
+                           var icon="";
+
+                          var type=(unsuccessLocationArray[i])["reporttype"];
+                          switch(type){
+                            case "Crop Damages":{
+                              icon={
+                                       url:"../Public/images/cropDash.png",
+                                       scaledSize: new google.maps.Size(50,50)
+                                    };
+                            };
+                            break;
+                            case "Other Wild Animals are in The Village":{
+                              icon={
+                                       url:"../Public/images/animalDash.png",
+                                       scaledSize: new google.maps.Size(50,50)
+                                    };
+                            };
+                            break;
+                            case "Breakdown of Elephant Fences":{
+                              icon={
+                                       url:"../Public/images/fenceDash.png",
+                                       scaledSize: new google.maps.Size(50,50)
+                                    };
+                            };
+                            break;
+                            case "Wild Animal is in Danger":{
+                              icon={
+                                       url:"../Public/images/dangerDash.png",
+                                       scaledSize: new google.maps.Size(50,50)
+                                    };
+                            };
+                            break;
+                            case "Elephants are in The Village":{
+                              icon={
+                                       url:"../Public/images/elephantDash.png",
+                                       scaledSize: new google.maps.Size(50,50)
+                                    };
+                            };
+                            break;
+                            case "Illegal Happing":{
+                              icon={
+                                       url:"../Public/images/illegalDash.png",
+                                       scaledSize: new google.maps.Size(50,50)
+                                    };
+                            };
+                            break;
+                          }
+                          var lati=parseFloat((unsuccessLocationArray[i])["lat"]);
+                          var long=parseFloat((unsuccessLocationArray[i])["lon"]);
+                          var label=((unsuccessLocationArray[i])["reporttype"]);
+                          var markerContent="<h1>Incident ID:"+(unsuccessLocationArray[i])["incidentID"]+"</h1>";
+                          
+                        var markerUnsuccess= new google.maps.Marker({
+
+                          position:{lat:lati,lng:long},
+                          map:mapUnsuccess,
+                          icon:icon,
+                          label:label
+
+                        }
+
+
+                          );
+
+                        // var infoActiveOptions={
+                        //   content:markerContent,
+                        //   position:{lat:lati,lng:long}
+                        // };
+
+                        // var infoWindowActive=new google.maps.infoWindow(infoActiveOptions);
+
+                        // var infoActiveOpenOptions={
+                        //   map:mapActive
+                        // };
+
+                        // infoWindowActive.open(infoActiveOpenOptions);
+
+                        // mapActive.addListener("center_changed", () => {
+                        //                             // 3 seconds after the center of the map has changed, pan back to the
+                        //                             // marker.
+                        //     window.setTimeout(() => {
+                        //       mapActive.panTo(markerActive.getPosition());
+                        //     }, 3000);
+                        //   });
+                        //   markerActive.addListener("click", () => {
+                        //     mapActive.setZoom(12);
+                        //     mapActive.setCenter(markerActive.getPosition());
+                        //   });
+
+                        
+
+
+                        
+
+
+                      }
+
+                      
+
+
+                    }
+                   
+
+                 </script>
+
+                 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOVujYe2-BPc5b66VsL0xVVUKoZHkb5yo&callback=initMapUnsuccess"></script>
+
+
+
+                 <div class="unsuccess-dis-chart">
+                    <canvas id="unsuccess-dis"></canvas>
+                    <h3>Active Cases By districts</h3>
+                     
                  </div>
-                     <script >
-                     let monthDis=document.getElementById("month-dis").getContext("2d");
-    let monthDisLabels=["polonnaruwa","anuradhapura","ampara","hambanthota"];
-    let monthDisData=[11,9,24,13];
-     let monthDisColor=["#6495ED","#7FFFD4","#8A2BE2","#A52A2A"];
-    let monthDisChart=new Chart(monthDis, {
+
+                 <script >
+                     let unsuccessDis=document.getElementById("unsuccess-dis").getContext("2d");
+    let unsuccessDisLabels=["polonnaruwa","anuradhapura","ampara","hambanthota"];
+    var unsuccessPolonnaruwa=<?php echo json_encode(($data["numOfUnSuccessCasesByDistrict"])["polonnaruwa"]);?>;
+    var unsuccessAnuradhapura=<?php echo json_encode(($data["numOfUnSuccessCasesByDistrict"])["anuradhapura"]);?>;
+    var unsuccessHambanthota=<?php echo json_encode(($data["numOfUnSuccessCasesByDistrict"])["hambanthota"]);?>;
+    var unsuccessAmpara=<?php echo json_encode(($data["numOfUnSuccessCasesByDistrict"])["ampara"]);?>;
+    let unsuccessDisData=[unsuccessPolonnaruwa,unsuccessAnuradhapura,unsuccessAmpara,unsuccessHambanthota];
+     let unsuccessDisColor=["#6495ED","#7FFFD4","#8A2BE2","#A52A2A"];
+    let unsuccessDisChart=new Chart(unsuccessDis, {
       type:"bar",
       data:{
-        labels:monthDisLabels,
+        labels:unsuccessDisLabels,
         datasets:[{
-          data:monthDisData,
-          backgroundColor:monthDisColor
+          data:unsuccessDisData,
+          backgroundColor:unsuccessDisColor
         }]
       },
       options:{
         title:{
-          text:"Last month incidents",
+          text:"Unsuccess Cases By districts",
           display:true
         },
         legend:{
         display:false
       }
-      }
-      
-
-    });
-                 </script>
-
-
-                 <div class="month-inci-chart">
-                    <canvas id="month-inci"></canvas>
-                    <h3>Reported Incidents By Category</h3>
-
-                     
-                 </div>
-                 <script >
-                     let monthInci=document.getElementById("month-inci").getContext("2d");
-    let monthInciLabels=["Elephants in village","Other animals in village","Animals are in danger","Illegal things","Damage elephnat fence","Crop damage"];
-    let monthInciData=[26,15,14,3,14,5];
-     let monthInciColor=["#DEB887","#5F9EA0","#8A2BE2","#2F4F4F","#BDB76B","brown"];
-    let monthInciChart=new Chart(monthInci, {
-      type:"pie",
-      data:{
-        labels:monthInciLabels,
-        datasets:[{
-          data:monthInciData,
-          backgroundColor:monthInciColor
-        }]
-      },
-      options:{
-        title:{
-          text:"Last month incidents",
-          display:true
-        }
-      }
-      
-
-    });
-                 </script>
-
-                 <div class="month-status-chart">
-                    <canvas id="month-status"></canvas>
-                    <h3>Reported Incidents Status</h3>
-
-                     
-                 </div>
-
-                 <script >
-                     let monthStatus=document.getElementById("month-status").getContext("2d");
-    let monthStatusLabels=["Success","Pending","Unsuccess"];
-    let monthStatusData=[5,6,1];
-     let monthStatusColor=["green","#7FFFD4","red"];
-    let monthStatusChart=new Chart(monthStatus, {
-      type:"doughnut",
-      data:{
-        labels:monthStatusLabels,
-        datasets:[{
-          data:monthStatusData,
-          backgroundColor:monthStatusColor
-        }]
-      },
-      options:{
-        title:{
-          text:"Last month incident status",
-          display:true
-        }
       }
       
 
@@ -887,186 +1059,7 @@
                  
 
              
-             <div class="year">
-
-                <div class="inci" id="ele-4-box">
-                    <img id="ele-4" src="../Public/images/elephantDash.png">
-                     <p id="ele-4-para">Elephants Attack</p>
-                    <h2 class="counter">121</h2>
-                    
-                    <p>Incidets Reported</p>
-                        
-                 </div>
-                 <div class="inci" id="ani-4-box">
-                    <img id="ani-4" src="../Public/images/animalDash.png">
-                     <p id="ani-4-para">Animals In Village</p>
-                    <h2 class="counter">24</h2>
-                    
-                    <p>Incidets Reported</p>
-                        
-                 </div>
-                 <div class="inci" id="dan-4-box">
-                    <img id="dan-4" src="../Public/images/dangerDash.png">
-                     <p id="dan-4-para">Animals in Danger</p>
-                    <h2 class="counter">62</h2>
-                    
-                    <p>Incidets Reported</p>
-                        
-                 </div>
-                 <div class="inci" id="ill-4-box">
-                    <img id="ill-4" src="../Public/images/illegalDash.png">
-                     <p id="ill-4-para">Illegal Things</p>
-                    <h2 class="counter">15</h2>
-                   
-                    <p>Incidets Reported</p>
-                        
-                 </div>
-                 <div class="inci" id="crop-4-box">
-                    <img id="crop-4" src="../Public/images/cropDash.png">
-                     <p id="crop-4-para">Crop Damages</p>
-                    <h2 class="counter">98</h2>
-                    
-                    <p>Incidets Reported</p>
-                        
-                 </div>
-                 <div class="inci" id="fen-4-box">
-                    <img id="fen-4" src="../Public/images/fenceDash.png">
-                     <p id="fen-4-para">Damaged Fences</p>
-                    <h2 class="counter">28</h2>
-
-                    <p>Incidets Reported</p>
-                        
-                 </div>
-
-
-                  <div class="year-dis-chart">
-                    <canvas id="year-dis"></canvas>
-                    <h3>Reported Incidents By districts</h3>
-
-                     
-                 </div>
-                 <script >
-                   
-                   
-                   $(document).ready(function(){
-                    $(".counter").counterUp({
-                      delay:100,
-                      time:3000
-                    })
-                   })
-
-                   function count(){
-
-                    $(".counter").counterUp({
-                      delay:100,
-                      time:3000
-                    })
-
-                   }
-
-                 </script>
-
-
-
-                     <script >
-                     let yearDis=document.getElementById("year-dis").getContext("2d");
-    let yearDisLabels=["polonnaruwa","anuradhapura","ampara","hambanthota"];
-    let yearDisData=[116,55,14,343];
-     let yearDisColor=["#6495ED","#7FFFD4","#8A2BE2","#A52A2A"];
-    let yearDisChart=new Chart(yearDis, {
-      type:"bar",
-      data:{
-        labels:yearDisLabels,
-        datasets:[{
-          data:yearDisData,
-          backgroundColor:yearDisColor
-        }]
-      },
-      options:{
-        title:{
-          text:"Last year incidents",
-          display:true
-        },
-        legend:{
-        display:false
-      }
-      }
-      
-
-    });
-                 </script>
-
-
-                 <div class="year-inci-chart">
-                    <canvas id="year-inci"></canvas>
-                    <h3>Reported Incidents By Category</h3>
-
-                     
-                 </div>
-                 <script >
-                     let yearInci=document.getElementById("year-inci").getContext("2d");
-    let yearInciLabels=["Elephants in village","Other animals in village","Animals are in danger","Illegal things","Damage elephnat fence","Crop damage"];
-    let yearInciData=[116,45,124,213,14,65];
-     let yearInciColor=["#DEB887","#5F9EA0","#8A2BE2","#2F4F4F","#BDB76B","brown"];
-    let yearInciChart=new Chart(yearInci, {
-      type:"pie",
-      data:{
-        labels:yearInciLabels,
-        datasets:[{
-          data:yearInciData,
-          backgroundColor:yearInciColor
-        }]
-      },
-      options:{
-        title:{
-          text:"Last year incidents",
-          display:true
-        }
-      }
-      
-
-    });
-                 </script>
-
-                 <div class="year-status-chart">
-                    <canvas id="year-status"></canvas>
-                    <h3>Reported Incidents Status</h3>
-
-                     
-                 </div>
-
-                 <script >
-                     let yearStatus=document.getElementById("year-status").getContext("2d");
-    let yearStatusLabels=["Success","Pending","Unsuccess"];
-    let yearStatusData=[125,32,42];
-     let yearStatusColor=["green","#7FFFD4","red"];
-    let yearStatusChart=new Chart(yearStatus, {
-      type:"doughnut",
-      data:{
-        labels:yearStatusLabels,
-        datasets:[{
-          data:yearStatusData,
-          backgroundColor:yearStatusColor
-        }]
-      },
-      options:{
-        title:{
-          text:"Last year incident status",
-          display:true
-        }
-      }
-      
-
-    });
-                 </script>
-
-
-                 
-
-             </div>
-
-             </div>
-           <h3 id="active-map-header">Active Cases In Map</h3>
+             
         </div>
 
 
@@ -1089,56 +1082,269 @@
            <div class="container3-dis">
              <div class="polonnaruwa">
 
-                 <div class="inci" id="ele-5-box">
-                    <img id="ele-5" src="../Public/images/elephantDash.png">
-                     <p id="ele-5-para">Elephants Attack</p>
-                    <h2 class="counter">12</h2>
+
+
+                 <div class="inci" id="ele-4-box">
+                   <div class="ele-4-box-front" class="front">
+                    <img src="../Public/images/ele.png" id="ele-4">
+                    <h2 class="counter" id="front-num1" ><?php echo (($data["totalCasesReportedByDistrict"])["polonnaruwaActive"])["numOfPolonnaruwaElephantsVillage"];?></h2>
+                    <h2 id="ele-4-para">Elephants Attack</h2>
+                    
+                    
+                     
+                   </div>
+
+                   <div class="ele-4-box-back">
+                    <h2 class="counter"><?php echo (($data["totalCasesReportedByDistrict"])["polonnaruwaActive"])["numOfPolonnaruwaElephantsVillage"];?></h2>
+                    <button class="ele-button">View</button>
+                    
+                    
+                     
+                   </div>
+                    
+
+
+                        
+                 </div>
+
+                 <div class="inci" id="ani-4-box">
+                    <div class="ani-4-box-front" class="front">
+                    <img src="../Public/images/ani1.png" id="ani-4">
+                    <h2 class="counter" id="front-num2" ><?php echo (($data["totalCasesReportedByDistrict"])["polonnaruwaActive"])["numOfPolonnaruwaAnimalInVillage"];?></h2>
+                    <h2 id="ani-4-para">Animals in Village</h2>
+                    
+                    
+                     
+                   </div>
+
+                   <div class="ani-4-box-back">
+                    <h2 class="counter"><?php echo (($data["totalCasesReportedByDistrict"])["polonnaruwaActive"])["numOfPolonnaruwaAnimalInVillage"];?></h2>
+                    <button class="ele-button">View</button>
+
                    
-                    <label > Active Incidents </label>
+                    </div>
+                        
+                 </div>
+
+                 <div class="inci" id="dan-4-box">
+                  <div class="dan-4-box-front" class="front">
+                    <img src="../Public/images/dan1.png" id="dan-4">
+                    <h2 class="counter" id="front-num3" ><?php echo (($data["totalCasesReportedByDistrict"])["polonnaruwaActive"])["numOfPolonnaruwaAnimalIsDanger"];?></h2>
+                    <h2 id="dan-4-para">Animal is in Danger</h2>
+                    
+                    
+                     
+                   </div>
+
+                   <div class="dan-4-box-back">
+                    <h2 class="counter"><?php echo (($data["totalCasesReportedByDistrict"])["polonnaruwaActive"])["numOfPolonnaruwaAnimalIsDanger"];?></h2>
+                    <button class="ele-button">View</button>
+
+                   
+                    </div>
                     
                         
                  </div>
-                 <div class="inci" id="ani-5-box">
-                    <img id="ani-5" src="../Public/images/animalDash.png">
-                     <p id="ani-5-para">Animals In Village</p>
-                    <h2 class="counter">21</h2>
-                    <label >Active Incidents </label>
-                        
-                 </div>
-                 <div class="inci" id="dan-5-box">
-                    <img id="dan-5" src="../Public/images/dangerDash.png">
-                     <p id="dan-5-para">Animals in Danger</p>
-                    <h2 class="counter">11</h2>
-                    <label >Active Incidents </label>
-                        
-                 </div>
-                 <div class="inci" id="ill-5-box">
-                    <img id="ill-5" src="../Public/images/illegalDash.png">
-                     <p id="ill-5-para">Illegal Things</p>
-                    <h2 class="counter">10</h2>
-                    <label >Active Incidents </label>
-                        
-                 </div>
-                 <div class="inci" id="crop-5-box">
-                    <img id="crop-5" src="../Public/images/cropDash.png">
-                     <p id="crop-5-para">Crop Damages</p>
-                    <h2 class="counter">10</h2>
-                    <label >Active Incidents </label>
-                        
-                 </div>
-                 <div class="inci" id="fen-5-box">
-                    <img id="fen-5" src="../Public/images/fenceDash.png">
-                     <p id="fen-5-para">Damaged Fences</p>
-                    <h2 class="counter">13</h2>
-                    <label >Active Incidents </label>
+
+                 <div class="inci" id="ill-4-box">
+
+
+                  <div class="ill-4-box-front" class="front">
+                    <img src="../Public/images/ill1.png" id="ill-4">
+                    <h2 class="counter" id="front-num4" ><?php echo (($data["totalCasesReportedByDistrict"])["polonnaruwaActive"])["numOfPolonnaruwaIllegal"];?></h2>
+                    <h2 id="ill-4-para">Illegal Things</h2>
+                    
+                    
+                     
+                   </div>
+
+                   <div class="ill-4-box-back">
+                    <h2 class="counter"><?php echo (($data["totalCasesReportedByDistrict"])["polonnaruwaActive"])["numOfPolonnaruwaIllegal"];?></h2>
+                    <button class="ele-button">View</button>
+
+                   
+                    </div>
+
+
+
+
+                    
                         
                  </div>
 
 
-                  <div id="map-polonnaruwa">
-             
-         <iframe src="http://maps.google.com/maps?q=7.316440,80.848387&z=10&output=embed" height="500" width="600"></iframe>
-             </div>
+                 <div class="inci" id="crop-4-box">
+
+
+                  <div class="crop-4-box-front" class="front">
+                    <img src="../Public/images/crop1.png" id="crop-4">
+                    <h2 class="counter" id="front-num5" ><?php echo (($data["totalCasesReportedByDistrict"])["polonnaruwaActive"])["numOfPolonnaruwaCropDamage"];?></h2>
+                    <h2 id="crop-4-para">Crop Damages</h2>
+                    
+                    
+                     
+                   </div>
+
+                   <div class="crop-4-box-back">
+                    <h2 class="counter"><?php echo (($data["totalCasesReportedByDistrict"])["polonnaruwaActive"])["numOfPolonnaruwaCropDamage"];?></h2>
+                    <button class="ele-button">View</button>
+
+                   
+                    </div>
+
+                        
+                 </div>
+                 <div class="inci" id="fen-4-box">
+
+
+                  <div class="fen-4-box-front" class="front">
+                    <img src="../Public/images/fen1.png" id="fen-4">
+                    <h2 class="counter" id="front-num6" ><?php echo (($data["totalCasesReportedByDistrict"])["polonnaruwaActive"])["numOfPolonnaruwaBreakdownFence"];?></h2>
+                    <h2 id="fen-4-para">Fence Damages</h2>
+                    
+                    
+                     
+                   </div>
+
+                   <div class="fen-4-box-back">
+                    <h2 class="counter"><?php echo (($data["totalCasesReportedByDistrict"])["polonnaruwaActive"])["numOfPolonnaruwaBreakdownFence"];?></h2>
+                    <button class="ele-button">View</button>
+
+                   
+                    </div>
+                   
+                        
+                 </div>
+                
+
+
+                  <div id="map-polonnaruwa"> </div>
+
+                  <script type="text/javascript">
+
+                     function initMapPolonnaruwa(){
+                      var locationPolonnaruwa={lat:7.932860 , lng:81.008080};
+                      var mapPolonnaruwa = new google.maps.Map(document.getElementById("map-polonnaruwa"),
+                         {
+                          zoom:10,
+                          center:locationPolonnaruwa,
+                          
+                         }
+
+                        );
+
+                      var polonnaruwaLocationArray=<?php echo json_encode(($data["districtActiveLocation"])["polonnaruwa"]);?>;
+
+                     
+
+                      for(let i=0;i<polonnaruwaLocationArray.length;i++)
+                      {    
+                           var icon="";
+
+                          var type=(polonnaruwaLocationArray[i])["reporttype"];
+                          switch(type){
+                            case "Crop Damages":{
+                              icon={
+                                       url:"../Public/images/cropDash.png",
+                                       scaledSize: new google.maps.Size(50,50)
+                                    };
+                            };
+                            break;
+                            case "Other Wild Animals are in The Village":{
+                              icon={
+                                       url:"../Public/images/animalDash.png",
+                                       scaledSize: new google.maps.Size(50,50)
+                                    };
+                            };
+                            break;
+                            case "Breakdown of Elephant Fences":{
+                              icon={
+                                       url:"../Public/images/fenceDash.png",
+                                       scaledSize: new google.maps.Size(50,50)
+                                    };
+                            };
+                            break;
+                            case "Wild Animal is in Danger":{
+                              icon={
+                                       url:"../Public/images/dangerDash.png",
+                                       scaledSize: new google.maps.Size(50,50)
+                                    };
+                            };
+                            break;
+                            case "Elephants are in The Village":{
+                              icon={
+                                       url:"../Public/images/elephantDash.png",
+                                       scaledSize: new google.maps.Size(50,50)
+                                    };
+                            };
+                            break;
+                            case "Illegal Happing":{
+                              icon={
+                                       url:"../Public/images/illegalDash.png",
+                                       scaledSize: new google.maps.Size(50,50)
+                                    };
+                            };
+                            break;
+                          }
+                          var lati=parseFloat((polonnaruwaLocationArray[i])["lat"]);
+                          var long=parseFloat((polonnaruwaLocationArray[i])["lon"]);
+                          var label=((polonnaruwaLocationArray[i])["reporttype"]);
+                          var markerContent="<h1>Incident ID:"+(polonnaruwaLocationArray[i])["incidentID"]+"</h1>";
+                          
+                        var markerPolonnaruwa= new google.maps.Marker({
+
+                          position:{lat:lati,lng:long},
+                          map:mapPolonnaruwa,
+                          icon:icon,
+                          label:label
+
+                        }
+
+
+                          );
+
+                        // var infoActiveOptions={
+                        //   content:markerContent,
+                        //   position:{lat:lati,lng:long}
+                        // };
+
+                        // var infoWindowActive=new google.maps.infoWindow(infoActiveOptions);
+
+                        // var infoActiveOpenOptions={
+                        //   map:mapActive
+                        // };
+
+                        // infoWindowActive.open(infoActiveOpenOptions);
+
+                        // mapActive.addListener("center_changed", () => {
+                        //                             // 3 seconds after the center of the map has changed, pan back to the
+                        //                             // marker.
+                        //     window.setTimeout(() => {
+                        //       mapActive.panTo(markerActive.getPosition());
+                        //     }, 3000);
+                        //   });
+                        //   markerActive.addListener("click", () => {
+                        //     mapActive.setZoom(12);
+                        //     mapActive.setCenter(markerActive.getPosition());
+                        //   });
+
+                        
+
+
+                        
+
+
+                      }
+
+                      
+
+
+                    }
+                   
+
+                 </script>
+
+                 <script  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOVujYe2-BPc5b66VsL0xVVUKoZHkb5yo&callback=initMapPolonnaruwa"  async></script>
 
 
              <div class="polonnaruwa-status-chart">
@@ -1150,8 +1356,11 @@
 
                  <script >
                      let polonnaruwaStatus=document.getElementById("polonnaruwa-status").getContext("2d");
+                     let noOfPolonnaruwaActive=<?php echo json_encode(($data["totalCasesReportedByDistrict"])["noOfPolonnaruwaActive"]);?>;
+                     let noOfPolonnaruwaSuccess=<?php echo json_encode(($data["totalCasesReportedByDistrict"])["noOfPolonnaruwaSuccess"]);?>;
+                     let noOfPolonnaruwaUnsuccess=<?php echo json_encode(($data["totalCasesReportedByDistrict"])["noOfPolonnaruwaUnsuccess"]);?>;
     let polonnaruwaStatusLabels=["Success","Pending","Unsuccess"];
-    let polonnaruwaStatusData=[15,12,2];
+    let polonnaruwaStatusData=[noOfPolonnaruwaSuccess,noOfPolonnaruwaActive,noOfPolonnaruwaUnsuccess];
      let polonnaruwaStatusColor=["green","#7FFFD4","red"];
     let polonnaruwaStatusChart=new Chart(polonnaruwaStatus, {
       type:"doughnut",
@@ -1179,56 +1388,270 @@
 
              <div class="anuradhapura">
 
-                 <div class="inci" id="ele-6-box">
-                    <img id="ele-6" src="../Public/images/elephantDash.png">
-                     <p id="ele-6-para">Elephants Attack</p>
-                    <h2 class="counter">32</h2>
+                <div class="inci" id="ele-5-box">
+                   <div class="ele-5-box-front" class="front">
+                    <img src="../Public/images/ele.png" id="ele-5">
+                     <h2 class="counter" id="front-num1" ><?php echo (($data["totalCasesReportedByDistrict"])["anuradhapuraActive"])["numOfAnuradhapuraElephantsVillage"];?></h2>
+                    <h2 id="ele-5-para">Elephants Attack</h2>
+                    
                    
-                    <label >Active Incidents </label>
+                     
+                   </div>
+
+                   <div class="ele-5-box-back">
+                    <h2 class="counter"><?php echo (($data["totalCasesReportedByDistrict"])["anuradhapuraActive"])["numOfAnuradhapuraElephantsVillage"];?></h2>
+                    <button class="ele-button">View</button>
+                    
+                    
+                     
+                   </div>
+                    
+
+
+                        
+                 </div>
+
+                 <div class="inci" id="ani-5-box">
+                    <div class="ani-5-box-front" class="front">
+                    <img src="../Public/images/ani1.png" id="ani-5">
+                    <h2 class="counter" id="front-num2" ><?php echo (($data["totalCasesReportedByDistrict"])["anuradhapuraActive"])["numOfAnuradhapuraAnimalInVillage"];?></h2>
+                    <h2 id="ani-5-para">Animals in Village</h2>
+                    
+                    
+                     
+                   </div>
+
+                   <div class="ani-5-box-back">
+                    <h2 class="counter"><?php echo (($data["totalCasesReportedByDistrict"])["anuradhapuraActive"])["numOfAnuradhapuraAnimalInVillage"];?></h2>
+                    <button class="ele-button">View</button>
+
+                   
+                    </div>
+                        
+                 </div>
+
+                 <div class="inci" id="dan-5-box">
+                  <div class="dan-5-box-front" class="front">
+                    <img src="../Public/images/dan1.png" id="dan-5">
+                    <h2 class="counter" id="front-num3" ><?php echo (($data["totalCasesReportedByDistrict"])["anuradhapuraActive"])["numOfAnuradhapuraAnimalIsDanger"];?></h2>
+                    <h2 id="dan-5-para">Animal is in Danger</h2>
+                    
+                    
+                     
+                   </div>
+
+                   <div class="dan-5-box-back">
+                    <h2 class="counter"><?php echo (($data["totalCasesReportedByDistrict"])["anuradhapuraActive"])["numOfAnuradhapuraAnimalIsDanger"];?></h2>
+                    <button class="ele-button">View</button>
+
+                   
+                    </div>
                     
                         
                  </div>
-                 <div class="inci" id="ani-6-box">
-                    <img id="ani-6" src="../Public/images/animalDash.png">
-                     <p id="ani-6-para">Animals In Village</p>
-                    <h2 class="counter">11</h2>
-                    <label >Active Incidents </label>
-                        
-                 </div>
-                 <div class="inci" id="dan-6-box">
-                    <img id="dan-6" src="../Public/images/dangerDash.png">
-                     <p id="dan-6-para">Animals in Danger</p>
-                    <h2 class="counter">9</h2>
-                    <label >Active Incidents </label>
-                        
-                 </div>
-                 <div class="inci" id="ill-6-box">
-                    <img id="ill-6" src="../Public/images/illegalDash.png">
-                     <p id="ill-6-para">Illegal Things</p>
-                    <h2 class="counter">8</h2>
-                    <label >Active Incidents </label>
-                        
-                 </div>
-                 <div class="inci" id="crop-6-box">
-                    <img id="crop-6" src="../Public/images/cropDash.png">
-                     <p id="crop-6-para">Crop Damages</p>
-                    <h2 class="counter">17</h2>
-                    <label >Active Incidents </label>
-                        
-                 </div>
-                 <div class="inci" id="fen-6-box">
-                    <img id="fen-6" src="../Public/images/fenceDash.png">
-                     <p id="fen-6-para">Damaged Fences</p>
-                    <h2 class="counter">18</h2>
-                    <label >Active Incidents </label>
+
+                 <div class="inci" id="ill-5-box">
+
+
+                  <div class="ill-5-box-front" class="front">
+                    <img src="../Public/images/ill1.png" id="ill-5">
+                    <h2 class="counter" id="front-num4" ><?php echo (($data["totalCasesReportedByDistrict"])["anuradhapuraActive"])["numOfAnuradhapuraIllegal"];?></h2>
+                    <h2 id="ill-5-para">Illegal Things</h2>
+                    
+                    
+                     
+                   </div>
+
+                   <div class="ill-5-box-back">
+                    <h2 class="counter"><?php echo (($data["totalCasesReportedByDistrict"])["anuradhapuraActive"])["numOfAnuradhapuraIllegal"];?></h2>
+                    <button class="ele-button">View</button>
+
+                   
+                    </div>
+
+
+
+
+                    
                         
                  </div>
 
 
-                 <div id="map-anuradhapura">
-            
-    <iframe src="http://maps.google.com/maps?q=7.216440,80.848387&z=10&output=embed" height="500" width="600"></iframe>
-             </div>
+                 <div class="inci" id="crop-5-box">
+
+
+                  <div class="crop-5-box-front" class="front">
+                    <img src="../Public/images/crop1.png" id="crop-5">
+                    <h2 class="counter" id="front-num5" ><?php echo (($data["totalCasesReportedByDistrict"])["anuradhapuraActive"])["numOfAnuradhapuraCropDamage"];?></h2>
+                    <h2 id="crop-5-para">Crop Damages</h2>
+                    
+                    
+                     
+                   </div>
+
+                   <div class="crop-5-box-back">
+                    <h2 class="counter"><?php echo (($data["totalCasesReportedByDistrict"])["anuradhapuraActive"])["numOfAnuradhapuraCropDamage"];?></h2>
+                    <button class="ele-button">View</button>
+
+                   
+                    </div>
+
+                        
+                 </div>
+                 <div class="inci" id="fen-5-box">
+
+
+                  <div class="fen-5-box-front" class="front">
+                    <img src="../Public/images/fen1.png" id="fen-5">
+                    <h2 class="counter" id="front-num6" ><?php echo (($data["totalCasesReportedByDistrict"])["anuradhapuraActive"])["numOfAnuradhapuraBreakdownFence"];?></h2>
+                    <h2 id="fen-5-para">Fence Damages</h2>
+                    
+                    
+                     
+                   </div>
+
+                   <div class="fen-5-box-back">
+                    <h2 class="counter"><?php echo (($data["totalCasesReportedByDistrict"])["anuradhapuraActive"])["numOfAnuradhapuraBreakdownFence"];?></h2>
+                    <button class="ele-button">View</button>
+
+                   
+                    </div>
+                   
+                        
+                 </div>
+
+                 
+                 
+                 
+
+                 <div id="map-anuradhapura"></div>
+
+
+                  <script type="text/javascript">
+
+                     function initMapAnuradhapura(){
+                      var locationAnuradhapura={lat:8.312190 , lng:80.418716};
+                      var mapAnuradhapura = new google.maps.Map(document.getElementById("map-anuradhapura"),
+                         {
+                          zoom:10,
+                          center:locationAnuradhapura,
+                          
+                         }
+
+                        );
+
+                      var anuradhapuraLocationArray=<?php echo json_encode(($data["districtActiveLocation"])["anuradhapura"]);?>;
+
+                     
+
+                      for(let i=0;i<anuradhapuraLocationArray.length;i++)
+                      {    
+                           var icon="";
+
+                          var type=(anuradhapuraLocationArray[i])["reporttype"];
+                          switch(type){
+                            case "Crop Damages":{
+                              icon={
+                                       url:"../Public/images/cropDash.png",
+                                       scaledSize: new google.maps.Size(50,50)
+                                    };
+                            };
+                            break;
+                            case "Other Wild Animals are in The Village":{
+                              icon={
+                                       url:"../Public/images/animalDash.png",
+                                       scaledSize: new google.maps.Size(50,50)
+                                    };
+                            };
+                            break;
+                            case "Breakdown of Elephant Fences":{
+                              icon={
+                                       url:"../Public/images/fenceDash.png",
+                                       scaledSize: new google.maps.Size(50,50)
+                                    };
+                            };
+                            break;
+                            case "Wild Animal is in Danger":{
+                              icon={
+                                       url:"../Public/images/dangerDash.png",
+                                       scaledSize: new google.maps.Size(50,50)
+                                    };
+                            };
+                            break;
+                            case "Elephants are in The Village":{
+                              icon={
+                                       url:"../Public/images/elephantDash.png",
+                                       scaledSize: new google.maps.Size(50,50)
+                                    };
+                            };
+                            break;
+                            case "Illegal Happing":{
+                              icon={
+                                       url:"../Public/images/illegalDash.png",
+                                       scaledSize: new google.maps.Size(50,50)
+                                    };
+                            };
+                            break;
+                          }
+                          var lati=parseFloat((anuradhapuraLocationArray[i])["lat"]);
+                          var long=parseFloat((anuradhapuraLocationArray[i])["lon"]);
+                          var label=((anuradhapuraLocationArray[i])["reporttype"]);
+                          var markerContent="<h1>Incident ID:"+(anuradhapuraLocationArray[i])["incidentID"]+"</h1>";
+                          
+                        var markerAnuradhapura= new google.maps.Marker({
+
+                          position:{lat:lati,lng:long},
+                          map:mapAnuradhapura,
+                          icon:icon,
+                          label:label
+
+                        }
+
+
+                          );
+
+                        // var infoActiveOptions={
+                        //   content:markerContent,
+                        //   position:{lat:lati,lng:long}
+                        // };
+
+                        // var infoWindowActive=new google.maps.infoWindow(infoActiveOptions);
+
+                        // var infoActiveOpenOptions={
+                        //   map:mapActive
+                        // };
+
+                        // infoWindowActive.open(infoActiveOpenOptions);
+
+                        // mapActive.addListener("center_changed", () => {
+                        //                             // 3 seconds after the center of the map has changed, pan back to the
+                        //                             // marker.
+                        //     window.setTimeout(() => {
+                        //       mapActive.panTo(markerActive.getPosition());
+                        //     }, 3000);
+                        //   });
+                        //   markerActive.addListener("click", () => {
+                        //     mapActive.setZoom(12);
+                        //     mapActive.setCenter(markerActive.getPosition());
+                        //   });
+
+                        
+
+
+                        
+
+
+                      }
+
+                      
+
+
+                    }
+                   
+
+                 </script>
+
+                 <script  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOVujYe2-BPc5b66VsL0xVVUKoZHkb5yo&callback=initMapAnuradhapura"  async></script>
 
              <div class="anuradhapura-status-chart">
                     <canvas id="anuradhapura-status"></canvas>
@@ -1239,8 +1662,11 @@
 
                  <script >
                      let anuradhapuraStatus=document.getElementById("anuradhapura-status").getContext("2d");
+                      let noOfAnuradhapuraActive=<?php echo json_encode(($data["totalCasesReportedByDistrict"])["noOfAnuradhapuraActive"]);?>;
+                     let noOfAnuradhapuraSuccess=<?php echo json_encode(($data["totalCasesReportedByDistrict"])["noOfAnuradhapuraSuccess"]);?>;
+                     let noOfAnuradhapuraUnsuccess=<?php echo json_encode(($data["totalCasesReportedByDistrict"])["noOfAnuradhapuraUnsuccess"]);?>;
     let anuradhapuraStatusLabels=["Success","Pending","Unsuccess"];
-    let anuradhapuraStatusData=[5,22,5];
+    let anuradhapuraStatusData=[noOfAnuradhapuraSuccess,noOfAnuradhapuraActive,noOfAnuradhapuraUnsuccess];
      let anuradhapuraStatusColor=["green","#7FFFD4","red"];
     let anuradhapuraStatusChart=new Chart(anuradhapuraStatus, {
       type:"doughnut",
@@ -1267,56 +1693,269 @@
                
                <div class="ampara">
 
-                 <div class="inci" id="ele-7-box">
-                    <img id="ele-7" src="../Public/images/elephantDash.png">
-                     <p id="ele-7-para">Elephants Attack</p>
-                    <h2 class="counter">111</h2>
+                 <div class="inci" id="ele-6-box">
+                   <div class="ele-6-box-front" class="front">
+                    <img src="../Public/images/ele.png" id="ele-6">
+                    <h2 class="counter" id="front-num1" ><?php echo (($data["totalCasesReportedByDistrict"])["amparaActive"])["numOfAmparaElephantsVillage"];?></h2>
+                    <h2 id="ele-6-para">Elephants Attack</h2>
+                    
+                    
+                     
+                   </div>
+
+                   <div class="ele-6-box-back">
+                    <h2 class="counter"><?php echo (($data["totalCasesReportedByDistrict"])["amparaActive"])["numOfAmparaElephantsVillage"];?></h2>
+                    <button class="ele-button">View</button>
+                    
+                    
+                     
+                   </div>
+                    
+
+
+                        
+                 </div>
+
+                 <div class="inci" id="ani-6-box">
+                    <div class="ani-6-box-front" class="front">
+                    <img src="../Public/images/ani1.png" id="ani-6">
+                    <h2 class="counter" id="front-num2" ><?php echo (($data["totalCasesReportedByDistrict"])["amparaActive"])["numOfAmparaAnimalInVillage"];?></h2>
+                    <h2 id="ani-6-para">Animals in Village</h2>
+                    
+                    
+                     
+                   </div>
+
+                   <div class="ani-6-box-back">
+                    <h2 class="counter"><?php echo (($data["totalCasesReportedByDistrict"])["amparaActive"])["numOfAmparaAnimalInVillage"];?></h2>
+                    <button class="ele-button">View</button>
+
                    
-                    <label >Active Incidents </label>
+                    </div>
+                        
+                 </div>
+
+                 <div class="inci" id="dan-6-box">
+                  <div class="dan-6-box-front" class="front">
+                    <img src="../Public/images/dan1.png" id="dan-6">
+                    <h2 class="counter" id="front-num3" ><?php echo (($data["totalCasesReportedByDistrict"])["amparaActive"])["numOfAmparaAnimalIsDanger"];?></h2>
+                    <h2 id="dan-6-para">Animal is in Danger</h2>
+                    
+                    
+                     
+                   </div>
+
+                   <div class="dan-6-box-back">
+                    <h2 class="counter"><?php echo (($data["totalCasesReportedByDistrict"])["amparaActive"])["numOfAmparaAnimalIsDanger"];?></h2>
+                    <button class="ele-button">View</button>
+
+                   
+                    </div>
                     
                         
                  </div>
-                 <div class="inci" id="ani-7-box">
-                    <img id="ani-7" src="../Public/images/animalDash.png">
-                     <p id="ani-7-para">Animals In Village</p>
-                    <h2 class="counter">23</h2>
-                    <label >Active Incidents </label>
-                        
-                 </div>
-                 <div class="inci" id="dan-7-box">
-                    <img id="dan-7" src="../Public/images/dangerDash.png">
-                     <p id="dan-7-para">Animals in Danger</p>
-                    <h2 class="counter">14</h2>
-                    <label >Active Incidents </label>
-                        
-                 </div>
-                 <div class="inci" id="ill-7-box">
-                    <img id="ill-7" src="../Public/images/illegalDash.png">
-                     <p id="ill-7-para">Illegal Things</p>
-                    <h2 class="counter">1</h2>
-                    <label >Active Incidents </label>
-                        
-                 </div>
-                 <div class="inci" id="crop-7-box">
-                    <img id="crop-7" src="../Public/images/cropDash.png">
-                     <p id="crop-7-para">Crop Damages</p>
-                    <h2 class="counter">3</h2>
-                    <label >Active Incidents </label>
-                        
-                 </div>
-                 <div class="inci" id="fen-7-box">
-                    <img id="fen-7" src="../Public/images/fenceDash.png">
-                     <p id="fen-7-para">Damaged Fences</p>
-                    <h2 class="counter">2</h2>
-                    <label >Active Incidents </label>
-                        
-                 </div>
-                   <div id="map-ampara">
-             
 
-            <iframe src="http://maps.google.com/maps?q=7.416440,80.848387&z=10&output=embed" height="500" width="600"></iframe>
+                 <div class="inci" id="ill-6-box">
 
-             </div>
+
+                  <div class="ill-6-box-front" class="front">
+                    <img src="../Public/images/ill1.png" id="ill-6">
+                    <h2 class="counter" id="front-num4" ><?php echo (($data["totalCasesReportedByDistrict"])["amparaActive"])["numOfAmparaIllegal"];?></h2>
+                    <h2 id="ill-6-para">Illegal Things</h2>
+                    
+                    
+                     
+                   </div>
+
+                   <div class="ill-6-box-back">
+                    <h2 class="counter"><?php echo (($data["totalCasesReportedByDistrict"])["amparaActive"])["numOfAmparaIllegal"];?></h2>
+                    <button class="ele-button">View</button>
+
+                   
+                    </div>
+
+
+
+
+                    
+                        
+                 </div>
+
+
+                 <div class="inci" id="crop-6-box">
+
+
+                  <div class="crop-6-box-front" class="front">
+                    <img src="../Public/images/crop1.png" id="crop-6">
+                    <h2 class="counter" id="front-num5" ><?php echo (($data["totalCasesReportedByDistrict"])["amparaActive"])["numOfAmparaCropDamage"];?></h2>
+                    <h2 id="crop-6-para">Crop Damages</h2>
+                    
+                    
+                     
+                   </div>
+
+                   <div class="crop-6-box-back">
+                    <h2 class="counter"><?php echo (($data["totalCasesReportedByDistrict"])["amparaActive"])["numOfAmparaCropDamage"];?></h2>
+                    <button class="ele-button">View</button>
+
+                   
+                    </div>
+
+                        
+                 </div>
+                 <div class="inci" id="fen-6-box">
+
+
+                  <div class="fen-6-box-front" class="front">
+                    <img src="../Public/images/fen1.png" id="fen-6">
+                    <h2 class="counter" id="front-num6" ><?php echo (($data["totalCasesReportedByDistrict"])["amparaActive"])["numOfAmparaBreakdownFence"];?></h2>
+                    <h2 id="fen-6-para">Fence Damages</h2>
+                    
+                    
+                     
+                   </div>
+
+                   <div class="fen-6-box-back">
+                    <h2 class="counter"><?php echo (($data["totalCasesReportedByDistrict"])["amparaActive"])["numOfAmparaBreakdownFence"];?></h2>
+                    <button class="ele-button">View</button>
+
+                   
+                    </div>
+                   
+                        
+                 </div>
+
+                
+                 
+                 
+                 
+                   <div id="map-ampara"></div>
+
+                   <script type="text/javascript">
+
+                     function initMapAmpara(){
+                      var locationAmpara={lat:7.3018 , lng:81.6747};
+                      var mapAmpara = new google.maps.Map(document.getElementById("map-ampara"),
+                         {
+                          zoom:10,
+                          center:locationAmpara,
+                          
+                         }
+
+                        );
+
+                      var amparaLocationArray=<?php echo json_encode(($data["districtActiveLocation"])["ampara"]);?>;
+
+                     
+
+                      for(let i=0;i<amparaLocationArray.length;i++)
+                      {    
+                           var icon="";
+
+                          var type=(amparaLocationArray[i])["reporttype"];
+                          switch(type){
+                            case "Crop Damages":{
+                              icon={
+                                       url:"../Public/images/cropDash.png",
+                                       scaledSize: new google.maps.Size(50,50)
+                                    };
+                            };
+                            break;
+                            case "Other Wild Animals are in The Village":{
+                              icon={
+                                       url:"../Public/images/animalDash.png",
+                                       scaledSize: new google.maps.Size(50,50)
+                                    };
+                            };
+                            break;
+                            case "Breakdown of Elephant Fences":{
+                              icon={
+                                       url:"../Public/images/fenceDash.png",
+                                       scaledSize: new google.maps.Size(50,50)
+                                    };
+                            };
+                            break;
+                            case "Wild Animal is in Danger":{
+                              icon={
+                                       url:"../Public/images/dangerDash.png",
+                                       scaledSize: new google.maps.Size(50,50)
+                                    };
+                            };
+                            break;
+                            case "Elephants are in The Village":{
+                              icon={
+                                       url:"../Public/images/elephantDash.png",
+                                       scaledSize: new google.maps.Size(50,50)
+                                    };
+                            };
+                            break;
+                            case "Illegal Happing":{
+                              icon={
+                                       url:"../Public/images/illegalDash.png",
+                                       scaledSize: new google.maps.Size(50,50)
+                                    };
+                            };
+                            break;
+                          }
+                          var lati=parseFloat((amparaLocationArray[i])["lat"]);
+                          var long=parseFloat((amparaLocationArray[i])["lon"]);
+                          var label=((amparaLocationArray[i])["reporttype"]);
+                          var markerContent="<h1>Incident ID:"+(amparaLocationArray[i])["incidentID"]+"</h1>";
+                          
+                        var markerAmpara= new google.maps.Marker({
+
+                          position:{lat:lati,lng:long},
+                          map:mapAmpara,
+                          icon:icon,
+                          label:label
+
+                        }
+
+
+                          );
+
+                        // var infoActiveOptions={
+                        //   content:markerContent,
+                        //   position:{lat:lati,lng:long}
+                        // };
+
+                        // var infoWindowActive=new google.maps.infoWindow(infoActiveOptions);
+
+                        // var infoActiveOpenOptions={
+                        //   map:mapActive
+                        // };
+
+                        // infoWindowActive.open(infoActiveOpenOptions);
+
+                        // mapActive.addListener("center_changed", () => {
+                        //                             // 3 seconds after the center of the map has changed, pan back to the
+                        //                             // marker.
+                        //     window.setTimeout(() => {
+                        //       mapActive.panTo(markerActive.getPosition());
+                        //     }, 3000);
+                        //   });
+                        //   markerActive.addListener("click", () => {
+                        //     mapActive.setZoom(12);
+                        //     mapActive.setCenter(markerActive.getPosition());
+                        //   });
+
+                        
+
+
+                        
+
+
+                      }
+
+                      
+
+
+                    }
+                   
+
+                 </script>
+
+                 <script  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOVujYe2-BPc5b66VsL0xVVUKoZHkb5yo&callback=initMapAmpara"  async></script>
 
 
 
@@ -1329,8 +1968,11 @@
 
                  <script >
                      let amparaStatus=document.getElementById("ampara-status").getContext("2d");
+                      let noOfAmparaActive=<?php echo json_encode(($data["totalCasesReportedByDistrict"])["noOfAmparaActive"]);?>;
+                     let noOfAmparaSuccess=<?php echo json_encode(($data["totalCasesReportedByDistrict"])["noOfAmparaSuccess"]);?>;
+                     let noOfAmparaUnsuccess=<?php echo json_encode(($data["totalCasesReportedByDistrict"])["noOfAmparaUnsuccess"]);?>;
     let amparaStatusLabels=["Success","Pending","Unsuccess"];
-    let amparaStatusData=[25,7,1];
+    let amparaStatusData=[noOfAmparaSuccess,noOfAmparaActive,noOfAmparaUnsuccess];
      let amparaStatusColor=["green","#7FFFD4","red"];
     let amparaStatusChart=new Chart(amparaStatus, {
       type:"doughnut",
@@ -1357,54 +1999,269 @@
 
                <div class="hambanthota">
 
-                 <div class="inci" id="ele-8-box">
-                    <img id="ele-8" src="../Public/images/elephantDash.png">
-                     <p id="ele-8-para">Elephants Attack</p>
-                    <h2 class="counter">1</h2>
+                <div class="inci" id="ele-7-box">
+                   <div class="ele-7-box-front" class="front">
+                    <img src="../Public/images/ele.png" id="ele-7">
+                    <h2 class="counter" id="front-num1" ><?php echo (($data["totalCasesReportedByDistrict"])["hambanthotaActive"])["numOfHambanthotaElephantsVillage"];?></h2>
+                    <h2 id="ele-7-para">Elephants Attack</h2>
+                    
+                    
+                     
+                   </div>
+
+                   <div class="ele-7-box-back">
+                    <h2 class="counter"><?php echo (($data["totalCasesReportedByDistrict"])["hambanthotaActive"])["numOfHambanthotaElephantsVillage"];?></h2>
+                    <button class="ele-button">View</button>
+                    
+                    
+                     
+                   </div>
+                    
+
+
+                        
+                 </div>
+
+                 <div class="inci" id="ani-7-box">
+                    <div class="ani-7-box-front" class="front">
+                    <img src="../Public/images/ani1.png" id="ani-7">
+                    <h2 class="counter" id="front-num2" ><?php echo (($data["totalCasesReportedByDistrict"])["hambanthotaActive"])["numOfHambanthotaAnimalInVillage"];?></h2>
+                    <h2 id="ani-7-para">Animals in Village</h2>
+                    
+                    
+                     
+                   </div>
+
+                   <div class="ani-7-box-back">
+                    <h2 class="counter"><?php echo (($data["totalCasesReportedByDistrict"])["hambanthotaActive"])["numOfHambanthotaAnimalInVillage"];?></h2>
+                    <button class="ele-button">View</button>
+
                    
-                    <label >Active Incidents </label>
+                    </div>
+                        
+                 </div>
+
+                 <div class="inci" id="dan-7-box">
+                  <div class="dan-7-box-front" class="front">
+                    <img src="../Public/images/dan1.png" id="dan-7">
+                    <h2 class="counter" id="front-num3" ><?php echo (($data["totalCasesReportedByDistrict"])["hambanthotaActive"])["numOfHambanthotaAnimalIsDanger"];?></h2>
+                    <h2 id="dan-7-para">Animal is in Danger</h2>
+                    
+                    
+                     
+                   </div>
+
+                   <div class="dan-7-box-back">
+                    <h2 class="counter"><?php echo (($data["totalCasesReportedByDistrict"])["hambanthotaActive"])["numOfHambanthotaAnimalIsDanger"];?></h2>
+                    <button class="ele-button">View</button>
+
+                   
+                    </div>
                     
                         
                  </div>
-                 <div class="inci" id="ani-8-box">
-                    <img id="ani-8" src="../Public/images/animalDash.png">
-                     <p id="ani-8-para">Animals In Village</p>
-                    <h2 class="counter">2</h2>
-                    <label >Active Incidents </label>
+
+                 <div class="inci" id="ill-7-box">
+
+
+                  <div class="ill-7-box-front" class="front">
+                    <img src="../Public/images/ill1.png" id="ill-7">
+                    <h2 class="counter" id="front-num4" ><?php echo (($data["totalCasesReportedByDistrict"])["hambanthotaActive"])["numOfHambanthotaIllegal"];?></h2>
+                    <h2 id="ill-7-para">Illegal Things</h2>
+                    
+                    
+                     
+                   </div>
+
+                   <div class="ill-7-box-back">
+                    <h2 class="counter"><?php echo (($data["totalCasesReportedByDistrict"])["hambanthotaActive"])["numOfHambanthotaIllegal"];?></h2>
+                    <button class="ele-button">View</button>
+
+                   
+                    </div>
+
+
+
+
+                    
                         
                  </div>
-                 <div class="inci" id="dan-8-box">
-                    <img id="dan-8" src="../Public/images/dangerDash.png">
-                     <p id="dan-8-para">Elephants Attack</p>
-                    <h2 class="counter">13</h2>
-                    <label >Active Incidents </label>
+
+
+                 <div class="inci" id="crop-7-box">
+
+
+                  <div class="crop-7-box-front" class="front">
+                    <img src="../Public/images/crop1.png" id="crop-7">
+                    <h2 class="counter" id="front-num5" ><?php echo (($data["totalCasesReportedByDistrict"])["hambanthotaActive"])["numOfHambanthotaCropDamage"];?></h2>
+                    <h2 id="crop-7-para">Crop Damages</h2>
+                    
+                    
+                     
+                   </div>
+
+                   <div class="crop-7-box-back">
+                    <h2 class="counter"><?php echo (($data["totalCasesReportedByDistrict"])["hambanthotaActive"])["numOfHambanthotaCropDamage"];?></h2>
+                    <button class="ele-button">View</button>
+
+                   
+                    </div>
+
                         
                  </div>
-                 <div class="inci" id="ill-8-box">
-                    <img id="ill-8" src="../Public/images/illegalDash.png">
-                     <p id="ill-8-para">Illegal Things</p>
-                    <h2 class="counter">46</h2>
-                    <label >Active Incidents </label>
+                 <div class="inci" id="fen-7-box">
+
+
+                  <div class="fen-7-box-front" class="front">
+                    <img src="../Public/images/fen1.png" id="fen-7">
+                    <h2 class="counter" id="front-num6" ><?php echo (($data["totalCasesReportedByDistrict"])["hambanthotaActive"])["numOfHambanthotaBreakdownFence"];?></h2>
+                    <h2 id="fen-7-para">Fence Damages</h2>
+                    
+                    
+                     
+                   </div>
+
+                   <div class="fen-7-box-back">
+                    <h2 class="counter"><?php echo (($data["totalCasesReportedByDistrict"])["hambanthotaActive"])["numOfHambanthotaBreakdownFence"];?></h2>
+                    <button class="ele-button">View</button>
+
+                   
+                    </div>
+                   
                         
                  </div>
-                 <div class="inci" id="crop-8-box">
-                    <img id="crop-8" src="../Public/images/cropDash.png">
-                     <p id="crop-8-para">Crop Damages</p>
-                    <h2 class="counter">52</h2>
-                    <label >Active Incidents </label>
+
+                 
+                 
+                 
+                 
+                   <div id="map-hambanthota"></div>
+
+                   <script type="text/javascript">
+
+                     function initMapHambanthota(){
+                      var locationHambanthota={lat:6.1429 , lng:81.1212};
+                      var mapHambanthota = new google.maps.Map(document.getElementById("map-hambanthota"),
+                         {
+                          zoom:10,
+                          center:locationHambanthota,
+                          
+                         }
+
+                        );
+
+                      var hambanthotaLocationArray=<?php echo json_encode(($data["districtActiveLocation"])["hambanthota"]);?>;
+
+                     
+
+                      for(let i=0;i<hambanthotaLocationArray.length;i++)
+                      {    
+                           var icon="";
+
+                          var type=(hambanthotaLocationArray[i])["reporttype"];
+                          switch(type){
+                            case "Crop Damages":{
+                              icon={
+                                       url:"../Public/images/cropDash.png",
+                                       scaledSize: new google.maps.Size(50,50)
+                                    };
+                            };
+                            break;
+                            case "Other Wild Animals are in The Village":{
+                              icon={
+                                       url:"../Public/images/animalDash.png",
+                                       scaledSize: new google.maps.Size(50,50)
+                                    };
+                            };
+                            break;
+                            case "Breakdown of Elephant Fences":{
+                              icon={
+                                       url:"../Public/images/fenceDash.png",
+                                       scaledSize: new google.maps.Size(50,50)
+                                    };
+                            };
+                            break;
+                            case "Wild Animal is in Danger":{
+                              icon={
+                                       url:"../Public/images/dangerDash.png",
+                                       scaledSize: new google.maps.Size(50,50)
+                                    };
+                            };
+                            break;
+                            case "Elephants are in The Village":{
+                              icon={
+                                       url:"../Public/images/elephantDash.png",
+                                       scaledSize: new google.maps.Size(50,50)
+                                    };
+                            };
+                            break;
+                            case "Illegal Happing":{
+                              icon={
+                                       url:"../Public/images/illegalDash.png",
+                                       scaledSize: new google.maps.Size(50,50)
+                                    };
+                            };
+                            break;
+                          }
+                          var lati=parseFloat((hambanthotaLocationArray[i])["lat"]);
+                          var long=parseFloat((hambanthotaLocationArray[i])["lon"]);
+                          var label=((hambanthotaLocationArray[i])["reporttype"]);
+                          var markerContent="<h1>Incident ID:"+(hambanthotaLocationArray[i])["incidentID"]+"</h1>";
+                          
+                        var markerHambanthota= new google.maps.Marker({
+
+                          position:{lat:lati,lng:long},
+                          map:mapHambanthota,
+                          icon:icon,
+                          label:label
+
+                        }
+
+
+                          );
+
+                        // var infoActiveOptions={
+                        //   content:markerContent,
+                        //   position:{lat:lati,lng:long}
+                        // };
+
+                        // var infoWindowActive=new google.maps.infoWindow(infoActiveOptions);
+
+                        // var infoActiveOpenOptions={
+                        //   map:mapActive
+                        // };
+
+                        // infoWindowActive.open(infoActiveOpenOptions);
+
+                        // mapActive.addListener("center_changed", () => {
+                        //                             // 3 seconds after the center of the map has changed, pan back to the
+                        //                             // marker.
+                        //     window.setTimeout(() => {
+                        //       mapActive.panTo(markerActive.getPosition());
+                        //     }, 3000);
+                        //   });
+                        //   markerActive.addListener("click", () => {
+                        //     mapActive.setZoom(12);
+                        //     mapActive.setCenter(markerActive.getPosition());
+                        //   });
+
                         
-                 </div>
-                 <div class="inci" id="fen-8-box">
-                    <img id="fen-8" src="../Public/images/fenceDash.png">
-                     <p id="fen-8-para">Damaged Fences</p>
-                    <h2 class="counter">68</h2>
-                    <label >Active Incidents </label>
+
+
                         
-                 </div>
-                   <div id="map-hambanthota">
-            
-    <iframe src="http://maps.google.com/maps?q=7.316440,80.448387&z=10&output=embed" height="500" width="600"></iframe>
-             </div>
+
+
+                      }
+
+                      
+
+
+                    }
+                   
+
+                 </script>
+
+                 <script  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOVujYe2-BPc5b66VsL0xVVUKoZHkb5yo&callback=initMapHambanthota"  async></script>
 
              <div class="hambanthota-status-chart">
                     <canvas id="hambanthota-status"></canvas>
@@ -1415,8 +2272,11 @@
 
                  <script >
                      let hambanthotaStatus=document.getElementById("hambanthota-status").getContext("2d");
+                     let noOfHambanthotaActive=<?php echo json_encode(($data["totalCasesReportedByDistrict"])["noOfHambanthotaActive"]);?>;
+                     let noOfHambanthotaSuccess=<?php echo json_encode(($data["totalCasesReportedByDistrict"])["noOfHambanthotaSuccess"]);?>;
+                     let noOfHambanthotaUnsuccess=<?php echo json_encode(($data["totalCasesReportedByDistrict"])["noOfHambanthotaUnsuccess"]);?>;
     let hambanthotaStatusLabels=["Success","Pending","Unsuccess"];
-    let hambanthotaStatusData=[15,12,2];
+    let hambanthotaStatusData=[noOfHambanthotaSuccess,noOfHambanthotaActive,noOfHambanthotaUnsuccess];
      let hambanthotaStatusColor=["green","#7FFFD4","red"];
     let hambanthotaStatusChart=new Chart(hambanthotaStatus, {
       type:"doughnut",
@@ -1453,7 +2313,7 @@
 
 
     <div class="container4">
-        <h1>Users</h1>
+        <h1>Summary About Users and Reported Incidents</h1>
 
         <ul>
             <li>
@@ -1470,23 +2330,23 @@
                         </thead>
                         <tr>
                             <td>Regional Officers</td>
-                            <td class="counter">6</td>
+                            <td class="counter">2</td>
                         </tr>
                         <tr>
                             <td>Wildlife Officers</td>
-                            <td class="counter">125</td>
+                            <td class="counter">1</td>
                         </tr>
                         <tr>
                             <td>Villagers</td>
-                            <td class="counter">1200</td>
+                            <td class="counter">3</td>
                         </tr>
                         <tr>
                             <td>Grama Niladhari</td>
-                            <td class="counter">45</td>
+                            <td class="counter">5</td>
                         </tr>
                         <tr>
                             <td>Veterinarian</td>
-                            <td class="counter">45</td>
+                            <td class="counter">10</td>
                         </tr>
                         
 
@@ -1501,36 +2361,46 @@
             </li>
             <li>
                 <div class="activeUsers">
-                    <h2>Active Users</h2>
+                    <h2>Details About Incidents</h2>
 
                      <table class="table">
                         <thead>
-                            <tr>
-                                <th>User Type</th>
-                                <th>Number of Users</th>
-                            </tr>
+                            
                             
                         </thead>
                         <tr>
-                            <td>Regional Officers</td>
-                            <td class="counter">2</td>
+                            <td>Total Reported Incidents</td>
+                            <td class="counter"><?php echo ($data["detailsAboutIncidents"])["totalIncident"]?></td>
                         </tr>
                         <tr>
-                            <td>Wildlife Officers</td>
-                            <td class="counter">53</td>
+                            <td>Percentage of Success</td>
+                            <td class="counter"><?php echo (((($data["detailsAboutIncidents"])["totalSuccessIncident"])/(($data["detailsAboutIncidents"])["totalIncident"]))*100)?></td>
                         </tr>
                         <tr>
-                            <td>Villagers</td>
-                            <td class="counter">700</td>
+                            <td>Percentage of Unuccess</td>
+                            <td class="counter"><?php echo (((($data["detailsAboutIncidents"])["totalUnsuccessIncident"])/(($data["detailsAboutIncidents"])["totalIncident"]))*100)?></td>
                         </tr>
                         <tr>
-                            <td>Grama Niladhari</td>
-                            <td class="counter">42</td>
+                            <td>Percentage of Active</td>
+                            <td class="counter"><?php echo (((($data["detailsAboutIncidents"])["totalActiveIncident"])/(($data["detailsAboutIncidents"])["totalIncident"]))*100)?></td>
                         </tr>
                         <tr>
-                            <td>Veterinarian</td>
-                            <td class="counter">12</td>
+                            <td>Total Accepted Incidents</td>
+                            <td class="counter"><?php echo ($data["detailsAboutIncidents"])["totalAccpted"]?></td>
                         </tr>
+                         <tr>
+                            <td>Percentage of Accepted and Success</td>
+                            <td class="counter"><?php echo (((($data["detailsAboutIncidents"])["acceptedSuccess"])/(($data["detailsAboutIncidents"])["totalAccpted"]))*100)?></td>
+                        </tr>
+                        <tr>
+                            <td>Percentage of Accepted and Unsuccess</td>
+                            <td class="counter"><?php echo (((($data["detailsAboutIncidents"])["acceptedUnsuccess"])/(($data["detailsAboutIncidents"])["totalAccpted"]))*100)?></td>
+                        </tr>
+                        <tr>
+                            <td>Percentage of Accepted and Active</td>
+                            <td class="counter"><?php echo (((($data["detailsAboutIncidents"])["acceptedActive"])/(($data["detailsAboutIncidents"])["totalAccpted"]))*100)?></td>
+                        </tr>
+                       
                         
 
                         <tbody>
@@ -1551,6 +2421,23 @@
 
 
 </body>
+
+<script >
+                   
+                   
+                   $(document).ready(function(){
+                    $(".counter").counterUp({
+                      delay:100,
+                      time:3000
+                    })
+                   })
+                   function count(){
+                    $(".counter").counterUp({
+                      delay:100,
+                      time:3000
+                    })
+                   }
+                 </script>
 </html>
 
 

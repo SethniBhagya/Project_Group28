@@ -311,3 +311,118 @@ tr:nth-child(even) {
     background-color: darkgreen;
     cursor: pointer;
 }
+
+
+.incident{
+
+background-color: rgb(255,255,255,0.6);
+height: 150px;
+
+}
+
+.incident h2{
+  color: darkgreen;
+  margin-left: 300px;
+}
+
+.incident table{
+  width:100%;
+}
+.incident #view-lbl{
+
+  background-color: darkgreen;
+  box-shadow: white 2px;
+  cursor: pointer;
+  color: white;
+  margin-bottom: 2px;
+  padding-top: 10px;
+    padding-bottom: 5px;
+    padding-left: 9px;
+    padding-right: 9px;
+    border-radius: 3px;
+
+}
+.profile-table{
+  width: 700px;
+  height: 500px;
+  background-color: white;
+  position: absolute;
+  top: 500px;
+  margin-left: 100px;
+  display: none;
+  z-index: 999;
+}
+.lbl-tbl{
+  font-size: 20px;
+  color: darkgreen;
+}
+
+#check{
+  display: none;
+}
+
+#check:checked ~ .profile-table{
+  display: block;
+}
+
+#check:checked ~ #total-num{
+  display: none;
+}
+
+.cross{
+  position: relative;
+  margin-left: 680px;
+  top: 2px;
+  color: darkgreen;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.profile-table table{
+      margin-left: 20px;
+      width: 650px;
+      margin-right: 20px;
+
+    }
+
+.profile-table table thead{
+
+      background-color: rgb(67,173,71,0.6);
+
+
+    }
+
+.profile-table table tbody{
+      background-color: rgb(0,251,10,0.16);
+      text-align: center;
+    }
+.profile-table table thead th{
+      padding-bottom: 4px;
+      padding-top: 4px;
+       border-radius: 4px;
+    } 
+
+.profile-table table tbody td{
+      
+       border-radius: 4px;
+    }
+
+.incident img{
+  width: 100px;
+  height: 100px;
+}
+
+.villager-status-chart{
+
+  width: 300px;
+  height: 300px;
+  top: 4px;
+  position: relative;
+  margin-left: 100px;
+  background-color: #ffffff;
+  margin-top: 40px;
+  box-shadow: 4px 4px 4px 4px rgba(0, 251, 10, 0.16);
+
+}
+
+

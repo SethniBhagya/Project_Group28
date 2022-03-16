@@ -1,6 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<?php
+if (!isset($_SESSION['NIC'])) {
+    header("Location:http://localhost/WildlifeCare/user/index");
+}
+if (isset($_SESSION['jobtype'])) {
+    if ($_SESSION['jobtype']=='Wildlife Officer') {
+       
+    }else {
+        header("Location:http://localhost/WildlifeCare/user/mustLogout");
+    }
+}else {
+    header("Location:http://localhost/WildlifeCare/user/mustLogout");
+}
+?>
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,8 +23,111 @@
   <script src="../Public/Javascript/login.js"></script>
   <script src="../Public/Javascript/viewReport.js"></script>
   <script src="../Public/Javascript/wildlifeofficer.js"></script>
+  
   <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=myMap"></script> -->
   <title>View Incident Details</title>
+  <script>
+        function mapLocation() {
+            var directionsDisplay;
+            var directionsService = new google.maps.DirectionsService();
+            var map;
+
+            function initialize() {
+                directionsDisplay = new google.maps.DirectionsRenderer();
+                var city = new google.maps.LatLng(<?php echo $data[0][$_GET['index']]['lat']?>,<?php echo $data[0][$_GET['index']]['lon']?>);
+                var mapOptions = {
+                    zoom: 15,
+                    center: city
+                };
+               
+                map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+                directionsDisplay.setMap(map);
+                google.maps.event.addDomListener(document.getElementById('Btn'), 'click', calcRoute);
+            }
+
+            function calcRoute() {
+              
+                const form = document.getElementById('myForm');
+                const lat = form.elements['lat'];
+                const lon = form.elements['ln'];
+               
+                // getting the element's value
+                let lattitude = lat.value;
+                let lontitude = lon.value;
+                
+                var start = new google.maps.LatLng(lattitude, lontitude);
+                //var end = new google.maps.LatLng(38.334818, -181.884886);
+                var end = new google.maps.LatLng(<?php echo $data[0][$_GET['index']]['lat']?>,<?php echo $data[0][$_GET['index']]['lon']?>);
+                
+                            var startMarker = new google.maps.Marker({
+                                        position: start,
+                                        map: map,
+                                        draggable: true
+                                    });
+                                    var endMarker = new google.maps.Marker({
+                                        position: end,
+                                        map: map,
+                                        draggable: true
+                                    });
+                          
+                            
+            
+                var bounds = new google.maps.LatLngBounds();
+                bounds.extend(start);
+                bounds.extend(end);
+                map.fitBounds(bounds);
+                var request = {
+                    origin: start,
+                    destination: end,
+                    travelMode: google.maps.TravelMode.DRIVING
+                };
+                directionsService.route(request, function(response, status) {
+                    if (status == google.maps.DirectionsStatus.OK) {
+                        directionsDisplay.setDirections(response);
+                        directionsDisplay.setMap(map);
+                    } else {
+                        alert("Directions Request from " + start.toUrlValue(6) + " to " + end.toUrlValue(6) + " failed: " + status);
+                    }
+                });
+            }
+
+            google.maps.event.addDomListener(window, 'load', initialize);
+        }
+    </script>
+  <script>
+        var x = document.getElementById("demo ");
+
+        function getLocation() {
+          
+            if (navigator.geolocation) {
+              
+                navigator.geolocation.watchPosition(showPosition);
+            } else {
+             
+                x.innerHTML = "Geolocation is not supported by this browser. ";
+            }
+        }
+
+        function showPosition(position) {
+         
+            let lat = position.coords.latitude;
+            let lng = position.coords.longitude;
+            const form = document.getElementById('myForm');
+                const lt = form.elements['lat'];
+                const lon = form.elements['ln'];
+                const btn= form.elements['Btn'];
+               
+                lt.value = lat;
+                lon.value = lng;
+                btn.click();
+                
+               
+
+
+
+        }
+    </script>
+
 </head>
 
 <body>
@@ -92,7 +208,8 @@
       <!-- <div class="col_2_last"><button type='submit' class='backButton' id='view' onclick=''>
             <a href='../wildlifeofficer/viewIncidents?lang=1'>BACK</a>
         </div> -->
-      <div class="col_2_last"><?php
+       
+      <div class="col__last"><?php
                               if ($data[0][$_GET['index']]['status'] == 'pending') {
                                 $stat = "<form method='POST' action='../wildlifeofficer/trigerRequest'><input type='text' style='display:none' name='acc' value=" . $data[0][$_GET['index']]['incidentID'] . "><button class='buttonAccept' id='acceptId' value='ACCEPT' name='accept'/>ACCEPT</button></form>";
                               } else {
@@ -100,25 +217,47 @@
                               }
                               ?>
         <br>
-        Send Incident To the Veterinarian?
+        <div style="text-align: left;">Send Incident To the Veterinarian?</div>
       </div>
-      <form method="POST" action=<?php echo "../wildlifeofficer/sendToVet?id=" . $data[0][$_GET['index']]['incidentID'] . "&lang=1" ?>>
+      
+      <?php
+      if ($data[0][$_GET['index']]['sendToVetStatus']=='notvisible') {
+        echo "<form method='POST' action= echo '../wildlifeofficer/sendToVet?id={$data[0][$_GET['index']]['incidentID']}&lang=1' >
 
-        <div class="save_button">
-          <input name="send" class="buttonAccept" type="submit" onclick="" value="SEND" />
+        <div class='save_button'>
+          <input name='send' class='buttonAccept' type='submit' onclick='' value='SEND' />
         </div>
-      </form>
+
+      </form>";
+      }else {
+        echo "Already sent";
+      }
+      ?>
+      
+      <input type="button" id="submitBtn" onclick="getLocation()" value="Track current Location" />
+      
+
+  
+    
+   <form  id="myForm">
+
+
+        <input type='text' name='lat' id='lat' style="display: none;">
+        <input type='text ' name='ln' id='ln' style="display: none;">
+        <input type="button" id="Btn" value="route" style="display: none; "/>
+        
+
+
+    </form>
 
     </div>
-    <div class="map" id="map">
-      <div class="map-area">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126452.02111388237!2d80.94313801331407!3d7.934107447297657!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3afb44ba3b16ce27%3A0xc34997a2b3032b7c!2sPolonnaruwa!5e0!3m2!1sen!2slk!4v1633098856489!5m2!1sen!2slk" width="100%" height="510" style="border:0; border-radius: 10px;" allowfullscreen="" loading="lazy"></iframe>
-      </div>
+    <div class="map" id="map-canvas" style="height: 400px;">
+     
     </div>
     <div class="last">
     </div>
   </div>
-
+  <script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyCSrUrvFB7-sGbuP_VZG5ADl9tZswY7XN8&callback=mapLocation&v=weekly' async></script>
 
 
 </body>
