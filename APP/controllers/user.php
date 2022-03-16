@@ -1,12 +1,12 @@
 <?php
 
-require "././includes/PHPMailer.php";
-require "././includes/SMTP.php";
-require "././includes/Exception.php";
+// require "././includes/PHPMailer.php";
+// require "././includes/SMTP.php";
+// require "././includes/Exception.php";
 
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\SMTP;
-use PHPMailer\PHPMailer\Exception;
+// use PHPMailer\PHPMailer\PHPMailer;
+// use PHPMailer\PHPMailer\SMTP;
+// use PHPMailer\PHPMailer\Exception;
 
 class user extends Controller
 {
@@ -27,13 +27,7 @@ class user extends Controller
     if (!empty($_SESSION["NIC"])) {
       $jobType = $_SESSION["jobtype"];
       switch ($jobType) {
-          // case "villager":
-          //  //get the data in Database  
-          //  $this->view->data = $this->model->selectData($_POST["username"]);
-          //  //echo $this->data;  
-          //  // render the villager page  
-          //  $this->view->render('villagersPage');
-          //  break;
+   
         case "Wildlife Officer":
           $this->view->render('wildlifeofficer');
           break;
@@ -45,6 +39,12 @@ class user extends Controller
           break;
         case "veterinarian":
           $this->view->render('veterinarian');
+          break;
+
+          case 'gramaniladari':
+            $this->view->render('gramaniladari');
+            break;
+
       }
     } else {
       if (isset($_GET["lang"])) {
@@ -101,7 +101,11 @@ class user extends Controller
                   $this->view->data = $this->model->selectData($_POST["username"]);
                   //echo $this->data;  
                   // render the villager page  
+                  $this->view->status = $this->checkAlerStatus($_SESSION['NIC']);
                   $this->view->render('villagersPage');
+                  if (isset($_POST['submitAlert'])) {
+                    $this->model->setAlerStatus($_SESSION['NIC']); 
+                    }
                   break;
                 case "Wildlife Officer":
                   $this->view->render('wildlifeofficer');
@@ -114,6 +118,13 @@ class user extends Controller
                   break;
                 case "veterinarian":
                   $this->view->render('veterinarian');
+                case 'gramaniladari':
+                    // session_start();
+                    $_userNic = $_SESSION["NIC"];
+                    $this->view->data = $this->model->selectData($_userNic);
+            
+                    $this->view->render('gramaniladari');
+                    break;   
               }
             } elseif ($_GET["lang"] == "2") {
 
@@ -147,6 +158,7 @@ class user extends Controller
 
               case "villager":
                 //get the data in Database  
+                $this->view->status = $this->checkAlerStatus($_SESSION['NIC']);
                 $this->view->data = $this->model->selectData($_POST["username"]);
                 //echo $this->data;  
                 // render the villager page  
@@ -186,7 +198,14 @@ class user extends Controller
     session_destroy();
     $this->view->render('login');
   }
-
+  public function checkAlerStatus($NIC){
+       
+    $statusReview  = $this->model->getAlerStatus($NIC);  
+    foreach($statusReview as $row){ 
+      $status = $row['alertstatus'];
+    }  
+    return $status;
+  }
   public function viewpage()
   {
     session_start();
@@ -194,6 +213,12 @@ class user extends Controller
       //assign the value
       $lang = $_GET['lang'];
     }
+    if (isset($_GET['send'])) {
+      //assign the value
+        $this->model->selectData($_userNic);
+    }
+    $this->view->status = $this->checkAlerStatus($_SESSION['NIC']);
+
     switch ($lang) {
       case 1:
         switch ($_SESSION["jobtype"]) {
@@ -201,8 +226,20 @@ class user extends Controller
             // session_start();
             $_userNic = $_SESSION["NIC"];
             $this->view->data = $this->model->selectData($_userNic);
-
             $this->view->render('villagersPage');
+            if (isset($_POST['Submit'])) {
+              //assign the value
+                
+                 $this->model->emergencyReport($_userNic ,'',  '','' , '' , $_POST['latitude'], $_POST['longitude']);
+            }
+        break;
+
+            case 'gramaniladari':
+              // session_start();
+              $_userNic = $_SESSION["NIC"];
+              $this->view->data = $this->model->selectData($_userNic);
+      
+              $this->view->render('gramaniladari');
         }
         break;
       case 2:
@@ -333,30 +370,7 @@ class user extends Controller
       }
     }
   }
-  public function viewSpecialNotice()
-  {
-
-    if (isset($_GET['lang'])) {
-      //assign the value
-      $lang = $_GET['lang'];
-    }
-    switch ($lang) {
-      case 1:
-        //display special Notice     
-        $this->view->render('specialNotice');
-        break;
-      case 2:
-        //display special Notice     
-
-        $this->view->render('specialNoticesinhala');
-        break;
-      case 3:
-        //display special Notice     
-
-        $this->view->render('specialNoticetamil');
-        break;
-    }
-  }
+ 
   public function  editProfile()
   {
     session_start();

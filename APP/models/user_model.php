@@ -4,8 +4,8 @@ class user_model extends Model{
     function __construct(){
         parent::__construct();
     }
-    function getData(){
-        return $this->db->runQuery("SELECT * from user");
+    function getData($villager_NIC){
+        return $this->db->runQuery("SELECT * from user INNER JOIN villager_registration ON user.villager_NIC = villager_registration.villager_NIC WHERE user.villager_NIC='$villager_NIC'");
 
     }
 
@@ -103,9 +103,34 @@ class user_model extends Model{
 
 
 
-
+ 
     }
-    public function profileData($userid){
-          return $this->db->runQuery("SELECT * FROM `user` WHERE NIC ='$userid' ");
+    
+    function emergencyReport($id, $noOfelephant, $placeStatus,$photo,$place , $latitude,$longitude){
+        date_default_timezone_set('Asia/Kolkata');
+        $time =  date("h:i:sa");
+        $time =  date("H:i:s"); 
+        $date = date("Y-m-d"); 
+        $divisionName = $this->db->runQuery("SELECT   gn_division.name AS divisionName FROM   grama_niladhari INNER JOIN lives  ON lives.gramaniladhari_NIC=grama_niladhari.NIC  INNER JOIN gn_division ON gn_division.GND_Code=grama_niladhari.GND  WHERE lives.villager_NIC= '$id' ");
+        foreach($divisionName as $row) {
+            $divisionNamevillagers = $row['divisionName'];
+        }
+        $villagers = $this->db->runQuery("SELECT   lives.villager_NIC AS villagerNIC  FROM   grama_niladhari INNER JOIN lives  ON lives.gramaniladhari_NIC=grama_niladhari.NIC  INNER JOIN gn_division ON gn_division.GND_Code=grama_niladhari.GND  WHERE  gn_division.name='$divisionNamevillagers' "); 
+        $this->db->runQuery("INSERT INTO `reported_incident`(`incidentID`,`gramaniladari_NIC`,`villager_NIC`,  `village_code`, `officeNo`,`time_in`, `date`, `image`, `status`, `description`,`Place`, `lat`, `lon`,`reporttype`) VALUES ( '',(SELECT  `gramaniladhari_NIC` FROM `lives` WHERE villager_NIC= '$id' ), (SELECT `NIC` FROM `villager` WHERE NIC= '$id'), (SELECT  `village_code` FROM `lives` WHERE villager_NIC= '$id' ),(SELECT  `officeNo` FROM `village` WHERE village_code=(SELECT  `village_code` FROM `lives` WHERE villager_NIC= '$id' )),  '$time', '$date', '$photo','pending','','$place',' $latitude','$longitude','Wild Elephant are in The Village' )"); 
+        $this->db->runQuery("INSERT INTO `elephants_in_village`(`incidentID`, `In Your Registered Village`, `no_of_elephants`) VALUES ((SELECT  `incidentID` FROM `reported_incident` WHERE   time_in='$time' ),'$placeStatus','$noOfelephant')");
+         foreach( $villagers as $row) {
+          
+            $villagerNIC =  $row['villagerNIC'];
+            $this->db->runQuery("UPDATE `alert` SET  `alertstatus`='notview'    WHERE NIC= '$villagerNIC' ");  
+            $this->db->runQuery("UPDATE `alert` SET  `alertstatus`='view'    WHERE NIC= '$id' "); 
+        }
     }
+    public function getAlerStatus($NIC){
+        return $this->db->runQuery("SELECT `alertstatus` FROM `alert` WHERE NIC= '$NIC'");
+    }
+    public function setAlerStatus($NIC){
+        $this->db->runQuery("UPDATE `alert` SET  `alertstatus`='view'    WHERE NIC= '$NIC'");
+        
+    } 
+     
 }
