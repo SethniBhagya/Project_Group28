@@ -1,6 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<?php
+if (!isset($_SESSION['NIC'])) {
+    header("Location:http://localhost/WildlifeCare/user/index");
+}
+if (isset($_SESSION['jobtype'])) {
+    if ($_SESSION['jobtype']=='Wildlife Officer') {
+       
+    }else {
+        header("Location:http://localhost/WildlifeCare/user/mustLogout");
+    }
+}else {
+    header("Location:http://localhost/WildlifeCare/user/mustLogout");
+}
+?>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -63,6 +76,30 @@
     </div> -->
 
     <body>
+        
+    <?php
+
+if (isset($_POST['save'])) {
+?>
+
+  <div id="message1" style="padding: 10px; background-color:aliceblue">
+
+
+    <h2><img src="../Public/images/success-mesaage.png" style="width:25px;  height:25px">Your Profile Details Updated Sucessfully </h2><a href="../wildlifeofficer/viewProfile?lang=1" class="login-btn" style=" border-radius: 10px; padding: 10px 10px; background-color:#056412;  color: white;">View Profile</a>
+  </div>
+<?php
+
+}
+//  }
+//ss}
+?>
+<div id="note" >
+  <b> </b>
+</div>
+<div id="message" style="display: none;">
+  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+  <h id="errorMessage"></h>
+</div>
         <div class="contanier_2">
             <div>
                 <?php if (isset($data[0]['message'])) {
@@ -81,11 +118,11 @@
             </div>
             <form method="POST" action="../wildlifeofficer/updateProfile?lang=2">
 
-                <div class="row">
+                <div class="row firstName">
                     <div class="col_1">මුල් නම</div>
                     <div class="col_2"><input type="text" class="text" id="fname" name="fname" required value="<?php echo $data[0]["Fname"] ?>" /><img src="../Public/images/edit.png" class="edit_icon"></div>
                 </div>
-                <div class="row">
+                <div class="row lastName">
                     <div class="col_1">අවසන් නම</div>
                     <div class="col_2"><input type="text" class="text" id="lname" name="lname" required value="<?php echo $data[0]["Lname"] ?>" /><img src="../Public/images/edit.png" class="edit_icon"></div>
                 </div>
@@ -111,31 +148,28 @@
             <label for="female">Female</label></div>
       </div> -->
                 <div class="row">
-                    <div class="col_1">උපන්දිනය</div>
-                    <div class="col_2">
-                        <input class="text" type="date" id="dob" name="dob" required value="<?php echo $data[0]['BOD'] ?>" />
-                    </div>
+                   
                 </div>
-                <div class="row">
+                <div class="row address">
                     <div class="col_1">නිවසේ ලිපිනය</div>
                     <div class="col_2"><textarea class="text" id="address" name="address" rows="2" required><?php echo $data[0]["Address"]  ?>
         </textarea><img src="../Public/images/edit.png" class="edit_icon"></div>
                 </div>
-                <div class="row">
+                <div class="row mobNum">
                     <div class="col_1">දුරකථන අංකය</div>
                     <div class="col_2">
                         <input class="text" type="text" id="mobileNo" name="mobileNo" value="<?php echo $data[0]["mobileNo"] ?>" required />
                         <img src="../Public/images/edit.png" class="edit_icon">
                     </div>
                 </div>
-                <div class="row">
+                <div class="row email">
                     <div class="col_1">විද්‍යුත් තැපෑල</div>
                     <div class="col_2">
                         <input class="text" type="email" id="email" name="email" value="<?php echo $data[0]['email'] ?>" />
                         <img src="../Public/images/edit.png" class="edit_icon">
                     </div>
                 </div>
-                <div class="row">
+                <div class="row address1">
                     <div class="col_1">කාර්යාල ලිපිනය</div>
                     <div class="col_2"><input class="text" type="text" id="off_add" name="office_address" value="<?php echo $data[1]['address'] ?>" required /><img src="../Public/images/edit.png" class="edit_icon"></div>
                 </div>
@@ -148,7 +182,7 @@
 
                     <div class="save_button">
 
-                        <input name="save" type="submit" onclick="" value="SAVE" />
+                        <input name="save" type="submit" onclick="return submitRequestForm()" value="SAVE" />
                     </div>
 
 
@@ -162,6 +196,7 @@
 
         </div>
         </div>
+        <script src="../Public/javascript/updateUser.js"></script>
     </body>
 
 </html>

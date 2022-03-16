@@ -455,7 +455,7 @@
                         </td>
                         <td>
                             <select class="text" name="village" id="villagevil"    required>
-                                
+                            <option value="Kotapola">Kotapola</option>
                                   
                                </select>
                         </td>
@@ -472,7 +472,7 @@
                         <td>
                             <select  name="gnd" id="gndvi" onchange ="selectVil(this.value)" required>
                                      
-                         
+                         <option value="Kotapola">Kotapola</option>
                             </select>
                             
                         </td>

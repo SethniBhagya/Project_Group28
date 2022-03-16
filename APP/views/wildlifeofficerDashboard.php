@@ -54,19 +54,19 @@
     <!-- <div class="header-name"><h><pre  style="font-size: larger;font-style: normal; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Total in Sri Lanka                                                                                                                                                               LastModified 30/09/2021</pre></h> </div> -->
     <div class="first">
         Time Duration -3 Month<br>
-        Last Modification 02/09/2021<br>
+        <?php echo date("d/m/Y") ?><br>
 
     </div>
     <div class="main-update-col-1">
         <div class="last-week">
             Last Week <div class="last-week-number">
-                <h1 data-target="10" class="count">0</h1>
+                <h1 data-target="10" class="count"> <?php echo $data['lastWeekData']  ?></h1>
                 <p> incidents </p>
             </div>
         </div>
         <div class="last-Month">
             Last Month <div class="last-month-number">
-                <h1 data-target="10" class="count">0</h1>
+                <h1 data-target="10" class="count"><?php echo $data['lastMonthData'] ?></h1>
                 <p> incidents</p>
             </div>
         </div>
@@ -74,7 +74,7 @@
             <p>Last</p>
             <h2>24 hours</h2>
             <div class="last-hour-number">
-                <h1 data-target="10" class="count">0 </h1>
+                <h1 data-target=<?php echo $data['last24HoursData'] ?> class="count"><?php echo $data['last24HoursData']  ?> </h1>
                 <p>Incidents</p>
             </div>
             <h1></h1>
@@ -87,13 +87,14 @@
                 <canvas id="myChartmain"></canvas>
                 <script>
                     let myChartmain = document.getElementById("myChartmain").getContext('2d');
+                    let dataMain = [<?php echo $data['lastMonthWildElephantArrival'] ?>, <?php echo $data['lastMonthWildAnimalArrival']  ?>, <?php echo $data['lastMonthElephantFence']  ?>, <?php echo $data['lastMonthcropDamages'] ?>, <?php echo $data['lastMonthOthers']  ?>];
                 </script>
                 <!-- <script src="../Javascript/dashboard.js"></script> -->
             </div>
         </div>
         <div class="detail">
-            Time Duration -3 Month <br>
-            Last Modification 02/09/2021
+            Time Duration -1 Month <br>
+            Last Modification <?php echo date("d/m/Y") ?>
         </div>
         <div class="date">
             <h2>Today</h2>
@@ -117,53 +118,39 @@
     </div>
     <div class="district-report">
         <div class="users-1">
-            Wildlife Officers <h1 data-target="" class="count">20</h1>
+            Wildlife Officers <h1 data-target="" class="count"><?php echo $data['villager'] ?></h1>
         </div>
         <div class="users-2">
-            Grama Niladhari <h1 data-target="23" class="count">0</h1>
+            Grama Niladharis <h1 data-target="<?php echo $data['gramaNiladhari'] ?>" class="count"><?php
+                                                                                                    echo $data['gramaNiladhari'] ?></h1>
         </div>
         <div class="users-3">
             Veterinarians <h1 data-target="10" class="count">0</h1>
         </div>
         <div class="users-4">
-            Villagers <h1 data-target="10" class="count">0</h1>
+            Villagers <h1 data-target="<?php echo $data['villager'] ?>" class="count"><?php echo $data['villager'] ?></h1>
         </div>
-        <!-- <div class="report-type">
-             <div for="" class="name">Wild Elephants Arrival <h1  data-target="90"  class="count">0</h1>  </div>  
-             <div for="" class="name">Wild Animals Arrival <h1  data-target="80"  class="count">0</h1> </div>  
-             <div for="" class="name">Elephants fence <h1  data-target="60"  class="count">0</h1>    </div> 
-             <div for="" class="name">Crop Damages <h1  data-target="30"  class="count">0</h1> </div> 
-             <div for="" class="name">Other  <h1  data-target="50"  class="count">0</h1></div><br>
-         </div>
-         <div class="user-type">
-             <div for="" class="name">Regional Wildlife Officer <h1  data-target="10"  class="count">0</h1></div> 
-             <div for="" class="name">Wildlife Officers <h1  data-target="30"  class="count">0</h1></div> 
-             <div for="" class="name">Gramaniladari <h1  data-target="50"  class="count">0</h1></div> 
-             <div for="" class="name">Vertinarian <h1  data-target="10"  class="count">0 </h1> </div> 
-             <div for=""class="name">Vilager <h1  data-target="160"  class="count">0</h1></div>
-         </div> -->
         <div class="report-1">
-            Wild Elephants Arrival <h1 data-target="20" class="count">0</h1>
+            Wild Elephants Arrival <h1 data-target="<?php echo $data['lastMonthWildElephantArrivalDistrict']  ?>" class="count"><?php echo $data['lastMonthWildElephantArrivalDistrict']  ?></h1>
         </div>
         <div class="report-2">
-            Elephants fence <h1 data-target="20" class="count">0</h1>
+            Wild Animals Danger <h1 data-target="<?php echo $data['lastMonthWildAnimalDangerDistrict'] ?>" class="count"><?php echo $data['lastMonthWildAnimalDangerDistrict'] ?></h1>
         </div>
         <div class="report-3">
-            Wild Animals Arrival <h1 data-target="20" class="count">0</h1>
+            Wild Animals Arrival <h1 data-target="<?php echo $data['villager'] ?>" class="count"><?php echo $data['lastMonthWildAnimalArrivalDistrict']  ?></h1>
         </div>
         <div class="report-4">
-            Crop Damages <h1 data-target="20" class="count">0</h1>
+            Crop Damages <h1 data-target="<?php echo $data['lastMonthcropDamagesDistrict']  ?>" class="count"><?php echo $data['lastMonthcropDamagesDistrict']  ?></h1>
         </div>
         <div class="report-5">
-            Illegal Thing happening in the Forest<h1 data-target="20" class="count">0</h1>
+            Illegal Thing happening in the Forest<h1 data-target="<?php echo $data['lastMonthIllegalThingDistrict']  ?>" class="count"><?php echo $data['lastMonthIllegalThingDistrict'] ?></h1>
         </div>
 
         <div class="report-6">
-            Breakdown of Elephant Fence <h1 data-target="16" class="count">0</h1>
+            Breakdown of Elephant Fence <h1 data-target="<?php echo $data['lastMonthElephantFenceDistrict'] ?>" class="count"><?php echo $data['lastMonthElephantFenceDistrict']  ?></h1>
         </div>
         <div class="update-col">
-            Polonnaruwa District Incidents report Percentage<h1 data-target="90" class="count">0 </h1>
-            <h2>%</h2>
+            <?php echo $data['districtName'] ?> District Incidents report Percentage<h1 data-target=" " class="count"><?php echo $data['districtIncidentPercentage'] . "%" ?></h1>
         </div>
     </div>
 

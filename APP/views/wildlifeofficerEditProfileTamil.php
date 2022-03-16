@@ -1,6 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<?php
+if (!isset($_SESSION['NIC'])) {
+    header("Location:http://localhost/WildlifeCare/user/index");
+}
+if (isset($_SESSION['jobtype'])) {
+    if ($_SESSION['jobtype']=='Wildlife Officer') {
+       
+    }else {
+        header("Location:http://localhost/WildlifeCare/user/mustLogout");
+    }
+}else {
+    header("Location:http://localhost/WildlifeCare/user/mustLogout");
+}
+?>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -28,8 +41,8 @@
                 <li id="home"><a href="../?lang=3">முகப்பு பக்கம்</a></li>
                 <li id="userPageSinhala"><a href="../wildlifeofficer/?lang=3"> &nbsp;பயனர் பக்கம் </a></li>
                 <li id="incidentsTamil"><a href="../wildlifeofficer/viewIncidents?lang=3"> &emsp; சம்பவங்கள்</a></li>
-                <li id="notifications"><a href="../wildlifeofficer/viewNotification?lang=3">அறிவிப்புகள்</a></li>
-                <li id="dashboard"><a href="../wildlifeofficer/viewDashboard?lang=3">தரவு பலகை</a></li>
+                <li id="notificationsTamil"><a href="../wildlifeofficer/viewNotification?lang=3">அறிவிப்புகள்</a></li>
+                <li id="dashboardTamil"><a href="../wildlifeofficer/viewDashboard?lang=3">தரவு பலகை</a></li>
                 <li>
                     <div class="dropdown-1" style="  padding-left:  300px ">
                         <button class="dropbtn-1">மொழி</button>
@@ -62,6 +75,29 @@
     </div> -->
 
     <body>
+    <?php
+
+if (isset($_POST['save'])) {
+?>
+
+  <div id="message1" style="padding: 10px; background-color:aliceblue">
+
+
+    <h2><img src="../Public/images/success-mesaage.png" style="width:25px;  height:25px">Your Profile Details Updated Sucessfully </h2><a href="../wildlifeofficer/viewProfile?lang=1" class="login-btn" style=" border-radius: 10px; padding: 10px 10px; background-color:#056412;  color: white;">View Profile</a>
+  </div>
+<?php
+
+}
+//  }
+//ss}
+?>
+<div id="note" >
+  <b> </b>
+</div>
+<div id="message" style="display: none;">
+  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+  <h id="errorMessage"></h>
+</div>
         <div class="contanier_2">
             <div>
                 <?php if (isset($data[0]['message'])) {
@@ -80,11 +116,11 @@
             </div>
             <form method="POST" action="../wildlifeofficer/updateProfile?lang=3">
 
-                <div class="row">
+                <div class="row firstName">
                     <div class="col_1">முதல் பெயர்</div>
                     <div class="col_2"><input type="text" class="text" id="fname" name="fname" required value="<?php echo $data[0]["Fname"] ?>" /><img src="../Public/images/edit.png" class="edit_icon"></div>
                 </div>
-                <div class="row">
+                <div class="row lastName">
                     <div class="col_1">கடைசி பெயர்</div>
                     <div class="col_2"><input type="text" class="text" id="lname" name="lname" required value="<?php echo $data[0]["Lname"] ?>" /><img src="../Public/images/edit.png" class="edit_icon"></div>
                 </div>
@@ -110,31 +146,28 @@
             <label for="female">Female</label></div>
       </div> -->
                 <div class="row">
-                    <div class="col_1">பிறந்த தேதி</div>
-                    <div class="col_2">
-                        <input class="text" type="date" id="dob" name="dob" required value="<?php echo $data[0]['BOD'] ?>" />
-                    </div>
+                    
                 </div>
-                <div class="row">
+                <div class="row address">
                     <div class="col_1">வீட்டு முகவரி</div>
                     <div class="col_2"><textarea class="text" id="address" name="address" rows="2" required><?php echo $data[0]["Address"]  ?>
         </textarea><img src="../Public/images/edit.png" class="edit_icon"></div>
                 </div>
-                <div class="row">
+                <div class="row mobNum">
                     <div class="col_1">தொலைபேசி எண்</div>
                     <div class="col_2">
                         <input class="text" type="text" id="mobileNo" name="mobileNo" value="<?php echo $data[0]["mobileNo"] ?>" required />
                         <img src="../Public/images/edit.png" class="edit_icon">
                     </div>
                 </div>
-                <div class="row">
+                <div class="row Email">
                     <div class="col_1">மின்னஞ்சல்</div>
                     <div class="col_2">
                         <input class="text" type="email" id="email" name="email" value="<?php echo $data[0]['email'] ?>" />
                         <img src="../Public/images/edit.png" class="edit_icon">
                     </div>
                 </div>
-                <div class="row">
+                <div class="row Address">
                     <div class="col_1">அலுவலக முகவரி</div>
                     <div class="col_2"><input class="text" type="text" id="off_add" name="office_address" value="<?php echo $data[1]['address'] ?>" required /><img src="../Public/images/edit.png" class="edit_icon"></div>
                 </div>
@@ -147,7 +180,7 @@
 
                     <div class="save_button">
 
-                        <input name="save" type="submit" onclick="" value="SAVE" />
+                        <input name="save" type="submit" onclick="return submitRequestForm()" value="SAVE" />
                     </div>
 
 
@@ -161,6 +194,7 @@
 
         </div>
         </div>
+        <script src="../Public/Javascript/updateUser.js"></script>
     </body>
 
 </html>
