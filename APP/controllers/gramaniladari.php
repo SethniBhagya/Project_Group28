@@ -2,157 +2,351 @@
 include "user.php";
 class gramaniladari extends user
 {
+  function __construct()
+  {
+    parent::__construct();
+  }
+ //index function to load wildlifeofficer default page
+ public function index()
+ {
+  $this->view->render('gramaniladari');
+}
+public function  editProfile()
+{
+  session_start();
+  $this->view->userData = $this->model->profileData($_SESSION['NIC']);
+  if (isset($_GET['lang'])) {
+    $lang = $_GET['lang'];
+  }
+  $province = $this->model->getProvince($_SESSION['NIC']);
+  foreach ($province as $row) {
+    $villagerProvince =  $row['province'];
+  }
+  $this->view->province = $villagerProvince;
+  $district = $this->model->getDistrict($_SESSION['NIC']);
+  foreach ($district as $row) {
+    $villagerDistrict =  $row['district_name'];
+  }
+  $this->view->district = $villagerDistrict;
+  $GramaniladhariDivision = $this->model->getGramaniladhariDivision($_SESSION['NIC']);
+  foreach ($GramaniladhariDivision as $row) {
+    $villagerGramaniladhariDivision =  $row['name'];
+  }
+  $this->view->GramaniladhariDivision = $villagerGramaniladhariDivision;
+  $hashPassword = $this->model->getHashPassword($_SESSION['NIC']);
+  foreach ($hashPassword as $row) {
+    $villagerHashPassword =  $row['userPassword'];
+  }   $this->view->hashPassword = $villagerHashPassword;
 
-    function __construct()
-    {
-        parent::__construct();
+  switch ($lang) {
+    case 1:
+      //display special Notice     
+      $this->view->render('gramaniladariEditProfile');
+      break;
+    case 2:
+      //display special Notice     
+
+      $this->view->render('gramaniladariEditProfile');
+      break;
+    case 3:
+      //display special Notice     
+
+      $this->view->render('gramaniladariEditProfile');
+      break;
+  }
+      // $this->view->render('editProfile');
     }
-
-    //index function to load wildlifeofficer default page
-    public function index()
+    public function viewSpecialNotice()
     {
-        // session_start();
-        // $this->view->data=$this->model->selectData($_SESSION["NIC"]);
-         $this->view->render('gramaniladari');
-    }
-
-    // view profile function to view profile of wildlife officer
-    public function viewProfile()
-    {
-        session_start();
-        $this->view->data = $this->model->selectData($_SESSION["NIC"]);
-
-        $this->view->render('gramaniladari_view_profile', $this->view->data);
-    }
-    // Edit profile function to view edit profile page of wildlife officer
-    public function editProfile()
-    {
-        session_start();
-        $this->view->data = $this->model->selectData($_SESSION["NIC"]);
-
-        $this->view->render('gramaniladari_edit_profile', $this->view->data);
-    }
-    // update profile function to update profile of wildlife officer after editing edit page
-    public function updateProfile()
-    {
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-            session_start();
-
-            //chack whether wildlife officer have save the changes
-            if (isset($_POST["save"])) {
-                $data = [
-
-                    "fName" => trim($_POST["fname"]),
-                    "lName" => trim($_POST["lname"]),
-                    //"nic"=>trim($_POST["nic"]),
-                    // "gender"=>trim($_POST["gender"]),
-                    "dob" => trim($_POST["dob"]),
-                    "address" => trim($_POST["address"]),
-                    "mob" => trim($_POST["mobileNo"]),
-
-
-                    // "village"=>trim($_POST["village"]),
-
-                    "email" => trim($_POST["email"]),
-                    "office_address" => trim($_POST["office_address"]),
-
-
-
-                ];
-                $update_result = $this->model->updateData($_SESSION["NIC"], $data);
-                if (empty($update_result[0]) && empty($update_result[1])) {
-
-                    $_SESSION["Fname"] = $data["fName"];
-                    $_SESSION["Lname"] = $data["lName"];
-                    $this->view->data = $this->model->selectData($_SESSION["NIC"]);
-                    $this->view->data[0]['message'] = "succcessfully updated";
-                    $this->view->render('gramaniladari_view_profile', $this->view->data);
-                } else {
-                    $this->view->data = $this->model->selectData($_SESSION["NIC"]);
-                    $this->view->data[0]['message'] = "fail updating";
-                    $this->view->render('gramaniladari_edit_profile', $this->view->data);
-                }
-            } elseif (isset($_POST["cancel"])) {
-                // $data=[
-
-                //     "fName"=>trim($_POST["fname"]),
-                //     "lName"=>trim($_POST["lname"]),
-                //     //"nic"=>trim($_POST["nic"]),
-                //    // "gender"=>trim($_POST["gender"]),
-                //     "dob"=>trim($_POST["dob"]),
-                //     "address"=>trim($_POST["address"]),
-                //     "mob"=>trim($_POST["mobileNo"]),
-
-
-                //     // "village"=>trim($_POST["village"]),
-
-                //     "email"=>trim($_POST["email"]),
-
-
-                // ];
-                // $this->model->updateData($_SESSION["NIC"],$data);
-                $this->view->data = $this->model->selectData($_SESSION["NIC"]);
-                $this->view->render('gramaniladari_edit_profile', $this->view->data);
-            }
-
-
-
-
-
-            //if else ekak
-
-
-        }
-    }
-    // view Cropdamage function to view list of all reported incidents 
-    public function viewCropdamage()
-    {
-        // session_start();
-        $this->view->data = $this->model->selectCropdamageData();
-        $this->view->render('gramaniladari_view_cropdamage', $this->view->data);
-    }
-    // view Cropdamage indetail function to view full details of a reported incident.
-    public function viewCropdamageDetails()
-    {
-        // session_start();
-        // $this->view->data=$this->model->selectData($_SESSION["NIC"]);
-        $this->view->render('gramaniladari_view_cropdamages_indetail');
-    }
-    //filter Cropdamage using report catagory in view reported incidents page.
-    public function filterUsingReportCatagory()
-    {
-        $this->view->data[0]['selected'] = $_POST['report_catagory'];
-        /////////////////////// do from here////////
-
-    }
-    //view dashboard of wildlife officer.
-
-    public function viewDashboard()
-    {
-        // session_start();
-        // $this->view->data=$this->model->selectData($_SESSION["NIC"]);
-        $this->view->render('gramaniladari_dashboard');
-    }
-    public function trigerRequest()
-    {
-        if (isset($_POST['accept'])) {
-            $id = trim($_POST['acc']);
-            $result = $this->model->cropdamageStatUpdate("success", $id);
-
-            $this->view->data = $this->model->selectCropdamageData();
-            $this->view->render('wildlifeofficerViewIncidents', $this->view->data);
-        }
-        if (isset($_POST['cancel'])) {
-            $id = trim($_POST['can']);
-            $result = $this->model->cropdamageStatUpdate("pending", $id);
-
-            $this->view->data = $this->model->selectIncidentData();
-            $this->view->render('gramaniladariViewIncidents', $this->view->data);
-        }
+  
+      if (isset($_GET['lang'])) {
+        //assign the value
+        $lang = $_GET['lang'];
+      }
+      switch ($lang) {
+        case 1:
+          //display special Notice     
+          $this->view->render('gramaniladariSpecialNotice');
+          break;
+        case 2:
+          //display special Notice     
+  
+          $this->view->render('gramaniladariSpecialNoticesinhala');
+          break;
+        case 3:
+          //display special Notice     
+  
+          $this->view->render('gramaniladariSpecialNoticetamil');
+          break;
+      }
     }
     function viewNotification()
     {
-        $this->view->render('wildlifeofficerNotifications');
+      if (isset($_GET['lang'])) {
+        //assign the value
+        $lang = $_GET['lang'];
+      }
+      switch ($lang) {
+        case 1:
+          //display villagerReportView1     
+          $this->view->render('gramaniladariNotification');
+          break;
+        case 2:
+          //display villagerReportView2
+          $this->view->render('gramaniladariNotificationsinhala');
+          break;
+        case 3:
+          //display villagerReportView3    
+          $this->view->render('gramaniladariNotificationtamil');
+          break;
+        default:
+          //display Error message
+          header('Location: ../user/error');
+      }
     }
-}
+    public function viewCropDamages()
+    {
+      if (isset($_GET['lang'])) {
+        //assign the value
+        $lang = $_GET['lang'];
+      }
+      session_start();
+      $this->view->dataAll  = $this->model->getData();
+      //get the number of rows reports in assocaiative array
+      $rows =  $this->model->getReportrows($_SESSION['NIC']);
+      //assign value to $%noOfrows
+      foreach($rows as $row) {
+        $noOfrows  = $row['total_rows'];
+     }
+       //each page get the rows
+      $rowsPer = 10;
+      //Get the page number 
+      $pageNumber = $_GET['page'];
+      //view the page number view in report
+      $start =  ($pageNumber - 1) * $rowsPer;
+      //call the getdataPending function in incident_model class  
+      $this->view->data1 = $this->model->getdataLimit($start, $rowsPer);
+      //get the lastpage number
+      $lastpage = ceil($noOfrows / $rowsPer);
+      //pass the value
+      $this->view->lastpage = $lastpage;
+       $this->view->cropDamagesReview = $this->model->getCropDamagesReview($_SESSION['NIC']);
+       if (isset($_GET['status'])) {
+        //assign the value
+        $status = $_GET['status'];
+      } 
+       switch ($status){
+         case 'success':  
+       switch ($lang) {
+        case 1:
+          //display villagerReportView1     
+          $this->view->render('gramaniladariCropDamages');
+          break;
+        case 2:
+          //display villagerReportView2
+          $this->view->render('gramaniladariCropDamagessinhala');
+          break;
+        case 3:
+          //display villagerReportView3    
+          $this->view->render('gramaniladariCropDamagestamil');
+          break;
+        default:
+          //display Error message
+          header('Location: ../user/error');
+       } break;
+       case 'pending':
+        switch ($lang) {
+          case 1:
+            //display villagerReportView1     
+            $this->view->render('gramaniladariCropDamagesPending');
+            break;
+          case 2:
+            //display villagerReportView2
+            $this->view->render('gramaniladariCropDamagesPendingsinhala');
+            break;
+          case 3:
+            //display villagerReportView3    
+            $this->view->render('gramaniladariCropDamagesPendingtamil');
+            break;
+          default:
+            //display Error message
+            header('Location: ../user/error');
+         }
+        }
+    }
+    public function viewCropDamagesIncident(){
+      if (isset($_GET['lang'])) {
+        //assign the value
+        $lang = $_GET['lang'];
+      } 
+      if (isset($_GET['status'])) {
+        //assign the value
+        $status = $_GET['lang'];
+      } 
+      $this->view->dataReport  = $this->model->getreport($_GET['reportNo']);
+      switch ($lang) {
+        case 1:
+          
+          //display villagerReportView1     
+          $this->view->render('cropDamagesView');
+          if(isset($_POST['Confirm'])){
+            $this->model->updateStatusSucessful($_GET['reportNo'],$_POST['discription']);
+          }
+          if(isset($_POST['UnConfirm'])){
+            $this->model->updateStatusUnSucessful($_GET['reportNo'],$_POST['discription']);
+          }
+          break;
+        case 2:
+          //display villagerReportView2
+          $this->view->render('cropDamagesViewSinhala');
+          break;
+        case 3:
+          //display villagerReportView3    
+          $this->view->render('cropDamagesViewTamil');
+          break;
+        default:
+          //display Error message
+          header('Location: ../user/error');
+      }
+    }
+    public function viewCropDamagesIncidentUpdate(){
+      if (isset($_GET['lang'])) {
+        //assign the value
+        $lang = $_GET['lang'];
+      } 
+      
+      $this->view->dataReport  = $this->model->getreport($_GET['reportNo']);
+      switch ($lang) {
+        case 1:
+          
+          //display villagerReportView1     
+          $this->view->render('cropDamagesViewUpdating');
+          if(isset($_POST['Confirm'])){
+            $this->model->updateStatusSucessful($_GET['reportNo'],$_POST['discription']);
+          }
+          if(isset($_POST['UnConfirm'])){
+            $this->model->updateStatusUnSucessful($_GET['reportNo'],$_POST['discription']);
+          }
+          break;
+        case 2:
+          //display villagerReportView2
+          $this->view->render('cropDamagesViewSinhala');
+          break;
+        case 3:
+          //display villagerReportView3    
+          $this->view->render('cropDamagesViewTamil');
+          break;
+        default:
+          //display Error message
+          header('Location: ../user/error');
+      }
+    }
+    public function viewVillager()
+    {
+      if (isset($_GET['lang'])) {
+        //assign the value
+        $lang = $_GET['lang'];
+      }
+      session_start();
+      $this->view->dataAll  = $this->model->getData();
+      //get the number of rows reports in assocaiative array
+      $rows =  $this->model->getVillgerRows($_SESSION['NIC']);
+      //assign value to $%noOfrows
+      foreach($rows as $row) {
+        $noOfrows  = $row['total_rows'];
+     }
+       //each page get the rows
+      $rowsPer = 10;
+      //Get the page number 
+      $pageNumber = $_GET['page'];
+      //view the page number view in report
+      $start =  ($pageNumber - 1) * $rowsPer;
+      //call the getdataPending function in incident_model class  
+      $this->view->data1 = $this->model->getVillgerdataLimit($_SESSION['NIC'],$start, $rowsPer);
+      //get the lastpage number
+      $lastpage = ceil($noOfrows / $rowsPer);
+      //pass the value
+          $this->view->lastpage = $lastpage;
+       $this->view->cropDamagesReview = $this->model->getVillgerReview($_SESSION['NIC']);
+   //   print_r($this->model->getVillgerReview($_SESSION['NIC']));
+       if (isset($_GET['status'])) {
+        //assign the value
+        $status = $_GET['status'];
+      } 
+       switch ($status){
+         case 'accept':  
+       switch ($lang) {
+        case 1:
+          //display villagerReportView1     
+          $this->view->render('gramaniladariAcceptVillager');
+          break;
+        case 2:
+          //display villagerReportView2
+          $this->view->render('gramaniladariAcceptVillagerSinhala');
+          break;
+        case 3:
+          //display villagerReportView3    
+          $this->view->render('gramaniladariAcceptVillagerTamil');
+          break;
+        default:
+          //display Error message
+          header('Location: ../user/error');
+       } break;
+       case 'pending':
+        switch ($lang) {
+          case 1:
+            //display villagerReportView1     
+            $this->view->render('gramaniladariPendingVillager');
+            break;
+          case 2:
+            //display villagerReportView2
+            $this->view->render('gramaniladariPendingVillagerSinhala');
+            break;
+          case 3:
+            //display villagerReportView3    
+            $this->view->render('gramaniladariPendingVillagerTamil');
+            break;
+          default:
+            //display Error message
+            header('Location: ../user/error');
+         }
+        }
+    }
+
+    public function viewVillagerProfile(){
+      if (isset($_GET['lang'])) {
+        //assign the value
+        $lang = $_GET['lang'];
+      } 
+      
+      session_start();
+      $this->view->villagerData = $this->model->getVillgerReview($_SESSION['NIC']);
+
+      
+      switch ($lang) {
+        case 1:
+          
+          //display villagerReportView1     
+          $this->view->render('registerVillagerViewUpdating');
+          if(isset($_POST['Confirm'])){
+            $this->model->updateStatusSucessfulRegister($_GET['NIC'] );
+          }
+          if(isset($_POST['UnConfirm'])){
+            $this->model->updateStatusUnSucessfulRegister($_GET['NIC'] );
+          }
+          break;
+        case 2:
+          //display villagerReportView2
+          $this->view->render('registerVillagerViewUpdating');
+          break;
+        case 3:
+          //display villagerReportView3    
+          $this->view->render('registerVillagerViewUpdating');
+          break;
+        default:
+          //display Error message
+          header('Location: ../user/error');
+      }
+     
+    }
+  }
