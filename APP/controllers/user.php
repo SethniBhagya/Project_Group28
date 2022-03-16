@@ -154,7 +154,9 @@ class user extends Controller
             }
             else{
 
-              case "villager":
+              switch ($loginUser["jobtype"]) {
+
+                case "villager":
                 //get the data in Database  
                 $this->view->data = $this->model->selectData($_POST["username"]);
                 //echo $this->data;  
@@ -174,6 +176,9 @@ class user extends Controller
               case "veterinarian":
                 $this->view->render('veterinarian');
                 break;
+                
+              }
+              
 
             }
           } else {
