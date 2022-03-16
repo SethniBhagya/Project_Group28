@@ -104,8 +104,8 @@ class user extends Controller
           $_SESSION["Fname"] = $loginUser["Fname"];
           $_SESSION["Lname"] = $loginUser["Lname"];
           $_SESSION["jobtype"] = $loginUser["jobtype"];
-          $_SESSION["Fname"] = $loginUser["Fname"];
-          $_SESSION["Lname"] = $loginUser["Lname"];
+          // $_SESSION["Fname"] = $loginUser["Fname"];
+          // $_SESSION["Lname"] = $loginUser["Lname"];
 
           if (isset($_GET["lang"])) {
             //give user pages based on the selected language
@@ -127,7 +127,7 @@ class user extends Controller
                   header("Location:../admin/dashboard");
                   break;
                 case "regional Officer":
-                  $this->view->render('regionalDashboard');
+                  header("Location:../regionalOfficer/dashboard");
                   break;
                 case "veterinarian":
                   $this->view->render('veterinarian');
@@ -150,7 +150,7 @@ class user extends Controller
                   header("Location:../admin/dashboard");
                   break;
                 case "regional Officer":
-                  $this->view->render('regionalDashboard');
+                  header("Location:../regionalOfficer/dashboard");
                   break;
                   // case "veterinarian": $this->view->render('veterinarian');
 
@@ -158,11 +158,7 @@ class user extends Controller
 
               }
             }
-          } else {
-
-            //if not selected language then gives defulat language pages
-
-            switch ($loginUser["jobtype"]) {
+            else{
 
               case "villager":
                 //get the data in Database  
@@ -178,12 +174,40 @@ class user extends Controller
                 header("Location:../admin/dashboard");
                 break;
               case "regional Officer":
-                $this->view->render('regionalDashboard');
-                break;
+                header("Location:../regionalOfficer/dashboard");
+                  break;
 
               case "veterinarian":
                 $this->view->render('veterinarian');
                 break;
+
+            }
+          } else {
+
+            //if not selected language then gives defulat language pages
+
+            switch ($loginUser["jobtype"]) {
+
+              case "villager":
+                  //get the data in Database  
+                  $this->view->data = $this->model->selectData($_POST["username"]);
+                  //echo $this->data;  
+                  // render the villager page  
+                  $this->view->render('villagersPage');
+                  break;
+                case "Wildlife Officer":
+                  $this->view->render('wildlifeofficer');
+                  break;
+                case "admin":
+                  header("Location:../admin/dashboard");
+                  break;
+                case "regional Officer":
+                  header("Location:../regionalOfficer/dashboard");
+                  break;
+                case "veterinarian":
+                  $this->view->render('veterinarian');
+
+              
             }
           }
         } else {

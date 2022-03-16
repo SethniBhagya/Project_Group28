@@ -130,7 +130,15 @@
                        <td>".$row["gnd_name"]."</td>
                        <td>".$row["district_name"]."</td><td>".$row["Name"]."</td><td><ul>
                           <li><button ><img src='../Public/images/edit.png'></button></li>
-                          <li><button onclick=\"location.href='deleteUser?type=villager&id=".$row["NIC"]."'\"><img src='../Public/images/delete.png'></button></li>
+                          <li><button ><label for='show1'><img src='../Public/images/delete.png'></label></button><input type=\"checkbox\"  id=\"show1\">
+
+                       <div id=\"delete1\"> 
+                        <p>Are You Sure Delete ".$row["NIC"]."? </p>
+                        
+                        <button ><label for=\"show1\">Cancel</label></button>
+                        <button onclick=\"location.href='deleteUser?type=villager&id=".$row["NIC"]."'\"><label for=\"show1\">Delete</label></button>
+                         
+                       </div></li>
                           <li><button onclick=\"location.href='viewUserProfile?type=villager&id=".$row["NIC"]."'\"><img src='../Public/images/view.png'></button></li>
                        </ul></td></tr>";} ?>
 
@@ -177,13 +185,26 @@
                        <td>".$row["officeNo"]."</td>
                        <td>".$row["district_name"]."</td><td>".$row["Name"]."</td><td><ul>
                           <li><button><img src='../Public/images/edit.png'></button></li>
-                          <li><button onclick=\"location.href='deleteUser?type=regional-officer&id=".$row["NIC"]."'\"><img src='../Public/images/delete.png'></button></li>
+                          <li><button ><label for='show2'><img src='../Public/images/delete.png'></label></button><input type=\"checkbox\"  id=\"show2\">
+
+                       <div id=\"delete2\"> 
+                        <p>Are You Sure Delete ".$row["NIC"]."? </p>
+                        
+                        <button ><label for=\"show2\">Cancel</label></button>
+                        <button onclick=\"location.href='deleteUser?type=regional-officer&id=".$row["NIC"]."'\"><label for=\"show2\">Delete</label></button>
+                         
+                       </div></li>
                           <li><button onclick=\"location.href='viewUserProfile?type=regionalOfficer&id=".$row["NIC"]."'\"><img src='../Public/images/view.png'></button></li>
                        </ul></td></tr>";} ?>
+                       
+
+                       
                     
               
                 </tbody>
             </table>
+
+
             
         </div>
 
@@ -221,7 +242,15 @@
                        <td>".$row["officeNo"]."</td>
                        <td>".$row["district_name"]."</td><td>".$row["Name"]."</td><td><ul>
                           <li><button><img src='../Public/images/edit.png'></button></li>
-                          <li><button onclick=\"location.href='deleteUser?type=wildlife-officer&id=".$row["NIC"]."'\"><img src='../Public/images/delete.png'></button></li>
+                          <li><button ><label for='show3'><img src='../Public/images/delete.png'></label></button><input type=\"checkbox\"  id=\"show3\">
+
+                       <div id=\"delete3\"> 
+                        <p>Are You Sure Delete ".$row["NIC"]."? </p>
+                        
+                        <button ><label for=\"show3\">Cancel</label></button>
+                        <button onclick=\"location.href='deleteUser?type=wildlife-officer&id=".$row["NIC"]."'\"><label for=\"show3\">Delete</label></button>
+                         
+                       </div></li>
                           <li><button onclick=\"location.href='viewUserProfile?type=wildlifeOfficer&id=".$row["NIC"]."'\"><img src='../Public/images/view.png'></button></li>
                        </ul></td></tr>";} ?>
 
@@ -263,7 +292,15 @@
                        <td>".$row["officeNo"]."</td>
                        <td>".$row["district_name"]."</td><td>".$row["Name"]."</td><td><ul>
                           <li><button><img src='../Public/images/edit.png'></button></li>
-                          <li><button onclick=\"location.href='deleteUser?type=veterinarian&id=".$row["NIC"]."'\"><img src='../Public/images/delete.png'></button></li>
+                          <li><button ><label for='show4'><img src='../Public/images/delete.png'></label></button><input type=\"checkbox\"  id=\"show4\">
+
+                       <div id=\"delete4\"> 
+                        <p>Are You Sure Delete ".$row["NIC"]."? </p>
+                        
+                        <button ><label for=\"show4\">Cancel</label></button>
+                        <button onclick=\"location.href='deleteUser?type=veterinarian&id=".$row["NIC"]."'\"><label for=\"show4\">Delete</label></button>
+                         
+                       </div></li>
                           <li><button onclick=\"location.href='viewUserProfile?type=veterinarian&id=".$row["NIC"]."'\"><img src='../Public/images/view.png'></button></li>
                        </ul></td></tr>";} ?>
                    

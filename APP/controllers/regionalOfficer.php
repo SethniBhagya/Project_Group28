@@ -220,7 +220,7 @@ class regionalOfficer extends user{
 
 
 	public function dashboard(){
-        //$district=
+        
         //get data related to dashboard
 	    $data=$this->model->getDataDashboard('polonnaruwa');
         //redirect to dashboard and pass the data
@@ -229,81 +229,61 @@ class regionalOfficer extends user{
 
 
 
-	// public function viewUser(){
+	
 
-	// 	if(!empty($_SESSION["NIC"]) and $_SESSION["jobtype"]=="regional Officer"){
-            
-		
-	// 	    $data=$this->model->getUser();
-	// 		$this->view->render("regionalViewUser",$data);
-             
-	//                 }
-	//     else{
-	//     	header("Location: ../user/index");
-	//     }
-	    	
+    public function placeNotice(){
 
-	// }
+    	$this->view->render('regionalNotice');
 
-	//  public function dashboard(){
-
- //      $this->view->render('regionalDashboard');
-
- //    }
-
- //    public function placeNotice(){
-
- //    	$this->view->render('regionalNotice');
-
- //    }
+    }
 
 
- //    public function getNotice(){
- //    	$NIC=$_SESSION["NIC"];
+    public function getNotice(){
+    	$NIC=$_SESSION["NIC"];
 
- //    	$lastNoticeID=$this->model->getLastNoticeId($NIC);
- //    	$officeNum=$this->model->getUserOfficeNumber($NIC);
- //    	$newNoticeDetails=$this->model->getNewNoticeDetails($officeNum,$lastNoticeID);
+    	$lastNoticeID=$this->model->getLastNoticeId($NIC);
+    	$officeNum=$this->model->getUserOfficeNumber($NIC);
+    	$newNoticeDetails=$this->model->getNewNoticeDetails($officeNum,$lastNoticeID);
 
- //    	if($newNoticeDetails!="No"){
+    	if($newNoticeDetails!="No"){
 
- //    		$noticeHtml="
+    		$noticeHtml="
 
- //    	<div id=\"new-notice\">
+    	<div id=\"new-notice\">
 
- //           <img src=\"../Public/images/notice.jpg\">
- //    	   <h1>Date:".$newNoticeDetails["date"]."&emsp;Time:".$newNoticeDetails["time"]."</h1>
- //    	   <p>".$newNoticeDetails["description"]."</p>
- //    	   <audio id=\"audio\" autoplay loop  controls src=\"http://www.raypinson.com/ringtones/CarAlarm.mp3\"></audio>
- //    	   <button id=\"ok-btn\" value=".$newNoticeDetails["noticeID"]." onclick=\"endNotice(this.value)\">Okay</button>
+           <img src=\"../Public/images/notice.jpg\">
+    	   <h1>Date:".$newNoticeDetails["date"]."&emsp;Time:".$newNoticeDetails["time"]."</h1>
+    	   <p>".$newNoticeDetails["description"]."</p>
+    	   <audio id=\"audio\" autoplay loop  controls src=\"http://www.raypinson.com/ringtones/CarAlarm.mp3\"></audio>
+    	   <button id=\"ok-btn\" value=".$newNoticeDetails["noticeID"]." onclick=\"endNotice(this.value)\">Okay</button>
 
 
- //    	</div>
+    	</div>
 
 
 
 
- //    	";
+    	";
 
- //    	echo $noticeHtml;
+    	echo $noticeHtml;
 
- //    	}
+    	}
 
     	
 
 
 
 
- //    }
+    }
 
 
- //    public function endNotice(){
+    public function endNotice(){
 
- //    	$noticeId=$_POST["noticeId"];
+    	$noticeId=$_POST["noticeId"];
 
- //    	$this->model->updateNotice($noticeId,$_SESSION["NIC"]);
- //    	header("Location: ../regionalOfficer/dashboard");
+    	$this->model->updateNotice($noticeId,$_SESSION["NIC"]);
+    	header("Location: ../regionalOfficer/dashboard");
 
- //    }
+    }
 
 }
