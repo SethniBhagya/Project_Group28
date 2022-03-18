@@ -98,7 +98,7 @@
         <div class="villager">
             <form>
                 <label for="vsearch">Search Villager</label>
-                <input type="text"  id="vsearch" name="" placeholder="search villager by name">
+                <input type="text" <?php echo "onkeyup='searchVillagerTable(this.value,".json_encode(($data["villager"])).")'"?> id="vsearch"  name="" placeholder="search by name">
                 <button type="submit"><i class="fa fa-search"></i></button>
             </form>
 
@@ -120,9 +120,9 @@
                    </tr>
                 </thead>
 
-                <tbody>
+                <tbody id="villagerTable" >
                    
-                   <?php $rows=$data["villager"]; foreach($rows as $row){echo "<tr><td>".$row["NIC"]."</td> <td>".$row["Fname"]."</td>
+                   <?php $rowsForPage=10; $numOfPages=ceil(count($data["villager"])/$rowsForPage); if(isset($_GET["page"]))$startIndex=($_GET["page"]-1)*10;else $startIndex=0; $rows=$data["villager"]; foreach($rows as $i=>$row){if($startIndex+10>$i&&$i>=$startIndex)echo "<tr><td>".$row["NIC"]."</td> <td>".$row["Fname"]."</td>
                        <td>".$row["Lname"]."</td>
                        <td>".$row["BOD"]."</td><td>0".$row["mobileNo"]."</td>
                        <td>".$row["Address"]."</td>
@@ -140,7 +140,12 @@
                          
                        </div></li>
                           <li><button onclick=\"location.href='viewUserProfile?type=villager&id=".$row["NIC"]."'\"><img src='../Public/images/view.png'></button></li>
-                       </ul></td></tr>";} ?>
+                       </ul></td></tr>";}
+                       
+                        for($page=1;$page<=$numOfPages;$page++)
+                          echo "<a id='pages' href='?page=".$page."&job=villager'>".$page."</a>"
+
+                       ?>
 
 
                    
@@ -156,7 +161,7 @@
         <div class="regional-officer">
             <form>
                 <label for="rsearch">Search Regional Officer</label>
-                <input type="text"  id="rsearch" name="" placeholder="search regional officer by name">
+                <input type="text" <?php echo "onkeyup='searchRegionalTable(this.value,".json_encode(($data["regional officer"])).")'"?>  id="rsearch" name="" placeholder="search by name">
                 <button type="submit"><i class="fa fa-search"></i></button>
             </form>
 
@@ -177,9 +182,9 @@
                    </tr>
                 </thead>
 
-                <tbody>
+                <tbody id="regionalTable">
 
-                    <?php $rows=$data["regional officer"]; foreach($rows as $row){echo "<tr><td>".$row["NIC"]."</td> <td>".$row["RID"]."</td><td>".$row["Fname"]."</td>
+                    <?php $rowsForPage=10; $numOfPages=ceil(count($data["regional officer"])/$rowsForPage); if(isset($_GET["page"]))$startIndex=($_GET["page"]-1)*10;else $startIndex=0; $rows=$data["regional officer"]; foreach($rows as $i=>$row){if($startIndex+10>$i&&$i>=$startIndex)echo "<tr><td>".$row["NIC"]."</td> <td>".$row["RID"]."</td><td>".$row["Fname"]."</td>
                        <td>".$row["Lname"]."</td>
                        <td>".$row["BOD"]."</td><td>0".$row["mobileNo"]."</td>
                        <td>".$row["officeNo"]."</td>
@@ -195,7 +200,13 @@
                          
                        </div></li>
                           <li><button onclick=\"location.href='viewUserProfile?type=regionalOfficer&id=".$row["NIC"]."'\"><img src='../Public/images/view.png'></button></li>
-                       </ul></td></tr>";} ?>
+                       </ul></td></tr>";} 
+
+                       for($page=1;$page<=$numOfPages;$page++)
+                          echo "<a id='pages' href='?page=".$page."&job=regional-officer'>".$page."</a>"
+
+
+                       ?>
                        
 
                        
@@ -212,7 +223,7 @@
         <div class="wildlife-officer">
             <form>
                 <label for="wsearch">Search wildlife Officer</label>
-                <input type="text"  id="wsearch" name="" placeholder="search wildlife officer by name">
+                <input type="text" <?php echo "onkeyup='searchWildlifeTable(this.value,".json_encode(($data["wildlife officer"])).")'"?>  id="wsearch" name="" placeholder="search by name">
                 <button type="submit"><i class="fa fa-search"></i></button>
             </form>
 
@@ -234,9 +245,9 @@
                    </tr>
                 </thead>
 
-                <tbody>
+                <tbody id="wildlifeTable">
 
-                    <?php $rows=$data["wildlife officer"]; foreach($rows as $row){echo "<tr><td>".$row["NIC"]."</td> <td>".$row["WID"]."</td><td>".$row["Fname"]."</td>
+                    <?php $rowsForPage=10; $numOfPages=ceil(count($data["wildlife officer"])/$rowsForPage); if(isset($_GET["page"]))$startIndex=($_GET["page"]-1)*10;else $startIndex=0; $rows=$data["wildlife officer"]; foreach($rows as $i=>$row){if($startIndex+10>$i&&$i>=$startIndex)echo "<tr><td>".$row["NIC"]."</td> <td>".$row["WID"]."</td><td>".$row["Fname"]."</td>
                        <td>".$row["Lname"]."</td>
                        <td>".$row["BOD"]."</td><td>0".$row["mobileNo"]."</td>
                        <td>".$row["officeNo"]."</td>
@@ -252,7 +263,11 @@
                          
                        </div></li>
                           <li><button onclick=\"location.href='viewUserProfile?type=wildlifeOfficer&id=".$row["NIC"]."'\"><img src='../Public/images/view.png'></button></li>
-                       </ul></td></tr>";} ?>
+                       </ul></td></tr>";}
+                       for($page=1;$page<=$numOfPages;$page++)
+                          echo "<a id='pages' href='?page=".$page."&job=wildlife-officer'>".$page."</a>"
+
+                        ?>
 
                 </tbody>
             </table>
@@ -263,7 +278,7 @@
         <div class="veterinarian">
             <form>
                 <label for="vetsearch">Search veterinarian</label>
-                <input type="text"  id="vetsearch" name="" placeholder="search veterinarian by name">
+                <input type="text" <?php echo "onkeyup='searchVetTable(this.value,".json_encode(($data["veterinarian"])).")'"?>  id="vetsearch" name="" placeholder="search by name">
                 <button type="submit"><i class="fa fa-search"></i></button>
             </form>
 
@@ -284,9 +299,9 @@
                    </tr>
                 </thead>
 
-                <tbody>
+                <tbody id="vetTable">
 
-                    <?php $rows=$data["veterinarian"]; foreach($rows as $row){echo "<tr><td>".$row["NIC"]."</td> <td>".$row["VID"]."</td><td>".$row["Fname"]."</td>
+                    <?php  $rowsForPage=10; $numOfPages=ceil(count($data["veterinarian"])/$rowsForPage); if(isset($_GET["page"]))$startIndex=($_GET["page"]-1)*10;else $startIndex=0; $rows=$data["veterinarian"]; foreach($rows as $i=>$row){if($startIndex+10>$i&&$i>=$startIndex)echo "<tr><td>".$row["NIC"]."</td> <td>".$row["VID"]."</td><td>".$row["Fname"]."</td>
                        <td>".$row["Lname"]."</td>
                        <td>".$row["BOD"]."</td><td>0".$row["mobileNo"]."</td>
                        <td>".$row["officeNo"]."</td>
@@ -302,7 +317,12 @@
                          
                        </div></li>
                           <li><button onclick=\"location.href='viewUserProfile?type=veterinarian&id=".$row["NIC"]."'\"><img src='../Public/images/view.png'></button></li>
-                       </ul></td></tr>";} ?>
+                       </ul></td></tr>";}
+
+                       for($page=1;$page<=$numOfPages;$page++)
+                          echo "<a id='pages' href='?page=".$page."&job=veterinarian'>".$page."</a>"
+
+                        ?>
                    
                 </tbody>
             </table>
@@ -314,7 +334,7 @@
         <div class="grama-niladhari">
             <form>
                 <label for="rsearch">Search Grama Niladhari</label>
-                <input type="text"  id="rsearch" name="" placeholder="search grama-niladhari by name">
+                <input type="text" <?php echo "onkeyup='searchGramaTable(this.value,".json_encode(($data["grama niladhari"])).")'"?>  id="rsearch" name="" placeholder="search by name">
                 <button type="submit"><i class="fa fa-search"></i></button>
             </form>
 
@@ -335,8 +355,9 @@
                         <th>Action</th>
                    </tr>
                 </thead>
+                <tbody id="gramaTable">
 
-                 <?php $rows=$data["grama niladhari"]; foreach($rows as $row){echo "<tr><td>".$row["NIC"]."</td><td>".$row["GID"]."</td> <td>".$row["Fname"]."</td>
+                 <?php $rowsForPage=10; $numOfPages=ceil(count($data["grama niladhari"])/$rowsForPage); if(isset($_GET["page"]))$startIndex=($_GET["page"]-1)*10;else $startIndex=0; $rows=$data["grama niladhari"]; foreach($rows as $i=>$row){if($startIndex+10>$i&&$i>=$startIndex)echo "<tr><td>".$row["NIC"]."</td><td>".$row["GID"]."</td> <td>".$row["Fname"]."</td>
                        <td>".$row["Lname"]."</td>
                        <td>".$row["BOD"]."</td><td>0".$row["mobileNo"]."</td>
                        <td>".$row["Address"]."</td>
@@ -344,9 +365,15 @@
                        <td>".$row["district_name"]."</td><td>".$row["Name"]."</td><td><ul>
                           <li><button><img src='../Public/images/edit.png'></button></li>
                           <li><button onclick=\"location.href='viewUserProfile?type=gramaNiladhari&id=".$row["NIC"]."'\"><img src='../Public/images/view.png'></button></li>
-                       </ul></td></tr>";} ?>
+                       </ul></td></tr>";}
 
-                <tbody>
+                       for($page=1;$page<=$numOfPages;$page++)
+                          echo "<a id='pages' href='?page=".$page."&job=grama-niladhari'>".$page."</a>"
+
+
+                        ?>
+
+                
                     
                 </tbody>
             </table>

@@ -229,8 +229,20 @@ class user extends Controller
     session_start();
     unset($_SESSION["NIC"]);
     unset($_SESSION["jobtype"]);
+    unset($_SESSION["Fname"]);
+    unset($_SESSION["Lname"]);
     session_destroy();
-    $this->view->render('login');
+    if (isset($_GET["lang"])) {
+
+        if ($_GET["lang"] == "2")
+          $this->view->render('loginSinhala');
+        elseif ($_GET["lang"] == "1")
+          $this->view->render('login');
+        elseif ($_GET["lang"] == "3")
+          $this->view->render('loginTamil');
+      } else
+        $this->view->render('login');
+    
   }
 
   public function viewpage()

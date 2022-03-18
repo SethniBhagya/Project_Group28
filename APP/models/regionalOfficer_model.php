@@ -46,8 +46,7 @@ class regionalOfficer_model extends Model
 		else
 			return true;
 	}
-
-//add grama niladhari to system database
+ //add grama niladhari to system database
 	public function gnAdd($data)
 	{
 
@@ -112,7 +111,7 @@ class regionalOfficer_model extends Model
 		$this->db->runQuery($stmt3);
 	}
 
-    
+ 
 
    //add veterinarian to database
 	public function vetAdd($data)
@@ -175,22 +174,23 @@ class regionalOfficer_model extends Model
 	}
 
 
+
  //select all user details and return to controller
-	public function getUser()
+	public function getUser($district)
 	{
               //sql query for select villager details
-              $stmt1 = "SELECT user.NIC,user.Fname,user.Lname,user.BOD,user.mobileNo,user.Address,village.name,gn_division.name AS 'gnd_name',district.Name AS 'district_name',province.Name FROM user,lives,village,gn_division,district,province WHERE user.jobType='villager' AND user.NIC=lives.villager_NIC AND lives.village_code=village.village_code AND village.GND_Code=gn_division.GND_Code AND gn_division.district_name=district.Name AND district.province_name=province.Name";
+              $stmt1 = "SELECT user.NIC,user.Fname,user.Lname,user.BOD,user.mobileNo,user.Address,village.name,gn_division.name AS 'gnd_name',district.Name AS 'district_name',province.Name FROM user,lives,village,gn_division,district,province WHERE user.jobType='villager' AND user.NIC=lives.villager_NIC AND lives.village_code=village.village_code AND village.GND_Code=gn_division.GND_Code AND gn_division.district_name=district.Name AND district.province_name=province.Name AND district.Name='$district'";
 
 
 
                 //sql query for select wildlife officer details
-				$stmt3="SELECT DISTINCT user.NIC,wildlife_officer.WID,user.Fname,user.Lname,user.BOD,user.mobileNo,wildlife_officer.officeNo,district.Name AS 'district_name',province.Name FROM                                                                           user,wildlife_officer,regional_wildlife_office,village,gn_division,district,province WHERE user.jobType='wildlife officer' AND  user.NIC=wildlife_officer.NIC  AND wildlife_officer.officeNo=regional_wildlife_office.officeNo AND regional_wildlife_office.officeNo=village.officeNo AND village.GND_Code=gn_division.GND_Code AND gn_division.district_name=district.Name AND district.province_name=province.Name";
+				$stmt3="SELECT DISTINCT user.NIC,wildlife_officer.WID,user.Fname,user.Lname,user.BOD,user.mobileNo,wildlife_officer.officeNo,district.Name AS 'district_name',province.Name FROM                                                                           user,wildlife_officer,regional_wildlife_office,village,gn_division,district,province WHERE user.jobType='wildlife officer' AND  user.NIC=wildlife_officer.NIC  AND wildlife_officer.officeNo=regional_wildlife_office.officeNo AND regional_wildlife_office.officeNo=village.officeNo AND village.GND_Code=gn_division.GND_Code AND gn_division.district_name=district.Name AND district.province_name=province.Name AND district.Name='$district'";
 
                 //sql query for select veterinarian details
-				$stmt4="SELECT DISTINCT user.NIC,veterinarian.VID,user.Fname,user.Lname,user.BOD,user.mobileNo,veterinarian.officeNo,district.Name AS 'district_name',province.Name FROM                                                                           user,veterinarian,regional_wildlife_office,village,gn_division,district,province WHERE user.jobType='veterinarian' AND  user.NIC=veterinarian.NIC  AND veterinarian.officeNo=regional_wildlife_office.officeNo AND regional_wildlife_office.officeNo=village.officeNo AND village.GND_Code=gn_division.GND_Code AND gn_division.district_name=district.Name AND district.province_name=province.Name";
+				$stmt4="SELECT DISTINCT user.NIC,veterinarian.VID,user.Fname,user.Lname,user.BOD,user.mobileNo,veterinarian.officeNo,district.Name AS 'district_name',province.Name FROM                                                                           user,veterinarian,regional_wildlife_office,village,gn_division,district,province WHERE user.jobType='veterinarian' AND  user.NIC=veterinarian.NIC  AND veterinarian.officeNo=regional_wildlife_office.officeNo AND regional_wildlife_office.officeNo=village.officeNo AND village.GND_Code=gn_division.GND_Code AND gn_division.district_name=district.Name AND district.province_name=province.Name AND district.Name='$district'";
 
                //sql query for select grama niladhari details
-				$stmt5="SELECT user.NIC,grama_niladhari.GID,user.Fname,user.Lname,user.BOD,user.mobileNo,user.Address,gn_division.name AS 'gnd_name',district.Name AS 'district_name',province.Name FROM user,grama_niladhari,gn_division,district,province WHERE user.jobType='grama niladhari' AND user.NIC=grama_niladhari.NIC AND grama_niladhari.GND=gn_division.GND_Code AND gn_division.district_name=district.Name AND district.province_name=province.Name";
+				$stmt5="SELECT user.NIC,grama_niladhari.GID,user.Fname,user.Lname,user.BOD,user.mobileNo,user.Address,gn_division.name AS 'gnd_name',district.Name AS 'district_name',province.Name FROM user,grama_niladhari,gn_division,district,province WHERE user.jobType='grama niladhari' AND user.NIC=grama_niladhari.NIC AND grama_niladhari.GND=gn_division.GND_Code AND gn_division.district_name=district.Name AND district.province_name=province.Name AND district.Name='$district'";
                 
 				$noOfVillagers=(($this->db->runQuery("SELECT COUNT(*) AS noOfVillagers FROM user WHERE jobType='villager'"))[0])['noOfVillagers'];
 				$noOfWildlifers=(($this->db->runQuery("SELECT COUNT(*) AS noOfWildlifers FROM user WHERE jobType='wildlife officer'"))[0])['noOfWildlifers'];
@@ -222,6 +222,14 @@ class regionalOfficer_model extends Model
 
 		];
 		return $allUsers;
+	}
+
+	public function getRegionalDistrict($nic)
+	{   
+		$officeNo=(($this->db->runQuery("SELECT officeNo FROM regional_officer WHERE NIC='$nic'"))[0])["officeNo"];
+		return (($this->db->runQuery("SELECT district.Name FROM village,gn_division,district WHERE village.officeNo='$officeNo' AND village.GND_Code=gn_division.GND_Code AND gn_division.district_name=district.Name "))[0])["Name"];
+			
+
 	}
 
 
@@ -291,6 +299,45 @@ class regionalOfficer_model extends Model
 	{
 		$this->db->runQuery("UPDATE user SET lastNoticeId='$noticeId' WHERE NIC='$nic'");
 	}
+
+	public function deleteVillager($NIC){
+		$stmt1="DELETE FROM user WHERE NIC='$NIC'";
+		$stmt2="DELETE FROM villager WHERE NIC='$NIC'";
+		$stmt3="DELETE FROM lives WHERE villager_NIC='$NIC'";
+		$stmt4="DELETE FROM login WHERE userName='$NIC'";
+
+		$this->db->runQuery($stmt1);
+		$this->db->runQuery($stmt2);
+		$this->db->runQuery($stmt3);
+		$this->db->runQuery($stmt4);
+	}
+
+
+	public function deleteWildlifeOfficer($NIC){
+
+		$stmt1="DELETE FROM user WHERE NIC='$NIC'";
+		$stmt2="DELETE FROM login WHERE userName='$NIC'";
+		$stmt3="DELETE FROM wildlife_officer WHERE NIC='$NIC'";
+
+		$this->db->runQuery($stmt1);
+		$this->db->runQuery($stmt2);
+		$this->db->runQuery($stmt3);
+
+	}
+
+	public function deleteVeterinarian($NIC){
+
+
+		$stmt1="DELETE FROM user WHERE NIC='$NIC'";
+		$stmt2="DELETE FROM login WHERE userName='$NIC'";
+		$stmt3="DELETE FROM veterinarian WHERE NIC='$NIC'";
+
+		$this->db->runQuery($stmt1);
+		$this->db->runQuery($stmt2);
+		$this->db->runQuery($stmt3);
+
+	}
+
 
 
 	//this method get related data to the dashboard and pass those data
@@ -450,6 +497,69 @@ class regionalOfficer_model extends Model
 
 
 		
+
+	}
+
+
+	public function getVillagerData($nic){
+
+		$data=[
+
+			"userDetails"=>(($this->db->runQuery("SELECT * FROM user WHERE NIC='$nic'"))[0]),
+			"reportedIncidentDetails"=>(($this->db->runQuery("SELECT * FROM reported_incident WHERE villager_NIC='$nic'")))
+
+		];
+
+		
+		return $data;
+	}
+
+
+	public function getGramaNiladhariData($nic)
+	{
+		$data=[
+
+			"userDetails"=>(($this->db->runQuery("SELECT * FROM user WHERE NIC='$nic'"))[0]),
+			"reportedIncidentDetails"=>(($this->db->runQuery("SELECT * FROM reported_incident WHERE gramaniladhari_NIC='$nic'")))
+
+		];
+
+		
+		return $data;
+	}
+
+	public function getWildlifeOfficerData($nic)
+	{
+		$data=[
+
+			"userDetails"=>(($this->db->runQuery("SELECT * FROM user WHERE NIC='$nic'"))[0]),
+			"reportedIncidentDetails"=>(($this->db->runQuery("SELECT DISTINCT * FROM reported_incident WHERE incidentID IN(SELECT incidentID FROM work WHERE wildlife_NIC='$nic') "))),
+			"noOfTotalAccepted"=>(($this->db->runQuery("SELECT COUNT(*) AS total FROM work WHERE wildlife_NIC='$nic'"))[0])["total"],
+			"noOfSuccess"=>(($this->db->runQuery("SELECT COUNT(*) AS success FROM work where wildlife_NIC='$nic' AND incidentID IN(SELECT incidentID FROM reported_incident WHERE status='success') "))[0])['success'],
+			"noOfUnsuccess"=>(($this->db->runQuery("SELECT COUNT(*) AS unsuccess FROM work where wildlife_NIC='$nic' AND incidentID IN(SELECT incidentID FROM reported_incident WHERE status='unsuccess') "))[0])['unsuccess'],
+			"status"=>(($this->db->runQuery("SELECT COUNT(*) AS pending FROM work where wildlife_NIC='$nic' AND incidentID IN(SELECT incidentID FROM reported_incident WHERE status='pending') "))[0])['pending']
+
+		];
+
+		
+		return $data;
+	}
+
+	public function getVeterinarianData($nic)
+	{
+		$data=[
+
+			"userDetails"=>(($this->db->runQuery("SELECT * FROM user WHERE NIC='$nic'"))[0]),
+			"reportedIncidentDetails"=>(($this->db->runQuery("SELECT DISTINCT * FROM reported_incident WHERE incidentID IN(SELECT incidentID FROM work WHERE vet_NIC='$nic') "))),
+			"noOfTotalAccepted"=>(($this->db->runQuery("SELECT COUNT(*) AS total FROM work WHERE vet_NIC='$nic'"))[0])["total"],
+			"noOfSuccess"=>(($this->db->runQuery("SELECT COUNT(*) AS success FROM work where vet_NIC='$nic' AND incidentID IN(SELECT incidentID FROM reported_incident WHERE status='success') "))[0])['success'],
+			"noOfUnsuccess"=>(($this->db->runQuery("SELECT COUNT(*) AS unsuccess FROM work where vet_NIC='$nic' AND incidentID IN(SELECT incidentID FROM reported_incident WHERE status='unsuccess') "))[0])['unsuccess'],
+			"status"=>(($this->db->runQuery("SELECT COUNT(*) AS pending FROM work where vet_NIC='$nic' AND incidentID IN(SELECT incidentID FROM reported_incident WHERE status='pending') "))[0])['pending']
+
+		];
+
+		
+		return $data;
 
 	}
 }
