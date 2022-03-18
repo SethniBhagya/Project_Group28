@@ -7,8 +7,9 @@
     <link rel="stylesheet" href="../Public/css/wildlifeofficerHeader.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Public/css/veterinarianNotifications.css">
-
-    <script src="../Public/Javascript/login.js"></script>
+    <script src="../Public/javascript/login.js"></script>
+    <script src="../Public/javascript/wildlifeofficer.js"></script>
+    <script src="../Public/javascript/admin.js"></script>
 
     <title>Notifications</title>
 </head>

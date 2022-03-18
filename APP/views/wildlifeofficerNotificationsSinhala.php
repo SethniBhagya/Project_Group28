@@ -5,15 +5,13 @@ if (!isset($_SESSION['NIC'])) {
     header("Location:http://localhost/WildlifeCare/user/index");
 }
 if (isset($_SESSION['jobtype'])) {
-    if ($_SESSION['jobtype']=='Wildlife Officer') {
-       
-    }else {
-        header("Location:http://localhost/WildlifeCare/user/mustLogout");
+    if ($_SESSION['jobtype'] == 'Wildlife Officer') {
+    } else {
     }
-}else {
-    header("Location:http://localhost/WildlifeCare/user/mustLogout");
+} else {
 }
 ?>
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -22,7 +20,7 @@ if (isset($_SESSION['jobtype'])) {
     <link rel="stylesheet" href="../Public/css/wildlifeofficerNotifications.css">
 
     <script src="../Public/Javascript/login.js"></script>
-
+    <script src="../Public/javascript/admin.js"></script>
     <title>Notifications</title>
 </head>
 
@@ -56,7 +54,7 @@ if (isset($_SESSION['jobtype'])) {
                     <span class="dot"> <img onclick="myFunction_2(this)" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
                     <div id="myDropdown" class="dropdown-content">
                         <a href="../wildlifeofficer/viewProfile?lang=2">පරිශීලක පැතිකඩ</a>
-                        <a href="../user/index">ඉවත් වීම</a>
+                        <a href="../user/logout?lang=2">ඉවත් වීම</a>
                     </div>
                 </li>
             </ul>

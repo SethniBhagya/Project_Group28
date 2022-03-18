@@ -10,6 +10,7 @@
     <script src="../Public/Javascript/login.js"></script>
     <!-- <script src="../Public/Javascript/viewReport.js"></script> -->
     <script src="../Public/javascript/wildlifeofficer.js"></script>
+    <script src="../Public/javascript/admin.js"></script>
     <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=myMap"></script> -->
     <title>User Profile</title>
 </head>
@@ -45,7 +46,8 @@
                     <span class="dot"> <img onclick="myFunction_3()" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
                     <div id="myDropdown" class="dropdown-content">
                         <a href="../veterinarian/viewProfile?lang=2">පරිශීලක පැතිකඩ</a>
-                        <a href="../user/index">ඉවත් වීම</a>
+                        <a href="../user/logout?lang=1">ඉවත් වීම</a>
+
                     </div>
                 </li>
             </ul>

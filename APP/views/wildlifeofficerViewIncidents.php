@@ -2,18 +2,16 @@
 <html lang="en">
 <?php
 if (!isset($_SESSION['NIC'])) {
-    header("Location:http://localhost/WildlifeCare/user/index");
+  header("Location:http://localhost/WildlifeCare/user/index");
 }
 if (isset($_SESSION['jobtype'])) {
-    if ($_SESSION['jobtype']=='Wildlife Officer') {
-       
-    }else {
-        header("Location:http://localhost/WildlifeCare/user/mustLogout");
-    }
-}else {
-    header("Location:http://localhost/WildlifeCare/user/mustLogout");
+  if ($_SESSION['jobtype'] == 'Wildlife Officer') {
+  } else {
+  }
+} else {
 }
 ?>
+
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -23,6 +21,7 @@ if (isset($_SESSION['jobtype'])) {
   <script src="../Public/Javascript/login.js"></script>
   <script src="../Public/Javascript/viewReport.js"></script>
   <script src="../Public/javascript/wildlifeofficer.js"></script>
+  <script src="../Public/javascript/admin.js"></script>
   <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=myMap"></script> -->
   <title>Report View</title>
 </head>
@@ -48,7 +47,7 @@ if (isset($_SESSION['jobtype'])) {
             <button class="dropbtn-1">Language</button>
             <div class="dropdown-content-1">
               <?php
-             
+
               $count = 0;
               echo "
                                 <a href='?lang=1&index=" . $count . "'>English</a>
@@ -63,7 +62,7 @@ if (isset($_SESSION['jobtype'])) {
             <img onclick="myFunction_3()" src="../Public/images/user_icon.png" id="user_icon" class="user_btn" /></span>
           <div id="myDropdown" class="dropdown-content">
             <a href="../wildlifeofficer/viewProfile?lang=1">View Profile</a>
-            <a href="../user/index?lang=1">Logout</a>
+            <a href="../user/logout?lang=1">Logout</a>
           </div>
         </li>
       </ul>
@@ -156,24 +155,22 @@ if (isset($_SESSION['jobtype'])) {
             //     break;
             // }
             $d = "";
-            $yes=0;
+            $yes = 0;
             foreach ($data[1] as $r) {
               if ($r['incidentID'] == $row['incidentID']) {
                 $d = $r['Fname'] . " " . $r['Lname'];
-                $_SESSION['nme']=$d;
-                $yes=1;
-                
+                $_SESSION['nme'] = $d;
+                $yes = 1;
               }
             }
             if ($row['status'] == 'pending') {
               $stat = "<form method='POST' action='../wildlifeofficer/trigerRequest?lang=1'><input type='text' style='display:none' name='acc' value=" . $row['incidentID'] . "><button class='buttonAccept' id='acceptId' value='ACCEPT' name='accept'/>ACCEPT</button></form>";
             } else {
-              if ($yes==1) {
+              if ($yes == 1) {
                 $stat = "<form method='POST' action='../wildlifeofficer/trigerRequest?lang=1'><input type='text' style='display:none'  name='can' value=" . $row['incidentID'] . "><button class='buttonCancel' id='cancelId' value='CANCEl' name='cancel'/>CANCEL</button></form>";
-              }else{
+              } else {
                 $stat = "<form method='POST' action='../wildlifeofficer/trigerRequest?lang=1'><input type='text' style='display:none'  name='can' value=" . $row['incidentID'] . "><button class='buttonCancel' id='cancelId' value='CANCEl' name='cancel' disabled />CANCEL</button></form>";
               }
-             
             }
             // $select = '';
             // if ($row['incidentStatus'] == 'Pending') {
@@ -185,7 +182,7 @@ if (isset($_SESSION['jobtype'])) {
             // if ($row['incidentStatus'] == 'Unsuccsses') {
             //   echo 'selected';
             // }
-            if ($yes==1) {
+            if ($yes == 1) {
               echo "<tr>
             <td>" . $row['date'] . "</td>
             <td>" . $row['incidentID'] . "</td>
@@ -220,7 +217,7 @@ if (isset($_SESSION['jobtype'])) {
             
             </tr>
           ";
-            }else {
+            } else {
               echo "<tr>
             <td>" . $row['date'] . "</td>
             <td>" . $row['incidentID'] . "</td>
@@ -256,11 +253,8 @@ if (isset($_SESSION['jobtype'])) {
             </tr>
           ";
             }
-              
-          $count += 1;
-           
-            
-           
+
+            $count += 1;
           }
 
 

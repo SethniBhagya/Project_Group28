@@ -7,9 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Public/css/wildlifeofficerHeader.css">
     <link rel="stylesheet" href="../Public/css/veterinarianEditProfile.css">
-    <script src="../Public/Javascript/login.js"></script>
-    <!-- <script src="../Public/Javascript/viewReport.js"></script> -->
+
+    <script src="../Public/javascript/login.js"></script>
     <script src="../Public/javascript/wildlifeofficer.js"></script>
+    <script src="../Public/javascript/admin.js"></script>
+    <!-- <script src="../Public/Javascript/viewReport.js"></script> -->
+
     <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=myMap"></script> -->
     <title>Edit Profile</title>
 </head>
@@ -44,7 +47,7 @@
                     <span class="dot"> <img onclick="myFunction_2(this)" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
                     <div id="myDropdown" class="dropdown-content">
                         <a href="../veterinarian/viewProfile?lang=1">View Profile</a>
-                        <a href="../user/index?lang=1">Logout</a>
+                        <a href="../user/logout?lang=1">Logout</a>
                     </div>
                 </li>
             </ul>
@@ -109,12 +112,12 @@
              />
             <label for="female">Female</label></div>
       </div> -->
-                <div class="row">
+                <!-- <div class="row">
                     <div class="col_1">Date of Birth</div>
                     <div class="col_2">
                         <input class="text" type="date" id="dob" name="dob" required value="<?php echo $data[0]['BOD'] ?>" />
                     </div>
-                </div>
+                </div> -->
                 <div class="row">
                     <div class="col_1">Home Address</div>
                     <div class="col_2"><textarea class="text" id="address" name="address" rows="2" required><?php echo $data[0]["Address"]  ?>
