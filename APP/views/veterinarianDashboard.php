@@ -10,6 +10,7 @@
     <script src="../Public/Javascript/login.js"></script>
     <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src="../Public/javascript/admin.js"></script>
     <!-- <script src="../Javascript/dashboard.js"></script> -->
     <title>Dashboard</title>
 </head>
@@ -43,8 +44,8 @@
                 <li class="dropdown">
                     <span class="dot"> <img onclick="myFunction_2(this)" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
                     <div id="myDropdown" class="dropdown-content">
-                        <a href="">View Profile</a>
-                        <a href="logout">Logout</a>
+                        <a href="../veterinarian/viewProfile?lang=1">View Profile</a>
+                        <a href="../user/logout?lang=1">Logout</a>
                     </div>
                 </li>
             </ul>

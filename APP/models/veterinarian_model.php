@@ -50,7 +50,7 @@ class veterinarian_model extends Model
         //$nic=$data["nic"];
         // $mob=$data["mob"];
         //$gender=$data["gender"];
-        $dob = $data["dob"];
+        // $dob = $data["dob"];
         $address = $data["address"];
         $mob = $data["mob"];
         $email = $data["email"];
@@ -63,7 +63,7 @@ class veterinarian_model extends Model
 
 
 
-        $stmt1 = "UPDATE user SET  Fname='$fname', Lname='$lname', mobileNo='$mob', BOD='$dob',Address='$address',email='$email' WHERE NIC= '$userName'";
+        $stmt1 = "UPDATE user SET  Fname='$fname', Lname='$lname', mobileNo='$mob',Address='$address',email='$email' WHERE NIC= '$userName'";
         $stmt2 = "UPDATE veterinarian SET officeNo='$office_no' WHERE NIC='$userName'";
         //$stmt3="INSERT INTO login VALUES('$nic','$hashPassword')";
 

@@ -106,7 +106,7 @@ class veterinarian extends user
                     "lName" => trim($_POST["lname"]),
                     //"nic"=>trim($_POST["nic"]),
                     // "gender"=>trim($_POST["gender"]),
-                    "dob" => trim($_POST["dob"]),
+                    // "dob" => trim($_POST["dob"]),
                     "address" => trim($_POST["address"]),
                     "mob" => trim($_POST["mobileNo"]),
 

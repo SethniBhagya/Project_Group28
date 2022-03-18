@@ -10,6 +10,7 @@
     <script src="../Public/Javascript/login.js"></script>
     <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src="../Public/javascript/admin.js"></script>
     <!-- <script src="../Javascript/dashboard.js"></script> -->
     <title>Dashboard</title>
 </head>

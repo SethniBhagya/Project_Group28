@@ -2,18 +2,16 @@
 <html lang="en">
 <?php
 if (!isset($_SESSION['NIC'])) {
-    header("Location:http://localhost/WildlifeCare/user/index");
+  header("Location:http://localhost/WildlifeCare/user/index");
 }
 if (isset($_SESSION['jobtype'])) {
-    if ($_SESSION['jobtype']=='Wildlife Officer') {
-       
-    }else {
-        header("Location:http://localhost/WildlifeCare/user/mustLogout");
-    }
-}else {
-    header("Location:http://localhost/WildlifeCare/user/mustLogout");
+  if ($_SESSION['jobtype'] == 'Wildlife Officer') {
+  } else {
+  }
+} else {
 }
 ?>
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -23,7 +21,7 @@ if (isset($_SESSION['jobtype'])) {
   <script src="../Public/Javascript/login.js"></script>
   <!-- <script src="../Public/Javascript/viewReport.js"></script> -->
   <script src="../Public/javascript/wildlifeofficer.js"></script>
- 
+
   <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=myMap"></script> -->
   <title>Edit Profile</title>
 </head>
@@ -59,7 +57,7 @@ if (isset($_SESSION['jobtype'])) {
           <span class="dot"> <img onclick="myFunction_3()" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
           <div id="myDropdown" class="dropdown-content">
             <a href="../wildlifeofficer/viewProfile?lang=1">View Profile</a>
-            <a href="">Logout</a>
+            <a href="../user/logout?lang=1">Logout</a>
           </div>
         </li>
       </ul>
@@ -94,7 +92,7 @@ if (isset($_SESSION['jobtype'])) {
     //  }
     //ss}
     ?>
-    <div id="note" >
+    <div id="note">
       <b> </b>
     </div>
     <div id="message" style="display: none;">
@@ -103,7 +101,7 @@ if (isset($_SESSION['jobtype'])) {
     </div>
 
     <div class="contanier_2">
-    
+
 
       <div>
 
@@ -113,11 +111,11 @@ if (isset($_SESSION['jobtype'])) {
 
         ?>
       </div>
-     
+
       <div class="contanier_2-1">
 
-      
-      
+
+
         <div class="view_profile">
           <h3><a href="../wildlifeofficer/viewProfile?lang=1">Profile</a></h3>
         </div>
@@ -125,24 +123,24 @@ if (isset($_SESSION['jobtype'])) {
           <h3><a href="#">Edit Profile</a></h3>
         </div>
       </div>
-      
-   
-    <form  action="../wildlifeofficer/updateProfile?lang=1" method="POST" id="req_form">
 
-  <div class="row firstName">
-    <div class="col_1">First Name</div>
-    <div class="col_2"><input type="text" class="text" id="fname" name="fname" required value="<?php echo $data[0]["Fname"] ?>" /><img src="../Public/images/edit.png" class="edit_icon"></div>
-    
-  </div>
-<div class="row lastName">
-  <div class="col_1">Last Name</div>
-  <div class="col_2"><input type="text" class="text" id="lname" name="lname" required value="<?php echo $data[0]["Lname"] ?>" /><img src="../Public/images/edit.png" class="edit_icon"></div>
-</div>
-<!-- <div class="row">
+
+      <form action="../wildlifeofficer/updateProfile?lang=1" method="POST" id="req_form">
+
+        <div class="row firstName">
+          <div class="col_1">First Name</div>
+          <div class="col_2"><input type="text" class="text" id="fname" name="fname" required value="<?php echo $data[0]["Fname"] ?>" /><img src="../Public/images/edit.png" class="edit_icon"></div>
+
+        </div>
+        <div class="row lastName">
+          <div class="col_1">Last Name</div>
+          <div class="col_2"><input type="text" class="text" id="lname" name="lname" required value="<?php echo $data[0]["Lname"] ?>" /><img src="../Public/images/edit.png" class="edit_icon"></div>
+        </div>
+        <!-- <div class="row">
 <div class="col_1">NIC</div>
 <div class="col_2">99v</div>
 </div> -->
-<!-- <div class="row">
+        <!-- <div class="row">
 <div class="col_1">Gender</div>
 <div class="col_2">
     <input type="radio" id="male" name="gender" value="Male" required <?php
@@ -159,56 +157,56 @@ if (isset($_SESSION['jobtype'])) {
      />
     <label for="female">Female</label></div>
 </div> -->
-<div class="row birthday">
-  
-</div>
-<div class="row address">
-  <div class="col_1">Home Address</div>
-  <div class="col_2"><textarea class="text" id="address" name="address" rows="2" required><?php echo $data[0]["Address"]  ?>
+        <div class="row birthday">
+
+        </div>
+        <div class="row address">
+          <div class="col_1">Home Address</div>
+          <div class="col_2"><textarea class="text" id="address" name="address" rows="2" required><?php echo $data[0]["Address"]  ?>
 </textarea><img src="../Public/images/edit.png" class="edit_icon"></div>
-</div>
-<div class="row mobNum">
-  <div class="col_1">Telephone Number</div>
-  <div class="col_2">
-    <input class="text" type="text" id="mobileNo" name="mobileNo" value="<?php echo $data[0]["mobileNo"] ?>" required />
-    <img src="../Public/images/edit.png" class="edit_icon">
-  </div>
-</div>
-<div class="row email">
-  <div class="col_1">Email</div>
-  <div class="col_2">
-    <input class="text" type="email" id="email" name="email" value="<?php echo $data[0]['email'] ?>" />
-    <img src="../Public/images/edit.png" class="edit_icon">
-  </div>
-</div>
-<div class="row address1">
-  <div class="col_1">Office Address</div>
-  <div class="col_2"><input class="text" type="text" id="off_add" name="office_address" value="<?php echo $data[1]['address'] ?>" required /><img src="../Public/images/edit.png" class="edit_icon"></div>
-</div>
+        </div>
+        <div class="row mobNum">
+          <div class="col_1">Telephone Number</div>
+          <div class="col_2">
+            <input class="text" type="text" id="mobileNo" name="mobileNo" value="<?php echo $data[0]["mobileNo"] ?>" required />
+            <img src="../Public/images/edit.png" class="edit_icon">
+          </div>
+        </div>
+        <div class="row email">
+          <div class="col_1">Email</div>
+          <div class="col_2">
+            <input class="text" type="email" id="email" name="email" value="<?php echo $data[0]['email'] ?>" />
+            <img src="../Public/images/edit.png" class="edit_icon">
+          </div>
+        </div>
+        <div class="row address1">
+          <div class="col_1">Office Address</div>
+          <div class="col_2"><input class="text" type="text" id="off_add" name="office_address" value="<?php echo $data[1]['address'] ?>" required /><img src="../Public/images/edit.png" class="edit_icon"></div>
+        </div>
 
-<div class="row">
-  <div class="cancel_button">
+        <div class="row">
+          <div class="cancel_button">
 
-    <input name="cancel" type="submit" onclick="" value="CANCEL" />
-  </div>
+            <input name="cancel" type="submit" onclick="" value="CANCEL" />
+          </div>
 
-  <div class="save_button">
+          <div class="save_button">
 
-    <input name="save" type="submit" onclick="return submitRequestForm()" value="SAVE" />
-  </div>
+            <input name="save" type="submit" onclick="return submitRequestForm()" value="SAVE" />
+          </div>
 
 
-</div>
+        </div>
 
-<div class="last">
+        <div class="last">
 
-</div>
+        </div>
 
-</form>
-  
-      
+      </form>
 
-    
+
+
+
     </div>
     <script src="../Public/javascript/updateUser.js"></script>
   </body>
