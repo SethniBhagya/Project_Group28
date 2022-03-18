@@ -128,223 +128,131 @@
              <div class="container2-inci">
                 <div class="radio-content active">
 
-                 <div class="inci" id="ele-1-box">
-                    <img src="../Public/images/elephantDash.png" id="ele-1">
-                    <p id="ele-1-para">Elephants Attack</p>
-                    <h2 class="counter"><?php echo ($data["activeCases"])["numOfActiveElephantsVillage"];?></h2>
-                    <input type="checkbox" id="show1">
-                    <label for="show1" class="show-lbl">View</label>
-
-                    <div class="detail1">
-                         <label for="show1" class="close-btn1 fas fa-times"></label>
-                        <h1>Detailed Details about elephnats are in village</h1>
-            <table>
-
-                <thead>
-                    <tr>
-                        <th>Incident ID</th>
-                        <th>Reporter NIC</th>
-                        <th>Village</th>
-                        <th>Office No</th>
-                        <th>Date</th>
-                        
-                   </tr>
-                </thead>
-
-                <tbody>
-                  <?php
-                  $rows=$data["elephantActiveDetails"];
-                  foreach($rows as $row)
-                    echo "<tr><td>".$row["incidentID"]."</td><td>".$row["reporter_NIC"]."</td><td>".$row["village"]."</td><td>".$row["officeNo"]."</td><td>".$row["date"]."</td></tr>";
-
-                  ?>
+                  <div class="inci" id="ele-1-box">
+                   <div class="ele-1-box-front" class="front">
+                    <img src="../Public/images/ele.png" id="ele-1">
+                    <h2 class="counter num" id="front-num1" ><?php echo ($data["activeCases"])["numOfActiveElephantsVillage"];?></h2>
+                    <h2 id="ele-1-para">Elephants Attack</h2>
                     
-                </tbody>
-            </table>
-                    </div>
+                     
+                   </div>
+
+                   <div class="ele-1-box-back">
+                    <h2 class="counter"><?php echo ($data["activeCases"])["numOfActiveElephantsVillage"];?></h2>
+                    <button class="ele-button" onclick="location.href='../admin/viewReportedIncidents?status=active&incident=elephantAttack'">View</button>
+                    
+                    
+                     
+                   </div>
+                    
+
 
                         
                  </div>
                  <div class="inci" id="ani-1-box">
-                    <img src="../Public/images/animalDash.png" id="ani-1">
-                    <p id="ani-1-para">Animals In Village</p>
-                    <h2 class="counter"><?php echo ($data["activeCases"])["numOfActiveAnimalInVillage"];?></h2>
-                    <input type="checkbox" id="show2">
-                    <label for="show2" class="show-lbl">View</label>
-                    <div class="detail2">
-                        <label for="show2" class="close-btn1 fas fa-times"></label>
-                        <h1>Detailed Details about  Other animals are in village</h1>
-
-                         <table>
-                  <thead>
-                    <tr>
-                        <th>Incident ID</th>
-                        <th>Reporter NIC</th>
-                        <th>Village</th>
-                        <th>Office No</th>
-                        <th>Date</th>
-                        
-                   </tr>
-                </thead>
-
-                <tbody>
-                  <?php
-                  $rows=$data["otherActiveDetails"];
-                  foreach($rows as $row)
-                    echo "<tr><td>".$row["incidentID"]."</td><td>".$row["reporter_NIC"]."</td><td>".$row["village"]."</td><td>".$row["officeNo"]."</td><td>".$row["date"]."</td></tr>";
-
-                  ?>
+                    <div class="ani-1-box-front" class="front">
+                    <img src="../Public/images/ani1.png" id="ani-1">
+                    <h2 class="counter" id="front-num2" ><?php echo ($data["activeCases"])["numOfActiveAnimalInVillage"];?></h2>
+                    <h2 id="ani-1-para">Animals in Village</h2>
                     
-                </tbody>
-            </table>
+                    
+                     
+                   </div>
+
+                   <div class="ani-1-box-back">
+                    <h2 class="counter"><?php echo ($data["activeCases"])["numOfActiveAnimalInVillage"];?></h2>
+                    <button class="ele-button" onclick="location.href='../admin/viewReportedIncidents?status=active&incident=animalsVillage'">View</button>
+
+                   
                     </div>
                         
                  </div>
                  <div class="inci" id="dan-1-box">
-                    <img src="../Public/images/dangerDash.png" id="dan-1">
-                    <p id="dan-1-para">Animals in Danger</p>
-                    <h2 class="counter"><?php echo ($data["activeCases"])["numOfActiveAnimalIsDanger"];?></h2>
-                    <input type="checkbox" id="show3">
-                    <label for="show3" class="show-lbl">View</label>
-                    <div class="detail3">
-                        <label for="show3" class="close-btn1 fas fa-times"></label>
-                        <h1>Detailed Details about active animals are in danger</h1>
-                           <table>
-
-                <thead>
-                    <tr>
-                        <th>Incident ID</th>
-                        <th>Reporter NIC</th>
-                        <th>Village</th>
-                        <th>Office No</th>
-                        <th>Date</th>
-                        
-                   </tr>
-                </thead>
-
-                <tbody>
-                  <?php
-                  $rows=$data["dangerActiveDetails"];
-                  foreach($rows as $row)
-                    echo "<tr><td>".$row["incidentID"]."</td><td>".$row["reporter_NIC"]."</td><td>".$row["village"]."</td><td>".$row["officeNo"]."</td><td>".$row["date"]."</td></tr>";
-
-                  ?>
+                  <div class="dan-1-box-front" class="front">
+                    <img src="../Public/images/dan1.png" id="dan-1">
+                    <h2 class="counter" id="front-num3" ><?php echo ($data["activeCases"])["numOfActiveAnimalIsDanger"];?></h2>
+                    <h2 id="dan-1-para">Animal is in Danger</h2>
                     
-                </tbody>
-            </table>
+                    
+                     
+                   </div>
 
+                   <div class="dan-1-box-back">
+                    <h2 class="counter"><?php echo ($data["activeCases"])["numOfActiveAnimalIsDanger"];?></h2>
+                    <button class="ele-button" onclick="location.href='../admin/viewReportedIncidents?status=active&incident=animalDanger'">View</button>
 
+                   
                     </div>
+                    
                         
                  </div>
                  <div class="inci" id="ill-1-box">
-                    <img src="../Public/images/illegalDash.png" id="ill-1">
-                    <p id="ill-1-para">Illegal Things</p>
-                    <h2 class="counter"><?php echo ($data["activeCases"])["numOfActiveIllegal"];?></h2>
-                    <input type="checkbox" id="show4">
-                    <label for="show4" class="show-lbl">View</label>
-                    <div class="detail4">
-                        <label for="show4" class="close-btn1 fas fa-times"></label>
-                        <h1>Detailed Details about active illegal thinsg</h1>
-                           <table>
 
-                <thead>
-                    <tr>
-                        <th>Incident ID</th>
-                        <th>Reporter NIC</th>
-                        <th>Village</th>
-                        <th>Office No</th>
-                        <th>Date</th>
-                        
-                   </tr>
-                </thead>
 
-                <tbody>
-                  <?php
-                  $rows=$data["illegalActiveDetails"];
-                  foreach($rows as $row)
-                    echo "<tr><td>".$row["incidentID"]."</td><td>".$row["reporter_NIC"]."</td><td>".$row["village"]."</td><td>".$row["officeNo"]."</td><td>".$row["date"]."</td></tr>";
-
-                  ?>
+                  <div class="ill-1-box-front" class="front">
+                    <img src="../Public/images/ill1.png" id="ill-1">
+                    <h2 class="counter" id="front-num4" ><?php echo ($data["activeCases"])["numOfActiveIllegal"];?></h2>
+                    <h2 id="ill-1-para">Illegal Things</h2>
                     
-                </tbody>
-            </table>
+                    
+                     
+                   </div>
+
+                   <div class="ill-1-box-back">
+                    <h2 class="counter"><?php echo ($data["activeCases"])["numOfActiveIllegal"];?></h2>
+                    <button class="ele-button" onclick="location.href='../admin/viewReportedIncidents?status=active&incident=illegal'">View</button>
+
+                   
                     </div>
+
+
+
+
+                    
                         
                  </div>
                  <div class="inci" id="crop-1-box">
-                    <img src="../Public/images/cropDash.png" id="crop-1">
-                    <p id="crop-1-para">Crop Damages</p>
-                    <h2 class="counter"><?php echo ($data["activeCases"])["numOfActiveCropDamage"];?></h2>
-                    <input type="checkbox" id="show5">
-                    <label for="show5" class="show-lbl">View</label>
-                    <div class="detail5">
-                        <label for="show5" class="close-btn1 fas fa-times"></label>
-                        <h1>Detailed Details about active elephnats are in village</h1>
 
-                        <table>
 
-                <thead>
-                    <tr>
-                        <th>Incident ID</th>
-                        <th>Reporter NIC</th>
-                        <th>Village</th>
-                        <th>Office No</th>
-                        <th>Date</th>
-                        
-                   </tr>
-                </thead>
-
-                <tbody>
-                  <?php
-                  $rows=$data["cropActiveDetails"];
-                  foreach($rows as $row)
-                    echo "<tr><td>".$row["incidentID"]."</td><td>".$row["reporter_NIC"]."</td><td>".$row["village"]."</td><td>".$row["officeNo"]."</td><td>".$row["date"]."</td></tr>";
-
-                  ?>
+                  <div class="crop-1-box-front" class="front">
+                    <img src="../Public/images/crop1.png" id="crop-1">
+                    <h2 class="counter" id="front-num5" ><?php echo ($data["activeCases"])["numOfActiveCropDamage"];?></h2>
+                    <h2 id="crop-1-para">Crop Damages</h2>
                     
-                </tbody>
-            </table>
+                    
+                     
+                   </div>
+
+                   <div class="crop-1-box-back">
+                    <h2 class="counter"><?php echo ($data["activeCases"])["numOfActiveCropDamage"];?></h2>
+                    <button class="ele-button" onclick="location.href='../admin/viewReportedIncidents?status=active&incident=cropDamage'">View</button>
+
+                   
                     </div>
+
                         
                  </div>
                  <div class="inci" id="fen-1-box">
-                    <img src="../Public/images/fenceDash.png" id="fen-1">
-                    <p id="fen-1-para">Damaged Fences</p>
-                    <h2 class="counter"><?php echo ($data["activeCases"])["numOfActiveBreakdownFence"];?></h2>
-                    <input type="checkbox" id="show6">
-                    <label for="show6" class="show-lbl">View</label>
-                    <div class="detail6">
-                        <label for="show6" class="close-btn1 fas fa-times"></label>
-                        <h1>Detailed Details about active damge fences</h1>
 
-                        <table>
 
-                <thead>
-                    <tr>
-                        <th>Incident ID</th>
-                        <th>Reporter NIC</th>
-                        <th>Village</th>
-                        <th>Office No</th>
-                        <th>Date</th>
-                        
-                   </tr>
-                </thead>
-
-                <tbody>
-                  <?php
-                  $rows=$data["fenceActiveDetails"];
-                  foreach($rows as $row)
-                    echo "<tr><td>".$row["incidentID"]."</td><td>".$row["reporter_NIC"]."</td><td>".$row["village"]."</td><td>".$row["officeNo"]."</td><td>".$row["date"]."</td></tr>";
-
-                  ?>
+                  <div class="fen-1-box-front" class="front">
+                    <img src="../Public/images/fen1.png" id="fen-1">
+                    <h2 class="counter" id="front-num6" ><?php echo ($data["activeCases"])["numOfActiveBreakdownFence"];?></h2>
+                    <h2 id="fen-1-para">Fence Damages</h2>
+                   
                     
-                </tbody>
-            </table>
+                     
+                   </div>
+
+                   <div class="fen-1-box-back">
+                    <h2 class="counter"><?php echo ($data["activeCases"])["numOfActiveBreakdownFence"];?></h2>
+                    <button class="ele-button" onclick="location.href='../admin/viewReportedIncidents?status=active&incident=fenceDamage'">View</button>
+
+                   
                     </div>
+                   
                         
                  </div>
-
                  <div id="active-map"></div>
 
                  <script type="text/javascript">
@@ -479,100 +387,145 @@
 
               
 
-                 <div class="active-dis-chart">
-                    <canvas id="active-dis"></canvas>
-                    <h3>Active Cases By districts</h3>
-                     
-                 </div>
-
-
-                 <script >
-                  
-                     let activeDis=document.getElementById("active-dis").getContext("2d");
-    let activeDisLabels=["polonnaruwa","anuradhapura","ampara","hambanthota"];
-    var activePolonnaruwa=<?php echo json_encode(($data["numOfActiveCasesByDistrict"])["polonnaruwa"]);?>;
-    var activeAnuradhapura=<?php echo json_encode(($data["numOfActiveCasesByDistrict"])["anuradhapura"]);?>;
-    var activeHambanthota=<?php echo json_encode(($data["numOfActiveCasesByDistrict"])["hambanthota"]);?>;
-    var activeAmpara=<?php echo json_encode(($data["numOfActiveCasesByDistrict"])["ampara"]);?>;
-    let activeDisData=[activePolonnaruwa,activeAnuradhapura,activeAmpara,activeHambanthota];
-     let activeDisColor=["#6495ED","#7FFFD4","#8A2BE2","#A52A2A"];
-     
-    let activeDisChart=new Chart(activeDis, {
-      type:"bar",
-      data:{
-        labels:activeDisLabels,
-        datasets:[{
-          data:activeDisData,
-          backgroundColor:activeDisColor
-        }]
-      },
-      options:{
-        title:{
-          text:"Active Cases By districts",
-          display:true
-        },
-        legend:{
-        display:false
-      }
-      }
-      
-
-    });
-                 </script>
-
+                
              </div>
                  
 
              <div class="radio-content success">
 
+
                  <div class="inci" id="ele-2-box">
-                    <img src="../Public/images/elephantDash.png" id="ele-2">
-                    <p id="ele-2-para">Elephants Attack</p>
+                   <div class="ele-2-box-front" class="front">
+                    <img src="../Public/images/ele.png" id="ele-2">
+                    <h2 class="counter" id="front-num1" ><?php echo ($data["successCases"])["numOfActiveElephantsVillage"];?></h2>
+                    <h2 id="ele-2-para">Elephants Attack</h2>
+                    
+                   
+                     
+                   </div>
+
+                   <div class="ele-2-box-back">
                     <h2 class="counter"><?php echo ($data["successCases"])["numOfActiveElephantsVillage"];?></h2>
+                    <button class="ele-button" onclick="location.href='../admin/viewReportedIncidents?status=success&incident=elephantAttack'">View</button>
                     
-                    <p>Incidets Reported</p>
+                    
+                     
+                   </div>
+                    
+
+
                         
                  </div>
+
                  <div class="inci" id="ani-2-box">
-                    <img src="../Public/images/animalDash.png" id="ani-2">
-                     <p id="ani-2-para">Animals In Village</p>
+                    <div class="ani-2-box-front" class="front">
+                    <img src="../Public/images/ani1.png" id="ani-2">
+                    <h2 class="counter" id="front-num2" ><?php echo ($data["successCases"])["numOfActiveAnimalInVillage"];?></h2>
+                    <h2 id="ani-2-para">Animals in Village</h2>
+                    
+                    
+                     
+                   </div>
+
+                   <div class="ani-2-box-back">
                     <h2 class="counter"><?php echo ($data["successCases"])["numOfActiveAnimalInVillage"];?></h2>
-                    
-                    <p>Incidets Reported</p>
+                    <button class="ele-button" onclick="location.href='../admin/viewReportedIncidents?status=success&incident=animalsVillage'">View</button>
+
+                   
+                    </div>
                         
                  </div>
+
                  <div class="inci" id="dan-2-box">
-                    <img id="dan-2" src="../Public/images/dangerDash.png">
-                     <p id="dan-2-para">Animals in Danger</p>
+                  <div class="dan-2-box-front" class="front">
+                    <img src="../Public/images/dan1.png" id="dan-2">
+                    <h2 class="counter" id="front-num3" ><?php echo ($data["successCases"])["numOfActiveAnimalIsDanger"];?></h2>
+                    <h2 id="dan-2-para">Animal is in Danger</h2>
+                    
+                    
+                     
+                   </div>
+
+                   <div class="dan-2-box-back">
                     <h2 class="counter"><?php echo ($data["successCases"])["numOfActiveAnimalIsDanger"];?></h2>
+                    <button class="ele-button" onclick="location.href='../admin/viewReportedIncidents?status=success&incident=animalDanger'">View</button>
+
+                   
+                    </div>
                     
-                    <p>Incidets Reported</p>
                         
                  </div>
+
                  <div class="inci" id="ill-2-box">
-                    <img id="ill-2" src="../Public/images/illegalDash.png">
-                     <p id="ill-2-para">Illegal Things</p>
-                    <h2 class="counter"><?php echo ($data["successCases"])["numOfActiveIllegal"];?></h2>
+
+
+                  <div class="ill-2-box-front" class="front">
+                    <img src="../Public/images/ill1.png" id="ill-2">
+                    <h2 class="counter" id="front-num4" ><?php echo ($data["successCases"])["numOfActiveIllegal"];?></h2>
+                    <h2 id="ill-2-para">Illegal Things</h2>
                     
-                    <p>Incidets Reported</p>
+                    
+                     
+                   </div>
+
+                   <div class="ill-2-box-back">
+                    <h2 class="counter"><?php echo ($data["successCases"])["numOfActiveIllegal"];?></h2>
+                    <button class="ele-button" onclick="location.href='../admin/viewReportedIncidents?status=success&incident=illegal'">View</button>
+
+                   
+                    </div>
+
+
+
+
+                    
                         
                  </div>
+
+
                  <div class="inci" id="crop-2-box">
-                    <img id="crop-2" src="../Public/images/cropDash.png">
-                     <p id="crop-2-para">Crop Damages</p>
-                    <h2 class="counter"><?php echo ($data["successCases"])["numOfActiveCropDamage"];?></h2>
+
+
+                  <div class="crop-2-box-front" class="front">
+                    <img src="../Public/images/crop1.png" id="crop-2">
+                    <h2 class="counter" id="front-num5" ><?php echo ($data["successCases"])["numOfActiveCropDamage"];?></h2>
+                    <h2 id="crop-2-para">Crop Damages</h2>
                     
-                    <p>Incidets Reported</p>
+                   
+                     
+                   </div>
+
+                   <div class="crop-2-box-back">
+                    <h2 class="counter"><?php echo ($data["successCases"])["numOfActiveCropDamage"];?></h2>
+                    <button class="ele-button" onclick="location.href='../admin/viewReportedIncidents?status=success&incident=cropDamage'">View</button>
+
+                   
+                    </div>
+
                         
                  </div>
                  <div class="inci" id="fen-2-box">
-                    <img id="fen-2" src="../Public/images/fenceDash.png">
-                     <p id="fen-2-para">Damaged Fences</p>
-                    <h2 class="counter"><?php echo ($data["successCases"])["numOfActiveBreakdownFence"];?></h2>
+
+
+                  <div class="fen-2-box-front" class="front">
+                    <img src="../Public/images/fen1.png" id="fen-2">
+                    <h2 class="counter" id="front-num6" ><?php echo ($data["successCases"])["numOfActiveBreakdownFence"];?></h2>
+                    <h2 id="fen-2-para">Fence Damages</h2>
                     
-                    <p>Incidets Reported</p>
+                    
+                     
+                   </div>
+
+                   <div class="fen-2-box-back">
+                    <h2 class="counter"><?php echo ($data["successCases"])["numOfActiveBreakdownFence"];?></h2>
+                    <button class="ele-button" onclick="location.href='../admin/viewReportedIncidents?status=success&incident=fenceDamage'">View</button>
+
+                   
+                    </div>
+                   
                         
                  </div>
+
 
                  <div id="success-map"></div>
 
@@ -711,94 +664,141 @@
 
 
 
-                 <div class="success-dis-chart">
-                    <canvas id="success-dis"></canvas>
-                    <h3>Success Cases By districts</h3>
-                     
-                 </div>
-
-                 <script >
-                     let successDis=document.getElementById("success-dis").getContext("2d");
-    let successDisLabels=["polonnaruwa","anuradhapura","ampara","hambanthota"];
-    var successPolonnaruwa=<?php echo json_encode(($data["numOfSuccessCasesByDistrict"])["polonnaruwa"]);?>;
-    var successAnuradhapura=<?php echo json_encode(($data["numOfSuccessCasesByDistrict"])["anuradhapura"]);?>;
-    var successHambanthota=<?php echo json_encode(($data["numOfSuccessCasesByDistrict"])["hambanthota"]);?>;
-    var successAmpara=<?php echo json_encode(($data["numOfSuccessCasesByDistrict"])["ampara"]);?>;
-    let successDisData=[successPolonnaruwa,successAnuradhapura,successAmpara,successHambanthota];
-     let successDisColor=["#6495ED","#7FFFD4","#8A2BE2","#A52A2A"];
-    let successDisChart=new Chart(successDis, {
-      type:"bar",
-      data:{
-        labels:successDisLabels,
-        datasets:[{
-          data:successDisData,
-          backgroundColor:successDisColor
-        }]
-      },
-      options:{
-        title:{
-          text:"Success Cases By districts",
-          display:true
-        },
-        legend:{
-        display:false
-      }
-      }
-      
-
-    });
-                 </script>
+                
 
              </div>
 
              <div class="radio-content unsuccess">
-                <div class="inci" id="ele-2-box">
-                    <img src="../Public/images/elephantDash.png" id="ele-2">
-                    <p id="ele-2-para">Elephants Attack</p>
+                
+                 <div class="inci" id="ele-3-box">
+                   <div class="ele-3-box-front" class="front">
+                    <img src="../Public/images/ele.png" id="ele-3">
+                    <h2 class="counter" id="front-num1" ><?php echo ($data["unSuccessCases"])["numOfActiveElephantsVillage"];?></h2>
+                    <h2 id="ele-3-para">Elephants Attack</h2>
+                    
+                    
+                     
+                   </div>
+
+                   <div class="ele-3-box-back">
                     <h2 class="counter"><?php echo ($data["unSuccessCases"])["numOfActiveElephantsVillage"];?></h2>
+                    <button class="ele-button" onclick="location.href='../admin/viewReportedIncidents?status=unsuccess&incident=elephantAttack'">View</button>
+                    
+                    
+                     
+                   </div>
+                    
+
+
+                        
+                 </div>
+
+                 <div class="inci" id="ani-3-box">
+                    <div class="ani-3-box-front" class="front">
+                    <img src="../Public/images/ani1.png" id="ani-3">
+                    <h2 class="counter" id="front-num2" ><?php echo ($data["unSuccessCases"])["numOfActiveAnimalInVillage"];?></h2>
+                    <h2 id="ani-3-para">Animals in Village</h2>
+                    
+                    
+                     
+                   </div>
+
+                   <div class="ani-3-box-back">
+                    <h2 class="counter"><?php echo ($data["unSuccessCases"])["numOfActiveAnimalInVillage"];?></h2>
+                    <button class="ele-button" onclick="location.href='../admin/viewReportedIncidents?status=unsuccess&incident=animalsVillage'">View</button>
+
+                   
+                    </div>
+                        
+                 </div>
+
+                 <div class="inci" id="dan-3-box">
+                  <div class="dan-3-box-front" class="front">
+                    <img src="../Public/images/dan1.png" id="dan-3">
+                    <h2 class="counter" id="front-num3" ><?php echo ($data["unSuccessCases"])["numOfActiveAnimalIsDanger"];?></h2>
+                    <h2 id="dan-3-para">Animal is in Danger</h2>
+                    
+                    
+                     
+                   </div>
+
+                   <div class="dan-3-box-back">
+                    <h2 class="counter"><?php echo ($data["unSuccessCases"])["numOfActiveAnimalIsDanger"];?></h2>
+                    <button class="ele-button" onclick="location.href='../admin/viewReportedIncidents?status=unsuccess&incident=animalDanger'">View</button>
+
+                   
+                    </div>
+                    
+                        
+                 </div>
+
+                 <div class="inci" id="ill-3-box">
+
+
+                  <div class="ill-3-box-front" class="front">
+                    <img src="../Public/images/ill1.png" id="ill-3">
+                    <h2 class="counter" id="front-num4" ><?php echo ($data["unSuccessCases"])["numOfActiveIllegal"];?></h2>
+                    <h2 id="ill-3-para">Illegal Things</h2>
+                    
+                    
+                     
+                   </div>
+
+                   <div class="ill-3-box-back">
+                    <h2 class="counter"><?php echo ($data["unSuccessCases"])["numOfActiveIllegal"];?></h2>
+                    <button class="ele-button" onclick="location.href='../admin/viewReportedIncidents?status=unsuccess&incident=illegal'">View</button>
+
+                   
+                    </div>
+
+
+
 
                     
-                    <p>Incidets Reported</p>
                         
                  </div>
-                 <div class="inci" id="ani-2-box">
-                    <img src="../Public/images/animalDash.png" id="ani-2">
-                     <p id="ani-2-para">Animals In Village</p>
-                    <h2 class="counter"><?php echo ($data["unSuccessCases"])["numOfActiveAnimalInVillage"];?></h2>
+
+
+                 <div class="inci" id="crop-3-box">
+
+
+                  <div class="crop-3-box-front" class="front">
+                    <img src="../Public/images/crop1.png" id="crop-3">
+                    <h2 class="counter" id="front-num5" ><?php echo ($data["unSuccessCases"])["numOfActiveCropDamage"];?></h2>
+                    <h2 id="crop-3-para">Crop Damages</h2>
                     
-                    <p>Incidets Reported</p>
-                        
-                 </div>
-                 <div class="inci" id="dan-2-box">
-                    <img id="dan-2" src="../Public/images/dangerDash.png">
-                     <p id="dan-2-para">Animals in Danger</p>
-                    <h2 class="counter"><?php echo ($data["unSuccessCases"])["numOfActiveAnimalIsDanger"];?></h2>
                     
-                    <p>Incidets Reported</p>
-                        
-                 </div>
-                 <div class="inci" id="ill-2-box">
-                    <img id="ill-2" src="../Public/images/illegalDash.png">
-                     <p id="ill-2-para">Illegal Things</p>
-                    <h2 class="counter"><?php echo ($data["unSuccessCases"])["numOfActiveIllegal"];?></h2>
-                    
-                    <p>Incidets Reported</p>
-                        
-                 </div>
-                 <div class="inci" id="crop-2-box">
-                    <img id="crop-2" src="../Public/images/cropDash.png">
-                     <p id="crop-2-para">Crop Damages</p>
+                     
+                   </div>
+
+                   <div class="crop-3-box-back">
                     <h2 class="counter"><?php echo ($data["unSuccessCases"])["numOfActiveCropDamage"];?></h2>
-                    
-                    <p>Incidets Reported</p>
+                    <button class="ele-button" onclick="location.href='../admin/viewReportedIncidents?status=unsuccess&incident=cropDamage'">View</button>
+
+                   
+                    </div>
+
                         
                  </div>
-                 <div class="inci" id="fen-2-box">
-                    <img id="fen-2" src="../Public/images/fenceDash.png">
-                     <p id="fen-2-para">Damaged Fences</p>
-                    <h2 class="counter"><?php echo ($data["unSuccessCases"])["numOfActiveBreakdownFence"];?></h2>
+                 <div class="inci" id="fen-3-box">
+
+
+                  <div class="fen-3-box-front" class="front">
+                    <img src="../Public/images/fen1.png" id="fen-3">
+                    <h2 class="counter" id="front-num6" ><?php echo ($data["unSuccessCases"])["numOfActiveBreakdownFence"];?></h2>
+                    <h2 id="fen-3-para">Fence Damages</h2>
                     
-                    <p>Incidets Reported</p>
+                    
+                     
+                   </div>
+
+                   <div class="fen-3-box-back">
+                    <h2 class="counter"><?php echo ($data["unSuccessCases"])["numOfActiveBreakdownFence"];?></h2>
+                    <button class="ele-button" onclick="location.href='../admin/viewReportedIncidents?status=unsuccess&incident=fenceDamage'">View</button>
+
+                   
+                    </div>
+                   
                         
                  </div>
 
@@ -932,43 +932,6 @@
 
 
 
-                 <div class="unsuccess-dis-chart">
-                    <canvas id="unsuccess-dis"></canvas>
-                    <h3>Active Cases By districts</h3>
-                     
-                 </div>
-
-                 <script >
-                     let unsuccessDis=document.getElementById("unsuccess-dis").getContext("2d");
-    let unsuccessDisLabels=["polonnaruwa","anuradhapura","ampara","hambanthota"];
-    var unsuccessPolonnaruwa=<?php echo json_encode(($data["numOfUnSuccessCasesByDistrict"])["polonnaruwa"]);?>;
-    var unsuccessAnuradhapura=<?php echo json_encode(($data["numOfUnSuccessCasesByDistrict"])["anuradhapura"]);?>;
-    var unsuccessHambanthota=<?php echo json_encode(($data["numOfUnSuccessCasesByDistrict"])["hambanthota"]);?>;
-    var unsuccessAmpara=<?php echo json_encode(($data["numOfUnSuccessCasesByDistrict"])["ampara"]);?>;
-    let unsuccessDisData=[unsuccessPolonnaruwa,unsuccessAnuradhapura,unsuccessAmpara,unsuccessHambanthota];
-     let unsuccessDisColor=["#6495ED","#7FFFD4","#8A2BE2","#A52A2A"];
-    let unsuccessDisChart=new Chart(unsuccessDis, {
-      type:"bar",
-      data:{
-        labels:unsuccessDisLabels,
-        datasets:[{
-          data:unsuccessDisData,
-          backgroundColor:unsuccessDisColor
-        }]
-      },
-      options:{
-        title:{
-          text:"Unsuccess Cases By districts",
-          display:true
-        },
-        legend:{
-        display:false
-      }
-      }
-      
-
-    });
-                 </script>
 
              </div>
 

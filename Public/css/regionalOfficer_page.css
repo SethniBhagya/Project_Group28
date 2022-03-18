@@ -766,93 +766,29 @@ input[type="checkbox"]{
 #active-map{
   margin-top: 55px;
   margin-left: 20px;
-  width: 700px;
-  height: 500px;
+  width: 1470px;
+  height: 700px;
   box-shadow: 4px 4px 4px 4px rgba(0, 251, 10, 0.16);
 }
 
 #success-map{
   margin-top: 55px;
   margin-left: 20px;
-  width: 700px;
-  height: 500px;
+  width: 1470px;
+  height: 700px;
   box-shadow: 4px 4px 4px 4px rgba(0, 251, 10, 0.16);
 }
 
 #unsuccess-map{
   margin-top: 55px;
   margin-left: 20px;
-  width: 700px;
-  height: 500px;
+  width: 1470px;
+  height: 700px;
   box-shadow: 4px 4px 4px 4px rgba(0, 251, 10, 0.16);
 }
 
 
 
-.active-dis-chart{
-  position: absolute;
-  background-color: #ffffff;
-  width: 600px;
-  top: 37vh;
-  height: 500px;
-  margin-left: 900px;
-  box-shadow: 4px 4px 4px 4px rgba(0, 251, 10, 0.16);
-}
-
-#active-dis{
-  margin-top: 60px;
-}
-
-.active-dis-chart h3{
-
-  margin-left: 170px;
-
-}
-
-.success-dis-chart{
-  position: absolute;
-  background-color: #ffffff;
-  width: 600px;
-  top: 37vh;
-  height: 500px;
-  margin-left: 900px;
-  box-shadow: 4px 4px 4px 4px rgba(0, 251, 10, 0.16);
-}
-
-
-
-#success-dis{
-  margin-top: 60px;
-}
-
-.success-dis-chart h3{
-
-  margin-left: 170px;
-
-}
-
-
-.unsuccess-dis-chart{
-  position: absolute;
-  background-color: #ffffff;
-  width: 600px;
-  top: 37vh;
-  height: 500px;
-  margin-left: 900px;
-  box-shadow: 4px 4px 4px 4px rgba(0, 251, 10, 0.16);
-}
-
-
-
-#unsuccess-dis{
-  margin-top: 60px;
-}
-
-.unsuccess-dis-chart h3{
-
-  margin-left: 170px;
-
-}
 
 
 
@@ -1009,571 +945,2559 @@ input[type="checkbox"]{
 
 }
 
-#ele-1-para{
-  opacity: 0;
+#ele-1-box{
+  
+  transform-style: preserve-3d;
+  transition: all 0.5s ease;
+  cursor: pointer;
+
 }
 
-#ele-1-box:hover #ele-1{
-  opacity: 0;
+#ele-1-box:hover{
+  transform: rotateY(180deg);
 }
 
-#ele-1-box:hover #ele-1-para{
-  opacity: 1;
-}
-
-#ani-1-para{
-  opacity: 0;
-}
-
-#ani-1-box:hover #ani-1{
-  opacity: 0;
-}
-
-#ani-1-box:hover #ani-1-para{
-  opacity: 1;
-}
-
-#dan-1-para{
-  opacity: 0;
-}
-
-#dan-1-box:hover #dan-1{
-  opacity: 0;
-}
-#dan-1-box:hover #dan-1-para{
-  opacity: 1;
-}
-
-
-#ill-1-para{
-  opacity: 0;
-}
-
-#ill-1-box:hover #ill-1{
-  opacity: 0;
-}
-#ill-1-box:hover #ill-1-para{
-  opacity: 1;
-}
-
-#crop-1-para{
-  opacity: 0;
-}
-
-#crop-1-box:hover #crop-1{
-  opacity: 0;
-}
-#crop-1-box:hover #crop-1-para{
-  opacity: 1;
-}
-
-#fen-1-para{
-  opacity: 0;
-}
-
-#fen-1-box:hover #fen-1{
-  opacity: 0;
-}
-#fen-1-box:hover #fen-1-para{
-  opacity: 1;
-}
-
-.inci p{
+#ele-1-box .ele-1-box-front
+{
   position: absolute;
-  color: darkgreen;
-  text-align: center;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+
+}
+
+#ele-1-box .ele-1-box-back{
+
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+
+}
+
+#front-num1{
+  position: relative;
+  font-size: 50px;
+
+}
+
+
+
+
+
+
+
+
+#ele-1-box{
+  
+  transform-style: preserve-3d;
+  transition: all 0.5s ease;
+  cursor: pointer;
+
+}
+
+#ele-1-box:hover{
+  transform: rotateY(180deg);
+}
+
+#ele-1-box .ele-1-box-front
+{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+
+}
+
+#ele-1-box .ele-1-box-back{
+
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+
+}
+
+#front-num1{
+  position: relative;
+  font-size: 50px;
+
+}
+
+#ele-1{
+
+   width: 100px;
+   height: 100px;
+   position: absolute;
+
+}
+
+#ele-1-para{
+  position: absolute;
+  font-size: 20px;
+  right: 5px;
+}
+
+.ele-1-box-back h2{
+  position: absolute;
+  right: 80px;
+  font-size: 40px;
+  bottom: 80px;
+}
+
+
+
+#ele-2-box{
+  
+  transform-style: preserve-3d;
+  transition: all 0.5s ease;
+  cursor: pointer;
+
+}
+
+#ele-2-box:hover{
+  transform: rotateY(180deg);
+}
+
+#ele-2-box .ele-2-box-front
+{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+
+}
+
+#ele-2-box .ele-2-box-back{
+
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+
+}
+
+#front-num2-1{
+  position: relative;
+  font-size: 50px;
+
+}
+
+#ele-2{
+
+   width: 100px;
+   height: 100px;
+   position: absolute;
+
 }
 
 #ele-2-para{
-  opacity: 0;
+  position: absolute;
+  font-size: 20px;
+  right: 5px;
 }
 
-#ele-2-box:hover #ele-2{
-  opacity: 0;
+.ele-2-box-back h2{
+  position: absolute;
+  right: 80px;
+  font-size: 40px;
+  bottom: 80px;
 }
 
-#ele-2-box:hover #ele-2-para{
-  opacity: 1;
+
+
+#ele-3-box{
+  
+  transform-style: preserve-3d;
+  transition: all 0.5s ease;
+  cursor: pointer;
+
+}
+
+#ele-3-box:hover{
+  transform: rotateY(180deg);
+}
+
+#ele-3-box .ele-3-box-front
+{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+
+}
+
+#ele-3-box .ele-3-box-back{
+
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+
+}
+
+#front-num3-1{
+  position: relative;
+  font-size: 50px;
+
+}
+
+#ele-3{
+
+   width: 100px;
+   height: 100px;
+   position: absolute;
+
+}
+
+#ele-3-para{
+  position: absolute;
+  font-size: 20px;
+  right: 5px;
+}
+
+.ele-3-box-back h2{
+  position: absolute;
+  right: 80px;
+  font-size: 40px;
+  bottom: 80px;
+}
+
+#ele-4-box{
+  
+  transform-style: preserve-3d;
+  transition: all 0.5s ease;
+  cursor: pointer;
+
+}
+
+#ele-4-box:hover{
+  transform: rotateY(180deg);
+}
+
+#ele-4-box .ele-4-box-front
+{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+
+}
+
+#ele-4-box .ele-4-box-back{
+
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+
+}
+
+#front-num4-1{
+  position: relative;
+  font-size: 50px;
+
+}
+
+#ele-4{
+
+   width: 100px;
+   height: 100px;
+   position: absolute;
+
+}
+
+#ele-4-para{
+  position: absolute;
+  font-size: 20px;
+  right: 5px;
+}
+
+.ele-4-box-back h2{
+  position: absolute;
+  right: 80px;
+  font-size: 40px;
+  bottom: 80px;
+}
+
+#ele-5-box{
+  
+  transform-style: preserve-3d;
+  transition: all 0.5s ease;
+  cursor: pointer;
+
+}
+
+#ele-5-box:hover{
+  transform: rotateY(180deg);
+}
+
+#ele-5-box .ele-5-box-front
+{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+
+}
+
+#ele-5-box .ele-5-box-back{
+
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+
+}
+
+#front-num5-1{
+  position: relative;
+  font-size: 50px;
+
+}
+
+#ele-5{
+
+   width: 100px;
+   height: 100px;
+   position: absolute;
+
+}
+
+#ele-5-para{
+  position: absolute;
+  font-size: 20px;
+  right: 5px;
+}
+
+.ele-5-box-back h2{
+  position: absolute;
+  right: 80px;
+  font-size: 40px;
+  bottom: 80px;
+}
+
+#ele-6-box{
+  
+  transform-style: preserve-3d;
+  transition: all 0.5s ease;
+  cursor: pointer;
+
+}
+
+#ele-6-box:hover{
+  transform: rotateY(180deg);
+}
+
+#ele-6-box .ele-6-box-front
+{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+
+}
+
+#ele-6-box .ele-6-box-back{
+
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+
+}
+
+#front-num6-1{
+  position: relative;
+  font-size: 50px;
+
+}
+
+#ele-6{
+
+   width: 100px;
+   height: 100px;
+   position: absolute;
+
+}
+
+#ele-6-para{
+  position: absolute;
+  font-size: 20px;
+  right: 5px;
+}
+
+.ele-6-box-back h2{
+  position: absolute;
+  right: 80px;
+  font-size: 40px;
+  bottom: 80px;
+}
+
+#ele-7-box{
+  
+  transform-style: preserve-3d;
+  transition: all 0.5s ease;
+  cursor: pointer;
+
+}
+
+#ele-7-box:hover{
+  transform: rotateY(180deg);
+}
+
+#ele-7-box .ele-7-box-front
+{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+
+}
+
+#ele-7-box .ele-7-box-back{
+
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+
+}
+
+#front-num7-1{
+  position: relative;
+  font-size: 50px;
+
+}
+
+#ele-7{
+
+   width: 100px;
+   height: 100px;
+   position: absolute;
+
+}
+
+#ele-7-para{
+  position: absolute;
+  font-size: 20px;
+  right: 5px;
+}
+
+.ele-7-box-back h2{
+  position: absolute;
+  right: 80px;
+  font-size: 40px;
+  bottom: 80px;
+}
+
+
+
+
+
+#ani-1-box{
+  
+  transform-style: preserve-3d;
+  transition: all 0.5s ease;
+  cursor: pointer;
+
+}
+
+#ani-1-box:hover{
+  transform: rotateY(180deg);
+}
+
+#ani-1-box .ani-1-box-front
+{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+
+}
+
+#ani-1-box .ani-1-box-back{
+
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+
+}
+
+#front-num2{
+  position: relative;
+  font-size: 50px;
+
+}
+
+#ani-1{
+
+   width: 100px;
+   height: 100px;
+   position: absolute;
+
+}
+
+#ani-1-para{
+  position: absolute;
+  font-size: 20px;
+  right: 5px;
+}
+
+.ani-1-box-back h2{
+  position: absolute;
+  right: 80px;
+  font-size: 40px;
+  bottom: 80px;
+}
+
+
+
+#ani-2-box{
+  
+  transform-style: preserve-3d;
+  transition: all 0.5s ease;
+  cursor: pointer;
+
+}
+
+#ani-2-box:hover{
+  transform: rotateY(180deg);
+}
+
+#ani-2-box .ani-2-box-front
+{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+
+}
+
+#ani-2-box .ani-2-box-back{
+
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+
+}
+
+#front-num2-2{
+  position: relative;
+  font-size: 50px;
+
+}
+
+#ani-2{
+
+   width: 100px;
+   height: 100px;
+   position: absolute;
+
 }
 
 #ani-2-para{
-  opacity: 0;
+  position: absolute;
+  font-size: 20px;
+  right: 5px;
 }
 
-#ani-2-box:hover #ani-2{
-  opacity: 0;
-}
-
-#ani-2-box:hover #ani-2-para{
-  opacity: 1;
-}
-
-#dan-2-para{
-  opacity: 0;
-}
-
-#dan-2-box:hover #dan-2{
-  opacity: 0;
-}
-#dan-2-box:hover #dan-2-para{
-  opacity: 1;
+.ani-2-box-back h2{
+  position: absolute;
+  right: 80px;
+  font-size: 40px;
+  bottom: 80px;
 }
 
 
-#ill-2-para{
-  opacity: 0;
+#ani-3-box{
+  
+  transform-style: preserve-3d;
+  transition: all 0.5s ease;
+  cursor: pointer;
+
 }
 
-#ill-2-box:hover #ill-2{
-  opacity: 0;
-}
-#ill-2-box:hover #ill-2-para{
-  opacity: 1;
+#ani-3-box:hover{
+  transform: rotateY(180deg);
 }
 
-#crop-2-para{
-  opacity: 0;
+#ani-3-box .ani-3-box-front
+{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+
 }
 
-#crop-2-box:hover #crop-2{
-  opacity: 0;
-}
-#crop-2-box:hover #crop-2-para{
-  opacity: 1;
+#ani-3-box .ani-3-box-back{
+
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+
 }
 
-#fen-2-para{
-  opacity: 0;
+#front-num3-2{
+  position: relative;
+  font-size: 50px;
+
 }
 
-#fen-2-box:hover #fen-2{
-  opacity: 0;
-}
-#fen-2-box:hover #fen-2-para{
-  opacity: 1;
-}
+#ani-3{
 
+   width: 100px;
+   height: 100px;
+   position: absolute;
 
-#ele-3-para{
-  opacity: 0;
-}
-
-#ele-3-box:hover #ele-3{
-  opacity: 0;
-}
-
-#ele-3-box:hover #ele-3-para{
-  opacity: 1;
 }
 
 #ani-3-para{
-  opacity: 0;
+  position: absolute;
+  font-size: 20px;
+  right: 5px;
 }
 
-#ani-3-box:hover #ani-3{
-  opacity: 0;
-}
-
-#ani-3-box:hover #ani-3-para{
-  opacity: 1;
-}
-
-#dan-3-para{
-  opacity: 0;
-}
-
-#dan-3-box:hover #dan-3{
-  opacity: 0;
-}
-#dan-3-box:hover #dan-3-para{
-  opacity: 1;
+.ani-3-box-back h2{
+  position: absolute;
+  right: 80px;
+  font-size: 40px;
+  bottom: 80px;
 }
 
 
-#ill-3-para{
-  opacity: 0;
+
+#ani-4-box{
+  
+  transform-style: preserve-3d;
+  transition: all 0.5s ease;
+  cursor: pointer;
+
 }
 
-#ill-3-box:hover #ill-3{
-  opacity: 0;
-}
-#ill-3-box:hover #ill-3-para{
-  opacity: 1;
+#ani-4-box:hover{
+  transform: rotateY(180deg);
 }
 
-#crop-3-para{
-  opacity: 0;
+#ani-4-box .ani-4-box-front
+{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+
 }
 
-#crop-3-box:hover #crop-3{
-  opacity: 0;
-}
-#crop-3-box:hover #crop-3-para{
-  opacity: 1;
+#ani-4-box .ani-4-box-back{
+
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+
 }
 
-#fen-3-para{
-  opacity: 0;
+#front-num4-2{
+  position: relative;
+  font-size: 50px;
+
 }
 
-#fen-3-box:hover #fen-3{
-  opacity: 0;
-}
-#fen-3-box:hover #fen-3-para{
-  opacity: 1;
-}
+#ani-4{
 
+   width: 100px;
+   height: 100px;
+   position: absolute;
 
-#ele-4-para{
-  opacity: 0;
-}
-
-#ele-4-box:hover #ele-4{
-  opacity: 0;
-}
-
-#ele-4-box:hover #ele-4-para{
-  opacity: 1;
 }
 
 #ani-4-para{
-  opacity: 0;
+  position: absolute;
+  font-size: 20px;
+  right: 5px;
 }
 
-#ani-4-box:hover #ani-4{
-  opacity: 0;
-}
-
-#ani-4-box:hover #ani-4-para{
-  opacity: 1;
-}
-
-#dan-4-para{
-  opacity: 0;
-}
-
-#dan-4-box:hover #dan-4{
-  opacity: 0;
-}
-#dan-4-box:hover #dan-4-para{
-  opacity: 1;
+.ani-4-box-back h2{
+  position: absolute;
+  right: 80px;
+  font-size: 40px;
+  bottom: 80px;
 }
 
 
-#ill-4-para{
-  opacity: 0;
+#ani-5-box{
+  
+  transform-style: preserve-3d;
+  transition: all 0.5s ease;
+  cursor: pointer;
+
 }
 
-#ill-4-box:hover #ill-4{
-  opacity: 0;
-}
-#ill-4-box:hover #ill-4-para{
-  opacity: 1;
+#ani-5-box:hover{
+  transform: rotateY(180deg);
 }
 
-#crop-4-para{
-  opacity: 0;
+#ani-5-box .ani-5-box-front
+{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+
 }
 
-#crop-4-box:hover #crop-4{
-  opacity: 0;
-}
-#crop-4-box:hover #crop-4-para{
-  opacity: 1;
+#ani-5-box .ani-5-box-back{
+
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+
 }
 
-#fen-4-para{
-  opacity: 0;
+#front-num5-2{
+  position: relative;
+  font-size: 50px;
+
 }
 
-#fen-4-box:hover #fen-4{
-  opacity: 0;
-}
-#fen-4-box:hover #fen-4-para{
-  opacity: 1;
-}
+#ani-5{
 
+   width: 100px;
+   height: 100px;
+   position: absolute;
 
-#ele-5-para{
-  opacity: 0;
-}
-
-#ele-5-box:hover #ele-5{
-  opacity: 0;
-}
-
-#ele-5-box:hover #ele-5-para{
-  opacity: 1;
 }
 
 #ani-5-para{
-  opacity: 0;
+  position: absolute;
+  font-size: 20px;
+  right: 5px;
 }
 
-#ani-5-box:hover #ani-5{
-  opacity: 0;
-}
-
-#ani-5-box:hover #ani-5-para{
-  opacity: 1;
-}
-
-#dan-5-para{
-  opacity: 0;
-}
-
-#dan-5-box:hover #dan-5{
-  opacity: 0;
-}
-#dan-5-box:hover #dan-5-para{
-  opacity: 1;
+.ani-5-box-back h2{
+  position: absolute;
+  right: 80px;
+  font-size: 40px;
+  bottom: 80px;
 }
 
 
-#ill-5-para{
-  opacity: 0;
+#ani-6-box{
+  
+  transform-style: preserve-3d;
+  transition: all 0.5s ease;
+  cursor: pointer;
+
 }
 
-#ill-5-box:hover #ill-5{
-  opacity: 0;
-}
-#ill-5-box:hover #ill-5-para{
-  opacity: 1;
+#ani-6-box:hover{
+  transform: rotateY(180deg);
 }
 
-#crop-5-para{
-  opacity: 0;
+#ani-6-box .ani-6-box-front
+{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+
 }
 
-#crop-5-box:hover #crop-5{
-  opacity: 0;
-}
-#crop-5-box:hover #crop-5-para{
-  opacity: 1;
-}
+#ani-6-box .ani-6-box-back{
 
-#fen-5-para{
-  opacity: 0;
-}
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
 
-#fen-5-box:hover #fen-5{
-  opacity: 0;
-}
-#fen-5-box:hover #fen-5-para{
-  opacity: 1;
 }
 
+#front-num6-2{
+  position: relative;
+  font-size: 50px;
 
-
-#ele-6-para{
-  opacity: 0;
 }
 
-#ele-6-box:hover #ele-6{
-  opacity: 0;
-}
+#ani-6{
 
-#ele-6-box:hover #ele-6-para{
-  opacity: 1;
+   width: 100px;
+   height: 100px;
+   position: absolute;
+
 }
 
 #ani-6-para{
-  opacity: 0;
+  position: absolute;
+  font-size: 20px;
+  right: 5px;
 }
 
-#ani-6-box:hover #ani-6{
-  opacity: 0;
-}
-
-#ani-6-box:hover #ani-6-para{
-  opacity: 1;
-}
-
-#dan-6-para{
-  opacity: 0;
-}
-
-#dan-6-box:hover #dan-6{
-  opacity: 0;
-}
-#dan-6-box:hover #dan-6-para{
-  opacity: 1;
+.ani-6-box-back h2{
+  position: absolute;
+  right: 80px;
+  font-size: 40px;
+  bottom: 80px;
 }
 
 
-#ill-6-para{
-  opacity: 0;
+
+#ani-7-box{
+  
+  transform-style: preserve-3d;
+  transition: all 0.5s ease;
+  cursor: pointer;
+
 }
 
-#ill-6-box:hover #ill-6{
-  opacity: 0;
-}
-#ill-6-box:hover #ill-6-para{
-  opacity: 1;
+#ani-7-box:hover{
+  transform: rotateY(180deg);
 }
 
-#crop-6-para{
-  opacity: 0;
+#ani-7-box .ani-7-box-front
+{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+
 }
 
-#crop-6-box:hover #crop-6{
-  opacity: 0;
-}
-#crop-6-box:hover #crop-6-para{
-  opacity: 1;
+#ani-7-box .ani-7-box-back{
+
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+
 }
 
-#fen-6-para{
-  opacity: 0;
+#front-num7-2{
+  position: relative;
+  font-size: 50px;
+
 }
 
-#fen-6-box:hover #fen-6{
-  opacity: 0;
-}
-#fen-6-box:hover #fen-6-para{
-  opacity: 1;
-}
+#ani-7{
 
+   width: 100px;
+   height: 100px;
+   position: absolute;
 
-#ele-7-para{
-  opacity: 0;
-}
-
-#ele-7-box:hover #ele-7{
-  opacity: 0;
-}
-
-#ele-7-box:hover #ele-7-para{
-  opacity: 1;
 }
 
 #ani-7-para{
-  opacity: 0;
+  position: absolute;
+  font-size: 20px;
+  right: 5px;
 }
 
-#ani-7-box:hover #ani-7{
-  opacity: 0;
+.ani-7-box-back h2{
+  position: absolute;
+  right: 80px;
+  font-size: 40px;
+  bottom: 80px;
 }
 
-#ani-7-box:hover #ani-7-para{
-  opacity: 1;
+#dan-1-box{
+  
+  transform-style: preserve-3d;
+  transition: all 0.5s ease;
+  cursor: pointer;
+
+}
+
+#dan-1-box:hover{
+  transform: rotateY(180deg);
+}
+
+#dan-1-box .dan-1-box-front
+{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+
+}
+
+#dan-1-box .dan-1-box-back{
+
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+
+}
+
+#front-num3{
+  position: relative;
+  font-size: 50px;
+
+}
+
+#dan-1{
+
+   width: 100px;
+   height: 100px;
+   position: absolute;
+
+}
+
+#dan-1-para{
+  position: absolute;
+  font-size: 20px;
+  right: 5px;
+}
+
+.dan-1-box-back h2{
+  position: absolute;
+  right: 80px;
+  font-size: 40px;
+  bottom: 80px;
+}
+
+
+
+#dan-2-box{
+  
+  transform-style: preserve-3d;
+  transition: all 0.5s ease;
+  cursor: pointer;
+
+}
+
+#dan-2-box:hover{
+  transform: rotateY(180deg);
+}
+
+#dan-2-box .dan-2-box-front
+{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+
+}
+
+#dan-2-box .dan-2-box-back{
+
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+
+}
+
+#front-num2-3{
+  position: relative;
+  font-size: 50px;
+
+}
+
+#dan-2{
+
+   width: 100px;
+   height: 100px;
+   position: absolute;
+
+}
+
+#dan-2-para{
+  position: absolute;
+  font-size: 20px;
+  right: 5px;
+}
+
+.dan-2-box-back h2{
+  position: absolute;
+  right: 80px;
+  font-size: 40px;
+  bottom: 80px;
+}
+
+
+#dan-3-box{
+  
+  transform-style: preserve-3d;
+  transition: all 0.5s ease;
+  cursor: pointer;
+
+}
+
+#dan-3-box:hover{
+  transform: rotateY(180deg);
+}
+
+#dan-3-box .dan-3-box-front
+{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+
+}
+
+#dan-3-box .dan-3-box-back{
+
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+
+}
+
+#front-num3-3{
+  position: relative;
+  font-size: 50px;
+
+}
+
+#dan-3{
+
+   width: 100px;
+   height: 100px;
+   position: absolute;
+
+}
+
+#dan-3-para{
+  position: absolute;
+  font-size: 20px;
+  right: 5px;
+}
+
+.dan-3-box-back h2{
+  position: absolute;
+  right: 80px;
+  font-size: 40px;
+  bottom: 80px;
+}
+
+
+#dan-4-box{
+  
+  transform-style: preserve-3d;
+  transition: all 0.5s ease;
+  cursor: pointer;
+
+}
+
+#dan-4-box:hover{
+  transform: rotateY(180deg);
+}
+
+#dan-4-box .dan-4-box-front
+{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+
+}
+
+#dan-4-box .dan-4-box-back{
+
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+
+}
+
+#front-num4-3{
+  position: relative;
+  font-size: 50px;
+
+}
+
+#dan-4{
+
+   width: 100px;
+   height: 100px;
+   position: absolute;
+
+}
+
+#dan-4-para{
+  position: absolute;
+  font-size: 20px;
+  right: 5px;
+}
+
+.dan-4-box-back h2{
+  position: absolute;
+  right: 80px;
+  font-size: 40px;
+  bottom: 80px;
+}
+
+
+#dan-5-box{
+  
+  transform-style: preserve-3d;
+  transition: all 0.5s ease;
+  cursor: pointer;
+
+}
+
+#dan-5-box:hover{
+  transform: rotateY(180deg);
+}
+
+#dan-5-box .dan-5-box-front
+{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+
+}
+
+#dan-5-box .dan-5-box-back{
+
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+
+}
+
+#front-num5-3{
+  position: relative;
+  font-size: 50px;
+
+}
+
+#dan-5{
+
+   width: 100px;
+   height: 100px;
+   position: absolute;
+
+}
+
+#dan-5-para{
+  position: absolute;
+  font-size: 20px;
+  right: 5px;
+}
+
+.dan-5-box-back h2{
+  position: absolute;
+  right: 80px;
+  font-size: 40px;
+  bottom: 80px;
+}
+
+
+#dan-6-box{
+  
+  transform-style: preserve-3d;
+  transition: all 0.5s ease;
+  cursor: pointer;
+
+}
+
+#dan-6-box:hover{
+  transform: rotateY(180deg);
+}
+
+#dan-6-box .dan-6-box-front
+{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+
+}
+
+#dan-6-box .dan-6-box-back{
+
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+
+}
+
+#front-num6-3{
+  position: relative;
+  font-size: 50px;
+
+}
+
+#dan-6{
+
+   width: 100px;
+   height: 100px;
+   position: absolute;
+
+}
+
+#dan-6-para{
+  position: absolute;
+  font-size: 20px;
+  right: 5px;
+}
+
+.dan-6-box-back h2{
+  position: absolute;
+  right: 80px;
+  font-size: 40px;
+  bottom: 80px;
+}
+
+
+#dan-7-box{
+  
+  transform-style: preserve-3d;
+  transition: all 0.5s ease;
+  cursor: pointer;
+
+}
+
+#dan-7-box:hover{
+  transform: rotateY(180deg);
+}
+
+#dan-7-box .dan-7-box-front
+{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+
+}
+
+#dan-7-box .dan-7-box-back{
+
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+
+}
+
+#front-num7-3{
+  position: relative;
+  font-size: 50px;
+
+}
+
+#dan-7{
+
+   width: 100px;
+   height: 100px;
+   position: absolute;
+
 }
 
 #dan-7-para{
-  opacity: 0;
+  position: absolute;
+  font-size: 20px;
+  right: 5px;
 }
 
-#dan-7-box:hover #dan-7{
-  opacity: 0;
-}
-#dan-7-box:hover #dan-7-para{
-  opacity: 1;
+.dan-7-box-back h2{
+  position: absolute;
+  right: 80px;
+  font-size: 40px;
+  bottom: 80px;
 }
 
+
+
+
+#ill-1-box{
+  
+  transform-style: preserve-3d;
+  transition: all 0.5s ease;
+  cursor: pointer;
+
+}
+
+#ill-1-box:hover{
+  transform: rotateY(180deg);
+}
+
+#ill-1-box .ill-1-box-front
+{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+
+}
+
+#ill-1-box .ill-1-box-back{
+
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+
+}
+
+#front-num4{
+  position: relative;
+  font-size: 50px;
+
+}
+
+#ill-1{
+
+   width: 100px;
+   height: 100px;
+   position: absolute;
+
+}
+
+#ill-1-para{
+  position: absolute;
+  font-size: 20px;
+  right: 5px;
+}
+
+.ill-1-box-back h2{
+  position: absolute;
+  right: 80px;
+  font-size: 40px;
+  bottom: 80px;
+}
+
+
+
+#ill-2-box{
+  
+  transform-style: preserve-3d;
+  transition: all 0.5s ease;
+  cursor: pointer;
+
+}
+
+#ill-2-box:hover{
+  transform: rotateY(180deg);
+}
+
+#ill-2-box .ill-2-box-front
+{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+
+}
+
+#ill-2-box .ill-2-box-back{
+
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+
+}
+
+#front-num2-4{
+  position: relative;
+  font-size: 50px;
+
+}
+
+#ill-2{
+
+   width: 100px;
+   height: 100px;
+   position: absolute;
+
+}
+
+#ill-2-para{
+  position: absolute;
+  font-size: 20px;
+  right: 5px;
+}
+
+.ill-2-box-back h2{
+  position: absolute;
+  right: 80px;
+  font-size: 40px;
+  bottom: 80px;
+}
+
+
+#ill-3-box{
+  
+  transform-style: preserve-3d;
+  transition: all 0.5s ease;
+  cursor: pointer;
+
+}
+
+#ill-3-box:hover{
+  transform: rotateY(180deg);
+}
+
+#ill-3-box .ill-3-box-front
+{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+
+}
+
+#ill-3-box .ill-3-box-back{
+
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+
+}
+
+#front-num3-4{
+  position: relative;
+  font-size: 50px;
+
+}
+
+#ill-3{
+
+   width: 100px;
+   height: 100px;
+   position: absolute;
+
+}
+
+#ill-3-para{
+  position: absolute;
+  font-size: 20px;
+  right: 5px;
+}
+
+.ill-3-box-back h2{
+  position: absolute;
+  right: 80px;
+  font-size: 40px;
+  bottom: 80px;
+}
+
+
+
+
+#ill-4-box{
+  
+  transform-style: preserve-3d;
+  transition: all 0.5s ease;
+  cursor: pointer;
+
+}
+
+#ill-4-box:hover{
+  transform: rotateY(180deg);
+}
+
+#ill-4-box .ill-4-box-front
+{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+
+}
+
+#ill-4-box .ill-4-box-back{
+
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+
+}
+
+#front-num4-4{
+  position: relative;
+  font-size: 50px;
+
+}
+
+#ill-4{
+
+   width: 100px;
+   height: 100px;
+   position: absolute;
+
+}
+
+#ill-4-para{
+  position: absolute;
+  font-size: 20px;
+  right: 5px;
+}
+
+.ill-4-box-back h2{
+  position: absolute;
+  right: 80px;
+  font-size: 40px;
+  bottom: 80px;
+}
+
+
+#ill-5-box{
+  
+  transform-style: preserve-3d;
+  transition: all 0.5s ease;
+  cursor: pointer;
+
+}
+
+#ill-5-box:hover{
+  transform: rotateY(180deg);
+}
+
+#ill-5-box .ill-5-box-front
+{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+
+}
+
+#ill-5-box .ill-5-box-back{
+
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+
+}
+
+#front-num5-4{
+  position: relative;
+  font-size: 50px;
+
+}
+
+#ill-5{
+
+   width: 100px;
+   height: 100px;
+   position: absolute;
+
+}
+
+#ill-5-para{
+  position: absolute;
+  font-size: 20px;
+  right: 5px;
+}
+
+.ill-5-box-back h2{
+  position: absolute;
+  right: 80px;
+  font-size: 40px;
+  bottom: 80px;
+}
+
+#ill-6-box{
+  
+  transform-style: preserve-3d;
+  transition: all 0.5s ease;
+  cursor: pointer;
+
+}
+
+#ill-6-box:hover{
+  transform: rotateY(180deg);
+}
+
+#ill-6-box .ill-6-box-front
+{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+
+}
+
+#ill-6-box .ill-6-box-back{
+
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+
+}
+
+#front-num6-4{
+  position: relative;
+  font-size: 50px;
+
+}
+
+#ill-6{
+
+   width: 100px;
+   height: 100px;
+   position: absolute;
+
+}
+
+#ill-6-para{
+  position: absolute;
+  font-size: 20px;
+  right: 5px;
+}
+
+.ill-6-box-back h2{
+  position: absolute;
+  right: 80px;
+  font-size: 40px;
+  bottom: 80px;
+}
+
+
+#ill-7-box{
+  
+  transform-style: preserve-3d;
+  transition: all 0.5s ease;
+  cursor: pointer;
+
+}
+
+#ill-7-box:hover{
+  transform: rotateY(180deg);
+}
+
+#ill-7-box .ill-7-box-front
+{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+
+}
+
+#ill-7-box .ill-7-box-back{
+
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+
+}
+
+#front-num7-4{
+  position: relative;
+  font-size: 50px;
+
+}
+
+#ill-7{
+
+   width: 100px;
+   height: 100px;
+   position: absolute;
+
+}
 
 #ill-7-para{
-  opacity: 0;
+  position: absolute;
+  font-size: 20px;
+  right: 5px;
 }
 
-#ill-7-box:hover #ill-7{
-  opacity: 0;
+.ill-7-box-back h2{
+  position: absolute;
+  right: 80px;
+  font-size: 40px;
+  bottom: 80px;
 }
-#ill-7-box:hover #ill-7-para{
-  opacity: 1;
+
+
+#crop-1-box{
+  
+  transform-style: preserve-3d;
+  transition: all 0.5s ease;
+  cursor: pointer;
+
+}
+
+#crop-1-box:hover{
+  transform: rotateY(180deg);
+}
+
+#crop-1-box .crop-1-box-front
+{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+
+}
+
+#crop-1-box .crop-1-box-back{
+
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+
+}
+
+#front-num5{
+  position: relative;
+  font-size: 50px;
+
+}
+
+#crop-1{
+
+   width: 100px;
+   height: 100px;
+   position: absolute;
+
+}
+
+#crop-1-para{
+  position: absolute;
+  font-size: 20px;
+  right: 5px;
+}
+
+.crop-1-box-back h2{
+  position: absolute;
+  right: 80px;
+  font-size: 40px;
+  bottom: 80px;
+}
+
+
+
+#crop-2-box{
+  
+  transform-style: preserve-3d;
+  transition: all 0.5s ease;
+  cursor: pointer;
+
+}
+
+#crop-2-box:hover{
+  transform: rotateY(180deg);
+}
+
+#crop-2-box .crop-2-box-front
+{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+
+}
+
+#crop-2-box .crop-2-box-back{
+
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+
+}
+
+#front-num2-5{
+  position: relative;
+  font-size: 50px;
+
+}
+
+#crop-2{
+
+   width: 100px;
+   height: 100px;
+   position: absolute;
+
+}
+
+#crop-2-para{
+  position: absolute;
+  font-size: 20px;
+  right: 5px;
+}
+
+.crop-2-box-back h2{
+  position: absolute;
+  right: 80px;
+  font-size: 40px;
+  bottom: 80px;
+}
+
+
+
+#crop-3-box{
+  
+  transform-style: preserve-3d;
+  transition: all 0.5s ease;
+  cursor: pointer;
+
+}
+
+#crop-3-box:hover{
+  transform: rotateY(180deg);
+}
+
+#crop-3-box .crop-3-box-front
+{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+
+}
+
+#crop-3-box .crop-3-box-back{
+
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+
+}
+
+#front-num3-5{
+  position: relative;
+  font-size: 50px;
+
+}
+
+#crop-3{
+
+   width: 100px;
+   height: 100px;
+   position: absolute;
+
+}
+
+#crop-3-para{
+  position: absolute;
+  font-size: 20px;
+  right: 5px;
+}
+
+.crop-3-box-back h2{
+  position: absolute;
+  right: 80px;
+  font-size: 40px;
+  bottom: 80px;
+}
+
+
+
+
+#crop-4-box{
+  
+  transform-style: preserve-3d;
+  transition: all 0.5s ease;
+  cursor: pointer;
+
+}
+
+#crop-4-box:hover{
+  transform: rotateY(180deg);
+}
+
+#crop-4-box .crop-4-box-front
+{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+
+}
+
+#crop-4-box .crop-4-box-back{
+
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+
+}
+
+#front-num4-5{
+  position: relative;
+  font-size: 50px;
+
+}
+
+#crop-4{
+
+   width: 100px;
+   height: 100px;
+   position: absolute;
+
+}
+
+#crop-4-para{
+  position: absolute;
+  font-size: 20px;
+  right: 5px;
+}
+
+.crop-4-box-back h2{
+  position: absolute;
+  right: 80px;
+  font-size: 40px;
+  bottom: 80px;
+}
+
+
+
+#crop-5-box{
+  
+  transform-style: preserve-3d;
+  transition: all 0.5s ease;
+  cursor: pointer;
+
+}
+
+#crop-5-box:hover{
+  transform: rotateY(180deg);
+}
+
+#crop-5-box .crop-5-box-front
+{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+
+}
+
+#crop-5-box .crop-5-box-back{
+
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+
+}
+
+#front-num5-5{
+  position: relative;
+  font-size: 50px;
+
+}
+
+#crop-5{
+
+   width: 100px;
+   height: 100px;
+   position: absolute;
+
+}
+
+#crop-5-para{
+  position: absolute;
+  font-size: 20px;
+  right: 5px;
+}
+
+.crop-5-box-back h2{
+  position: absolute;
+  right: 80px;
+  font-size: 40px;
+  bottom: 80px;
+}
+
+
+
+
+#crop-6-box{
+  
+  transform-style: preserve-3d;
+  transition: all 0.5s ease;
+  cursor: pointer;
+
+}
+
+#crop-6-box:hover{
+  transform: rotateY(180deg);
+}
+
+#crop-6-box .crop-6-box-front
+{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+
+}
+
+#crop-6-box .crop-6-box-back{
+
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+
+}
+
+#front-num6-5{
+  position: relative;
+  font-size: 50px;
+
+}
+
+#crop-6{
+
+   width: 100px;
+   height: 100px;
+   position: absolute;
+
+}
+
+#crop-6-para{
+  position: absolute;
+  font-size: 20px;
+  right: 5px;
+}
+
+.crop-6-box-back h2{
+  position: absolute;
+  right: 80px;
+  font-size: 40px;
+  bottom: 80px;
+}
+
+
+
+#crop-7-box{
+  
+  transform-style: preserve-3d;
+  transition: all 0.5s ease;
+  cursor: pointer;
+
+}
+
+#crop-7-box:hover{
+  transform: rotateY(180deg);
+}
+
+#crop-7-box .crop-7-box-front
+{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+
+}
+
+#crop-7-box .crop-7-box-back{
+
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+
+}
+
+#front-num7-5{
+  position: relative;
+  font-size: 50px;
+
+}
+
+#crop-7{
+
+   width: 100px;
+   height: 100px;
+   position: absolute;
+
 }
 
 #crop-7-para{
-  opacity: 0;
+  position: absolute;
+  font-size: 20px;
+  right: 5px;
 }
 
-#crop-7-box:hover #crop-7{
-  opacity: 0;
+.crop-7-box-back h2{
+  position: absolute;
+  right: 80px;
+  font-size: 40px;
+  bottom: 80px;
 }
-#crop-7-box:hover #crop-7-para{
-  opacity: 1;
+#fen-1-box{
+  
+  transform-style: preserve-3d;
+  transition: all 0.5s ease;
+  cursor: pointer;
+
+}
+
+#fen-1-box:hover{
+  transform: rotateY(180deg);
+}
+
+#fen-1-box .fen-1-box-front
+{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+
+}
+
+#fen-1-box .fen-1-box-back{
+
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+
+}
+
+#front-num6{
+  position: relative;
+  font-size: 50px;
+
+}
+
+#fen-1{
+
+   width: 100px;
+   height: 100px;
+   position: absolute;
+
+}
+
+#fen-1-para{
+  position: absolute;
+  font-size: 20px;
+  right: 5px;
+}
+
+.fen-1-box-back h2{
+  position: absolute;
+  right: 80px;
+  font-size: 40px;
+  bottom: 80px;
+}
+
+
+#fen-2-box{
+  
+  transform-style: preserve-3d;
+  transition: all 0.5s ease;
+  cursor: pointer;
+
+}
+
+#fen-2-box:hover{
+  transform: rotateY(180deg);
+}
+
+#fen-2-box .fen-2-box-front
+{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+
+}
+
+#fen-2-box .fen-2-box-back{
+
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+
+}
+
+#front-num2-6{
+  position: relative;
+  font-size: 50px;
+
+}
+
+#fen-2{
+
+   width: 100px;
+   height: 100px;
+   position: absolute;
+
+}
+
+#fen-2-para{
+  position: absolute;
+  font-size: 20px;
+  right: 5px;
+}
+
+.fen-2-box-back h2{
+  position: absolute;
+  right: 80px;
+  font-size: 40px;
+  bottom: 80px;
+}
+
+
+
+#fen-3-box{
+  
+  transform-style: preserve-3d;
+  transition: all 0.5s ease;
+  cursor: pointer;
+
+}
+
+#fen-3-box:hover{
+  transform: rotateY(180deg);
+}
+
+#fen-3-box .fen-3-box-front
+{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+
+}
+
+#fen-3-box .fen-3-box-back{
+
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+
+}
+
+#front-num3-6{
+  position: relative;
+  font-size: 50px;
+
+}
+
+#fen-3{
+
+   width: 100px;
+   height: 100px;
+   position: absolute;
+
+}
+
+#fen-3-para{
+  position: absolute;
+  font-size: 20px;
+  right: 5px;
+}
+
+.fen-3-box-back h2{
+  position: absolute;
+  right: 80px;
+  font-size: 40px;
+  bottom: 80px;
+}
+
+
+#fen-4-box{
+  
+  transform-style: preserve-3d;
+  transition: all 0.5s ease;
+  cursor: pointer;
+
+}
+
+#fen-4-box:hover{
+  transform: rotateY(180deg);
+}
+
+#fen-4-box .fen-4-box-front
+{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+
+}
+
+#fen-4-box .fen-4-box-back{
+
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+
+}
+
+#front-num4-6{
+  position: relative;
+  font-size: 50px;
+
+}
+
+#fen-4{
+
+   width: 100px;
+   height: 100px;
+   position: absolute;
+
+}
+
+#fen-4-para{
+  position: absolute;
+  font-size: 20px;
+  right: 5px;
+}
+
+.fen-4-box-back h2{
+  position: absolute;
+  right: 80px;
+  font-size: 40px;
+  bottom: 80px;
+}
+
+
+#fen-5-box{
+  
+  transform-style: preserve-3d;
+  transition: all 0.5s ease;
+  cursor: pointer;
+
+}
+
+#fen-5-box:hover{
+  transform: rotateY(180deg);
+}
+
+#fen-5-box .fen-5-box-front
+{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+
+}
+
+#fen-5-box .fen-5-box-back{
+
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+
+}
+
+#front-num5-6{
+  position: relative;
+  font-size: 50px;
+
+}
+
+#fen-5{
+
+   width: 100px;
+   height: 100px;
+   position: absolute;
+
+}
+
+#fen-5-para{
+  position: absolute;
+  font-size: 20px;
+  right: 5px;
+}
+
+.fen-5-box-back h2{
+  position: absolute;
+  right: 80px;
+  font-size: 40px;
+  bottom: 80px;
+}
+
+
+#fen-6-box{
+  
+  transform-style: preserve-3d;
+  transition: all 0.5s ease;
+  cursor: pointer;
+
+}
+
+#fen-6-box:hover{
+  transform: rotateY(180deg);
+}
+
+#fen-6-box .fen-6-box-front
+{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+
+}
+
+#fen-6-box .fen-6-box-back{
+
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+
+}
+
+#front-num6-6{
+  position: relative;
+  font-size: 50px;
+
+}
+
+#fen-6{
+
+   width: 100px;
+   height: 100px;
+   position: absolute;
+
+}
+
+#fen-6-para{
+  position: absolute;
+  font-size: 20px;
+  right: 5px;
+}
+
+.fen-6-box-back h2{
+  position: absolute;
+  right: 80px;
+  font-size: 40px;
+  bottom: 80px;
+}
+
+
+#fen-7-box{
+  
+  transform-style: preserve-3d;
+  transition: all 0.5s ease;
+  cursor: pointer;
+
+}
+
+#fen-7-box:hover{
+  transform: rotateY(180deg);
+}
+
+#fen-7-box .fen-7-box-front
+{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+
+}
+
+#fen-7-box .fen-7-box-back{
+
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+
+}
+
+#front-num7-6{
+  position: relative;
+  font-size: 50px;
+
+}
+
+#fen-7{
+
+   width: 100px;
+   height: 100px;
+   position: absolute;
+
 }
 
 #fen-7-para{
-  opacity: 0;
+  position: absolute;
+  font-size: 20px;
+  right: 5px;
 }
 
-#fen-7-box:hover #fen-7{
-  opacity: 0;
-}
-#fen-7-box:hover #fen-7-para{
-  opacity: 1;
-}
-
-
-
-
-#ele-8-para{
-  opacity: 0;
-}
-
-#ele-8-box:hover #ele-8{
-  opacity: 0;
-}
-
-#ele-8-box:hover #ele-8-para{
-  opacity: 1;
-}
-
-#ani-8-para{
-  opacity: 0;
-}
-
-#ani-8-box:hover #ani-8{
-  opacity: 0;
-}
-
-#ani-8-box:hover #ani-8-para{
-  opacity: 1;
-}
-
-#dan-8-para{
-  opacity: 0;
-}
-
-#dan-8-box:hover #dan-8{
-  opacity: 0;
-}
-#dan-8-box:hover #dan-8-para{
-  opacity: 1;
+.fen-7-box-back h2{
+  position: absolute;
+  right: 80px;
+  font-size: 40px;
+  bottom: 80px;
 }
 
 
-#ill-8-para{
-  opacity: 0;
-}
 
-#ill-8-box:hover #ill-8{
-  opacity: 0;
-}
-#ill-8-box:hover #ill-8-para{
-  opacity: 1;
-}
 
-#crop-8-para{
-  opacity: 0;
-}
-
-#crop-8-box:hover #crop-8{
-  opacity: 0;
-}
-#crop-8-box:hover #crop-8-para{
-  opacity: 1;
-}
-
-#fen-8-para{
-  opacity: 0;
-}
-
-#fen-8-box:hover #fen-8{
-  opacity: 0;
-}
-#fen-8-box:hover #fen-8-para{
-  opacity: 1;
+.ele-button{
+    margin-left: 60px;
+    border:none;
+    border-radius: 10px;
+    margin-top: 70px;
+    margin-bottom: 20px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 16px;
+    padding-right: 16px;
+    font-size: 24px;
+    box-shadow: white 2px;
+    color: darkgreen;
+    cursor: pointer;
 }
 
 
@@ -1581,8 +3505,79 @@ input[type="checkbox"]{
 
 
 
+.inci img{
+
+  width: 90px;
+  height: 70px;
+  position: absolute;
+}
+
+.inci h2{
+
+  margin-left: 110px;
+  margin-top: 60px;
+  margin-bottom: 0;
+  color: darkgreen;
+  font-size: 60px;
+}
+.inci p{
+
+  margin-top: 0;
+  color: darkgreen;
+  margin-left: 60px;
+}
+.inci label{
+
+  margin-top: 0;
+  margin-left: 120px;
+  color: blue;
+  color: darkgreen;
+  cursor: pointer;
+}
 
 
+
+
+ #front-num1{
+
+  position: absolute;
+  top:-50px;
+
+}
+
+#front-num2{
+
+  position: absolute;
+  top:-50px;
+
+}
+#front-num3{
+
+  position: absolute;
+  top:-50px;
+
+}
+
+#front-num4{
+
+  position: absolute;
+  top:-50px;
+
+}
+
+#front-num5{
+
+  position: absolute;
+  top:-50px;
+
+}
+
+#front-num6{
+
+  position: absolute;
+  top:-50px;
+
+}
 
 
 

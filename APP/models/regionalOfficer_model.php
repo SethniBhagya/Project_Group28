@@ -399,9 +399,9 @@ class regionalOfficer_model extends Model
 		];
 		
         
-		$activeMapLocation=($this->db->runQuery("SELECT incidentID,lat,lon,reporttype,villager_NIC,description FROM reported_incident WHERE status='pending'"));
-		$successMapLocation=($this->db->runQuery("SELECT incidentID,lat,lon,reporttype,villager_NIC,description FROM reported_incident WHERE status='success'"));
-		$unsuccessMapLocation=($this->db->runQuery("SELECT incidentID,lat,lon,reporttype,villager_NIC,description FROM reported_incident WHERE status='unsuccess'"));
+		$activeMapLocation=($this->db->runQuery("SELECT reported_incident.incidentID AS incidentID,reported_incident.lat AS lat,reported_incident.lon AS lon,reported_incident.reporttype AS reporttype,reported_incident.villager_NIC AS villager_NIC,reported_incident.description AS description FROM reported_incident,village,gn_division WHERE reported_incident.status='pending' AND village.village_code=reported_incident.village_code AND village.GND_Code=gn_division.GND_Code AND gn_division.district_name='$district' "));
+		$successMapLocation=($this->db->runQuery("SELECT reported_incident.incidentID AS incidentID,reported_incident.lat AS lat,reported_incident.lon AS lon,reported_incident.reporttype AS reporttype,reported_incident.villager_NIC AS villager_NIC,reported_incident.description AS description FROM reported_incident,village,gn_division WHERE reported_incident.status='success' AND village.village_code=reported_incident.village_code AND village.GND_Code=gn_division.GND_Code AND gn_division.district_name='$district' "));
+		$unsuccessMapLocation=($this->db->runQuery("SELECT reported_incident.incidentID AS incidentID,reported_incident.lat AS lat,reported_incident.lon AS lon,reported_incident.reporttype AS reporttype,reported_incident.villager_NIC AS villager_NIC,reported_incident.description AS description FROM reported_incident,village,gn_division WHERE reported_incident.status='unsuccess' AND village.village_code=reported_incident.village_code AND village.GND_Code=gn_division.GND_Code AND gn_division.district_name='$district' "));
 
 		$districtActiveLocation=[
 
