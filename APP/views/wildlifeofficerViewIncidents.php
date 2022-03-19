@@ -69,13 +69,6 @@ if (isset($_SESSION['jobtype'])) {
     </nav>
   </header>
 
-  <!-- <div class="links_to_pages">
-      <ul>
-        <li>BACK</li>
-        <li>SPECIAL NOTICES</li>
-        <li>DASHBOARD</li>
-      </ul>
-    </div> -->
 
   <div class="container_3">
 
@@ -263,8 +256,6 @@ if (isset($_SESSION['jobtype'])) {
 
       </div>
       <div class="subcontainer_3-1">
-
-        <!-- <a href="../wildlifeofficer/?lang=1">BACK</a> -->
 
       </div>
       <div></div>
