@@ -1,4 +1,5 @@
 <?php
+
 class Route{
 
 	protected $_routes=null;  //associative array
@@ -32,17 +33,172 @@ class Route{
 		$this->_routes = explode('/',$url);//user/register= [0]=>user,[1]=>register
 	}
 	private function _loadController(){
+		
+		if(session_status()===PHP_SESSION_NONE)
+		{
+			session_start();
+            session_regenerate_id();
+
+		}
 		//get the require path file into file variable
 		$file = 'APP/controllers/'.$this->_routes[0].'.php';
 		//if already have
 		if(file_exists($file)){
 			//require the file
-			require $file;
-			//assign into  
-			$this->_params = new $this->_routes[0];
-			//load the model in each controller
-			$this->_params->loadModel($this->_routes[0]);
-			return true;
+			$controllerName=$this->_routes[0];
+			switch ($controllerName) {
+				case 'admin':{
+
+					if(isset($_SESSION["NIC"])&&$_SESSION["jobtype"]=="admin")
+					{
+						require $file;
+			            //assign into  
+			            $this->_params = new $this->_routes[0];
+			           //load the model in each controller
+			            $this->_params->loadModel($this->_routes[0]);
+			            return true;
+
+					}
+					else
+						header("Location: ../user/index");
+
+
+				}
+					
+					break;
+				case 'user':{
+					require $file;
+			        //assign into  
+			        $this->_params = new $this->_routes[0];
+			        //load the model in each controller
+			        $this->_params->loadModel($this->_routes[0]);
+			        return true;
+					
+				}
+					
+				break;
+				case 'villager':{
+
+					if(isset($_SESSION["NIC"])&&$_SESSION["jobtype"]=="villager")
+					{
+						require $file;
+			            //assign into  
+			            $this->_params = new $this->_routes[0];
+			           //load the model in each controller
+			            $this->_params->loadModel($this->_routes[0]);
+			            return true;
+
+					}
+					else
+						header("Location: ../user/index");
+
+
+				}
+					
+					break;
+				case 'wildlifeofficer':{
+
+					if(isset($_SESSION["NIC"])&&$_SESSION["jobtype"]=="Wildlife Officer")
+					{
+						require $file;
+			            //assign into  
+			            $this->_params = new $this->_routes[0];
+			           //load the model in each controller
+			            $this->_params->loadModel($this->_routes[0]);
+			            return true;
+
+					}
+					else
+						header("Location: ../user/index");
+
+
+				}
+					
+					break;
+
+				case 'veterinarian':{
+
+					if(isset($_SESSION["NIC"])&&$_SESSION["jobtype"]=="veterinarian")
+					{
+						require $file;
+			            //assign into  
+			            $this->_params = new $this->_routes[0];
+			           //load the model in each controller
+			            $this->_params->loadModel($this->_routes[0]);
+			            return true;
+
+					}
+					else
+						header("Location: ../user/index");
+
+
+				}
+					
+					break;
+				case 'gramaniladari':{
+
+					if(isset($_SESSION["NIC"])&&$_SESSION["jobtype"]=="Grama Niladhari")
+					{
+						require $file;
+			            //assign into  
+			            $this->_params = new $this->_routes[0];
+			           //load the model in each controller
+			            $this->_params->loadModel($this->_routes[0]);
+			            return true;
+
+					}
+					else
+						header("Location: ../user/index");
+
+
+				}
+					
+					break;
+
+				case 'incident':{
+
+					if(isset($_SESSION["NIC"])&&($_SESSION["jobtype"]=="Grama Niladhari" || $_SESSION["jobtype"]=="villager"))
+					{
+						require $file;
+			            //assign into  
+			            $this->_params = new $this->_routes[0];
+			           //load the model in each controller
+			            $this->_params->loadModel($this->_routes[0]);
+			            return true;
+
+					}
+					else
+						header("Location: ../user/index");
+
+
+				}
+					
+					break;
+			    case 'dashboard':{
+
+					if(isset($_SESSION["NIC"])&&($_SESSION["jobtype"]=="Grama Niladhari" || $_SESSION["jobtype"]=="villager"))
+					{
+						require $file;
+			            //assign into  
+			            $this->_params = new $this->_routes[0];
+			           //load the model in each controller
+			            $this->_params->loadModel($this->_routes[0]);
+			            return true;
+
+					}
+					else
+						header("Location: ../user/index");
+
+
+				}
+					
+					break;
+
+
+				
+				
+			}
+			
 		}
 		else{
 			//if not have controller load error 
@@ -86,18 +242,9 @@ class Route{
 			   $this->_params->{$this->_routes[1]}($this->_routes[2]);
 			   break;
 			  case 2:
-			  {
-			  	//pass methods
-			  	
-			  	if(isset($_SESSION["NIC"])||$this->_routes[0]=='user')
-			     $this->_params->{$this->_routes[1]}();
-			    else
-			    	header("Location: ../user/index");
-
-			   
-
-			  }
-			  break;
+               //pass methods
+               $this->_params->{$this->_routes[1]}();
+               break;
 				
 			  default:
 			   //call index function in controller

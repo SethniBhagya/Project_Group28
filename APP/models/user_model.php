@@ -137,15 +137,15 @@ class user_model extends Model{
     public function getAlerStatus($NIC){
         return $this->db->runQuery("SELECT `alertstatus` FROM `alert` WHERE NIC= '$NIC'");
     }
-<<<<<<< HEAD
+
     public function setAlerStatus($NIC){
         $this->db->runQuery("UPDATE `alert` SET  `alertstatus`='view'    WHERE NIC= '$NIC'");
         
     } 
      
-=======
+
 
     
 
->>>>>>> 13976e7baeef459d45eb6872e11c549fd324edc3
+
 }

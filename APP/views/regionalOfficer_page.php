@@ -339,31 +339,7 @@
 
                           );
 
-                        // var infoActiveOptions={
-                        //   content:markerContent,
-                        //   position:{lat:lati,lng:long}
-                        // };
-
-                        // var infoWindowActive=new google.maps.infoWindow(infoActiveOptions);
-
-                        // var infoActiveOpenOptions={
-                        //   map:mapActive
-                        // };
-
-                        // infoWindowActive.open(infoActiveOpenOptions);
-
-                        // mapActive.addListener("center_changed", () => {
-                        //                             // 3 seconds after the center of the map has changed, pan back to the
-                        //                             // marker.
-                        //     window.setTimeout(() => {
-                        //       mapActive.panTo(markerActive.getPosition());
-                        //     }, 3000);
-                        //   });
-                        //   markerActive.addListener("click", () => {
-                        //     mapActive.setZoom(12);
-                        //     mapActive.setCenter(markerActive.getPosition());
-                        //   });
-
+                        
                         
 
 
