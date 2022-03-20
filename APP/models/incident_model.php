@@ -99,7 +99,7 @@ class incident_model extends Model{
         if($_SESSION['jobtype']=='villager'){ 
           $this->db->runQuery("INSERT INTO `reported_incident`(`incidentID`,`gramaniladari_NIC`,`villager_NIC`, `village_code`, `officeNo`,`time_in`, `date`, `image`, `status`, `description`,`Place`, `lat`, `lon`,`reporttype`) VALUES ( '',(SELECT  `gramaniladhari_NIC` FROM `lives` WHERE villager_NIC= '$id' ), (SELECT `NIC` FROM `villager` WHERE NIC= '$id'), (SELECT  `village_code` FROM `lives` WHERE villager_NIC= '$id' ),(SELECT  `officeNo` FROM `village` WHERE village_code=(SELECT  `village_code` FROM `lives` WHERE villager_NIC= '$id' )),  '$time', '$date', '$photo','pending',' ','$place', '$latitude','$longitude','Illegal Thing happening the Forest')"); 
         }else{
-            $this->db->runQuery("INSERT INTO `reported_incident`(`incidentID`,`gramaniladari_NIC`,`villager_NIC`,  `village_code`, `officeNo`,`time_in`, `date`, `image`, `status`, `description`,`Place`, `lat`, `lon`,`reporttype`) VALUES ( '', '$id' ,'$id' , '$villagerCode' ,$officeNo,  '$time', '$date', '$photo','pending','','$place',' $latitude','$longitude','Illegal Thing happening the Forest' )");  
+            $this->db->runQuery("INSERT INTO `reported_incident`(`incidentID`,`gramaniladari_NIC`,`villager_NIC`,  `village_code`, `officeNo`,`time_in`, `date`, `image`, `status`, `description`,`Place`, `lat`, `lon`,`reporttype`) VALUES ( '', '$id' ,'$id' , '$villagerCode' ,$officeNo,  '$time', '$date', '$photo','pending','','$place',' $latitude','$longitude','Illegal Thing happening the Forest   ' )");  
 
         }
           $this->db->runQuery("INSERT INTO `illegal_things`(`incidentID`) VALUES ((SELECT  `incidentID` FROM `reported_incident` WHERE   time_in='$time' ))");

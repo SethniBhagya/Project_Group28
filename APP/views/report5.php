@@ -12,7 +12,7 @@
     <script src="../Public/javascript/report5.js"></script>
     <script src="../Public/javascript/login1.js"></script>
     
-    <title>Other Wild Animals are in the Village</title>
+    <title>Wild Animal Danger</title>
 </head>
 <body>
     <header id="main">
@@ -30,12 +30,12 @@
                 <li id="report_2"><a href="../incident/index?lang=1">Report Incidents</a></li>
                 <li id="special_1"><a href="../user/viewSpecialNotice?lang=1">SpecialNotice </a></li> 
                 <div class="dropdown-1">
-                    <button class="dropbtn-1">Language</button>
+                    <button class="dropbtn-1">භාෂාව</button>
                     <div class="dropdown-content-1">
-                     <a href="?lang=1&report=5">English</a>
-                     <a href="../user/editprofile">View Profile</a>
-                        <a href="../user/logout">Logout</a>
-                    </div>
+                    <a href="?lang=1&report=5">English</a>
+                        <a href="?lang=2&report=5">සිංහල</a> 
+                        <a href="?lang=3&report=5">தமிழ்</a>
+                 </div>
                   </div>
                 <li class="dropdown">
                     <span class="dot"> <img onclick="myFunction_2(this)" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>

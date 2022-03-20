@@ -359,6 +359,61 @@
             //assign the value
             $lang = $_GET['lang'];
         }
+<<<<<<< HEAD
+     } 
+
+    public function getNotice(){
+        $NIC=$_SESSION["NIC"];
+
+        $lastNoticeID=$this->model->getLastNoticeId($NIC);
+        $village_code=$this->model->getUserVillageCode($NIC);
+        $newNoticeDetails=$this->model->getNewNoticeDetails($village_code,$lastNoticeID);
+
+        if($newNoticeDetails!="No"){
+
+            $noticeHtml="
+
+        <div id=\"new-notice\">
+
+           <img src=\"../Public/images/notice.jpg\">
+           <h1>Date:".$newNoticeDetails["date"]."&emsp;Time:".$newNoticeDetails["time"]."</h1>
+           <p>".$newNoticeDetails["description"]."</p>
+           <audio id=\"audio\" autoplay loop  controls src=\"http://www.raypinson.com/ringtones/CarAlarm.mp3\"></audio>
+           <button id=\"ok-btn\" value=".$newNoticeDetails["noticeID"]." onclick=\"endNotice(this.value)\">Okay</button>
+
+
+        </div>
+
+
+
+
+        ";
+
+        echo $noticeHtml;
+
+        }
+
+        
+
+
+
+
+    }
+
+
+    public function endNotice(){
+
+        $noticeId=$_POST["noticeId"];
+        $url=$_GET['url'];
+        $url  = rtrim($url,'/');
+        $url  = filter_var($url,FILTER_SANITIZE_URL);
+        $url = explode('/',$url);
+
+        $this->model->updateNotice($noticeId,$_SESSION["NIC"]);
+        header("Location: ../villager/".$url[1]);
+
+    } 
+=======
         
         $this->view->status = $this->checkAlerStatus($_SESSION['NIC']);
         $this->view->notification = $this->checkNotificationStatus($_SESSION['NIC']);
@@ -397,6 +452,7 @@
               break;
           }
      }  
+>>>>>>> 342e2a17a5e07fda17b8620411c3cf0766b43c49
 
 }
 

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+status
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -121,7 +121,7 @@
             </thead>
             <tbody>
               <?php $rows=$data["reportedIncidentDetails"]; foreach($rows as $row){
-                echo "<tr><td>".$row["reporttype"]."</td><td>".$row["date"]."</td><td>".$row["time_In"]."</td><td>".$row["status"]."</td><td>".$row["description"]."</td><td>".$row["villager_NIC"]."</td></tr>";
+                echo "<tr><td>".$row["reporttype"]."</td><td>".$row["date"]."</td><td>".$row["time_In"]."</td><td>".$row["incidentStatus"]."</td><td>".$row["description"]."</td><td>".$row["villager_NIC"]."</td></tr>";
               }?>
             </tbody>
           </table>
@@ -145,7 +145,7 @@
           </tr>
           <tr>
             <td width="40%"><label class="lbl-tbl">Status</label></td>
-            <td width="40%" class="lbl-tbl"><?php if($data["status"])echo "Active";else echo "Not Accepted any Incident";?></td>
+            <td width="40%" class="lbl-tbl"><?php if($data["incidentStatus"])echo "Active";else echo "Not Accepted any Incident";?></td>
             
           </tr>
           

@@ -243,10 +243,8 @@ class regionalOfficer extends user{
 
 		// if(!empty($_SESSION["NIC"]) and $_SESSION["jobtype"]=="regional Officer"){
             $district=$this->model->getRegionalDistrict($_SESSION["NIC"]);
-            
-		
-		    $data=$this->model->getUser($district);
-			$this->view->render("regionalOfficer_userView",$data);
+            $data=$this->model->getUser($district);
+			      $this->view->render("regionalOfficer_userView",$data);
              
 	                // }
 	    // else{
@@ -260,7 +258,8 @@ class regionalOfficer extends user{
 	public function dashboard(){
         
         //get data related to dashboard
-	    $data=$this->model->getDataDashboard('polonnaruwa');
+      $district=$this->model->getRegionalDistrict($_SESSION["NIC"]);
+      $data=$this->model->getDataDashboard($district);
         //redirect to dashboard and pass the data
         $this->view->render('regionalOfficer_page',$data);
     }
@@ -318,9 +317,13 @@ class regionalOfficer extends user{
     public function endNotice(){
 
     	$noticeId=$_POST["noticeId"];
+      $url=$_GET['url'];
+      $url  = rtrim($url,'/');
+      $url  = filter_var($url,FILTER_SANITIZE_URL);
+      $url = explode('/',$url);
 
     	$this->model->updateNotice($noticeId,$_SESSION["NIC"]);
-    	header("Location: ../regionalOfficer/dashboard");
+    	header("Location: ../regionalOfficer/".$url[1]);
 
     }
 

@@ -11,8 +11,12 @@ use PHPMailer\PHPMailer\Exception;
 
 
 use Twilio\Rest\Client;
-session_start();
-session_regenerate_id();
+if(session_status()===PHP_SESSION_NONE)
+    {
+      session_start();
+      session_regenerate_id();
+
+    }
 
 class admin extends user{
 
@@ -92,16 +96,12 @@ class admin extends user{
         
 
         
-        //********this should be correct******
-        if(!empty($_SESSION["NIC"]) and $_SESSION["jobtype"]=="admin"){
+        
+        
             
 		         $this->view->render("admin_register",$dropDownData);
              
-	        }
-	    else{
-	    	header("Location: ../user/index");
-	    }
-	    	
+	       
 
 
 		    if($_SERVER["REQUEST_METHOD"]=="POST"){
@@ -269,17 +269,15 @@ class admin extends user{
 
 	public function viewUser(){
 
-		if(!empty($_SESSION["NIC"]) and $_SESSION["jobtype"]=="admin"){
+		
             
 		    //get users details
 		    $data=$this->model->getUser();
         //render admins's view user page and pass relevant data
 			$this->view->render("user_view",$data);
              
-	                }
-	    else{
-	    	header("Location: ../user/index");
-	    }
+	                
+	    
 	    	
 
 	}
@@ -588,6 +586,11 @@ class admin extends user{
       }
       $this->view->render("adminReportedIncident",$data);
     }
+
+  public function viewProfile()
+  {
+
+  }
 
  
 

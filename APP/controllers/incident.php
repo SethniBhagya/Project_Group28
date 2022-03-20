@@ -46,7 +46,8 @@ class incident extends Controller
              switch ($_SESSION["jobtype"]) {
                  
               case 'villager':
-                  if($regStatus!='pending'){  switch ($type) {
+                 if($regStatus!='pending'){ 
+                  switch ($type) {
                       
                    case 1:
                     //English type     
@@ -69,7 +70,7 @@ class incident extends Controller
                         $this->model->setAlerStatus($_SESSION['NIC']); 
                    }
                     break;
-                }
+               }
              }
              break;
              case 'gramaniladari':
@@ -258,10 +259,13 @@ class incident extends Controller
                 if(isset($_POST['Submit'])){
                     //call insertReport function in incident_model class 
                     $this->model->insertReport1($_SESSION['NIC'], $_POST['noOfelephant'], $_POST['Reg'], $_POST['Photo'],$_POST['place'], $_POST['latitude'],$_POST['longitude'] );
-                    //$this->sendEmail($_POST['email'],"Incident Report is Submit Successfully","Wildlife Officer Accept Your incident Soon has Possible" );
-                        
+                    $this->sendEmail($email,"Wild Elephant are in The Village Incident Report is Submit Successfully","Wildlife Officer Accept Your incident Report Soon has Possible" );
+                    $this->model->addNotification($_SESSION['NIC'],"Wild Elephant are in The Village","Report Submit Sucessfully");  
+                      
                 }
                 break;
+                case "2":
+                    $this->view->render('report2sinhala');
                  //user submit the form 
                  if(isset($_POST['Submit'])){
                     //call insertReport function in incident_model class
@@ -393,7 +397,7 @@ class incident extends Controller
              //assign the value
             $lang = $_GET['lang'];
         }
-        session_start();
+    
         $this->view->dataAllPending  = $this->model->getDataPending($_SESSION['NIC']);
         $rowsPending =  $this->model->getReportrowsPending($_SESSION['NIC']);
        
@@ -494,7 +498,7 @@ class incident extends Controller
                         $this->view->render('villagerReportView3sinhala');
                         break;
                 }
-                  
+                break;
              case 3:
                 switch ($type) {
                     case 1:

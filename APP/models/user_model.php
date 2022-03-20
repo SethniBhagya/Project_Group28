@@ -124,9 +124,12 @@ class user_model extends Model
     {
         return $this->db->runQuery("SELECT `alertstatus` FROM `alert` WHERE NIC= '$NIC'");
     }
+ 
+ 
     public function getNotificationStatus($NIC){
         return $this->db->runQuery("SELECT COUNT(*) AS numberofnotification FROM `notification` WHERE NIC= '$NIC' and`status`='notview'");
     }
+ 
     public function setAlerStatus($NIC){
         $this->db->runQuery("UPDATE `alert` SET  `alertstatus`='view'    WHERE NIC= '$NIC'");
         
@@ -134,5 +137,16 @@ class user_model extends Model
     public function  selectRegStatus($NIC) {
         return $this->db->runQuery("SELECT `registrationStatus` FROM `villager_registration` WHERE Villager_NIC= '$NIC'");
     }
-     
+ 
+
+
+    
+
+ 
+ 
+    // public function setAlerStatus($NIC)
+    // {
+    //     $this->db->runQuery("UPDATE `alert` SET  `alertstatus`='view'    WHERE NIC= '$NIC'");
+    // }
 }
+ 

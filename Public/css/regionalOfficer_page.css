@@ -819,8 +819,8 @@ input[type="checkbox"]{
 .chart1{
   position: absolute;
   background-color: #ffffff;
-  width: 500px;
-  height: 500px;
+  width: 400px;
+  height: 400px;
   margin-left: 20px;
   top: 1vh;
   box-shadow: 4px 4px 4px 4px rgba(0, 251, 10, 0.16);
@@ -829,9 +829,9 @@ input[type="checkbox"]{
 .chart2{
   position: absolute;
   background-color: #ffffff;
-  width: 500px;
-  height: 500px;
-  margin-left: 550px;
+  width: 400px;
+  height: 400px;
+  margin-left: 520px;
   top: 1vh;
   box-shadow: 4px 4px 4px 4px rgba(0, 251, 10, 0.16);
 }
@@ -839,9 +839,9 @@ input[type="checkbox"]{
 .chart3{
   position: absolute;
   background-color: #ffffff;
-  width: 500px;
-  height: 500px;
-  margin-left: 1100px;
+  width: 400px;
+  height: 400px;
+  margin-left: 1000px;
   top: 1vh;
   box-shadow: 4px 4px 4px 4px rgba(0, 251, 10, 0.16);
 }

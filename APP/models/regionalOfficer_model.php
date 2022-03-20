@@ -342,6 +342,7 @@ class regionalOfficer_model extends Model
 
 	//this method get related data to the dashboard and pass those data
 	public function getDataDashboard($district){
+		
 		//get  number of active cases of reported incident categories
 		$activeCases=(($this->db->runQuery("SELECT COUNT(CASE WHEN reporttype='Crop Damages' THEN 1 END) AS numOfActiveCropDamage,COUNT(CASE WHEN reporttype='Other Wild Animals are in The Village' THEN 1 END) AS numOfActiveAnimalInVillage,COUNT(CASE WHEN reporttype='Breakdown of Elephant Fences' THEN 1 END) AS numOfActiveBreakdownFence,COUNT(CASE WHEN reporttype='Wild Animal is in Danger' THEN 1 END) AS numOfActiveAnimalIsDanger,COUNT(CASE WHEN reporttype='Illegal Happing' THEN 1 END) AS numOfActiveIllegal,COUNT(CASE WHEN reporttype='Elephants are in The Village' THEN 1 END) AS numOfActiveElephantsVillage FROM reported_incident WHERE status='pending' AND village_code IN (SELECT DISTINCT village.village_code FROM village,gn_division WHERE gn_division.district_name='$district' AND gn_division.GND_Code=village.GND_Code )"))[0]);
 		//get  number of success cases of reported incident categories
@@ -349,146 +350,52 @@ class regionalOfficer_model extends Model
 		//get  number of unsuccess cases of reported incident categories
 		$unSuccessCases=(($this->db->runQuery("SELECT COUNT(CASE WHEN reporttype='Crop Damages' THEN 1 END) AS numOfActiveCropDamage,COUNT(CASE WHEN reporttype='Other Wild Animals are in The Village' THEN 1 END) AS numOfActiveAnimalInVillage,COUNT(CASE WHEN reporttype='Breakdown of Elephant Fences' THEN 1 END) AS numOfActiveBreakdownFence,COUNT(CASE WHEN reporttype='Wild Animal is in Danger' THEN 1 END) AS numOfActiveAnimalIsDanger,COUNT(CASE WHEN reporttype='Illegal Happing' THEN 1 END) AS numOfActiveIllegal,COUNT(CASE WHEN reporttype='Elephants are in The Village' THEN 1 END) AS numOfActiveElephantsVillage FROM reported_incident WHERE status='unsuccess' AND village_code IN (SELECT DISTINCT village.village_code FROM village,gn_division WHERE gn_division.district_name='$district' AND gn_division.GND_Code=village.GND_Code )"))[0]);
 		
-        //get number of all active cases district by district
-		$numOfActiveCasesByDistrict=[
-			"hambanthota"=>(($this->db->runQuery("SELECT COUNT(*) AS numOfActiveHamb FROM reported_incident WHERE status='pending' AND village_code IN (SELECT village.village_code FROM village,gn_division WHERE gn_division.district_name='hambanthota' AND gn_division.GND_Code=village.GND_Code )"))[0])["numOfActiveHamb"],
-
-			"polonnaruwa"=>(($this->db->runQuery("SELECT COUNT(*) AS numOfActivePolo FROM reported_incident WHERE status='pending' AND village_code IN (SELECT village.village_code FROM village,gn_division WHERE gn_division.district_name='polonnaruwa' AND gn_division.GND_Code=village.GND_Code )"))[0])["numOfActivePolo"],
-
-			"anuradhapura"=>(($this->db->runQuery("SELECT COUNT(*) AS numOfActiveAnu FROM reported_incident WHERE status='pending' AND village_code IN (SELECT village.village_code FROM village,gn_division WHERE gn_division.district_name='anuradhapura' AND gn_division.GND_Code=village.GND_Code )"))[0])["numOfActiveAnu"],
-			"ampara"=> (($this->db->runQuery("SELECT COUNT(*) AS numOfActiveAmpara FROM reported_incident WHERE status='pending' AND village_code IN (SELECT village.village_code FROM village,gn_division WHERE gn_division.district_name='ampara' AND gn_division.GND_Code=village.GND_Code )"))[0])["numOfActiveAmpara"]
-		];
-
-		
-        //get number of all success cases district by district
-		$numOfSuccessCasesByDistrict=[
-			"hambanthota"=>(($this->db->runQuery("SELECT COUNT(*) AS numOfActiveHamb FROM reported_incident WHERE status='success' AND village_code IN (SELECT village.village_code FROM village,gn_division WHERE gn_division.district_name='hambanthota' AND gn_division.GND_Code=village.GND_Code )"))[0])["numOfActiveHamb"],
-
-			"polonnaruwa"=>(($this->db->runQuery("SELECT COUNT(*) AS numOfActivePolo FROM reported_incident WHERE status='success' AND village_code IN (SELECT village.village_code FROM village,gn_division WHERE gn_division.district_name='polonnaruwa' AND gn_division.GND_Code=village.GND_Code )"))[0])["numOfActivePolo"],
-
-			"anuradhapura"=>(($this->db->runQuery("SELECT COUNT(*) AS numOfActiveAnu FROM reported_incident WHERE status='success' AND village_code IN (SELECT village.village_code FROM village,gn_division WHERE gn_division.district_name='anuradhapura' AND gn_division.GND_Code=village.GND_Code )"))[0])["numOfActiveAnu"],
-			"ampara"=> (($this->db->runQuery("SELECT COUNT(*) AS numOfActiveAmpara FROM reported_incident WHERE status='success' AND village_code IN (SELECT village.village_code FROM village,gn_division WHERE gn_division.district_name='ampara' AND gn_division.GND_Code=village.GND_Code )"))[0])["numOfActiveAmpara"]
-		];
-
-        //get number of all unsuccess cases district by district
-		$numOfUnSuccessCasesByDistrict=[
-			"hambanthota"=>(($this->db->runQuery("SELECT COUNT(*) AS numOfActiveHamb FROM reported_incident WHERE status='unsuccess' AND village_code IN (SELECT village.village_code FROM village,gn_division WHERE gn_division.district_name='hambanthota' AND gn_division.GND_Code=village.GND_Code )"))[0])["numOfActiveHamb"],
-
-			"polonnaruwa"=>(($this->db->runQuery("SELECT COUNT(*) AS numOfActivePolo FROM reported_incident WHERE status='unsuccess' AND village_code IN (SELECT village.village_code FROM village,gn_division WHERE gn_division.district_name='polonnaruwa' AND gn_division.GND_Code=village.GND_Code )"))[0])["numOfActivePolo"],
-
-			"anuradhapura"=>(($this->db->runQuery("SELECT COUNT(*) AS numOfActiveAnu FROM reported_incident WHERE status='unsuccess' AND village_code IN (SELECT village.village_code FROM village,gn_division WHERE gn_division.district_name='anuradhapura' AND gn_division.GND_Code=village.GND_Code )"))[0])["numOfActiveAnu"],
-			"ampara"=> (($this->db->runQuery("SELECT COUNT(*) AS numOfActiveAmpara FROM reported_incident WHERE status='unsuccess' AND village_code IN (SELECT village.village_code FROM village,gn_division WHERE gn_division.district_name='ampara' AND gn_division.GND_Code=village.GND_Code )"))[0])["numOfActiveAmpara"]
-		];
+        
 		
 		
-        //total number of active cases in district by categories
-		$totalCasesReportedByDistrict=[
-           
-			"hambanthotaActive"=>($this->db->runQuery("SELECT COUNT(CASE WHEN reporttype='Crop Damages' THEN 1 END) AS numOfHambanthotaCropDamage,COUNT(CASE WHEN reporttype='Other Wild Animals are in The Village' THEN 1 END) AS numOfHambanthotaAnimalInVillage,COUNT(CASE WHEN reporttype='Breakdown of Elephant Fences' THEN 1 END) AS numOfHambanthotaBreakdownFence,COUNT(CASE WHEN reporttype='Wild Animal is in Danger' THEN 1 END) AS numOfHambanthotaAnimalIsDanger,COUNT(CASE WHEN reporttype='Illegal Happing' THEN 1 END) AS numOfHambanthotaIllegal,COUNT(CASE WHEN reporttype='Elephants are in The Village' THEN 1 END) AS numOfHambanthotaElephantsVillage FROM reported_incident WHERE village_code IN(SELECT village.village_code FROM village,gn_division WHERE gn_division.district_name='hambanthota' AND village.GND_Code=gn_division.GND_Code) AND status='pending'"))[0],
-
-
-			"noOfHambanthotaActive"=>(($this->db->runQuery("SELECT COUNT(*) AS 'noOfHambanthotaActive' FROM reported_incident WHERE village_code IN(SELECT village.village_code FROM village,gn_division WHERE gn_division.district_name='hambanthota' AND village.GND_Code=gn_division.GND_Code) AND status='pending'  "))[0])['noOfHambanthotaActive'],
-
-			"noOfHambanthotaSuccess"=>(($this->db->runQuery("SELECT COUNT(*) AS 'noOfHambanthotaSuccess' FROM reported_incident WHERE village_code IN(SELECT village.village_code FROM village,gn_division WHERE gn_division.district_name='hambanthota' AND village.GND_Code=gn_division.GND_Code) AND status='success'  "))[0])['noOfHambanthotaSuccess'],
-
-			"noOfHambanthotaUnsuccess"=>(($this->db->runQuery("SELECT COUNT(*) AS 'noOfHambanthotaUnsuccess' FROM reported_incident WHERE village_code IN(SELECT village.village_code FROM village,gn_division WHERE gn_division.district_name='hambanthota' AND village.GND_Code=gn_division.GND_Code) AND status='unsuccess'  "))[0])['noOfHambanthotaUnsuccess'],
-
-			"polonnaruwaActive"=>($this->db->runQuery("SELECT COUNT(CASE WHEN reporttype='Crop Damages' THEN 1 END) AS numOfPolonnaruwaCropDamage,COUNT(CASE WHEN reporttype='Other Wild Animals are in The Village' THEN 1 END) AS numOfPolonnaruwaAnimalInVillage,COUNT(CASE WHEN reporttype='Breakdown of Elephant Fences' THEN 1 END) AS numOfPolonnaruwaBreakdownFence,COUNT(CASE WHEN reporttype='Wild Animal is in Danger' THEN 1 END) AS numOfPolonnaruwaAnimalIsDanger,COUNT(CASE WHEN reporttype='Illegal Happing' THEN 1 END) AS numOfPolonnaruwaIllegal,COUNT(CASE WHEN reporttype='Elephants are in The Village' THEN 1 END) AS numOfPolonnaruwaElephantsVillage FROM reported_incident WHERE village_code IN(SELECT village.village_code FROM village,gn_division WHERE gn_division.district_name='polonnaruwa' AND village.GND_Code=gn_division.GND_Code) AND status='pending'"))[0],
-
-			"noOfPolonnaruwaActive"=>(($this->db->runQuery("SELECT COUNT(*) AS 'noOfPolonnaruwaActive' FROM reported_incident WHERE village_code IN(SELECT village.village_code FROM village,gn_division WHERE gn_division.district_name='polonnaruwa' AND village.GND_Code=gn_division.GND_Code) AND status='pending'  "))[0])['noOfPolonnaruwaActive'],
-
-			"noOfPolonnaruwaSuccess"=>(($this->db->runQuery("SELECT COUNT(*) AS 'noOfPolonnaruwaSuccess' FROM reported_incident WHERE village_code IN(SELECT village.village_code FROM village,gn_division WHERE gn_division.district_name='polonnaruwa' AND village.GND_Code=gn_division.GND_Code) AND status='success'  "))[0])['noOfPolonnaruwaSuccess'],
-
-			"noOfPolonnaruwaUnsuccess"=>(($this->db->runQuery("SELECT COUNT(*) AS 'noOfPolonnaruwaUnsuccess' FROM reported_incident WHERE village_code IN(SELECT village.village_code FROM village,gn_division WHERE gn_division.district_name='polonnaruwa' AND village.GND_Code=gn_division.GND_Code) AND status='unsuccess'  "))[0])['noOfPolonnaruwaUnsuccess'],
-
-			"anuradhapuraActive"=>($this->db->runQuery("SELECT COUNT(CASE WHEN reporttype='Crop Damages' THEN 1 END) AS numOfAnuradhapuraCropDamage,COUNT(CASE WHEN reporttype='Other Wild Animals are in The Village' THEN 1 END) AS numOfAnuradhapuraAnimalInVillage,COUNT(CASE WHEN reporttype='Breakdown of Elephant Fences' THEN 1 END) AS numOfAnuradhapuraBreakdownFence,COUNT(CASE WHEN reporttype='Wild Animal is in Danger' THEN 1 END) AS numOfAnuradhapuraAnimalIsDanger,COUNT(CASE WHEN reporttype='Illegal Happing' THEN 1 END) AS numOfAnuradhapuraIllegal,COUNT(CASE WHEN reporttype='Elephants are in The Village' THEN 1 END) AS numOfAnuradhapuraElephantsVillage FROM reported_incident WHERE village_code IN(SELECT village.village_code FROM village,gn_division WHERE gn_division.district_name='anuradhapura' AND village.GND_Code=gn_division.GND_Code) AND status='pending'"))[0],
-
-			"noOfAnuradhapuraActive"=>(($this->db->runQuery("SELECT COUNT(*) AS 'noOfAnuradhapuraActive' FROM reported_incident WHERE village_code IN(SELECT village.village_code FROM village,gn_division WHERE gn_division.district_name='anuradhapura' AND village.GND_Code=gn_division.GND_Code) AND status='pending'  "))[0])['noOfAnuradhapuraActive'],
-
-			"noOfAnuradhapuraSuccess"=>(($this->db->runQuery("SELECT COUNT(*) AS 'noOfAnuradhapuraSuccess' FROM reported_incident WHERE village_code IN(SELECT village.village_code FROM village,gn_division WHERE gn_division.district_name='anuradhapura' AND village.GND_Code=gn_division.GND_Code) AND status='success'  "))[0])['noOfAnuradhapuraSuccess'],
-
-			"noOfAnuradhapuraUnsuccess"=>(($this->db->runQuery("SELECT COUNT(*) AS 'noOfAnuradhapuraUnsuccess' FROM reported_incident WHERE village_code IN(SELECT village.village_code FROM village,gn_division WHERE gn_division.district_name='anuradhapura' AND village.GND_Code=gn_division.GND_Code) AND status='unsuccess'  "))[0])['noOfAnuradhapuraUnsuccess'],
-
-			"amparaActive"=>($this->db->runQuery("SELECT COUNT(CASE WHEN reporttype='Crop Damages' THEN 1 END) AS numOfAmparaCropDamage,COUNT(CASE WHEN reporttype='Other Wild Animals are in The Village' THEN 1 END) AS numOfAmparaAnimalInVillage,COUNT(CASE WHEN reporttype='Breakdown of Elephant Fences' THEN 1 END) AS numOfAmparaBreakdownFence,COUNT(CASE WHEN reporttype='Wild Animal is in Danger' THEN 1 END) AS numOfAmparaAnimalIsDanger,COUNT(CASE WHEN reporttype='Illegal Happing' THEN 1 END) AS numOfAmparaIllegal,COUNT(CASE WHEN reporttype='Elephants are in The Village' THEN 1 END) AS numOfAmparaElephantsVillage FROM reported_incident WHERE village_code IN(SELECT village.village_code FROM village,gn_division WHERE gn_division.district_name='ampara' AND village.GND_Code=gn_division.GND_Code) AND status='pending'"))[0],
-
-			"noOfAmparaActive"=>(($this->db->runQuery("SELECT COUNT(*) AS 'noOfAmparaActive' FROM reported_incident WHERE village_code IN(SELECT village.village_code FROM village,gn_division WHERE gn_division.district_name='ampara' AND village.GND_Code=gn_division.GND_Code) AND status='pending'  "))[0])['noOfAmparaActive'],
-
-			"noOfAmparaSuccess"=>(($this->db->runQuery("SELECT COUNT(*) AS 'noOfAmparaSuccess' FROM reported_incident WHERE village_code IN(SELECT village.village_code FROM village,gn_division WHERE gn_division.district_name='ampara' AND village.GND_Code=gn_division.GND_Code) AND status='success'  "))[0])['noOfAmparaSuccess'],
-
-			"noOfAmparaUnsuccess"=>(($this->db->runQuery("SELECT COUNT(*) AS 'noOfAmparaUnsuccess' FROM reported_incident WHERE village_code IN(SELECT village.village_code FROM village,gn_division WHERE gn_division.district_name='ampara' AND village.GND_Code=gn_division.GND_Code) AND status='unsuccess'  "))[0])['noOfAmparaUnsuccess']
-
-
-		];
-		//elephant attack active cases details
-		$elephantActiveDetails=($this->db->runQuery("SELECT reported_incident.incidentID AS incidentID,reported_incident.villager_NIC AS reporter_NIC,village.name AS village,reported_incident.officeNo AS officeNo,reported_incident.date AS date FROM village,reported_incident WHERE reported_incident.reporttype='Elephants are in The Village' AND reported_incident.status='pending' AND reported_incident.village_code=village.village_code"));
-		//crop damages active cases details
-		$cropActiveDetails=($this->db->runQuery("SELECT reported_incident.incidentID AS incidentID,reported_incident.villager_NIC AS reporter_NIC,village.name AS village,reported_incident.officeNo AS officeNo,reported_incident.date AS date FROM village,reported_incident WHERE reported_incident.reporttype='Crop Damages' AND reported_incident.status='pending' AND reported_incident.village_code=village.village_code"));
-		//wild animal is in danger cases details
-		$dangerActiveDetails=($this->db->runQuery("SELECT reported_incident.incidentID AS incidentID,reported_incident.villager_NIC AS reporter_NIC,village.name AS village,reported_incident.officeNo AS officeNo,reported_incident.date AS date FROM village,reported_incident WHERE reported_incident.reporttype='Wild Animal is in Danger' AND reported_incident.status='pending' AND reported_incident.village_code=village.village_code"));
-		//elephant fence damage active cases details
-		$fenceActiveDetails=($this->db->runQuery("SELECT reported_incident.incidentID AS incidentID,reported_incident.villager_NIC AS reporter_NIC,village.name AS village,reported_incident.officeNo AS officeNo,reported_incident.date AS date FROM village,reported_incident WHERE reported_incident.reporttype='Breakdown of Elephant Fences' AND reported_incident.status='pending' AND reported_incident.village_code=village.village_code"));
-		//other wild animals come in to village active cases details
-		$otherActiveDetails=($this->db->runQuery("SELECT reported_incident.incidentID AS incidentID,reported_incident.villager_NIC AS reporter_NIC,village.name AS village,reported_incident.officeNo AS officeNo,reported_incident.date AS date FROM village,reported_incident WHERE reported_incident.reporttype='Other Wild Animals are in The Village' AND reported_incident.status='pending' AND reported_incident.village_code=village.village_code"));
-		//illegal activities active cases details
-		$illegalActiveDetails=($this->db->runQuery("SELECT reported_incident.incidentID AS incidentID,reported_incident.villager_NIC AS reporter_NIC,village.name AS village,reported_incident.officeNo AS officeNo,reported_incident.date AS date FROM village,reported_incident WHERE reported_incident.reporttype='Illegal Happing' AND reported_incident.status='pending' AND reported_incident.village_code=village.village_code"));
 		//number of incidents
 		$detailsAboutIncidents=[
-			"totalIncident"=>(($this->db->runQuery("SELECT COUNT(*) AS total FROM reported_incident"))[0])['total'],
-			"totalSuccessIncident"=>(($this->db->runQuery("SELECT COUNT(*) AS total FROM reported_incident WHERE status='success'"))[0])['total'],
-			"totalActiveIncident"=>(($this->db->runQuery("SELECT COUNT(*) AS total FROM reported_incident WHERE status='pending'"))[0])['total'],
-			"totalUnsuccessIncident"=>(($this->db->runQuery("SELECT COUNT(*) AS total FROM reported_incident WHERE status='unsuccess'"))[0])['total'],
-			"totalAccpted"=>(($this->db->runQuery("SELECT COUNT(*) AS total FROM work"))[0])['total'],
-			"acceptedActive"=>(($this->db->runQuery("SELECT COUNT(*) AS total FROM work WHERE incidentID IN(SELECT incidentID FROM reported_incident WHERE status='pending')"))[0])['total'],
-			"acceptedSuccess"=>(($this->db->runQuery("SELECT COUNT(*) AS total FROM work WHERE incidentID IN(SELECT incidentID FROM reported_incident WHERE status='success')"))[0])['total'],
-			"acceptedUnsuccess"=>(($this->db->runQuery("SELECT COUNT(*) AS total FROM work WHERE incidentID IN(SELECT incidentID FROM reported_incident WHERE status='unsuccess')"))[0])['total'],
+			"totalIncident"=>(($this->db->runQuery("SELECT COUNT(*) AS total FROM reported_incident WHERE village_code IN(SELECT DISTINCT village.village_code FROM village,gn_division WHERE gn_division.district_name='$district' AND gn_division.GND_Code=village.GND_Code)"))[0])['total'],
+			"totalSuccessIncident"=>(($this->db->runQuery("SELECT COUNT(*) AS total FROM reported_incident WHERE status='success' AND village_code IN(SELECT DISTINCT village.village_code FROM village,gn_division WHERE gn_division.district_name='$district' AND gn_division.GND_Code=village.GND_Code) "))[0])['total'],
+			"totalActiveIncident"=>(($this->db->runQuery("SELECT COUNT(*) AS total FROM reported_incident WHERE status='pending' AND village_code IN(SELECT DISTINCT village.village_code FROM village,gn_division WHERE gn_division.district_name='$district' AND gn_division.GND_Code=village.GND_Code)"))[0])['total'],
+			"totalUnsuccessIncident"=>(($this->db->runQuery("SELECT COUNT(*) AS total FROM reported_incident WHERE status='unsuccess' AND village_code IN(SELECT DISTINCT village.village_code FROM village,gn_division WHERE gn_division.district_name='$district' AND gn_division.GND_Code=village.GND_Code)"))[0])['total'],
+			"totalAccpted"=>(($this->db->runQuery("SELECT COUNT(*) AS total FROM work WHERE incidentID IN(SELECT incidentID FROM reported_incident WHERE village_code IN(SELECT DISTINCT village.village_code FROM village,gn_division WHERE gn_division.district_name='$district' AND gn_division.GND_Code=village.GND_Code)))"))[0])['total'],
+			"acceptedActive"=>(($this->db->runQuery("SELECT COUNT(*) AS total FROM work WHERE incidentID IN(SELECT incidentID FROM reported_incident WHERE status='pending' AND village_code IN(SELECT DISTINCT village.village_code FROM village,gn_division WHERE gn_division.district_name='$district' AND gn_division.GND_Code=village.GND_Code))"))[0])['total'],
+			"acceptedSuccess"=>(($this->db->runQuery("SELECT COUNT(*) AS total FROM work WHERE incidentID IN(SELECT incidentID FROM reported_incident WHERE status='success' AND village_code IN(SELECT DISTINCT village.village_code FROM village,gn_division WHERE gn_division.district_name='$district' AND gn_division.GND_Code=village.GND_Code))"))[0])['total'],
+			"acceptedUnsuccess"=>(($this->db->runQuery("SELECT COUNT(*) AS total FROM work WHERE incidentID IN(SELECT incidentID FROM reported_incident WHERE status='unsuccess' AND village_code IN(SELECT DISTINCT village.village_code FROM village,gn_division WHERE gn_division.district_name='$district' AND gn_division.GND_Code=village.GND_Code))"))[0])['total'],
 
 
 		];
+
+		$noOfActive=(($this->db->runQuery("SELECT COUNT(*) AS noOfActive FROM reported_incident WHERE status='pending' AND village_code IN(SELECT DISTINCT village.village_code FROM village,gn_division WHERE gn_division.district_name='$district' AND gn_division.GND_Code=village.GND_Code)"))[0])["noOfActive"];
+		$noOfSuccess=(($this->db->runQuery("SELECT COUNT(*) AS noOfSuccess FROM reported_incident WHERE status='success' AND village_code IN(SELECT DISTINCT village.village_code FROM village,gn_division WHERE gn_division.district_name='$district' AND gn_division.GND_Code=village.GND_Code)"))[0])["noOfSuccess"];
+		$noOfUnsuccess=(($this->db->runQuery("SELECT COUNT(*) AS noOfUnsuccess FROM reported_incident WHERE status='unsuccess' AND village_code IN(SELECT DISTINCT village.village_code FROM village,gn_division WHERE gn_division.district_name='$district' AND gn_division.GND_Code=village.GND_Code)"))[0])["noOfUnsuccess"];
+
+		$noOfCases=(($this->db->runQuery("SELECT COUNT(CASE WHEN reporttype='Crop Damages' THEN 1 END) AS numOfActiveCropDamage,COUNT(CASE WHEN reporttype='Other Wild Animals are in The Village' THEN 1 END) AS numOfActiveAnimalInVillage,COUNT(CASE WHEN reporttype='Breakdown of Elephant Fences' THEN 1 END) AS numOfActiveBreakdownFence,COUNT(CASE WHEN reporttype='Wild Animal is in Danger' THEN 1 END) AS numOfActiveAnimalIsDanger,COUNT(CASE WHEN reporttype='Illegal Happing' THEN 1 END) AS numOfActiveIllegal,COUNT(CASE WHEN reporttype='Elephants are in The Village' THEN 1 END) AS numOfActiveElephantsVillage FROM reported_incident WHERE village_code IN (SELECT DISTINCT village.village_code FROM village,gn_division WHERE gn_division.district_name='$district' AND gn_division.GND_Code=village.GND_Code )"))[0]);
+
+		$times=($this->db->runQuery("SELECT COUNT(CASE WHEN time_in>='00:00:00' AND time_in<'03:00:00' THEN 1 END) AS 12_3,COUNT(CASE WHEN time_in>='03:00:00' AND time_in<'06:00:00' THEN 1 END) AS 3_6,COUNT(CASE WHEN time_in>='06:00:00' AND time_in<'09:00:00' THEN 1 END) AS 6_9,COUNT(CASE WHEN time_in>='09:00:00' AND time_in<'12:00:00' THEN 1 END) AS 9_12,COUNT(CASE WHEN time_in>='12:00:00' AND time_in<'15:00:00' THEN 1 END) AS 12_15,COUNT(CASE WHEN time_in>='15:00:00' AND time_in<'18:00:00' THEN 1 END) AS 15_18,COUNT(CASE WHEN time_in>='18:00:00' AND time_in<'21:00:00' THEN 1 END) AS 18_21,COUNT(CASE WHEN time_in>='21:00:00' AND time_in<'00:00:00' THEN 1 END) AS 21_00 FROM reported_incident WHERE village_code IN (SELECT DISTINCT village.village_code FROM village,gn_division WHERE gn_division.district_name='$district' AND gn_division.GND_Code=village.GND_Code )"))[0];
 		
         
 		$activeMapLocation=($this->db->runQuery("SELECT reported_incident.incidentID AS incidentID,reported_incident.lat AS lat,reported_incident.lon AS lon,reported_incident.reporttype AS reporttype,reported_incident.villager_NIC AS villager_NIC,reported_incident.description AS description FROM reported_incident,village,gn_division WHERE reported_incident.status='pending' AND village.village_code=reported_incident.village_code AND village.GND_Code=gn_division.GND_Code AND gn_division.district_name='$district' "));
 		$successMapLocation=($this->db->runQuery("SELECT reported_incident.incidentID AS incidentID,reported_incident.lat AS lat,reported_incident.lon AS lon,reported_incident.reporttype AS reporttype,reported_incident.villager_NIC AS villager_NIC,reported_incident.description AS description FROM reported_incident,village,gn_division WHERE reported_incident.status='success' AND village.village_code=reported_incident.village_code AND village.GND_Code=gn_division.GND_Code AND gn_division.district_name='$district' "));
 		$unsuccessMapLocation=($this->db->runQuery("SELECT reported_incident.incidentID AS incidentID,reported_incident.lat AS lat,reported_incident.lon AS lon,reported_incident.reporttype AS reporttype,reported_incident.villager_NIC AS villager_NIC,reported_incident.description AS description FROM reported_incident,village,gn_division WHERE reported_incident.status='unsuccess' AND village.village_code=reported_incident.village_code AND village.GND_Code=gn_division.GND_Code AND gn_division.district_name='$district' "));
 
-		$districtActiveLocation=[
-
-			"hambanthota"=>($this->db->runQuery("SELECT incidentID,lat,lon,reporttype,villager_NIC,description FROM reported_incident WHERE village_code IN(SELECT village.village_code FROM village,gn_division WHERE gn_division.district_name='hambanthota' AND village.GND_Code=gn_division.GND_Code) AND status='pending'")),
-			"polonnaruwa"=>($this->db->runQuery("SELECT incidentID,lat,lon,reporttype,villager_NIC,description FROM reported_incident WHERE village_code IN(SELECT village.village_code FROM village,gn_division WHERE gn_division.district_name='polonnaruwa' AND village.GND_Code=gn_division.GND_Code) AND status='pending'")),
-			"anuradhapura"=>($this->db->runQuery("SELECT incidentID,lat,lon,reporttype,villager_NIC,description FROM reported_incident WHERE village_code IN(SELECT village.village_code FROM village,gn_division WHERE gn_division.district_name='anuradhapura' AND village.GND_Code=gn_division.GND_Code) AND status='pending'")),
-			"ampara"=>($this->db->runQuery("SELECT incidentID,lat,lon,reporttype,villager_NIC,description FROM reported_incident WHERE village_code IN(SELECT village.village_code FROM village,gn_division WHERE gn_division.district_name='ampara' AND village.GND_Code=gn_division.GND_Code) AND status='pending'"))
-
-
-		];
-
+		
          //all selected data pass to the controller
 		 $data=[
 
 			"activeCases"=>$activeCases,
 			"successCases"=>$successCases,
 			"unSuccessCases"=>$unSuccessCases,
-			"numOfActiveCasesByDistrict"=>$numOfActiveCasesByDistrict,
-			"numOfSuccessCasesByDistrict"=>$numOfSuccessCasesByDistrict,
-			"numOfUnSuccessCasesByDistrict"=>$numOfUnSuccessCasesByDistrict,
-			"totalCasesReportedByDistrict"=>$totalCasesReportedByDistrict,
 			"activeMapLocation"=>$activeMapLocation,
 			"successMapLocation"=>$successMapLocation,
 			"unsuccessMapLocation"=>$unsuccessMapLocation,
-			"districtActiveLocation"=>$districtActiveLocation,
-			"elephantActiveDetails"=>$elephantActiveDetails,
-			"cropActiveDetails"=>$cropActiveDetails,
-			"dangerActiveDetails"=>$dangerActiveDetails,
-			"fenceActiveDetails"=>$fenceActiveDetails,
-			"otherActiveDetails"=>$otherActiveDetails,
-			"illegalActiveDetails"=>$illegalActiveDetails,
-			"detailsAboutIncidents"=>$detailsAboutIncidents
-
-
-
-
-
-
-
-
+			"detailsAboutIncidents"=>$detailsAboutIncidents,
+			"noOfActive"=>$noOfActive,
+			"noOfSuccess"=>$noOfSuccess,
+			"noOfUnsuccess"=>$noOfUnsuccess,
+			"noOfCases"=>$noOfCases,
+			"times"=>$times
 
 
 		];

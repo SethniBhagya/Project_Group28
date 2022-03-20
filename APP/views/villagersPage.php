@@ -27,7 +27,7 @@
             <ul>
                 <li id="home_2"><a href="../">Home</a></li>
                  <li id="dashboard_1" style=" background-color: rgb(168, 175, 168); color:black;"><a href="../user/viewpage?lang=1">Main Menu</a></li>
-                <li id="report_2"><a a href="../incident/index?lang=1">Report Incidents</a></li>
+                <li id="report_2"><a  href="../incident/index?lang=1">Report Incidents</a></li>
 
                 <li id="special_1"><a href="../villager/viewSpecialNotice?lang=1">SpecialNotice </a></li>
 
@@ -43,8 +43,8 @@
                 <li class="dropdown">
                     <span class="dot"> <img onclick="myFunction_2(this)" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
                     <div id="myDropdown" class="dropdown-content">
-                        <a href="../user/editprofile?lang=1">View Profile</a>
-                        <a href="../user/logout">Logout</a>
+                        <a href="../user/editprofile?lang=1">පැතිකඩ බලන්න</a>
+                        <a href="../user/logout">පිටවීම</a>
                     </div>
                 </li>
             </ul>
@@ -225,7 +225,7 @@ if (isset($_POST['Submit'])) {
     <div class="name">
         <span class="dot2"><img src="../Public/images/user_icon.png" id="user-icon2"></span><label id="name"><b><b>Hello <?php echo " " . $fname; ?></b> </b></label>
     </div>
-
+    </form>
     <div class="main-view">
         <a href="../user/viewpage?lang=1&&status=1">
             <button class="report" >

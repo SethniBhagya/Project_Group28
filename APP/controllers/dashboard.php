@@ -6,7 +6,7 @@
             //assign the value
               $type = $_GET['lang'];
         }
-            session_start();
+            // session_start();
          //   $this->view->render('dashboardVillager');
              $lastWeek = $this->model->lastWeek();
              $lastMonth = $this->model->lastMonth();
