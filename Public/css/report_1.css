@@ -1,8 +1,10 @@
+ 
 .container1-1{
     position: inherit;
     width: 80%;
-    height: 520px;
-    margin-top: 20px;
+ 
+    height: auto;
+    margin-top: 40px;
     margin-left: 9%;
     background-color: rgba(192, 192, 209, 0.453);
     top: 20px;
@@ -24,14 +26,28 @@ a {
     color: ivory;
     text-align: center;
 }
+#animal{
+    margin-left: 120px;
+}
+#number{
+    width: 48%;
+    margin-left: 80px;
+    padding: 5px 5px;
+}
+#place{
+    padding: 5px 15px;
+    margin-left: 101px;
+    width: 45%;
+}
+#Reg{
+    margin-left: 100px;
+}
 .photo{
     position:inherit;
-    /* top : 200px;
-    right: 200px; */
-    float: right;
-    margin-top: -100px;
-    margin-right: 90px;
-    /* margin-top: 10px; */
+ 
+    top : 250px;
+    right: 200px;
+    margin-top: 10px;
 }
 input[type=number] {
     width: 10%;
@@ -74,8 +90,10 @@ input[type=number] {
   }
 
 .label-1{
+  
     position: inherit;
     padding-left: 290px;
+    padding-left: 30%;
     color: white;
 }
 
@@ -89,6 +107,13 @@ input[type=number] {
     height: 20px;
     border-radius: 10px;
     background-color: #056412;
+}
+.form-rp{
+    margin-left: 19%;
+    background-color: #e3e3e3;
+    width: 50%;
+    padding: 40px 80px;
+    border-radius: 10px;
 }
 .location button{
     position: relative;
@@ -151,6 +176,7 @@ input[type=submit]:hover{
     /* text-align: ; */
     z-index: 101;
     left:22.5%;
+    left:24.5%;
     text-align: center;
     border-radius: 20px ; 
     background-color: #e3e3e3;
@@ -181,6 +207,109 @@ input[type=submit]:hover{
   .closebtn:hover {
     color: black;
   }
+  #track{
+    margin-left: 254px;
+    margin-top:  -200px;
+    background-color:#e3e3e3;
+    padding: 5px 110px;
+    background-color: rgba(45, 112, 49, 0.473);
+    color: rgb(255, 253, 250);
+    border-radius: 10px;
+  }
+  @media (max-width: 1200px) {
+
+    .form-rp{
+        width:80%;
+        margin-left: 100%;
+        margin-left: 0%;
+    }
+    .container1-1{
+     margin-left: 100%;
+     margin-left: 2%;
+     width: 90%;
+     
+    }
+ 
+   }
+  @media (max-width: 1000px) {
+
+   .form-rp{
+       width:80%;
+       margin-left: 100%;
+       margin-left: 0%;
+   }
+   .container1-1{
+    margin-left: 100%;
+    margin-left: 2%;
+    width: 90%;
+    
+   }
+
+  }  @media (max-width: 990px) {
+
+    .form-rp{
+        width:80%;
+        margin-left: 100%;
+        margin-left: 0%;
+    }
+    .container1-1{
+     margin-left: 100%;
+     margin-left: 5%;
+     width: 90%;
+      
+     
+    }
+ 
+   }
+  @media (max-width: 950px) {
+
+    .form-rp{
+        width:80%;
+        margin-left: 100%;
+        margin-left: 1%;
+        
+    }
+    .container1-1{
+     margin-left: 100%;
+     margin-left: 2%;
+     width: 95%;
+     
+    }
+ 
+   }
+   @media (max-width: 940px) {
+
+    .form-rp{
+        width:80%;
+        margin-left: 100%;
+        margin-left: 1%;
+         
+    }
+    .container1-1{
+     margin-left: 100%;
+     margin-left: 2%;
+     width: 95%;
+     
+    }
+ 
+   }
+   @media (max-width: 901px) {
+
+    .form-rp{
+        width:80%;
+        margin-left: 100%;
+        margin-left: 10%;
+ 
+         
+    }
+    .container1-1{
+     margin-left: 100%;
+     margin-left: 2%;
+     width: 95%;
+     
+    }
+ 
+   }
 @media (max-width: 900px) {
     .photo{
         position:inherit;
@@ -194,6 +323,15 @@ input[type=submit]:hover{
     input[type=text]{
         width:90%;
         right: 5%;
+    }
+    .form-rp{
+        width:70%;
+        margin-left: 100%;
+        margin-left: -4%;
+        height: 380px;  
+        
+    }  .form-report{
+        padding: 10px 12px;
     }
     .label-1{
         /* width:100%; */
@@ -225,4 +363,20 @@ input[type=submit]:hover{
     .map{
         margin-left: -2%;
     }
+    #number{
+        width: 100%;
+        margin-left: -2px;
+    }
+    #place{
+        width: 94%;
+        margin-left: -2px;
+    }
+    #track{
+        margin-top: 10px;
+        margin-left: 10px;
+    }
+    .report {
+        width: 100%;  
+        margin-left: -9px;
+    }    
 }

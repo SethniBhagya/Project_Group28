@@ -37,17 +37,9 @@
                         <a href="?lang=3&report=4">தமிழ்</a>
                     </div>
                   </div>
-                <div class="dropdown-1">
-                    <button class="dropbtn-1" style="margin-top:  -50px;">Language</button>
-                    <div class="dropdown-content-1">
-                      <a href="?lang=1&report=1">English</a>
-                        <a href="?lang=2&report=1">සිංහල</a> 
-                        <a href="?lang=3&report=1">தமிழ்</a>
-                    </div>
-                  </div>
-          <span class="dot"  style="margin-right:10px;  margin-top:  10px;"> <img onclick="myFunction_3()" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
+                      <span class="dot"  style="margin-right:10px;  margin-top:  10px;"> <img onclick="myFunction_3()" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
           <div id="myDropdown" class="dropdown-content">
-          <a href="../user/editprofile?lang=2">View Profile</a>
+          <a href="../villager/editprofile?lang=2">View Profile</a>
                         <a href="../user/logout">Logout</a>
                     
           </div>

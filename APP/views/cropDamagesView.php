@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../Public/css/notification.css">
+    <link rel="stylesheet" href="../Public/css/alert.css">
     <link rel="stylesheet" href="../Public/css/cropDamagesView.css">
     <link rel="stylesheet" href="../Public/css/header.css">
     <script src="../Public/Javascript/1.js"></script>
@@ -23,7 +25,7 @@
 
             <ul>
                 <li id="home_2"><a href="../">Home</a></li>
-                <li id="dashboard_1"><a href="../user/viewpage?lang=1">Dashboard</a></li>
+                <li id="dashboard_1"><a href="../user/viewpage?lang=1">Main Menu</a></li>
                 <li id="report_2" style=" background-color: rgb(168, 175, 168);"><a href="">Report Incidents</a></li>
                 <li id="special_1"><a href="../user/viewSpecialNotice?lang=1">SpecialNotice </a></li>
                 <div class="dropdown-1" style="  padding-left:  300px ">

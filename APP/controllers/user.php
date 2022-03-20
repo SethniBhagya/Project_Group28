@@ -95,17 +95,29 @@ class user extends Controller
 
             if ($_GET["lang"] == "1") {
               switch ($loginUser["jobtype"]) {
-
+               
                 case "villager":
+                  $registrationStatus = $this->model->selectRegStatus($_SESSION['NIC']);
+                  foreach($registrationStatus as $row) {
+                    $regStatus  = $row['registrationStatus'];
+                }  
+                  if($regStatus=='accept'){ 
                   //get the data in Database  
                   $this->view->data = $this->model->selectData($_POST["username"]);
                   //echo $this->data;  
                   // render the villager page  
-                  $this->view->status = $this->checkAlerStatus($_SESSION['NIC']);
+                  $this->view->notification = $this->checkNotificationStatus($_SESSION['NIC']);
+
                   $this->view->render('villagersPage');
                   if (isset($_POST['submitAlert'])) {
                     $this->model->setAlerStatus($_SESSION['NIC']); 
-                    }
+                  }
+                 }else if($regStatus=='pending'){
+                    $this->view->data = $this->model->selectData($_POST["username"]);
+                    $this->view->render('villagersPagenotAcceptVillager');
+                 }else{
+                     header('Location: ../user/index');
+                 }
                   break;
                 case "Wildlife Officer":
                   $this->view->render('wildlifeofficer');
@@ -159,7 +171,10 @@ class user extends Controller
               case "villager":
                 //get the data in Database  
                 $this->view->status = $this->checkAlerStatus($_SESSION['NIC']);
-                $this->view->data = $this->model->selectData($_POST["username"]);
+               // echo "aa".$this->checkNotificationStatus($_SESSION['NIC']);
+               $this->view->notification = $this->checkNotificationStatus($_SESSION['NIC']);
+
+                 $this->view->data = $this->model->selectData($_POST["username"]);
                 //echo $this->data;  
                 // render the villager page  
                 $this->view->render('villagersPagetamil');
@@ -206,6 +221,14 @@ class user extends Controller
     }  
     return $status;
   }
+  public function checkNotificationStatus($NIC){
+       
+    $statusReview  = $this->model->getNotificationStatus($NIC);  
+    foreach($statusReview as $row){ 
+      $numberofnotification = $row['numberofnotification'];
+    }  
+    return $numberofnotification;
+  }
   public function viewpage()
   {
     session_start();
@@ -218,28 +241,51 @@ class user extends Controller
         $this->model->selectData($_userNic);
     }
     $this->view->status = $this->checkAlerStatus($_SESSION['NIC']);
-
+    $this->view->notification = $this->checkNotificationStatus($_SESSION['NIC']);
+  
     switch ($lang) {
       case 1:
         switch ($_SESSION["jobtype"]) {
-          case 'villager':
-            // session_start();
-            $_userNic = $_SESSION["NIC"];
-            $this->view->data = $this->model->selectData($_userNic);
-            $this->view->render('villagersPage');
-            if (isset($_POST['Submit'])) {
-              //assign the value
-                
-                 $this->model->emergencyReport($_userNic ,'',  '','' , '' , $_POST['latitude'], $_POST['longitude']);
-            }
-        break;
+     case "villager":
+                  $registrationStatus = $this->model->selectRegStatus($_SESSION['NIC']);
+                  
+                  foreach($registrationStatus as $row) {
+                    $regStatus  = $row['registrationStatus'];
+                }  
+                  if($regStatus=='accept'){ 
+                  //get the data in Database  
+                  $this->view->data = $this->model->selectData($_SESSION['NIC']);
+                  //echo $this->data;  
+                  // render the villager page  
+                //  $this->view->status = $this->checkAlerStatus($_SESSION['NIC']);
+                //  $this->view->notification = $this->checkNotificationStatus($_SESSION['NIC']);
+                  $this->view->render('villagersPage');
+                  if (isset($_POST['submitAlert'])) {
+                    $this->model->setAlerStatus($_SESSION['NIC']); 
+                  }
+                  if (isset($_GET['notification'])) {
+                    $this->model->setNotificationStatus($_SESSION['NIC']); 
+                  }
+                 }else if($regStatus=='pending'){
+                    $this->view->data = $this->model->selectData($_POST["username"]);
+                    $this->view->render('villagersPagenotAcceptVillager');
+                 }else{
+                     header('Location: ../user/index');
+                 }
+           break;
 
             case 'gramaniladari':
               // session_start();
               $_userNic = $_SESSION["NIC"];
               $this->view->data = $this->model->selectData($_userNic);
+              $this->view->notification = $this->checkNotificationStatus($_SESSION['NIC']);
+              $this->view->status = $this->checkAlerStatus($_SESSION['NIC']);
       
               $this->view->render('gramaniladari');
+              if (isset($_POST['submitAlert'])) {
+                $this->model->setAlerStatus($_SESSION['NIC']); 
+              }
+              break;
         }
         break;
       case 2:

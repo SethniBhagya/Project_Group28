@@ -44,7 +44,7 @@
                 <li class="dropdown">
                     <span class="dot"> <img onclick="myFunction_2(this)" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
                     <div id="myDropdown" class="dropdown-content">
-                    <a href="../user/editprofile?lang=1">පැතිකඩ බලන්න</a> 
+                    <a href="../villager/editprofile?lang=2">පැතිකඩ බලන්න</a>
                     <a href="../user/logout">පිටවීම</a>
                     </div>
                 </li>

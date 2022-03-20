@@ -5,7 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Public/css/reportViewpage.css">
+    <link rel="stylesheet" href="../Public/css/alert.css">
     <link rel="stylesheet" href="../Public/css/header.css">
+    <link rel="stylesheet" href="../Public/css/alert.css">
+    <link rel="stylesheet" href="../Public/css/notification.css">
+    <link rel="stylesheet" href="../Public/css/popupNotification.css">
     <script src="../Public/Javascript/1.js"></script>
     <title>Report Page</title>
 </head>
@@ -21,8 +25,8 @@
 
             <ul>
             <li id="home_2"><a href="../">Home</a></li>
-                <li id="dashboard_1"   ><a href="../user/viewpage?lang=1" >Dashboard</a></li>
-                <li id="report_2" style=" background-color: rgb(168, 175, 168);" ><a href="">Report Incidents</a></li>
+                <li id="dashboard_1"   ><a href="../user/viewpage?lang=1" >Main Menu</a></li>
+                <li id="report_2"><a href="../incident/index?lang=1">Report Incidents</a></li>
                 <li id="special_1"><a href="../user/viewSpecialNotice?lang=1">SpecialNotice </a></li> 
                 <div class="dropdown-1" style="  padding-left:  300px ">
                     <button class="dropbtn-1">Language</button>
@@ -42,12 +46,153 @@
             </ul>
         </nav>
     </header>
+    <?php
+    if (isset($this->status) && isset($this->notification)) {
+        if ($this->status  == "notview"&&$this->notification > 0) {
+    ?>
+
+            <div id="messagealert">
+                <form action="?lang=1&report=1" method="post" style="display: inline-block;">
+                    <img src="../Public/images/alertIcon.png" id="alert">
+                    <h3>Wildlife Elephants Come In to Your Registered Village &nbsp&nbsp
+                        <input type="submit" value="Ok" name="submitAlert" id="submit1">
+                    </h3>
+                </form>
+            </div>
+     
+        <div id="notificationmessage">
+
+            <!-- <img src="../Public/images/alertIcon.png" style="width:1000px;  height:100000px"><br> -->
+       
+                <form action="../villager/viewNotification?lang=1" method="post" style="display: inline-block;">
+                    <img src="../Public/images/bell1.png" id="right">&nbsp&nbsp
+                    <h3>You have New Notification (<?php echo $this->notification ?>) &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                        <input type="submit" value="View" name="submitAlert" id="submit">
+                    </h3>
+                </form>
+        </div>
+        <?php
+
+if (isset($_POST['Submit'])) {
+?>
+
+    <div id="popupmessage"  >
+        <form action="?lang=1&report=1" method="post" style="display: inline-block;">
+        <img src="../Public/images/success-mesaage.png"  id="alert" >&nbsp&nbsp
+            <h3>Your Report Incident Submit Sucessfully &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+             </h3>
+        </form>
+ 
+    </div> 
+ 
+    <?php }  ?>
+    <?php
+
+    } else if ($this->status  == "notview")  {
+         
+    ?>
+
+        <div id="messagealert1">
+            <form action="?lang=1&report=1" method="post" style="display: inline-block;">
+                <img src="../Public/images/alertIcon.png" id="alert">
+                <h3>Wildlife Elephants Come In to Your Registered Village &nbsp&nbsp
+                    <input type="submit" value="Ok" name="submitAlert" id="submit1">
+                </h3>
+            </form>
+        </div>
+        <?php
+
+if (isset($_POST['Submit'])) {
+?>
+
+    <div id="popupmessagelast"  >
+        <form action="?lang=1&report=1" method="post" style="display: inline-block;">
+        <img src="../Public/images/success-mesaage.png"  id="alert" >&nbsp&nbsp
+            <h3>Your Report Incident Submit Sucessfully &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+             </h3>
+        </form>
+ 
+    </div>  
+<?php
+
+}
+ 
+?>
+    <?php }
+        
+     elseif ($this->notification > 0) {  ?>
+ 
+        <div id="notificationmessage">
+
+            <!-- <img src="../Public/images/alertIcon.png" style="width:1000px;  height:100000px"><br> -->
+
+            <form action="?lang=1&report=1" method="post" style="display: inline-block;">
+                <img src="../Public/images/bell1.png" id="bell">&nbsp&nbsp
+                <h3>You have New Notification (900) &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    <input type="submit" value="View" name="submitAlert" id="submit">
+                </h3>
+            </form>
+        </div>
+        <?php if (isset($_POST['Submit'])) {
+?>
+
+    <div id="popupmessagelast"  >
+        <form action="?lang=1&report=1" method="post" style="display: inline-block;">
+        <img src="../Public/images/success-mesaage.png"  id="alert" >&nbsp&nbsp
+            <h3>Your Report Incident Submit Sucessfully &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+             </h3>
+        </form>
+ 
+    </div>  
+<?php
+
+}
+ 
+?>
+<?php }else{
+    
+   ?>        <?php if (isset($_POST['Submit'])) {
+    ?>
+    
+        <div id="popupmessagefirst"  >
+            <form action="?lang=1&report=1" method="post" style="display: inline-block;">
+            <img src="../Public/images/success-mesaage.png"  id="alert" >&nbsp&nbsp
+                <h3>Your Report Incident Submit Sucessfully &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                 </h3>
+            </form>
+     
+        </div>  
+    <?php
+    
+    }
+     
+    ?> <?php }}
+    ?>    <?php  
+    if (isset($this->status)) {
+         if($this->status  =="notview"){ 
+    ?>
+
+        <div id="messagealert" style="padding: 10px;  ">
+
+            <img src="../Public/images/alertIcon.png" style="width:100px;  height:100px"><br>
+             <h1><b>Alert Message   </b></h1>
+             <P> ☆ Wildlife Elelphants Come In to Register Village  </P> 
+             <P> ☆ Please Go to Safe Place in Your Area</P> 
+            <form action="?lang=1&report=1" method="post"> 
+             <input type="submit" value="Ok" name="submitAlert"   id="submit">
+            </form>
+        </div>
+    <?php
+
+    }}
+
+    ?>
     <?php ?>
                    <div id="myview" class="view-1"   >
                   <!-- <span onclick="closeView()" class="close">&times;</span> -->
                  <div class="subcontainer_3-5">
                   <div class="subcontainer_3-6">
-                  <h3 style="color: white;">View Report Incidents in Other Place </h3>
+                  <h3 style="color: white;">View Report Incidents  </h3>
                
                 
                 <?php
@@ -69,7 +214,7 @@
                     <h><b>Time : <?php echo $time ?></b> </h><br></br> 
                     <h><b>Place : <?php echo $place ?></b> </h><br></br> 
                     <h><b>Report Type : <?php echo $reportType ?></b> </h>
-                    <a id="back" href="../incident/viewReport?type=1&page=1&lang=1" style="color: white;">Back</a> 
+                    <a id="back" href="../incident/viewReport?type=<?php echo $_GET['type'] ?>&page=<?php echo $_GET['page'] ?>&lang=1" style="color: white;">Back</a> 
  
                   </div>
 

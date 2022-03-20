@@ -58,23 +58,23 @@ li {
 }
 
 #home {
-  background-color: #14671c;
+  background-color: #116e1c;
 }
 
 #home:hover {
-  background-color: darkgreen;
+  background-color: rgba(255, 255, 255, 0.36);  ;
 }
 
 #report {
-  background-color: #14671c;
+  background-color: #116e1c;
 }
 
 #report:hover {
-  background-color: darkgreen;
+  background-color:rgba(255, 255, 255, 0.36);  
 }
 
 #register {
-  background-color: #14671c;
+  background-color: #116e1c;
 }
 
 #register:hover {
@@ -82,7 +82,7 @@ li {
 }
 
 #login {
-  background-color: #14671c;
+  background-color: #116e1c;
 }
 
 #login_text {
@@ -94,7 +94,8 @@ li {
 #login:hover {
   background-color: rgba(0, 251, 10, 0.16);
 }
-
+ 
+ 
 /* .contanier {
   margin-left: 33%;
   margin-right: 35%;
@@ -388,7 +389,42 @@ a {
 .closebtn:hover {
   color: black;
 }
+.valid {
+  color: green;
+}
 
+.valid:before {
+  position: relative;
+  left: -35px;
+
+}
+
+/* Add a red text color and an "x" when the requirements are wrong */
+.invalid {
+  color: red;
+}
+
+.invalid:before {
+  position: relative;
+  left: -35px;
+
+
+}
+
+#message_1 {
+  display: none;
+  color: white;
+  width: 100%;
+  border-radius: 10px;
+  position: inherit;
+  padding-left: 20px;
+  margin-top: 0px;
+}
+
+#message_1 h {
+  padding: 5px 10px;
+  font-size: 14px;
+}
 @media screen and (max-width: 835px) { 
   .contanier3 {
     
