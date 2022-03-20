@@ -49,12 +49,12 @@
       
         
         
-        <img src="Public/images/wlimg2.png" class="imgs">
+        <!-- <img src="Public/images/wlimg2.png" class="imgs">
         <img src="Public/images/wlimg3.png" class="imgs">
         <img src="Public/images/wlimg4.png" class="imgs">
         <img src="Public/images/wlimg6.png" class="imgs">
         <img src="Public/images/wlimg8.png" class="imgs">
-
+ -->
 
        
 
@@ -66,6 +66,9 @@
         <form action="villager/register">
             <button id="regButton" >ලියාපදිංචිය</button>
         </form>
+        <video  width="100%" id="vid" preload="" autoplay="" muted="" loop="" >
+              <source src="https://cdn.videvo.net/videvo_files/video/free/2019-11/large_watermarked/190301_1_25_03_preview.mp4" type="video/mp4">
+            </video>
         
     </div>
 

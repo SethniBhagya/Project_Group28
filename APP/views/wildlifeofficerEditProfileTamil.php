@@ -5,15 +5,13 @@ if (!isset($_SESSION['NIC'])) {
     header("Location:http://localhost/WildlifeCare/user/index");
 }
 if (isset($_SESSION['jobtype'])) {
-    if ($_SESSION['jobtype']=='Wildlife Officer') {
-       
-    }else {
-        header("Location:http://localhost/WildlifeCare/user/mustLogout");
+    if ($_SESSION['jobtype'] == 'Wildlife Officer') {
+    } else {
     }
-}else {
-    header("Location:http://localhost/WildlifeCare/user/mustLogout");
+} else {
 }
 ?>
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,6 +19,7 @@ if (isset($_SESSION['jobtype'])) {
     <link rel="stylesheet" href="../Public/css/wildlifeofficerHeader.css">
     <link rel="stylesheet" href="../Public/css/wildlifeofficerEditProfile.css">
     <script src="../Public/Javascript/login.js"></script>
+    <script src="../Public/javascript/admin.js"></script>
     <!-- <script src="../Public/Javascript/viewReport.js"></script> -->
     <script src="../Public/javascript/wildlifeofficer.js"></script>
     <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=myMap"></script> -->
@@ -57,7 +56,7 @@ if (isset($_SESSION['jobtype'])) {
                     <span class="dot"> <img onclick="myFunction_2(this)" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
                     <div id="myDropdown" class="dropdown-content">
                         <a href="../wildlifeofficer/viewProfile?lang=3">பயனர் சுயவிவரம்</a>
-                        <a href="../user/index?lang=3">வெளியேறு</a>
+                        <a href="../user/logout?lang=3">வெளியேறு</a>
                     </div>
                 </li>
             </ul>
@@ -75,29 +74,29 @@ if (isset($_SESSION['jobtype'])) {
     </div> -->
 
     <body>
-    <?php
+        <?php
 
-if (isset($_POST['save'])) {
-?>
+        if (isset($_POST['save'])) {
+        ?>
 
-  <div id="message1" style="padding: 10px; background-color:aliceblue">
+            <div id="message1" style="padding: 10px; background-color:aliceblue">
 
 
-    <h2><img src="../Public/images/success-mesaage.png" style="width:25px;  height:25px">Your Profile Details Updated Sucessfully </h2><a href="../wildlifeofficer/viewProfile?lang=1" class="login-btn" style=" border-radius: 10px; padding: 10px 10px; background-color:#056412;  color: white;">View Profile</a>
-  </div>
-<?php
+                <h2><img src="../Public/images/success-mesaage.png" style="width:25px;  height:25px">Your Profile Details Updated Sucessfully </h2><a href="../wildlifeofficer/viewProfile?lang=1" class="login-btn" style=" border-radius: 10px; padding: 10px 10px; background-color:#056412;  color: white;">View Profile</a>
+            </div>
+        <?php
 
-}
-//  }
-//ss}
-?>
-<div id="note" >
-  <b> </b>
-</div>
-<div id="message" style="display: none;">
-  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-  <h id="errorMessage"></h>
-</div>
+        }
+        //  }
+        //ss}
+        ?>
+        <div id="note">
+            <b> </b>
+        </div>
+        <div id="message" style="display: none;">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+            <h id="errorMessage"></h>
+        </div>
         <div class="contanier_2">
             <div>
                 <?php if (isset($data[0]['message'])) {
@@ -146,7 +145,7 @@ if (isset($_POST['save'])) {
             <label for="female">Female</label></div>
       </div> -->
                 <div class="row">
-                    
+
                 </div>
                 <div class="row address">
                     <div class="col_1">வீட்டு முகவரி</div>

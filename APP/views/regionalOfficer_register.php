@@ -23,7 +23,7 @@
 
             <ul class="nav-menu">
                 <li id="home" class="nav-menu-item"><a href="">Home</a></li>
-                <li id="dashboard" class="nav-menu-item"><a href="../admin/dashboard">Dashboard</a></li>
+                <li id="dashboard" class="nav-menu-item"><a href="../regionalOfficer/dashboard">Dashboard</a></li>
                 <li class="dropdown">
                     <span class="dot"> <img onclick="myFunction_2(this)" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
                     <div id="myDropdown" class="dropdown-content">
@@ -41,7 +41,7 @@
         <div class="registrationHeader">
             <ul>
                 <li><h3>ADD USER</h3></li>
-                <li><button id="profile" onclick="location.href='../admin/viewUser'">Back</button></li>
+                <li><button id="profile" onclick="location.href='../regionalOfficer/viewUser'">Back</button></li>
                 <form>
     
 </form>
@@ -88,7 +88,7 @@
         <div class="container2">
 
 
-            <form  name="gnForm" class="gnform" method="POST" action="../admin/addUser?error=&success=" onsubmit="return nicPasswordValidate('gramaNiladhari')">
+            <form  name="gnForm" class="gnform" method="POST" action="../regionalOfficer/addUser?error=&success=" onsubmit="return nicPasswordValidate('gramaNiladhari')">
                 <table>
 
                     <tr>
@@ -241,7 +241,7 @@
 
 
                 </table>
-                <button onclick="location.href='../admin/addUser'" >back</button>
+                <button onclick="location.href='../regionalOfficer/addUser'" >back</button>
                 
                     <button type="submit" name="submit" value="grama niladhari">Submit</button>
                 
@@ -254,7 +254,7 @@
             </form>
 
 
-             <form name="vetForm" class="vetform" method="POST" action="../admin/addUser?error=&success=" onsubmit="return nicPasswordValidate('veterinarian')">
+             <form name="vetForm" class="vetform" method="POST" action="../regionalOfficer/addUser?error=&success=" onsubmit="return nicPasswordValidate('veterinarian')">
                 <table>
 
                     <tr>
@@ -372,7 +372,7 @@
 
 
                 </table>
-                <button onclick="location.href='../admin/addUser'">back</button>
+                <button onclick="location.href='../regionalOfficer/addUser'">back</button>
                 <button type="submit" name="submit" value="veterinarian">Submit</button>
                 
 
@@ -383,7 +383,7 @@
             </form>
 
 
-             <form name="vilForm" class="vilform"  method="POST" action="../admin/addUser" onsubmit="return nicPasswordValidate('villager')">
+             <form name="vilForm" class="vilform"  method="POST" action="../regionalOfficer/addUser" onsubmit="return nicPasswordValidate('villager')">
                 <table>
                     
 
@@ -455,7 +455,7 @@
                         </td>
                         <td>
                             <select class="text" name="village" id="villagevil"    required>
-                                
+                            <option value="Kotapola">Kotapola</option>
                                   
                                </select>
                         </td>
@@ -472,7 +472,7 @@
                         <td>
                             <select  name="gnd" id="gndvi" onchange ="selectVil(this.value)" required>
                                      
-                         
+                         <option value="Kotapola">Kotapola</option>
                             </select>
                             
                         </td>
@@ -552,7 +552,7 @@
 
                 </table>
 
-                <button onclick="location.href='../admin/addUser'">back</button>
+                <button onclick="location.href='../regionalOfficer/addUser'">back</button>
                 <button type="submit" name="submit" value="villager">Submit</button>
                 
 
@@ -562,7 +562,7 @@
 
             </form>
 
-             <form name="wilForm" class="woform"  method="POST" action="../admin/addUser?error=&success=" onsubmit="return nicPasswordValidate('wildlifeOfficer')">
+             <form name="wilForm" class="woform"  method="POST" action="../regionalOfficer/addUser?error=&success=" onsubmit="return nicPasswordValidate('wildlifeOfficer')">
                 <table>
 
                     <tr>
@@ -687,7 +687,7 @@
                 </table>
                 
 
-               <button onclick="location.href='../admin/addUser'">back</button>
+               <button onclick="location.href='../regionalOfficer/addUser'">back</button>
                <button type="submit"  name="submit" value="wildlife officer">Submit</button>
 
 
@@ -696,7 +696,7 @@
 
 
 
-
+            
             
             
 

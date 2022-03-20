@@ -5,15 +5,15 @@ if (!isset($_SESSION['NIC'])) {
     header("Location:http://localhost/WildlifeCare/user/index");
 }
 if (isset($_SESSION['jobtype'])) {
-    if ($_SESSION['jobtype']=='Wildlife Officer') {
-       
-    }else {
+    if ($_SESSION['jobtype'] == 'Wildlife Officer') {
+    } else {
         header("Location:http://localhost/WildlifeCare/user/mustLogout");
     }
-}else {
+} else {
     header("Location:http://localhost/WildlifeCare/user/mustLogout");
 }
 ?>
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -55,8 +55,8 @@ if (isset($_SESSION['jobtype'])) {
                 <li class="dropdown">
                     <span class="dot"> <img onclick="myFunction_3()" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
                     <div id="myDropdown" class="dropdown-content">
-                        <a href="">View Profile</a>
-                        <a href="">Logout</a>
+                        <a href="../wildlifeofficer/viewProfile?lang=1">View Profile</a>
+                        <a href="../user/logout?lang=1">Logout</a>
                     </div>
                 </li>
             </ul>

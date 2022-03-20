@@ -54,7 +54,7 @@
       <label for="check"><i class="fas fa-times" id="cancel"></i></label>
       <h1>Wildlife Care</h1>
       <ul>
-        <li><a href="../admin/viewUser"><i class="fas fa-users"></i>Users</a></li>
+        <li><a href="../regionalOfficer/viewUser"><i class="fas fa-users"></i>Users</a></li>
         <li><a href="../admin/placeNotice"><i class="fas fa-bell"></i>Notice</a></li>
         
       </ul>

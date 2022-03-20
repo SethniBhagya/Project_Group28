@@ -86,9 +86,19 @@ class Route{
 			   $this->_params->{$this->_routes[1]}($this->_routes[2]);
 			   break;
 			  case 2:
-				//pass methods
-			   $this->_params->{$this->_routes[1]}();
-			   break;
+			  {
+			  	//pass methods
+			  	
+			  	if(isset($_SESSION["NIC"])||$this->_routes[0]=='user')
+			     $this->_params->{$this->_routes[1]}();
+			    else
+			    	header("Location: ../user/index");
+
+			   
+
+			  }
+			  break;
+				
 			  default:
 			   //call index function in controller
 			   $this->_params->index();

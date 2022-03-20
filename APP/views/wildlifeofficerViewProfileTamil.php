@@ -5,15 +5,13 @@ if (!isset($_SESSION['NIC'])) {
     header("Location:http://localhost/WildlifeCare/user/index");
 }
 if (isset($_SESSION['jobtype'])) {
-    if ($_SESSION['jobtype']=='Wildlife Officer') {
-       
-    }else {
-        header("Location:http://localhost/WildlifeCare/user/mustLogout");
+    if ($_SESSION['jobtype'] == 'Wildlife Officer') {
+    } else {
     }
-}else {
-    header("Location:http://localhost/WildlifeCare/user/mustLogout");
+} else {
 }
 ?>
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,6 +19,7 @@ if (isset($_SESSION['jobtype'])) {
     <link rel="stylesheet" href="../Public/css/wildlifeofficerHeader.css">
     <link rel="stylesheet" href="../Public/css/wildlifeofficerViewProfile.css">
     <script src="../Public/Javascript/login.js"></script>
+    <script src="../Public/javascript/admin.js"></script>
     <!-- <script src="../Public/Javascript/viewReport.js"></script> -->
     <script src="../Public/javascript/wildlifeofficer.js"></script>
     <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=myMap"></script> -->
@@ -38,11 +37,11 @@ if (isset($_SESSION['jobtype'])) {
             </div>
 
             <ul>
-                <li id="home"><a href="../?lang=3">முகப்பு பக்கம்</a></li>
-                <li id="userPageSinhala"><a href="../wildlifeofficer/?lang=3"> &nbsp;பயனர் பக்கம் </a></li>
-                <li id="incidentsTamil"><a href="../wildlifeofficer/viewIncidents?lang=3"> &emsp; சம்பவங்கள்</a></li>
-                <li id="notifications"><a href="../wildlifeofficer/viewNotification?lang=3">அறிவிப்புகள்</a></li>
-                <li id="dashboard"><a href="../wildlifeofficer/viewDashboard?lang=3">தரவு பலகை</a></li>
+                <li id="homeTamil"><a href="../?lang=3">முகப்பு பக்கம்</a></li>
+                <li id="userPageTamil"><a href="../wildlifeofficer/?lang=3"> பயனர் பக்கம் </a></li>
+                <li id="incidentsTamil"><a href="../wildlifeofficer/viewIncidents?lang=3"> சம்பவங்கள்</a></li>
+                <li id="notificationsTamil"><a href="../wildlifeofficer/viewNotification?lang=3">அறிவிப்புகள்</a></li>
+                <li id="dashboardTamil"><a href="../wildlifeofficer/viewDashboard?lang=3">தரவு பலகை</a></li>
                 <li>
                     <div class="dropdown-1" style="  padding-left:  300px ">
                         <button class="dropbtn-1">மொழி</button>
@@ -57,20 +56,14 @@ if (isset($_SESSION['jobtype'])) {
                     <span class="dot"> <img onclick="myFunction_2(this)" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
                     <div id="myDropdown" class="dropdown-content">
                         <a href="../wildlifeofficer/viewProfile?lang=3">பயனர் சுயவிவரம்</a>
-                        <a href="../user/index">வெளியேறு</a>
+                        <a href="../user/logout?lang=3">வெளியேறு</a>
                     </div>
                 </li>
             </ul>
         </nav>
 
     </header>
-    <!-- <nav class="links_to_pages">
-      <ul>
-        <li>BACK</li>
-        <li>SPECIAL NOTICES</li>
-        <li>DASHBOARD</li>
-      </ul>
-    </nav> -->
+
 
     </div>
 
