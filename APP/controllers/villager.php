@@ -196,7 +196,7 @@
             $this->model->setAlerStatus($_SESSION['NIC']); 
             }
             if (isset($_POST['submit'])) {
-             echo "HEllo";
+              $this->model->updateprofile($_SESSION['NIC'],$_POST['fname'],$_POST['lname'],$_POST['dob'],$_POST['address'],$_POST['province'] );
            }
 
           break;

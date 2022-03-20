@@ -89,7 +89,7 @@ class Route{
 			  {
 			  	//pass methods
 			  	
-			  	if(isset($_SESSION["NIC"])||$this->_routes[0]=='user')
+			  	if(isset($_SESSION["NIC"])||$this->_routes[0]=='user'||$this->_routes[0]=='incident'||$this->_routes[0]=='villager'||$this->_routes[0]=='dashboard')
 			     $this->_params->{$this->_routes[1]}();
 			    else
 			    	header("Location: ../user/index");
