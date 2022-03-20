@@ -7,7 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Public/css/header.css">
     <link rel="stylesheet" href="../Public/css/alert.css">
-    <link rel="stylesheet" href="../Public/css/Dashboard.css">
+    <link rel="stylesheet" href="../Public/css/Dashboard.css"> 
+    <link rel="stylesheet" href="../Public/css/notification.css">
+    
     <!-- <script src="../Public/javascript/dashboard.js"></script> -->
     <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
@@ -51,7 +53,127 @@
             </ul>
         </nav>
     </header>
-      
+    <?php
+    if (isset($this->status) && isset($this->notification)) {
+        if ($this->status  == "notview"&&$this->notification > 0) {
+    ?>
+
+            <div id="messagealert">
+                <form action="?lang=1&report=1" method="post" style="display: inline-block;">
+                    <img src="../Public/images/alertIcon.png" id="alert">
+                    <h3>Wildlife Elephants Come In to Your Registered Village &nbsp&nbsp
+                        <input type="submit" value="Ok" name="submitAlert" id="submit1">
+                    </h3>
+                </form>
+            </div>
+     
+        <div id="notificationmessage">
+
+            <!-- <img src="../Public/images/alertIcon.png" style="width:1000px;  height:100000px"><br> -->
+       
+                <form action="../villager/viewNotification?lang=1" method="post" style="display: inline-block;">
+                    <img src="../Public/images/bell1.png" id="right">&nbsp&nbsp
+                    <h3>You have New Notification (<?php echo $this->notification ?>) &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                        <input type="submit" value="View" name="submitAlert" id="submit">
+                    </h3>
+                </form>
+        </div>
+        <?php
+
+if (isset($_POST['Submit'])) {
+?>
+
+    <div id="popupmessage"  >
+        <form action="?lang=1&report=1" method="post" style="display: inline-block;">
+        <img src="../Public/images/success-mesaage.png"  id="alert" >&nbsp&nbsp
+            <h3>Your Report Incident Update Sucessfully &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+             </h3>
+        </form>
+ 
+    </div> 
+ 
+    <?php }  ?>
+    <?php
+
+    } else if ($this->status  == "notview")  {
+         
+    ?>
+
+        <div id="messagealert1">
+            <form action="?lang=1&report=1" method="post" style="display: inline-block;">
+                <img src="../Public/images/alertIcon.png" id="alert">
+                <h3>Wildlife Elephants Come In to Your Registered Village &nbsp&nbsp
+                    <input type="submit" value="Ok" name="submitAlert" id="submit1">
+                </h3>
+            </form>
+        </div>
+        <?php
+
+if (isset($_POST['Submit'])) {
+?>
+
+    <div id="popupmessagelast"  >
+        <form action="?lang=1&report=1" method="post" style="display: inline-block;">
+        <img src="../Public/images/success-mesaage.png"  id="alert" >&nbsp&nbsp
+            <h3>Your Report Incident Update Sucessfully &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+             </h3>
+        </form>
+ 
+    </div>  
+<?php
+
+}
+ 
+?>
+    <?php }
+        
+     elseif ($this->notification > 0) {  ?>
+ 
+ <div id="notificationmessage">
+
+<!-- <img src="../Public/images/alertIcon.png" style="width:100000000px;  height:100000000px"><br> -->
+
+    <form action="../villager/viewNotification?lang=1" method="post" style="display: inline-block;">
+        <img src="../Public/images/bell1.png" id="right" style=" font-weight: 600%;  font-weight: 602;margin-left: 23%;  ">&nbsp&nbsp
+        <h3>You have New Notification (<?php echo $this->notification ?>) &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            <input type="submit" value="View" name="submitAlert" id="submit">
+        </h3>
+    </form>
+</div>
+        <?php if (isset($_POST['Submit'])) {
+?>
+
+    <div id="popupmessagelast"  >
+        <form action="?lang=1&report=1" method="post" style="display: inline-block;">
+        <img src="../Public/images/success-mesaage.png"  id="alert" >&nbsp&nbsp
+            <h3>Your Report Incident Update Sucessfully &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+             </h3>
+        </form>
+ 
+    </div>  
+<?php
+
+}
+ 
+?>
+<?php }else{
+    
+   ?>        <?php if (isset($_POST['Submit'])) {
+    ?>
+    
+        <div id="popupmessagefirst"  >
+            <form action="?lang=1&report=1" method="post" style="display: inline-block;">
+            <img src="../Public/images/success-mesaage.png"  id="alert" >&nbsp&nbsp
+                <h3>Your Report Incident Update Sucessfully &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                 </h3>
+            </form>
+     
+        </div>  
+    <?php
+    
+    }
+     
+    ?> <?php }} ?>
     
   
     <div class="header-name">

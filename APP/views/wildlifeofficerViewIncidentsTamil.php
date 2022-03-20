@@ -37,11 +37,11 @@ if (isset($_SESSION['jobtype'])) {
       </div>
 
       <ul>
-        <li id="home"><a href="../?lang=3">முகப்பு பக்கம்</a></li>
-        <li id="userPageSinhala"><a href="../wildlifeofficer/?lang=3"> &nbsp;பயனர் பக்கம் </a></li>
-        <li id="incidentsTamil"><a href="../wildlifeofficer/viewIncidents?lang=3"> &emsp; சம்பவங்கள்</a></li>
-        <li id="notifications"><a href="../wildlifeofficer/viewNotification?lang=3">அறிவிப்புகள்</a></li>
-        <li id="dashboard"><a href="../wildlifeofficer/viewDashboard?lang=3">தரவு பலகை</a></li>
+        <li id="homeTamil"><a href="../?lang=3">முகப்பு பக்கம்</a></li>
+        <li id="userPageTamil"><a href="../wildlifeofficer/?lang=3"> பயனர் பக்கம் </a></li>
+        <li id="incidentsTamil"><a href="../wildlifeofficer/viewIncidents?lang=3"> சம்பவங்கள்</a></li>
+        <li id="notificationsTamil"><a href="../wildlifeofficer/viewNotification?lang=3">அறிவிப்புகள்</a></li>
+        <li id="dashboardTamil"><a href="../wildlifeofficer/viewDashboard?lang=3">தரவு பலகை</a></li>
         <li>
           <div class="dropdown-1" style="  padding-left:  300px ">
             <button class="dropbtn-1">மொழி</button>
@@ -129,7 +129,7 @@ if (isset($_SESSION['jobtype'])) {
 
             <th></th>
             <th>சம்பவத்தின் நிலை</th>
-            <td></td>
+            <td>சம்பவ நிலை</td>
           </tr>
           <?php
 
@@ -165,12 +165,12 @@ if (isset($_SESSION['jobtype'])) {
               }
             }
             if ($row['status'] == 'pending') {
-              $stat = "<form method='POST' action='../wildlifeofficer/trigerRequest?lang=1'><input type='text' style='display:none' name='acc' value=" . $row['incidentID'] . "><button class='buttonAccept' id='acceptId' value='ACCEPT' name='accept'/>ACCEPT</button></form>";
+              $stat = "<form method='POST' action='../wildlifeofficer/trigerRequest?lang=3'><input type='text' style='display:none' name='acc' value=" . $row['incidentID'] . "><button class='buttonAccept' id='acceptId' value='ACCEPT' name='accept'/>ACCEPT</button></form>";
             } else {
               if ($yes == 1) {
-                $stat = "<form method='POST' action='../wildlifeofficer/trigerRequest?lang=1'><input type='text' style='display:none'  name='can' value=" . $row['incidentID'] . "><button class='buttonCancel' id='cancelId' value='CANCEl' name='cancel'/>CANCEL</button></form>";
+                $stat = "<form method='POST' action='../wildlifeofficer/trigerRequest?lang=3'><input type='text' style='display:none'  name='can' value=" . $row['incidentID'] . "><button class='buttonCancel' id='cancelId' value='CANCEl' name='cancel'/>CANCEL</button></form>";
               } else {
-                $stat = "<form method='POST' action='../wildlifeofficer/trigerRequest?lang=1'><input type='text' style='display:none'  name='can' value=" . $row['incidentID'] . "><button class='buttonCancel' id='cancelId' value='CANCEl' name='cancel' disabled />CANCEL</button></form>";
+                $stat = "<form method='POST' action='../wildlifeofficer/trigerRequest?lang=3'><input type='text' style='display:none'  name='can' value=" . $row['incidentID'] . "><button class='buttonCancel' id='cancelId' value='CANCEl' name='cancel' disabled />CANCEL</button></form>";
               }
             }
             // $select = '';
@@ -194,22 +194,22 @@ if (isset($_SESSION['jobtype'])) {
             <td>" . $stat . "</td>
             
             <td><button type='submit' class='viewButton' id='view' onclick='' >
-              <a href='../wildlifeofficer/viewIncidentDetails?name=" . $d . "&lang=1&index=" . $count . "'>VIEW</a>
+              <a href='../wildlifeofficer/viewIncidentDetails?name=" . $d . "&lang=3&index=" . $count . "'>VIEW</a>
             </button></td>
             
-            <td><Form action='../wildlifeofficer/setIncidentStatus?lang=1&index=" . $count . "' method='POST' name='incidentStatus'>
+            <td><Form action='../wildlifeofficer/setIncidentStatus?lang=3&index=" . $count . "' method='POST' name='incidentStatus'>
            
            
             <select name='incidentStatus' id='incidentStatus' onchange='location = this.value;'>
            
 
-            <option class='group-1' value='../wildlifeofficer/setIncidentStatus?lang=1&index={$row['incidentID']}&status=Pending'>Pending</option>
+            <option class='group-1' value='../wildlifeofficer/setIncidentStatus?lang=3&index={$row['incidentID']}&status=Pending'>Pending</option>
 
-            <option class='group-1' value='../wildlifeofficer/setIncidentStatus?lang=1&index={$row['incidentID']}&status=Success'>Success</option>
-            <option class='group-2' value='../wildlifeofficer/setIncidentStatus?lang=1&index={$row['incidentID']}&status=UnSuccess'>
+            <option class='group-1' value='../wildlifeofficer/setIncidentStatus?lang=3&index={$row['incidentID']}&status=Success'>Success</option>
+            <option class='group-2' value='../wildlifeofficer/setIncidentStatus?lang=3&index={$row['incidentID']}&status=UnSuccess'>
                 Unscusses
               </option>
-              <option class='group-2' value='../wildlifeofficer/setIncidentStatus?lang=1&index={$row['incidentID']}&status=UnSuccess' selected>
+              <option class='group-2' value='../wildlifeofficer/setIncidentStatus?lang=3&index={$row['incidentID']}&status=UnSuccess' selected>
               {$row['incidentStatus']}
               </option>
             </select>
@@ -229,22 +229,22 @@ if (isset($_SESSION['jobtype'])) {
             <td>" . $stat . "</td>
             
             <td><button type='submit' class='viewButton' id='view' onclick='' >
-              <a href='../wildlifeofficer/viewIncidentDetails?name=" . $d . "&lang=1&index=" . $count . "'>VIEW</a>
+              <a href='../wildlifeofficer/viewIncidentDetails?name=" . $d . "&lang=3&index=" . $count . "'>VIEW</a>
             </button></td>
             
-            <td><Form action='../wildlifeofficer/setIncidentStatus?lang=1&index=" . $count . "' method='POST' name='incidentStatus'>
+            <td><Form action='../wildlifeofficer/setIncidentStatus?lang=3&index=" . $count . "' method='POST' name='incidentStatus'>
            
            
             <select name='incidentStatus' id='incidentStatus' onchange='location = this.value;' disabled>
            
 
-            <option class='group-1' value='../wildlifeofficer/setIncidentStatus?lang=1&index={$row['incidentID']}&status=Pending'>Pending</option>
+            <option class='group-1' value='../wildlifeofficer/setIncidentStatus?lang=3&index={$row['incidentID']}&status=Pending'>Pending</option>
 
-            <option class='group-1' value='../wildlifeofficer/setIncidentStatus?lang=1&index={$row['incidentID']}&status=Success'>Success</option>
-            <option class='group-2' value='../wildlifeofficer/setIncidentStatus?lang=1&index={$row['incidentID']}&status=UnSuccess'>
+            <option class='group-1' value='../wildlifeofficer/setIncidentStatus?lang=3&index={$row['incidentID']}&status=Success'>Success</option>
+            <option class='group-2' value='../wildlifeofficer/setIncidentStatus?lang=3&index={$row['incidentID']}&status=UnSuccess'>
                 Unscusses
               </option>
-              <option class='group-2' value='../wildlifeofficer/setIncidentStatus?lang=1&index={$row['incidentID']}&status=UnSuccess' selected>
+              <option class='group-2' value='../wildlifeofficer/setIncidentStatus?lang=3&index={$row['incidentID']}&status=UnSuccess' selected>
               {$row['incidentStatus']}
               </option>
             </select>

@@ -386,6 +386,29 @@
 .closebtn:hover {
   color: black;
 }
+/*table*/
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: none;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 8px;
+}
+
+.firstRow {
+  width: 100%;
+  background-color: #10400d;
+  color: #fff;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
 @media screen and (max-width: 800px) {
   .contanier_2 {
     position: relative;

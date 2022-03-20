@@ -37,7 +37,7 @@
                 <li class="dropdown">
                     <span class="dot"> <img onclick="myFunction_2(this)" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
                     <div id="myDropdown" class="dropdown-content">
-                    <a href="../user/editprofile?lang=3">சுயவிவரம் காண</a> 
+                    <a href="../villager/editprofile?lang=3">சுயவிவரம் காண</a> 
                     <a href="../user/logout">வெளியேறு</a>
                     </div>
                 </li>

@@ -7,65 +7,38 @@
     <link rel="stylesheet" href="../Public/css/header.css">
     <script src="../Public/javascript/report1.js"></script>
     <link rel="stylesheet" href="../Public/css/report_1.css">
+
+
     <script src="../Public/javascript/login1.js"></script>
     <title>අලි ඇතා ඇතා ඇතුලේ</title>
+    <title>අලි ඉන්නේ ගමේ</title>
 </head>
 <body>
     <header id="main">
-        <img src="../Public/images/icon.png" alt="icon" id="icon">
-        <nav id="navbar" class="mybar">
-            <div href="javascript:void(0);" class="icon" onclick="myFunction_1(this)">
-                <div class="bar1"></div>
-                <div class="bar2"></div>
-                <div class="bar3"></div>
-            </div>
-
-            <ul>
-            <li id="home_2"><a href="../?lang=2">මුල් පිටුව</a></li>
-                <li id="dashboard_1"   ><a href="../user/viewpage?lang=2" >මුල් පුවරුව</a></li>
-                <li id="report_2" style="   padding-right:20px ; right:345px  "><a href="../incident/index?lang=2"> වර්තා කිරීම</a></li>
-                <li id="special_1"><a href="../villager/viewSpecialNotice?lang=2">විශේෂ දැන්වීම</a></li> 
-                <div class="dropdown-1" style="  padding-left:  300px ">
-                    <button class="dropbtn-1">භාෂාව</button>
-                    <div class="dropdown-content-1">
-                        <a href="?lang=1&report=1">English</a>
-                        <a href="?lang=2&report=1">සිංහල</a> 
-                        <a href="?lang=3&report=1">தமிழ்</a>
-                    </div>
-                  </div>
+ 
                 <li class="dropdown">
                     <span class="dot"> <img onclick="myFunction_2(this)" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
                     <div id="myDropdown" class="dropdown-content">
-                    <a href="../user/editprofile?lang=2">පැතිකඩ බලන්න</a>
+                    <a href="../villager/editprofile?lang=2">පැතිකඩ බලන්න</a>
                         <a href="../user/logout">පිටවීම</a>
                     </div>
                 </li>
-            </ul>
-        </nav>
-    </header> 
-
-    <div class="container1-1">
-        <div class="header">
-            <b>අලි ගම්මානයේ ඇත </b>
-        </div>
-        <?php 
-      
-        if(isset($_POST['Submit'])){
-        ?>
-           
+             <?php   if (isset($_POST['Submit'])) {
+    ?>
            <div id="message1" style="padding: 10px; background-color:aliceblue">
            <!-- <h1>Wildlife Care</h1></br></br> -->
            <img src="../Public/images/success-mesaage.png" style="width:90px;  height:90px">
            <h1>Your Report Incident Submit Sucessfully</h1>
            <!-- <h>Your Incident Report Submit Sucessfully</h> -->
            
+            <img src="../Public/images/success-mesaage.png" style="width:90px;  height:90px">
+           <h1>ඔබගේ වාර්තාවේ සිදුවීම සාර්ථකයි </h1>
            <a href="../incident/viewReport?type=1&page=2&lang=1"  class="login-btn" style=" border-radius: 10px; padding: 10px 10px; background-color:#056412;  color: white;">View Report</a>
            </div>
          <?php
          
          }
-        //  }
-        //ss}
+      
         ?>
         <form class="form-report" action="" method="post">
             <label for="numberOfelephants"><b>ගමේ සිටින අලි සංඛ්‍යාව : </b></label>

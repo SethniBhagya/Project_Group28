@@ -4,13 +4,9 @@
     function index(){
         if(isset($_GET['lang'])){
             //assign the value
-           
-            $type = $_GET['lang'];
+              $type = $_GET['lang'];
         }
-        switch($type){
-            case 1:
-            case 1: 
-              session_start();
+            session_start();
          //   $this->view->render('dashboardVillager');
              $lastWeek = $this->model->lastWeek();
              $lastMonth = $this->model->lastMonth();
@@ -21,9 +17,16 @@
              $countcropDamages = $this->model->countcropDamages();
              $countOthers = $this->model->countOthers();
              $villagerDistrict = $this->model->getVillagerDistrict($_SESSION['NIC']);
-             foreach($villagerDistrict as $row) {
-                $dataDistrict = $row['district'];
-             } 
+             $GramaniladhariDistrict = $this->model->getGramaniladariDistrict($_SESSION['NIC']);
+             if($_SESSION["jobtype"]=='villager'){ 
+               foreach($villagerDistrict as $row) {
+                 $dataDistrict = $row['district'];
+               }
+              }elseif($_SESSION["jobtype"]=='gramaniladari') {
+                foreach($GramaniladhariDistrict as $row) {
+                    $dataDistrict = $row['district_name'];
+               } 
+             }
              $this->view->districtName = $dataDistrict;
              $countGramaniladahari = $this->model->countGramaniladhari( $dataDistrict );
              $countVillager = $this->model->countVillagers( $dataDistrict ); 
@@ -289,7 +292,7 @@
             } 
             $this->view->Incident10PMCount =  $datacountIncident10PM;
             foreach($countIncident11PM as $row) {
-                $datacountIncident11PM  = $row['11PM'];
+                $datacountIncident11PM  = $row['11PM']; 
             } 
             $this->view->Incident11PMCount =  $datacountIncident11PM; 
             foreach($countIncidentJan as $row) {
@@ -349,18 +352,64 @@
                 $datacountIncidentDec  = $row['Dece'];
             } 
             $this->view->IncidentDecCount =  $datacountIncidentDec;
-            
-            $this->view->render('dashboardVillager');
-     
-            break;
-            case 2 :
-            $this->view->render('dashboardVillagerSinhala');    
-             case 3:
-            $this->view->render('dashboardVillagerTamil') ;   
-            break;
-        }
-         
-    }
-   
+             switch($_SESSION["jobtype"]){
+                case "villager":
+                    $this->view->status = $this->checkAlerStatus($_SESSION['NIC']);
+                    $this->view->notification = $this->checkNotificationStatus($_SESSION['NIC']);
+                 
+                    switch($type){
+                   case 1: 
+                   $this->view->render('dashboardVillager');
+                   if (isset($_POST['submitAlert'])) {
+                       $this->model->setAlerStatus($_SESSION['NIC']); 
+                    }
+                   break;
+                   case 2 :
+                   $this->view->render('dashboardVillagerSinhala');  
+                   break;  
+                   case 3:
+                   $this->view->render('dashboardVillagerTamil') ;   
+                   break;
+                }
+                break;
+                
+                case 'gramaniladari':
+                    $this->view->status = $this->checkAlerStatus($_SESSION['NIC']);
+                    $this->view->notification = $this->checkNotificationStatus($_SESSION['NIC']);
+                     switch($type){
+                         case 1: 
+                          $this->view->render('dashboardGramaniladhari');
+                          if (isset($_POST['submitAlert'])) {
+                            $this->model->setAlerStatus($_SESSION['NIC']); 
+                         }
+                        break;
+                        case 2 :
+                        $this->view->render('dashboardGramaniladhari');  
+                        break;  
+                        case 3:
+                        $this->view->render('dashboardGramaniladhari') ;   
+                        break;
+                    }
+                    break;    
+                    
+        
+    } 
+}
+    public function checkAlerStatus($NIC){
+       
+        $statusReview  = $this->model->getAlerStatus($NIC);  
+        foreach($statusReview as $row){ 
+          $status = $row['alertstatus'];
+        }  
+        return $status;
+   }
+   public function checkNotificationStatus($NIC){
+       
+    $statusReview  = $this->model->getNotificationStatus($NIC);  
+    foreach($statusReview as $row){ 
+      $numberofnotification = $row['numberofnotification'];
+    }  
+    return $numberofnotification;
+  }
 } 
  ?>

@@ -99,18 +99,14 @@ a {
   color: ivory;
   font-size: 25px;
 }
-/* #10400d
-#22661f
-#388a35
-#5fb65a
-#80d87c */
+ 
 .dashboard {
   margin-top: 220px;
   margin-right: 19.9%;
   width: 16.6%;
   height: 300px;
   background: #14671c;
-  float: left;
+  float: right;
   text-align: center;
   border: none;
   border-radius: 6px;
@@ -186,29 +182,264 @@ a {
   background-color: #e4fce6;
   display: inline-block;
 }
+#message1{
+  position: absolute;
+  height: auto;
+  margin-top: 100px;
+  width: 50%;
+  /* text-align: ; */
+  z-index: 101;
+  left:22.5%;
+  left:24.5%;
+  text-align: center;
+  border-radius: 20px ; 
+  background-color: white;
+}
+#close a{
+ 
+  background-color: #056412;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 17px;
+}
+#message {  
+  position: absolute;
+  padding: 10px;
+  width: 75%;
+  left:12%;
+   
+  background-color: #022b08;
+  color: white;
+  /* text-align: center; */
+  border-radius:10px ;
+}
 
+input[type=submit] {
+  width: 10%;
+  background-color: #056412;
+  color: white;
+  padding: 8px 0px;
+  margin: 7px 0px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 17px;
+  font-weight:500;
+}
+ 
+ 
+@media (max-width: 1500px) {
+  .name label {
+    margin-right: 70%;
+ 
+  }
+  .dashboard{
+    margin-right: 18.9%;
+  }
+  @media (max-width: 1340px) {
+    .name label {
+      margin-right: 70%;
+    
+    }
+    .dashboard{
+    
+      margin-right: 16.81%;
+      
+    }
+  }
+  @media (max-width: 1240px) {
+    .name label {
+      margin-right: 70%;
+    
+    }
+    .dashboard{
+    
+      margin-right: 16.81%;
+      
+    }
+  }
+ 
 @media (max-width: 1200px) {
   .name label {
-    margin-right: 70%;
-  }
-}
-@media (max-width: 1000px) {
-  .name label {
-    margin-right: 60%;
-  }
-}
-@media (max-width: 930px) {
-  .name label {
-    margin-right: 70%;
+    margin-right: 65%;
+     
   }
   .user {
     margin-left: 10px;
   }
+  .dashboard{
+    
+    margin-right: 15.81%;
+    
+  }
+  .line{
+    margin-left: 100px;
+    margin-left: 36px; 
+ }
+}
+@media (max-width: 1100px) {
+  .name label {
+    margin-right: 65%;
+   
+  }
+  .user {
+    margin-left: 10px;
+  }
+  .dashboard{
+    
+    margin-right: 14.81%;
+    
+  }
+  .line{
+    margin-left: 22px; 
+ }
+}
+@media (max-width: 1000px) {
+  .name label {
+    margin-right: 65%;
+ 
+  }
+  .user {
+    margin-left: 10px;
+  }
+  .dashboard{
+    
+    margin-right: 12.81%;
+    
+  }
+  .line{
+    margin-left: 22px; 
+ }
+}
+@media (max-width: 970px) {
+  .name label {
+    margin-right: 100%;
+    margin-right: 60%;
+   
+  }
+  .user {
+    margin-left: 10px;
+  }
+  .dashboard{
+    
+    margin-right: 12.81%;
+    
+  }
+  .line{
+    margin-left: 22px; 
+ }
+}
+@media (max-width: 965px) {
+  .name label {
+    margin-right: 100%;
+    margin-right: 58%;
+   
+  }
+  .user {
+    margin-left: 10px;
+  }
+  .dashboard{
+    
+    margin-right: 12.81%;
+    
+  }
+  .line{
+    margin-left: 22px; 
+ }
+}
+@media (max-width: 960px) {
+  .name label {
+    margin-right: 100%;
+    margin-right: 62%;
+ 
+  }
+  .user {
+    margin-left: 10px;
+  }
+  .dashboard{
+    
+    margin-right: 12.81%;
+    
+  }
+  .line{
+    margin-left: 22px; 
+ }
+}
+@media (max-width: 940px) {
+  .name label {
+    margin-right: 60%;
+ 
+  }
+  .user {
+    margin-left: 10px;
+  }
+  .dashboard{
+    
+    margin-right: 12.81%;
+    
+  }
+  .line{
+    margin-left: -10px; 
+ }
 }
 @media (max-width: 920px) {
   .name label {
-    margin-right: 70%;
+    margin-right: 100%;
+    margin-right: 40%;
+    
   }
+  .user {
+    margin-left: 10px;
+  }
+  .dashboard{
+    
+    margin-right: 10.81%;
+    
+  }
+  .line{
+     margin-left: 18px; 
+  }
+}
+@media (max-width: 912px) {
+  .name label {
+    margin-right: 100%;
+    margin-right: 40%;
+    
+  }
+  .user {
+    margin-left: 10px;
+  }
+  .dashboard{
+    
+    margin-right: 10.81%;
+    
+  }
+  .line{
+     margin-left: 18px; 
+  }
+}
+@media (max-width: 910px) {
+  .name label {
+    margin-right: 100%;
+    margin-right: 40%;
+    
+  }
+  .user {
+    margin-left: 10px;
+  }
+  .dashboard{
+    
+    margin-right: 10.81%;
+    
+  }
+  .line{
+     margin-left: 18px; 
+  }
+}
+ 
 }
 @media (max-width: 900px) {
   .name {
@@ -269,8 +500,19 @@ a {
     font-size: 20px;
   }
   .dashboard {
+    margin-top: 220px;
+    margin-right: 19.9%;
+    width: 16.6%;
+    height: 300px;
+    background: #14671c;
+    float: right;
+    text-align: center;
+    border: none;
+    border-radius: 6px;
+  }
+  .dashboard {
     position: inherit;
-    margin-left: 5%;
+    margin-right: 4.9%;
     margin-top: 0px;
     border-radius: 10px;
     height: 90%;

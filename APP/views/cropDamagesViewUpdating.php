@@ -135,9 +135,9 @@
                         </tr>
                         <tr class="header-table" style="text-align: left;">
                             <th>Damaged Land Extent </th>
-                            <td> <?php echo $damagedLandExtent ?> </td>
+                            <td>  <?php echo '<img src="data:image;base64,'.base64_encode($row['image']).'" alt="Image" >'; ?> </td>
                         </tr>
-                        <tr><td>  <img src="row['image']"  width= "250" height= "180" >   </td>
+                        <tr><td> <?php echo '<img src="data:image;base64,'.base64_encode($row['image']).'" alt="Image" >'; ?>  </td>
                         </tr>
                     </table>
                 </div> 

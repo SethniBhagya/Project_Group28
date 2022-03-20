@@ -7,8 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Public/css/header.css">
     <link rel="stylesheet" href="../Public/css/alert.css">
+    <link rel="stylesheet" href="../Public/css/notification.css">
     <link rel="stylesheet" href="../Public/css/villagerPage.css">
-    <script src="../Public/Javascript/login1.js"></script>
+    <link rel="stylesheet" href="../Public/css/popupNotification.css">
+     <script src="../Public/Javascript/login1.js"></script>
     <title>Main Menu</title>
 </head>
 
@@ -48,25 +50,127 @@
             </ul>
         </nav>
     </header>
-    <?php  
-    if (isset($this->status)) {
-         if($this->status  =="notview"){ 
+    <?php
+    if (isset($this->status) && isset($this->notification)) {
+        if ($this->status  == "notview"&&$this->notification > 0) {
     ?>
 
-        <div id="messagealert" style="padding: 10px;  ">
+            <div id="messagealert">
+                <form action="?lang=1&report=1" method="post" style="display: inline-block;">
+                    <img src="../Public/images/alertIcon.png" id="alert">
+                    <h3>Wildlife Elephants Come In to Your Registered Village &nbsp&nbsp
+                        <input type="submit" value="Ok" name="submitAlert" id="submit1">
+                    </h3>
+                </form>
+            </div>
+     
+        <div id="notificationmessage">
 
-            <img src="../Public/images/alertIcon.png" style="width:100px;  height:100px"><br>
-             <h1><b>Alert Message   </b></h1>
-             <P> ☆ Wildlife Elelphants Come In to Register Village  </P> 
-             <P> ☆ Please Go to Safe Place in Your Area</P> 
-            <form action="?lang=1&report=1" method="post"> 
-             <input type="submit" value="Ok" name="submitAlert"   id="submit">
-            </form>
+            <!-- <img src="../Public/images/alertIcon.png" style="width:1000px;  height:100000px"><br> -->
+       
+                <form action="../villager/viewNotification?lang=1" method="post" style="display: inline-block;">
+                    <img src="../Public/images/bell1.png" id="right">&nbsp&nbsp
+                    <h3>You have New Notification (<?php echo $this->notification ?>) &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                        <input type="submit" value="View" name="submitAlert" id="submit">
+                    </h3>
+                </form>
         </div>
+        <?php
+
+if (isset($_POST['Submit'])) {
+?>
+
+    <div id="popupmessage"  >
+        <form action="?lang=1&report=1" method="post" style="display: inline-block;">
+        <img src="../Public/images/success-mesaage.png"  id="alert" >&nbsp&nbsp
+            <h3>Your Report Incident Submit Sucessfully &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+             </h3>
+        </form>
+ 
+    </div> 
+ 
+    <?php }  ?>
     <?php
 
-    }}
+    } else if ($this->status  == "notview")  {
+         
+    ?>
 
+        <div id="messagealert1">
+            <form action="?lang=1&report=1" method="post" style="display: inline-block;">
+                <img src="../Public/images/alertIcon.png" id="alert">
+                <h3>Wildlife Elephants Come In to Your Registered Village &nbsp&nbsp
+                    <input type="submit" value="Ok" name="submitAlert" id="submit1">
+                </h3>
+            </form>
+        </div>
+        <?php
+
+if (isset($_POST['Submit'])) {
+?>
+
+    <div id="popupmessagelast"  >
+        <form action="?lang=1&report=1" method="post" style="display: inline-block;">
+        <img src="../Public/images/success-mesaage.png"  id="alert" >&nbsp&nbsp
+            <h3>Your Report Incident Submit Sucessfully &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+             </h3>
+        </form>
+ 
+    </div>  
+<?php
+
+}
+ 
+?>
+    <?php }
+        
+     elseif ($this->notification > 0) {  ?>
+ 
+        <div id="notificationmessage">
+
+            <!-- <img src="../Public/images/alertIcon.png" style="width:1000px;  height:100000px"><br> -->
+
+            <form action="?lang=1&report=1" method="post" style="display: inline-block;">
+                <img src="../Public/images/bell1.png" id="bell">&nbsp&nbsp
+                <h3>You have New Notification (900) &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    <input type="submit" value="View" name="submitAlert" id="submit">
+                </h3>
+            </form>
+        </div>
+        <?php if (isset($_POST['Submit'])) {
+?>
+
+    <div id="popupmessagelast"  >
+        <form action="?lang=1&report=1" method="post" style="display: inline-block;">
+        <img src="../Public/images/success-mesaage.png"  id="alert" >&nbsp&nbsp
+            <h3>Your Report Incident Submit Sucessfully &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+             </h3>
+        </form>
+ 
+    </div>  
+<?php
+
+}
+ 
+?>
+<?php }else{
+    
+   ?>        <?php if (isset($_POST['Submit'])) {
+    ?>
+    
+        <div id="popupmessagefirst"  >
+            <form action="?lang=1&report=1" method="post" style="display: inline-block;">
+            <img src="../Public/images/success-mesaage.png"  id="alert" >&nbsp&nbsp
+                <h3>Your Report Incident Submit Sucessfully &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                 </h3>
+            </form>
+     
+        </div>  
+    <?php
+    
+    }
+     
+    ?> <?php }}
     ?>
     <?php
     $result = $this->data;
@@ -130,7 +234,8 @@
 
             </button>
         </a>
-        <a href="../villager/viewNotification?lang=1">
+        
+        <a href="../villager/viewNotification?lang=1&notification=true">
             <button class="specialNotice">
                 <div class="notification"><span class="dot-1"><img src="../Public/images/bell.png" alt="1" srcset=" "></span>
                 </div>
@@ -140,14 +245,14 @@
         </a>
 
         <a href="../dashboard/index?lang=1">
-            <button class="dashboard" ">
-               <h1>Dashboard <div class=" line"><img src="../Public/images/dashIcon.png">
+            <button class="dashboard" >
+               <h1>Dashboard <div class="line"><img src="../Public/images/dashIcon.png">
     </div>
     </h1>
     </button>
     </a>
     <a href="../incident/viewReport?type=1&page=1&lang=1">
-        <button class="view" ">
+        <button class="view"  >
                 <h1>View Reported<div class=" line"><img src="../Public/images/list.png"></div>
             </h1>
         </button>
