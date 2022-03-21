@@ -151,6 +151,14 @@ class user extends Controller
                   break;
                 case "veterinarian":
                   $this->view->render('veterinarian');
+                case 'gramaniladari':
+                    // session_start();
+                    $_userNic = $_SESSION["NIC"];
+                    $this->view->data = $this->model->selectData($_userNic);
+            
+                    $this->view->render('gramaniladari');
+                    break;   
+              }
               }
             } elseif ($_GET["lang"] == "2") {
 
@@ -245,7 +253,7 @@ class user extends Controller
         }
       }
     }
-  }
+   
 
 
 

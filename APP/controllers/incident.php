@@ -24,7 +24,7 @@ class incident extends Controller
      function index()
     {
         //Get the session variable 
-        session_start();
+        // session_start();
         //Check the is session varible already have in session 
         $registrationStatus = $this->model->selectRegStatus($_SESSION['NIC']);
         foreach($registrationStatus as $row) {
@@ -146,7 +146,7 @@ class incident extends Controller
     public function setIncident()
     {
         //if check when router path enter if user already or not
-        session_start();
+        // session_start();
         //if not goto the login page
         if(!isset($_SESSION['NIC'])){
       

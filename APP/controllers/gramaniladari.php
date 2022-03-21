@@ -110,7 +110,7 @@ public function  editProfile()
         //assign the value
         $lang = $_GET['lang'];
       }
-      session_start();
+       
       $this->view->dataAll  = $this->model->getData();
       //get the number of rows reports in assocaiative array
       $rows =  $this->model->getReportrows($_SESSION['NIC']);
@@ -247,7 +247,7 @@ public function  editProfile()
         //assign the value
         $lang = $_GET['lang'];
       }
-      session_start();
+      
       $this->view->dataAll  = $this->model->getData();
       //get the number of rows reports in assocaiative array
       $rows =  $this->model->getVillgerRows($_SESSION['NIC']);
@@ -319,7 +319,7 @@ public function  editProfile()
         $lang = $_GET['lang'];
       } 
       
-      session_start();
+     
       $this->view->villagerData = $this->model->getVillgerReview($_SESSION['NIC']);
 
       

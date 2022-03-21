@@ -79,7 +79,7 @@ class Route{
 				break;
 				case 'villager':{
 
-					if(isset($_SESSION["NIC"])&&$_SESSION["jobtype"]=="villager")
+					if(isset($_SESSION["NIC"])&&$_SESSION["jobtype"]=="villager"||$this->_routes[1]=="register")
 					{
 						require $file;
 			            //assign into  
@@ -137,7 +137,7 @@ class Route{
 					break;
 				case 'gramaniladari':{
 
-					if(isset($_SESSION["NIC"])&&$_SESSION["jobtype"]=="Grama Niladhari")
+					if(isset($_SESSION["NIC"])&&$_SESSION["jobtype"]=="gramaniladari")
 					{
 						require $file;
 			            //assign into  
@@ -157,7 +157,7 @@ class Route{
 
 				case 'incident':{
 
-					if(isset($_SESSION["NIC"])&&($_SESSION["jobtype"]=="Grama Niladhari" || $_SESSION["jobtype"]=="villager"))
+					if(isset($_SESSION["NIC"])&&($_SESSION["jobtype"]=="gramaniladari" || $_SESSION["jobtype"]=="villager"))
 					{
 						require $file;
 			            //assign into  
@@ -176,7 +176,7 @@ class Route{
 					break;
 			    case 'dashboard':{
 
-					if(isset($_SESSION["NIC"])&&($_SESSION["jobtype"]=="Grama Niladhari" || $_SESSION["jobtype"]=="villager"))
+					if(isset($_SESSION["NIC"])&&($_SESSION["jobtype"]=="gramaniladari" || $_SESSION["jobtype"]=="villager"))
 					{
 						require $file;
 			            //assign into  

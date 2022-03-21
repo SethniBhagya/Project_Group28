@@ -28,47 +28,9 @@ class villager_model extends Model{
     public function getName($id){
         return $this->db->runQuery("SELECT * FROM user WHERE user.NIC ='$id'");
     }
-<<<<<<< HEAD
-
-
-
-       public function getLastNoticeId($NIC)
-    {
-        $lastNoticeId=(($this->db->runQuery("SELECT lastNoticeId FROM user WHERE NIC='$NIC'"))[0])["lastNoticeId"];
-        return $lastNoticeId;
-    }
-
-    public function getUserVillageCode($NIC){
-        $villageCode=(($this->db->runQuery("SELECT village_code FROM lives WHERE villager_NIC='$NIC'"))[0])["village_code"];
-        return $villageCode;
-    }
-
-    public function getNewNoticeDetails($villageCode,$lastNoticeId){
-
-        $newNoticeId=$this->db->runQuery("SELECT * FROM notice_has_wildlifeoffice_village WHERE village_code='$villageCode' AND noticeID>'$lastNoticeId' AND jobType='villager'");
-
-        if(!empty($newNoticeId))
-        {
-            $latestNoticeId=($newNoticeId[0])["noticeID"];
-
-            $detialsOfNotice=($this->db->runQuery("SELECT * FROM notice WHERE noticeID='$latestNoticeId'"))[0];
-
-            return $detialsOfNotice;
-
-        }
-        else
-            return "No";
-    }
-
-    public function updateNotice($noticeId,$nic)
-    {
-        $this->db->runQuery("UPDATE user SET lastNoticeId='$noticeId' WHERE NIC='$nic'");
-    }
-=======
     public function getVillagerIncident($id ){
          return $this->db->runQuery( "SELECT COUNT(reported_incident.incidentID) AS villagerIncident FROM reported_incident INNER JOIN lives ON reported_incident.villager_NIC = lives.villager_NIC WHERE ( ( reported_incident.date   between date_sub(now(),INTERVAL 1 MONTH) and now())&&(lives.villager_NIC='$id'))  ");
      } 
->>>>>>> 342e2a17a5e07fda17b8620411c3cf0766b43c49
    
     public function getVillagerWildElephantArrivalIncident($id ){
          

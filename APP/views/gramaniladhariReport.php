@@ -126,7 +126,7 @@ if (isset($_POST['Submit'])) {
 
             <form action="?lang=1&report=1" method="post" style="display: inline-block;">
                 <img src="../Public/images/bell1.png" id="bell">&nbsp&nbsp
-                <h3>You have New Notification (900) &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                <h3>You have New Notification (<?php echo $this->notification ?>) &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                     <input type="submit" value="View" name="submitAlert" id="submit">
                 </h3>
             </form>

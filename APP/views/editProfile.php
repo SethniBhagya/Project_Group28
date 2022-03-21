@@ -306,13 +306,11 @@ if (isset($_POST['Submit'])) {
             <th>
               <label for="gndivision" style="font-weight: 100;">Gramaniladari Division</label>
             </th>
-            <th><select class="text" name="gndivision" id="district" style="font-weight: 100;">
-                <option value="<?php echo $this->GramaniladhariDivision ?>"><?php echo $this->GramaniladhariDivision ?></option>
-                <?php
+            <th> 
 
-                foreach ($division  as $row) { ?>
-                  <option value="<?php echo $row['name']; ?>"><?php echo $row['name']; ?></option>
-                <?php } ?>
+                
+                  <p style="font-size: 15px;  font-wight:100"> <?php echo $this->GramaniladhariDivision ?> </p>
+                
               </select>
             </th>
           </tr>
@@ -355,8 +353,9 @@ if (isset($_POST['Submit'])) {
       </tr>
   
  
-      </form>  <?php  
-              if (password_verify(trim($_POST["oldPassword"]), $this->hashPassword )) {
+      </form>  
+      <!-- <?php  
+           //   if (password_verify(trim($_POST["oldPassword"]), $this->hashPassword )) {
            ?>
 
                 <div id="message1" style="padding: 10px; background-color:aliceblue; margin-left:25px">
@@ -364,9 +363,9 @@ if (isset($_POST['Submit'])) {
                   <h1>Your Old Password is Wrong Please Try Again</h1>
                   <a href="../user/index?lang=1" class="login-btn" style=" border-radius: 10px; padding: 10px 10px; background-color:#056412;  color: white;">login</a>
                 </div>
-          <?php }
+          <?php //}
          
-            ?>
+            ?> -->
           <tr>
             <th>
               <label for="password" style="font-weight: 100;">New Password</label>
