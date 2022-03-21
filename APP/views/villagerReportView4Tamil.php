@@ -14,7 +14,7 @@
     <script src="../Public/Javascript/login1.js"></script>
     <script src="../Public/Javascript/viewReport.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=myMap"></script>
-    <title>Report View</title>
+    <title>அறிக்கை அட்டவணையைப் பார்க்கவும்</title>
 </head>
 
 <body>
@@ -27,38 +27,38 @@
                 <div class="bar3"></div>
             </div>
 
-            <ul>
-                <li id="home_2"><a href="../">Home</a></li>
-                <li id="dashboard_1"><a href="../user/viewpage?lang=1">Main Menu</a></li>
-                <li id="report_2"><a href="../incident/index?lang=1">Report Incidents</a></li>
-                <li id="special_1"><a href="../villager/viewSpecialNotice?lang=1">SpecialNotice </a></li>
-                <div class="dropdown-1">
-                    <button class="dropbtn-1">Language</button>
-                    <div class="dropdown-content-1">
-                        <a href="?type=4&page=1&lang=1">English</a>
-                        <a href="?type=4&page=1&lang=2">සිංහල</a>
-                        <a href="?type=4&page=1&lang=3">தமிழ்</a>
-                    </div>
-                </div>
-                <li class="dropdown">
-                    <span class="dot"> <img onclick="myFunction_3()" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
-                    <div id="myDropdown" class="dropdown-content">
-                        <a href="../villager/editprofile?lang=1">View Profile</a>
-                        <a href="../user/logout">Logout</a>
-                    </div>
-                </li>
-            </ul>
+            <ul> 
+                 <li id="home_2"><a href="../?lang=3">வீடு</a></li>
+                 <li id="dashboard_1"><a href="../user/viewpage?lang=3">முதன்மை </a></li>
+                 <li id="report_2"  ><a href="../incident/index?lang=3">சம்பவம் குறித்  </a></li>
+                 <li id="special_1"><a href="../villager/viewSpecialNotice?lang=3">கவனிக்கவு </a></li>
+                 <div class="dropdown-1" style="  padding-left:  300px ">
+                     <button class="dropbtn-1">மொழி</button>
+                     <div class="dropdown-content-1">
+                         <a href="../incident/index?lang=1">English</a>
+                         <a href="../incident/index?lang=2">සිංහල</a>
+                         <a href="../incident/index?lang=3">தமிழ்</a>
+                     </div>
+                 </div>
+                 <li class="dropdown">
+                     <span class="dot"> <img onclick="myFunction_2(this)" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
+                     <div id="myDropdown" class="dropdown-content">
+                         <a href="../villager/editprofile?lang=3">சுயவிவரம்</a>
+                         <a href="../user/logout">Logout</a>
+                     </div>
+                 </li>
+             </ul>
         </nav>
     </header>
     <?php
     if (isset($this->status) && isset($this->notification)) {
-        if ($this->status  == "notview" && $this->notification > 0) {
+        if ($this->status  == "view" && $this->notification > 0) {
     ?>
 
             <div id="messagealert">
                 <form action="?lang=1&report=1" method="post" style="display: inline-block;">
                     <img src="../Public/images/alertIcon.png" id="alert">
-                    <h3>Wildlife Elephants Come In to Your Registered Village &nbsp&nbsp
+                    <h3 style="font-size: 11px;">உங்கள் பதிவு செய்யப்பட்ட கிராமத்திற்கு வனவிலங்கு யானைகள் வருகின்றன &nbsp&nbsp
                         <input type="submit" value="Ok" name="submitAlert" id="submit1">
                     </h3>
                 </form>
@@ -68,9 +68,9 @@
 
                 <!-- <img src="../Public/images/alertIcon.png" style="width:100000px;  height:100000px"><br> -->
 
-                <form action="../villager/viewNotification?lang=1&notification=true" method="post" style="display: inline-block;">
+                <form action="../villager/viewNotification?lang=3&notification=true" method="post" style="display: inline-block;">
                     <img src="../Public/images/bell1.png" id="bell">&nbsp&nbsp
-                    <h3>You have New Notification (<?php echo $this->notification ?>) &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    <h3 style="font-size: 15px;">உங்களிடம் புதிய அறிவிப்பு உள்ளது (<?php echo $this->notification ?>) &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                         <input type="submit" value="View" name="submitAlert" id="submit">
                     </h3>
                 </form>
@@ -81,9 +81,9 @@
             ?>
 
                 <div id="popupmessage">
-                    <form action="?lang=1&report=1" method="post" style="display: inline-block;">
+                    <form action="?lang=3&report=1" method="post" style="display: inline-block;">
                         <img src="../Public/images/success-mesaage.png" id="alert">&nbsp&nbsp
-                        <h3>Your Report Incident Submit Sucessfully &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                        <h3 style="font-size: 15px; margin-left:110px" >உங்கள் அறிக்கை நிகழ்வு வெற்றிகரமாக சமர்ப்பிக்கப்பட்டது &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                         </h3>
                     </form>
 
@@ -97,9 +97,9 @@
         ?>
 
             <div id="messagealert1">
-                <form action="?lang=1&report=1" method="post" style="display: inline-block;">
+                <form action="?lang=3&report=1" method="post" style="display: inline-block;">
                     <img src="../Public/images/alertIcon.png" id="alert">
-                    <h3>Wildlife Elephants Come In to Your Registered Village &nbsp&nbsp
+                    <h3 style="font-size: 11px;">உங்கள் பதிவு செய்யப்பட்ட கிராமத்திற்கு வனவிலங்கு யானைகள் வருகின்றன &nbsp&nbsp
                         <input type="submit" value="Ok" name="submitAlert" id="submit1">
                     </h3>
                 </form>
@@ -110,9 +110,9 @@
             ?>
 
                 <div id="popupmessagelast">
-                    <form action="?lang=1&report=1" method="post" style="display: inline-block;">
+                    <form action="?lang=3&report=1" method="post" style="display: inline-block;">
                         <img src="../Public/images/success-mesaage.png" id="alert">&nbsp&nbsp
-                        <h3>Your Report Incident Submit Sucessfully &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                        <h3 style="font-size: 15px;" >உங்கள் அறிக்கை நிகழ்வு வெற்றிகரமாக சமர்ப்பிக்கப்பட்டது &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                         </h3>
                     </form>
 
@@ -126,11 +126,11 @@
 
             <div id="notificationmessage">
 
-                <!-- <img src="../Public/images/alertIcon.png" style="width:1000px;  height:100000px"><br> -->
+                <!-- <img src="../Public/images/alertIcon.png" style="width:100000px;  height:100000px"><br> -->
 
-                <form action="../villager/viewNotification?lang=1&notification=true" method="post" style="display: inline-block;">
+                <form action="../villager/viewNotification?lang=3&notification=true" method="post" style="display: inline-block;">
                     <img src="../Public/images/bell1.png" id="bell">&nbsp&nbsp
-                    <h3>You have New Notification (<?php echo $this->notification ?>) &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    <h3 style="font-size: 15px;">உங்களிடம் புதிய அறிவிப்பு உள்ளது (<?php echo $this->notification ?>) &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                         <input type="submit" value="View" name="submitAlert" id="submit">
                     </h3>
                 </form>
@@ -139,9 +139,9 @@
             ?>
 
                 <div id="popupmessagelast">
-                    <form action="?lang=1&report=1" method="post" style="display: inline-block;">
+                    <form action="?lang=3&report=1" method="post" style="display: inline-block;">
                         <img src="../Public/images/success-mesaage.png" id="alert">&nbsp&nbsp
-                        <h3>Your Report Incident Submit Sucessfully &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                        <h3 style="font-size: 15px;" >உங்கள் அறிக்கை நிகழ்வு வெற்றிகரமாக சமர்ப்பிக்கப்பட்டது &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                         </h3>
                     </form>
 
@@ -157,9 +157,9 @@
         ?>
 
                 <div id="popupmessagefirst">
-                    <form action="?lang=1&report=1" method="post" style="display: inline-block;">
+                    <form action="?lang=3&report=1" method="post" style="display: inline-block;">
                         <img src="../Public/images/success-mesaage.png" id="alert">&nbsp&nbsp
-                        <h3>Your Report Incident Submit Sucessfully &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                        <h3 style="font-size: 155px;font-size:15px" >உங்கள் அறிக்கை நிகழ்வு வெற்றிகரமாக சமர்ப்பிக்கப்பட்டது &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                         </h3>
                     </form>
 
@@ -176,32 +176,32 @@
     <div class="container_3">
         <div class="subcontainer_3-1">
             <h3 id="table-name">
-                View Report Table
+            அறிக்கை அட்டவணையைப் பார்க்கவும்
             </h3>
         </div>
         <div class="navigatereport">
 
-            <a href="?type=1&page=1&lang=1" id="allreport">All Report View</a>
-            <a href="?type=2&lang=1&page=1" id="myreportaccept">My Report Accept</a>
-            <a href="?type=3&page=1&lang=1" id="myreportpending">My Report Pending</a>
-            <a href="?type=4&page=1&lang=1" id="myreportpendingCrop" style=" background-color: rgb(168, 175, 168); color : black;">Crop Damages Review </a>
+            <a href="?type=1&page=1&lang=3" id="allreport" style="font-size:100px;font-size:12.5px;">அனைத்து அறிக்கை காட்சி</a>
+            <a href="?type=2&lang=3&page=1" id="myreportaccept" style="font-size:100px;font-size:12.5px;" >அறிக்கை ஏற்கவும்</a>
+            <a href="?type=3&page=1&lang=3" id="myreportpending" style="font-size:100px;font-size:12.5px;" >அறிக்கை நிலுவை</a>
+            <a href="?type=4&page=1&lang=3" id="myreportpendingCrop" style=" background-color: rgb(168, 175, 168); font-size:100px;font-size:12.5px; color : black;">பயிர் சேதங்கள்</a>
         </div>
         <div class="subcontainer_3-3">
             <form action="?type=<?php echo $_GET['type'] ?>&lang=1&page=<?php echo $_GET['page'] ?>&action=1" class="search-container" method="POST">
-                <lable id="text-search-bar">Report Number</lable>
-                <input type="text" placeholder="Search" name="incidentId">
-                <input type="submit" value="Search" class="search-btn" name="submit">
+                <lable id="text-search-bar">அறிக்கை எண்</lable>
+                <input type="text" placeholder="அறிக்கை எண்" name="incidentId">
+                <input type="submit" value="தேடு" class="search-btn" name="submit">
             </form>
 
             <?php if (isset($_POST['submit'])) {   ?>
                 <?php $data = $this->data1 ?>
                 <table class="table">
                     <tr class="header-table">
-                        <th>Date</th>
-                        <th>Report No</th>
-                        <th>Message</th>
-                        <th>Status</th>
-                        <th>Action</th>
+                        <th>தேதி</th>
+                        <th>அறிக்கை எண்</th>
+                        <th>செய்தி</th>
+                        <th>நிலை</th>
+                        <th>செயல்</th>
                     </tr>
                     <tr><?php  
                         $villagerNic = $_SESSION['NIC'];
@@ -216,7 +216,7 @@
                                 <script>
                                     var incidentID = document.getElementById('incidentID')
                                 </script>
-                                <td id="view"><a href="../incident/viewReportpage?type=1&&lang=1&reportNo=<?php echo $row['incidentID'] ?>&page=<?php echo $_GET['page'] ?>&type=<?php echo $_GET['type'] ?>"><img src="../Public/images/action.png" class="view"></a></td>
+                                <td id="view"><a href="../incident/viewReportpage?type=1&&lang=3&reportNo=<?php echo $row['incidentID'] ?>&page=<?php echo $_GET['page'] ?>&type=<?php echo $_GET['type'] ?>"><img src="../Public/images/action.png" class="view"></a></td>
                                 </td>
 
                     </tr>
@@ -228,12 +228,12 @@
                 <?php $data = $this->data1 ?>
                 <table class="table">
                     <tr class="header-table">
-                        <th>Date</th>
-                        <th>Report No</th>
-                        <th>Message</th>
-                        <th>Status</th>
-                        <th>Action</th>
-
+                        <th>தேதி</th>
+                        <th>அறிக்கை எண்</th>
+                        <th>செய்தி</th>
+                        <th>நிலை</th>
+                        <th>செயல்</th>
+            
                     </tr>
                     <tr>
 

@@ -66,10 +66,10 @@
 
             <div id="notificationmessage">
 
-                <!-- <img src="../Public/images/alertIcon.png" style="width:1000px;  height:100000px"><br> -->
+                <!-- <img src="../Public/images/alertIcon.png" style="width:100000px;  height:100000px"><br> -->
 
                 <form action="../villager/viewNotification?lang=1&notification=true" method="post" style="display: inline-block;">
-                    <img src="../Public/images/bell1.png" id="right">&nbsp&nbsp
+                    <img src="../Public/images/bell1.png" id="bell">&nbsp&nbsp
                     <h3>You have New Notification (<?php echo $this->notification ?>) &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                         <input type="submit" value="View" name="submitAlert" id="submit">
                     </h3>
@@ -96,14 +96,11 @@
 
         ?>
 
-            <div id="notificationmessage">
-
-                <!-- <img src="../Public/images/alertIcon.png" style="width:100000px;  height:100000px"><br> -->
-
-                <form action="../villager/viewNotification?lang=1&notification=true" method="post" style="display: inline-block;">
-                    <img src="../Public/images/bell1.png" id="bell">&nbsp&nbsp
-                    <h3>You have New Notification (<?php echo $this->notification ?>) &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                        <input type="submit" value="View" name="submitAlert" id="submit">
+            <div id="messagealert1">
+                <form action="?lang=1&report=1" method="post" style="display: inline-block;">
+                    <img src="../Public/images/alertIcon.png" id="alert">
+                    <h3>Wildlife Elephants Come In to Your Registered Village &nbsp&nbsp
+                        <input type="submit" value="Ok" name="submitAlert" id="submit1">
                     </h3>
                 </form>
             </div>
@@ -131,7 +128,7 @@
 
                 <!-- <img src="../Public/images/alertIcon.png" style="width:1000px;  height:100000px"><br> -->
 
-                <form action="?lang=1&report=1" method="post" style="display: inline-block;">
+                <form action="../villager/viewNotification?lang=1&notification=true" method="post" style="display: inline-block;">
                     <img src="../Public/images/bell1.png" id="bell">&nbsp&nbsp
                     <h3>You have New Notification (<?php echo $this->notification ?>) &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                         <input type="submit" value="View" name="submitAlert" id="submit">

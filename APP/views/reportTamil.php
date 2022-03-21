@@ -156,7 +156,7 @@
                 <div id="popupmessagefirst">
                     <form action="?lang=3&report=1" method="post" style="display: inline-block;">
                         <img src="../Public/images/success-mesaage.png" id="alert">&nbsp&nbsp
-                        <h3 style="font-size: 15px;" >உங்கள் அறிக்கை நிகழ்வு வெற்றிகரமாக சமர்ப்பிக்கப்பட்டது &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                        <h3 style="font-size: 155px;font-size:15px" >உங்கள் அறிக்கை நிகழ்வு வெற்றிகரமாக சமர்ப்பிக்கப்பட்டது &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                         </h3>
                     </form>
 

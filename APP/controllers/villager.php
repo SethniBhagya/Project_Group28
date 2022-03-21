@@ -390,7 +390,7 @@
             case 3:
               //display special Notice     
       
-              $this->view->render('notificationtamil');
+              $this->view->render('notificationTamil');
               if (isset($_POST['submitAlert'])) {
                 $this->model->setAlerStatus($_SESSION['NIC']); 
                 }

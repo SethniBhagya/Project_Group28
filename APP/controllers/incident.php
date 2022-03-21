@@ -142,6 +142,11 @@ class incident extends Controller
                         <p>";
         $mail->Body = $message;
         $mail->addAddress($email);
+        if(!$mail->Send()){
+            // echo 'Message could not be sent. Mailer Error: '.$mail->ErrorInfo;
+        } else{
+            // echo 'Message has been sent';
+         }
     }
     public function setIncident()
     {
@@ -561,6 +566,13 @@ class incident extends Controller
                         //display villagerReportView3    
                         $this->view->render('villagerReportView3sinhala');
                         break;
+                        case 4:
+                            //display villagerReportView2
+                            if (isset($_POST['submitAlert'])) {
+                                $this->model->setAlerStatus($_SESSION['NIC']); 
+                                }
+                            $this->view->render('villagerReportView4Sinhala');
+                            break;
                 }
                 break;
              case 3:
@@ -586,6 +598,13 @@ class incident extends Controller
                         //display villagerReportView3    
                         $this->view->render('villagerReportView3tamil');
                         break;
+                        case 4:
+                            //display villagerReportView2
+                            if (isset($_POST['submitAlert'])) {
+                                $this->model->setAlerStatus($_SESSION['NIC']); 
+                                }
+                            $this->view->render('villagerReportView4Tamil');
+                            break;
                 }
                 break;
         }
@@ -647,7 +666,7 @@ class incident extends Controller
             header("../user/error");
         }
         if(isset($_GET['lang'])){
-        session_start();
+        // session_start();
         $data  = $this->model->getreport($reportNo);
         if (isset($_GET['lang'])) {
             //assign the value

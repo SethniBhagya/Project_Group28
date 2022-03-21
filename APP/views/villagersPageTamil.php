@@ -235,7 +235,7 @@
             </button>
         </a>
 
-        <a href="../villager/viewNotification?lang=1&notification=true">
+        <a href="../villager/viewNotification?lang=3&notification=true">
             <button class="specialNotice">
                 <div class="notification"><span class="dot-1"><img src="../Public/images/bell.png" alt="1" srcset=" "></span>
                 </div>
@@ -244,14 +244,14 @@
             </button>
         </a>
 
-        <a href="../dashboard/index?lang=1">
+        <a href="../dashboard/index?lang=3">
             <button class="dashboard">
                 <h1>டாஷ்போர்டு <div class="line"><img src="../Public/images/dashIcon.png">
                     </div>
                 </h1>
             </button>
         </a>
-        <a href="../incident/viewReport?type=1&page=1&lang=1">
+        <a href="../incident/viewReport?type=1&page=1&lang=3">
             <button class="view">
                 <h1  style="font-size: 100px; font-size: 15px;">புகாரளிக்கப்பட்டதைப் பார்க்கவும்<div class=" line"><img src="../Public/images/list.png"></div>
                 </h1>
