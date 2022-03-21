@@ -33,7 +33,7 @@
                 <li id="report_2"><a href="../incident/index?lang=1">Report Incidents</a></li>
                 <li id="special_1"><a href="../user/viewSpecialNotice?lang=1">SpecialNotice </a></li>
                 <div class="dropdown-1">
-                    <button class="dropbtn-1">භාෂාව</button>
+                    <button class="dropbtn-1">Language</button>
                     <div class="dropdown-content-1">
                         <a href="?lang=1&report=4">English</a>
                         <a href="?lang=2&report=4">සිංහල</a>

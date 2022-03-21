@@ -187,9 +187,9 @@ class incident extends Controller
                 if (isset($_POST['submitAlert'])) {
                     $this->model->setAlerStatus($_SESSION['NIC']); 
                     }
-                //user submit the form 
+                //user submit the form 100
                  if(isset($_POST['Submit'])){
-                     //call insertReport function in incident_model class
+                     //call insertReport function in incident_model class 100
                      $this->model->insertReport2($_SESSION['NIC'],$_POST['animal'],$_POST['noOfanimals'],$_POST['discription'],$_POST['Photo'],$_POST['place'],$_POST['latitude'],$_POST['longitude']);
                      $this->sendEmail($email,"Other Wild Animals are in The Village Incident Report is Submit Successfully","Wildlife Officer Accept Your incident Report Soon has Possible" );
                      $this->model->addNotification($_SESSION['NIC'],"Wild Elephant are in The Village","Report Submit Sucessfully");  
@@ -256,60 +256,86 @@ class incident extends Controller
 
                 case "1" : $this->view->render('report1sinhala');
                 //user submit the form 
+                if (isset($_POST['submitAlert'])) {
+                    $this->model->setAlerStatus($_SESSION['NIC']); 
+                    }
+                //user submit the form 
                 if(isset($_POST['Submit'])){
                     //call insertReport function in incident_model class 
                     $this->model->insertReport1($_SESSION['NIC'], $_POST['noOfelephant'], $_POST['Reg'], $_POST['Photo'],$_POST['place'], $_POST['latitude'],$_POST['longitude'] );
                     $this->sendEmail($email,"Wild Elephant are in The Village Incident Report is Submit Successfully","Wildlife Officer Accept Your incident Report Soon has Possible" );
                     $this->model->addNotification($_SESSION['NIC'],"Wild Elephant are in The Village","Report Submit Sucessfully");  
-                      
-                }
-                break;
+                }  
+               break;
                 case "2":
                     $this->view->render('report2sinhala');
                  //user submit the form 
+                 if (isset($_POST['submitAlert'])) {
+                    $this->model->setAlerStatus($_SESSION['NIC']); 
+                    }
+                //user submit the form 
                  if(isset($_POST['Submit'])){
-                    //call insertReport function in incident_model class
-                    $this->model->insertReport2($_SESSION['NIC'],$_POST['animal'],$_POST['noOfanimals'],$_POST['discription'],$_POST['Photo'],$_POST['place'],$_POST['latitude'],$_POST['longitude']);
-                    //$this->sendEmail($_POST['email'],"Incident Report is Submit Successfully","Wildlife Officer Accept Your incident Soon has Possible" );
-                    
-                }  
-                break;
+                     //call insertReport function in incident_model class
+                     $this->model->insertReport2($_SESSION['NIC'],$_POST['animal'],$_POST['noOfanimals'],$_POST['discription'],$_POST['Photo'],$_POST['place'],$_POST['latitude'],$_POST['longitude']);
+                     $this->sendEmail($email,"Other Wild Animals are in The Village Incident Report is Submit Successfully","Wildlife Officer Accept Your incident Report Soon has Possible" );
+                     $this->model->addNotification($_SESSION['NIC'],"Wild Elephant are in The Village","Report Submit Sucessfully");  
+                    }  
+                   break;
     
                 case "3" : $this->view->render('report3sinhala');
                 //user submit the form
-                if(isset($_POST['Submit'])){
-                    //call insertReport function in incident_model class
-                    $this->model->insertReport3($_SESSION['NIC'],$_POST['Photo'],$_POST['place'],$_POST['latitude'],$_POST['longitude']);
-                    //$this->sendEmail($_POST['email'],"Incident Report is Submit Successfully","Wildlife Officer Accept Your incident Soon has Possible" );
-                    
-                }
-                break;
+                if (isset($_POST['submitAlert'])) {
+                    $this->model->setAlerStatus($_SESSION['NIC']); 
+                    }
+                //user submit the form
+                  if(isset($_POST['Submit'])){ 
+                      //call insertReport function in incident_model class
+                      $this->model->insertReport3($_SESSION['NIC'],$_POST['Photo'],$_POST['place'],$_POST['latitude'],$_POST['longitude'] );
+                      $this->sendEmail($email,"Breakdown of Elephant Fence Incident Report is Submit Successfully","Wildlife Officer Accept Your incident Report Soon has Possible" );
+                      $this->model->addNotification($_SESSION['NIC'],"Wild Elephant are in The Village","Report Submit Sucessfully");  
+                 
+                    }
+             break;
                 case "4" : $this->view->render('report4sinhala');
                 //user submit the form
-                if(isset($_POST['Submit'])){
-                    //call insertReport function in incident_model class
-                    $this->model->insertReport4($_SESSION['NIC'],$_POST['animal'],$_POST['cultivatedCrop'],$_POST['cultivatedLand'] ,$_POST['Photo'],$_POST['place'],$_POST['damageLand'],$_POST['latitude'],$_POST['longitude']);
-                    //$this->sendEmail($_POST['email'],"Incident Report is Submit Successfully","Wildlife Officer Accept Your incident Soon has Possible" );
+                if (isset($_POST['submitAlert'])) {
+                    $this->model->setAlerStatus($_SESSION['NIC']); 
+                    }
+                //user submit the form
+                  if(isset($_POST['Submit'])){
+                      //call insertReport function in incident_model class
+                      $this->model->insertReport4($_SESSION['NIC'],$_POST['animal'],$_POST['cultivatedCrop'],$_POST['cultivatedLand'] ,$_POST['Photo'],$_POST['place'],$_POST['damageLand'],$_POST['latitude'],$_POST['longitude']);
+                      $this->sendEmail($email,"Crop Damages Incident Report is Submit Successfully","Gramanildhari Accept Your incident Report Soon has Possible" );
+                      $this->model->addNotification($_SESSION['NIC'],"Wild Elephant are in The Village","Report Submit Sucessfully");  
                    
-                }
+                    }
                 break;
                 case "5" : $this->view->render('report5sinhala');
                 //user submit the form
-                if(isset($_POST['Submit'])){
-                    //call insertReport function in incident_model class
-                    $this->model->insertReport5($_SESSION['NIC'],$_POST['animal'],$_POST['noOfanimals'],$_POST['support'],$_POST['discription'],$_POST['Photo'],$_POST['place'],$_POST['latitude'],$_POST['longitude']);
-                    //$this->sendEmail($_POST['email'],"Incident Report is Submit Successfully","Wildlife Officer Accept Your incident Soon has Possible" );
-                   
-                }
-                break;
+                if (isset($_POST['submitAlert'])) {
+                    $this->model->setAlerStatus($_SESSION['NIC']); 
+                    }
+                  if(isset($_POST['Submit'])){
+                      //call insertReport function in incident_model class
+                      $this->model->insertReport5($_SESSION['NIC'],$_POST['animal'],$_POST['noOfanimals'],$_POST['support'],$_POST['discription'],$_POST['Photo'],$_POST['place'],$_POST['latitude'],$_POST['longitude']);
+                      $this->sendEmail($email,"Wild Animal is Danger Incident Report is Submit Successfully","Wildlife Officer Accept Your incident Report Soon has Possible" );
+                      $this->model->addNotification($_SESSION['NIC'],"Wild Elephant are in The Village","Report Submit Sucessfully");  
+           
+                    }
+             break;
                 case "6" : $this->view->render('report6sinhala');
-                if(isset($_POST['Submit'])){
-                    //call insertReport function in incident_model class
-                    $this->model->insertReport6($_SESSION['NIC'],$_POST['Photo'],$_POST['place'],$_POST['latitude'],$_POST['longitude']);
-                    //$this->sendEmail($_POST['email'],"Incident Report is Submit Successfully","Wildlife Officer Accept Your incident Soon has Possible" );
-                   
-                }
-                break;
+                if (isset($_POST['submitAlert'])) {
+                    $this->model->setAlerStatus($_SESSION['NIC']); 
+                    }
+                //user submit the form
+                  if(isset($_POST['Submit'])){
+                      //call insertReport function in incident_model class
+                      $this->model->insertReport6($_SESSION['NIC'],$_POST['Photo'],$_POST['place'],$_POST['latitude'],$_POST['longitude']);
+                      $this->sendEmail($email,"Illegal Thing Happening in the Forest Incident Report is Submit Successfully","Wildlife Officer Accept Your incident Report Soon has Possible" );
+                      $this->model->addNotification($_SESSION['NIC'],"Wild Elephant are in The Village","Report Submit Sucessfully");  
+             
+                    }
+             break;
                }
             break;
             case 3 :
@@ -317,48 +343,86 @@ class incident extends Controller
             switch ($value) { 
             case "1" : $this->view->render('report1tamil');
             //user submit the form 
+            if (isset($_POST['submitAlert'])) {
+                $this->model->setAlerStatus($_SESSION['NIC']); 
+                }
+            //user submit the form 
             if(isset($_POST['Submit'])){
                 //call insertReport function in incident_model class 
                 $this->model->insertReport1($_SESSION['NIC'], $_POST['noOfelephant'], $_POST['Reg'], $_POST['Photo'],$_POST['place'], $_POST['latitude'],$_POST['longitude'] );
-                  
-            } 
-            break;
+                $this->sendEmail($email,"Wild Elephant are in The Village Incident Report is Submit Successfully","Wildlife Officer Accept Your incident Report Soon has Possible" );
+                $this->model->addNotification($_SESSION['NIC'],"Wild Elephant are in The Village","Report Submit Sucessfully");  
+            }  
+       break;
             case "2" : $this->view->render('report2tamil');
+            //user submit the form 
+            if (isset($_POST['submitAlert'])) {
+                $this->model->setAlerStatus($_SESSION['NIC']); 
+                }
             //user submit the form 
              if(isset($_POST['Submit'])){
                  //call insertReport function in incident_model class
-                 $this->model->insertReport2($_SESSION['NIC'],$_POST['animal'],$_POST['noOfanimals'],$_POST['discription'],$_POST['Photo'],$_POST['latitude'],$_POST['longitude']);
-             }  
-            break;
+                 $this->model->insertReport2($_SESSION['NIC'],$_POST['animal'],$_POST['noOfanimals'],$_POST['discription'],$_POST['Photo'],$_POST['place'],$_POST['latitude'],$_POST['longitude']);
+                 $this->sendEmail($email,"Other Wild Animals are in The Village Incident Report is Submit Successfully","Wildlife Officer Accept Your incident Report Soon has Possible" );
+                 $this->model->addNotification($_SESSION['NIC'],"Wild Elephant are in The Village","Report Submit Sucessfully");  
+                }  
+        break;
     
             case "3" : $this->view->render('report3tamil');
             //user submit the form
-              if(isset($_POST['Submit'])){
+            if (isset($_POST['submitAlert'])) {
+                $this->model->setAlerStatus($_SESSION['NIC']); 
+                }
+            //user submit the form
+              if(isset($_POST['Submit'])){ 
                   //call insertReport function in incident_model class
-                  $this->model->insertReport3($_SESSION['NIC'],$_POST['Photo'],$_POST['latitude'],$_POST['longitude']);
-              }
-            break;
+                  $this->model->insertReport3($_SESSION['NIC'],$_POST['Photo'],$_POST['place'],$_POST['latitude'],$_POST['longitude'] );
+                  $this->sendEmail($email,"Breakdown of Elephant Fence Incident Report is Submit Successfully","Wildlife Officer Accept Your incident Report Soon has Possible" );
+                  $this->model->addNotification($_SESSION['NIC'],"Wild Elephant are in The Village","Report Submit Sucessfully");  
+             
+                }
+   break;
             case "4" : $this->view->render('report4tamil');
             //user submit the form
+            if (isset($_POST['submitAlert'])) {
+                $this->model->setAlerStatus($_SESSION['NIC']); 
+                }
+            //user submit the form
               if(isset($_POST['Submit'])){
                   //call insertReport function in incident_model class
-                  $this->model->insertReport4($_SESSION['NIC'],$_POST['animal'],$_POST['cultivatedCrop'],$_POST['cultivatedLand'] ,$_POST['Photo'],$_POST['damageLand'],$_POST['latitude'],$_POST['longitude']);
-              }
-            break;
+                  $this->model->insertReport4($_SESSION['NIC'],$_POST['animal'],$_POST['cultivatedCrop'],$_POST['cultivatedLand'] ,$_POST['Photo'],$_POST['place'],$_POST['damageLand'],$_POST['latitude'],$_POST['longitude']);
+                  $this->sendEmail($email,"Crop Damages Incident Report is Submit Successfully","Gramanildhari Accept Your incident Report Soon has Possible" );
+                  $this->model->addNotification($_SESSION['NIC'],"Wild Elephant are in The Village","Report Submit Sucessfully");  
+               
+                }
+         break;
             case "5" : $this->view->render('report5tamil');
             //user submit the form
+            if (isset($_POST['submitAlert'])) {
+                $this->model->setAlerStatus($_SESSION['NIC']); 
+                }
               if(isset($_POST['Submit'])){
                   //call insertReport function in incident_model class
-                  $this->model->insertReport5($_SESSION['NIC'],$_POST['animal'],$_POST['noOfanimals'],$_POST['support'],$_POST['discription'],$_POST['Photo'],$_POST['latitude'],$_POST['longitude']);
-              }
-            break;
+                  $this->model->insertReport5($_SESSION['NIC'],$_POST['animal'],$_POST['noOfanimals'],$_POST['support'],$_POST['discription'],$_POST['Photo'],$_POST['place'],$_POST['latitude'],$_POST['longitude']);
+                  $this->sendEmail($email,"Wild Animal is Danger Incident Report is Submit Successfully","Wildlife Officer Accept Your incident Report Soon has Possible" );
+                  $this->model->addNotification($_SESSION['NIC'],"Wild Elephant are in The Village","Report Submit Sucessfully");  
+       
+                }
+         break;
             case "6" : $this->view->render('report6tamil');
+            //user submit the form
+            if (isset($_POST['submitAlert'])) {
+                $this->model->setAlerStatus($_SESSION['NIC']); 
+                }
             //user submit the form
               if(isset($_POST['Submit'])){
                   //call insertReport function in incident_model class
-                  $this->model->insertReport6($_SESSION['NIC'],$_POST['Photo'],$_POST['latitude'],$_POST['longitude']);
-              }
-            break;
+                  $this->model->insertReport6($_SESSION['NIC'],$_POST['Photo'],$_POST['place'],$_POST['latitude'],$_POST['longitude']);
+                  $this->sendEmail($email,"Illegal Thing Happening in the Forest Incident Report is Submit Successfully","Wildlife Officer Accept Your incident Report Soon has Possible" );
+                  $this->model->addNotification($_SESSION['NIC'],"Wild Elephant are in The Village","Report Submit Sucessfully");  
+         
+                }
+     break;
       
                         default:
                             header('Location: ../user/error');
@@ -880,5 +944,3 @@ class incident extends Controller
               
     }
 }
-
-?>
