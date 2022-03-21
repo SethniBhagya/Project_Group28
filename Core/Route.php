@@ -79,7 +79,7 @@ class Route{
 				break;
 				case 'villager':{
 
-					if(isset($_SESSION["NIC"])&&$_SESSION["jobtype"]=="villager"||$this->_routes[1]=="register")
+					if((isset($_SESSION["NIC"])&&$_SESSION["jobtype"]=="villager")||$this->_routes[1]=="register")
 					{
 						require $file;
 			            //assign into  
