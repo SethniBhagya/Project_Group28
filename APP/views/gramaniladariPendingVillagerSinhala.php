@@ -6,12 +6,12 @@
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <link rel="stylesheet" href="../Public/css/header.css">
-    <link rel="stylesheet" href="../Public/css/alert.css">
    <link rel="stylesheet" href="../Public/css/gramanildhariReportViewPag.css">
+    <link rel="stylesheet" href="../Public/css/alert.css">
    <script src="../Public/Javascript/login1.js"></script>
    <script src="../Public/Javascript/viewReport.js"></script>
    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=myMap"></script>
-   <title>Report View</title>
+   <title>මගේ සේවා ස්ථානය</title>
  </head>
 
  <body>
@@ -25,16 +25,16 @@
        </div>
 
        <ul>
-         <li id="home_2"><a href="../">Home</a></li>  
-         <li id="dashboard_1"><a href="../user/viewpage?lang=1">Main Menu</a></li>
-         <li id="report_2"><a href="../incident/index?lang=1">Report Incidents</a></li>
-         <li id="special_1"><a href="../user/viewSpecialNotice?lang=1">SpecialNotice </a></li>
+       <li id="home_2"><a href="../?lang=2">මුල් පිටුව</a></li>
+                <li id="dashboard_1" ><a href="../user/viewpage?lang=2"  >මුල් පුවරුව</a></li>
+                <li id="report_2" style="   padding-right:20px ; right:345px  "><a href="../incident/index?lang=2"> වර්තා කිරීම</a></li>
+                <li id="special_1"><a href="../villager/viewSpecialNotice?lang=2">විශේෂ දැන්වීම</a></li> 
          <div class="dropdown-1">
-           <button class="dropbtn-1">Language</button>
+           <button class="dropbtn-1">භාෂාව</button>
            <div class="dropdown-content-1">
-             <a href="?status=accept&type=2&page=1&lang=1">English</a>
-             <a href="?status=accept&type=2&page=1&lang=2">සිංහල</a>
-             <a href="?status=accept&type=2&page=1&lang=3">தமிழ்</a>
+           <a href="?status=pending&type=2&page=1&lang=1">English</a>
+             <a href="?status=pending&type=2&page=1&lang=2">සිංහල</a>
+             <a href="?status=pending&type=2&page=1&lang=3">தமிழ்</a>
            </div>
          </div>
          <li class="dropdown">
@@ -52,37 +52,37 @@
    <div class="container_3">
      <div class="subcontainer_3-1">
        <h3 id="table-name">
-         Crop Damages
+       මගේ සේවා ස්ථානය
        </h3>
      </div>
      <div class="navigatereport">
 
-     <a href="../gramaniladari/viewCropDamages?status=pending&page=1&lang=1?status=pending&page=1&lang=1" id="cropPending">Crop Damages Pending</a>
-             <a href="../gramaniladari/viewCropDamages?status=success&page=1&lang=1?status=pending&page=1&lang=1" id="cropView"> Crop Damages View</a>
-             <a href="../gramaniladari/viewVillager?status=pending&page=1&lang=1" id="registerAccept"> New Villager Register Accept</a>
-             <a href="../gramaniladari/viewVillager?status=accept&page=1&lang=1" style=" background-color: rgb(168, 175, 168); color:black;" id="registerVillger">Register Villager</a>
+     <a href="../gramaniladari/viewCropDamages?status=pending&page=1&lang=2" id="cropPending"   >වගා හානි පොරොත්තුවෙන්</a>
+             <a href="../gramaniladari/viewCropDamages?status=success&page=1&lang=2 " id="cropView"> වගා හානි දසුන</a>
+             <a href="../gramaniladari/viewVillager?status=pending&page=1&lang=2" style=" background-color: rgb(168, 175, 168); color:black" id="registerAccept">ලේඛනය පිළිගන්න</a>
+             <a href="../gramaniladari/viewVillager?status=accept&page=1&lang=2" id="registerVillger"> ලියාපදිංචි ගම්වාසි</a>
 
-     </div>
+          </div>
      <div class="subcontainer_3-3">
        <form action="" class="search-container" method="POST">
-         <lable id="text-search-bar">Villager NIC</lable>
-         <input type="text" placeholder="Search" name="NIC">
-         <input type="submit" value="Search" class="search-btn" name="submit">
+         <lable id="text-search-bar">ගම්වාසී ජාතික හැඳුනුම්පත</lable>
+         <input type="text" placeholder="සෙවීම" name="NIC">
+         <input type="submit" value="සෙවීම" class="search-btn" name="submit">
        </form>
 
        <?php if (isset($_POST['submit'])) {   ?>
 
          <table class="table">
            <tr class="header-table">
-             <th>Villager NIC</th>
-             <th>First Name</th>
-             <th>Last Name</th>
-             <th>Telephone Number</th>
-             <th>View</th> 
+             <th>ගම්වාසී ජාතික හැඳුනුම්පත</th>
+             <th>මුල් නම</th>
+             <th>අවසන් නම</th>
+             <th>දුරකථන අංකය</th>
+             <th>දැක්ම</th> 
            </tr>
            <tr>
              <?php foreach ($this->cropDamagesReview as $row) {
-                if ($row['NIC'] == $_POST['NIC'] && $row['registrationStatus'] == 'accept') { ?>
+                if ($row['NIC'] == $_POST['NIC'] && $row['registrationStatus'] != 'accept') { ?>
                  <td id=" "><?php echo $row['NIC']; ?> </td>
                  <td id=" "><?php echo $row['Fname'] ?></td>
                  <td id=" "><?php echo $row['Lname'] ?></td>
@@ -91,7 +91,7 @@
                  <script>
                    var incidentID = document.getElementById('incidentID')
                  </script>
-                 <td id="view"><a href="../gramaniladari/viewVillagerProfile?type=1&&lang=1&NIC=<?php echo $row['NIC'] ?>"><img src="../Public/images/edit.png" class="view"></a></td>
+                 <td id="view"><a href="../gramaniladari/viewVillagerProfile?type=1&&lang=1&NIC=<?php echo $row['NIC'] ?>"><img src="../Public/images/action.png" class="view"></a></td>
 
                  </td>
 
@@ -104,17 +104,17 @@
          <?php $data = $this->data1 ?>
          <table class="table">
            <tr class="header-table">
-           <th>Villager NIC</th>
-             <th>First Name</th>
-             <th>Last Name</th>
-             <th>Telephone Number</th>
-             <th>View</th> 
+           <th>ගම්වාසී ජාතික හැඳුනුම්පත</th>
+             <th>මුල් නම</th>
+             <th>අවසන් නම</th>
+             <th>දුරකථන අංකය</th>
+             <th>දැක්ම</th> 
 
            </tr>
            <tr>
              <!-- <?php print_r($this->cropDamagesReview) ?> -->
              <?php foreach ($this->cropDamagesReview as $row) {
-                if ($row['registrationStatus'] == 'accept') { ?>
+                if ($row['registrationStatus'] != 'accept') { ?>
                  <td id=" "><?php echo $row['NIC']; ?> </td>
                  <td id=" "><?php echo $row['Fname'] ?></td>
                  <td id=" "><?php echo $row['Lname'] ?></td>
@@ -123,7 +123,7 @@
                  <script>
                    var incidentID = document.getElementById('incidentID')
                  </script>
-                 <td id="view"><a href="../gramaniladari/viewVillagerProfile?type=1&&lang=1&NIC=<?php echo $row['NIC'] ?>"><img src="../Public/images/edit.png" class="view"></a></td>
+                 <td id="view"><a href="../gramaniladari/viewVillagerProfile?type=1&&lang=1&NIC=<?php echo $row['NIC'] ?>"><img src="../Public/images/action.png" class="view"></a></td>
 
                  </td>
            </tr>

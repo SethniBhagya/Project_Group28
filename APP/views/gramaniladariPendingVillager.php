@@ -32,9 +32,9 @@
          <div class="dropdown-1">
            <button class="dropbtn-1">Language</button>
            <div class="dropdown-content-1">
-             <a href="?type=2&page=1&lang=1">English</a>
-             <a href="?type=2&page=1&lang=2">සිංහල</a>
-             <a href="?type=2&page=1&lang=3">தமிழ்</a>
+             <a href="?status=pending&type=2&page=1&lang=1">English</a>
+             <a href="?status=pending&type=2&page=1&lang=2">සිංහල</a>
+             <a href="?status=pending&type=2&page=1&lang=3">தமிழ்</a>
            </div>
          </div>
          <li class="dropdown">
@@ -59,7 +59,7 @@
 
      <a href="../gramaniladari/viewCropDamages?status=pending&page=1&lang=1?status=pending&page=1&lang=1" id="cropPending">Crop Damages Pending</a>
              <a href="../gramaniladari/viewCropDamages?status=success&page=1&lang=1?status=pending&page=1&lang=1" id="cropView"> Crop Damages View</a>
-             <a href="../gramaniladari/viewVillager?status=pending&page=1&lang=1" id="registerAccept"> New Villager Register Accept</a>
+             <a href="../gramaniladari/viewVillager?status=pending&page=1&lang=1" style=" background-color: rgb(168, 175, 168); color:black;" id="registerAccept"> New Villager Register Accept</a>
              <a href="../gramaniladari/viewVillager?status=accept&page=1&lang=1" id="registerVillger">Register Villager</a>
 
      </div>

@@ -154,7 +154,9 @@ class user extends Controller
                   // session_start();
                   $_userNic = $_SESSION["NIC"];
                   $this->view->data = $this->model->selectData($_userNic);
-
+                  $this->view->notification = $this->checkNotificationStatus($_SESSION['NIC']);
+                  $this->view->status = $this->checkAlerStatus($_SESSION['NIC']);
+      
                   $this->view->render('gramaniladari');
                   break;
               }
@@ -180,7 +182,15 @@ class user extends Controller
                 header("Location:../regionalOfficer/dashboard");
                 break;
                 // case "veterinarian": $this->view->render('veterinarian');
-
+              case 'gramaniladari':
+                  // session_start();
+                  $_userNic = $_SESSION["NIC"];
+                  $this->view->data = $this->model->selectData($_userNic);
+                  $this->view->notification = $this->checkNotificationStatus($_SESSION['NIC']);
+                  $this->view->status = $this->checkAlerStatus($_SESSION['NIC']);
+      
+                  $this->view->render('gramaniladariSinhala');
+                  break;
 
 
             }
@@ -374,8 +384,18 @@ class user extends Controller
             $this->view->data = $this->model->selectData($_userNic);
 
             $this->view->render('villagersPagesinhala');
-        }
+       
         break;
+        case 'gramaniladari':
+          // session_start();
+          $_userNic = $_SESSION["NIC"];
+          $this->view->data = $this->model->selectData($_userNic);
+          $this->view->notification = $this->checkNotificationStatus($_SESSION['NIC']);
+          $this->view->status = $this->checkAlerStatus($_SESSION['NIC']);
+
+          $this->view->render('gramaniladariSinhala');
+          break;
+        }
       case 3:
         switch ($_SESSION["jobtype"]) {
           case 'villager':
