@@ -127,20 +127,11 @@ class user_model extends Model
     {
         return $this->db->runQuery("SELECT `alertstatus` FROM `alert` WHERE NIC= '$NIC'");
     }
-<<<<<<< HEAD
 
     public function getNotificationStatus($NIC){
         return $this->db->runQuery("SELECT COUNT(*) AS numberofnotification FROM `notification` WHERE NIC= '$NIC' and`status`='notview'");
     }
 // >>>>>>> 342e2a17a5e07fda17b8620411c3cf0766b43c49
-=======
- 
- 
-    public function getNotificationStatus($NIC){
-        return $this->db->runQuery("SELECT COUNT(*) AS numberofnotification FROM `notification` WHERE NIC= '$NIC' and`status`='notview'");
-    }
- 
->>>>>>> 4b68e3792086e03c8f66a3193663583d70275f5c
     public function setAlerStatus($NIC){
         $this->db->runQuery("UPDATE `alert` SET  `alertstatus`='view'    WHERE NIC= '$NIC'");
         
@@ -148,26 +139,6 @@ class user_model extends Model
     public function  selectRegStatus($NIC) {
         return $this->db->runQuery("SELECT `registrationStatus` FROM `villager_registration` WHERE Villager_NIC= '$NIC'");
     }
-<<<<<<< HEAD
-     
-// <<<<<<< HEAD
-
-
-    
-
-
-}
-// =======
-// }
-// =======
-//     public function setAlerStatus($NIC)
-//     {
-//         $this->db->runQuery("UPDATE `alert` SET  `alertstatus`='view'    WHERE NIC= '$NIC'");
-//     }
-// }
-// >>>>>>> 219e758cb4866d849a683712ca1ac9c04aa5998b
-// >>>>>>> 342e2a17a5e07fda17b8620411c3cf0766b43c49
-=======
     public function getEmail($NIC){
         return $this->db->runQuery("SELECT email FROM user WHERE NIC = '$NIC' ");
     }
@@ -188,4 +159,3 @@ class user_model extends Model
     
 }
  
->>>>>>> 4b68e3792086e03c8f66a3193663583d70275f5c

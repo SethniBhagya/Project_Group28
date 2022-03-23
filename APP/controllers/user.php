@@ -234,25 +234,8 @@ class user extends Controller
                   $registrationStatus = $this->model->selectRegStatus($_SESSION['NIC']);
                   foreach ($registrationStatus as $row) {
                     $regStatus  = $row['registrationStatus'];
-<<<<<<< HEAD
                 }  
-                  if($regStatus=='accept'){ 
-                  //get the data in Database  
-                  $this->view->data = $this->model->selectData($_POST["username"]);
-                  //echo $this->data;  
-                  // render the villager page  
-
-                  $this->view->render('villagersPage');
-
-                  $this->view->notification = $this->checkNotificationStatus($_SESSION['NIC']);
-
-                  $this->view->render('villagersPage');
-                  if (isset($_POST['submitAlert'])) {
-                    $this->model->setAlerStatus($_SESSION['NIC']); 
-=======
->>>>>>> 4b68e3792086e03c8f66a3193663583d70275f5c
-                  }
-                  if ($regStatus == 'accept') {
+                 if ($regStatus == 'accept') {
                     //get the data in Database  
                     $this->view->data = $this->model->selectData($_POST["username"]);
                     //echo $this->data;  
@@ -270,18 +253,12 @@ class user extends Controller
                   } else if ($regStatus == 'pending') {
                     $this->view->data = $this->model->selectData($_POST["username"]);
                     $this->view->render('villagersPagenotAcceptVillager');
-<<<<<<< HEAD
-                 }else{
-                     header('Location: ../user/index');
-                 }
-
-=======
                   } else {
                     header('Location: ../user/index');
                   }
->>>>>>> 4b68e3792086e03c8f66a3193663583d70275f5c
                   break;
-                case "Wildlife Officer":
+               
+                case  "Wildlife Officer":
                   $this->view->render('wildlifeofficer');
                   break;
                 case "admin":
@@ -333,12 +310,9 @@ class user extends Controller
       
                   $this->view->render('gramaniladariSinhala');
                   break;
-<<<<<<< HEAD
                 case "veterinarian":
                   $this->view->render('veterinarian');
 
-=======
->>>>>>> 4b68e3792086e03c8f66a3193663583d70275f5c
 
 
             }
@@ -348,22 +322,15 @@ class user extends Controller
 
               case "villager":
                 //get the data in Database  
-<<<<<<< HEAD
 
                 $this->view->data = $this->model->selectData($_POST["username"]);
 
-=======
->>>>>>> 4b68e3792086e03c8f66a3193663583d70275f5c
                 $this->view->status = $this->checkAlerStatus($_SESSION['NIC']);
                 // echo "aa".$this->checkNotificationStatus($_SESSION['NIC']);
                 $this->view->notification = $this->checkNotificationStatus($_SESSION['NIC']);
 
-<<<<<<< HEAD
                  $this->view->data = $this->model->selectData($_POST["username"]);
 
-=======
-                $this->view->data = $this->model->selectData($_POST["username"]);
->>>>>>> 4b68e3792086e03c8f66a3193663583d70275f5c
                 //echo $this->data;  
                 // render the villager page  
                 $this->view->render('villagersPagetamil');
@@ -383,11 +350,7 @@ class user extends Controller
                 break;
             }
           }
-<<<<<<< HEAD
-           else {
-=======
         } else {
->>>>>>> 4b68e3792086e03c8f66a3193663583d70275f5c
 
           //if not selected language then gives defulat language pages
 
@@ -412,23 +375,17 @@ class user extends Controller
             case "veterinarian":
               $this->view->render('veterinarian');
           }
-<<<<<<< HEAD
-        } 
+        }} 
         else {
           //if there is a error then not redirect
           $this->view->render('login', $loginUser["Error"]);
-=======
->>>>>>> 4b68e3792086e03c8f66a3193663583d70275f5c
         }
       } else {
         //if there is a error then not redirect
         $this->view->render('login', $loginUser["Error"]);
       }
     }
-  }
-
-
-
+ 
 
   public function logout()
   { //session destroy when user logout
