@@ -710,6 +710,28 @@ class admin_model extends Model
 		return $this->db->runQuery("SELECT DISTINCT reported_incident.incidentID AS incidentID,village.name AS village,reported_incident.villager_NIC AS NIC,user.Fname AS name,reported_incident.date AS date,reported_incident.time_IN AS time,reported_incident.incidentStatus AS status,reported_incident.lat AS lat,reported_incident.lon AS lon FROM reported_incident,user,village WHERE user.NIC=reported_incident.villager_NIC AND village.village_code=reported_incident.village_code AND reported_incident.incidentStatus='unsuccess' AND reported_incident.reporttype='Breakdown of Elephant Fences'"); 
 	}
 
+	public function getDetails($nic)
+	{
+		$adminNIC=(($this->db->runQuery("SELECT NIC FROM user WHERE jobType='admin'"))[0])["NIC"];
+		if($nic==$adminNIC)
+		{
+			return ($this->db->runQuery("SELECT * FROM user where NIC='$nic'"))[0];
+		}
+
+	}
+
+	public function getCurrentPassword($nic)
+	{
+		return (($this->db->runQuery("SELECT userPassword FROM login WHERE userName='$nic'"))[0])["userPassword"];
+
+	}
+
+	public function changeAdminPassword($newPassword,$nic)
+	{  
+		$hashedPassword=password_hash($newPassword, PASSWORD_DEFAULT);
+		$this->db->runQuery("UPDATE login SET userPassword='$hashedPassword' WHERE userName='$nic' ");
+	}
+
 
 	
 

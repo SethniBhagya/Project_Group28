@@ -60,6 +60,7 @@ class admin extends user{
         $province=$this->model->getProvince();
         $office=$this->model->getOfficeNum();
         
+        
        //names of provinces and numbers of offices get to assiciative array for dynmaic drop downs
         $dropDownData=[
         	"province"=>$province,
@@ -589,9 +590,51 @@ class admin extends user{
 
   public function viewProfile()
   {
+    $details=$this->model->getDetails($_SESSION["NIC"]);
+    $this->view->render('adminViewProfile',$details);
 
   }
 
+  public function changePassword()
+  {
+    $this->view->render("adminChangePassword");
+    if(isset($_POST["submitPass"]))
+    { $currentPassword=$_POST["currentPassword"];
+      $newPassword=$_POST["newPassword"];
+      $confirmPassword=$_POST["confirmPassword"];
+
+      if($confirmPassword==$newPassword)
+      {
+        $adminCurrentPassword=$this->model->getCurrentPassword($_SESSION["NIC"]);
+        if(password_verify($currentPassword, $adminCurrentPassword))
+        {
+          $this->model->changeAdminPassword($newPassword,$_SESSION["NIC"]);
+          header("Location: ../admin/viewProfile?change=success");
+        }
+        else
+        header("Location: ../admin/viewProfile?change=wrong");
+
+      }
+      else
+      header("Location: ../admin/viewProfile?change=notconfirm");
+      
+
+    }
+    
+
+
+  }
+
+  public function showMap()
+  {
+    $data=[
+      "lat"=>$_GET["lat"],
+      "lon"=>$_GET["lon"]];
+
+
+    $this->view->render("adminIndiMap",$data);
+    
+  }
  
 
 }
