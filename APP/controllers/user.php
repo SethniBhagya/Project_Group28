@@ -395,7 +395,9 @@ class user extends Controller
 
           $this->view->render('gramaniladariSinhala');
           break;
+          
         }
+        break;
       case 3:
         switch ($_SESSION["jobtype"]) {
           case 'villager':

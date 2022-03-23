@@ -612,7 +612,7 @@ class incident extends Controller
   
  
     function viewReportpage(){
-        session_start();
+       // session_start();
 
         // $this->view->dataAll  = $this->model->getDatareport( );
         if(isset($_GET['reportNo'])){

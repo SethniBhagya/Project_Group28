@@ -86,16 +86,31 @@ public function  editProfile()
         //assign the value
         $lang = $_GET['lang'];
       }
+      $this->view->status = $this->checkAlerStatus($_SESSION['NIC']);
+      $this->view->notification = $this->checkNotificationStatus($_SESSION['NIC']);
+
+      $this->view->notificationData =  $this->model->getNotification($_SESSION['NIC']); 
+   
       switch ($lang) {
         case 1:
           //display villagerReportView1     
+          if (isset($_GET['notification'])) {
+            $this->model->setNotificationStatus($_SESSION['NIC']); 
+             }    
           $this->view->render('gramaniladariNotification');
           break;
         case 2:
+          if (isset($_GET['notification'])) {
+            $this->model->setNotificationStatus($_SESSION['NIC']); 
+             }    
           //display villagerReportView2
           $this->view->render('gramaniladariNotificationsinhala');
           break;
         case 3:
+          if (isset($_GET['notification'])) {
+            $this->model->setNotificationStatus($_SESSION['NIC']); 
+             }    
+       
           //display villagerReportView3    
           $this->view->render('gramaniladariNotificationtamil');
           break;
@@ -135,6 +150,9 @@ public function  editProfile()
         //assign the value
         $status = $_GET['status'];
       } 
+      $this->view->status = $this->checkAlerStatus($_SESSION['NIC']);
+      $this->view->notification = $this->checkNotificationStatus($_SESSION['NIC']);
+
        switch ($status){
          case 'success':  
        switch ($lang) {
@@ -184,6 +202,9 @@ public function  editProfile()
         $status = $_GET['lang'];
       } 
       $this->view->dataReport  = $this->model->getreport($_GET['reportNo']);
+      $this->view->status = $this->checkAlerStatus($_SESSION['NIC']);
+      $this->view->notification = $this->checkNotificationStatus($_SESSION['NIC']);
+
       switch ($lang) {
         case 1:
           
@@ -214,7 +235,9 @@ public function  editProfile()
         //assign the value
         $lang = $_GET['lang'];
       } 
-      
+      $this->view->status = $this->checkAlerStatus($_SESSION['NIC']);
+      $this->view->notification = $this->checkNotificationStatus($_SESSION['NIC']);
+
       $this->view->dataReport  = $this->model->getreport($_GET['reportNo']);
       switch ($lang) {
         case 1:
@@ -247,7 +270,9 @@ public function  editProfile()
         //assign the value
         $lang = $_GET['lang'];
       }
-      
+      $this->view->status = $this->checkAlerStatus($_SESSION['NIC']);
+      $this->view->notification = $this->checkNotificationStatus($_SESSION['NIC']);
+
       $this->view->dataAll  = $this->model->getData();
       //get the number of rows reports in assocaiative array
       $rows =  $this->model->getVillgerRows($_SESSION['NIC']);
@@ -318,7 +343,9 @@ public function  editProfile()
         //assign the value
         $lang = $_GET['lang'];
       } 
-      
+      $this->view->status = $this->checkAlerStatus($_SESSION['NIC']);
+      $this->view->notification = $this->checkNotificationStatus($_SESSION['NIC']);
+
      
       $this->view->villagerData = $this->model->getVillgerReview($_SESSION['NIC']);
 

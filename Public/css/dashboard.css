@@ -683,12 +683,12 @@ a {
     background-color:rgb(16, 123, 20);  ;
     color: white;
 }
-.map-area{
+#map-area{
     position: inherit;
     height: 510px;
     width:100%;
     margin-top: 8px;
-    background-color: ivory;
+    /* background-color: rgb(214, 214, 194); */
     border-radius: 10px;
 }
 .province-report{

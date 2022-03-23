@@ -126,7 +126,22 @@ class gramaniladari_model extends Model
     $this->db->runQuery("UPDATE `villager_registration` SET  villager_registration.registrationStatus ='notaccept'  WHERE  villager_registration.Villager_NIC = '$villager_NIC' "); 
     }
     public function getAlerStatus($NIC){
-        return $this->db->runQuery("SELECT `statust` FROM `alert` WHERE NIC= '$NIC'");
+        return $this->db->runQuery("SELECT `alertstatus` FROM `alert` WHERE NIC= '$NIC'");
     }
+    public function getNotificationStatus($NIC){
+        return $this->db->runQuery("SELECT COUNT(*) AS numberofnotification FROM `notification` WHERE NIC= '$NIC' and`status`='notview'");
+    }
+    public function getNotification($NIC){
+        return $this->db->runQuery("SELECT * FROM `notification` WHERE NIC= '$NIC' ORDER BY `no` DESC  LIMIT 10");
+    }
+    public function setNotificationStatus($NIC){
+        $getnumbers = $this->db->runQuery("SELECT `no` AS numbers FROM `notification` WHERE NIC= '$NIC'");
+        foreach  ($getnumbers AS $row){
+             $number = $row['numbers'];
+             $this->db->runQuery("UPDATE `notification` SET  `status`='view'  WHERE `no`= $number ");
 
+        }
+ 
+        
+    } 
  }

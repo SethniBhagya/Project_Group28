@@ -62,7 +62,7 @@
 
             </button>
         </a>
-        <a href="../villager/viewNotification?lang=2">
+        <a href="../villager/viewNotification?lang=2&notification=true">
             <button class="specialNotice">
                 <div class="notification"><span class="dot-1"><img src="../Public/images/bell.png" alt="1" srcset=" "></span>
                 </div>

@@ -238,13 +238,13 @@
                                 <td> <input type="file" name="Photo" id="file" class="file" value="<?php $image ?>"></td>
                             </tr>
                             <tr class="header-table" style="text-align: left;">
-                                <th>Track The location </th>
+                                <th><img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($image); ?>"/>  </th>
                                 <td> <button onclick="return getLocation()" id="track">Click Me</button>
                                 </td>
                             </tr>
                             <textarea class="text" id="lat" name="latitude" rows="2" style="display: none;"></textarea>
                             <textarea class="text" id="lang" name="longitude" rows="2" style="display: none;"></textarea>
-
+                           
                             <script>
                                 var x = document.getElementById("lat");
                                 var y = document.getElementById("lang");

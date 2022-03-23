@@ -381,7 +381,9 @@
                  break;
             case 2:
               //display special Notice     
-      
+              if (isset($_GET['notification'])) {
+                $this->model->setNotificationStatus($_SESSION['NIC']); 
+                 }    
               $this->view->render('notificationsinhala');
               if (isset($_POST['submitAlert'])) {
                 $this->model->setAlerStatus($_SESSION['NIC']); 
@@ -389,7 +391,9 @@
               break;
             case 3:
               //display special Notice     
-      
+              if (isset($_GET['notification'])) {
+                $this->model->setNotificationStatus($_SESSION['NIC']); 
+                 }    
               $this->view->render('notificationTamil');
               if (isset($_POST['submitAlert'])) {
                 $this->model->setAlerStatus($_SESSION['NIC']); 

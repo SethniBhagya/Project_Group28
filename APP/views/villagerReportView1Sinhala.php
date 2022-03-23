@@ -181,10 +181,10 @@ if (isset($_POST['Submit'])) {
         </div>
         <div class="navigatereport">
              
-        <a href="?type=1&page=1&lang=1" id="allreport"  style=" background-color: rgb(168, 175, 168); color : black;" >වාර්තාව</a>
-                <a href="?type=2&lang=1&page=1" id="myreportaccept" >සාර්ථක වාර්තාව</a>
-                <a href="?type=3&page=1&lang=1" id="myreportpending" >වාර්තාව පොරොත්තුවෙන්</a>
-                <a href="?type=4&page=1&lang=1" id="myreportpendingCrop" >වගා හානි වාර්තාව  </a>
+        <a href="?type=1&page=1&lang=2" id="allreport"  style=" background-color: rgb(168, 175, 168); color : black;" >වාර්තාව</a>
+                <a href="?type=2&lang=2&page=1" id="myreportaccept" >සාර්ථක වාර්තාව</a>
+                <a href="?type=3&page=1&lang=2" id="myreportpending" >වාර්තාව පොරොත්තුවෙන්</a>
+                <a href="?type=4&page=1&lang=2" id="myreportpendingCrop" >වගා හානි වාර්තාව  </a>
  </div>
         <div class="subcontainer_3-3">
             <!-- <div class="search-container"> -->
@@ -223,7 +223,7 @@ if (isset($_POST['Submit'])) {
                     <td><?php echo $row['time_in'] ?></td>
                     <td><?php if($row['Place']===null){ echo "Emergency Place";} else{  echo $row['Place']; }?></td>
                     <td><?php echo $row['reporttype'] ?></td>
-                    <td id="view"><a href="../incident/viewReportpage?lang=1&reportNo=<?php echo $row['incidentID'] ?>&page=<?php echo $_GET['page'] ?>&type=<?php echo $_GET['type'] ?>"><img src="../Public/images/view.png" class="view" ></a></td>                    
+                    <td id="view"><a href="../incident/viewReportpage?lang=2&reportNo=<?php echo $row['incidentID'] ?>&page=<?php echo $_GET['page'] ?>&type=<?php echo $_GET['type'] ?>"><img src="../Public/images/view.png" class="view" ></a></td>                    
                 </tr>
                 <?php }  } ?>
 
@@ -236,7 +236,7 @@ if (isset($_POST['Submit'])) {
                 <th>දිනය</th>
                     <th>කාලය</th>
                     <th>ස්ථානය</th>
-                    <!-- <th>City</th> -->
+                    <!-- <th>City</th>90 -->
                     <!-- <th>Time</th> -->
                     <th>වාර්තා වර්ගය</th>
                     <th>දැක්ම</th>
@@ -249,7 +249,7 @@ if (isset($_POST['Submit'])) {
                     <td><?php echo $row['time_in'] ?></td>
                     <td><?php echo $row['Place'] ?></td>
                     <td><?php echo $row['reporttype'] ?></td>
-                    <td id="view"><a href="../incident/viewReportpage?lang=1&reportNo=<?php echo $row['incidentID'] ?>&page=<?php echo $_GET['page']?>&type=<?php echo $_GET['type'] ?>"><img src="../Public/images/view.png" class="view" ></a></td>
+                    <td id="view"><a href="../incident/viewReportpage?lang=2&reportNo=<?php echo $row['incidentID'] ?>&page=<?php echo $_GET['page']?>&type=<?php echo $_GET['type'] ?>"><img src="../Public/images/view.png" class="view" ></a></td>
                     
                 </tr>
                 <?php if(isset($_GET['status'])) { ?>
@@ -263,7 +263,7 @@ if (isset($_POST['Submit'])) {
 
                  </div> 
                  
-                 <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126452.02111388237!2d80.94313801331407!3d7.934107447297657!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3afb44ba3b16ce27%3A0xc34997a2b3032b7c!2sPolonnaruwa!5e0!3m2!1sen!2slk!4v1633233322587!5m2!1sen!2slk" width="50%" height="500px" style="border:0;" allowfullscreen="" loading="lazy"></iframe>     -->
+                 <!-- <iframe src="https://www90.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126452.02111388237!2d80.94313801331407!3d7.934107447297657!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3afb44ba3b16ce27%3A0xc34997a2b3032b7c!2sPolonnaruwa!5e0!3m2!1sen!2slk!4v1633233322587!5m2!1sen!2slk" width="50%" height="500px" style="border:0;" allowfullscreen="" loading="lazy"></iframe>     -->
                   
                     <div id="map" style="top: 10px">
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126452.02111388237!2d80.94313801331407!3d7.934107447297657!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3afb44ba3b16ce27%3A0xc34997a2b3032b7c!2sPolonnaruwa!5e0!3m2!1sen!2slk!4v1633233322587!5m2!1sen!2slk" width="50%" height="300px" style="border:0;" allowfullscreen="" loading="lazy"></iframe>    
@@ -287,16 +287,16 @@ if (isset($_POST['Submit'])) {
     </div>
     <!-- </div> -->
   <div class="subcontainer_3-4">
-             <a  id="first"  href="?type=1&lang=1&page=1">First</a>
+             <a  id="first"  href="?type=1&lang=2&page=1">First</a>
             <?php if($_GET['page']<=1) {?>
                   <a>Previous</a>
             <?php }else{?> 
-             <a id="previous" href="?type=1&lang=1&page=<?php echo $_GET['page']-1 ?>">Previous</a> <?php } ?>
+             <a id="previous" href="?type=1&lang=2&page=<?php echo $_GET['page']-1 ?>">Previous</a> <?php } ?>
             <?php if($_GET['page']==$this->lastpage) {?>
                  <li id="next"><a>Next</a>
             <?php }else{?> 
-             <a id="next" href="?type=1&lang=1&page=<?php echo $_GET['page']+1 ?>">Next</a> <?php } ?>
-             <a id="last" href="?type=1&lang=1&page=<?php echo $this->lastpage ?>">Last</a></li>
+             <a id="next" href="?type=1&lang=2&page=<?php echo $_GET['page']+1 ?>">Next</a> <?php } ?>
+             <a id="last" href="?type=1&lang=2&page=<?php echo $this->lastpage ?>">Last</a></li>
          
     </div>
  

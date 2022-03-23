@@ -158,7 +158,7 @@
         <?php } else {
 
         ?> <?php if (isset($_POST['Submit'])) {
-        ?>
+            ?>
 
                 <div id="popupmessagefirst">
                     <form action="?lang=1&report=1" method="post" style="display: inline-block;">
@@ -173,7 +173,7 @@
             }
 
             ?> <?php }
-    } ?>
+        } ?>
     <div class="header-name">
         <h>Total in Sri Lanka </h>
         <h style="float:right"><?php echo date("d/m/Y") ?></h>
@@ -216,7 +216,7 @@
             </div>
         </div>
         <div class="detail">
-            Time Duration -1 Month <br> 
+            Time Duration -1 Month <br>
             Last Modification <?php echo date("d/m/Y") ?>
         </div>
         <div class="date">
@@ -305,10 +305,11 @@
         <div class="header-map">
             Incidents Report Areas
         </div>
-        <div class="map-area">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126452.02111388237!2d80.94313801331407!3d7.934107447297657!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3afb44ba3b16ce27%3A0xc34997a2b3032b7c!2sPolonnaruwa!5e0!3m2!1sen!2slk!4v1633098856489!5m2!1sen!2slk" width="100%" height="510" style="border:0; border-radius: 10px;" allowfullscreen="" loading="lazy"></iframe>
+        <div id="map-area">
+
         </div>
-        
+    </div>
+
     </div>
     <div class="province-report">
         <div class="linechart">
@@ -390,8 +391,37 @@
             };
             updateCount();
         });
+
+        function initMap() {
+  const map = new google.maps.Map(document.getElementById("map-area"), {
+    zoom: 13,
+    center: { lat: 6.795740, lng: 79.93823242 },
+  });
+ 
+  var image1 = {
+                  url: '../Public/images/report-1.png',
+                  scaledSize: new google.maps.Size(60, 60),
+                };
+  var image2 = {
+                  url: '../Public/images/report-4.png',
+                  scaledSize: new google.maps.Size(60, 60),
+                };
+  const beachMarker = new google.maps.Marker({
+    position: { lat: 6.795740, lng: 79.93823242 },
+    map,
+    title: "Elephants are in The Village",
+    icon: image1,
+  });
+  const otherMarker = new google.maps.Marker({
+    position: { lat: 6.806054, lng:79.922214 },
+    map,
+    title: "Other animala are come to village",
+    icon: image2,
+  });
+}
     </script>
-    
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOVujYe2-BPc5b66VsL0xVVUKoZHkb5yo&callback=initMap "></script>
+
 </body>
 
 </html>

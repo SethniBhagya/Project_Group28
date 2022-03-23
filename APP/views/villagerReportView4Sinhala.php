@@ -13,9 +13,7 @@
     <link rel="stylesheet" href="../Public/css/reportViewPag.css">
     <script src="../Public/Javascript/login1.js"></script>
     <script src="../Public/Javascript/viewReport.js"></script>
-    <script src="../Public/javascript/villagerMyreportview.js "></script>
-
-    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=myMap"></script> -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=myMap"></script>
     <title>වාර්තාව බැලීම</title>
 </head>
 
@@ -28,7 +26,6 @@
                 <div class="bar2"></div>
                 <div class="bar3"></div>
             </div>
-
             <ul>
             <li id="home_2"><a href="../?lang=2">මුල් පිටුව</a></li>
                 <li id="dashboard_1"   ><a href="../user/viewpage?lang=2" >මුල් පුවරුව</a></li>
@@ -57,7 +54,7 @@
     ?>
 
             <div id="messagealert">
-                <form action="?lang=2&report=1" method="post" style="display: inline-block;">
+                <form action="?lang=1&report=2" method="post" style="display: inline-block;">
                     <img src="../Public/images/alertIcon.png" id="alert">
                     <h3>වනජීවී අලි ඔබගේ ලියාපදිංචි ගම්මානයට පැමිණේ &nbsp&nbsp
                         <input type="submit" value="Ok" name="submitAlert" id="submit1">
@@ -129,9 +126,9 @@ if (isset($_POST['Submit'])) {
  
         <div id="notificationmessage">
 
-            <!-- <img src=".100./Public/images/alertIcon.png" style="width:1000px;  height:100000px"><br> -->
+            <!-- <img src="../Public/images/alertIcon.png" style="width:1000px;  height:100000px"><br> -->
 
-            <form action="../villager/viewNotification?lang=2" method="post" style="display: inline-block;">
+            <form action="../villager/viewNotification?lang=1" method="post" style="display: inline-block;">
                 <img src="../Public/images/bell1.png" id="bell">&nbsp&nbsp
                 <h3>ඔබට නව දැනුම්දීමක් ඇත (<?php echo $this->notification ?>) &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                     <input type="submit" value="නරඹන්න " name="submitAlert" id="submit">
@@ -185,12 +182,10 @@ if (isset($_POST['Submit'])) {
 
             <a href="?type=1&page=1&lang=2" id="allreport">වාර්තාව</a>
             <a href="?type=2&lang=2&page=1" id="myreportaccept">සාර්ථක වාර්තාව</a>
-            <a href="?type=3&page=1&lang=2" id="myreportpending" style=" background-color: rgb(168, 175, 168); color : black;">වාර්තාව පොරොත්තුවෙන්</a>
-            <a href="?type=4&page=1&lang=2" id="myreportpendingCrop">වගා හානි වාර්තාව </a>
-
+            <a href="?type=3&page=1&lang=2" id="myreportpending" >වාර්තාව පොරොත්තුවෙන්</a>
+            <a href="?type=4&page=1&lang=2" id="myreportpendingCrop" style=" background-color: rgb(168, 175, 168); color : black;" >වගා හානි වාර්තාව </a>
         </div>
         <div class="subcontainer_3-3">
-            <!-- <div class="search-container"> -->
             <form action="?type=<?php echo $_GET['type'] ?>&lang=1&page=<?php echo $_GET['page'] ?>&action=1" class="search-container" method="POST">
                 <lable id="text-search-bar">වාර්තා අංකය</lable>
                 <input type="text" placeholder="සෙවීම" name="incidentId">
@@ -202,56 +197,56 @@ if (isset($_POST['Submit'])) {
                 <table class="table">
                     <tr class="header-table">
                         <th>දිනය</th>
-                        <th>වාර්තා අංකය</th>
-                        <th>ස්ථානය</th>
-                        <th>කාලය</th>
-                        <th>වාර්තා වර්ගය</th>
+                        <th>වාර්තාව අංක</th>
+                        <th>පණිවුඩය</th>
+                        <th>තත්ත්වය</th>
                         <th>කටයුතු</th>
                     </tr>
-                    <tr>
-                        <?php foreach ($this->dataAllPending as $row) {
-                            if (($row['status'] == 'pending') &&  $row['incidentID'] == $_POST['incidentId']) { ?>
+                    <tr><?php
+                        $villagerNic = $_SESSION['NIC'];
+                        ?>
+                        <?php foreach ($this->cropDamagesReview as $row) {
+                            if ($row['incidentID'] == $_POST['incidentId'] && $row['status'] != 'pending') { ?>
                                 <td id="date"><?php echo $row['date']; ?> </td>
                                 <td id="incidentID"><?php echo $row['incidentID'] ?></td>
-                                <td id="Place"><?php echo $row['Place'] ?></td>
-                                <td id="time_in"> <?php echo $row['time_in'] ?></td>
-                                <td id="reporttype"><?php echo $row['reporttype'] ?></td>
-                                <!-- // $userArray = array('John Doe', 'john@example.com'); -->
-                                <td id="view"><a href="../incident/updateReport?lang=2&&reportNo=<?php echo $row['incidentID'] ?>&page=<?php echo $_GET['page'] ?>&type=<?php echo $_GET['type'] ?>"><img src="../Public/images/edit.png" class="view" style="width: 20px; height:20px"></a>
-                                    <a href="../incident/viewReport?type=3&page=1&lang=2&rmStatus=1&reportNo=<?php echo $row['incidentID'] ?>&page=<?php echo $_GET['page'] ?>&type=<?php echo $_GET['type'] ?>"><img src="../Public/images/remove.png" class="view" style="width: 20px; height:20px; padding-left:2px"></a>
-                                    <a href="../incident/viewReportpage?type=3&&lang=2&reportNo=<?php echo $row['incidentID'] ?>&page=<?php echo $_GET['page'] ?>&type=<?php echo $_GET['type'] ?>"><img src="../Public/images/view.png" class="view"></a>
+                                <td id="Place"><?php echo $row['message'] ?></td>
+                                <td id="Place"><?php echo $row['status'] ?></td>
+
+                                <script>
+                                    var incidentID = document.getElementById('incidentID')
+                                </script>
+                                <td id="view"><a href="../incident/viewReportpage?type=1&&lang=2&reportNo=<?php echo $row['incidentID'] ?>&page=<?php echo $_GET['page'] ?>&type=<?php echo $_GET['type'] ?>"><img src="../Public/images/action.png" class="view"></a></td>
                                 </td>
-                        <?php }
+ 
+                    </tr>
+            <?php }
                         } ?>
 
                 </table>
             <?php } else {   ?>
+                <?php $data = $this->data1 ?>
                 <table class="table">
                     <tr class="header-table">
-                        <th>දිනය</th>
-                        <th>වාර්තා අංකය</th>
-                        <th>ස්ථානය</th>
-                        <th>කාලය</th>
-                        <th>වාර්තා වර්ගය</th>
-                        <th>කටයුතු</th>
+                    <th>දිනය</th>
+                        <th>වාර්තාව අංක</th>
+                        <th>පණිවුඩය</th>
+                        <th>තත්ත්වය</th>
+                        <th>කටයුතු</t>
+
                     </tr>
                     <tr>
 
-                        <?php foreach ($this->data2 as $row) {
-                            if (($row['status'] == 'pending')) { ?>
+                        <?php foreach ($this->cropDamagesReview as $row) {
+                            if ($row['status'] != 'pending') {
+                        ?>
                                 <td id="date"><?php echo $row['date']; ?> </td>
                                 <td id="incidentID"><?php echo $row['incidentID'] ?></td>
-                                <td id="Place"><?php echo $row['Place'] ?></td>
-                                <td id="time_in"> <?php echo $row['time_in'] ?></td>
-                                <td id="reporttype"><?php echo $row['reporttype'] ?></td>
-                                <!-- // $userArray = array('John Doe100', 'john@example.com'); -->
+                                <td id="Place"><?php echo $row['message'] ?></td>
+                                <td id="Place"><?php echo $row['status'] ?></td>
                                 <script>
                                     var incidentID = document.getElementById('incidentID')
-                                    //console.log(document.getElementById('incidentID')100 )
                                 </script>
                                 <td id="view"><a href="../incident/updateReport?lang=2&&reportNo=<?php echo $row['incidentID'] ?>&page=<?php echo $_GET['page'] ?>&type=<?php echo $_GET['type'] ?>"><img src="../Public/images/edit.png" class="view" style="width: 20px; height:20px"></a>
-                                    <a href="../incident/viewReport?type=3&page=1&lang=2&rmStatus=1&reportNo=<?php echo $row['incidentID'] ?>&page=<?php echo $_GET['page'] ?>&type=<?php echo $_GET['type'] ?>"><img src="../Public/images/remove.png" class="view" style="width: 20px; height:20px; padding-left:2px"></a>
-                                    <a href="../incident/viewReportpage?type=3&&lang=2&reportNo=<?php echo $row['incidentID'] ?>&page=<?php echo $_GET['page'] ?>&type=<?php echo $_GET['type'] ?>"><img src="../Public/images/view.png" class="view"></a>
                                 </td>
                     </tr>
             <?php }
@@ -260,25 +255,25 @@ if (isset($_POST['Submit'])) {
                 </table>
             <?php } ?>
         </div>
+
     </div>
     <?php if (!isset($_GET['action'])) { ?>
         <div class="subcontainer_3-4">
-            <a id="first" href="?type=3&lang=2&page=1">First</a>
+            <a id="first" href="?type=1&lang=2&page=1">First</a>
             <?php if ($_GET['page'] <= 1) { ?>
                 <a>Previous</a>
             <?php } else { ?>
-
-                <a id="previous" href="?type=3&lang=2&page=<?php echo $_GET['page'] - 1 ?>">Previous</a> <?php } ?>
-            <?php if ($_GET['page'] == $this->lastpagePending) { ?>
+                <a id="previous" href="?type=4&lang=2&page=<?php echo $_GET['page'] - 1 ?>">Previous</a> <?php } ?>
+            <?php if ($_GET['page'] == $this->CropDamagesReviewlastpage) { ?>
                 <li id="next"><a>Next</a>
                 <?php } else { ?>
-                    <a id="next" href="?type=3&lang=2&page=<?php echo $_GET['page'] + 1 ?>">Next</a> <?php } ?>
-                <a id="last" href="?type=3&lang=2&page=<?php echo $this->lastpagePending ?>">Last</a>
+                    <a id="next" href="?type=4&lang=2&page=<?php echo $_GET['page'] + 1 ?>">Next</a> <?php } ?>
+                <a id="last" href="?type=4&lang=2&page=<?php echo $this->CropDamagesReviewlastpage ?>">Last</a>
                 </li>
         </div>
     <?php } ?>
 
+
 </body>
-<script src="../Public/javascript/villagerMyreportview.js "></script>
 
 </html>
