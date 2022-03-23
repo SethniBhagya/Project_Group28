@@ -26,15 +26,13 @@
             </div>
 
             <ul>
-                <li id="home_2"><a href="../">Home</a></li>
-                 <li id="dashboard_1" style=" background-color: rgb(168, 175, 168); color:black;"><a href="../user/viewpage?lang=1">Main Menu</a></li>
-                <li id="report_2"><a a href="../incident/index?lang=1">Report Incidents</a></li>
-
-                <li id="special_1"><a href="../gramanildhri/viewSpecialNotice?lang=1">SpecialNotice </a></li>
-
-          
+            <li id="home_2"><a href="../?lang=2">මුල් පිටුව</a></li>
+                <li id="dashboard_1" style=" background-color: rgb(168, 175, 168); color:black;"  ><a href="../user/viewpage?lang=2"  >මුල් පුවරුව</a></li>
+                <li id="report_2" style="   padding-right:20px ; right:345px  "><a href="../incident/index?lang=2"> වර්තා කිරීම</a></li>
+                <li id="special_1"><a href="../villager/viewSpecialNotice?lang=2">විශේෂ දැන්වීම</a></li> 
+                    
                 <div class="dropdown-1" style="  padding-left:  300px ">
-                    <button class="dropbtn-1">Language</button>
+                    <button class="dropbtn-1">භාෂාව</button>
                     <div class="dropdown-content-1">
                         <a href="?lang=1">English</a>
                         <a href="?lang=2">සිංහල</a>
@@ -226,38 +224,38 @@ if (isset($_POST['Submit'])) {
                          </b></label>
                      </div>
                      <div class="main-view">
-                     <a href="../gramaniladari/viewCropDamages?lang=1&&page=1&status=pending">
+                     <a href="../gramaniladari/viewCropDamages?lang=2&&page=1&status=pending">
             <button class="work">
-            <h1> My Workplace</h1>
+            <h1>මගේ සේවා ස්ථානය</h1>
                 <div class="line"><img src="../Public/images/envlop.png"></div>
 
             </button>
 
         </a>
-        <a href="../user/viewpage?lang=1&&status=1">
+        <a href="../user/viewpage?lang=2&&status=1">
             <button class="report" >
-                <h1> Emergency </br> Incident Report</h1>
+                <h1> හදිසි වාර්තාව </h1>
                 <div class="line"><img src="../Public/images/emergency.png"></div>
 
             </button>
         </a>
-        <a href="../gramaniladari/viewNotification?lang=1">
+        <a href="../gramaniladari/viewNotification?lang=2">
             <button class="specialNotice">
                 <div class="notification"><span class="dot-1"><img src="../Public/images/bell.png" alt="1" srcset=" "></span>
                 </div>
-                <h1>Notifications</h1>
+                <h1>දැනුම්දීම් </h1>
                 <div class="line"><img src="../Public/images/notifi.png"></div>
             </button>
         </a>
-        <a href="../dashboard/index?lang=1">
+        <a href="../dashboard/index?lang=2">
             <button class="dashboard">
-                <h1>Dashboard<div class="line"><img src="../Public/images/dashIcon.png"></div>
+                <h1>සංඛ්යානමය</br> විශ්ලේෂණ මණ්ඩලය<div class="line"><img src="../Public/images/dashIcon.png"></div>
                 </h1>
             </button>
         </a>
-        <a href="../incident/viewReport?type=1&page=1&lang=1">
+        <a href="../incident/viewReport?type=1&page=1&lang=2">
             <button class="view"  >
-                <h1>View Reported<div class="line"><img src="../Public/images/list.png"></div>
+                <h1>වාර්තා කළ බලන්න<div class="line"><img src="../Public/images/list.png"></div>
                 </h1>
             </button>
         </a>

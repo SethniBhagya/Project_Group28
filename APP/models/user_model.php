@@ -110,25 +110,37 @@ class user_model extends Model
         foreach ($divisionName as $row) {
             $divisionNamevillagers = $row['divisionName'];
         }
-        $villagers = $this->db->runQuery("SELECT   lives.villager_NIC AS villagerNIC  FROM   grama_niladhari INNER JOIN lives  ON lives.gramaniladhari_NIC=grama_niladhari.NIC  INNER JOIN gn_division ON gn_division.GND_Code=grama_niladhari.GND  WHERE  gn_division.name='$divisionNamevillagers' ");
+        $villagers = $this->db->runQuery("SELECT   lives.villager_NIC AS villagerNIC , grama_niladhari.GND AS GND  FROM   grama_niladhari INNER JOIN lives  ON lives.gramaniladhari_NIC=grama_niladhari.NIC  INNER JOIN gn_division ON gn_division.GND_Code=grama_niladhari.GND  WHERE  gn_division.name='$divisionNamevillagers' ");
         $this->db->runQuery("INSERT INTO `reported_incident`(`incidentID`,`gramaniladari_NIC`,`villager_NIC`,  `village_code`, `officeNo`,`time_in`, `date`, `image`, `status`, `description`,`Place`, `lat`, `lon`,`reporttype`) VALUES ( '',(SELECT  `gramaniladhari_NIC` FROM `lives` WHERE villager_NIC= '$id' ), (SELECT `NIC` FROM `villager` WHERE NIC= '$id'), (SELECT  `village_code` FROM `lives` WHERE villager_NIC= '$id' ),(SELECT  `officeNo` FROM `village` WHERE village_code=(SELECT  `village_code` FROM `lives` WHERE villager_NIC= '$id' )),  '$time', '$date', '$photo','pending','','$place',' $latitude','$longitude','Wild Elephant are in The Village' )");
         $this->db->runQuery("INSERT INTO `elephants_in_village`(`incidentID`, `In Your Registered Village`, `no_of_elephants`) VALUES ((SELECT  `incidentID` FROM `reported_incident` WHERE   time_in='$time' ),'$placeStatus','$noOfelephant')");
         foreach ($villagers as $row) {
 
             $villagerNIC =  $row['villagerNIC'];
-            $this->db->runQuery("UPDATE `alert` SET  `alertstatus`='notview'    WHERE NIC= '$villagerNIC' ");
-            $this->db->runQuery("UPDATE `alert` SET  `alertstatus`='view'    WHERE NIC= '$id' ");
+            $GND = $row['GND'];
+            $this->db->runQuery("UPDATE `alert` SET  `alertstatus`='view'    WHERE NIC= '$villagerNIC' ");
+            $this->db->runQuery("UPDATE `alert` SET  `alertstatus`='notview'    WHERE GND= '$GND' ");
+            $this->db->runQuery("UPDATE `alert` SET  `alertstatus`='view'    WHERE NIC= '$villagerNIC' ");
+
         }
     }
     public function getAlerStatus($NIC)
     {
         return $this->db->runQuery("SELECT `alertstatus` FROM `alert` WHERE NIC= '$NIC'");
     }
+<<<<<<< HEAD
 
     public function getNotificationStatus($NIC){
         return $this->db->runQuery("SELECT COUNT(*) AS numberofnotification FROM `notification` WHERE NIC= '$NIC' and`status`='notview'");
     }
 // >>>>>>> 342e2a17a5e07fda17b8620411c3cf0766b43c49
+=======
+ 
+ 
+    public function getNotificationStatus($NIC){
+        return $this->db->runQuery("SELECT COUNT(*) AS numberofnotification FROM `notification` WHERE NIC= '$NIC' and`status`='notview'");
+    }
+ 
+>>>>>>> 4b68e3792086e03c8f66a3193663583d70275f5c
     public function setAlerStatus($NIC){
         $this->db->runQuery("UPDATE `alert` SET  `alertstatus`='view'    WHERE NIC= '$NIC'");
         
@@ -136,6 +148,7 @@ class user_model extends Model
     public function  selectRegStatus($NIC) {
         return $this->db->runQuery("SELECT `registrationStatus` FROM `villager_registration` WHERE Villager_NIC= '$NIC'");
     }
+<<<<<<< HEAD
      
 // <<<<<<< HEAD
 
@@ -154,3 +167,25 @@ class user_model extends Model
 // }
 // >>>>>>> 219e758cb4866d849a683712ca1ac9c04aa5998b
 // >>>>>>> 342e2a17a5e07fda17b8620411c3cf0766b43c49
+=======
+    public function getEmail($NIC){
+        return $this->db->runQuery("SELECT email FROM user WHERE NIC = '$NIC' ");
+    }
+    public function getEmails($NIC){
+       // $gramanildhariDivision  =  $this->db->runQuery("SELECT ");
+        return $this->db->runQuery("SELECT   user.email AS email FROM user INNER JOIN lives  ON user.NIC=lives.villager_NIC  INNER JOIN grama_niladhari ON lives.gramaniladhari_NIC=grama_niladhari.NIC  WHERE lives.gramaniladhari_NIC=(SELECT gramaniladhari_NIC FROM lives WHERE villager_NIC='$NIC') ");
+    }
+    
+    
+    
+
+ 
+ 
+    // public function setAlerStatus($NIC)
+    // {
+    //     $this->db->runQuery("UPDATE `alert` SET  `alertstatus`='view'    WHERE NIC= '$NIC'");
+    // }
+    
+}
+ 
+>>>>>>> 4b68e3792086e03c8f66a3193663583d70275f5c

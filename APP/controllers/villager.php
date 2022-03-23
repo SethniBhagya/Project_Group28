@@ -156,7 +156,7 @@
      
     public function  editProfile()
     {
-      session_start();
+     // session_start();
       $this->view->userData = $this->model->profileData($_SESSION['NIC']);
       if (isset($_GET['lang'])) {
         //assign the value
@@ -196,7 +196,7 @@
             $this->model->setAlerStatus($_SESSION['NIC']); 
             }
             if (isset($_POST['submit'])) {
-             echo "HEllo";
+              $this->model->updateprofile($_SESSION['NIC'],$_POST['fname'],$_POST['lname'],$_POST['dob'],$_POST['address'],$_POST['province'] );
            }
 
           break;
@@ -223,7 +223,7 @@
     }
   
     function viewProfile(){
-      session_start();  
+      //session_start();  
         if(isset($_GET['lang'])){
             //assign the value
             $lang = $_GET['lang'];
@@ -285,7 +285,7 @@
             $this->view->datagetlastincidentid =  $datagetlastincidentid ;
             $this->view->datagetlastincidentstatus = $datagetlastincidentstatus;
             $getPassword = $this->model->getHashPassword($_SESSION['NIC']);
-            $hashpassword = $getPassword['userPassword'];
+         //   $hashpassword = $getPassword['userPassword'];
             $this->view->render('villagerProfile');
             if (isset($_POST['submitAlert'])) {
               $this->model->setAlerStatus($_SESSION['NIC']); 
@@ -316,7 +316,7 @@
      }  
      public function viewSpecialNotice()
      {
-       session_start(); 
+       //session_start(); 
        if (isset($_GET['lang'])) {
          //assign the value
          $lang = $_GET['lang'];
@@ -354,66 +354,11 @@
        }
      }
      function viewNotification(){
-        session_start(); 
+        //session_start(); 
         if(isset($_GET['lang'])){
             //assign the value
             $lang = $_GET['lang'];
         }
-<<<<<<< HEAD
-     } 
-
-    public function getNotice(){
-        $NIC=$_SESSION["NIC"];
-
-        $lastNoticeID=$this->model->getLastNoticeId($NIC);
-        $village_code=$this->model->getUserVillageCode($NIC);
-        $newNoticeDetails=$this->model->getNewNoticeDetails($village_code,$lastNoticeID);
-
-        if($newNoticeDetails!="No"){
-
-            $noticeHtml="
-
-        <div id=\"new-notice\">
-
-           <img src=\"../Public/images/notice.jpg\">
-           <h1>Date:".$newNoticeDetails["date"]."&emsp;Time:".$newNoticeDetails["time"]."</h1>
-           <p>".$newNoticeDetails["description"]."</p>
-           <audio id=\"audio\" autoplay loop  controls src=\"http://www.raypinson.com/ringtones/CarAlarm.mp3\"></audio>
-           <button id=\"ok-btn\" value=".$newNoticeDetails["noticeID"]." onclick=\"endNotice(this.value)\">Okay</button>
-
-
-        </div>
-
-
-
-
-        ";
-
-        echo $noticeHtml;
-
-        }
-
-        
-
-
-
-
-    }
-
-
-    public function endNotice(){
-
-        $noticeId=$_POST["noticeId"];
-        $url=$_GET['url'];
-        $url  = rtrim($url,'/');
-        $url  = filter_var($url,FILTER_SANITIZE_URL);
-        $url = explode('/',$url);
-
-        $this->model->updateNotice($noticeId,$_SESSION["NIC"]);
-        header("Location: ../villager/".$url[1]);
-
-    } 
-=======
         
         $this->view->status = $this->checkAlerStatus($_SESSION['NIC']);
         $this->view->notification = $this->checkNotificationStatus($_SESSION['NIC']);
@@ -445,14 +390,13 @@
             case 3:
               //display special Notice     
       
-              $this->view->render('notificationtamil');
+              $this->view->render('notificationTamil');
               if (isset($_POST['submitAlert'])) {
                 $this->model->setAlerStatus($_SESSION['NIC']); 
                 }
               break;
           }
      }  
->>>>>>> 342e2a17a5e07fda17b8620411c3cf0766b43c49
 
 }
 

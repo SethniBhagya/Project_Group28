@@ -32,7 +32,7 @@
          <div class="dropdown-1">
            <button class="dropbtn-1">Language</button>
            <div class="dropdown-content-1">
-             <a href="?status=accept&type=2&page=1&lang=1">English</a>
+           <a href="?status=accept&type=2&page=1&lang=1">English</a>
              <a href="?status=accept&type=2&page=1&lang=2">සිංහල</a>
              <a href="?status=accept&type=2&page=1&lang=3">தமிழ்</a>
            </div>

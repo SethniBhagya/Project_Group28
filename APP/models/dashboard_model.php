@@ -191,44 +191,44 @@ class dashboard_model extends model{
        public function countIncidentJan($district){
         $date = date("Y");
           return $this->db->runQuery( "SELECT COUNT(reported_incident.incidentID) AS Jan FROM reported_incident INNER JOIN lives ON reported_incident.villager_NIC = lives.villager_NIC WHERE ( (lives.district = '$district')&&(reported_incident.date>='$date-01-01' and reported_incident.date<='$date-01-31'))");
-       }
+       }//100
       public function countIncidentFeb($district){ 
        $date = date("Y");
-           return $this->db->runQuery( "SELECT COUNT(reported_incident.incidentID) AS Feb FROM reported_incident INNER JOIN lives ON reported_incident.villager_NIC = lives.villager_NIC WHERE ( (lives.district = '$district')&&(reported_incident.date>='$date.-02-01' and reported_incident.date<='$date.-02-29'))");
+           return $this->db->runQuery( "SELECT COUNT(reported_incident.incidentID) AS Feb FROM reported_incident INNER JOIN lives ON reported_incident.villager_NIC = lives.villager_NIC WHERE ( (lives.district = '$district')&&(reported_incident.date>='$date-02-01' and reported_incident.date<='$date-02-29'))");
       }
       public function countIncidentMarch($district){
          $date = date("Y");
-         return $this->db->runQuery( "SELECT COUNT(reported_incident.incidentID) AS March FROM reported_incident INNER JOIN lives ON reported_incident.villager_NIC = lives.villager_NIC WHERE ( (lives.district = '$district')&&(reported_incident.date>='$date.-03-01' and reported_incident.date<='$date.-03-31'))");
+         return $this->db->runQuery( "SELECT COUNT(reported_incident.incidentID) AS March FROM reported_incident INNER JOIN lives ON reported_incident.villager_NIC = lives.villager_NIC WHERE ( (lives.district = '$district')&&(reported_incident.date>='$date-03-01' and reported_incident.date<='$date-03-31'))");
       }
       public function countIncidentApril($district){
          $date = date("Y");
-         return $this->db->runQuery( "SELECT COUNT(reported_incident.incidentID) AS April FROM reported_incident INNER JOIN lives ON reported_incident.villager_NIC = lives.villager_NIC WHERE ( (lives.district = '$district')&&(reported_incident.date>='$date.-04-01' and reported_incident.date<='$date.-04-30'))");
+         return $this->db->runQuery( "SELECT COUNT(reported_incident.incidentID) AS April FROM reported_incident INNER JOIN lives ON reported_incident.villager_NIC = lives.villager_NIC WHERE ( (lives.district = '$district')&&(reported_incident.date>='$date-04-01' and reported_incident.date<='$date-04-30'))");
       }
       public function countIncidentMay($district){
          $date = date("Y");
-         return $this->db->runQuery( "SELECT COUNT(reported_incident.incidentID) AS May FROM reported_incident INNER JOIN lives ON reported_incident.villager_NIC = lives.villager_NIC WHERE ( (lives.district = '$district')&&(reported_incident.date>='$date.-05-01' and reported_incident.date<='$date.-05-31'))");
+         return $this->db->runQuery( "SELECT COUNT(reported_incident.incidentID) AS May FROM reported_incident INNER JOIN lives ON reported_incident.villager_NIC = lives.villager_NIC WHERE ( (lives.district = '$district')&&(reported_incident.date>='$date-05-01' and reported_incident.date<='$date-05-31'))");
       }
       public function countIncidentJune($district){
          $date = date("Y");
-         return $this->db->runQuery( "SELECT COUNT(reported_incident.incidentID) AS June FROM reported_incident INNER JOIN lives ON reported_incident.villager_NIC = lives.villager_NIC WHERE ( (lives.district = '$district')&&(reported_incident.date>='$date.-06-01' and reported_incident.date<='$date.-06-30'))");
+         return $this->db->runQuery( "SELECT COUNT(reported_incident.incidentID) AS June FROM reported_incident INNER JOIN lives ON reported_incident.villager_NIC = lives.villager_NIC WHERE ( (lives.district = '$district')&&(reported_incident.date>='$date-06-01' and reported_incident.date<='$date-06-30'))");
       }
       public function countIncidentJuly($district){
          $date = date("Y");
-         return $this->db->runQuery( "SELECT COUNT(reported_incident.incidentID) AS July FROM reported_incident INNER JOIN lives ON reported_incident.villager_NIC = lives.villager_NIC WHERE ( (lives.district = '$district')&&(reported_incident.date>='$date.-07-01' and reported_incident.date<='$date.-07-31'))");
+         return $this->db->runQuery( "SELECT COUNT(reported_incident.incidentID) AS July FROM reported_incident INNER JOIN lives ON reported_incident.villager_NIC = lives.villager_NIC WHERE ( (lives.district = '$district')&&(reported_incident.date>='$date-07-01' and reported_incident.date<='$date-07-31'))");
       }
       public function countIncidentAug($district){
          $date = date("Y");
-         return $this->db->runQuery( "SELECT COUNT(reported_incident.incidentID) AS Aug FROM reported_incident INNER JOIN lives ON reported_incident.villager_NIC = lives.villager_NIC WHERE ( (lives.district = '$district')&&(reported_incident.date>='$date.-08-01' and reported_incident.date<='$date.-08-31'))");
+         return $this->db->runQuery( "SELECT COUNT(reported_incident.incidentID) AS Aug FROM reported_incident INNER JOIN lives ON reported_incident.villager_NIC = lives.villager_NIC WHERE ( (lives.district = '$district')&&(reported_incident.date>='$date-08-01' and reported_incident.date<='$date-08-31'))");
       }
       public function countIncidentSep($district){
          $date = date("Y");
-         return $this->db->runQuery( "SELECT COUNT(reported_incident.incidentID) AS Sep FROM reported_incident INNER JOIN lives ON reported_incident.villager_NIC = lives.villager_NIC WHERE ( (lives.district = '$district')&&(reported_incident.date>='$date.-09-01' and reported_incident.date<='$date.-09-30'))");
+         return $this->db->runQuery( "SELECT COUNT(reported_incident.incidentID) AS Sep FROM reported_incident INNER JOIN lives ON reported_incident.villager_NIC = lives.villager_NIC WHERE ( (lives.district = '$district')&&(reported_incident.date>='$date-09-01' and reported_incident.date<='$date-09-30'))");
       }public function countIncidentOct($district){
          $date = date("Y");
-         return $this->db->runQuery( "SELECT COUNT(reported_incident.incidentID) AS Oct FROM reported_incident INNER JOIN lives ON reported_incident.villager_NIC = lives.villager_NIC WHERE ( (lives.district = '$district')&&(reported_incident.date>='$date.-10-01' and reported_incident.date<='$date.-10-31'))");
+         return $this->db->runQuery( "SELECT COUNT(reported_incident.incidentID) AS Oct FROM reported_incident INNER JOIN lives ON reported_incident.villager_NIC = lives.villager_NIC WHERE ( (lives.district = '$district')&&(reported_incident.date>='$date-10-01' and reported_incident.date<='$date-10-31'))");
       }public function countIncidentNov($district){
          $date = date("Y");
-         return $this->db->runQuery( "SELECT COUNT(reported_incident.incidentID) AS Nov FROM reported_incident INNER JOIN lives ON reported_incident.villager_NIC = lives.villager_NIC WHERE ( (lives.district = '$district')&&(reported_incident.date>='$date.-11-01' and reported_incident.date<='$date.-11-30'))");
+         return $this->db->runQuery( "SELECT COUNT(reported_incident.incidentID) AS Nov FROM reported_incident INNER JOIN lives ON reported_incident.villager_NIC = lives.villager_NIC WHERE ( (lives.district = '$district')&&(reported_incident.date>='$date-11-01' and reported_incident.date<='$date-11-30'))");
       }public function countIncidentDec($district){
          $date = date("Y");
          return $this->db->runQuery( "SELECT COUNT(reported_incident.incidentID) AS Dece  FROM reported_incident INNER JOIN lives ON reported_incident.villager_NIC = lives.villager_NIC WHERE ( (lives.district = '$district')&&(reported_incident.date>='$date.-12-01' and reported_incident.date<='$date.-12-31'))");

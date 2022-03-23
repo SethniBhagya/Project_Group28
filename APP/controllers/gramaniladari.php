@@ -110,7 +110,7 @@ public function  editProfile()
         //assign the value
         $lang = $_GET['lang'];
       }
-      session_start();
+       
       $this->view->dataAll  = $this->model->getData();
       //get the number of rows reports in assocaiative array
       $rows =  $this->model->getReportrows($_SESSION['NIC']);
@@ -144,11 +144,11 @@ public function  editProfile()
           break;
         case 2:
           //display villagerReportView2
-          $this->view->render('gramaniladariCropDamagessinhala');
+          $this->view->render('gramaniladariCropDamagesSinhala');
           break;
         case 3:
           //display villagerReportView3    
-          $this->view->render('gramaniladariCropDamagestamil');
+          $this->view->render('gramaniladariCropDamagesTamil');
           break;
         default:
           //display Error message
@@ -162,11 +162,11 @@ public function  editProfile()
             break;
           case 2:
             //display villagerReportView2
-            $this->view->render('gramaniladariCropDamagesPendingsinhala');
+            $this->view->render('gramaniladariCropDamagesPendingSinhala');
             break;
           case 3:
             //display villagerReportView3    
-            $this->view->render('gramaniladariCropDamagesPendingtamil');
+            $this->view->render('gramaniladariCropDamagesPendingTamil');
             break;
           default:
             //display Error message
@@ -247,7 +247,7 @@ public function  editProfile()
         //assign the value
         $lang = $_GET['lang'];
       }
-      session_start();
+      
       $this->view->dataAll  = $this->model->getData();
       //get the number of rows reports in assocaiative array
       $rows =  $this->model->getVillgerRows($_SESSION['NIC']);
@@ -319,7 +319,7 @@ public function  editProfile()
         $lang = $_GET['lang'];
       } 
       
-      session_start();
+     
       $this->view->villagerData = $this->model->getVillgerReview($_SESSION['NIC']);
 
       
