@@ -6,9 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     
-   
+    <link rel="stylesheet" href="../Public/css/adminIndiMap.css">
     <link rel="stylesheet" href="../Public/css/adminHeader.css">
-    <link rel="stylesheet" href="../Public/css/viewReportedIncident.css">
      <script src="../Public/Javascript/admin.js"></script>
       <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
       <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
@@ -16,7 +15,7 @@
        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" referrerpolicy="no-referrer"></script>
     
     
-    <title>Reported Incidents</title>
+    <title>Map</title>
 </head>
 <body >
     <header id="main">
@@ -30,7 +29,7 @@
 
             <ul class="nav-menu">
                 <li id="home" class="nav-menu-item"><a href="../">Home</a></li>
-                <li id="dashboard" class="nav-menu-item"><a href="../">Dashboard</a></li>
+                <li id="dashboard" class="nav-menu-item"><a href="../admin/Dashboard">Dashboard</a></li>
                 
                 <li class="dropdown">
                     <span class="dot"> <img onclick="myFunction_2(this)" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
@@ -43,46 +42,70 @@
         </nav>
     </header>
 
-    <div id="d1">
-        <h1 id="title">Reported Incidents : Wild elephants in village</h1>
 
-        <div id="tb">
-            <table>
-                <thead>
-                    <th>Incident ID</th>
-                    <th>Village</th>
-                    <th>Reported NIC</th>
-                    <th>Reporter Name</th>
-                    <th>Date</th>
-                    <th>Time</th>
-                    <th>Status</th>
-                    <th>Location</th>
-                </thead>
+    <div id='map-content'>
 
-                <tbody>
-                  
-                      <?php if(count($data)>0)foreach($data as $row) echo "<tr><td>".$row["incidentID"]."</td><td>".$row["village"]."</td><td>".$row["NIC"]."</td><td>".$row["name"]."</td><td>".$row["date"]."</td><td>".$row["time"]."</td><td>".$row["status"]."</td><td><button onclick=\"location.href='../admin/showMap?lat=".$row["lat"]."&lon=".$row["lon"]."'\"><img src='../Public/images/map.jpg'></button></td></tr>"; 
-                      
+    <div id='indiMap'></div>
 
-                      ?>
-
-                      
-
-                    
-
-
-                    
-                </tbody>
-            </table>
-        </div>
-
-        <button onclick="location.href='dashboard'">Back</button>
-        
+                          
     </div>
 
-    
+    <script type="text/javascript">
 
-    
+                     function indiMap(){
+                        var lati=<?php echo json_encode(($data["lat"]));?>;
+                        var loni=<?php echo json_encode(($data["lon"]));?>;
+                        var lati=parseFloat(lati);
+                        var loni=parseFloat(loni);
+                    
+                      var locationActive={lat:lati , lng:loni};
+                      var mapActive = new google.maps.Map(document.getElementById("indiMap"),
+                         {
+                          zoom:10,
+                          center:locationActive,
+                          
+                         }
 
+                        );
+
+                      
+
+                     
+
+                     
+                          
+                        var markerActive= new google.maps.Marker({
+
+                          position:{lat:lati,lng:loni},
+                          map:mapActive,
+                          
+                          
+
+                        }
+
+
+                          );
+
+                        
+                        
+
+
+                        
+
+
+                      
+
+                      
+
+
+                    }
+                   
+
+                 </script>
+                   
+
+                
+
+                 <script  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOVujYe2-BPc5b66VsL0xVVUKoZHkb5yo&callback=indiMap"  async></script>
 </body>
-
+</html>
