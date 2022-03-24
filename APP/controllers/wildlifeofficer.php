@@ -1,6 +1,9 @@
 <?php
 include "user.php";
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+    session_regenerate_id();
+}
 class wildlifeofficer extends user
 {
 
@@ -871,24 +874,25 @@ class wildlifeofficer extends user
         }
     }
 
-     public function getNotice(){
-        $NIC=$_SESSION["NIC"];
+    public function getNotice()
+    {
+        $NIC = $_SESSION["NIC"];
 
-        $lastNoticeID=$this->model->getLastNoticeId($NIC);
-        $officeNum=$this->model->getUserOfficeNumber($NIC);
-        $newNoticeDetails=$this->model->getNewNoticeDetails($officeNum,$lastNoticeID);
+        $lastNoticeID = $this->model->getLastNoticeId($NIC);
+        $officeNum = $this->model->getUserOfficeNumber($NIC);
+        $newNoticeDetails = $this->model->getNewNoticeDetails($officeNum, $lastNoticeID);
 
-        if($newNoticeDetails!="No"){
+        if ($newNoticeDetails != "No") {
 
-            $noticeHtml="
+            $noticeHtml = "
 
         <div id=\"new-notice\">
 
            <img src=\"../Public/images/notice.jpg\">
-           <h1>Date:".$newNoticeDetails["date"]."&emsp;Time:".$newNoticeDetails["time"]."</h1>
-           <p>".$newNoticeDetails["description"]."</p>
+           <h1>Date:" . $newNoticeDetails["date"] . "&emsp;Time:" . $newNoticeDetails["time"] . "</h1>
+           <p>" . $newNoticeDetails["description"] . "</p>
            <audio id=\"audio\" autoplay loop  controls src=\"http://www.raypinson.com/ringtones/CarAlarm.mp3\"></audio>
-           <button id=\"ok-btn\" value=".$newNoticeDetails["noticeID"]." onclick=\"endNotice(this.value)\">Okay</button>
+           <button id=\"ok-btn\" value=" . $newNoticeDetails["noticeID"] . " onclick=\"endNotice(this.value)\">Okay</button>
 
 
         </div>
@@ -898,28 +902,21 @@ class wildlifeofficer extends user
 
         ";
 
-        echo $noticeHtml;
-
+            echo $noticeHtml;
         }
-
-        
-
-
-
-
     }
 
 
-    public function endNotice(){
+    public function endNotice()
+    {
 
-        $noticeId=$_POST["noticeId"];
-        $url=$_GET['url'];
-        $url  = rtrim($url,'/');
-        $url  = filter_var($url,FILTER_SANITIZE_URL);
-        $url = explode('/',$url);
+        $noticeId = $_POST["noticeId"];
+        $url = $_GET['url'];
+        $url  = rtrim($url, '/');
+        $url  = filter_var($url, FILTER_SANITIZE_URL);
+        $url = explode('/', $url);
 
-        $this->model->updateNotice($noticeId,$_SESSION["NIC"]);
-        header("Location: ../wildlifeofficer/".$url[1]);
-
+        $this->model->updateNotice($noticeId, $_SESSION["NIC"]);
+        header("Location: ../wildlifeofficer/" . $url[1]);
     }
 }

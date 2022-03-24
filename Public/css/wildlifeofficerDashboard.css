@@ -719,7 +719,7 @@ color: white;
 
 .map {
   position: inherit;
-  z-index: -1;
+  z-index: -100;
   margin-top: 240px;
   margin-left: 2%;
   width: 58%;

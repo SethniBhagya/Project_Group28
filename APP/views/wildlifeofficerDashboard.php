@@ -35,10 +35,10 @@
                     } else {
                         echo  7.93965;
                     } ?>, <?php if ($data['dataLocation'][0]) {
-                    echo $data['dataLocation'][0]['lon'];
-                } else {
-                    echo  81.00274;
-                } ?>),
+                                echo $data['dataLocation'][0]['lon'];
+                            } else {
+                                echo  81.00274;
+                            } ?>),
                 mapTypeId: google.maps.MapTypeId.ROADMAP
             });
 
@@ -64,7 +64,7 @@
 </head>
 
 <body style="background-image: none; background-color: white;">
-    <header id="main">
+    <header id="main" style="z-index: 1;">
         <img src="../Public/images/icon.png" alt="icon" id="icon">
         <nav id="navbar" class="mybar">
             <div href="javascript:void(0);" class="icon" onclick="myFunction_1(this)">
@@ -188,7 +188,7 @@
                                             echo $data['veterinarian'] ?>" class="count"><?php
 
 
-                                                            echo $data['veterinarian'] ?></h1>
+                                                                                            echo $data['veterinarian'] ?></h1>
         </div>
         <div class="users-4">
             Villagers <h1 data-target="<?php echo $data['villager'] ?>" class="count"><?php echo $data['villager'] ?></h1>

@@ -1,6 +1,9 @@
 <?php
 include "user.php";
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+    session_regenerate_id();
+}
 class veterinarian extends user
 {
 
@@ -283,7 +286,7 @@ class veterinarian extends user
             }
         }
         if (isset($_POST['cancel'])) {
-            $nic = "";
+            $nic = NULL;
             $id = trim($_POST['can']);
             $lang = $_GET['lang'];
             $result = $this->model->incidentStatUpdate("pending", $id, $nic);
@@ -798,56 +801,10 @@ class veterinarian extends user
             case 2:
 
                 $this->view->render('veterinarianDashboardSinhala', $dataArray);
-                break;
             case 3:
 
                 $this->view->render('veterinarianDashboardTamil', $dataArray);
                 break;
         }
-    }
-    public function getNotice()
-    {
-        $NIC = $_SESSION["NIC"];
-
-        $lastNoticeID = $this->model->getLastNoticeId($NIC);
-        $officeNum = $this->model->getUserOfficeNumber($NIC);
-        $newNoticeDetails = $this->model->getNewNoticeDetails($officeNum, $lastNoticeID);
-
-        if ($newNoticeDetails != "No") {
-
-            $noticeHtml = "
-
-        <div id=\"new-notice\">
-
-           <img src=\"../Public/images/notice.jpg\">
-           <h1>Date:" . $newNoticeDetails["date"] . "&emsp;Time:" . $newNoticeDetails["time"] . "</h1>
-           <p>" . $newNoticeDetails["description"] . "</p>
-           <audio id=\"audio\" autoplay loop  controls src=\"http://www.raypinson.com/ringtones/CarAlarm.mp3\"></audio>
-           <button id=\"ok-btn\" value=" . $newNoticeDetails["noticeID"] . " onclick=\"endNotice(this.value)\">Okay</button>
-
-
-        </div>
-
-
-
-
-        ";
-
-            echo $noticeHtml;
-        }
-    }
-
-
-    public function endNotice()
-    {
-
-        $noticeId = $_POST["noticeId"];
-        $url = $_GET['url'];
-        $url  = rtrim($url, '/');
-        $url  = filter_var($url, FILTER_SANITIZE_URL);
-        $url = explode('/', $url);
-
-        $this->model->updateNotice($noticeId, $_SESSION["NIC"]);
-        header("Location: ../veterinarian/" . $url[1]);
     }
 }
