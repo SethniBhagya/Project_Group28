@@ -454,11 +454,13 @@
                             <label for="villagevil">Village</label>
                         </td>
                         <td>
-                            <select class="text" name="village" id="villagevil"    required>
-                            <option value="Kotapola">Kotapola</option>
+                            <select class="text" onclick="checkVil()" name="village" id="villagevil"    required>
+                            
                                   
                                </select>
+                              
                         </td>
+                        <td id="vil-vil"><p>Please fill GN Division,District and, Province first</p></td>
                     </tr>
 
 
@@ -470,14 +472,14 @@
                         </td>
 
                         <td>
-                            <select  name="gnd" id="gndvi" onchange ="selectVil(this.value)" required>
+                            <select  name="gnd" id="gndvi" onclick="checkGn()" onchange ="selectVil(this.value)" required>
                                      
-                         <option value="Kotapola">Kotapola</option>
+                         
                             </select>
                             
                         </td>
                         
-                             
+                        <td id="vil-gn"><p>Please fill District and Province first</p></td>  
 
 
                         
@@ -489,13 +491,13 @@
                                  <label for="districtvil">District</label>
                            </td>
                          <td>
-                                <select class="text" name="district" id="districtvil"  onchange ="selectGN(this.value)" required>
+                                <select class="text" name="district" onclick="checkDis()" id="districtvil"  onchange ="selectGN(this.value)" required>
                                      
                          
                                </select>
                            </td>
 
-
+                         <td id="vil-dis"><p>Please fill  Province first</p></td>
                         
                     </tr>
                     
@@ -504,7 +506,7 @@
                             <td><label for="province">Province</label></td>
 
                           <td>
-                               <select class="text" name="province" id="province"   onchange ="selectDistrict(this.value)"  required>
+                               <select class="text" name="province" id="province-vil"   onchange ="selectDistrict(this.value)"  required>
                                   <option>Select Province</option>
                                    <?php $rows=$data["province"]; foreach($rows as $row){ echo "<option"?><?php echo " value=".$row["Name"]." >".$row["Name"]."</option>";}?> 
                                     </select>
@@ -1040,6 +1042,72 @@
         }
 
 
+   }
+
+   function checkVil()
+   {
+     var gnInfo=document.getElementById("gndvi").value;
+     var disInfo=document.getElementById("districtvil").value;
+     var proInfo=document.getElementById("province").value;
+    
+    
+     if(gnInfo===''||disInfo===''||proInfo==='')
+     { var msg = new SpeechSynthesisUtterance('Please fill GN Division,District and, Province first');
+       window.speechSynthesis.speak(msg);
+        document.getElementById("vil-vil").style.display="block";
+
+         setTimeout(function() {
+          $('#vil-vil').fadeOut('fast');
+         }, 5000);
+
+     }
+     
+
+        
+   }
+
+   function checkGn()
+   {  
+     
+     var disInfo=document.getElementById("districtvil").value;
+     var proInfo=document.getElementById("province").value;
+
+    
+     if(disInfo===''||proInfo==='')
+     {   var msg = new SpeechSynthesisUtterance('Please fill District and Province first');
+       window.speechSynthesis.speak(msg);
+        document.getElementById("vil-gn").style.display="block";
+
+         setTimeout(function() {
+          $('#vil-gn').fadeOut('fast');
+         }, 5000);
+
+     }
+     
+
+        
+   }
+
+   function checkDis()
+   {  
+     var proInfo=document.getElementById("province-vil").value;
+
+    
+     if(proInfo==='Select Province')
+     {    
+        var msg = new SpeechSynthesisUtterance('Please fill Province first');
+         window.speechSynthesis.speak(msg);
+     
+        document.getElementById("vil-dis").style.display="block";
+
+         setTimeout(function() {
+          $('#vil-dis').fadeOut('fast');
+         }, 5000);
+
+     }
+     
+
+        
    }
 
 </script>

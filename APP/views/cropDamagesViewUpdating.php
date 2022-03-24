@@ -8,7 +8,9 @@
     <link rel="stylesheet" href="../Public/css/cropDamagesView.css">
     <link rel="stylesheet" href="../Public/css/alert.css">
     <link rel="stylesheet" href="../Public/css/header.css">
-    <script src="../Public/Javascript/1.js"></script>
+    <link rel="stylesheet" href="../Public/css/popupNotification.css">
+   <link rel="stylesheet" href="../Public/css/notification.css">
+<script src="../Public/Javascript/1.js"></script>
     <title>Report Page</title>
 </head>
 
@@ -135,9 +137,9 @@
                         </tr>
                         <tr class="header-table" style="text-align: left;">
                             <th>Damaged Land Extent </th>
-                            <td> <?php echo $damagedLandExtent ?> </td>
+                            <td>  <?php echo '<img src="data:image;base64,'.base64_encode($row['image']).'" alt="Image" >'; ?> </td>
                         </tr>
-                        <tr><td>  <img src="row['image']"  width= "250" height= "180" >   </td>
+                        <tr><td> <?php echo '<img src="data:image;base64,'.base64_encode($row['image']).'" alt="Image" >'; ?>  </td>
                         </tr>
                     </table>
                 </div> 

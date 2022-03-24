@@ -482,4 +482,38 @@ public function selectDistrictWildifeOfficer($nic)
 		$date = date("Y");
 		return $this->db->runQuery("SELECT COUNT(reported_incident.incidentID) AS Dece FROM reported_incident INNER JOIN regional_wildlife_office ON regional_wildlife_office.officeNo = reported_incident.officeNo WHERE ((regional_wildlife_office.address= '$district')&&( reported_incident.date>='$date-12-01' and reported_incident.date<='$date-12-31'))");
 	}
+
+		public function getLastNoticeId($NIC)
+	{
+		$lastNoticeId=(($this->db->runQuery("SELECT lastNoticeId FROM user WHERE NIC='$NIC'"))[0])["lastNoticeId"];
+		return $lastNoticeId;
+	}
+
+	public function getUserOfficeNumber($NIC){
+		$officeNum=(($this->db->runQuery("SELECT officeNo FROM wildlife_officer WHERE NIC='$NIC'"))[0])["officeNo"];
+		return $officeNum;
+	}
+
+	public function getNewNoticeDetails($officeNum,$lastNoticeId){
+
+		$newNoticeId=$this->db->runQuery("SELECT * FROM notice_has_wildlifeoffice_village WHERE officeNo='$officeNum' AND noticeID>'$lastNoticeId' AND jobType='wildlifeOfficer'");
+
+		if(!empty($newNoticeId))
+		{
+			$latestNoticeId=($newNoticeId[0])["noticeID"];
+
+			$detialsOfNotice=($this->db->runQuery("SELECT * FROM notice WHERE noticeID='$latestNoticeId'"))[0];
+
+			return $detialsOfNotice;
+
+		}
+		else
+			return "No";
+	}
+
+	public function updateNotice($noticeId,$nic)
+	{
+		$this->db->runQuery("UPDATE user SET lastNoticeId='$noticeId' WHERE NIC='$nic'");
+	}
+
 }

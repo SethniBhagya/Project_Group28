@@ -61,9 +61,14 @@
 
                 <tbody>
                   
-                      <?php if(count($data)>0)foreach($data as $row) echo "<tr><td>".$row["incidentID"]."</td><td>".$row["village"]."</td><td>".$row["NIC"]."</td><td>".$row["name"]."</td><td>".$row["date"]."</td><td>".$row["time"]."</td><td>".$row["status"]."</td><td><img src='../Public/images/map.jpg'></td></tr>"; ?>
+                      <?php if(count($data)>0)foreach($data as $row) echo "<tr><td>".$row["incidentID"]."</td><td>".$row["village"]."</td><td>".$row["NIC"]."</td><td>".$row["name"]."</td><td>".$row["date"]."</td><td>".$row["time"]."</td><td>".$row["status"]."</td><td><button onclick=\"location.href='../admin/showMap?lat=".$row["lat"]."&lon=".$row["lon"]."'\"><img src='../Public/images/map.jpg'></button></td></tr>"; 
+                      
 
-                
+                      ?>
+
+                      
+
+                    
 
 
                     

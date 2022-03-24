@@ -453,3 +453,31 @@ input[type=radio]{
 
 
 
+#vil-vil{
+	color: red;
+	background-color: white;
+	font-size: 15px;
+	border-radius: 20px;
+	text-align: center;
+	display: none;
+}
+
+#vil-gn{
+	color: red;
+	background-color: white;
+	font-size: 15px;
+	border-radius: 20px;
+	display: none;
+}
+
+#vil-dis{
+	color: red;
+	background-color: white;
+	font-size: 15px;
+	border-radius: 20px;
+	display: none;
+}
+
+
+
+

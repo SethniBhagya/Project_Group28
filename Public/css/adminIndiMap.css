@@ -1,0 +1,10 @@
+#map-content{
+	position: absolute;
+	height: auto;
+	width: 100%;
+}
+#indiMap{
+	height: 637px;
+	width: 1532px;
+	position: absolute;
+}

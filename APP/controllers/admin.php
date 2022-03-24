@@ -11,8 +11,12 @@ use PHPMailer\PHPMailer\Exception;
 
 
 use Twilio\Rest\Client;
-session_start();
-session_regenerate_id();
+if(session_status()===PHP_SESSION_NONE)
+    {
+      session_start();
+      session_regenerate_id();
+
+    }
 
 class admin extends user{
 
@@ -56,6 +60,7 @@ class admin extends user{
         $province=$this->model->getProvince();
         $office=$this->model->getOfficeNum();
         
+        
        //names of provinces and numbers of offices get to assiciative array for dynmaic drop downs
         $dropDownData=[
         	"province"=>$province,
@@ -92,16 +97,12 @@ class admin extends user{
         
 
         
-        //********this should be correct******
-        if(!empty($_SESSION["NIC"]) and $_SESSION["jobtype"]=="admin"){
+        
+        
             
 		         $this->view->render("admin_register",$dropDownData);
              
-	        }
-	    else{
-	    	header("Location: ../user/index");
-	    }
-	    	
+	       
 
 
 		    if($_SERVER["REQUEST_METHOD"]=="POST"){
@@ -269,17 +270,15 @@ class admin extends user{
 
 	public function viewUser(){
 
-		if(!empty($_SESSION["NIC"]) and $_SESSION["jobtype"]=="admin"){
+		
             
 		    //get users details
 		    $data=$this->model->getUser();
         //render admins's view user page and pass relevant data
 			$this->view->render("user_view",$data);
              
-	                }
-	    else{
-	    	header("Location: ../user/index");
-	    }
+	                
+	    
 	    	
 
 	}
@@ -589,6 +588,53 @@ class admin extends user{
       $this->view->render("adminReportedIncident",$data);
     }
 
+  public function viewProfile()
+  {
+    $details=$this->model->getDetails($_SESSION["NIC"]);
+    $this->view->render('adminViewProfile',$details);
+
+  }
+
+  public function changePassword()
+  {
+    $this->view->render("adminChangePassword");
+    if(isset($_POST["submitPass"]))
+    { $currentPassword=$_POST["currentPassword"];
+      $newPassword=$_POST["newPassword"];
+      $confirmPassword=$_POST["confirmPassword"];
+
+      if($confirmPassword==$newPassword)
+      {
+        $adminCurrentPassword=$this->model->getCurrentPassword($_SESSION["NIC"]);
+        if(password_verify($currentPassword, $adminCurrentPassword))
+        {
+          $this->model->changeAdminPassword($newPassword,$_SESSION["NIC"]);
+          header("Location: ../admin/viewProfile?change=success");
+        }
+        else
+        header("Location: ../admin/viewProfile?change=wrong");
+
+      }
+      else
+      header("Location: ../admin/viewProfile?change=notconfirm");
+      
+
+    }
+    
+
+
+  }
+
+  public function showMap()
+  {
+    $data=[
+      "lat"=>$_GET["lat"],
+      "lon"=>$_GET["lon"]];
+
+
+    $this->view->render("adminIndiMap",$data);
+    
+  }
  
 
 }

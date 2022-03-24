@@ -130,15 +130,13 @@
                        <td>".$row["gnd_name"]."</td>
                        <td>".$row["district_name"]."</td><td>".$row["Name"]."</td><td><ul>
                           <li><button ><img src='../Public/images/edit.png'></button></li>
-                          <li><button ><label for='show1'><img src='../Public/images/delete.png'></label></button><input type=\"checkbox\"  id=\"show1\">
+                          <li><button value='".$row["NIC"]."' onclick='myfun1(this.value)'><label for='show1'><img src='../Public/images/delete.png'></label></button><input type=\"checkbox\"  id=\"show1\">
 
                        <div id=\"delete1\"> 
-                        <p>Are You Sure Delete ".$row["NIC"]."? </p>
-                        
-                        <button ><label for=\"show1\">Cancel</label></button>
-                        <button onclick=\"location.href='deleteUser?type=villager&id=".$row["NIC"]."'\"><label for=\"show1\">Delete</label></button>
+                       
                          
                        </div></li>
+
                           <li><button onclick=\"location.href='viewUserProfile?type=villager&id=".$row["NIC"]."'\"><img src='../Public/images/view.png'></button></li>
                        </ul></td></tr>";}
                        
@@ -190,13 +188,10 @@
                        <td>".$row["officeNo"]."</td>
                        <td>".$row["district_name"]."</td><td>".$row["Name"]."</td><td><ul>
                           <li><button><img src='../Public/images/edit.png'></button></li>
-                          <li><button ><label for='show2'><img src='../Public/images/delete.png'></label></button><input type=\"checkbox\"  id=\"show2\">
+                          <li><button value='".$row["NIC"]."' onclick='myfun2(this.value)'><label for='show2'><img src='../Public/images/delete.png'></label></button><input type=\"checkbox\"  id=\"show2\">
 
                        <div id=\"delete2\"> 
-                        <p>Are You Sure Delete ".$row["NIC"]."? </p>
                         
-                        <button ><label for=\"show2\">Cancel</label></button>
-                        <button onclick=\"location.href='deleteUser?type=regional-officer&id=".$row["NIC"]."'\"><label for=\"show2\">Delete</label></button>
                          
                        </div></li>
                           <li><button onclick=\"location.href='viewUserProfile?type=regionalOfficer&id=".$row["NIC"]."'\"><img src='../Public/images/view.png'></button></li>
@@ -253,13 +248,10 @@
                        <td>".$row["officeNo"]."</td>
                        <td>".$row["district_name"]."</td><td>".$row["Name"]."</td><td><ul>
                           <li><button><img src='../Public/images/edit.png'></button></li>
-                          <li><button ><label for='show3'><img src='../Public/images/delete.png'></label></button><input type=\"checkbox\"  id=\"show3\">
+                          <li><button  value='".$row["NIC"]."' onclick='myfun3(this.value)'><label for='show3'><img src='../Public/images/delete.png'></label></button><input type=\"checkbox\"  id=\"show3\">
 
                        <div id=\"delete3\"> 
-                        <p>Are You Sure Delete ".$row["NIC"]."? </p>
                         
-                        <button ><label for=\"show3\">Cancel</label></button>
-                        <button onclick=\"location.href='deleteUser?type=wildlife-officer&id=".$row["NIC"]."'\"><label for=\"show3\">Delete</label></button>
                          
                        </div></li>
                           <li><button onclick=\"location.href='viewUserProfile?type=wildlifeOfficer&id=".$row["NIC"]."'\"><img src='../Public/images/view.png'></button></li>
@@ -307,13 +299,10 @@
                        <td>".$row["officeNo"]."</td>
                        <td>".$row["district_name"]."</td><td>".$row["Name"]."</td><td><ul>
                           <li><button><img src='../Public/images/edit.png'></button></li>
-                          <li><button ><label for='show4'><img src='../Public/images/delete.png'></label></button><input type=\"checkbox\"  id=\"show4\">
+                          <li><button value='".$row["NIC"]."' onclick='myfun4(this.value)' ><label for='show4'><img src='../Public/images/delete.png'></label></button><input type=\"checkbox\"  id=\"show4\">
 
                        <div id=\"delete4\"> 
-                        <p>Are You Sure Delete ".$row["NIC"]."? </p>
                         
-                        <button ><label for=\"show4\">Cancel</label></button>
-                        <button onclick=\"location.href='deleteUser?type=veterinarian&id=".$row["NIC"]."'\"><label for=\"show4\">Delete</label></button>
                          
                        </div></li>
                           <li><button onclick=\"location.href='viewUserProfile?type=veterinarian&id=".$row["NIC"]."'\"><img src='../Public/images/view.png'></button></li>
@@ -386,3 +375,48 @@
     </div>
 
 </body>
+
+</html>
+
+<script type="text/javascript">
+ //  $(document).ready(function(){
+ //  alert("haha");
+ //   var delete1=document.getElementById("delete1");
+ //   delete1.style.display="none";
+ // });
+
+ function myfun1(nic)
+ { var htmlContent= "<p>Are You Sure Delete "+nic+"? </p>"+
+                        
+                        "<button ><label for=\"show1\">Cancel</label></button>"+
+                        "<button onclick=\"location.href='deleteUser?type=villager&id="+nic+"'\"><label for=\"show1\">"+
+                        "Delete</label></button>";
+  document.getElementById("delete1").innerHTML=htmlContent;
+ }
+
+ 
+
+ function myfun2(nic)
+ { var htmlContent= "<p>Are You Sure Delete "+nic+"? </p>"+
+                        
+                        "<button ><label for=\"show2\">Cancel</label></button>"+
+                        "<button onclick=\"location.href='deleteUser?type=regional-officer&id="+nic+"'\"><label for=\"show2\">"+"Delete</label></button>";
+  document.getElementById("delete2").innerHTML=htmlContent;
+ }
+
+ function myfun3(nic)
+ { var htmlContent= "<p>Are You Sure Delete "+nic+"? </p>"+
+                        
+                        "<button ><label for=\"show3\">Cancel</label></button>"+
+                        "<button onclick=\"location.href='deleteUser?type=wildlife-officer&id="+nic+"'\"><label for=\"show3\">"+"Delete</label></button>";
+  document.getElementById("delete3").innerHTML=htmlContent;
+ }
+
+ function myfun4(nic)
+ { var htmlContent= "<p>Are You Sure Delete "+nic+"? </p>"+
+                        
+                        "<button ><label for=\"show4\">Cancel</label></button>"+
+                        "<button onclick=\"location.href='deleteUser?type=veterinarian&id="+nic+"'\"><label for=\"show4\">"+"Delete</label></button>";
+  document.getElementById("delete4").innerHTML=htmlContent;
+ }
+</script>
