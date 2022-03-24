@@ -361,6 +361,32 @@ class wildlifeofficer extends user
                 break;
         }
     }
+
+    function viewNotificationAll()
+
+    {
+        if (isset($_GET['lang'])) {
+            //assign the value
+            $lang = $_GET['lang'];
+        }
+
+        $this->view->data = $this->model->selectAllNotificationsData();
+
+        switch ($lang) {
+            case 1:
+
+                $this->view->render('wildlifeofficerNotificationsAll', $this->view->data);
+                break;
+            case 2:
+                //display profile page  
+                $this->view->render('wildlifeofficerNotificationsAllSinhala', $this->view->data);
+                break;
+            case 3:
+                //display profile page   
+                $this->view->render('wildlifeofficerNotificationsAllTamil', $this->view->data);
+                break;
+        }
+    }
     function sendToVet()
     {
 

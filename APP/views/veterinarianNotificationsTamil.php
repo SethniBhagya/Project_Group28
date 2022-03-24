@@ -65,6 +65,9 @@
             </div>
                 </div>";
         } ?>
+        <div class="container-3">
+            <a href="../veterinarian/viewNotificationAll?lang=3">அனைத்தையும் பார்</a>
+        </div>
     </div>
 </body>
 

@@ -332,7 +332,31 @@ class veterinarian extends user
         }
     }
 
+    function viewNotificationAll()
 
+    {
+        if (isset($_GET['lang'])) {
+            //assign the value
+            $lang = $_GET['lang'];
+        }
+
+        $this->view->data = $this->model->selectAllNotificationsData();
+
+        switch ($lang) {
+            case 1:
+
+                $this->view->render('veterinarianNotificationsAll', $this->view->data);
+                break;
+            case 2:
+                //display profile page  
+                $this->view->render('veterinarianNotificationsAllSinhala', $this->view->data);
+                break;
+            case 3:
+                //display profile page   
+                $this->view->render('veterinarianNotificationsAllTamil', $this->view->data);
+                break;
+        }
+    }
 
 
 

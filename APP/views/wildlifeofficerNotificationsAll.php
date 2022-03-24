@@ -1,5 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php
+if (!isset($_SESSION['NIC'])) {
+    header("Location:http://localhost/WildlifeCare/user/index");
+}
+if (isset($_SESSION['jobtype'])) {
+    if ($_SESSION['jobtype'] == 'Wildlife Officer') {
+    } else {
+    }
+} else {
+}
+?>
 
 <head>
     <meta charset="UTF-8">
@@ -7,8 +18,6 @@
     <link rel="stylesheet" href="../Public/css/wildlifeofficerHeader.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Public/css/wildlifeofficerNotifications.css">
-
-    <script src="../Public/javascript/wildlifeofficer.js"></script>
     <script src="../Public/javascript/admin.js"></script>
     <script src="../Public/Javascript/login.js"></script>
 
@@ -26,11 +35,11 @@
             </div>
 
             <ul>
-                <li id="home"><a href="../">HOME</a></li>
-                <li id="userPage"><a href="../veterinarian/?lang=1">USER PAGE</a></li>
-                <li id="incidents"><a href="../veterinarian/viewIncidents?lang=1">INCIDENTS</a></li>
-                <li id="notifications"><a href="../veterinarian/viewNotification?lang=1">NOTICE</a></li>
-                <li id="dashboard"><a href="../veterinarian/viewDashboard?lang=1">DASHBOARD</a></li>
+                <li id="home"><a href="../?lang=1">HOME</a></li>
+                <li id="userPage"><a href="../wildlifeofficer/?lang=1">USER PAGE</a></li>
+                <li id="incidents"><a href="../wildlifeofficer/viewIncidents?lang=1">INCIDENTS</a></li>
+                <li id="notifications"><a href="../wildlifeofficer/viewNotification?lang=1">NOTICE</a></li>
+                <li id="dashboard"><a href="../wildlifeofficer/viewDashboard?lang=1">DASHBOARD</a></li>
                 <li>
                     <div class="dropdown-1" style="  padding-left:  300px ">
                         <button class="dropbtn-1">Language</button>
@@ -44,7 +53,7 @@
                 <li class="dropdown">
                     <span class="dot"> <img onclick="myFunction_3()" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
                     <div id="myDropdown" class="dropdown-content">
-                        <a href="../veterinarian/viewProfile?lang=1">View Profile</a>
+                        <a href="../wildlifeofficer/viewProfile?lang=1">View Profile</a>
                         <a href="../user/logout?lang=1">Logout</a>
                     </div>
                 </li>
@@ -52,6 +61,7 @@
         </nav>
     </header>
     <div class="container-1">
+
         <h1>Notice</h1>
         <?php foreach ($data as $row) {
             echo "<div class='container-2'><h2>"
@@ -67,7 +77,7 @@
                 </div>";
         } ?>
         <div class="container-3">
-            <a href="../veterinarian/viewNotificationAll?lang=1">SEE ALL</a>
+            <a href="../wildlifeofficer/viewNotification?lang=1">SEE LESS</a>
         </div>
     </div>
 </body>

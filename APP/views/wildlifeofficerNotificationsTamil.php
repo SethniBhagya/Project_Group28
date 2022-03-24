@@ -18,7 +18,7 @@ if (isset($_SESSION['jobtype'])) {
     <link rel="stylesheet" href="../Public/css/wildlifeofficerHeader.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Public/css/wildlifeofficerNotifications.css">
-
+    <script src="../Public/javascript/admin.js"></script>
     <script src="../Public/Javascript/login.js"></script>
 
     <title>Notice</title>
@@ -75,6 +75,9 @@ if (isset($_SESSION['jobtype'])) {
             </div>
                 </div>";
         } ?>
+        <div class="container-3">
+            <a href="../wildlifeofficer/viewNotificationAll?lang=3">அனைத்தையும் பார்</a>
+        </div>
     </div>
 </body>
 

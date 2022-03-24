@@ -67,7 +67,7 @@
                 </div>";
         } ?>
         <div class="container-3">
-            <a href="../veterinarian/viewNotificationAll?lang=1">SEE ALL</a>
+            <a href="../veterinarian/viewNotification?lang=1">SEE LESS</a>
         </div>
     </div>
 </body>

@@ -75,6 +75,9 @@ if (isset($_SESSION['jobtype'])) {
             </div>
                 </div>";
         } ?>
+        <div class="container-3">
+            <a href="../wildlifeofficer/viewNotificationAll?lang=2">සියල්ල බලන්න</a>
+        </div>
     </div>
 </body>
 

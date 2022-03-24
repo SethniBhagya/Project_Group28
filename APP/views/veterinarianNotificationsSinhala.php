@@ -65,6 +65,9 @@
             </div>
                 </div>";
         } ?>
+        <div class="container-3">
+            <a href="../veterinarian/viewNotificationAll?lang=2">සියල්ල බලන්න</a>
+        </div>
     </div>
 </body>
 

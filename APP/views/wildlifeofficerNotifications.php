@@ -18,7 +18,7 @@ if (isset($_SESSION['jobtype'])) {
     <link rel="stylesheet" href="../Public/css/wildlifeofficerHeader.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Public/css/wildlifeofficerNotifications.css">
-
+    <script src="../Public/javascript/admin.js"></script>
     <script src="../Public/Javascript/login.js"></script>
 
     <title>Notice</title>
@@ -61,7 +61,7 @@ if (isset($_SESSION['jobtype'])) {
         </nav>
     </header>
     <div class="container-1">
-        <?php print_r($data) ?>
+
         <h1>Notice</h1>
         <?php foreach ($data as $row) {
             echo "<div class='container-2'><h2>"
@@ -76,6 +76,9 @@ if (isset($_SESSION['jobtype'])) {
             </div>
                 </div>";
         } ?>
+        <div class="container-3">
+            <a href="../wildlifeofficer/viewNotificationAll?lang=1">SEE ALL</a>
+        </div>
     </div>
 </body>
 

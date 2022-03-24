@@ -23,24 +23,24 @@ class Wildlifeofficer_model extends Model
 	}
 	function selectIncidentData()
 	{
-		$data3= $this->db->runQuery("SELECT * FROM reported_incident order by date desc");
-        $data1= $this->db->runQuery("SELECT reported_incident.incidentID,reported_incident.date,reported_incident.Place,reported_incident.reporttype,reported_incident.status,reported_incident.vetStatus,reported_incident.incidentStatus,reported_incident.sendToVetStatus,reported_incident.officeNo,reported_incident.description,user.Fname,user.Lname,user.NIC FROM reported_incident LEFT OUTER JOIN work ON reported_incident.incidentID= work.incidentID LEFT OUTER JOIN user ON user.NIC=work.wildlife_NIC order by date desc");
-        $data2=$this->db->runQuery("SELECT reported_incident.incidentID,reported_incident.date,reported_incident.Place,reported_incident.reporttype,reported_incident.status,reported_incident.vetStatus,reported_incident.incidentStatus,reported_incident.sendToVetStatus,reported_incident.officeNo,reported_incident.description,user.Fname,user.Lname,user.NIC FROM reported_incident LEFT OUTER JOIN work ON reported_incident.incidentID= work.incidentID LEFT OUTER JOIN user ON user.NIC=work.vet_NIC order by date desc");
-		
-        return [$data1,$data2,$data3];
+		$data3 = $this->db->runQuery("SELECT * FROM reported_incident order by date desc");
+		$data1 = $this->db->runQuery("SELECT reported_incident.incidentID,reported_incident.date,reported_incident.Place,reported_incident.reporttype,reported_incident.status,reported_incident.vetStatus,reported_incident.incidentStatus,reported_incident.sendToVetStatus,reported_incident.officeNo,reported_incident.description,user.Fname,user.Lname,user.NIC FROM reported_incident LEFT OUTER JOIN work ON reported_incident.incidentID= work.incidentID LEFT OUTER JOIN user ON user.NIC=work.wildlife_NIC order by date desc");
+		$data2 = $this->db->runQuery("SELECT reported_incident.incidentID,reported_incident.date,reported_incident.Place,reported_incident.reporttype,reported_incident.status,reported_incident.vetStatus,reported_incident.incidentStatus,reported_incident.sendToVetStatus,reported_incident.officeNo,reported_incident.description,user.Fname,user.Lname,user.NIC FROM reported_incident LEFT OUTER JOIN work ON reported_incident.incidentID= work.incidentID LEFT OUTER JOIN user ON user.NIC=work.vet_NIC order by date desc");
+
+		return [$data1, $data2, $data3];
 	}
 	public function selectIncidentDataEx($id)
 	{
-		$data3=$this->db->runQuery("SELECT * FROM reported_incident LEFT OUTER JOIN  user ON user.NIC=reported_incident.gramaniladari_NIC where reported_incident.incidentID='$id' order by date desc");
-		$data4=$this->db->runQuery("SELECT * FROM reported_incident LEFT OUTER JOIN  user ON user.NIC=reported_incident.villager_NIC where reported_incident.incidentID='$id' order by date desc");
-		$data1= $this->db->runQuery("SELECT reported_incident.incidentID,reported_incident.lat,reported_incident.lon,reported_incident.date,reported_incident.Place,reported_incident.reporttype,reported_incident.status,reported_incident.vetStatus,reported_incident.incidentStatus,reported_incident.sendToVetStatus,reported_incident.officeNo,reported_incident.description,user.Fname,user.Lname,user.NIC FROM reported_incident LEFT OUTER JOIN work ON reported_incident.incidentID= work.incidentID LEFT OUTER JOIN user ON user.NIC=work.wildlife_NIC where reported_incident.incidentID='$id' order by date desc");
-        $data2=$this->db->runQuery("SELECT reported_incident.incidentID,reported_incident.date,reported_incident.Place,reported_incident.reporttype,reported_incident.status,reported_incident.vetStatus,reported_incident.incidentStatus,reported_incident.sendToVetStatus,reported_incident.officeNo,reported_incident.description,user.Fname,user.Lname,user.NIC FROM reported_incident LEFT OUTER JOIN work ON reported_incident.incidentID= work.incidentID LEFT OUTER JOIN user ON user.NIC=work.vet_NIC where reported_incident.incidentID='$id' order by date desc");
-        return [$data1,$data2,$data3,$data4];
+		$data3 = $this->db->runQuery("SELECT * FROM reported_incident LEFT OUTER JOIN  user ON user.NIC=reported_incident.gramaniladari_NIC where reported_incident.incidentID='$id' order by date desc");
+		$data4 = $this->db->runQuery("SELECT * FROM reported_incident LEFT OUTER JOIN  user ON user.NIC=reported_incident.villager_NIC where reported_incident.incidentID='$id' order by date desc");
+		$data1 = $this->db->runQuery("SELECT reported_incident.incidentID,reported_incident.lat,reported_incident.lon,reported_incident.date,reported_incident.Place,reported_incident.reporttype,reported_incident.status,reported_incident.vetStatus,reported_incident.incidentStatus,reported_incident.sendToVetStatus,reported_incident.officeNo,reported_incident.description,user.Fname,user.Lname,user.NIC FROM reported_incident LEFT OUTER JOIN work ON reported_incident.incidentID= work.incidentID LEFT OUTER JOIN user ON user.NIC=work.wildlife_NIC where reported_incident.incidentID='$id' order by date desc");
+		$data2 = $this->db->runQuery("SELECT reported_incident.incidentID,reported_incident.date,reported_incident.Place,reported_incident.reporttype,reported_incident.status,reported_incident.vetStatus,reported_incident.incidentStatus,reported_incident.sendToVetStatus,reported_incident.officeNo,reported_incident.description,user.Fname,user.Lname,user.NIC FROM reported_incident LEFT OUTER JOIN work ON reported_incident.incidentID= work.incidentID LEFT OUTER JOIN user ON user.NIC=work.vet_NIC where reported_incident.incidentID='$id' order by date desc");
+		return [$data1, $data2, $data3, $data4];
 	}
-public function selectDistrictWildifeOfficer($nic)
-{
-	return $this->db->runQuery("SELECT regional_wildlife_office.address from wildlife_officer left outer join regional_wildlife_office on wildlife_officer.officeNo=regional_wildlife_office.officeNo where wildlife_officer.NIC='$nic'");
-}
+	public function selectDistrictWildifeOfficer($nic)
+	{
+		return $this->db->runQuery("SELECT regional_wildlife_office.address from wildlife_officer left outer join regional_wildlife_office on wildlife_officer.officeNo=regional_wildlife_office.officeNo where wildlife_officer.NIC='$nic'");
+	}
 	function updateData($userName, $data)
 	{
 
@@ -89,6 +89,14 @@ public function selectDistrictWildifeOfficer($nic)
 	}
 
 	function selectNotificationsData()
+	{
+		$details = $this->db->runQuery("SELECT * from notice WHERE jobType='wildlifeOfficer' order by date,time desc LIMIT 8");
+		//$joindetails = $this->db->runQuery("SELECT work.wildlife_NIC,work.incidentID,reported_incident.status,user.Fname,user.Lname FROM reported_incident INNER JOIN work ON reported_incident.incidentID= work.incidentID INNER JOIN user ON user.NIC=work.wildlife_NIC");
+		// print_r($joindetails);
+		return $details;
+	}
+
+	function selectAllNotificationsData()
 	{
 		$details = $this->db->runQuery("SELECT * from notice WHERE jobType='wildlifeOfficer' order by date,time desc");
 		//$joindetails = $this->db->runQuery("SELECT work.wildlife_NIC,work.incidentID,reported_incident.status,user.Fname,user.Lname FROM reported_incident INNER JOIN work ON reported_incident.incidentID= work.incidentID INNER JOIN user ON user.NIC=work.wildlife_NIC");
@@ -183,10 +191,10 @@ public function selectDistrictWildifeOfficer($nic)
 
 	public function countVeterinarian($district)
 	{
-		
+
 		return $this->db->runQuery("SELECT COUNT(veterinarian.NIC) AS veterinarian  FROM veterinarian INNER JOIN regional_wildlife_office ON veterinarian.officeNo = regional_wildlife_office.officeNo WHERE  regional_wildlife_office.address= '$district' ");
 	}
-	
+
 	public function countVillagers($district)
 	{
 		return $this->db->runQuery("SELECT COUNT(villager_NIC) AS villager  FROM lives WHERE   district= '$district'");
@@ -230,12 +238,6 @@ public function selectDistrictWildifeOfficer($nic)
 		
 		SELECT COUNT(reported_incident.incidentID) AS WildAnimalArrival FROM reported_incident INNER JOIN regional_wildlife_office ON regional_wildlife_office.officeNo = reported_incident.officeNo WHERE ((regional_wildlife_office.address= '$district')&&( reported_incident.date between date_sub(now(),INTERVAL 3 MONTH) and now())&&( reported_incident.reporttype ='Other Wild Animals are in The Village'));
  ");
-
-
-
-
-
-
 	}
 
 	public function countLast3MonthTotalIncident()
@@ -364,8 +366,9 @@ public function selectDistrictWildifeOfficer($nic)
 	{
 		return $this->db->runQuery("SELECT COUNT(reported_incident.incidentID) AS 12PM FROM reported_incident INNER JOIN regional_wildlife_office ON regional_wildlife_office.officeNo = reported_incident.officeNo WHERE ( (regional_wildlife_office.address= 'matara')&&(reported_incident.date between date_sub(now(),INTERVAL 1 DAY) and now())&& reported_incident.time_In >='11:00:00' && reported_incident.time_In <= '11:59:59' )");
 	}
-	public function countIncident01PM($district){
-	return $this->db->runQuery("SELECT COUNT(reported_incident.incidentID) AS 01PM FROM reported_incident INNER JOIN regional_wildlife_office ON regional_wildlife_office.officeNo = reported_incident.officeNo WHERE ( (regional_wildlife_office.address= 'matara')&&(reported_incident.date between date_sub(now(),INTERVAL 1 DAY) and now())&& reported_incident.time_In >='12:00:00' && reported_incident.time_In <= '12:59:59' )");
+	public function countIncident01PM($district)
+	{
+		return $this->db->runQuery("SELECT COUNT(reported_incident.incidentID) AS 01PM FROM reported_incident INNER JOIN regional_wildlife_office ON regional_wildlife_office.officeNo = reported_incident.officeNo WHERE ( (regional_wildlife_office.address= 'matara')&&(reported_incident.date between date_sub(now(),INTERVAL 1 DAY) and now())&& reported_incident.time_In >='12:00:00' && reported_incident.time_In <= '12:59:59' )");
 	}
 	public function countIncident02PM($district)
 	{
@@ -483,37 +486,35 @@ public function selectDistrictWildifeOfficer($nic)
 		return $this->db->runQuery("SELECT COUNT(reported_incident.incidentID) AS Dece FROM reported_incident INNER JOIN regional_wildlife_office ON regional_wildlife_office.officeNo = reported_incident.officeNo WHERE ((regional_wildlife_office.address= '$district')&&( reported_incident.date>='$date-12-01' and reported_incident.date<='$date-12-31'))");
 	}
 
-		public function getLastNoticeId($NIC)
+	public function getLastNoticeId($NIC)
 	{
-		$lastNoticeId=(($this->db->runQuery("SELECT lastNoticeId FROM user WHERE NIC='$NIC'"))[0])["lastNoticeId"];
+		$lastNoticeId = (($this->db->runQuery("SELECT lastNoticeId FROM user WHERE NIC='$NIC'"))[0])["lastNoticeId"];
 		return $lastNoticeId;
 	}
 
-	public function getUserOfficeNumber($NIC){
-		$officeNum=(($this->db->runQuery("SELECT officeNo FROM wildlife_officer WHERE NIC='$NIC'"))[0])["officeNo"];
+	public function getUserOfficeNumber($NIC)
+	{
+		$officeNum = (($this->db->runQuery("SELECT officeNo FROM wildlife_officer WHERE NIC='$NIC'"))[0])["officeNo"];
 		return $officeNum;
 	}
 
-	public function getNewNoticeDetails($officeNum,$lastNoticeId){
+	public function getNewNoticeDetails($officeNum, $lastNoticeId)
+	{
 
-		$newNoticeId=$this->db->runQuery("SELECT * FROM notice_has_wildlifeoffice_village WHERE officeNo='$officeNum' AND noticeID>'$lastNoticeId' AND jobType='wildlifeOfficer'");
+		$newNoticeId = $this->db->runQuery("SELECT * FROM notice_has_wildlifeoffice_village WHERE officeNo='$officeNum' AND noticeID>'$lastNoticeId' AND jobType='wildlifeOfficer'");
 
-		if(!empty($newNoticeId))
-		{
-			$latestNoticeId=($newNoticeId[0])["noticeID"];
+		if (!empty($newNoticeId)) {
+			$latestNoticeId = ($newNoticeId[0])["noticeID"];
 
-			$detialsOfNotice=($this->db->runQuery("SELECT * FROM notice WHERE noticeID='$latestNoticeId'"))[0];
+			$detialsOfNotice = ($this->db->runQuery("SELECT * FROM notice WHERE noticeID='$latestNoticeId'"))[0];
 
 			return $detialsOfNotice;
-
-		}
-		else
+		} else
 			return "No";
 	}
 
-	public function updateNotice($noticeId,$nic)
+	public function updateNotice($noticeId, $nic)
 	{
 		$this->db->runQuery("UPDATE user SET lastNoticeId='$noticeId' WHERE NIC='$nic'");
 	}
-
 }
