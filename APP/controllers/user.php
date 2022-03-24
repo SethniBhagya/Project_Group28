@@ -20,33 +20,42 @@ class user extends Controller
   private $_userMobileNumber;
   private $_userDateofBirth;
 
+
   public function index()
   {
+
+
     session_start();
     session_regenerate_id();
+    //If user logged in before and not log out then can redirect to pages without provide passwrd
     if (!empty($_SESSION["NIC"])) {
       $jobType = $_SESSION["jobtype"];
       switch ($jobType) {
-   
+          // case "villager":
+          //  //get the data in Database  
+          //  $this->view->data = $this->model->selectData($_POST["username"]);
+          //  //echo $this->data;  
+          //  // render the villager page  
+          //  $this->view->render('villagersPage');
+          //  break;
         case "Wildlife Officer":
           $this->view->render('wildlifeofficer');
           break;
         case "admin":
-          $this->view->render('admin_page');
+          header("Location:../admin/dashboard");
           break;
         case "regional Officer":
           $this->view->render('regionalDashboard');
           break;
         case "veterinarian":
           $this->view->render('veterinarian');
-          break;
-
-          case 'gramaniladari':
-            $this->view->render('gramaniladari');
-            break;
-
       }
-    } else {
+    }
+
+    //If user not logged in then redirect to login page
+
+    else {
+
       if (isset($_GET["lang"])) {
 
         if ($_GET["lang"] == "2")
@@ -71,9 +80,9 @@ class user extends Controller
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-      $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+      $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING); //all string variables sanitize at once.
 
-
+      //create associative array and store username and passwrd gave by user.
       $data = [
         "username" => trim($_POST["username"]),
         "password" => trim($_POST["password"])
@@ -83,15 +92,18 @@ class user extends Controller
 
         $loginUser = $this->model->login($data["username"], $data["password"]);
         if (empty($loginUser["Error"])) {
+          //if there is no any error then user can login
           session_start();
           $_SESSION["NIC"] = $loginUser["NIC"];
           $_SESSION["Fname"] = $loginUser["Fname"];
           $_SESSION["Lname"] = $loginUser["Lname"];
           $_SESSION["jobtype"] = $loginUser["jobtype"];
-          $_SESSION["Fname"] = $loginUser["Fname"];
-          $_SESSION["Lname"] = $loginUser["Lname"];
+          // $_SESSION["Fname"] = $loginUser["Fname"];
+          // $_SESSION["Lname"] = $loginUser["Lname"];
+
 
           if (isset($_GET["lang"])) {
+            //give user pages based on the selected language
 
             if ($_GET["lang"] == "1") {
               switch ($loginUser["jobtype"]) {
@@ -101,30 +113,20 @@ class user extends Controller
                   $this->view->data = $this->model->selectData($_POST["username"]);
                   //echo $this->data;  
                   // render the villager page  
-                  $this->view->status = $this->checkAlerStatus($_SESSION['NIC']);
                   $this->view->render('villagersPage');
-                  if (isset($_POST['submitAlert'])) {
-                    $this->model->setAlerStatus($_SESSION['NIC']); 
-                    }
                   break;
                 case "Wildlife Officer":
                   $this->view->render('wildlifeofficer');
                   break;
                 case "admin":
-                  $this->view->render('admin_page');
+                  header("Location:../admin/dashboard");
                   break;
                 case "regional Officer":
-                  $this->view->render('regionalDashboard');
+                  header("Location:../regionalOfficer/dashboard");
                   break;
                 case "veterinarian":
                   $this->view->render('veterinarian');
-                case 'gramaniladari':
-                    // session_start();
-                    $_userNic = $_SESSION["NIC"];
-                    $this->view->data = $this->model->selectData($_userNic);
-            
-                    $this->view->render('gramaniladari');
-                    break;   
+                  break;
               }
             } elseif ($_GET["lang"] == "2") {
 
@@ -138,59 +140,85 @@ class user extends Controller
                   $this->view->render('villagersPagesinhala');
                   break;
                 case "Wildlife Officer":
-                  $this->view->render('wildlifeofficer');
+                  $this->view->render('wildlifeofficerSinhala');
                   break;
                 case "admin":
-                  $this->view->render('admin_page');
+                  header("Location:../admin/dashboard");
                   break;
                 case "regional Officer":
-                  $this->view->render('regionalDashboard');
+                  header("Location:../regionalOfficer/dashboard");
                   break;
+                case "veterinarian":
+                  $this->view->render('veterinarianSinhala');
                   // case "veterinarian": $this->view->render('veterinarian');
 
 
 
               }
+            } else {
+
+              switch ($loginUser["jobtype"]) {
+
+                case "villager":
+                  //get the data in Database  
+                  $this->view->data = $this->model->selectData($_POST["username"]);
+                  //echo $this->data;  
+                  // render the villager page  
+                  $this->view->render('villagersPagetamil');
+                  break;
+                case "Wildlife Officer":
+                  $this->view->render('wildlifeofficerTamil');
+                  break;
+                case "admin":
+                  header("Location:../admin/dashboard");
+                  break;
+                case "regional Officer":
+                  header("Location:../regionalOfficer/dashboard");
+                  break;
+
+                case "veterinarian":
+                  $this->view->render('veterinarianTamil');
+                  break;
+              }
             }
           } else {
+
+            //if not selected language then gives defulat language pages
 
             switch ($loginUser["jobtype"]) {
 
               case "villager":
                 //get the data in Database  
-                $this->view->status = $this->checkAlerStatus($_SESSION['NIC']);
                 $this->view->data = $this->model->selectData($_POST["username"]);
                 //echo $this->data;  
                 // render the villager page  
-                $this->view->render('villagersPagetamil');
+                $this->view->render('villagersPage');
                 break;
               case "Wildlife Officer":
                 $this->view->render('wildlifeofficer');
                 break;
               case "admin":
-                $this->view->render('admin_page');
+                header("Location:../admin/dashboard");
                 break;
               case "regional Officer":
-                $this->view->render('regionalDashboard');
+                header("Location:../regionalOfficer/dashboard");
                 break;
-
               case "veterinarian":
                 $this->view->render('veterinarian');
-                break;
             }
           }
         } else {
+          //if there is a error then not redirect
           $this->view->render('login', $loginUser["Error"]);
         }
       }
     }
   }
-  //   }
-  // }
+
 
 
   public function logout()
-  {
+  { //session destroy when user logout
 
     session_start();
     unset($_SESSION["NIC"]);
@@ -200,22 +228,22 @@ class user extends Controller
     session_destroy();
     if (isset($_GET["lang"])) {
 
-        if ($_GET["lang"] == "2")
-          $this->view->render('loginSinhala');
-        elseif ($_GET["lang"] == "1")
-          $this->view->render('login');
-        elseif ($_GET["lang"] == "3")
-          $this->view->render('loginTamil');
-      } else
+      if ($_GET["lang"] == "2")
+        $this->view->render('loginSinhala');
+      elseif ($_GET["lang"] == "1")
         $this->view->render('login');
-    
+      elseif ($_GET["lang"] == "3")
+        $this->view->render('loginTamil');
+    } else
+      $this->view->render('login');
   }
-  public function checkAlerStatus($NIC){
-       
-    $statusReview  = $this->model->getAlerStatus($NIC);  
-    foreach($statusReview as $row){ 
+  public function checkAlerStatus($NIC)
+  {
+
+    $statusReview  = $this->model->getAlerStatus($NIC);
+    foreach ($statusReview as $row) {
       $status = $row['alertstatus'];
-    }  
+    }
     return $status;
   }
   public function viewpage()
@@ -227,7 +255,7 @@ class user extends Controller
     }
     if (isset($_GET['send'])) {
       //assign the value
-        $this->model->selectData($_userNic);
+      $this->model->selectData($_userNic);
     }
     $this->view->status = $this->checkAlerStatus($_SESSION['NIC']);
 
@@ -241,17 +269,17 @@ class user extends Controller
             $this->view->render('villagersPage');
             if (isset($_POST['Submit'])) {
               //assign the value
-                
-                 $this->model->emergencyReport($_userNic ,'',  '','' , '' , $_POST['latitude'], $_POST['longitude']);
-            }
-        break;
 
-            case 'gramaniladari':
-              // session_start();
-              $_userNic = $_SESSION["NIC"];
-              $this->view->data = $this->model->selectData($_userNic);
-      
-              $this->view->render('gramaniladari');
+              $this->model->emergencyReport($_userNic, '',  '', '', '', $_POST['latitude'], $_POST['longitude']);
+            }
+            break;
+
+          case 'gramaniladari':
+            // session_start();
+            $_userNic = $_SESSION["NIC"];
+            $this->view->data = $this->model->selectData($_userNic);
+
+            $this->view->render('gramaniladari');
         }
         break;
       case 2:
@@ -382,7 +410,7 @@ class user extends Controller
       }
     }
   }
- 
+
   public function  editProfile()
   {
     session_start();

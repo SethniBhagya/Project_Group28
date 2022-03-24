@@ -38,7 +38,7 @@ if (isset($_SESSION['jobtype'])) {
                 <li id="home"><a href="../?lang=1">HOME</a></li>
                 <li id="userPage"><a href="../wildlifeofficer/?lang=1">USER PAGE</a></li>
                 <li id="incidents"><a href="../wildlifeofficer/viewIncidents?lang=1">INCIDENTS</a></li>
-                <li id="notifications"><a href="../wildlifeofficer/viewNotification?lang=1">NOTIFICATIONS</a></li>
+                <li id="notifications"><a href="../wildlifeofficer/viewNotification?lang=1">NOTICE</a></li>
                 <li id="dashboard"><a href="../wildlifeofficer/viewDashboard?lang=1">DASHBOARD</a></li>
                 <li>
                     <div class="dropdown-1" style="  padding-left:  300px ">
@@ -83,7 +83,7 @@ if (isset($_SESSION['jobtype'])) {
             <button class="specialNotice">
                 <div class="notification"><span class="dot-1"><img src="../Public/images/bell.png" alt="1" srcset=" "></span>
                 </div>
-                <h1>Notifications</h1>
+                <h1>Notice</h1>
                 <div class="line"><img src="../Public/images/notifi.png"></div>
             </button>
         </a>
@@ -94,10 +94,7 @@ if (isset($_SESSION['jobtype'])) {
             </button>
         </a>
     </div>
-    <!-- <button class="View-Report">
-        <h2>View Reported Incidents</h2>
-    </button> -->
-    <!-- <div><img scr="../Public/images/Untitled-1-01.png"></div> -->
+
 
 </body>
 

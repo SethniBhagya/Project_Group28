@@ -25,13 +25,11 @@
             </div>
 
             <ul>
-                <!-- <li><h6>BACK</h6></li>
-            <li><h6>DASHBOARD</h6></li>
-            <li><h6>SPECIAL NOTICES</h6></li> -->
+
                 <li id="home"><a href="../?lang=1">HOME</a></li>
                 <li id="userPage"><a href="../veterinarian/?lang=1">USER PAGE</a></li>
                 <li id="incidents"><a href="../veterinarian/viewIncidents?lang=1">INCIDENTS</a></li>
-                <li id="notifications"><a href="../veterinarian/viewNotification?lang=1">NOTIFICATIONS</a></li>
+                <li id="notifications"><a href="../veterinarian/viewNotification?lang=1">NOTICE</a></li>
                 <li id="dashboard"><a href="../veterinarian/viewDashboard?lang=1">DASHBOARD</a></li>
                 <li>
                     <div class="dropdown-1" style="  padding-left:  300px ">
@@ -54,13 +52,7 @@
         </nav>
 
     </header>
-    <!-- <nav class="links_to_pages">
-      <ul>
-        <li>BACK</li>
-        <li>SPECIAL NOTICES</li>
-        <li>DASHBOARD</li>
-      </ul>
-    </nav> -->
+
 
     </div>
 
@@ -134,21 +126,10 @@
             </div>
             <div class="row1">
 
-                <!-- <a href="../wildlifeofficer/?lang=1">BACK</a> -->
+
 
             </div>
 
-
-
-            <div class="last">
-
-            </div>
-            <!-- <div>
-   <?php
-    print_r($data);
-    ?>
- </div>
-     -->
             </form>
 
         </div>

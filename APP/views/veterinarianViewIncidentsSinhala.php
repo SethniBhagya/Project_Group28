@@ -28,11 +28,11 @@
 
             <ul>
 
-                <li id="home"><a href="../?lang=2">මුල් පිටුව</a></li>
+                <li id="homeSinhala"><a href="../?lang=2">මුල් පිටුව</a></li>
                 <li id="userPageSinhala"><a href="../veterinarian/?lang=2"> &nbsp; පරිශීලක පිටුව </a></li>
                 <li id="incidentsSinhala"><a href="../veterinarian/viewIncidents?lang=2"> &emsp; වාර්තා වූ සිදුවීම්</a></li>
-                <li id="notifications"><a href="../veterinarian/viewNotification?lang=2">දැනුම්දීම්</a></li>
-                <li id="dashboard"><a href="../veterinarian/viewDashboard?lang=2">දත්ත පුවරුව</a></li>
+                <li id="notificationsSinhala"><a href="../veterinarian/viewNotification?lang=2">දැනුම්දීම්</a></li>
+                <li id="dashboardSinhala"><a href="../veterinarian/viewDashboard?lang=2">දත්ත පුවරුව</a></li>
                 <li>
                     <div class="dropdown-1" style="  padding-left:  300px ">
                         <button class="dropbtn-1">භාෂාව</button>
@@ -51,20 +51,13 @@
                     <span class="dot"> <img onclick="myFunction_3()" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
                     <div id="myDropdown" class="dropdown-content">
                         <a href="../veterinarian/viewProfile?lang=2">පරිශීලක පැතිකඩ</a>
-                        <a href="../user/index?lang=2">ඉවත් වීම</a>
+                        <a href="../user/logout?lang=2">ඉවත් වීම</a>
                     </div>
                 </li>
             </ul>
         </nav>
     </header>
 
-    <!-- <div class="links_to_pages">
-      <ul>
-        <li>BACK</li>
-        <li>SPECIAL NOTICES</li>
-        <li>DASHBOARD</li>
-      </ul>
-    </div> -->
 
     <div class="container_3">
         <div class="row1" id="back">
@@ -124,53 +117,51 @@
 
                     foreach ($data[0] as $row) {
                         $d = "";
+                        $yes = 0;
                         foreach ($data[1] as $r) {
                             if ($r['incidentID'] == $row['incidentID']) {
-                                $d = $r['Fname'] . " " . $r['Lname'];
+
+                                if ($r['NIC'] == $_SESSION['NIC']) {
+
+                                    $yes = 1;
+                                }
                             }
                         }
-                        // switch ($data['reporttype']) {
-                        //   case 'Other Wild Animals in The Village':
-                        //     $row['reporttype'] = 2;
-                        //     break;
-                        //   case 'Breakdown of Elephant Fences':
-                        //     $row['reporttype'] = 3;
-                        //     break;
-                        //   case 'Crop Damages':
-                        //     $row['reporttype'] = 5;
-                        //     break;
-                        //   case 'Wild Animal is in Danger':
-                        //     $row['reporttype'] = 4;
-                        //     break;
-                        //   case 'Illegal Happing':
-                        //     $row['reporttype'] = 6;
-                        //     break;
-                        //   case 'Elephants are in The Village':
-                        //     $row['reporttype'] = 1;
-                        //     break;
-                        // }
+
+
+
+                        $d = $row['Fname'] . " " . $row['Lname'];
+
+
+
                         if ($row['vetStatus'] == 'pending') {
                             $stat = "<form method='POST' action='../veterinarian/trigerRequest?lang=2'><input type='text' style='display:none' name='acc' value=" . $row['incidentID'] . "><button class='buttonAccept' id='acceptId' value='ACCEPT' name='accept'/>ACCEPT</button></form>";
                         } else {
-                            $stat = "<form method='POST' action='../veterinarian/trigerRequest?lang=2'><input type='text' style='display:none'  name='can' value=" . $row['incidentID'] . "><button class='buttonCancel' id='cancelId' value='CANCEl' name='cancel'/>CANCEL</button></form>";
+                            if ($yes == 1) {
+                                $stat = "<form method='POST' action='../veterinarian/trigerRequest?lang=2'><input type='text' style='display:none'  name='can' value=" . $row['incidentID'] . "><button class='buttonCancel' id='cancelId' value='CANCEl' name='cancel'/>CANCEL</button></form>";
+                            } else {
+                                $stat = "<form method='POST' action='../veterinarian/trigerRequest?lang=2'><input type='text' style='display:none'  name='can' value=" . $row['incidentID'] . "><button class='buttonCancel' id='cancelId' value='CANCEl' name='cancel' disabled />CANCEL</button></form>";
+                            }
                         }
 
 
                         echo "<tr>
-                                <td>" . $row['date'] . "</td>
-                                <td>" . $row['incidentID'] . "</td>
-  
-                                <td>" . $d . "</td>
-                                <td>" . $row['reporttype'] . "</td>
-                                <td>" . $row['Place'] . "</td>
-                                <td>" . $stat . "</td>
-                                <td><button type='submit' class='viewButton' id='view' onclick='' >
-                                     <a href='../veterinarian/viewIncidentDetails?name=" . $d . "&lang=2&index=" . $count . "'>VIEW</a>
-                                    </button></td>
-                            </tr>";
+            <td>" . $row['date'] . "</td>
+            <td>" . $row['incidentID'] . "</td>
+
+            <td>" . $d . "</td>
+            <td>" . $row['reporttype'] . "</td>
+            <td>" . $row['Place'] . "</td>
+            <td>" . $stat . "</td>
+            <td><button type='submit' class='viewButton' id='view' onclick='' >
+                 <a href='../veterinarian/viewIncidentDetails?name=" . $d . "&lang=2&index=" . $row['incidentID'] . "'>VIEW</a>
+                </button></td>
+        </tr>";
                         $count += 1;
                     }
                     ?>
+
+
 
 
 
@@ -182,7 +173,7 @@
             </div>
             <div class="subcontainer_3-1">
 
-                <!-- <a href="../wildlifeofficer/?lang=2">ආපසු</a> -->
+
 
             </div>
 

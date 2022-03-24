@@ -93,10 +93,7 @@ if (isset($_SESSION['jobtype'])) {
             </button>
         </a>
     </div>
-    <!-- <button class="View-Report">
-        <h2>View Reported Incidents</h2>
-    </button> -->
-    <!-- <div><img scr="../Public/images/Untitled-1-01.png"></div> -->
+
 
 </body>
 

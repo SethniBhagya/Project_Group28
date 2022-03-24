@@ -13,6 +13,54 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <!-- <script src="../Javascript/dashboard.js"></script> -->
     <title>Dashboard</title>
+
+    <script>
+        function initMap() {
+            var locations = <?php
+                            $arr = [];
+                            foreach ($data['dataLocation'] as $row) {
+                                $arr[] = [$row['Place'], $row['lat'], $row['lon']];
+                            }
+
+                            echo json_encode($arr);
+                            ?>;
+
+
+
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 12,
+                center: new google.maps.LatLng(
+                    <?php if ($data['dataLocation'][0]) {
+                        echo $data['dataLocation'][0]['lat'];
+                    } else {
+                        echo  7.93965;
+                    } ?>, <?php if ($data['dataLocation'][0]) {
+                    echo $data['dataLocation'][0]['lon'];
+                } else {
+                    echo  81.00274;
+                } ?>),
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            });
+
+            var infowindow = new google.maps.InfoWindow();
+
+            var marker, i;
+
+            for (i = 0; i < locations.length; i++) {
+                marker = new google.maps.Marker({
+                    position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+                    map: map
+                });
+
+                google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                    return function() {
+                        infowindow.setContent(locations[i][0]);
+                        infowindow.open(map, marker);
+                    }
+                })(marker, i));
+            }
+        }
+    </script>
 </head>
 
 <body style="background-image: none; background-color: white;">
@@ -29,7 +77,7 @@
                 <li id="home"><a href="../?lang=1">HOME</a></li>
                 <li id="userPage"><a href="../wildlifeofficer/?lang=1">USER PAGE</a></li>
                 <li id="incidents"><a href="../wildlifeofficer/viewIncidents?lang=1">INCIDENTS</a></li>
-                <li id="notifications"><a href="../wildlifeofficer/viewNotification?lang=1">NOTIFICATIONS</a></li>
+                <li id="notifications"><a href="../wildlifeofficer/viewNotification?lang=1">NOTICE</a></li>
                 <li id="dashboard"><a href="../wildlifeofficer/viewDashboard?lang=1">DASHBOARD</a></li>
                 <li>
                     <div class="dropdown-1" style="  padding-left:  300px ">
@@ -55,19 +103,23 @@
     <!-- <div class="header-name"><h><pre  style="font-size: larger;font-style: normal; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Total in Sri Lanka                                                                                                                                                               LastModified 30/09/2021</pre></h> </div> -->
     <div class="first">
         Time Duration -3 Month<br>
-        <?php echo date("d/m/Y") ?><br>
+        <?php
+
+
+        echo "Today - " . date("d/m/Y") ?><br>
 
     </div>
     <div class="main-update-col-1">
         <div class="last-week">
             Last Week <div class="last-week-number">
-                <h1 data-target="10" class="count"> <?php echo $data['lastWeekData']  ?></h1>
+                <h1 data-target="<?php echo $data['lastWeekData']  ?>" class="count"> <?php echo $data['lastWeekData']  ?></h1>
                 <p> incidents </p>
             </div>
         </div>
         <div class="last-Month">
-            Last Month <div class="last-month-number">
-                <h1 data-target="10" class="count"><?php echo $data['lastMonthData'] ?></h1>
+            Last Month
+            <div class="last-month-number">
+                <h1 data-target="<?php echo $data['lastMonthData']; ?>" class="count"><?php echo $data['lastMonthData']; ?></h1>
                 <p> incidents</p>
             </div>
         </div>
@@ -75,7 +127,7 @@
             <p>Last</p>
             <h2>24 hours</h2>
             <div class="last-hour-number">
-                <h1 data-target=<?php echo $data['last24HoursData'] ?> class="count"><?php echo $data['last24HoursData']  ?> </h1>
+                <h1 data-target="<?php echo $data['last24HoursData'] ?>" class="count"><?php echo $data['last24HoursData']  ?> </h1>
                 <p>Incidents</p>
             </div>
             <h1></h1>
@@ -115,18 +167,28 @@
         <!-- <h>Today</h> -->
     </div>
     <div class="district-name">
-        <h2>Polonnaruwa District</h2>
+        <h2>
+
+
+
+            <?php echo $data['district'][0]['address'] ?> District</h2>
     </div>
     <div class="district-report">
         <div class="users-1">
-            Wildlife Officers <h1 data-target="" class="count"><?php echo $data['villager'] ?></h1>
+            Wildlife Officers <h1 data-target="<?php echo $data['wildlifeOfficer'] ?>" class="count"><?php echo $data['wildlifeOfficer'] ?></h1>
         </div>
         <div class="users-2">
             Grama Niladharis <h1 data-target="<?php echo $data['gramaNiladhari'] ?>" class="count"><?php
                                                                                                     echo $data['gramaNiladhari'] ?></h1>
         </div>
         <div class="users-3">
-            Veterinarians <h1 data-target="10" class="count">0</h1>
+            Veterinarians <h1 data-target="<?php
+
+
+                                            echo $data['veterinarian'] ?>" class="count"><?php
+
+
+                                                            echo $data['veterinarian'] ?></h1>
         </div>
         <div class="users-4">
             Villagers <h1 data-target="<?php echo $data['villager'] ?>" class="count"><?php echo $data['villager'] ?></h1>
@@ -151,7 +213,7 @@
             Breakdown of Elephant Fence <h1 data-target="<?php echo $data['lastMonthElephantFenceDistrict'] ?>" class="count"><?php echo $data['lastMonthElephantFenceDistrict']  ?></h1>
         </div>
         <div class="update-col">
-            <?php echo $data['districtName'] ?> District Incidents report Percentage<h1 data-target=" " class="count"><?php echo $data['districtIncidentPercentage'] . "%" ?></h1>
+            <?php echo $data['districtName'] ?> District Incidents report Percentage<h1 data-target="<?php echo $data['districtIncidentPercentage'] . "%" ?> " class="count"><?php echo $data['districtIncidentPercentage'] . "%" ?></h1>
         </div>
     </div>
 
@@ -159,13 +221,13 @@
     <div class="main-update-col-3">
         <div class="last-week-1">
             Last Week <div class="last-week-number-1">
-                <h1 data-target="11" class="count">0</h1>
+                <h1 data-target="<?php echo $data['lastWeekData']  ?>" class="count"><?php echo $data['lastWeekData']  ?></h1>
                 <p> incidents </p>
             </div>
         </div>
         <div class="last-Month-1">
             Last Month <div class="last-month-number-1">
-                <h1 data-target="20" class="count">0</h1>
+                <h1 data-target="<?php echo $data['lastMonthData'] ?>" class="count"><?php echo $data['lastMonthData'] ?></h1>
                 <p> incidents</p>
             </div>
         </div>
@@ -173,7 +235,7 @@
             <p>Last</p>
             <h2>24 hours</h2>
             <div class="last-hour-number-1">
-                <h1 data-target="12" class="count">0</h1>
+                <h1 data-target="<?php echo $data['last24HoursData'] ?>" class="count"><?php echo $data['last24HoursData'] ?></h1>
                 <p>Incidents</p>
             </div>
             <h1></h1>
@@ -184,39 +246,33 @@
             Incidents Report Areas
         </div>
         <div class="map-area">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126452.02111388237!2d80.94313801331407!3d7.934107447297657!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3afb44ba3b16ce27%3A0xc34997a2b3032b7c!2sPolonnaruwa!5e0!3m2!1sen!2slk!4v1633098856489!5m2!1sen!2slk" width="100%" height="510" style="border:0; border-radius: 10px;" allowfullscreen="" loading="lazy"></iframe>
+            <div id="map" style="width: 100%; height:100%; border-radius: 5px;"></div>
+
         </div>
     </div>
     <div class="province-report">
         <div class="linechart">
-            <h3>Report Incidents Polonnaruwa </h3>
-            <div class="mychart">
-                <canvas id="myChart"></canvas>
-                <script>
-                    let myChart1 = document.getElementById("myChart").getContext('2d');
-                </script>
-                <!-- <script src="../Javascript/dashboard.js"></script> -->
-            </div>
-        </div>
-        <div class="chart2">
-            <h3>Province of Incidents Reports </h3>
-            <div class="mychart">
+            <h3>Report Incidents </h3>
+            <div class="mychart1">
                 <canvas id="myChart1"></canvas>
                 <script>
-                    let myChart2 = document.getElementById("myChart1").getContext('2d');
+                    let myChart1 = document.getElementById("myChart1").getContext('2d');
+                    let data1 = [<?php echo intval($data['lastMonthWildElephantArrivalDistrict']) ?>, <?php echo intval($data['lastMonthWildAnimalArrivalDistrict']) ?>, <?php echo intval($data['lastMonthElephantFenceDistrict']) ?>, <?php echo intval($data['lastMonthcropDamagesDistrict']) ?>, <?php echo intval($data['lastMonthIllegalThingDistrict']) ?>, <?php echo intval($data['lastMonthWildAnimalDangerDistrict']) ?>]
                 </script>
                 <!-- <script src="../Javascript/dashboard.js"></script> -->
             </div>
         </div>
+
     </div>
     </div>
     <div class="time-update">
         <h3>Update In last-hour Report</h3>
         <div class="chart3">
             <div class="mychart-1">
-                <canvas id="myChart2"></canvas>
+                <canvas id="myChart3"></canvas>
                 <script>
-                    let myChart3 = document.getElementById("myChart2").getContext('2d');
+                    let myChart3 = document.getElementById("myChart3").getContext('2d');
+                    let data3 = [<?php echo intval($data['Incident12AMCount']) ?>, <?php echo intval($data['Incident01AMCount']) ?>, <?php echo intval($data['Incident02AMCount']) ?>, <?php echo intval($data['Incident03AMCount']) ?>, <?php echo intval($data['Incident04AMCount']) ?>, <?php echo intval($data['Incident05AMCount']) ?>, <?php echo intval($data['Incident06AMCount']) ?>, <?php echo intval($data['Incident07AMCount']) ?>, <?php echo intval($data['Incident08AMCount']) ?>, <?php echo intval($data['Incident09AMCount']) ?>, <?php echo intval($data['Incident10AMCount']) ?>, <?php echo intval($data['Incident11AMCount']) ?>, <?php echo intval($data['Incident12PMCount']) ?>, <?php echo intval($data['Incident01PMCount']) ?>, <?php echo intval($data['Incident02PMCount']) ?>, <?php echo intval($data['Incident03PMCount']) ?>, <?php echo intval($data['Incident04PMCount']) ?>, <?php echo intval($data['Incident05PMCount']) ?>, <?php echo intval($data['Incident06PMCount']) ?>, <?php echo intval($data['Incident07PMCount']) ?>, <?php echo intval($data['Incident08PMCount']) ?>, <?php echo intval($data['Incident09PMCount']) ?>, <?php echo intval($data['Incident10PMCount']) ?>, <?php echo intval($data['Incident11PMCount']) ?>];
                 </script>
                 <!-- <script src="../Javascript/dashboard.js"></script> -->
 
@@ -227,12 +283,14 @@
         <h3>Update In last-Month Report</h3>
         <div class="chart4">
             <div class="mychart-1">
-                <canvas id="myChart3"></canvas>
+                <canvas id="myChart4"></canvas>
                 <script>
-                    let myChart4 = document.getElementById("myChart3").getContext('2d');
+                    let myChart4 = document.getElementById("myChart4").getContext('2d');
+
+                    let data4 = [<?php echo intval($data['IncidentJanCount']) ?>, <?php echo intval($data['IncidentFebCount']) ?>, <?php echo intval($data['IncidentMarchCount']) ?>, <?php echo intval($data['IncidentAprilCount']) ?>, <?php echo intval($data['IncidentMayCount']) ?>, <?php echo intval($data['IncidentJuneCount']) ?>, <?php echo intval($data['IncidentJulyCount']) ?>, <?php echo intval($data['IncidentAugCount']) ?>, <?php echo intval($data['IncidentSepCount']) ?>, <?php echo intval($data['IncidentOctCount']) ?>, <?php echo intval($data['IncidentNovCount']) ?>, <?php echo intval($data['IncidentDecCount']) ?>];
                 </script>
 
-                <script src="../Public/javascript/dashboard.js"></script>
+
 
             </div>
         </div>
@@ -243,6 +301,7 @@
     <div>
 
     </div>
+    <script src="../Public/javascript/wildlifeofficer_dashboard.js"></script>
     <script>
         const counters = document.querySelectorAll(".count");
         const speed = 10;
@@ -252,7 +311,7 @@
                 const target = parseInt(+counter.getAttribute("data-target"));
                 const count = parseInt(+counter.innerText);
                 const increment = Math.trunc(target / speed);
-                console.log(increment);
+
 
                 if (count < target) {
                     counter.innerText = count + increment;
@@ -264,6 +323,7 @@
             updateCount();
         });
     </script>
+    <script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyA6bqTtd9axLl6pZb3eeSkRgRfXVjW1zkQ&callback=initMap&v=weekly' async></script>
 </body>
 
 </html>

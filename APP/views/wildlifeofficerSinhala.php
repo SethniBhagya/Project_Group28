@@ -35,11 +35,11 @@ if (isset($_SESSION['jobtype'])) {
             </div>
 
             <ul>
-                <li id="home"><a href="../?lang=2">මුල් පිටුව</a></li>
-                <li id="userPage"><a href="../wildlifeofficer/?lang=2"> &nbsp; පරිශීලක පිටුව </a></li>
-                <li id="incidents"><a href="../wildlifeofficer/viewIncidents?lang=2"> &emsp; වාර්තා වූ සිදුවීම්</a></li>
-                <li id="notifications"><a href="../wildlifeofficer/viewNotification?lang=2">දැනුම්දීම්</a></li>
-                <li id="dashboard"><a href="../wildlifeofficer/viewDashboard?lang=2">දත්ත පුවරුව</a></li>
+                <li id="homeSinhala"><a href="../?lang=2">මුල් පිටුව</a></li>
+                <li id="userPageSinhala"><a href="../wildlifeofficer/?lang=2"> &nbsp; පරිශීලක පිටුව </a></li>
+                <li id="incidentsSinhala"><a href="../wildlifeofficer/viewIncidents?lang=2"> &emsp; වාර්තා වූ සිදුවීම්</a></li>
+                <li id="notificationsSinhala"><a href="../wildlifeofficer/viewNotification?lang=2">දැනුම්දීම්</a></li>
+                <li id="dashboardSinhala"><a href="../wildlifeofficer/viewDashboard?lang=2">දත්ත පුවරුව</a></li>
                 <li>
                     <div class="dropdown-1" style="  padding-left:  300px ">
                         <button class="dropbtn-1">භාෂාව</button>
@@ -93,10 +93,7 @@ if (isset($_SESSION['jobtype'])) {
             </button>
         </a>
     </div>
-    <!-- <button class="View-Report">
-        <h2>View Reported Incidents</h2>
-    </button> -->
-    <!-- <div><img scr="../Public/images/Untitled-1-01.png"></div> -->
+
 
 </body>
 

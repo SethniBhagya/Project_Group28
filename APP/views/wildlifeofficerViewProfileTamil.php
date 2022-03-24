@@ -145,12 +145,7 @@ if (isset($_SESSION['jobtype'])) {
             <div class="last">
 
             </div>
-            <!-- <div>
-   <?php
-    print_r($data);
-    ?>
- </div>
-     -->
+
             </form>
 
         </div>

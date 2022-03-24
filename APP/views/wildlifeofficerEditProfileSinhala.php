@@ -38,11 +38,11 @@ if (isset($_SESSION['jobtype'])) {
 
             <ul>
 
-                <li id="home"><a href="../?lang=2">මුල් පිටුව</a></li>
+                <li id="homeSinhala"><a href="../?lang=2">මුල් පිටුව</a></li>
                 <li id="userPageSinhala"><a href="../wildlifeofficer/?lang=2"> &nbsp; පරිශීලක පිටුව </a></li>
                 <li id="incidentsSinhala"><a href="../wildlifeofficer/viewIncidents?lang=2"> &emsp; වාර්තා වූ සිදුවීම්</a></li>
-                <li id="notifications"><a href="../wildlifeofficer/viewNotification?lang=2">දැනුම්දීම්</a></li>
-                <li id="dashboard"><a href="../wildlifeofficer/viewDashboard?lang=2">දත්ත පුවරුව</a></li>
+                <li id="notificationsSinhala"><a href="../wildlifeofficer/viewNotification?lang=2">දැනුම්දීම්</a></li>
+                <li id="dashboardSinhala"><a href="../wildlifeofficer/viewDashboard?lang=2">දත්ත පුවරුව</a></li>
                 <li>
                     <div class="dropdown-1" style="  padding-left:  300px ">
                         <button class="dropbtn-1">භාෂාව</button>
@@ -76,13 +76,12 @@ if (isset($_SESSION['jobtype'])) {
             <div id="message1" style="padding: 10px; background-color:aliceblue">
 
 
-                <h2><img src="../Public/images/success-mesaage.png" style="width:25px;  height:25px">Your Profile Details Updated Sucessfully </h2><a href="../wildlifeofficer/viewProfile?lang=1" class="login-btn" style=" border-radius: 10px; padding: 10px 10px; background-color:#056412;  color: white;">View Profile</a>
+                <h2><img src="../Public/images/success-mesaage.png" style="width:25px;  height:25px">Your Profile Details Updated Sucessfully </h2><a href="../wildlifeofficer/viewProfile?lang=2" class="login-btn" style=" border-radius: 10px; padding: 10px 10px; background-color:#056412;  color: white;">View Profile</a>
             </div>
         <?php
 
         }
-        //  }
-        //ss}
+
         ?>
         <div id="note">
             <b> </b>
@@ -92,13 +91,7 @@ if (isset($_SESSION['jobtype'])) {
             <h id="errorMessage"></h>
         </div>
         <div class="contanier_2">
-            <div>
-                <?php if (isset($data[0]['message'])) {
-                    echo $data[0]['message'];
-                }
 
-                ?>
-            </div>
             <div class="contanier_2-1">
                 <div class="view_profile">
                     <h3><a href="../wildlifeofficer/viewProfile?lang=2">පරිශීලක පැතිකඩ</a></h3>
@@ -117,27 +110,7 @@ if (isset($_SESSION['jobtype'])) {
                     <div class="col_1">අවසන් නම</div>
                     <div class="col_2"><input type="text" class="text" id="lname" name="lname" required value="<?php echo $data[0]["Lname"] ?>" /><img src="../Public/images/edit.png" class="edit_icon"></div>
                 </div>
-                <!-- <div class="row">
-        <div class="col_1">NIC</div>
-        <div class="col_2">99v</div>
-      </div> -->
-                <!-- <div class="row">
-        <div class="col_1">Gender</div>
-        <div class="col_2">
-            <input type="radio" id="male" name="gender" value="Male" required <?php
-                                                                                if ($data[0]['gender'] == 'M') { ?>
-             checked
-           <?php } ?> 
-            />
-            <label for="male">Male</label>
-            <input type="radio" id="female" name="gender" value="Female"  
-            <?php
-            if ($data[0]['gender'] == 'F') { ?>
-             checked
-           <?php } ?> 
-             />
-            <label for="female">Female</label></div>
-      </div> -->
+
                 <div class="row">
 
                 </div>
