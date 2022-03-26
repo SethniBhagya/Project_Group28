@@ -18,6 +18,7 @@ if (isset($_SESSION['jobtype'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../Public/css/wildlifeofficerHeader.css">
   <link rel="stylesheet" href="../Public/css/wildlifeofficerViewProfile.css">
+  <link rel="stylesheet" href="../Public/css/notification.css" type="text/css">
   <script src="../Public/Javascript/login.js"></script>
   <!-- <script src="../Public/Javascript/viewReport.js"></script> -->
   <script src="../Public/javascript/wildlifeofficer.js"></script>
@@ -36,13 +37,10 @@ if (isset($_SESSION['jobtype'])) {
       </div>
 
       <ul>
-        <!-- <li><h6>BACK</h6></li>
-            <li><h6>DASHBOARD</h6></li>
-            <li><h6>SPECIAL NOTICES</h6></li> -->
         <li id="home"><a href="../?lang=1">HOME</a></li>
         <li id="userPage"><a href="../wildlifeofficer/?lang=1">USER PAGE</a></li>
         <li id="incidents"><a href="../wildlifeofficer/viewIncidents?lang=1">INCIDENTS</a></li>
-        <li id="notifications"><a href="../wildlifeofficer/viewNotification?lang=1">NOTIFICATIONS</a></li>
+        <li id="notifications"><a href="../wildlifeofficer/viewNotification?lang=1">NOTICE</a></li>
         <li id="dashboard"><a href="../wildlifeofficer/viewDashboard?lang=1">DASHBOARD</a></li>
         <li>
           <div class="dropdown-1" style="  padding-left:  300px ">
@@ -65,13 +63,21 @@ if (isset($_SESSION['jobtype'])) {
     </nav>
 
   </header>
-  <!-- <nav class="links_to_pages">
-      <ul>
-        <li>BACK</li>
-        <li>SPECIAL NOTICES</li>
-        <li>DASHBOARD</li>
-      </ul>
-    </nav> -->
+  <?php
+  if ($this->notificationStatus == "notView") {
+  ?>
+    <div id="notificationmessage">
+
+
+      <form action="../wildlifeofficer/viewIncidents?lang=<?php echo $_GET['lang'] ?>&check=true" method="post" style="display: inline-block;">
+        <img src="../Public/images/bell1.png" id="bell">&nbsp&nbsp
+        <h3>You have new reported incident &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+          <input type="submit" value="View" name="submitAlert" id="submit">
+        </h3>
+      </form>
+    </div>
+  <?php  }
+  ?>
 
   </div>
 
@@ -143,23 +149,14 @@ if (isset($_SESSION['jobtype'])) {
         <div class="col_1">Telephone Number</div>
         <div class="col_2"><?php echo $data[0]["mobileNo"] ?></div>
       </div>
-      <div class="row1">
 
-        <!-- <a href="../wildlifeofficer/?lang=1">BACK</a> -->
-
-      </div>
 
 
 
       <div class="last">
 
       </div>
-      <!-- <div>
-   <?php
-    print_r($data);
-    ?>
- </div>
-     -->
+
       </form>
 
     </div>

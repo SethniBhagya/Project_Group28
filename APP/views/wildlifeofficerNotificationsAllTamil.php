@@ -92,7 +92,7 @@ if (isset($_SESSION['jobtype'])) {
                 </div>";
         } ?>
         <div class="container-3">
-            <a href="../wildlifeofficer/viewNotificationAll?lang=3">அனைத்தையும் பார்</a>
+            <a href="../wildlifeofficer/viewNotification?lang=3">குறைவாக பார்க்க</a>
         </div>
     </div>
 </body>

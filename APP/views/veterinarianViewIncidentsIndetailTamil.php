@@ -7,13 +7,113 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Public/css/wildlifeofficerHeader.css">
     <link rel="stylesheet" href="../Public/css/veterinarianViewIncidentsIndetail.css">
-
+    <script src="../Public/Javascript/login.js"></script>
     <script src="../Public/Javascript/viewReport.js"></script>
-    <script src="../Public/javascript/login.js"></script>
-    <script src="../Public/javascript/wildlifeofficer.js"></script>
+    <script src="../Public/Javascript/wildlifeofficer.js"></script>
     <script src="../Public/javascript/admin.js"></script>
     <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=myMap"></script> -->
     <title>View Incident Details</title>
+    <script>
+        function mapLocation() {
+            var directionsDisplay;
+            var directionsService = new google.maps.DirectionsService();
+            var map;
+
+            function initialize() {
+                directionsDisplay = new google.maps.DirectionsRenderer();
+                var city = new google.maps.LatLng(<?php echo $data[0][0]['lat'] ?>, <?php echo $data[0][0]['lon'] ?>);
+                var mapOptions = {
+                    zoom: 15,
+                    center: city
+                };
+
+                map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+                directionsDisplay.setMap(map);
+                google.maps.event.addDomListener(document.getElementById('Btn'), 'click', calcRoute);
+            }
+
+            function calcRoute() {
+
+                const form = document.getElementById('myForm');
+                const lat = form.elements['lat'];
+                const lon = form.elements['ln'];
+
+                // getting the element's value
+                let lattitude = lat.value;
+                let lontitude = lon.value;
+
+                var start = new google.maps.LatLng(lattitude, lontitude);
+                //var end = new google.maps.LatLng(38.334818, -181.884886);
+                var end = new google.maps.LatLng(<?php echo $data[0][0]['lat'] ?>, <?php echo $data[0][0]['lon'] ?>);
+
+                var startMarker = new google.maps.Marker({
+                    position: start,
+                    map: map,
+                    draggable: true
+                });
+                var endMarker = new google.maps.Marker({
+                    position: end,
+                    map: map,
+                    draggable: true
+                });
+
+
+
+                var bounds = new google.maps.LatLngBounds();
+                bounds.extend(start);
+                bounds.extend(end);
+                map.fitBounds(bounds);
+                var request = {
+                    origin: start,
+                    destination: end,
+                    travelMode: google.maps.TravelMode.DRIVING
+                };
+                directionsService.route(request, function(response, status) {
+                    if (status == google.maps.DirectionsStatus.OK) {
+                        directionsDisplay.setDirections(response);
+                        directionsDisplay.setMap(map);
+                    } else {
+                        alert("Directions Request from " + start.toUrlValue(6) + " to " + end.toUrlValue(6) + " failed: " + status);
+                    }
+                });
+            }
+
+            google.maps.event.addDomListener(window, 'load', initialize);
+        }
+    </script>
+    <script>
+        var x = document.getElementById("demo ");
+
+        function getLocation() {
+
+            if (navigator.geolocation) {
+
+                navigator.geolocation.watchPosition(showPosition);
+            } else {
+
+                x.innerHTML = "Geolocation is not supported by this browser. ";
+            }
+        }
+
+        function showPosition(position) {
+
+            let lat = position.coords.latitude;
+            let lng = position.coords.longitude;
+            const form = document.getElementById('myForm');
+            const lt = form.elements['lat'];
+            const lon = form.elements['ln'];
+            const btn = form.elements['Btn'];
+
+            lt.value = lat;
+            lon.value = lng;
+            btn.click();
+
+
+
+
+
+        }
+    </script>
 </head>
 
 <body>
@@ -27,11 +127,11 @@
             </div>
 
             <ul>
-                <li id="home"><a href="../?lang=3">முகப்பு பக்கம்</a></li>
-                <li id="userPageSinhala"><a href="../veterinarian/?lang=3"> &nbsp;பயனர் பக்கம் </a></li>
+                <li id="homeTamil"><a href="../?lang=3">முகப்பு பக்கம்</a></li>
+                <li id="userPageTamil"><a href="../veterinarian/?lang=3"> &nbsp;பயனர் பக்கம் </a></li>
                 <li id="incidentsTamil"><a href="../veterinarian/viewIncidents?lang=3"> &emsp; சம்பவங்கள்</a></li>
-                <li id="notifications"><a href="../veterinarian/viewNotification?lang=3">அறிவிப்புகள்</a></li>
-                <li id="dashboard"><a href="../veterinarian/viewDashboard?lang=3">தரவு பலகை</a></li>
+                <li id="notificationsTamil"><a href="../veterinarian/viewNotification?lang=3">அறிவிப்புகள்</a></li>
+                <li id="dashboardTamil"><a href="../veterinarian/viewDashboard?lang=3">தரவு பலகை</a></li>
                 <li>
                     <div class="dropdown-1" style="  padding-left:  300px ">
                         <button class="dropbtn-1">மொழி</button>
@@ -49,7 +149,7 @@
                     <span class="dot"> <img onclick="myFunction_2(this)" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
                     <div id="myDropdown" class="dropdown-content">
                         <a href="../veterinarian/viewProfile?lang=3">பயனர் சுயவிவரம்</a>
-                        <a href="../user/index?lang=3">வெளியேறு</a>
+                        <a href="../user/logout?lang=3">வெளியேறு</a>
                     </div>
                 </li>
             </ul>
@@ -58,99 +158,103 @@
 
     </div>
 
-    <body>
-        <div class="contanier_2">
-
-
-            <div class="contanier_2-1">
-                <?php
-
-                if (isset($_POST['send'])) {
-                ?>
-
-                    <div id="message1" style="padding: 10px; background-color:aliceblue">
-
-
-                        <h1>You Accept the Duty</h1>
-
-
-                        <a href="../veterinarian/viewIncidents?lang=3" class="login-btn" style=" border-radius: 10px; padding: 10px 10px; background-color:#056412;  color: white;">OK</a>
-                    </div>
-                <?php
-
-                }
-                //  }
-                //ss}
-                ?>
-
-            </div>
-
-
-            <div class="row_first">
-                <div class="col_1_first">
-                    <div class="row_in_firstrow">
-                        <div class="col_1_first"><img src="../Public/images/user_icon4-01.png" class="image"></div>
-
-                        <div class="col_2_first"> <br>பயனர்_ஐடி : W001</div>
-                    </div>
+    <div class="contanier_2">
+        <div class="contanier_2-1">
+            <?php if (isset($_POST['send'])) { ?>
+                <div id="message1" style="padding: 10px; background-color:aliceblue">
+                    <h1>Your message sent to the veterinarian Sucessfully</h1>
+                    <a href="../veterinarian/viewIncidents?lang=3" class="login-btn" style=" border-radius: 10px; padding: 10px 10px; background-color:#056412;  color: white;">OK</a>
                 </div>
-                <div class="col_2_first">ஏற்றுக்கொள்ளப்பட்ட வனவிலங்கு அதிகாரி :<br> <?php echo $_GET['name'] ?> </div>
-            </div>
-            <div class="row">
+            <?php } ?>
+        </div>
+        <table>
+            <tr class="firstRow">
 
-                <div class="col_1"><?php echo $data[0][$_GET['index']]['description']  ?></div>
-                <div class="col_2">அறிக்கை_எண் - <?php echo $data[0][$_GET['index']]['incidentID']  ?></div>
-                <div class="col_2">தேதி - <?php echo $data[0][$_GET['index']]['date']  ?>
-                </div>
-            </div>
-            <div class="row_last">
-                <div class="col_2_last"><button type='submit' class='backButton' id='view' onclick=''>
+                <th><?php
 
-
-                </div>
-
-
-                <div class="save_button">
-                    <?php
-                    if ($data[0][$_GET['index']]['vetStatus'] == 'pending') {
-
-                        echo "<form method='POST' action='../veterinarian/trigerRequest?lang=3'><input type='text' style='display:none' name='acc' value=" . $data[0][$_GET['index']]['incidentID'] . "><button class='buttonAccept' id='acceptId' value='ACCEPT' name='accept'/>ACCEPT</button></form>";
+                    echo $data[0][0]['reporttype']  ?></th>
+                <th></th>
+            </tr>
+            <tr>
+                <td>தேதி</td>
+                <td><?php echo $data[0][0]['date']  ?></td>
+            </tr>
+            <tr>
+                <td>அறிக்கை_எண்</td>
+                <td><?php echo $data[0][0]['incidentID']  ?></td>
+            </tr>
+            <tr>
+                <td>புகாரளிக்கப்பட்ட கிராமத்தின் பெயர்</td>
+                <td><?php
+                    if ($data[2][0]['gramaniladari_NIC'] != NULL) {
+                        echo $data[2][0]['Fname'] . " " . $data[2][0]['Lname'];
                     } else {
-                        echo "<form method='POST' action='../veterinarian/trigerRequest?lang=3'><input type='text' style='display:none'  name='can' value=" . $data[0][$_GET['index']]['incidentID'] . "><button class='buttonCancel' id='cancelId' value='CANCEl' name='cancel'/>CANCEL</button></form>";
+                        echo $data[3][0]['Fname'] . " " . $data[3][0]['Lname'];
+                    }
+                    ?></td>
+            </tr>
+            <tr>
+                <td>ஏற்றுக்கொள்ளப்பட்ட வனவிலங்கு அதிகாரி</td>
+                <td><?php echo $_GET['name'] ?></td>
+            </tr>
+            <tr>
+                <td>இடம்</td>
+                <td><?php echo $data[0][0]['Place']  ?><input type="button" class='buttonAccept' id="submitBtn" onclick="getLocation()" value="Track my current Location to get the path" /></td>
+            </tr>
+
+
+
+            <tr>
+                <td>ஏற்றுக்கொண்ட கால்நடை மருத்துவர்</td>
+
+                <td><?php
+                    if ($data[1][0]['vetStatus'] == 'success') {
+                        echo $data[1][0]['Fname'] . " " . $data[1][0]['Lname'];
                     }
 
 
-                    ?>
+                    ?></td>
+            </tr>
 
 
 
-                </div>
+        </table>
 
-
-
-
-
+        <div class="row_last">
+            <div class="col__last"><?php
+                                    if ($data[0][0]['status'] == 'pending') {
+                                        $stat = "<form method='POST' action='../veterinarian/trigerRequest?lang=3'><input type='text' style='display:none' name='acc' value=" . $data[0][0]['incidentID'] . "><button class='buttonAccept' id='acceptId' value='ACCEPT' name='accept'/>ACCEPT</button></form>";
+                                    } else {
+                                        $stat = "<form method='POST' action='../veterinarian/trigerRequest?lang=3'><input type='text' style='display:none'  name='can' value=" . $data[0][0]['incidentID'] . "><button class='buttonCancel' id='cancelId' value='CANCEl' name='cancel'/>CANCEL</button></form>";
+                                    }
+                                    ?>
             </div>
 
 
-            <div class="map" id="map">
-                <div class="map">
-
-                    <div class="map-area">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126452.02111388237!2d80.94313801331407!3d7.934107447297657!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3afb44ba3b16ce27%3A0xc34997a2b3032b7c!2sPolonnaruwa!5e0!3m2!1sen!2slk!4v1633098856489!5m2!1sen!2slk" width="100%" height="510" style="border:0; border-radius: 10px;" allowfullscreen="" loading="lazy"></iframe>
-                    </div>
-                </div>
 
 
-            </div>
-            <div class="last">
 
-            </div>
+            <form id="myForm">
 
 
+                <input type='text' name='lat' id='lat' style="display: none;">
+                <input type='text ' name='ln' id='ln' style="display: none;">
+                <input type="button" id="Btn" value="route" style="display: none; " />
+
+
+
+            </form>
 
         </div>
+        <div class="map" id="map-canvas" style="height: 400px;">
 
-    </body>
+        </div>
+        <div class="last">
+        </div>
+
+    </div>
+    <script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyA6bqTtd9axLl6pZb3eeSkRgRfXVjW1zkQ&callback=mapLocation&v=weekly' async></script>
+
+</body>
 
 </html>

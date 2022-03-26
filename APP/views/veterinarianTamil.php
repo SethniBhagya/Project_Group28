@@ -24,11 +24,11 @@
             </div>
 
             <ul>
-                <li id="home"><a href="../?lang=3">முகப்பு பக்கம்</a></li>
-                <li id="userPageSinhala"><a href="../veterinarian/?lang=3"> &nbsp;பயனர் பக்கம் </a></li>
+                <li id="homeTamil"><a href="../?lang=3">முகப்பு பக்கம்</a></li>
+                <li id="userPageTamil"><a href="../veterinarian/?lang=3"> &nbsp;பயனர் பக்கம் </a></li>
                 <li id="incidentsTamil"><a href="../veterinarian/viewIncidents?lang=3"> &emsp; சம்பவங்கள்</a></li>
-                <li id="notifications"><a href="../veterinarian/viewNotification?lang=3">அறிவிப்புகள்</a></li>
-                <li id="dashboard"><a href="../veterinarian/viewDashboard?lang=3">தரவு பலகை</a></li>
+                <li id="notificationsTamil"><a href="../veterinarian/viewNotification?lang=3">அறிவிப்புகள்</a></li>
+                <li id="dashboardTamil"><a href="../veterinarian/viewDashboard?lang=3">தரவு பலகை</a></li>
                 <li>
                     <div class="dropdown-1" style="  padding-left:  300px ">
                         <button class="dropbtn-1">மொழி</button>
@@ -43,7 +43,7 @@
                     <span class="dot"> <img onclick="myFunction_2(this)" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
                     <div id="myDropdown" class="dropdown-content">
                         <a href="../veterinarian/viewProfile?lang=3">பயனர் சுயவிவரம்</a>
-                        <a href="../user/index?lang=3">வெளியேறு</a>
+                        <a href="../user/logout?lang=3">வெளியேறு</a>
                     </div>
                 </li>
             </ul>
@@ -82,10 +82,7 @@
             </button>
         </a>
     </div>
-    <!-- <button class="View-Report">
-        <h2>View Reported Incidents</h2>
-    </button> -->
-    <!-- <div><img scr="../Public/images/Untitled-1-01.png"></div> -->
+
 
 </body>
 

@@ -27,11 +27,11 @@
 
             <ul>
 
-                <li id="home"><a href="../?lang=2">මුල් පිටුව</a></li>
+                <li id="homeSinhala"><a href="../?lang=2">මුල් පිටුව</a></li>
                 <li id="userPageSinhala"><a href="../veterinarian/?lang=2"> &nbsp; පරිශීලක පිටුව </a></li>
                 <li id="incidentsSinhala"><a href="../veterinarian/viewIncidents?lang=2"> &emsp; වාර්තා වූ සිදුවීම්</a></li>
-                <li id="notifications"><a href="../veterinarian/viewNotification?lang=2">දැනුම්දීම්</a></li>
-                <li id="dashboard"><a href="../veterinarian/viewDashboard?lang=2">දත්ත පුවරුව</a></li>
+                <li id="notificationsSinhala"><a href="../veterinarian/viewNotification?lang=2">දැනුම්දීම්</a></li>
+                <li id="dashboardSinhala"><a href="../veterinarian/viewDashboard?lang=2">දත්ත පුවරුව</a></li>
                 <li>
                     <div class="dropdown-1" style="  padding-left:  300px ">
                         <button class="dropbtn-1">භාෂාව</button>
@@ -46,7 +46,7 @@
                     <span class="dot"> <img onclick="myFunction_3()" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
                     <div id="myDropdown" class="dropdown-content">
                         <a href="../veterinarian/viewProfile?lang=2">පරිශීලක පැතිකඩ</a>
-                        <a href="../user/logout?lang=1">ඉවත් වීම</a>
+                        <a href="../user/logout?lang=2">ඉවත් වීම</a>
 
                     </div>
                 </li>
@@ -54,13 +54,6 @@
         </nav>
 
     </header>
-    <!-- <nav class="links_to_pages">
-      <ul>
-        <li>BACK</li>
-        <li>SPECIAL NOTICES</li>
-        <li>DASHBOARD</li>
-      </ul>
-    </nav> -->
 
     </div>
 
@@ -82,7 +75,7 @@
                     <h3><a href="#">පරිශීලක පැතිකඩ</a></h3>
                 </div>
                 <div class="edit_profile">
-                    <h3><a href="../veterinarian/editProfile?lang=1">පරිශීලක පැතිකඩ යාවත්කාලීන කිරීම</a></h3>
+                    <h3><a href="../veterinarian/editProfile?lang=2">පරිශීලක පැතිකඩ යාවත්කාලීන කිරීම</a></h3>
                 </div>
             </div>
             <div>
@@ -132,23 +125,14 @@
                 <div class="col_1">දුරකථන අංකය</div>
                 <div class="col_2"><?php echo $data[0]["mobileNo"] ?></div>
             </div>
-            <div class="row1">
 
-                <!-- <a href="../wildlifeofficer/?lang=1">BACK</a> -->
-
-            </div>
 
 
 
             <div class="last">
 
             </div>
-            <!-- <div>
-   <?php
-    print_r($data);
-    ?>
- </div>
-     -->
+
             </form>
 
         </div>

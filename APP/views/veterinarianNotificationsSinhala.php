@@ -25,11 +25,11 @@
             </div>
 
             <ul>
-                <li id="home"><a href="../?lang=2">මුල් පිටුව</a></li>
+                <li id="homeSinhala"><a href="../?lang=2">මුල් පිටුව</a></li>
                 <li id="userPageSinhala"><a href="../veterinarian/?lang=2"> &nbsp; පරිශීලක පිටුව </a></li>
                 <li id="incidentsSinhala"><a href="../veterinarian/viewIncidents?lang=2"> &emsp; වාර්තා වූ සිදුවීම්</a></li>
-                <li id="notifications"><a href="../veterinarian/viewNotification?lang=2">දැනුම්දීම්</a></li>
-                <li id="dashboard"><a href="../veterinarian/viewDashboard?lang=2">දත්ත පුවරුව</a></li>
+                <li id="notificationsSinhala"><a href="../veterinarian/viewNotification?lang=2">දැනුම්දීම්</a></li>
+                <li id="dashboardSinhala"><a href="../veterinarian/viewDashboard?lang=2">දත්ත පුවරුව</a></li>
                 <li>
                     <div class="dropdown-1" style="  padding-left:  300px ">
                         <button class="dropbtn-1">භාෂාව</button>
@@ -44,14 +44,14 @@
                     <span class="dot"> <img onclick="myFunction_2(this)" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
                     <div id="myDropdown" class="dropdown-content">
                         <a href="../veterinarian/viewProfile?lang=2">පරිශීලක පැතිකඩ</a>
-                        <a href="../user/index">ඉවත් වීම</a>
+                        <a href="../user/logout?lang=2">ඉවත් වීම</a>
                     </div>
                 </li>
             </ul>
         </nav>
     </header>
     <div class="container-1">
-        <h1>Notifications</h1>
+        <h1>දැනුම්දීම්</h1>
         <?php foreach ($data as $row) {
             echo "<div class='container-2'><h2>"
                 . $row['district'] . "-" . $row['gn_division'] . "-" . $row['village'] .
@@ -65,6 +65,9 @@
             </div>
                 </div>";
         } ?>
+        <div class="container-3">
+            <a href="../veterinarian/viewNotificationAll?lang=2">සියල්ල බලන්න</a>
+        </div>
     </div>
 </body>
 

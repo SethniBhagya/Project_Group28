@@ -20,6 +20,7 @@ if (isset($_SESSION['jobtype'])) {
     <link rel="stylesheet" href="../Public/css/wildlifeofficerEditProfile.css">
     <script src="../Public/Javascript/login.js"></script>
     <script src="../Public/javascript/admin.js"></script>
+    <link rel="stylesheet" href="../Public/css/notification.css">
     <!-- <script src="../Public/Javascript/viewReport.js"></script> -->
     <script src="../Public/javascript/wildlifeofficer.js"></script>
     <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=myMap"></script> -->
@@ -37,7 +38,7 @@ if (isset($_SESSION['jobtype'])) {
             </div>
 
             <ul>
-                <li id="home"><a href="../?lang=3">முகப்பு பக்கம்</a></li>
+                <li id="homeTamil"><a href="../?lang=3">முகப்பு பக்கம்</a></li>
                 <li id="userPageSinhala"><a href="../wildlifeofficer/?lang=3"> &nbsp;பயனர் பக்கம் </a></li>
                 <li id="incidentsTamil"><a href="../wildlifeofficer/viewIncidents?lang=3"> &emsp; சம்பவங்கள்</a></li>
                 <li id="notificationsTamil"><a href="../wildlifeofficer/viewNotification?lang=3">அறிவிப்புகள்</a></li>
@@ -63,15 +64,21 @@ if (isset($_SESSION['jobtype'])) {
         </nav>
 
     </header>
-    <!-- <div class="nav_edit">
-      <div class="links_to_pages">
-        <ul>
-          <li>BACK</li>
-          <li>SPECIAL NOTICES</li>
-          <li>DASHBOARD</li>
-        </ul>
-      </div>
-    </div> -->
+    <?php
+    if ($this->notificationStatus == "notView") {
+    ?>
+        <div id="notificationmessage">
+
+
+
+            <form action="../wildlifeofficer/viewIncidents?lang=<?php echo $_GET['lang'] ?>&check=true" method="post" style="display: inline-block;">
+                <img src="../Public/images/bell1.png" id="right" style=" font-weight: 600%;  font-weight: 602;margin-left: 10%;  ">&nbsp
+                <h3>புதிதாக<br> அறிவிக்கப்பட்டசம்பவம் &nbsp&nbsp&nbsp&nbsp&nbsp
+                    <input type="submit" value="View" name="submitAlert" id="submit">
+                </h3>
+            </form>
+        </div> <?php  }
+                ?>
 
     <body>
         <?php
@@ -82,13 +89,12 @@ if (isset($_SESSION['jobtype'])) {
             <div id="message1" style="padding: 10px; background-color:aliceblue">
 
 
-                <h2><img src="../Public/images/success-mesaage.png" style="width:25px;  height:25px">Your Profile Details Updated Sucessfully </h2><a href="../wildlifeofficer/viewProfile?lang=1" class="login-btn" style=" border-radius: 10px; padding: 10px 10px; background-color:#056412;  color: white;">View Profile</a>
+                <h2><img src="../Public/images/success-mesaage.png" style="width:25px;  height:25px">Your Profile Details Updated Sucessfully </h2><a href="../wildlifeofficer/viewProfile?lang=3" class="login-btn" style=" border-radius: 10px; padding: 10px 10px; background-color:#056412;  color: white;">View Profile</a>
             </div>
         <?php
 
         }
-        //  }
-        //ss}
+
         ?>
         <div id="note">
             <b> </b>
@@ -98,13 +104,7 @@ if (isset($_SESSION['jobtype'])) {
             <h id="errorMessage"></h>
         </div>
         <div class="contanier_2">
-            <div>
-                <?php if (isset($data[0]['message'])) {
-                    echo $data[0]['message'];
-                }
 
-                ?>
-            </div>
             <div class="contanier_2-1">
                 <div class="view_profile">
                     <h3><a href="../wildlifeofficer/viewProfile?lang=3">சுயவிவரம்</a></h3>
@@ -123,27 +123,7 @@ if (isset($_SESSION['jobtype'])) {
                     <div class="col_1">கடைசி பெயர்</div>
                     <div class="col_2"><input type="text" class="text" id="lname" name="lname" required value="<?php echo $data[0]["Lname"] ?>" /><img src="../Public/images/edit.png" class="edit_icon"></div>
                 </div>
-                <!-- <div class="row">
-        <div class="col_1">NIC</div>
-        <div class="col_2">99v</div>
-      </div> -->
-                <!-- <div class="row">
-        <div class="col_1">Gender</div>
-        <div class="col_2">
-            <input type="radio" id="male" name="gender" value="Male" required <?php
-                                                                                if ($data[0]['gender'] == 'M') { ?>
-             checked
-           <?php } ?> 
-            />
-            <label for="male">Male</label>
-            <input type="radio" id="female" name="gender" value="Female"  
-            <?php
-            if ($data[0]['gender'] == 'F') { ?>
-             checked
-           <?php } ?> 
-             />
-            <label for="female">Female</label></div>
-      </div> -->
+
                 <div class="row">
 
                 </div>

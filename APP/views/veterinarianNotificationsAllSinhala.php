@@ -4,14 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="../Public/css/wildlifeofficerHeader.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../Public/css/veterinarian.css" type="text/css">
-    <link rel="stylesheet" href="../Public/css/wildlifeofficerHeader.css" type="text/css">
+    <link rel="stylesheet" href="../Public/css/veterinarianNotifications.css">
     <script src="../Public/javascript/login.js"></script>
     <script src="../Public/javascript/wildlifeofficer.js"></script>
     <script src="../Public/javascript/admin.js"></script>
 
-    <title>WildlifeCare</title>
+    <title>Notifications</title>
 </head>
 
 <body>
@@ -50,41 +50,25 @@
             </ul>
         </nav>
     </header>
-    <div class="name">
-
-        <span class="dot2"><img src="../Public/images/user_icon.png" id="user-icon2"></span><b>
-            <?php
-            if (session_status() === PHP_SESSION_NONE) {
-                session_start();
-            }
-            echo $_SESSION["Fname"] . " " . $_SESSION["Lname"] ?>
-        </b></label>
+    <div class="container-1">
+        <h1>දැනුම්දීම්</h1>
+        <?php foreach ($data as $row) {
+            echo "<div class='container-2'><h2>"
+                . $row['district'] . "-" . $row['gn_division'] . "-" . $row['village'] .
+                "</h2>
+                <h3 style='float:right'>Date:" . $row['date'] . "Time:" . $row['time'] . "</h3>
+                <div class='container-sub-1'>
+                <p> Alert! <br>
+                <p>" . $row['description'] . "</p>
+                <br>
+                </p>
+            </div>
+                </div>";
+        } ?>
+        <div class="container-3">
+            <a href="../veterinarian/viewNotification?lang=2">අඩුවෙන් බලන්න</a>
+        </div>
     </div>
-    <div class="main-view">
-        <a href="../veterinarian/viewIncidents?lang=2">
-            <button class="report">
-                <h1> වාර්තා වූ </br>සිදුවීම්</h1>
-                <div class="line"><img src="../Public/images/emergency.png"></div>
-
-            </button>
-        </a>
-        <a href="../veterinarian/viewNotification?lang=2">
-            <button class="specialNotice">
-                <div class="notification"><span class="dot-1"><img src="../Public/images/bell.png" alt="1" srcset=" "></span>
-                </div>
-                <h1>දැනුම්දීම්</h1>
-                <div class="line"><img src="../Public/images/notifi.png"></div>
-            </button>
-        </a>
-        <a href="../veterinarian/viewDashboard?lang=2">
-            <button class="dashboard">
-                <h1>දත්ත<br>පුවරුව<div class="line"><img src="../Public/images/dashIcon.png"></div>
-                </h1>
-            </button>
-        </a>
-    </div>
-
-
 </body>
 
 </html>

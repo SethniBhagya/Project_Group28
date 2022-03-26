@@ -21,6 +21,7 @@ if (isset($_SESSION['jobtype'])) {
   <script src="../Public/Javascript/login.js"></script>
   <!-- <script src="../Public/Javascript/viewReport.js"></script> -->
   <script src="../Public/javascript/wildlifeofficer.js"></script>
+  <link rel="stylesheet" href="../Public/css/notification.css" type="text/css">
 
   <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=myMap"></script> -->
   <title>Edit Profile</title>
@@ -41,7 +42,7 @@ if (isset($_SESSION['jobtype'])) {
         <li id="home"><a href="../?lang=1">HOME</a></li>
         <li id="userPage"><a href="../wildlifeofficer/?lang=1">USER PAGE</a></li>
         <li id="incidents"><a href="../wildlifeofficer/viewIncidents?lang=1">INCIDENTS</a></li>
-        <li id="notifications"><a href="../wildlifeofficer/viewNotification?lang=1">NOTIFICATIONS</a></li>
+        <li id="notifications"><a href="../wildlifeofficer/viewNotification?lang=1">NOTICE</a></li>
         <li id="dashboard"><a href="../wildlifeofficer/viewDashboard?lang=1">DASHBOARD</a></li>
         <li>
           <div class="dropdown-1" style="  padding-left:  300px ">
@@ -64,15 +65,21 @@ if (isset($_SESSION['jobtype'])) {
     </nav>
 
   </header>
-  <!-- <div class="nav_edit">
-      <div class="links_to_pages">
-        <ul>
-          <li>BACK</li>
-          <li>SPECIAL NOTICES</li>
-          <li>DASHBOARD</li>
-        </ul>
-      </div>
-    </div> -->
+  <?php
+  if ($this->notificationStatus == "notView") {
+  ?>
+    <div id="notificationmessage">
+
+
+      <form action="../wildlifeofficer/viewIncidents?lang=<?php echo $_GET['lang'] ?>&check=true" method="post" style="display: inline-block;">
+        <img src="../Public/images/bell1.png" id="bell">&nbsp&nbsp
+        <h3>You have new reported incident &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+          <input type="submit" value="View" name="submitAlert" id="submit">
+        </h3>
+      </form>
+    </div>
+  <?php  }
+  ?>
 
   <body>
 
@@ -89,8 +96,7 @@ if (isset($_SESSION['jobtype'])) {
     <?php
 
     }
-    //  }
-    //ss}
+
     ?>
     <div id="note">
       <b> </b>
@@ -136,27 +142,7 @@ if (isset($_SESSION['jobtype'])) {
           <div class="col_1">Last Name</div>
           <div class="col_2"><input type="text" class="text" id="lname" name="lname" required value="<?php echo $data[0]["Lname"] ?>" /><img src="../Public/images/edit.png" class="edit_icon"></div>
         </div>
-        <!-- <div class="row">
-<div class="col_1">NIC</div>
-<div class="col_2">99v</div>
-</div> -->
-        <!-- <div class="row">
-<div class="col_1">Gender</div>
-<div class="col_2">
-    <input type="radio" id="male" name="gender" value="Male" required <?php
-                                                                      if ($data[0]['gender'] == 'M') { ?>
-     checked
-   <?php } ?> 
-    />
-    <label for="male">Male</label>
-    <input type="radio" id="female" name="gender" value="Female"  
-    <?php
-    if ($data[0]['gender'] == 'F') { ?>
-     checked
-   <?php } ?> 
-     />
-    <label for="female">Female</label></div>
-</div> -->
+
         <div class="row birthday">
 
         </div>

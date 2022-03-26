@@ -26,11 +26,11 @@
             </div>
 
             <ul>
-                <li id="home"><a href="../?lang=3">முகப்பு பக்கம்</a></li>
-                <li id="userPageSinhala"><a href="../veterinarian/?lang=3"> &nbsp;பயனர் பக்கம் </a></li>
+                <li id="homeTamil"><a href="../?lang=3">முகப்பு பக்கம்</a></li>
+                <li id="userPageTamil"><a href="../veterinarian/?lang=3"> &nbsp;பயனர் பக்கம் </a></li>
                 <li id="incidentsTamil"><a href="../veterinarian/viewIncidents?lang=3"> &emsp; சம்பவங்கள்</a></li>
-                <li id="notifications"><a href="../veterinarian/viewNotification?lang=3">அறிவிப்புகள்</a></li>
-                <li id="dashboard"><a href="../veterinarian/viewDashboard?lang=3">தரவு பலகை</a></li>
+                <li id="notificationsTamil"><a href="../veterinarian/viewNotification?lang=3">அறிவிப்புகள்</a></li>
+                <li id="dashboardTamil"><a href="../veterinarian/viewDashboard?lang=3">தரவு பலகை</a></li>
                 <li>
                     <div class="dropdown-1" style="  padding-left:  300px ">
                         <button class="dropbtn-1">மொழி</button>
@@ -45,20 +45,13 @@
                     <span class="dot"> <img onclick="myFunction_2(this)" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
                     <div id="myDropdown" class="dropdown-content">
                         <a href="../veterinarian/viewProfile?lang=3">பயனர் சுயவிவரம்</a>
-                        <a href="../user/logout?lang=1">வெளியேறு</a>
+                        <a href="../user/logout?lang=3">வெளியேறு</a>
                     </div>
                 </li>
             </ul>
         </nav>
 
     </header>
-    <!-- <nav class="links_to_pages">
-      <ul>
-        <li>BACK</li>
-        <li>SPECIAL NOTICES</li>
-        <li>DASHBOARD</li>
-      </ul>
-    </nav> -->
 
     </div>
 
@@ -129,23 +122,14 @@
                 <div class="col_1">தொலைபேசி எண்</div>
                 <div class="col_2"><?php echo $data[0]["mobileNo"] ?></div>
             </div>
-            <div class="row1">
 
-                <!-- <a href="../wildlifeofficer/?lang=3">மீண்டும்</a> -->
-
-            </div>
 
 
 
             <div class="last">
 
             </div>
-            <!-- <div>
-   <?php
-    print_r($data);
-    ?>
- </div>
-     -->
+
             </form>
 
         </div>
