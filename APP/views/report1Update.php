@@ -179,7 +179,7 @@
           $place = $row['Place'];
           $image = $row['image'];
           $lat =  $row['lat'];
-          $long = $row['lon'];
+          $long = $row['lon']; 
         }
         foreach ($this->dataReport1 as $row) {
           $noOfelephants = $row['no_of_elephants'];
@@ -188,13 +188,25 @@
         <h3 style="color: white;"> <b>Wild Elephant are in The Village <br><br>Report Number :<?php echo "  " . $_GET['reportNo']; ?> </b></h3>
       </div>
 
-
-      ?>
-
+      <?php if(isset($_GET['image'])) { ?>
+            <?php if(!empty($image) ) { ?> 
+            <div class="image">
+                <a href="../incident/updateReport?lang=<?php echo $_GET['lang'] ?>&&reportNo=<?php echo $_GET['reportNo'] ?>&page=<?php echo $_GET['page'] ?>&type=<?php echo $_GET['type'] ?>"><img src="../Public/images/close.png" id="viewcls"></a>
+                
+                <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($image); ?>" />
+            </div> <?php }else{  ?>
+                <div class="imageerror">
+                <img src="../Public/images/errorimage.png" id="errorimage"> 
+                
+                <a href="../incident/updateReport?lang=<?php echo $_GET['lang'] ?>&&reportNo=<?php echo $_GET['reportNo'] ?>&page=<?php echo $_GET['page'] ?>&type=<?php echo $_GET['type'] ?>"><img src="../Public/images/close.png" id="viewcls"></a>
+                
+                <p>There haven't Upload Image When Incident Report Submit</p>
+                </div>
+                <?php } }?>
       <div id="map" style="top: 10px; width :600px">
       </div>
       <div id="detail">
-        <form class=" " action="../incident/viewReport?lang=1&page=<?php echo $_GET['page'] ?>&type=<?php echo $_GET['type'] ?>" method="post">
+        <form class=" " action=" " method="post">
           <table class="table">
             <tr class="header-table" style="text-align: left;">
               <th>How many Elephants </th>
@@ -207,7 +219,9 @@
 
             <tr class="header-table" style="text-align: left;">
               <th>Add Photo </th>
-              <td> <input type="file" name="Photo" id="file" class="file" value="<?php $image ?>"></td>
+              <td> <input type="file" name="Photo" id="file" class="file" value="<?php $image ?>"> <br>
+              <a  href="../incident/updateReport?image=true&lang=<?php echo $_GET['lang'] ?>&&reportNo=<?php echo $_GET['reportNo'] ?>&page=<?php echo $_GET['page'] ?>&type=<?php echo $_GET['type'] ?>" style="color: black;" >Show image</a>
+             </td>
             </tr>
             <tr class="header-table" style="text-align: left;">
               <th>Track The location </th>

@@ -1,8 +1,8 @@
 <?php
 
-require "././includes/PHPMailer.php";
-require "././includes/SMTP.php";
-require "././includes/Exception.php";
+// require "././includes/PHPMailer.php";
+// require "././includes/SMTP.php";
+// require "././includes/Exception.php";
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
@@ -33,9 +33,10 @@ class user extends Controller
     //If user logged in before and not log out then can redirect to pages without provide passwrd
     if (!empty($_SESSION["NIC"])) {
       $jobType = $_SESSION["jobtype"];
-       if (isset($_GET["lang"])) {
-            //give user pages based on the selected language
+      if (isset($_GET["lang"])) {
+        //give user pages based on the selected language
 
+<<<<<<< HEAD
             if ($_GET["lang"] == "1") {
               switch ($jobType) {
                
@@ -49,11 +50,25 @@ class user extends Controller
                   $this->view->data = $this->model->selectData($_POST["username"]);
                   //echo $this->data;  
                   // render the villager page  
+=======
+        if ($_GET["lang"] == "1") {
+          switch ($jobType) {
+>>>>>>> 0755967a098b6c3c332dd8dcbee75edff69a8950
 
-                  $this->view->render('villagersPage');
+            case "villager":
+              $registrationStatus = $this->model->selectRegStatus($_SESSION['NIC']);
+              foreach ($registrationStatus as $row) {
+                $regStatus  = $row['registrationStatus'];
+              }
+              if ($regStatus == 'accept') {
+                //get the data in Database  
+                $this->view->data = $this->model->selectData($_POST["username"]);
+                //echo $this->data;  
+                // render the villager page  
 
-                  $this->view->notification = $this->checkNotificationStatus($_SESSION['NIC']);
+                $this->view->render('villagersPage');
 
+<<<<<<< HEAD
                   $this->view->render('villagersPage');
                   if (isset($_POST['submitAlert'])) {
                     $this->model->setAlerStatus($_SESSION['NIC']); 
@@ -77,9 +92,22 @@ class user extends Controller
                   break;
                 case "veterinarian":
                   $this->view->render('veterinarian');
-              }
-            } elseif ($_GET["lang"] == "2") {
+=======
+                $this->view->notification = $this->checkNotificationStatus($_SESSION['NIC']);
 
+                $this->view->render('villagersPage');
+                if (isset($_POST['submitAlert'])) {
+                  $this->model->setAlerStatus($_SESSION['NIC']);
+                }
+              } else if ($regStatus == 'pending') {
+                $this->view->data = $this->model->selectData($_POST["username"]);
+                $this->view->render('villagersPagenotAcceptVillager');
+              } else {
+                header('Location: ../user/index');
+>>>>>>> 0755967a098b6c3c332dd8dcbee75edff69a8950
+              }
+
+<<<<<<< HEAD
               switch ($jobType) {
 
                 case "villager":
@@ -100,26 +128,77 @@ class user extends Controller
                   break;
                 case "veterinarian":
                   $this->view->render('veterinarianSinhala');
+=======
+              break;
+            case "Wildlife Officer":
+              // $this->view->notificationStatus = $this->checkNotificationStatus($_SESSION['NIC']);
+              $notification = $this->model->getwildlifeOfficerNotificationStatus($_SESSION['NIC']);
 
-
-
+              foreach ($notification  as $row) {
+                $notificationStatus =  $row['notificationStatus'];
               }
-            }
-            else{
+              $this->view->notificationStatus = $notificationStatus;
+              $this->view->render('wildlifeofficer');
+              break;
+            case "admin":
+              header("Location:../admin/dashboard");
+              break;
+            case "regional Officer":
+              header("Location:../regionalOfficer/dashboard");
+              break;
+            case "veterinarian":
+              $this->view->render('veterinarian');
+          }
+        } elseif ($_GET["lang"] == "2") {
+>>>>>>> 0755967a098b6c3c332dd8dcbee75edff69a8950
 
+          switch ($jobType) {
+
+            case "villager":
+              //get the data in Database  
+              $this->view->data = $this->model->selectData($_POST["username"]);
+              //echo $this->data;  
+              // render the villager page  
+              $this->view->render('villagersPagesinhala');
+              break;
+            case "Wildlife Officer":
+              $notification = $this->model->getwildlifeOfficerNotificationStatus($_SESSION['NIC']);
+
+              foreach ($notification  as $row) {
+                $notificationStatus =  $row['notificationStatus'];
+              }
+              $this->view->notificationStatus = $notificationStatus;
+              $this->view->render('wildlifeofficerSinhala');
+              break;
+            case "admin":
+              header("Location:../admin/dashboard");
+              break;
+            case "regional Officer":
+              header("Location:../regionalOfficer/dashboard");
+              break;
+            case "veterinarian":
+              $this->view->render('veterinarianSinhala');
+          }
+        } else {
+
+<<<<<<< HEAD
               switch ($jobType) {
+=======
+          switch ($jobType) {
+>>>>>>> 0755967a098b6c3c332dd8dcbee75edff69a8950
 
-                case "villager":
-                //get the data in Database  
+            case "villager":
+              //get the data in Database  
 
-                $this->view->data = $this->model->selectData($_POST["username"]);
+              $this->view->data = $this->model->selectData($_POST["username"]);
 
-                $this->view->status = $this->checkAlerStatus($_SESSION['NIC']);
-               // echo "aa".$this->checkNotificationStatus($_SESSION['NIC']);
-               $this->view->notification = $this->checkNotificationStatus($_SESSION['NIC']);
+              $this->view->status = $this->checkAlerStatus($_SESSION['NIC']);
+              // echo "aa".$this->checkNotificationStatus($_SESSION['NIC']);
+              $this->view->notification = $this->checkNotificationStatus($_SESSION['NIC']);
 
-                 $this->view->data = $this->model->selectData($_POST["username"]);
+              $this->view->data = $this->model->selectData($_POST["username"]);
 
+<<<<<<< HEAD
                 //echo $this->data;  
                 // render the villager page  
                 $this->view->render('villagersPagetamil');
@@ -138,40 +217,69 @@ class user extends Controller
                 $this->view->render('veterinarianTamil');
                 break;
                 
+=======
+              //echo $this->data;  
+              // render the villager page  
+              $this->view->render('villagersPagetamil');
+              break;
+            case "Wildlife Officer":
+              $notification = $this->model->getwildlifeOfficerNotificationStatus($_SESSION['NIC']);
+
+              foreach ($notification  as $row) {
+                $notificationStatus =  $row['notificationStatus'];
+>>>>>>> 0755967a098b6c3c332dd8dcbee75edff69a8950
               }
-              
+              $this->view->notificationStatus = $notificationStatus;
+              $this->view->render('wildlifeofficerTamil');
+              break;
+            case "admin":
+              header("Location:../admin/dashboard");
+              break;
+            case "regional Officer":
+              header("Location:../regionalOfficer/dashboard");
+              break;
 
-            }
+            case "veterinarian":
+              $this->view->render('veterinarianTamil');
+              break;
           }
-           else {
+        }
+      } else {
 
-            //if not selected language then gives defulat language pages
+        //if not selected language then gives defulat language pages
 
+<<<<<<< HEAD
             switch ($jobType) {
+=======
+        switch ($jobType) {
+>>>>>>> 0755967a098b6c3c332dd8dcbee75edff69a8950
 
-              case "villager":
-                  //get the data in Database  
-                  $this->view->data = $this->model->selectData($_POST["username"]);
-                  //echo $this->data;  
-                  // render the villager page  
-                  $this->view->render('villagersPage');
-                  break;
-                case "Wildlife Officer":
-                  $this->view->render('wildlifeofficer');
-                  break;
-                case "admin":
-                  header("Location:../admin/dashboard");
-                  break;
-                case "regional Officer":
-                  header("Location:../regionalOfficer/dashboard");
-                  break;
-                case "veterinarian":
-                  $this->view->render('veterinarian');
+          case "villager":
+            //get the data in Database  
+            $this->view->data = $this->model->selectData($_POST["username"]);
+            //echo $this->data;  
+            // render the villager page  
+            $this->view->render('villagersPage');
+            break;
+          case "Wildlife Officer":
+            $notification = $this->model->getwildlifeOfficerNotificationStatus($_SESSION['NIC']);
 
-              
+            foreach ($notification  as $row) {
+              $notificationStatus =  $row['notificationStatus'];
             }
-          }
-      
+            $this->view->notificationStatus = $notificationStatus;
+            $this->view->render('wildlifeofficer');
+            break;
+          case "admin":
+            header("Location:../admin/dashboard");
+            break;
+          case "regional Officer":
+            header("Location:../regionalOfficer/dashboard");
+            break;
+          case "veterinarian":
+            $this->view->render('veterinarian');
+        }
+      }
     }
 
 
@@ -194,7 +302,11 @@ class user extends Controller
 
 
 
+<<<<<<< HEAD
 public function login()
+=======
+  public function login()
+>>>>>>> 0755967a098b6c3c332dd8dcbee75edff69a8950
   {
 
 
@@ -237,6 +349,7 @@ public function login()
                   $registrationStatus = $this->model->selectRegStatus($_SESSION['NIC']);
                   foreach($registrationStatus as $row) {
                     $regStatus  = $row['registrationStatus'];
+<<<<<<< HEAD
                 }  
                   if($regStatus=='accept'){ 
                   //get the data in Database  
@@ -258,9 +371,43 @@ public function login()
                  }else{
                      header('Location: ../user/index');
                  }
+=======
+                  }
+                  if ($regStatus == 'accept') {
+                    //get the data in Database  
+                    $this->view->data = $this->model->selectData($_POST["username"]);
+                    //echo $this->data;  
+                    // render the villager page  
+
+                    $this->view->render('villagersPage');
+                    $notification = $this->model->checkNotificationStatus($_SESSION['NIC']);
+
+                    foreach ($notification  as $row) {
+                      $notificationStatus =  $row['notificationStatus'];
+                    }
+                    $this->view->notificationStatus = $notificationStatus;
+                    $this->view->render('villagersPage');
+                    if (isset($_POST['submitAlert'])) {
+                      $this->model->setAlerStatus($_SESSION['NIC']);
+                    }
+                  } else if ($regStatus == 'pending') {
+                    $this->view->data = $this->model->selectData($_POST["username"]);
+                    $this->view->render('villagersPagenotAcceptVillager');
+                  } else {
+                    header('Location: ../user/index');
+                  }
+>>>>>>> 0755967a098b6c3c332dd8dcbee75edff69a8950
 
                   break;
                 case "Wildlife Officer":
+                  $notification = $this->model->getwildlifeOfficerNotificationStatus($_SESSION['NIC']);
+
+                  foreach ($notification  as $row) {
+                    $notificationStatus =  $row['notificationStatus'];
+                  }
+                  $this->view->notificationStatus = $notificationStatus;
+
+                  //   $this->view->notificationStatus = $this->model->getwildlifeOfficerNotificationStatus($_SESSION['NIC']);
                   $this->view->render('wildlifeofficer');
                   break;
                 case "admin":
@@ -271,6 +418,7 @@ public function login()
                   break;
                 case "veterinarian":
                   $this->view->render('veterinarian');
+<<<<<<< HEAD
               }
             } elseif ($_GET["lang"] == "2") {
 
@@ -295,16 +443,97 @@ public function login()
                    case "veterinarian": $this->view->render('veterinarianSinhala');
                    break;
 
-
-
+=======
               }
-            }
-            else{
+            } elseif ($_GET["lang"] == "2") {
 
               switch ($loginUser["jobtype"]) {
 
                 case "villager":
+                  //get the data in Database  
+                  $this->view->data = $this->model->selectData($_POST["username"]);
+                  //echo $this->data;  
+                  // render the villager page  
+                  $this->view->render('villagersPagesinhala');
+                  break;
+                case "Wildlife Officer":
+                case "Wildlife Officer":
+                  $notification = $this->model->getwildlifeOfficerNotificationStatus($_SESSION['NIC']);
+
+                  foreach ($notification  as $row) {
+                    $notificationStatus =  $row['notificationStatus'];
+                  }
+                  $this->view->notificationStatus = $notificationStatus;
+                  $this->view->render('wildlifeofficerSinhala');
+                  break;
+                case "admin":
+                  header("Location:../admin/dashboard");
+                  break;
+                case "regional Officer":
+                  header("Location:../regionalOfficer/dashboard");
+                  break;
+                case "veterinarian":
+                  $this->view->render('veterinarianSinhala');
+                  break;
+              }
+            } else {
+
+              switch ($loginUser["jobtype"]) {
+
+                case "villager":
+                  //get the data in Database  
+
+                  $this->view->data = $this->model->selectData($_POST["username"]);
+
+                  $this->view->status = $this->checkAlerStatus($_SESSION['NIC']);
+                  // echo "aa".$this->checkNotificationStatus($_SESSION['NIC']);
+                  $this->view->notification = $this->checkNotificationStatus($_SESSION['NIC']);
+
+                  $this->view->data = $this->model->selectData($_POST["username"]);
+
+                  //echo $this->data;  
+                  // render the villager page  
+                  $this->view->render('villagersPagetamil');
+                  break;
+
+                case "Wildlife Officer":
+                  $notification = $this->model->getwildlifeOfficerNotificationStatus($_SESSION['NIC']);
+>>>>>>> 0755967a098b6c3c332dd8dcbee75edff69a8950
+
+                  foreach ($notification  as $row) {
+                    $notificationStatus =  $row['notificationStatus'];
+                  }
+                  $this->view->notificationStatus = $notificationStatus;
+                  $this->view->render('wildlifeofficerTamil');
+                  break;
+                case "admin":
+                  header("Location:../admin/dashboard");
+                  break;
+                case "regional Officer":
+                  header("Location:../regionalOfficer/dashboard");
+                  break;
+
+<<<<<<< HEAD
+=======
+                case "veterinarian":
+                  $this->view->render('veterinarianTamil');
+                  break;
+>>>>>>> 0755967a098b6c3c332dd8dcbee75edff69a8950
+              }
+            }
+            else{
+
+<<<<<<< HEAD
+              switch ($loginUser["jobtype"]) {
+=======
+            //if not selected language then gives defulat language pages
+
+            switch ($loginUser["jobtype"]) {
+>>>>>>> 0755967a098b6c3c332dd8dcbee75edff69a8950
+
+                case "villager":
                 //get the data in Database  
+<<<<<<< HEAD
 
                 $this->view->data = $this->model->selectData($_POST["username"]);
 
@@ -314,18 +543,33 @@ public function login()
 
                  $this->view->data = $this->model->selectData($_POST["username"]);
 
+=======
+                $this->view->data = $this->model->selectData($_POST["username"]);
+>>>>>>> 0755967a098b6c3c332dd8dcbee75edff69a8950
                 //echo $this->data;  
                 // render the villager page  
-                $this->view->render('villagersPagetamil');
+                $this->view->render('villagersPage');
                 break;
               case "Wildlife Officer":
+<<<<<<< HEAD
                 $this->view->render('wildlifeofficerTamil');
+=======
+              case "Wildlife Officer":
+                $notification = $this->model->getwildlifeOfficerNotificationStatus($_SESSION['NIC']);
+
+                foreach ($notification  as $row) {
+                  $notificationStatus =  $row['notificationStatus'];
+                }
+                $this->view->notificationStatus = $notificationStatus;
+                $this->view->render('wildlifeofficer');
+>>>>>>> 0755967a098b6c3c332dd8dcbee75edff69a8950
                 break;
               case "admin":
                 header("Location:../admin/dashboard");
                 break;
               case "regional Officer":
                 header("Location:../regionalOfficer/dashboard");
+<<<<<<< HEAD
                   break;
 
               case "veterinarian":
@@ -363,6 +607,12 @@ public function login()
 
               
             }
+=======
+                break;
+              case "veterinarian":
+                $this->view->render('veterinarian');
+            }
+>>>>>>> 0755967a098b6c3c332dd8dcbee75edff69a8950
           }
         } else {
           //if there is a error then not redirect
@@ -375,7 +625,11 @@ public function login()
 
 
 
+<<<<<<< HEAD
  
+=======
+
+>>>>>>> 0755967a098b6c3c332dd8dcbee75edff69a8950
 
 
 
@@ -411,6 +665,15 @@ public function login()
     }
     return $status;
   }
+  //notification function for wildlifeofficer
+  public function checkwildlifeOfficerNotification($NIC)
+  {
+    $statusReview  = $this->model->getwildlifeOfficerNotificationStatus($NIC);
+    foreach ($statusReview as $row) {
+      $notificationStatus = $row['status'];
+    }
+    return $notificationStatus;
+  }
   public function checkNotificationStatus($NIC)
   {
 
@@ -429,7 +692,7 @@ public function login()
     }
     if (isset($_GET['send'])) {
       //assign the value
-      $this->model->selectData($_userNic);
+      $this->model->selectData($_SESSION['NIC']);
     }
     $this->view->status = $this->checkAlerStatus($_SESSION['NIC']);
     $this->view->notification = $this->checkNotificationStatus($_SESSION['NIC']);
@@ -466,12 +729,11 @@ public function login()
                 $this->model->emergencyReport($_SESSION['NIC'], '', '', '', '', $_POST['latitude'], $_POST['longitude']);
                 foreach ($getGNDVillagersEmails as $row) {
                   $emails = $row['email'];
-                //  $this->sendEmail($emails, "Emergency Incident Report", "Please go to Safe place in Your are arrival Wild Elephant ");
-                 // $this->sendEmail($email, "Emergency Incident Report Sumbit Sucessful", "Wildlife Officer Accept Your incident Report Soon has Possible and Please go to Safe place wil");
-                
+                  //  $this->sendEmail($emails, "Emergency Incident Report", "Please go to Safe place in Your are arrival Wild Elephant ");
+                  // $this->sendEmail($email, "Emergency Incident Report Sumbit Sucessful", "Wildlife Officer Accept Your incident Report Soon has Possible and Please go to Safe place wil");
+
                 }
                 $this->sendEmail($email, "Emergency Incident Report Sumbit Sucessful", "Wildlife Officer Accept Your incident Report Soon has Possible and Please go to Safe place wil");
-               
               }
             } else if ($regStatus == 'pending') {
               $this->view->data = $this->model->selectData($_SESSION['NIC']);
@@ -503,17 +765,17 @@ public function login()
             $this->view->data = $this->model->selectData($_userNic);
 
             $this->view->render('villagersPagesinhala');
-       
-        break;
-        case 'gramaniladari':
-          // session_start();
-          $_userNic = $_SESSION["NIC"];
-          $this->view->data = $this->model->selectData($_userNic);
-          $this->view->notification = $this->checkNotificationStatus($_SESSION['NIC']);
-          $this->view->status = $this->checkAlerStatus($_SESSION['NIC']);
 
-          $this->view->render('gramaniladariSinhala');
-          break;
+            break;
+          case 'gramaniladari':
+            // session_start();
+            $_userNic = $_SESSION["NIC"];
+            $this->view->data = $this->model->selectData($_userNic);
+            $this->view->notification = $this->checkNotificationStatus($_SESSION['NIC']);
+            $this->view->status = $this->checkAlerStatus($_SESSION['NIC']);
+
+            $this->view->render('gramaniladariSinhala');
+            break;
         }
       case 3:
         switch ($_SESSION["jobtype"]) {

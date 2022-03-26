@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Public/css/wildlifeofficerHeader.css">
     <link rel="stylesheet" href="../Public/css/veterinarianEditProfile.css">
+    <link rel="stylesheet" href="../Public/css/wildlifeofficerEditProfile.css">
     <script src="../Public/javascript/login.js"></script>
     <script src="../Public/javascript/wildlifeofficer.js"></script>
     <script src="../Public/javascript/admin.js"></script>
@@ -25,11 +26,11 @@
             </div>
 
             <ul>
-                <li id="home"><a href="../?lang=3">முகப்பு பக்கம்</a></li>
-                <li id="userPageSinhala"><a href="../veterinarian/?lang=3"> &nbsp;பயனர் பக்கம் </a></li>
+                <li id="homeTamil"><a href="../?lang=3">முகப்பு பக்கம்</a></li>
+                <li id="userPageTamil"><a href="../veterinarian/?lang=3"> &nbsp;பயனர் பக்கம் </a></li>
                 <li id="incidentsTamil"><a href="../veterinarian/viewIncidents?lang=3"> &emsp; சம்பவங்கள்</a></li>
-                <li id="notifications"><a href="../veterinarian/viewNotification?lang=3">அறிவிப்புகள்</a></li>
-                <li id="dashboard"><a href="../veterinarian/viewDashboard?lang=3">தரவு பலகை</a></li>
+                <li id="notificationsTamil"><a href="../veterinarian/viewNotification?lang=3">அறிவிப்புகள்</a></li>
+                <li id="dashboardTamil"><a href="../veterinarian/viewDashboard?lang=3">தரவு பலகை</a></li>
                 <li>
                     <div class="dropdown-1" style="  padding-left:  300px ">
                         <button class="dropbtn-1">மொழி</button>
@@ -44,97 +45,84 @@
                     <span class="dot"> <img onclick="myFunction_2(this)" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
                     <div id="myDropdown" class="dropdown-content">
                         <a href="../veterinarian/viewProfile?lang=3">பயனர் சுயவிவரம்</a>
-                        <a href="../user/index?lang=3">வெளியேறு</a>
+                        <a href="../user/logout?lang=3">வெளியேறு</a>
                     </div>
                 </li>
             </ul>
         </nav>
 
     </header>
-    <!-- <div class="nav_edit">
-      <div class="links_to_pages">
-        <ul>
-          <li>BACK</li>
-          <li>SPECIAL NOTICES</li>
-          <li>DASHBOARD</li>
-        </ul>
-      </div>
-    </div> -->
 
     <body>
+
+
+        <div id="note">
+            <b> </b>
+        </div>
+        <div id="message" style="display: none;">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+            <h id="errorMessage"></h>
+        </div>
+
         <div class="contanier_2">
+
+
             <div>
+
                 <?php if (isset($data[0]['message'])) {
-                    echo $data[0]['message'];
                 }
 
                 ?>
             </div>
+
             <div class="contanier_2-1">
+
+
+
                 <div class="view_profile">
-                    <h3><a href="../veterinarian/viewProfile?lang=3">சுயவிவரம்</a></h3>
+                    <h3><a href="../veterinarian/viewProfile?lang=3">பயனர் சுயவிவரம்</a></h3>
                 </div>
                 <div class="edit_profile">
                     <h3><a href="#">சுயவிவரத்தைத் திருத்து</a></h3>
                 </div>
             </div>
-            <form method="POST" action="../veterinarian/updateProfile?lang=3">
 
-                <div class="row">
+
+            <form action="../veterinarian/updateProfile?lang=3" method="POST" id="req_form">
+
+                <div class="row firstName">
                     <div class="col_1">முதல் பெயர்</div>
                     <div class="col_2"><input type="text" class="text" id="fname" name="fname" required value="<?php echo $data[0]["Fname"] ?>" /><img src="../Public/images/edit.png" class="edit_icon"></div>
+
                 </div>
-                <div class="row">
+                <div class="row lastName">
                     <div class="col_1">கடைசி பெயர்</div>
                     <div class="col_2"><input type="text" class="text" id="lname" name="lname" required value="<?php echo $data[0]["Lname"] ?>" /><img src="../Public/images/edit.png" class="edit_icon"></div>
                 </div>
-                <!-- <div class="row">
-        <div class="col_1">NIC</div>
-        <div class="col_2">99v</div>
-      </div> -->
-                <!-- <div class="row">
-        <div class="col_1">Gender</div>
-        <div class="col_2">
-            <input type="radio" id="male" name="gender" value="Male" required <?php
-                                                                                if ($data[0]['gender'] == 'M') { ?>
-             checked
-           <?php } ?> 
-            />
-            <label for="male">Male</label>
-            <input type="radio" id="female" name="gender" value="Female"  
-            <?php
-            if ($data[0]['gender'] == 'F') { ?>
-             checked
-           <?php } ?> 
-             />
-            <label for="female">Female</label></div>
-      </div> -->
-                <div class="row">
-                    <div class="col_1">பிறந்த தேதி</div>
-                    <div class="col_2">
-                        <input class="text" type="date" id="dob" name="dob" required value="<?php echo $data[0]['BOD'] ?>" />
-                    </div>
+
+                <div class="row birthday">
+
                 </div>
-                <div class="row">
+                <div class="row address">
                     <div class="col_1">வீட்டு முகவரி</div>
                     <div class="col_2"><textarea class="text" id="address" name="address" rows="2" required><?php echo $data[0]["Address"]  ?>
-        </textarea><img src="../Public/images/edit.png" class="edit_icon"></div>
+</textarea><img src="../Public/images/edit.png" class="edit_icon"></div>
                 </div>
-                <div class="row">
+                <div class="row mobNum">
                     <div class="col_1">தொலைபேசி எண்</div>
                     <div class="col_2">
                         <input class="text" type="text" id="mobileNo" name="mobileNo" value="<?php echo $data[0]["mobileNo"] ?>" required />
                         <img src="../Public/images/edit.png" class="edit_icon">
                     </div>
                 </div>
-                <div class="row">
+                <div class="row email">
                     <div class="col_1">மின்னஞ்சல்</div>
                     <div class="col_2">
                         <input class="text" type="email" id="email" name="email" value="<?php echo $data[0]['email'] ?>" />
                         <img src="../Public/images/edit.png" class="edit_icon">
                     </div>
                 </div>
-                <div class="row">
+                <div class="row address1">
                     <div class="col_1">அலுவலக முகவரி</div>
                     <div class="col_2"><input class="text" type="text" id="off_add" name="office_address" value="<?php echo $data[1]['address'] ?>" required /><img src="../Public/images/edit.png" class="edit_icon"></div>
                 </div>
@@ -147,7 +135,7 @@
 
                     <div class="save_button">
 
-                        <input name="save" type="submit" onclick="" value="SAVE" />
+                        <input name="save" type="submit" onclick="return submitRequestForm()" value="SAVE" />
                     </div>
 
 
@@ -159,8 +147,11 @@
 
             </form>
 
+
+
+
         </div>
-        </div>
+        <script src="../Public/javascript/updateUser.js"></script>
     </body>
 
 </html>

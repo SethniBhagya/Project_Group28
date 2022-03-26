@@ -125,8 +125,26 @@ class gramaniladari_model extends Model
    function updateStatusUnSucessfulRegister($villager_NIC){
     $this->db->runQuery("UPDATE `villager_registration` SET  villager_registration.registrationStatus ='notaccept'  WHERE  villager_registration.Villager_NIC = '$villager_NIC' "); 
     }
+    public function getVillger($gramanildhariId,$villagerNic){
+        return $this->db->runQuery("SELECT * FROM user INNER JOIN  lives ON user.NIC= lives.Villager_NIC INNER JOIN `villager_registration` ON  lives.Villager_NIC=villager_registration.Villager_NIC  WHERE lives.gramaniladhari_NIC='$gramanildhariId' and lives.Villager_NIC='$villagerNic' ");
+   }
     public function getAlerStatus($NIC){
-        return $this->db->runQuery("SELECT `statust` FROM `alert` WHERE NIC= '$NIC'");
+        return $this->db->runQuery("SELECT `alertstatus` FROM `alert` WHERE NIC= '$NIC'");
     }
+    public function getNotificationStatus($NIC){
+        return $this->db->runQuery("SELECT COUNT(*) AS numberofnotification FROM `notification` WHERE NIC= '$NIC' and`status`='notview'");
+    }
+    public function getNotification($NIC){
+        return $this->db->runQuery("SELECT * FROM `notification` WHERE NIC= '$NIC' ORDER BY `no` DESC  LIMIT 10");
+    }
+    public function setNotificationStatus($NIC){
+        $getnumbers = $this->db->runQuery("SELECT `no` AS numbers FROM `notification` WHERE NIC= '$NIC'");
+        foreach  ($getnumbers AS $row){
+             $number = $row['numbers'];
+             $this->db->runQuery("UPDATE `notification` SET  `status`='view'  WHERE `no`= $number ");
 
+        }
+ 
+        
+    } 
  }

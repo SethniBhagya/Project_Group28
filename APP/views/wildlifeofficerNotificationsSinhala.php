@@ -18,7 +18,7 @@ if (isset($_SESSION['jobtype'])) {
     <link rel="stylesheet" href="../Public/css/wildlifeofficerHeader.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Public/css/wildlifeofficerNotifications.css">
-
+    <link rel="stylesheet" href="../Public/css/notification.css" type="text/css">
     <script src="../Public/Javascript/login.js"></script>
     <script src="../Public/javascript/admin.js"></script>
     <title>Notifications</title>
@@ -35,11 +35,11 @@ if (isset($_SESSION['jobtype'])) {
             </div>
 
             <ul>
-                <li id="home"><a href="../?lang=2">මුල් පිටුව</a></li>
+                <li id="homeSinhala"><a href="../?lang=2">මුල් පිටුව</a></li>
                 <li id="userPageSinhala"><a href="../wildlifeofficer/?lang=2"> &nbsp; පරිශීලක පිටුව </a></li>
-                <li id="incidentsSinhala"><a href="../wildlifeofficer/viewIncidents?lang=2"> &emsp; වාර්තා වූ සිදුවීම්</a></li>
-                <li id="notifications"><a href="../wildlifeofficer/viewNotification?lang=2">දැනුම්දීම්</a></li>
-                <li id="dashboard"><a href="../wildlifeofficer/viewDashboard?lang=2">දත්ත පුවරුව</a></li>
+                <li id="incidentsSinhala"><a href="../wildlifeofficer/viewIncidents?lang=2"> &emsp;වාර්තා වූ සිදුවීම්</a></li>
+                <li id="notificationsSinhala"><a href="../wildlifeofficer/viewNotification?lang=2">දැනුම්දීම්</a></li>
+                <li id="dashboardSinhala"><a href="../wildlifeofficer/viewDashboard?lang=2">දත්ත පුවරුව</a></li>
                 <li>
                     <div class="dropdown-1" style="  padding-left:  300px ">
                         <button class="dropbtn-1">භාෂාව</button>
@@ -60,8 +60,24 @@ if (isset($_SESSION['jobtype'])) {
             </ul>
         </nav>
     </header>
+
+    <?php
+    if ($this->notificationStatus == "notView") {
+    ?>
+        <div id="notificationmessage">
+
+
+            <form action="../wildlifeofficer/viewIncidents?lang=<?php echo $_GET['lang'] ?>&check=true" method="post" style="display: inline-block;">
+                <img src="../Public/images/bell1.png" id="bell">&nbsp&nbsp
+                <h3>ඔබට වාර්තාවූ නව සිදුවීමක් ඇත &nbsp&nbsp&nbsp&nbsp
+                    <input type="submit" value="View" name="submitAlert" id="submit">
+                </h3>
+            </form>
+        </div>
+    <?php  }
+    ?>
     <div class="container-1">
-        <h1>Notifications</h1>
+        <h1>දැනුම්දීම්</h1>
         <?php foreach ($data as $row) {
             echo "<div class='container-2'><h2>"
                 . $row['district'] . "-" . $row['gn_division'] . "-" . $row['village'] .
@@ -75,6 +91,9 @@ if (isset($_SESSION['jobtype'])) {
             </div>
                 </div>";
         } ?>
+        <div class="container-3">
+            <a href="../wildlifeofficer/viewNotificationAll?lang=2">සියල්ල බලන්න</a>
+        </div>
     </div>
 </body>
 

@@ -36,11 +36,12 @@
                 <div class="dropdown-1">
                     <button class="dropbtn-1">Language</button>
                     <div class="dropdown-content-1">
-                        <a href="?lang=1&report=1">English</a>
-                        <a href="?lang=2&report=1">සිංහල</a>
-                        <a href="?lang=3&report=1">தமிழ்</a>
+                        <a href="?lang=1&report=2">English</a>
+                        <a href="?lang=2&report=2">සිංහල</a>
+                        <a href="?lang=3&report=2">தமிழ்</a>
                     </div>
                 </div>
+                </li>
                 <li class="dropdown">
                     <span class="dot"> <img onclick="myFunction_2(this)" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
                     <div id="myDropdown" class="dropdown-content">
@@ -182,10 +183,11 @@
             <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
             <h id="errorMessage"></h>
         </div>
-        <form class="form-report" action="" method="post">
+        <form class="form-report" action="" method="post"  >
             <div class="form-rp">
                 <label for="numberOfelephants"><b>How many Elephants : </b></label>
                 <input type="number" name="noOfelephant" id="number"> <br><br>
+                <h id="errorMessage1"></h>
                 <lable for="place"><b>Name of the Place :<b></lable>
                 <input type="text" name="place" id="place" class="text"><br><br>
                 <label for="status"><b>Emergency Report :</b></label>

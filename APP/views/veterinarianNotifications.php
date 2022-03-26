@@ -12,7 +12,7 @@
     <script src="../Public/javascript/admin.js"></script>
     <script src="../Public/Javascript/login.js"></script>
 
-    <title>Notifications</title>
+    <title>Notice</title>
 </head>
 
 <body>
@@ -29,7 +29,7 @@
                 <li id="home"><a href="../">HOME</a></li>
                 <li id="userPage"><a href="../veterinarian/?lang=1">USER PAGE</a></li>
                 <li id="incidents"><a href="../veterinarian/viewIncidents?lang=1">INCIDENTS</a></li>
-                <li id="notifications"><a href="../veterinarian/viewNotification?lang=1">NOTIFICATIONS</a></li>
+                <li id="notifications"><a href="../veterinarian/viewNotification?lang=1">NOTICE</a></li>
                 <li id="dashboard"><a href="../veterinarian/viewDashboard?lang=1">DASHBOARD</a></li>
                 <li>
                     <div class="dropdown-1" style="  padding-left:  300px ">
@@ -44,15 +44,15 @@
                 <li class="dropdown">
                     <span class="dot"> <img onclick="myFunction_3()" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
                     <div id="myDropdown" class="dropdown-content">
-                        <a href="">View Profile</a>
-                        <a href="">Logout</a>
+                        <a href="../veterinarian/viewProfile?lang=1">View Profile</a>
+                        <a href="../user/logout?lang=1">Logout</a>
                     </div>
                 </li>
             </ul>
         </nav>
     </header>
     <div class="container-1">
-        <h1>Notifications</h1>
+        <h1>Notice</h1>
         <?php foreach ($data as $row) {
             echo "<div class='container-2'><h2>"
                 . $row['district'] . "-" . $row['gn_division'] . "-" . $row['village'] .
@@ -66,6 +66,9 @@
             </div>
                 </div>";
         } ?>
+        <div class="container-3">
+            <a href="../veterinarian/viewNotificationAll?lang=1">SEE ALL</a>
+        </div>
     </div>
 </body>
 

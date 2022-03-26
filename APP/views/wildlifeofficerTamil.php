@@ -21,6 +21,7 @@ if (isset($_SESSION['jobtype'])) {
     <script src="../Public/javascript/login.js"></script>
     <script src="../Public/javascript/admin.js"></script>
     <script src="../Public/javascript/wildlifeofficer.js"></script>
+    <link rel="stylesheet" href="../Public/css/notification.css">
     <title>WildlifeCare</title>
 </head>
 
@@ -60,6 +61,21 @@ if (isset($_SESSION['jobtype'])) {
             </ul>
         </nav>
     </header>
+    <?php
+    if ($this->notificationStatus == "notView") {
+    ?>
+        <div id="notificationmessage">
+
+
+
+            <form action="../wildlifeofficer/viewIncidents?lang=<?php echo $_GET['lang'] ?>&check=true" method="post" style="display: inline-block;">
+                <img src="../Public/images/bell1.png" id="right" style=" font-weight: 600%;  font-weight: 602;margin-left: 10%;  ">&nbsp
+                <h3>புதிதாக<br> அறிவிக்கப்பட்டசம்பவம் &nbsp&nbsp&nbsp&nbsp&nbsp
+                    <input type="submit" value="View" name="submitAlert" id="submit">
+                </h3>
+            </form>
+        </div> <?php  }
+                ?>
     <div class="name">
 
         <span class="dot2"><img src="../Public/images/user_icon.png" id="user-icon2"></span><b>
@@ -93,10 +109,7 @@ if (isset($_SESSION['jobtype'])) {
             </button>
         </a>
     </div>
-    <!-- <button class="View-Report">
-        <h2>View Reported Incidents</h2>
-    </button> -->
-    <!-- <div><img scr="../Public/images/Untitled-1-01.png"></div> -->
+
 
 </body>
 

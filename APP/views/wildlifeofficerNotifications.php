@@ -7,10 +7,8 @@ if (!isset($_SESSION['NIC'])) {
 if (isset($_SESSION['jobtype'])) {
     if ($_SESSION['jobtype'] == 'Wildlife Officer') {
     } else {
-        header("Location:http://localhost/WildlifeCare/user/mustLogout");
     }
 } else {
-    header("Location:http://localhost/WildlifeCare/user/mustLogout");
 }
 ?>
 
@@ -20,10 +18,11 @@ if (isset($_SESSION['jobtype'])) {
     <link rel="stylesheet" href="../Public/css/wildlifeofficerHeader.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Public/css/wildlifeofficerNotifications.css">
-
+    <script src="../Public/javascript/admin.js"></script>
     <script src="../Public/Javascript/login.js"></script>
+    <link rel="stylesheet" href="../Public/css/notification.css" type="text/css">
 
-    <title>Notifications</title>
+    <title>Notice</title>
 </head>
 
 <body>
@@ -40,7 +39,7 @@ if (isset($_SESSION['jobtype'])) {
                 <li id="home"><a href="../?lang=1">HOME</a></li>
                 <li id="userPage"><a href="../wildlifeofficer/?lang=1">USER PAGE</a></li>
                 <li id="incidents"><a href="../wildlifeofficer/viewIncidents?lang=1">INCIDENTS</a></li>
-                <li id="notifications"><a href="../wildlifeofficer/viewNotification?lang=1">NOTIFICATIONS</a></li>
+                <li id="notifications"><a href="../wildlifeofficer/viewNotification?lang=1">NOTICE</a></li>
                 <li id="dashboard"><a href="../wildlifeofficer/viewDashboard?lang=1">DASHBOARD</a></li>
                 <li>
                     <div class="dropdown-1" style="  padding-left:  300px ">
@@ -62,8 +61,24 @@ if (isset($_SESSION['jobtype'])) {
             </ul>
         </nav>
     </header>
+    <?php
+    if ($this->notificationStatus == "notView") {
+    ?>
+        <div id="notificationmessage">
+
+
+            <form action="../wildlifeofficer/viewIncidents?lang=<?php echo $_GET['lang'] ?>&check=true" method="post" style="display: inline-block;">
+                <img src="../Public/images/bell1.png" id="bell">&nbsp&nbsp
+                <h3>You have new reported incident &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    <input type="submit" value="View" name="submitAlert" id="submit">
+                </h3>
+            </form>
+        </div>
+    <?php  }
+    ?>
     <div class="container-1">
-        <h1>Notifications</h1>
+
+        <h1>Notice</h1>
         <?php foreach ($data as $row) {
             echo "<div class='container-2'><h2>"
                 . $row['district'] . "-" . $row['gn_division'] . "-" . $row['village'] .
@@ -77,6 +92,9 @@ if (isset($_SESSION['jobtype'])) {
             </div>
                 </div>";
         } ?>
+        <div class="container-3">
+            <a href="../wildlifeofficer/viewNotificationAll?lang=1">SEE ALL</a>
+        </div>
     </div>
 </body>
 

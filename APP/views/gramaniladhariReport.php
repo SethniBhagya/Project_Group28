@@ -12,6 +12,8 @@
     <script src="../Public/Javascript/login1.js"></script>
     <title>Report Page</title>
 </head>
+ 
+ 
 <body>
     <header id="main">
         <img src="../Public/images/icon.png" alt="icon" id="icon">
@@ -44,7 +46,8 @@
                 </li>
             </ul>
         </nav>
-    </header> <?php
+    </header> 
+    <?php
     if (isset($this->status) && isset($this->notification)) {
         if ($this->status  == "notview"&&$this->notification > 0) {
     ?>
@@ -58,17 +61,17 @@
                 </form>
             </div>
      
-        <div id="notificationmessage">
+            <div id="notificationmessage">
 
-            <!-- <img src="../Public/images/alertIcon.png" style="width:1000px;  height:100000px"><br> -->
-       
-                <form action="../villager/viewNotification?lang=1" method="post" style="display: inline-block;">
-                    <img src="../Public/images/bell1.png" id="right">&nbsp&nbsp
-                    <h3>You have New Notification (<?php echo $this->notification ?>) &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                        <input type="submit" value="View" name="submitAlert" id="submit">
-                    </h3>
-                </form>
-        </div>
+<!-- <img src="../Public/images/alertIcon.png" style="width:1000px;  height:100000px"><br> -->
+
+<form action="../gramaniladari/viewNotification?lang=1&notification=true" method="post" style="display: inline-block;">
+    <img src="../Public/images/bell1.png" id="bell">&nbsp&nbsp
+    <h3>You have New Notification (<?php echo $this->notification ?>) &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+        <input type="submit" value="View" name="submitAlert" id="submit">
+    </h3>
+</form>
+</div>
         <?php
 
 if (isset($_POST['Submit'])) {
@@ -120,17 +123,17 @@ if (isset($_POST['Submit'])) {
         
      elseif ($this->notification > 0) {  ?>
  
-        <div id="notificationmessage">
+ <div id="notificationmessage">
 
-            <!-- <img src="../Public/images/alertIcon.png" style="width:1000px;  height:100000px"><br> -->
+<!-- <img src="../Public/images/alertIcon.png" style="width:1000px;  height:100000px"><br> -->
 
-            <form action="?lang=1&report=1" method="post" style="display: inline-block;">
-                <img src="../Public/images/bell1.png" id="bell">&nbsp&nbsp
-                <h3>You have New Notification (<?php echo $this->notification ?>) &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                    <input type="submit" value="View" name="submitAlert" id="submit">
-                </h3>
-            </form>
-        </div>
+<form action="../gramaniladari/viewNotification?lang=1&notification=true" method="post" style="display: inline-block;">
+    <img src="../Public/images/bell1.png" id="bell">&nbsp&nbsp
+    <h3>You have New Notification (<?php echo $this->notification ?>) &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+        <input type="submit" value="View" name="submitAlert" id="submit">
+    </h3>
+</form>
+</div>
         <?php if (isset($_POST['Submit'])) {
 ?>
 

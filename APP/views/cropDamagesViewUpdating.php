@@ -8,7 +8,9 @@
     <link rel="stylesheet" href="../Public/css/cropDamagesView.css">
     <link rel="stylesheet" href="../Public/css/alert.css">
     <link rel="stylesheet" href="../Public/css/header.css">
-    <script src="../Public/Javascript/1.js"></script>
+    <link rel="stylesheet" href="../Public/css/popupNotification.css">
+   <link rel="stylesheet" href="../Public/css/notification.css">
+<script src="../Public/Javascript/1.js"></script>
     <title>Report Page</title>
 </head>
 

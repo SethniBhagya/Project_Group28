@@ -10,6 +10,8 @@
    <link rel="stylesheet" href="../Public/css/gramaniladari.css"> 
    <link rel="stylesheet" href="../Public/css/popupNotification.css">
    <link rel="stylesheet" href="../Public/css/notification.css">
+   <link rel="stylesheet" href="../Public/css/popupNotification.css">
+   <link rel="stylesheet" href="../Public/css/notification.css">
    <link rel="stylesheet" href="../Public/css/gramaniladari.css"> 
   <script src="../Public/Javascript/login1.js"></script>
   <title>Gramanildhari Page</title>

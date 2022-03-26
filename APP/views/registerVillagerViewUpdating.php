@@ -179,7 +179,12 @@
                         <div class="report">
                             <input type="submit" value="Send Message Email" name="Confirm"  >
                         </div>
-                        
+                        <div class="report">
+                            <input type="submit" value="Confirm" name="Confirm"  >
+                        </div>
+                        <div class="report">
+                            <input type="submit" value="UnConfirm" name="UnConfirm"  >
+                        </div>
                     </form>
 
                     <a id="back" href="../gramaniladari/viewVillager?status=accept&page=1&lang=1" style="color: white;">Back</a>

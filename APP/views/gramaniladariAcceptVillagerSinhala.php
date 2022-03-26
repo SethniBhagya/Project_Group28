@@ -8,7 +8,9 @@
    <link rel="stylesheet" href="../Public/css/header.css">
     <link rel="stylesheet" href="../Public/css/alert.css">
    <link rel="stylesheet" href="../Public/css/gramanildhariReportViewPag.css">
-   <script src="../Public/Javascript/login1.js"></script>
+   <link rel="stylesheet" href="../Public/css/popupNotification.css">
+   <link rel="stylesheet" href="../Public/css/notification.css">
+ <script src="../Public/Javascript/login1.js"></script>
    <script src="../Public/Javascript/viewReport.js"></script>
    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=myMap"></script>
    <title>මගේ සේවා ස්ථානය</title>

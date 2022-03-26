@@ -18,16 +18,66 @@ if (isset($_SESSION['jobtype'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Public/css/wildlifeofficerHeader.css">
     <link rel="stylesheet" href="../Public/css/wildlifeofficerDashboard.css">
+    <link rel="stylesheet" href="../Public/css/notification.css">
+
     <script src="../Public/Javascript/login.js"></script>
     <script src="../Public/javascript/admin.js"></script>
     <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <!-- <script src="../Javascript/dashboard.js"></script> -->
     <title>Dashboard</title>
+    <script>
+        function initMap() {
+            var locations = <?php
+                            $arr = [];
+                            foreach ($data['dataLocation'] as $row) {
+                                $arr[] = [$row['Place'], $row['lat'], $row['lon']];
+                            }
+
+                            echo json_encode($arr);
+                            ?>;
+
+
+
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 12,
+                center: new google.maps.LatLng(
+                    <?php if ($data['dataLocation'][0]) {
+                        echo $data['dataLocation'][0]['lat'];
+                    } else {
+                        echo  7.93965;
+                    } ?>, <?php if ($data['dataLocation'][0]) {
+                                echo $data['dataLocation'][0]['lon'];
+                            } else {
+                                echo  81.00274;
+                            } ?>),
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            });
+
+            var infowindow = new google.maps.InfoWindow();
+
+            var marker, i;
+
+            for (i = 0; i < locations.length; i++) {
+                marker = new google.maps.Marker({
+                    position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+                    map: map
+                });
+
+                google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                    return function() {
+                        infowindow.setContent(locations[i][0]);
+                        infowindow.open(map, marker);
+                    }
+                })(marker, i));
+            }
+        }
+    </script>
 </head>
 
 <body style="background-image: none; background-color: white;">
     <header id="main">
+
         <img src="../Public/images/icon.png" alt="icon" id="icon">
         <nav id="navbar" class="mybar">
             <div href="javascript:void(0);" class="icon" onclick="myFunction_1(this)">
@@ -38,11 +88,11 @@ if (isset($_SESSION['jobtype'])) {
 
             <ul>
 
-                <li id="home"><a href="../?lang=2">මුල් පිටුව</a></li>
+                <li id="homeSinhala"><a href="../?lang=2">මුල් පිටුව</a></li>
                 <li id="userPageSinhala"><a href="../wildlifeofficer/?lang=2"> &nbsp; පරිශීලක පිටුව </a></li>
                 <li id="incidentsSinhala"><a href="../wildlifeofficer/viewIncidents?lang=2"> &emsp; වාර්තා වූ සිදුවීම්</a></li>
-                <li id="notifications"><a href="../wildlifeofficer/viewNotification?lang=2">දැනුම්දීම්</a></li>
-                <li id="dashboard"><a href="../wildlifeofficer/viewDashboard?lang=2">දත්ත පුවරුව</a></li>
+                <li id="notificationsSinhala"><a href="../wildlifeofficer/viewNotification?lang=2">දැනුම්දීම්</a></li>
+                <li id="dashboardSinhala"><a href="../wildlifeofficer/viewDashboard?lang=2">දත්ත පුවරුව</a></li>
                 <li>
                     <div class="dropdown-1" style="  padding-left:  300px ">
                         <button class="dropbtn-1">භාෂාව</button>
@@ -63,37 +113,49 @@ if (isset($_SESSION['jobtype'])) {
             </ul>
         </nav>
     </header>
+    <?php
+    if ($this->notificationStatus == "notView") {
+    ?>
+        <div id="notificationmessage">
+
+
+
+            <form action="../wildlifeofficer/viewIncidents?lang=<?php echo $_GET['lang'] ?>&check=true" method="post" style="display: inline-block;">
+                <img src="../Public/images/bell1.png" id="right" style=" font-weight: 600%;  font-weight: 602;margin-left: 20%;  ">&nbsp&nbsp
+                <h3>ඔබට වාර්තා වූ නව සිදුවීමක් ඇත &nbsp&nbsp&nbsp&nbsp
+                    <input type="submit" value="View" name="submitAlert" id="submit">
+                </h3>
+            </form>
+        </div> <?php  }
+                ?>
     <div class="first">
         කාලය -මාස 3 යි<br>
+        <?php
 
-        අවසාන වෙනස් කිරීම 02/09/2021<br>
+
+        echo "අවසාන වෙනස් කිරීම - " . date("d/m/Y") ?><br>
 
     </div>
-    <!-- <div class="header-name">
-        <h>ලංකාවේ මුළු එකතුව </h>
-        <h style="float:right">අවසන් වරට වෙනස් කළේ 30/09/2021</h>
-    </div> -->
-    <!-- <div class="header-name"><h><pre  style="font-size: larger;font-style: normal; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Total in Sri Lanka                                                                                                                                                               LastModified 30/09/2021</pre></h> </div> -->
-
     <div class="main-update-col-1">
         <div class="last-week">
-            ගිය සතිය <div class="last-week-number">
-                <h1 data-target="10" class="count">0</h1>
+            ගිය සතිය<div class="last-week-number">
+                <h1 data-target="<?php echo $data['lastWeekData']  ?>" class="count"> <?php echo $data['lastWeekData']  ?></h1>
                 <p> සිදුවීම් </p>
             </div>
         </div>
         <div class="last-Month">
-            පසුගිය මාසය <div class="last-month-number">
-                <h1 data-target="10" class="count">0</h1>
-                <p> සිදුවීම්</p>
+            පසුගිය මාසය
+            <div class="last-month-number">
+                <h1 data-target="<?php echo $data['lastMonthData']; ?>" class="count"><?php echo $data['lastMonthData']; ?></h1>
+                <p> සිදුවීම් </p>
             </div>
         </div>
         <div class="last-hour">
             <p> පසුගිය</p>
             <h2>24 පැය</h2>
             <div class="last-hour-number">
-                <h1 data-target="10" class="count">0 </h1>
-                <p>සිදුවීම්</p>
+                <h1 data-target="<?php echo $data['last24HoursData'] ?>" class="count"><?php echo $data['last24HoursData']  ?> </h1>
+                <p> සිදුවීම් </p>
             </div>
             <h1></h1>
         </div>
@@ -105,13 +167,14 @@ if (isset($_SESSION['jobtype'])) {
                 <canvas id="myChartmain"></canvas>
                 <script>
                     let myChartmain = document.getElementById("myChartmain").getContext('2d');
+                    let dataMain = [<?php echo $data['lastMonthWildElephantArrival'] ?>, <?php echo $data['lastMonthWildAnimalArrival']  ?>, <?php echo $data['lastMonthElephantFence']  ?>, <?php echo $data['lastMonthcropDamages'] ?>, <?php echo $data['lastMonthOthers']  ?>];
                 </script>
                 <!-- <script src="../Javascript/dashboard.js"></script> -->
             </div>
         </div>
         <div class="detail">
-            කාලය -මාස 3 යි <br>
-            අවසාන වෙනස් කිරීම 02/09/2021
+            කාලය -මාස 1 යි <br>
+            අවසාන වෙනස් කිරීම<?php echo date("d/m/Y") ?>
         </div>
         <div class="date">
             <h2>අද</h2>
@@ -131,57 +194,53 @@ if (isset($_SESSION['jobtype'])) {
         <!-- <h>Today</h> -->
     </div>
     <div class="district-name">
-        <h2>පොළොන්නරුව දිස්ත්‍රික්කය</h2>
+        <h2>
+
+
+
+            <?php echo $data['district'][0]['address'] ?> District</h2>
     </div>
     <div class="district-report">
         <div class="users-1">
-            වනජීවී නිලධාරින් <h1 data-target="20" class="count">0</h1>
+            වනජීවී නිලධාරින් <h1 data-target="<?php echo $data['wildlifeOfficer'] ?>" class="count"><?php echo $data['wildlifeOfficer'] ?></h1>
         </div>
         <div class="users-2">
-            ග්‍රාමනිලදාරින් <h1 data-target="23" class="count">0</h1>
+            ග්‍රාමනිලදාරින්<h1 data-target="<?php echo $data['gramaNiladhari'] ?>" class="count"><?php
+                                                                                                    echo $data['gramaNiladhari'] ?></h1>
         </div>
         <div class="users-3">
-            පශු වෛද්යවරුන් <h1 data-target="10" class="count">0</h1>
+            පශු වෛද්යවරුන් <h1 data-target="<?php
+
+
+                                            echo $data['veterinarian'] ?>" class="count"><?php
+
+
+                                                                                            echo $data['veterinarian'] ?></h1>
         </div>
         <div class="users-4">
-            ගම්වාසීන් <h1 data-target="10" class="count">0</h1>
+            ගම්වාසීන්<h1 data-target="<?php echo $data['villager'] ?>" class="count"><?php echo $data['villager'] ?></h1>
         </div>
-        <!-- <div class="report-type">
-             <div for="" class="name">Wild Elephants Arrival <h1  data-target="90"  class="count">0</h1>  </div>  
-             <div for="" class="name">Wild Animals Arrival <h1  data-target="80"  class="count">0</h1> </div>  
-             <div for="" class="name">Elephants fence <h1  data-target="60"  class="count">0</h1>    </div> 
-             <div for="" class="name">Crop Damages <h1  data-target="30"  class="count">0</h1> </div> 
-             <div for="" class="name">Other  <h1  data-target="50"  class="count">0</h1></div><br>
-         </div>
-         <div class="user-type">
-             <div for="" class="name">Regional Wildlife Officer <h1  data-target="10"  class="count">0</h1></div> 
-             <div for="" class="name">Wildlife Officers <h1  data-target="30"  class="count">0</h1></div> 
-             <div for="" class="name">Gramaniladari <h1  data-target="50"  class="count">0</h1></div> 
-             <div for="" class="name">Vertinarian <h1  data-target="10"  class="count">0 </h1> </div> 
-             <div for=""class="name">Vilager <h1  data-target="160"  class="count">0</h1></div>
-         </div> -->
         <div class="report-1">
-            වන අලි පැමිණීම <h1 data-target="20" class="count">0</h1>
+            වන අලි පැමිණීම <h1 data-target="<?php echo $data['lastMonthWildElephantArrivalDistrict']  ?>" class="count"><?php echo $data['lastMonthWildElephantArrivalDistrict']  ?></h1>
         </div>
         <div class="report-2">
-            අලි වැට වාර්තාව <h1 data-target="20" class="count">0</h1>
+            වන සතුන්ගේ අනතුර <h1 data-target="<?php echo $data['lastMonthWildAnimalDangerDistrict'] ?>" class="count"><?php echo $data['lastMonthWildAnimalDangerDistrict'] ?></h1>
         </div>
         <div class="report-3">
-            වන සතුන් පැමිණීම <h1 data-target="20" class="count">0</h1>
+            වන සතුන් පැමිණීම <h1 data-target="<?php echo $data['villager'] ?>" class="count"><?php echo $data['lastMonthWildAnimalArrivalDistrict']  ?></h1>
         </div>
         <div class="report-4">
-            වගා හානි වාර්තාව <h1 data-target="20" class="count">0</h1>
+            වගා හානි වාර්තාව <h1 data-target="<?php echo $data['lastMonthcropDamagesDistrict']  ?>" class="count"><?php echo $data['lastMonthcropDamagesDistrict']  ?></h1>
         </div>
         <div class="report-5">
-            වනාන්තරයේ සිදු වන නීති විරෝධී දේ<h1 data-target="20" class="count">0</h1>
+            වනාන්තරයේ සිදු වන නීති විරෝධී දේ<h1 data-target="<?php echo $data['lastMonthIllegalThingDistrict']  ?>" class="count"><?php echo $data['lastMonthIllegalThingDistrict'] ?></h1>
         </div>
 
         <div class="report-6">
-            අලි වැට වාර්තාව බිඳවැටීම <h1 data-target="16" class="count">0</h1>
+            අලි වැට බිඳවැටීම<h1 data-target="<?php echo $data['lastMonthElephantFenceDistrict'] ?>" class="count"><?php echo $data['lastMonthElephantFenceDistrict']  ?></h1>
         </div>
         <div class="update-col">
-            පොළොන්නරුව දිස්ත්රික් සිදුවීම් වාර්තා ප්රතිශතය <h1 data-target="90" class="count">0 </h1>
-            <h2>%</h2>
+            <?php echo $data['districtName'] ?> District Incidents report Percentage<h1 data-target="<?php echo $data['districtIncidentPercentage'] . "%" ?> " class="count"><?php echo $data['districtIncidentPercentage'] . "%" ?></h1>
         </div>
     </div>
 
@@ -189,22 +248,22 @@ if (isset($_SESSION['jobtype'])) {
     <div class="main-update-col-3">
         <div class="last-week-1">
             ගිය සතිය <div class="last-week-number-1">
-                <h1 data-target="11" class="count">0</h1>
-                <p> incidents </p>
+                <h1 data-target="<?php echo $data['lastWeekData']  ?>" class="count"><?php echo $data['lastWeekData']  ?></h1>
+                <p> සිදුවීම් </p>
             </div>
         </div>
         <div class="last-Month-1">
             පසුගිය මාසය <div class="last-month-number-1">
-                <h1 data-target="20" class="count">0</h1>
-                <p> incidents</p>
+                <h1 data-target="<?php echo $data['lastMonthData'] ?>" class="count"><?php echo $data['lastMonthData'] ?></h1>
+                <p> සිදුවීම් </p>
             </div>
         </div>
         <div class="last-hour-1">
             <p> පසුගිය</p>
             <h2>24 පැය</h2>
             <div class="last-hour-number-1">
-                <h1 data-target="12" class="count">0</h1>
-                <p>Incidents</p>
+                <h1 data-target="<?php echo $data['last24HoursData'] ?>" class="count"><?php echo $data['last24HoursData'] ?></h1>
+                <p> සිදුවීම් </p>
             </div>
             <h1></h1>
         </div>
@@ -214,39 +273,33 @@ if (isset($_SESSION['jobtype'])) {
             සිදුවීම් වාර්තා කරන ප්‍රදේශ
         </div>
         <div class="map-area">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126452.02111388237!2d80.94313801331407!3d7.934107447297657!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3afb44ba3b16ce27%3A0xc34997a2b3032b7c!2sPolonnaruwa!5e0!3m2!1sen!2slk!4v1633098856489!5m2!1sen!2slk" width="100%" height="510" style="border:0; border-radius: 10px;" allowfullscreen="" loading="lazy"></iframe>
+            <div id="map" style="width: 100%; height:100%; border-radius: 5px;"></div>
+
         </div>
     </div>
     <div class="province-report">
         <div class="linechart">
-            <h3>පොළොන්නරුවේ සිදුවීම් වාර්තා කරන්න </h3>
-            <div class="mychart">
-                <canvas id="myChart"></canvas>
-                <script>
-                    let myChart1 = document.getElementById("myChart").getContext('2d');
-                </script>
-                <!-- <script src="../Javascript/dashboard.js"></script> -->
-            </div>
-        </div>
-        <div class="chart2">
-            <h3>සිදුවීම් පළාත වාර්තාව </h3>
-            <div class="mychart">
+            <h3>සිදුවීම් වාර්තා </h3>
+            <div class="mychart1">
                 <canvas id="myChart1"></canvas>
                 <script>
-                    let myChart2 = document.getElementById("myChart1").getContext('2d');
+                    let myChart1 = document.getElementById("myChart1").getContext('2d');
+                    let data1 = [<?php echo intval($data['lastMonthWildElephantArrivalDistrict']) ?>, <?php echo intval($data['lastMonthWildAnimalArrivalDistrict']) ?>, <?php echo intval($data['lastMonthElephantFenceDistrict']) ?>, <?php echo intval($data['lastMonthcropDamagesDistrict']) ?>, <?php echo intval($data['lastMonthIllegalThingDistrict']) ?>, <?php echo intval($data['lastMonthWildAnimalDangerDistrict']) ?>]
                 </script>
                 <!-- <script src="../Javascript/dashboard.js"></script> -->
             </div>
         </div>
+
     </div>
     </div>
     <div class="time-update">
         <h3>අවසන් පැය වාර්තාවේ යාවත්කාලීන </h3>
         <div class="chart3">
             <div class="mychart-1">
-                <canvas id="myChart2"></canvas>
+                <canvas id="myChart3"></canvas>
                 <script>
-                    let myChart3 = document.getElementById("myChart2").getContext('2d');
+                    let myChart3 = document.getElementById("myChart3").getContext('2d');
+                    let data3 = [<?php echo intval($data['Incident12AMCount']) ?>, <?php echo intval($data['Incident01AMCount']) ?>, <?php echo intval($data['Incident02AMCount']) ?>, <?php echo intval($data['Incident03AMCount']) ?>, <?php echo intval($data['Incident04AMCount']) ?>, <?php echo intval($data['Incident05AMCount']) ?>, <?php echo intval($data['Incident06AMCount']) ?>, <?php echo intval($data['Incident07AMCount']) ?>, <?php echo intval($data['Incident08AMCount']) ?>, <?php echo intval($data['Incident09AMCount']) ?>, <?php echo intval($data['Incident10AMCount']) ?>, <?php echo intval($data['Incident11AMCount']) ?>, <?php echo intval($data['Incident12PMCount']) ?>, <?php echo intval($data['Incident01PMCount']) ?>, <?php echo intval($data['Incident02PMCount']) ?>, <?php echo intval($data['Incident03PMCount']) ?>, <?php echo intval($data['Incident04PMCount']) ?>, <?php echo intval($data['Incident05PMCount']) ?>, <?php echo intval($data['Incident06PMCount']) ?>, <?php echo intval($data['Incident07PMCount']) ?>, <?php echo intval($data['Incident08PMCount']) ?>, <?php echo intval($data['Incident09PMCount']) ?>, <?php echo intval($data['Incident10PMCount']) ?>, <?php echo intval($data['Incident11PMCount']) ?>];
                 </script>
                 <!-- <script src="../Javascript/dashboard.js"></script> -->
 
@@ -257,12 +310,14 @@ if (isset($_SESSION['jobtype'])) {
         <h3>පසුගිය මාසයේ වාර්තාවේ යාවත්කාලීන</h3>
         <div class="chart4">
             <div class="mychart-1">
-                <canvas id="myChart3"></canvas>
+                <canvas id="myChart4"></canvas>
                 <script>
-                    let myChart4 = document.getElementById("myChart3").getContext('2d');
+                    let myChart4 = document.getElementById("myChart4").getContext('2d');
+
+                    let data4 = [<?php echo intval($data['IncidentJanCount']) ?>, <?php echo intval($data['IncidentFebCount']) ?>, <?php echo intval($data['IncidentMarchCount']) ?>, <?php echo intval($data['IncidentAprilCount']) ?>, <?php echo intval($data['IncidentMayCount']) ?>, <?php echo intval($data['IncidentJuneCount']) ?>, <?php echo intval($data['IncidentJulyCount']) ?>, <?php echo intval($data['IncidentAugCount']) ?>, <?php echo intval($data['IncidentSepCount']) ?>, <?php echo intval($data['IncidentOctCount']) ?>, <?php echo intval($data['IncidentNovCount']) ?>, <?php echo intval($data['IncidentDecCount']) ?>];
                 </script>
 
-                <script src="../Public/javascript/dashboardSinhala.js"></script>
+
 
             </div>
         </div>
@@ -273,6 +328,7 @@ if (isset($_SESSION['jobtype'])) {
     <div>
 
     </div>
+    <script src="../Public/javascript/wildlifeofficer_dashboard.js"></script>
     <script>
         const counters = document.querySelectorAll(".count");
         const speed = 10;
@@ -282,7 +338,7 @@ if (isset($_SESSION['jobtype'])) {
                 const target = parseInt(+counter.getAttribute("data-target"));
                 const count = parseInt(+counter.innerText);
                 const increment = Math.trunc(target / speed);
-                console.log(increment);
+
 
                 if (count < target) {
                     counter.innerText = count + increment;
@@ -294,6 +350,7 @@ if (isset($_SESSION['jobtype'])) {
             updateCount();
         });
     </script>
+    <script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyA6bqTtd9axLl6pZb3eeSkRgRfXVjW1zkQ&callback=initMap&v=weekly' async></script>
 </body>
 
 </html>

@@ -23,9 +23,10 @@ if (isset($_SESSION['jobtype'])) {
   <script src="../Public/Javascript/viewReport.js"></script>
   <script src="../Public/Javascript/wildlifeofficer.js"></script>
   <script src="../Public/javascript/admin.js"></script>
+  <link rel="stylesheet" href="../Public/css/notification.css" type="text/css">
 
 
-  <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=myMap"></script> -->
+  <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOVujYe2-BPc5b66VsL0xVVUKoZHkb5yo&callback=myMap"></script> -->
   <title>View Incident Details</title>
   <script>
     function mapLocation() {
@@ -35,7 +36,7 @@ if (isset($_SESSION['jobtype'])) {
 
       function initialize() {
         directionsDisplay = new google.maps.DirectionsRenderer();
-        var city = new google.maps.LatLng(<?php echo $data[0][$_GET['index']]['lat'] ?>, <?php echo $data[0][$_GET['index']]['lon'] ?>);
+        var city = new google.maps.LatLng(<?php echo $data[0][0]['lat'] ?>, <?php echo $data[0][0]['lon'] ?>);
         var mapOptions = {
           zoom: 15,
           center: city
@@ -58,7 +59,7 @@ if (isset($_SESSION['jobtype'])) {
 
         var start = new google.maps.LatLng(lattitude, lontitude);
         //var end = new google.maps.LatLng(38.334818, -181.884886);
-        var end = new google.maps.LatLng(<?php echo $data[0][$_GET['index']]['lat'] ?>, <?php echo $data[0][$_GET['index']]['lon'] ?>);
+        var end = new google.maps.LatLng(<?php echo $data[0][0]['lat'] ?>, <?php echo $data[0][0]['lon'] ?>);
 
         var startMarker = new google.maps.Marker({
           position: start,
@@ -145,7 +146,7 @@ if (isset($_SESSION['jobtype'])) {
         <li id="home"><a href="../?lang=1">HOME</a></li>
         <li id="userPage"><a href="../wildlifeofficer/?lang=1">USER PAGE</a></li>
         <li id="incidents"><a href="../wildlifeofficer/viewIncidents?lang=1">INCIDENTS</a></li>
-        <li id="notifications"><a href="../wildlifeofficer/viewNotification?lang=1">NOTIFICATIONS</a></li>
+        <li id="notifications"><a href="../wildlifeofficer/viewNotification?lang=1">NOTICE</a></li>
         <li id="dashboard"><a href="../wildlifeofficer/viewDashboard?lang=1">DASHBOARD</a></li>
         <li>
           <div class="dropdown-1" style="  padding-left:  300px ">
@@ -173,7 +174,21 @@ if (isset($_SESSION['jobtype'])) {
 
   </header>
 
+  <?php
+  if ($this->notificationStatus == "notView") {
+  ?>
+    <div id="notificationmessage">
 
+
+      <form action="../wildlifeofficer/viewIncidents?lang=<?php echo $_GET['lang'] ?>&check=true" method="post" style="display: inline-block;">
+        <img src="../Public/images/bell1.png" id="bell">&nbsp&nbsp
+        <h3>You have new reported incident &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+          <input type="submit" value="View" name="submitAlert" id="submit">
+        </h3>
+      </form>
+    </div>
+  <?php  }
+  ?>
   </div>
 
 
@@ -190,20 +205,26 @@ if (isset($_SESSION['jobtype'])) {
     <table>
       <tr class="firstRow">
 
-        <th><?php echo $data[0][$_GET['index']]['reporttype']  ?></th>
+        <th><?php echo $data[0][0]['reporttype']  ?></th>
         <th></th>
       </tr>
       <tr>
         <td>Date</td>
-        <td><?php echo $data[0][$_GET['index']]['date']  ?></td>
+        <td><?php echo $data[0][0]['date']  ?></td>
       </tr>
       <tr>
         <td>Report_Number</td>
-        <td><?php echo $data[0][$_GET['index']]['incidentID']  ?></td>
+        <td><?php echo $data[0][0]['incidentID']  ?></td>
       </tr>
       <tr>
-        <td>User_ID </td>
-        <td> W001</td>
+        <td>Reported Villager Name </td>
+        <td> <?php
+              if ($data[2][0]['gramaniladari_NIC'] != NULL) {
+                echo $data[2][0]['Fname'] . " " . $data[2][0]['Lname'];
+              } else {
+                echo $data[3][0]['Fname'] . " " . $data[3][0]['Lname'];
+              }
+              ?></td>
       </tr>
       <tr>
         <td>Accepted Wildlifeofficer</td>
@@ -211,25 +232,36 @@ if (isset($_SESSION['jobtype'])) {
       </tr>
       <tr>
         <td>Location</td>
-        <td><?php echo $data[0][$_GET['index']]['Place']  ?><input type="button" class='buttonAccept' id="submitBtn" onclick="getLocation()" value="Track my current Location to get the path" /></td>
+        <td><?php echo $data[0][0]['Place']  ?><input type="button" class='buttonAccept' id="submitBtn" onclick="getLocation()" value="Track my current Location to get the path" /></td>
       </tr>
 
 
       <tr>
         <td>Send Incident To the Veterinarian?</td>
         <td><?php
-            if ($data[0][$_GET['index']]['sendToVetStatus'] == 'notvisible') {
-              echo "<form method='POST' action='../wildlifeofficer/sendToVet?id={$data[0][$_GET['index']]['incidentID']}&lang=1' >
+            if ($data[0][0]['sendToVetStatus'] == 'notvisible') {
+              if ($data[0][0]['status'] == 'pending') {
+                echo "before send accept this work";
+              } else {
+                echo "<form method='POST' action='../wildlifeofficer/sendToVet?id={$data[0][0]['incidentID']}&lang=1' >
 
-        <div class='save_button'>
-          <input name='send' class='buttonAccept' type='submit' onclick='' value='SEND' />
-        </div>
-
-      </form>";
+                <div class='save_button'>
+                  <input name='send' class='buttonAccept' type='submit' onclick='' value='SEND' />
+                </div>
+        
+              </form>";
+              }
             } else {
               echo "Already sent";
             }
             ?></td>
+      </tr>
+      <tr>
+        <td>Accepted Veterinarian</td>
+        <td><?php
+            if ($data[1][0]['vetStatus'] == 'success') {
+              echo $data[1][0]['Fname'] . " " . $data[1][0]['Lname'];
+            } ?></td>
       </tr>
 
 
@@ -238,10 +270,10 @@ if (isset($_SESSION['jobtype'])) {
 
     <div class="row_last">
       <div class="col__last"><?php
-                              if ($data[0][$_GET['index']]['status'] == 'pending') {
-                                $stat = "<form method='POST' action='../wildlifeofficer/trigerRequest'><input type='text' style='display:none' name='acc' value=" . $data[0][$_GET['index']]['incidentID'] . "><button class='buttonAccept' id='acceptId' value='ACCEPT' name='accept'/>ACCEPT</button></form>";
+                              if ($data[0][0]['status'] == 'pending') {
+                                $stat = "<form method='POST' action='../wildlifeofficer/trigerRequest'><input type='text' style='display:none' name='acc' value=" . $data[0][0]['incidentID'] . "><button class='buttonAccept' id='acceptId' value='ACCEPT' name='accept'/>ACCEPT</button></form>";
                               } else {
-                                $stat = "<form method='POST' action='../wildlifeofficer/trigerRequest'><input type='text' style='display:none'  name='can' value=" . $data[0][$_GET['index']]['incidentID'] . "><button class='buttonCancel' id='cancelId' value='CANCEl' name='cancel'/>CANCEL</button></form>";
+                                $stat = "<form method='POST' action='../wildlifeofficer/trigerRequest'><input type='text' style='display:none'  name='can' value=" . $data[0][0]['incidentID'] . "><button class='buttonCancel' id='cancelId' value='CANCEl' name='cancel'/>CANCEL</button></form>";
                               }
                               ?>
       </div>
@@ -266,10 +298,10 @@ if (isset($_SESSION['jobtype'])) {
 
     </div>
     <div class="last">
+
     </div>
   </div>
-  </div>
-  <script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyCSrUrvFB7-sGbuP_VZG5ADl9tZswY7XN8&callback=mapLocation&v=weekly' async></script>
+  <script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyA6bqTtd9axLl6pZb3eeSkRgRfXVjW1zkQ&callback=mapLocation&v=weekly' async></script>
 
 
 </body>

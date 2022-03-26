@@ -57,7 +57,7 @@
             <div id="messagealert">
                 <form action="?lang=1&report=1" method="post" style="display: inline-block;">
                     <img src="../Public/images/alertIcon.png" id="alert">
-                    <h3>Wildlife Elephants Come In to Your Registered Village &nbsp&nbsp
+                    <h3>වනජීවී අලි ඔබගේ ලියාපදිංචි ගම්මානයට පැමිණේ &nbsp&nbsp
                         <input type="submit" value="Ok" name="submitAlert" id="submit1">
                     </h3>
                 </form>
@@ -67,9 +67,9 @@
 
             <!-- <img src="../Public/images/alertIcon.png" style="width:1000px;  height:100000px"><br> -->
        
-                <form action="../villager/viewNotification?lang=1" method="post" style="display: inline-block;">
+                <form action="../gramaniladari/viewNotification?lang=2&notification=true" method="post" style="display: inline-block;">
                     <img src="../Public/images/bell1.png" id="right">&nbsp&nbsp
-                    <h3>You have New Notification (<?php echo $this->notification ?>) &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    <h3>ඔබට නව දැනුම්දීමක් ඇත (<?php echo $this->notification ?>) &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                         <input type="submit" value="View" name="submitAlert" id="submit">
                     </h3>
                 </form>
@@ -82,7 +82,7 @@ if (isset($_POST['Submit'])) {
     <div id="popupmessage"  >
         <form action="?lang=1&report=1" method="post" style="display: inline-block;">
         <img src="../Public/images/success-mesaage.png"  id="alert" >&nbsp&nbsp
-            <h3>Your Report Incident Submit Sucessfully &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            <h3>ඔබගේ සිදුවීම වාර්තා කිරීම සාර්ථකයි &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
              </h3>
         </form>
  
@@ -98,7 +98,7 @@ if (isset($_POST['Submit'])) {
         <div id="messagealert1">
             <form action="?lang=1&report=1" method="post" style="display: inline-block;">
                 <img src="../Public/images/alertIcon.png" id="alert">
-                <h3>Wildlife Elephants Come In to Your Registered Village &nbsp&nbsp
+                <h3>වනජීවී අලි ඔබගේ ලියාපදිංචි ගම්මානයට පැමිණේ &nbsp&nbsp
                     <input type="submit" value="Ok" name="submitAlert" id="submit1">
                 </h3>
             </form>
@@ -111,7 +111,7 @@ if (isset($_POST['Submit'])) {
     <div id="popupmessagelast"  >
         <form action="?lang=1&report=1" method="post" style="display: inline-block;">
         <img src="../Public/images/success-mesaage.png"  id="alert" >&nbsp&nbsp
-            <h3>Your Report Incident Submit Sucessfully &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            <h3>ඔබගේ සිදුවීම වාර්තා කිරීම සාර්ථකයි &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
              </h3>
         </form>
  
@@ -129,10 +129,10 @@ if (isset($_POST['Submit'])) {
 
             <!-- <img src="../Public/images/alertIcon.png" style="width:1000px;  height:100000px"><br> -->
 
-            <form action="?lang=1&report=1" method="post" style="display: inline-block;">
+            <form action="../gramaniladari/viewNotification?lang=2&notification=true" method="post" style="display: inline-block;">
                 <img src="../Public/images/bell1.png" id="bell">&nbsp&nbsp
-                <h3>You have New Notification (<?php echo $this->notification ?>) &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                    <input type="submit" value="View" name="submitAlert" id="submit">
+                <h3>ඔබට නව දැනුම්දීමක් ඇත (<?php echo $this->notification ?>) &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    <input type="submit" value="නරඹන්න " name="submitAlert" id="submit">
                 </h3>
             </form>
         </div>
@@ -142,7 +142,7 @@ if (isset($_POST['Submit'])) {
     <div id="popupmessagelast"  >
         <form action="?lang=1&report=1" method="post" style="display: inline-block;">
         <img src="../Public/images/success-mesaage.png"  id="alert" >&nbsp&nbsp
-            <h3>Your Report Incident Submit Sucessfully &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            <h3>ඔබගේ සිදුවීම වාර්තා කිරීම සාර්ථකයි   &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
              </h3>
         </form>
  
@@ -160,7 +160,7 @@ if (isset($_POST['Submit'])) {
         <div id="popupmessagefirst"  >
             <form action="?lang=1&report=1" method="post" style="display: inline-block;">
             <img src="../Public/images/success-mesaage.png"  id="alert" >&nbsp&nbsp
-                <h3>Your Report Incident Submit Sucessfully &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                <h3>ඔබගේ සිදුවීම වාර්තා කිරීම සාර්ථකයි &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                  </h3>
             </form>
      
@@ -179,15 +179,15 @@ if (isset($_POST['Submit'])) {
         <div id="message1" style="padding: 10px;  ">
 
             <img src="../Public/images/confirm.jpg" style="width:100px;  height:100px"><br>
-            <button onclick="return getLocation()" class="login-btn"style=" border-radius: 10px; padding: 10px 10px; background-color:grey;  color: white;">Click Me Track location</button><br>
-            <h1>Confirm Your Emergency Incident Report </h1>
-            <form action="?lang=1" method="post"> 
+            <button onclick="return getLocation()" class="login-btn"style=" border-radius: 10px; padding: 10px 10px; background-color:grey;  color: white;">ස්ථානය ක්ලික් කරන්න</button><br>
+            <h1>ඔබගේ හදිසි සිදුවීම් වාර්තාව තහවුරු කරන්න </h1>
+            <form action="?lang=2" method="post"> 
             <textarea class="text" id="lat" name="latitude" rows="2" style="display: none;" ></textarea>
             <textarea class="text" id="lang" name="longitude" rows="2" style="display: none;" ></textarea>
-            <input type="submit" value="Confirm" name="Submit"   onclick="return validation()">
+            <input type="submit" value="තහවුරු " name="Submit"   onclick="return validation()">
 
    
-             <a href="../user/viewpage?lang=1" id="close" style=" border-radius: 10px; padding: 10px 10px; background-color:#056412;  color: white;">Cancel</a>    </div>
+             <a href="../user/viewpage?lang=2" id="close" style=" border-radius: 10px; padding: 10px 10px; background-color:#056412;  color: white;">අවලංගු</a>    </div>
              </form>
     <?php
 
@@ -239,7 +239,7 @@ if (isset($_POST['Submit'])) {
 
             </button>
         </a>
-        <a href="../gramaniladari/viewNotification?lang=2">
+        <a href="../gramaniladari/viewNotification?lang=2&notification=true">
             <button class="specialNotice">
                 <div class="notification"><span class="dot-1"><img src="../Public/images/bell.png" alt="1" srcset=" "></span>
                 </div>
