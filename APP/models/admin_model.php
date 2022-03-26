@@ -65,7 +65,7 @@ class admin_model extends Model
 		$gnd=$data["gnd"];
 		$gic=$data["gic"];
 		$hashPassword=password_hash($data["password"], PASSWORD_DEFAULT);//store encrypted password in the database 
-        //******this should be correct*****
+        
         $lastNoticeID=(($this->db->runQuery("SELECT MAX(noticeID) AS max FROM notice "))[0])["max"];
 		$stmt1="INSERT INTO user VALUES('$nic','$fname','$lname','$mob','$dob','$address','$userType','$email','$gender','$lastNoticeID')";
 		$gnd_code=(($this->db->runQuery("SELECT GND_Code FROM gn_division WHERE name='$gnd' AND district_name='$district'"))[0])["GND_Code"];
@@ -73,7 +73,7 @@ class admin_model extends Model
 		$stmt2="INSERT INTO grama_niladhari VALUES('$nic','$gic','$gnd_code')";
 		$stmt3="INSERT INTO login VALUES('$nic','$hashPassword')";
 		$stmt4="UPDATE village SET grama_niladhari_NIC='$nic' WHERE GND_Code='$gnd_code'";
-		// $stmt5="UPDATE lives SET gramaniladhari_NIC='$nic' WHERE GND_Code='$gnd_code'";
+		$stmt5="UPDATE lives SET gramaniladhari_NIC='$nic' WHERE GND_Code='$gnd_code'";
 		$stmt6="UPDATE grama_niladhari SET NIC='$nic',GID='$gic' WHERE GND_Code='$gnd_code'";
 
 
@@ -108,10 +108,12 @@ class admin_model extends Model
 		$stmt1 = "INSERT INTO user VALUES('$nic','$fname','$lname','$mob','$dob','$address','$userType','$email','$gender','$lastNoticeID')";
 		$stmt2 = "INSERT INTO wildlife_officer VALUES('$nic','$wid','$officeNum')";
 		$stmt3 = "INSERT INTO login VALUES('$nic','$hashPassword')";
+		$stmt4="INSERT INTO wildlifeofficernotification VALUES('$nic','pending')";
 
 		$this->db->runQuery($stmt1);
 		$this->db->runQuery($stmt2);
 		$this->db->runQuery($stmt3);
+		$this->db->runQuery($stmt4);
 	}
 
     //add regional officer to database
@@ -196,11 +198,13 @@ class admin_model extends Model
 		// $village_code = (($this->db->runQuery("SELECT village_code FROM village WHERE GND_Code='$gnd_code'"))[0])["village_code"];
 		$village_code = (($this->db->runQuery("SELECT village.village_code FROM village,gn_division,district,province WHERE province.Name='$province' AND district.Name='$district' AND gn_division.name='$gnd' AND village.name='$village'"))[0])["village_code"];
 		$stmt4 = "INSERT INTO lives VALUES('$nic','$gramaniladhari_NIC','$village_code','$province','$district')";
+		$stmt5="INSERT INTO villager_registration VALUES('$nic','accept')";
 
 		$this->db->runQuery($stmt1);
 		$this->db->runQuery($stmt2);
 		$this->db->runQuery($stmt3);
 		$this->db->runQuery($stmt4);
+		$this->db->runQuery($stmt5);
 	}
 
     //select all user details and return to controller
@@ -559,6 +563,13 @@ class admin_model extends Model
 
 		];
 
+		$noOfVillagers=(($this->db->runQuery("SELECT COUNT(*) AS noOfVillagers FROM user WHERE jobType='villager'"))[0])['noOfVillagers'];
+		$noOfWildlifers=(($this->db->runQuery("SELECT COUNT(*) AS noOfWildlifers FROM user WHERE jobType='wildlife officer'"))[0])['noOfWildlifers'];
+		$noOfRegionals=(($this->db->runQuery("SELECT COUNT(*) AS noOfRegionals FROM user WHERE jobType='regional officer'"))[0])['noOfRegionals'];
+		$noOfVeterinarians=(($this->db->runQuery("SELECT COUNT(*) AS noOfVeterinarians FROM user WHERE jobType='veterinarian'"))[0])['noOfVeterinarians'];
+		$noOfGramaNiladhari=(($this->db->runQuery("SELECT COUNT(*) AS noOfGramaNiladhari FROM user WHERE jobType='grama niladhari'"))[0])['noOfGramaNiladhari'];
+
+
          //all selected data pass to the controller
 		 $data=[
 
@@ -579,7 +590,15 @@ class admin_model extends Model
 			"fenceActiveDetails"=>$fenceActiveDetails,
 			"otherActiveDetails"=>$otherActiveDetails,
 			"illegalActiveDetails"=>$illegalActiveDetails,
-			"detailsAboutIncidents"=>$detailsAboutIncidents
+			"detailsAboutIncidents"=>$detailsAboutIncidents,
+			"noOfVillagers"=>$noOfVillagers,
+			"noOfWildlifers"=>$noOfWildlifers,
+			"noOfRegionals"=>$noOfRegionals,
+			"noOfVeterinarians"=>$noOfVeterinarians,
+			"noOfGramaNiladhari"=>$noOfGramaNiladhari
+
+
+
 
 
 
@@ -731,6 +750,32 @@ class admin_model extends Model
 		$hashedPassword=password_hash($newPassword, PASSWORD_DEFAULT);
 		$this->db->runQuery("UPDATE login SET userPassword='$hashedPassword' WHERE userName='$nic' ");
 	}
+
+	public function getVillagerDataToEdit($nic)
+	{
+		return ($this->db->runQuery("SELECT * FROM user WHERE NIC='$nic'"))[0];
+
+	}
+
+	// public function editVillager($data)
+	// {   $nic = $data["nic"];
+	// 	$fname = $data["fName"];
+	// 	$lname = $data["lName"];
+	// 	$mob = $data["mob"];
+	// 	$dob = $data["dob"];
+	// 	$address = $data["address"];
+	// 	$userType="villager";
+	// 	$oldNIC=$data["oldNIC"];
+	// 	$email = $data["email"];
+	// 	$gender = $data["gender"];
+		
+
+	//  $this->db->runQuery("DELETE FROM user WHERE NIC='$oldNIC'");
+	//   $lastNoticeID=(($this->db->runQuery("SELECT MAX(noticeID) AS max FROM notice "))[0])["max"];
+	//  $this->db->runQuery("INSERT INTO user VALUES('$nic','$fname','$lname','$mob','$dob','$address','$userType','$email','$gender','$lastNoticeID')");
+	//  header("location :../admin/editVillager?success=success");
+
+	// }
 
 
 	

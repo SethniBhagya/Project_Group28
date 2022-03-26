@@ -1,5 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php
+if(session_status()===PHP_SESSION_NONE)
+    {
+      session_start();
+      session_regenerate_id();
+
+    }?>
 
 <head>
     <meta charset="UTF-8">
@@ -30,6 +37,10 @@
                 <li id="report"><a href="incident/index?lang=2">සිදුවීම් වාර්තා කරන්න</a></li>
                 <li id="register"><a href="villager/register?lang=2">ලියාපදිංචිය</a></li>
                 <li id="login"><a id=login_text href="user/index?lang=2">ඇතුල් වන්න</a></li>
+                <?php if(!empty($_SESSION["NIC"]))
+                        echo "<li id=\"login\"><a id=login_text href=\"user/logout\">පිටවීම</a></li>";
+
+                 ?>
                 
                 <li class="dropdown">
                     <button onmouseover="myFunction_2()" class="dropbtn">භාශාව <i class="down"></i></button>

@@ -38,8 +38,8 @@
         <li class="dropdown">
           <span class="dot"> <img onclick="myFunction_3()" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
           <div id="myDropdown" class="dropdown-content">
-            <a href="../wildlifeofficer/viewProfile">View Profile</a>
-            <a href="">Logout</a>
+            <a href="../admin/viewProfile">View Profile</a>
+            <a href="../user/logout">Logout</a>
           </div>
         </li>
       </ul>

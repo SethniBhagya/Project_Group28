@@ -1217,31 +1217,48 @@ width: 100%;
  */
 
 
-  @media(max-width:1200px){
+  @media(max-width:900px){
 
-
+.banner{
+  position: absolute;
+  top: 70px;
+}
     .banner #regButton{
   background-color: rgba(20,103,28,0.5);
-  font-size: 22px;
+  font-size: 18px;
   position: relative;
   border:none;
   border-radius: 10px;
   padding:30px;
   cursor: pointer;
-  top: 50vh;
+  top: 17vh;
   width: 30%;
- left: 42%;
+ left: 33%;
   color: #FFFFFF;
+
    
     box-shadow:3px 3px  rgba(20,103,28,0.9);
 }
 
+.banner #header{
+  position: relative;
+  top: 10vh;
+  font-size: 15px;
 
+}
+
+/*#feature #fr1-1{
+  position: absolute;
+  width: 20px;
+  height: 20px;
+ 
+
+}*/
 #intro{
   background-color: #14671C;
   text-align: center;
   position: absolute;
-  top: 102vh;
+  top: 60vh;
   color: #FFFFFF;
   font-size: 16px;
   padding-bottom: 25px;
@@ -1260,18 +1277,14 @@ width: 100%;
 }
 
 #feature{
-  /*background-color:  rgba(20,103,28,0.25);
-  top:200vh;
- 
-  width: 100%;
-  margin-bottom: 0;
-  position: absolute;*/
-  display: none;
-
+  position: absolute;
+  top: 110vh;
 }
 
 
-#conclusion{
+
+
+.footer{
 display: none;
 
 }
@@ -1280,24 +1293,7 @@ display: none;
 
 
 
-  @media(max-width:900px){
-
-    
-    .banner #regButton{
-  background-color: rgba(20,103,28,0.5);
-  font-size: 22px;
-  position: relative;
-  border:none;
-  border-radius: 10px;
-  padding:30px;
-  cursor: pointer;
-  top: 50vh;
-  width: 30%;
- left: 42%;
-  color: #FFFFFF;
-   
-    box-shadow:3px 3px  rgba(20,103,28,0.9);
-}
+/*  
 
 
 #intro{
@@ -1322,17 +1318,17 @@ display: none;
   margin-right: 0vh;
 
 }
-
-#feature{
-  /*background-color:  rgba(20,103,28,0.25);
+*/
+/*#feature{
+  background-color:  rgba(20,103,28,0.25);
   top:176vh;
  
   width: 100%;
   margin-bottom: 0;
-  position: absolute;*/
+  position: absolute;
   display: none;
 
-}
+}*/
 
 
 
@@ -1645,9 +1641,7 @@ margin-top: 20px;
 
 }*/
 
-#conclusion{
-display: none;
 
-}
 
-  }
+ /* }*/
+

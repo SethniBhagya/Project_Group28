@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php if(session_status()===PHP_SESSION_NONE)
+    {
+      session_start();
+      session_regenerate_id();
 
+    }?>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -30,6 +35,10 @@
                 <li id="report"><a href="incident/index?lang=3">நிகழ்வுகளைப் புகாரளிக்கவும்</a></li>
                 <li id="register"><a href="villager/register?lang=3">பதிவு</a></li>
                 <li id="login"><a id=login_text href="user/index?lang=3">உள்நுழைய</a></li>
+                <?php if(!empty($_SESSION["NIC"]))
+                        echo "<li id=\"login\"><a id=login_text href=\"user/logout\">வெளியேறு</a></li>";
+
+                 ?>
                 
                 <li class="dropdown">
                     <button onmouseover="myFunction_2()" class="dropbtn">மொழி <i class="down"></i></button>

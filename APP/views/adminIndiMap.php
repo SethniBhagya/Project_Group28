@@ -34,7 +34,7 @@
                 <li class="dropdown">
                     <span class="dot"> <img onclick="myFunction_2(this)" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
                     <div id="myDropdown" class="dropdown-content">
-                        <a href="">View Profile</a>
+                        <a href="../admin/viewProfile">View Profile</a>
                         <a href="../user/logout">Logout</a>
                     </div>
                 </li>
@@ -107,5 +107,6 @@
                 
 
                  <script  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOVujYe2-BPc5b66VsL0xVVUKoZHkb5yo&callback=indiMap"  async></script>
+                 <button id="back" onclick="location.href='../admin/dashboard'">Back</button>
 </body>
 </html>

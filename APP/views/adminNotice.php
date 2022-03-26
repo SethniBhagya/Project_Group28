@@ -29,12 +29,12 @@
 
             <ul class="nav-menu">
                 <li id="home" class="nav-menu-item"><a href="../">Home</a></li>
-                <li id="dashboard" class="nav-menu-item"><a href="../">Dashboard</a></li>
+                <li id="dashboard" class="nav-menu-item"><a href="../admin/dashboard">Dashboard</a></li>
                 
                 <li class="dropdown">
                     <span class="dot"> <img onclick="myFunction_2(this)" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
                     <div id="myDropdown" class="dropdown-content">
-                        <a href="">View Profile</a>
+                        <a href="../admin/viewProfile">View Profile</a>
                         <a href="../user/logout">Logout</a>
                     </div>
                 </li>

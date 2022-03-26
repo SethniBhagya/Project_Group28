@@ -22,12 +22,12 @@
             </div>
 
             <ul class="nav-menu">
-                <li id="home" class="nav-menu-item"><a href="">Home</a></li>
+                <li id="home" class="nav-menu-item"><a href="../">Home</a></li>
                 <li id="dashboard" class="nav-menu-item"><a href="../admin/dashboard">Dashboard</a></li>
                 <li class="dropdown">
                     <span class="dot"> <img onclick="myFunction_2(this)" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
                     <div id="myDropdown" class="dropdown-content">
-                        <a href="">View Profile</a>
+                        <a href="../admin/viewProfile">View Profile</a>
                         <a href="../user/logout">Logout</a>
                     </div>
                 </li>
@@ -236,6 +236,16 @@
                             <label class="error-password" id="gn-pass">Password must conation more than 7 characters and atleast one lowercase, one upprecase, one digit and one special character(@#$%^&*....)</label>
                         </td>
                     </tr>
+                    <tr>
+                        <td>
+                            <label for="confirmPassword">Confirm Password</label>
+                        </td>
+                        <td>
+                            <input type="password" name="confirmPassword" id="confirmPassword" required>
+
+                            <label class="error-confirm-password" id="gn-confirm-pass">Not match with password</label>
+                        </td>
+                    </tr>
 
 
 
@@ -365,6 +375,16 @@
                         <td>
                             <input type="password" name="password" id="password" required>
                             <label class="error-password" id="vet-pass">Password must conation more than 7 characters and atleast one lowercase, one upprecase, one digit and one special character(@#$%^&*....)</label>
+                        </td>
+                    </tr>
+                     <tr>
+                        <td>
+                            <label for="confirmPassword">Confirm Password</label>
+                        </td>
+                        <td>
+                            <input type="password" name="confirmPassword" id="confirmPassword" required>
+
+                            <label class="error-confirm-password" id="vet-confirm-pass">Not match with password</label>
                         </td>
                     </tr>
 
@@ -548,6 +568,16 @@
                             <label class="error-password" id="vil-pass">Password must conation more than 7 characters and atleast one lowercase, one upprecase, one digit and one special character(@#$%^&*..)</label>
                         </td>
                     </tr>
+                    <tr>
+                        <td>
+                            <label for="confirmPassword">Confirm Password</label>
+                        </td>
+                        <td>
+                            <input type="password" name="confirmPassword" id="confirmPassword" required>
+
+                            <label class="error-confirm-password" id="vil-confirm-pass">Not match with password</label>
+                        </td>
+                    </tr>
 
 
 
@@ -682,6 +712,16 @@
                             <label class="error-password" id="wil-pass">Password must conation more than 7 characters and atleast one lowercase, one upprecase, one digit and one special character(@#$%^&*..)</label>
                         </td>
                     </tr>
+                    <tr>
+                        <td>
+                            <label for="confirmPassword">Confirm Password</label>
+                        </td>
+                        <td>
+                            <input type="password" name="confirmPassword" id="confirmPassword" required>
+
+                            <label class="error-confirm-password" id="wil-confirm-pass">Not match with password</label>
+                        </td>
+                    </tr>
 
 
 
@@ -813,6 +853,16 @@
                             <label class="error-password" id="reg-pass">Password must conation more than 7 characters and atleast one lowercase, one upprecase, one digit and one special character(@#$%^&*..)</label>
                         </td>
                     </tr>
+                    <tr>
+                        <td>
+                            <label for="confirmPassword">Confirm Password</label>
+                        </td>
+                        <td>
+                            <input type="password" name="confirmPassword" id="confirmPassword" required>
+
+                            <label class="error-confirm-password" id="reg-confirm-pass">Not match with password</label>
+                        </td>
+                    </tr>
 
 
 
@@ -935,35 +985,44 @@
             var NIC=document.forms["gnForm"]["nic"].value;
             var errorElement=document.getElementById("gn-NIC");
             var password=document.forms["gnForm"]["password"].value;
+            var confirmPassword=document.forms["gnForm"]["confirmPassword"].value;
             var passwordErrorElement=document.getElementById("gn-pass");
+            var passwordConfirmErrorElement=document.getElementById("gn-confirm-pass");
         }
         break;
         case "veterinarian":{
             var NIC=document.forms["vetForm"]["nic"].value;
             var errorElement=document.getElementById("vet-NIC");
             var password=document.forms["vetForm"]["password"].value;
-            var passwordErrorElement=document.getElementById("vet-pass");
+            var confirmPassword=document.forms["vetForm"]["confirmPassword"].value;
+            var passwordConfirmErrorElement=document.getElementById("vet-confirm-pass");
         }
         break;
         case "wildlifeOfficer":{
             var NIC=document.forms["wilForm"]["nic"].value;
             var errorElement=document.getElementById("wil-NIC");
             var password=document.forms["wilForm"]["password"].value;
+            var confirmPassword=document.forms["wilForm"]["confirmPassword"].value;
             var passwordErrorElement=document.getElementById("wil-pass");
+            var passwordConfirmErrorElement=document.getElementById("wil-confirm-pass");
         }
         break;
         case "regionalOfficer":{
             var NIC=document.forms["regForm"]["nic"].value;
             var errorElement=document.getElementById("reg-NIC");
             var password=document.forms["regForm"]["password"].value;
+            var confirmPassword=document.forms["regForm"]["confirmPassword"].value;
             var passwordErrorElement=document.getElementById("reg-pass");
+            var passwordConfirmErrorElement=document.getElementById("reg-confirm-pass");
         }
         break;
         case "villager":{
             var NIC=document.forms["vilForm"]["nic"].value;
             var errorElement=document.getElementById("vil-NIC");
             var password=document.forms["vilForm"]["password"].value;
+            var confirmPassword=document.forms["vilForm"]["confirmPassword"].value;
             var passwordErrorElement=document.getElementById("vil-pass");
+            var passwordConfirmErrorElement=document.getElementById("vil-confirm-pass");
         }
         break;
     }
@@ -985,6 +1044,12 @@
              else if(password.search(/[a-z]/)==-1|| password.search(/[A-Z]/)==-1 || password.search(/[0-9]/)==-1 || password.search(/[@#$%^&*!.,+]/)==-1 )
              { 
                 passwordErrorElement.style.display="block";
+                return false;
+
+             }
+             else if(password!=confirmPassword)
+             {
+                passwordConfirmErrorElement.style.display="block";
                 return false;
 
              }
@@ -1018,6 +1083,12 @@
              else if(password.search(/[a-z]/)==-1|| password.search(/[A-Z]/)==-1 || password.search(/[0-9]/)==-1 || password.search(/[@#$%^&*!.,+]/)==-1 )
              { 
                 passwordErrorElement.style.display="block";
+                return false;
+
+             }
+             else if(password!=confirmPassword)
+             {
+                passwordConfirmErrorElement.style.display="block";
                 return false;
 
              }

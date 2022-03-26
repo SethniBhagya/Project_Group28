@@ -302,3 +302,20 @@ tr:nth-child(even) {
   
   margin-left: 290px;
 }
+
+ #back{
+    margin-left: 20px;
+    border:none;
+    border-radius: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 16px;
+    padding-right: 16px;
+    font-size: 24px;
+    box-shadow: white 2px;
+    color: white;
+    background-color: darkgreen;
+    cursor: pointer;
+  }

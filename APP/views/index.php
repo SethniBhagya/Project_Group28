@@ -1,5 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php
+if(session_status()===PHP_SESSION_NONE)
+    {
+      session_start();
+      session_regenerate_id();
+
+    }?>
+
 
 <head>
     <meta charset="UTF-8">
@@ -30,6 +38,11 @@
                 <li id="report"><a href="incident/index?lang=1">Report Incidents</a></li>
                 <li id="register"><a href="villager/register?lang=1">Register</a></li>
                 <li id="login"><a id=login_text href="user/index">Login</a></li>
+                <?php if(!empty($_SESSION["NIC"]))
+                        echo "<li id=\"login\"><a id=login_text href=\"user/logout\">Logout</a></li>";
+
+                 ?>
+                
                 
                 <li class="dropdown">
                     <button onmouseover="myFunction_2()" class="dropbtn">Language <i class="down"></i></button>

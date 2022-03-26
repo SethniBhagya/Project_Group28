@@ -29,7 +29,7 @@ class admin extends user{
     }
 
 
-    private function sendMail($password,$email){
+    private function sendAdminMail($password,$email){
 
     	      $addMail = new PHPMailer(true);
             $addMail->isSMTP();
@@ -167,7 +167,7 @@ class admin extends user{
                          
 						          $allData=array_merge($data,$specificData);
 						          $this->model->gnAdd($allData);//add grama niladhari's data to the database
-						          $this->sendMail($data["password"],$data["email"]);//send e mail to added user
+						          $this->sendAdminMail($data["password"],$data["email"]);//send e mail to added user
 						          echo"<script>location.href='../admin/addUser?error=".$data["Error"]."&success=".$success."';</script>";//redirect to user adding page of admin
 					                             }
 					        break;
@@ -181,7 +181,7 @@ class admin extends user{
 
 						          $allData=array_merge($data,$specificData);
 						          $this->model->woAdd($allData);//add wildlife officer's data to the database
-						          $this->sendMail($data["password"],$data["email"]);
+						          $this->sendAdminMail($data["password"],$data["email"]);
 						          echo"<script>location.href='../admin/addUser?error=".$data["Error"]."&success=".$success."';</script>";
 						
 					                               }
@@ -198,7 +198,7 @@ class admin extends user{
 
 						          $allData=array_merge($data,$specificData);
 						          $this->model->vetAdd($allData);//add veterinarian's data to the database
-						          $this->sendMail($data["password"],$data["email"]);
+						          $this->sendAdminMail($data["password"],$data["email"]);
 						          echo"<script>location.href='../admin/addUser?error=".$data["Error"]."&success=".$success."';</script>";
 						
 					                          }
@@ -217,7 +217,7 @@ class admin extends user{
 						
 						        $allData=array_merge($data,$specificData);
 						        $this->model->vilAdd($allData);//add villagers data to the database
-						        $this->sendMail($data["password"],$data["email"]);
+						        $this->sendAdminMail($data["password"],$data["email"]);
 						        echo"<script>location.href='../admin/addUser?error=".$data["Error"]."&success=".$success."';</script>";
 						
 					                     }
@@ -234,7 +234,7 @@ class admin extends user{
 
 						        $allData=array_merge($data,$specificData);
 						        $this->model->roAdd($allData);//add regional officer to database
-						        $this->sendMail($data["password"],$data["email"]);
+						        $this->sendAdminMail($data["password"],$data["email"]);
 						        echo"<script>location.href='../admin/addUser?error=".$data["Error"]."&success=".$success."';</script>";
 						
 
@@ -635,6 +635,38 @@ class admin extends user{
     $this->view->render("adminIndiMap",$data);
     
   }
+
+  // public function editVillager()
+  // {
+  //   if(isset($_GET["NIC"]))
+  //     $NIC=$_GET["NIC"];
+  //   $userData=$this->model->getVillagerDataToEdit($NIC);
+  //   $this->view->render('adminEditVillager',$userData);
+  //   if(isset($_POST["submit"]))
+  //   {
+  //     $data=[
+  //       "oldNIC"=>$NIC,
+  //      "fName"=>trim($_POST["fname"]),
+  //       "lName"=>trim($_POST["lname"]),
+  //       "nic"=>trim($_POST["nic"]),
+  //       "gender"=>trim($_POST["gender"]),
+  //       "dob"=>trim($_POST["dob"]),
+  //       "address"=>trim($_POST["address"]),
+  //       "mob"=>trim($_POST["mobile"]),
+  //       "email"=>trim($_POST["email"])
+        
+        
+
+  //     ];
+
+  //     $this->model->editVillager($data);
+
+
+
+  //   }
+
+    
+  // }
  
 
 }

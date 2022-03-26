@@ -66,6 +66,25 @@ class Route{
 				}
 					
 					break;
+				case 'regionalOfficer':{
+
+					if(isset($_SESSION["NIC"])&&$_SESSION["jobtype"]=="regional Officer")
+					{
+						require $file;
+			            //assign into  
+			            $this->_params = new $this->_routes[0];
+			           //load the model in each controller
+			            $this->_params->loadModel($this->_routes[0]);
+			            return true;
+
+					}
+					else
+						header("Location: ../user/index");
+
+
+				}
+					
+					break;
 				case 'user':{
 					require $file;
 			        //assign into  

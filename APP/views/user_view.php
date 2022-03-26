@@ -30,7 +30,7 @@
                 <li class="dropdown">
                     <span class="dot"> <img onclick="myFunction_2(this)" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
                     <div id="myDropdown" class="dropdown-content">
-                        <a href="">View Profile</a>
+                        <a href="../admin/viewProfile">View Profile</a>
                         <a href="../user/logout">Logout</a>
                     </div>
                 </li>
@@ -121,6 +121,7 @@
                 </thead>
 
                 <tbody id="villagerTable" >
+                  <!-- <li><button onclick=\"location.href='editVillager?NIC=".$row["NIC"]."'\"><img src='../Public/images/edit.png'></button></li> -->
                    
                    <?php $rowsForPage=10; $numOfPages=ceil(count($data["villager"])/$rowsForPage); if(isset($_GET["page"]))$startIndex=($_GET["page"]-1)*10;else $startIndex=0; $rows=$data["villager"]; foreach($rows as $i=>$row){if($startIndex+10>$i&&$i>=$startIndex)echo "<tr><td>".$row["NIC"]."</td> <td>".$row["Fname"]."</td>
                        <td>".$row["Lname"]."</td>
@@ -129,7 +130,7 @@
                        <td>".$row["name"]."</td>
                        <td>".$row["gnd_name"]."</td>
                        <td>".$row["district_name"]."</td><td>".$row["Name"]."</td><td><ul>
-                          <li><button ><img src='../Public/images/edit.png'></button></li>
+                          
                           <li><button value='".$row["NIC"]."' onclick='myfun1(this.value)'><label for='show1'><img src='../Public/images/delete.png'></label></button><input type=\"checkbox\"  id=\"show1\">
 
                        <div id=\"delete1\"> 
@@ -181,13 +182,14 @@
                 </thead>
 
                 <tbody id="regionalTable">
+                  <!-- <li><button><img src='../Public/images/edit.png'></button></li> -->
 
                     <?php $rowsForPage=10; $numOfPages=ceil(count($data["regional officer"])/$rowsForPage); if(isset($_GET["page"]))$startIndex=($_GET["page"]-1)*10;else $startIndex=0; $rows=$data["regional officer"]; foreach($rows as $i=>$row){if($startIndex+10>$i&&$i>=$startIndex)echo "<tr><td>".$row["NIC"]."</td> <td>".$row["RID"]."</td><td>".$row["Fname"]."</td>
                        <td>".$row["Lname"]."</td>
                        <td>".$row["BOD"]."</td><td>0".$row["mobileNo"]."</td>
                        <td>".$row["officeNo"]."</td>
                        <td>".$row["district_name"]."</td><td>".$row["Name"]."</td><td><ul>
-                          <li><button><img src='../Public/images/edit.png'></button></li>
+                          
                           <li><button value='".$row["NIC"]."' onclick='myfun2(this.value)'><label for='show2'><img src='../Public/images/delete.png'></label></button><input type=\"checkbox\"  id=\"show2\">
 
                        <div id=\"delete2\"> 
@@ -241,13 +243,14 @@
                 </thead>
 
                 <tbody id="wildlifeTable">
+                 <!--  <li><button><img src='../Public/images/edit.png'></button></li> -->
 
                     <?php $rowsForPage=10; $numOfPages=ceil(count($data["wildlife officer"])/$rowsForPage); if(isset($_GET["page"]))$startIndex=($_GET["page"]-1)*10;else $startIndex=0; $rows=$data["wildlife officer"]; foreach($rows as $i=>$row){if($startIndex+10>$i&&$i>=$startIndex)echo "<tr><td>".$row["NIC"]."</td> <td>".$row["WID"]."</td><td>".$row["Fname"]."</td>
                        <td>".$row["Lname"]."</td>
                        <td>".$row["BOD"]."</td><td>0".$row["mobileNo"]."</td>
                        <td>".$row["officeNo"]."</td>
                        <td>".$row["district_name"]."</td><td>".$row["Name"]."</td><td><ul>
-                          <li><button><img src='../Public/images/edit.png'></button></li>
+                          
                           <li><button  value='".$row["NIC"]."' onclick='myfun3(this.value)'><label for='show3'><img src='../Public/images/delete.png'></label></button><input type=\"checkbox\"  id=\"show3\">
 
                        <div id=\"delete3\"> 
@@ -292,13 +295,14 @@
                 </thead>
 
                 <tbody id="vetTable">
+                  <!-- <li><button><img src='../Public/images/edit.png'></button></li> -->
 
                     <?php  $rowsForPage=10; $numOfPages=ceil(count($data["veterinarian"])/$rowsForPage); if(isset($_GET["page"]))$startIndex=($_GET["page"]-1)*10;else $startIndex=0; $rows=$data["veterinarian"]; foreach($rows as $i=>$row){if($startIndex+10>$i&&$i>=$startIndex)echo "<tr><td>".$row["NIC"]."</td> <td>".$row["VID"]."</td><td>".$row["Fname"]."</td>
                        <td>".$row["Lname"]."</td>
                        <td>".$row["BOD"]."</td><td>0".$row["mobileNo"]."</td>
                        <td>".$row["officeNo"]."</td>
                        <td>".$row["district_name"]."</td><td>".$row["Name"]."</td><td><ul>
-                          <li><button><img src='../Public/images/edit.png'></button></li>
+                          
                           <li><button value='".$row["NIC"]."' onclick='myfun4(this.value)' ><label for='show4'><img src='../Public/images/delete.png'></label></button><input type=\"checkbox\"  id=\"show4\">
 
                        <div id=\"delete4\"> 
@@ -345,6 +349,7 @@
                    </tr>
                 </thead>
                 <tbody id="gramaTable">
+                  <!-- <li><button><img src='../Public/images/edit.png'></button></li> -->
 
                  <?php $rowsForPage=10; $numOfPages=ceil(count($data["grama niladhari"])/$rowsForPage); if(isset($_GET["page"]))$startIndex=($_GET["page"]-1)*10;else $startIndex=0; $rows=$data["grama niladhari"]; foreach($rows as $i=>$row){if($startIndex+10>$i&&$i>=$startIndex)echo "<tr><td>".$row["NIC"]."</td><td>".$row["GID"]."</td> <td>".$row["Fname"]."</td>
                        <td>".$row["Lname"]."</td>
@@ -352,7 +357,7 @@
                        <td>".$row["Address"]."</td>
                        <td>".$row["gnd_name"]."</td>
                        <td>".$row["district_name"]."</td><td>".$row["Name"]."</td><td><ul>
-                          <li><button><img src='../Public/images/edit.png'></button></li>
+                          
                           <li><button onclick=\"location.href='viewUserProfile?type=gramaNiladhari&id=".$row["NIC"]."'\"><img src='../Public/images/view.png'></button></li>
                        </ul></td></tr>";}
 

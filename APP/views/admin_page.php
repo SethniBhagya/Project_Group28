@@ -38,7 +38,7 @@
                 <li class="dropdown">
                     <span class="dot"> <img onclick="myFunction_2(this)" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
                     <div id="myDropdown" class="dropdown-content">
-                        <a href="viewProfile">View Profile</a>
+                        <a href="../admin/viewProfile">View Profile</a>
                         <a href="../user/logout">Logout</a>
                     </div>
                 </li>
@@ -384,7 +384,7 @@
 
                 
 
-                 <script  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOVujYe2-BPc5b66VsL0xVVUKoZHkb5yo&callback=initMapActive"  async></script>
+                 <script  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA6bqTtd9axLl6pZb3eeSkRgRfXVjW1zkQ&callback=initMapActive"  async></script>
 
               
 
@@ -699,7 +699,7 @@
 
                  </script>
 
-                 <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOVujYe2-BPc5b66VsL0xVVUKoZHkb5yo&callback=initMapSuccess" async></script>
+                 <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA6bqTtd9axLl6pZb3eeSkRgRfXVjW1zkQ&callback=initMapSuccess" async></script>
 
 
 
@@ -1012,7 +1012,7 @@
 
                  </script>
 
-                 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOVujYe2-BPc5b66VsL0xVVUKoZHkb5yo&callback=initMapUnsuccess"></script>
+                 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA6bqTtd9axLl6pZb3eeSkRgRfXVjW1zkQ&callback=initMapUnsuccess"></script>
 
 
 
@@ -1096,7 +1096,7 @@
 
                    <div class="ele-4-box-back">
                     <h2 class="counter"><?php echo (($data["totalCasesReportedByDistrict"])["polonnaruwaActive"])["numOfPolonnaruwaElephantsVillage"];?></h2>
-                    <button class="ele-button">View</button>
+                    
                     
                     
                      
@@ -1119,7 +1119,7 @@
 
                    <div class="ani-4-box-back">
                     <h2 class="counter"><?php echo (($data["totalCasesReportedByDistrict"])["polonnaruwaActive"])["numOfPolonnaruwaAnimalInVillage"];?></h2>
-                    <button class="ele-button">View</button>
+                    
 
                    
                     </div>
@@ -1138,7 +1138,7 @@
 
                    <div class="dan-4-box-back">
                     <h2 class="counter"><?php echo (($data["totalCasesReportedByDistrict"])["polonnaruwaActive"])["numOfPolonnaruwaAnimalIsDanger"];?></h2>
-                    <button class="ele-button">View</button>
+                    
 
                    
                     </div>
@@ -1160,7 +1160,7 @@
 
                    <div class="ill-4-box-back">
                     <h2 class="counter"><?php echo (($data["totalCasesReportedByDistrict"])["polonnaruwaActive"])["numOfPolonnaruwaIllegal"];?></h2>
-                    <button class="ele-button">View</button>
+                    
 
                    
                     </div>
@@ -1187,7 +1187,7 @@
 
                    <div class="crop-4-box-back">
                     <h2 class="counter"><?php echo (($data["totalCasesReportedByDistrict"])["polonnaruwaActive"])["numOfPolonnaruwaCropDamage"];?></h2>
-                    <button class="ele-button">View</button>
+                    
 
                    
                     </div>
@@ -1208,7 +1208,7 @@
 
                    <div class="fen-4-box-back">
                     <h2 class="counter"><?php echo (($data["totalCasesReportedByDistrict"])["polonnaruwaActive"])["numOfPolonnaruwaBreakdownFence"];?></h2>
-                    <button class="ele-button">View</button>
+                    
 
                    
                     </div>
@@ -1219,6 +1219,7 @@
 
 
                   <div id="map-polonnaruwa"> </div>
+                  <h3 class="map-dis-header">Polonnaruwa Active Cases In Map</h3>
 
                   <script type="text/javascript">
 
@@ -1344,7 +1345,7 @@
 
                  </script>
 
-                 <script  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOVujYe2-BPc5b66VsL0xVVUKoZHkb5yo&callback=initMapPolonnaruwa"  async></script>
+                 <script  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA6bqTtd9axLl6pZb3eeSkRgRfXVjW1zkQ&callback=initMapPolonnaruwa"  async></script>
 
 
              <div class="polonnaruwa-status-chart">
@@ -1382,7 +1383,7 @@
     });
                  </script>
 
-        <h3 class="map-dis-header">Polonnaruwa Active Cases In Map</h3>
+        <!-- <h3 class="map-dis-header">Polonnaruwa Active Cases In Map</h3> -->
          </div>
 
 
@@ -1400,7 +1401,7 @@
 
                    <div class="ele-5-box-back">
                     <h2 class="counter"><?php echo (($data["totalCasesReportedByDistrict"])["anuradhapuraActive"])["numOfAnuradhapuraElephantsVillage"];?></h2>
-                    <button class="ele-button">View</button>
+                    
                     
                     
                      
@@ -1423,7 +1424,7 @@
 
                    <div class="ani-5-box-back">
                     <h2 class="counter"><?php echo (($data["totalCasesReportedByDistrict"])["anuradhapuraActive"])["numOfAnuradhapuraAnimalInVillage"];?></h2>
-                    <button class="ele-button">View</button>
+                    
 
                    
                     </div>
@@ -1442,7 +1443,7 @@
 
                    <div class="dan-5-box-back">
                     <h2 class="counter"><?php echo (($data["totalCasesReportedByDistrict"])["anuradhapuraActive"])["numOfAnuradhapuraAnimalIsDanger"];?></h2>
-                    <button class="ele-button">View</button>
+                    
 
                    
                     </div>
@@ -1464,7 +1465,7 @@
 
                    <div class="ill-5-box-back">
                     <h2 class="counter"><?php echo (($data["totalCasesReportedByDistrict"])["anuradhapuraActive"])["numOfAnuradhapuraIllegal"];?></h2>
-                    <button class="ele-button">View</button>
+                    
 
                    
                     </div>
@@ -1491,7 +1492,7 @@
 
                    <div class="crop-5-box-back">
                     <h2 class="counter"><?php echo (($data["totalCasesReportedByDistrict"])["anuradhapuraActive"])["numOfAnuradhapuraCropDamage"];?></h2>
-                    <button class="ele-button">View</button>
+                    
 
                    
                     </div>
@@ -1512,7 +1513,7 @@
 
                    <div class="fen-5-box-back">
                     <h2 class="counter"><?php echo (($data["totalCasesReportedByDistrict"])["anuradhapuraActive"])["numOfAnuradhapuraBreakdownFence"];?></h2>
-                    <button class="ele-button">View</button>
+                    
 
                    
                     </div>
@@ -1525,6 +1526,7 @@
                  
 
                  <div id="map-anuradhapura"></div>
+                 <h3 class="map-dis-header">Anuradhapura Active Cases In Map</h3>
 
 
                   <script type="text/javascript">
@@ -1651,7 +1653,7 @@
 
                  </script>
 
-                 <script  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOVujYe2-BPc5b66VsL0xVVUKoZHkb5yo&callback=initMapAnuradhapura"  async></script>
+                 <script  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA6bqTtd9axLl6pZb3eeSkRgRfXVjW1zkQ&callback=initMapAnuradhapura"  async></script>
 
              <div class="anuradhapura-status-chart">
                     <canvas id="anuradhapura-status"></canvas>
@@ -1688,7 +1690,7 @@
     });
                  </script>
 
-          <h3 class="map-dis-header">Anuradhapura Active Cases In Map</h3>
+          
          </div>
                
                <div class="ampara">
@@ -1705,7 +1707,7 @@
 
                    <div class="ele-6-box-back">
                     <h2 class="counter"><?php echo (($data["totalCasesReportedByDistrict"])["amparaActive"])["numOfAmparaElephantsVillage"];?></h2>
-                    <button class="ele-button">View</button>
+                    
                     
                     
                      
@@ -1728,7 +1730,7 @@
 
                    <div class="ani-6-box-back">
                     <h2 class="counter"><?php echo (($data["totalCasesReportedByDistrict"])["amparaActive"])["numOfAmparaAnimalInVillage"];?></h2>
-                    <button class="ele-button">View</button>
+                    
 
                    
                     </div>
@@ -1747,7 +1749,7 @@
 
                    <div class="dan-6-box-back">
                     <h2 class="counter"><?php echo (($data["totalCasesReportedByDistrict"])["amparaActive"])["numOfAmparaAnimalIsDanger"];?></h2>
-                    <button class="ele-button">View</button>
+                    
 
                    
                     </div>
@@ -1769,7 +1771,7 @@
 
                    <div class="ill-6-box-back">
                     <h2 class="counter"><?php echo (($data["totalCasesReportedByDistrict"])["amparaActive"])["numOfAmparaIllegal"];?></h2>
-                    <button class="ele-button">View</button>
+                    
 
                    
                     </div>
@@ -1796,7 +1798,7 @@
 
                    <div class="crop-6-box-back">
                     <h2 class="counter"><?php echo (($data["totalCasesReportedByDistrict"])["amparaActive"])["numOfAmparaCropDamage"];?></h2>
-                    <button class="ele-button">View</button>
+                    
 
                    
                     </div>
@@ -1817,7 +1819,7 @@
 
                    <div class="fen-6-box-back">
                     <h2 class="counter"><?php echo (($data["totalCasesReportedByDistrict"])["amparaActive"])["numOfAmparaBreakdownFence"];?></h2>
-                    <button class="ele-button">View</button>
+                    
 
                    
                     </div>
@@ -1830,6 +1832,7 @@
                  
                  
                    <div id="map-ampara"></div>
+                   <h3 class="map-dis-header">Ampara Active Cases In Map</h3>
 
                    <script type="text/javascript">
 
@@ -1955,7 +1958,7 @@
 
                  </script>
 
-                 <script  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOVujYe2-BPc5b66VsL0xVVUKoZHkb5yo&callback=initMapAmpara"  async></script>
+                 <script  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA6bqTtd9axLl6pZb3eeSkRgRfXVjW1zkQ&callback=initMapAmpara"  async></script>
 
 
 
@@ -1993,7 +1996,7 @@
 
     });
                  </script>
-                 <h3 class="map-dis-header">Ampara Active Cases In Map</h3>
+                 
          </div>
                
 
@@ -2011,7 +2014,7 @@
 
                    <div class="ele-7-box-back">
                     <h2 class="counter"><?php echo (($data["totalCasesReportedByDistrict"])["hambanthotaActive"])["numOfHambanthotaElephantsVillage"];?></h2>
-                    <button class="ele-button">View</button>
+                    
                     
                     
                      
@@ -2034,7 +2037,7 @@
 
                    <div class="ani-7-box-back">
                     <h2 class="counter"><?php echo (($data["totalCasesReportedByDistrict"])["hambanthotaActive"])["numOfHambanthotaAnimalInVillage"];?></h2>
-                    <button class="ele-button">View</button>
+                    
 
                    
                     </div>
@@ -2053,7 +2056,7 @@
 
                    <div class="dan-7-box-back">
                     <h2 class="counter"><?php echo (($data["totalCasesReportedByDistrict"])["hambanthotaActive"])["numOfHambanthotaAnimalIsDanger"];?></h2>
-                    <button class="ele-button">View</button>
+                    
 
                    
                     </div>
@@ -2075,7 +2078,7 @@
 
                    <div class="ill-7-box-back">
                     <h2 class="counter"><?php echo (($data["totalCasesReportedByDistrict"])["hambanthotaActive"])["numOfHambanthotaIllegal"];?></h2>
-                    <button class="ele-button">View</button>
+                    
 
                    
                     </div>
@@ -2102,7 +2105,7 @@
 
                    <div class="crop-7-box-back">
                     <h2 class="counter"><?php echo (($data["totalCasesReportedByDistrict"])["hambanthotaActive"])["numOfHambanthotaCropDamage"];?></h2>
-                    <button class="ele-button">View</button>
+                    
 
                    
                     </div>
@@ -2123,7 +2126,7 @@
 
                    <div class="fen-7-box-back">
                     <h2 class="counter"><?php echo (($data["totalCasesReportedByDistrict"])["hambanthotaActive"])["numOfHambanthotaBreakdownFence"];?></h2>
-                    <button class="ele-button">View</button>
+                    
 
                    
                     </div>
@@ -2136,6 +2139,7 @@
                  
                  
                    <div id="map-hambanthota"></div>
+                   <h3 class="map-dis-header">Hambanthota Active Cases In Map</h3>
 
                    <script type="text/javascript">
 
@@ -2261,7 +2265,7 @@
 
                  </script>
 
-                 <script  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOVujYe2-BPc5b66VsL0xVVUKoZHkb5yo&callback=initMapHambanthota"  async></script>
+                 <script  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA6bqTtd9axLl6pZb3eeSkRgRfXVjW1zkQ&callback=initMapHambanthota"  async></script>
 
              <div class="hambanthota-status-chart">
                     <canvas id="hambanthota-status"></canvas>
@@ -2298,7 +2302,7 @@
     });
                  </script>
 
-                 <h3 class="map-dis-header">Hambanthota Active Cases In Map</h3>
+                 
 
          </div>
                
@@ -2330,23 +2334,23 @@
                         </thead>
                         <tr>
                             <td>Regional Officers</td>
-                            <td class="counter">2</td>
+                            <td class="counter"><?php echo $data["noOfRegionals"];?></td>
                         </tr>
                         <tr>
                             <td>Wildlife Officers</td>
-                            <td class="counter">1</td>
+                            <td class="counter"><?php echo $data["noOfWildlifers"];?></td>
                         </tr>
                         <tr>
                             <td>Villagers</td>
-                            <td class="counter">3</td>
+                            <td class="counter"><?php echo $data["noOfVillagers"];?></td>
                         </tr>
                         <tr>
                             <td>Grama Niladhari</td>
-                            <td class="counter">5</td>
+                            <td class="counter"><?php echo $data["noOfGramaNiladhari"];?></td>
                         </tr>
                         <tr>
                             <td>Veterinarian</td>
-                            <td class="counter">10</td>
+                            <td class="counter"><?php echo $data["noOfVeterinarians"];?></td>
                         </tr>
                         
 

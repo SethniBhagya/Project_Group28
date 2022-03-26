@@ -434,6 +434,14 @@ input[type=radio]{
 	top: 1px;
 }
 
+.error-confirm-password{
+	color: red;
+	position: relative;
+	font-size: 12px;
+	margin-left: 20px;
+	/*top: 1px;*/
+}
+
 #gn-pass{
 	display: none;
 }
@@ -450,6 +458,24 @@ input[type=radio]{
 #reg-pass{
 	display: none;
 }
+
+#gn-confirm-pass{
+	display: none;
+}
+
+#vet-confirm-pass{
+	display: none;
+}
+#vil-confirm-pass{
+	display: none;
+}
+#wil-confirm-pass{
+	display: none;
+}
+#reg-confirm-pass{
+	display: none;
+}
+
 
 
 
@@ -477,6 +503,24 @@ input[type=radio]{
 	border-radius: 20px;
 	display: none;
 }
+
+#grama-gn{
+	color: red;
+	background-color: white;
+	font-size: 15px;
+	border-radius: 20px;
+	display: none;
+}
+
+#grama-dis{
+	color: red;
+	background-color: white;
+	font-size: 15px;
+	border-radius: 20px;
+	display: none;
+}
+
+
 
 
 

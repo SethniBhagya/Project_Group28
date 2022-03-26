@@ -3258,6 +3258,35 @@ input[type="checkbox"]{
   box-shadow: 4px 4px 4px 4px rgba(0, 251, 10, 0.16);
 
 }
+.polonnaruwa-status-chart h3{
+  position: absolute;
+  color: darkgreen;
+  top: 460px;
+  left: 20px;
+}
+
+.anuradhapura-status-chart h3{
+  position: absolute;
+  color: darkgreen;
+  top: 460px;
+  left: 100px;
+}
+
+.ampara-status-chart h3{
+  position: absolute;
+  color: darkgreen;
+  top: 460px;
+  left: 100px;
+}
+
+.hambanthota-status-chart h3{
+  position: absolute;
+  color: darkgreen;
+  top: 460px;
+  left: 38px;
+}
+
+
 
 #map-anuradhapura{
  margin-top: 30px;
@@ -3289,6 +3318,7 @@ input[type="checkbox"]{
   box-shadow: 4px 4px 4px 4px rgba(0, 251, 10, 0.16);
 
 }
+
 
 
 #map-ampara{
@@ -3464,7 +3494,8 @@ input[type="checkbox"]{
 .map-dis-header{
 
   position: absolute;
-  margin-left: 250px;
+  margin-left: 220px;
+  color: darkgreen;
 
 }
 

@@ -821,7 +821,7 @@ input[type="checkbox"]{
   background-color: #ffffff;
   width: 400px;
   height: 400px;
-  margin-left: 20px;
+  margin-left: 70px;
   top: 1vh;
   box-shadow: 4px 4px 4px 4px rgba(0, 251, 10, 0.16);
 }
@@ -831,7 +831,7 @@ input[type="checkbox"]{
   background-color: #ffffff;
   width: 400px;
   height: 400px;
-  margin-left: 520px;
+  margin-left: 570px;
   top: 1vh;
   box-shadow: 4px 4px 4px 4px rgba(0, 251, 10, 0.16);
 }
@@ -841,12 +841,33 @@ input[type="checkbox"]{
   background-color: #ffffff;
   width: 400px;
   height: 400px;
-  margin-left: 1000px;
+  margin-left: 1050px;
   top: 1vh;
   box-shadow: 4px 4px 4px 4px rgba(0, 251, 10, 0.16);
 }
 
 
+.chart2 h3{
+  position: absolute;
+  top: 400px;
+  color: darkgreen;
+  left: 120px;
+}
+
+.chart1 h3{
+  position: absolute;
+  top: 400px;
+  color: darkgreen;
+  left: 120px;
+}
+
+
+.chart3 h3{
+  position: absolute;
+  top: 400px;
+  color: darkgreen;
+  left: 98px;
+}
 
 
 

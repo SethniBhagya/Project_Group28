@@ -64,14 +64,15 @@ class regionalOfficer_model extends Model
 		$gnd=$data["gnd"];
 		$gic=$data["gic"];
 		$hashPassword=password_hash($data["password"], PASSWORD_DEFAULT);//store encrypted password in the database 
-        //******this should be correct*****
-		$stmt1="INSERT INTO user VALUES('$nic','$fname','$lname','$mob','$dob','$address','$userType','$email','$gender',-1)";
+        
+        $lastNoticeID=(($this->db->runQuery("SELECT MAX(noticeID) AS max FROM notice "))[0])["max"];
+		$stmt1="INSERT INTO user VALUES('$nic','$fname','$lname','$mob','$dob','$address','$userType','$email','$gender','$lastNoticeID')";
 		$gnd_code=(($this->db->runQuery("SELECT GND_Code FROM gn_division WHERE name='$gnd' AND district_name='$district'"))[0])["GND_Code"];
 
 		$stmt2="INSERT INTO grama_niladhari VALUES('$nic','$gic','$gnd_code')";
 		$stmt3="INSERT INTO login VALUES('$nic','$hashPassword')";
 		$stmt4="UPDATE village SET grama_niladhari_NIC='$nic' WHERE GND_Code='$gnd_code'";
-		// $stmt5="UPDATE lives SET gramaniladhari_NIC='$nic' WHERE GND_Code='$gnd_code'";
+		$stmt5="UPDATE lives SET gramaniladhari_NIC='$nic' WHERE GND_Code='$gnd_code'";
 		$stmt6="UPDATE grama_niladhari SET NIC='$nic',GID='$gic' WHERE GND_Code='$gnd_code'";
 
 
@@ -102,16 +103,44 @@ class regionalOfficer_model extends Model
 		$officeNum = $data["officeNum"];
 		$hashPassword = password_hash($data["password"], PASSWORD_DEFAULT);
 
-		$stmt1 = "INSERT INTO user VALUES('$nic','$fname','$lname','$mob','$dob','$address','$userType','$email','$gender',-1)";
+        $lastNoticeID=(($this->db->runQuery("SELECT MAX(noticeID) AS max FROM notice "))[0])["max"];
+		$stmt1 = "INSERT INTO user VALUES('$nic','$fname','$lname','$mob','$dob','$address','$userType','$email','$gender','$lastNoticeID')";
 		$stmt2 = "INSERT INTO wildlife_officer VALUES('$nic','$wid','$officeNum')";
+		$stmt3 = "INSERT INTO login VALUES('$nic','$hashPassword')";
+		$stmt4="INSERT INTO wildlifeofficernotification VALUES('$nic','pending')";
+
+		$this->db->runQuery($stmt1);
+		$this->db->runQuery($stmt2);
+		$this->db->runQuery($stmt3);
+		$this->db->runQuery($stmt4);
+	}
+
+    //add regional officer to database
+	public function roAdd($data)
+	{
+
+		$nic = $data["nic"];
+		$fname = $data["fName"];
+		$lname = $data["lName"];
+		$mob = $data["mob"];
+		$dob = $data["dob"];
+		$address = $data["address"];
+		$userType = "regional Officer";
+		$email = $data["email"];
+		$gender = $data["gender"];
+		$rid = $data["rid"];
+		$officeNum = $data["officeNum"];
+		$hashPassword = password_hash($data["password"], PASSWORD_DEFAULT);
+
+        $lastNoticeID=(($this->db->runQuery("SELECT MAX(noticeID) AS max FROM notice "))[0])["max"];
+		$stmt1 = "INSERT INTO user VALUES('$nic','$fname','$lname','$mob','$dob','$address','$userType','$email','$gender','$lastNoticeID')";
+		$stmt2 = "INSERT INTO regional_officer VALUES('$nic','$rid','$officeNum')";
 		$stmt3 = "INSERT INTO login VALUES('$nic','$hashPassword')";
 
 		$this->db->runQuery($stmt1);
 		$this->db->runQuery($stmt2);
 		$this->db->runQuery($stmt3);
 	}
-
- 
 
    //add veterinarian to database
 	public function vetAdd($data)
@@ -130,7 +159,8 @@ class regionalOfficer_model extends Model
 		$officeNum = $data["officeNum"];
 		$hashPassword = password_hash($data["password"], PASSWORD_DEFAULT);
 
-		$stmt1 = "INSERT INTO user VALUES('$nic','$fname','$lname','$mob','$dob','$address','$userType','$email','$gender',-1)";
+        $lastNoticeID=(($this->db->runQuery("SELECT MAX(noticeID) AS max FROM notice "))[0])["max"];
+		$stmt1 = "INSERT INTO user VALUES('$nic','$fname','$lname','$mob','$dob','$address','$userType','$email','$gender','$lastNoticeID')";
 		$stmt2 = "INSERT INTO veterinarian VALUES('$nic','$vid','$officeNum')";
 		$stmt3 = "INSERT INTO login VALUES('$nic','$hashPassword')";
 
@@ -158,19 +188,22 @@ class regionalOfficer_model extends Model
 		$gnd = $data["gnd"];
 		$hashPassword = password_hash($data["password"], PASSWORD_DEFAULT);
 
-		$stmt1 = "INSERT INTO user VALUES('$nic','$fname','$lname','$mob','$dob','$address','$userType','$email','$gender',-1)";
+        $lastNoticeID=(($this->db->runQuery("SELECT MAX(noticeID) AS max FROM notice "))[0])["max"];
+		$stmt1 = "INSERT INTO user VALUES('$nic','$fname','$lname','$mob','$dob','$address','$userType','$email','$gender','$lastNoticeID')";
 		$stmt2 = "INSERT INTO villager VALUES('$nic')";
 		$stmt3 = "INSERT INTO login VALUES('$nic','$hashPassword')";
 		$gnd_code=(($this->db->runQuery("SELECT GND_Code FROM gn_division WHERE name='$gnd' AND district_name='$district'"))[0])["GND_Code"];
 		$gramaniladhari_NIC = (($this->db->runQuery("SELECT NIC  FROM grama_niladhari WHERE GND='$gnd_code'"))[0])["NIC"];
 		// $village_code = (($this->db->runQuery("SELECT village_code FROM village WHERE GND_Code='$gnd_code'"))[0])["village_code"];
 		$village_code = (($this->db->runQuery("SELECT village.village_code FROM village,gn_division,district,province WHERE province.Name='$province' AND district.Name='$district' AND gn_division.name='$gnd' AND village.name='$village'"))[0])["village_code"];
-		$stmt4 = "INSERT INTO lives VALUES('$nic','$gramaniladhari_NIC','$village_code')";
+		$stmt4 = "INSERT INTO lives VALUES('$nic','$gramaniladhari_NIC','$village_code','$province','$district')";
+		$stmt5="INSERT INTO villager_registration VALUES('$nic','accept')";
 
 		$this->db->runQuery($stmt1);
 		$this->db->runQuery($stmt2);
 		$this->db->runQuery($stmt3);
 		$this->db->runQuery($stmt4);
+		$this->db->runQuery($stmt5);
 	}
 
 
@@ -285,6 +318,7 @@ class regionalOfficer_model extends Model
 		if(!empty($newNoticeId))
 		{
 			$latestNoticeId=($newNoticeId[0])["noticeID"];
+			
 
 			$detialsOfNotice=($this->db->runQuery("SELECT * FROM notice WHERE noticeID='$latestNoticeId'"))[0];
 
@@ -354,18 +388,18 @@ class regionalOfficer_model extends Model
 		
 		
 		//number of incidents
-		$detailsAboutIncidents=[
-			"totalIncident"=>(($this->db->runQuery("SELECT COUNT(*) AS total FROM reported_incident WHERE village_code IN(SELECT DISTINCT village.village_code FROM village,gn_division WHERE gn_division.district_name='$district' AND gn_division.GND_Code=village.GND_Code)"))[0])['total'],
-			"totalSuccessIncident"=>(($this->db->runQuery("SELECT COUNT(*) AS total FROM reported_incident WHERE status='success' AND village_code IN(SELECT DISTINCT village.village_code FROM village,gn_division WHERE gn_division.district_name='$district' AND gn_division.GND_Code=village.GND_Code) "))[0])['total'],
-			"totalActiveIncident"=>(($this->db->runQuery("SELECT COUNT(*) AS total FROM reported_incident WHERE status='pending' AND village_code IN(SELECT DISTINCT village.village_code FROM village,gn_division WHERE gn_division.district_name='$district' AND gn_division.GND_Code=village.GND_Code)"))[0])['total'],
-			"totalUnsuccessIncident"=>(($this->db->runQuery("SELECT COUNT(*) AS total FROM reported_incident WHERE status='unsuccess' AND village_code IN(SELECT DISTINCT village.village_code FROM village,gn_division WHERE gn_division.district_name='$district' AND gn_division.GND_Code=village.GND_Code)"))[0])['total'],
-			"totalAccpted"=>(($this->db->runQuery("SELECT COUNT(*) AS total FROM work WHERE incidentID IN(SELECT incidentID FROM reported_incident WHERE village_code IN(SELECT DISTINCT village.village_code FROM village,gn_division WHERE gn_division.district_name='$district' AND gn_division.GND_Code=village.GND_Code)))"))[0])['total'],
-			"acceptedActive"=>(($this->db->runQuery("SELECT COUNT(*) AS total FROM work WHERE incidentID IN(SELECT incidentID FROM reported_incident WHERE status='pending' AND village_code IN(SELECT DISTINCT village.village_code FROM village,gn_division WHERE gn_division.district_name='$district' AND gn_division.GND_Code=village.GND_Code))"))[0])['total'],
-			"acceptedSuccess"=>(($this->db->runQuery("SELECT COUNT(*) AS total FROM work WHERE incidentID IN(SELECT incidentID FROM reported_incident WHERE status='success' AND village_code IN(SELECT DISTINCT village.village_code FROM village,gn_division WHERE gn_division.district_name='$district' AND gn_division.GND_Code=village.GND_Code))"))[0])['total'],
-			"acceptedUnsuccess"=>(($this->db->runQuery("SELECT COUNT(*) AS total FROM work WHERE incidentID IN(SELECT incidentID FROM reported_incident WHERE status='unsuccess' AND village_code IN(SELECT DISTINCT village.village_code FROM village,gn_division WHERE gn_division.district_name='$district' AND gn_division.GND_Code=village.GND_Code))"))[0])['total'],
+		// $detailsAboutIncidents=[
+		// 	"totalIncident"=>(($this->db->runQuery("SELECT COUNT(*) AS total FROM reported_incident WHERE village_code IN(SELECT DISTINCT village.village_code FROM village,gn_division WHERE gn_division.district_name='$district' AND gn_division.GND_Code=village.GND_Code)"))[0])['total'],
+		// 	"totalSuccessIncident"=>(($this->db->runQuery("SELECT COUNT(*) AS total FROM reported_incident WHERE status='success' AND village_code IN(SELECT DISTINCT village.village_code FROM village,gn_division WHERE gn_division.district_name='$district' AND gn_division.GND_Code=village.GND_Code) "))[0])['total'],
+		// 	"totalActiveIncident"=>(($this->db->runQuery("SELECT COUNT(*) AS total FROM reported_incident WHERE status='pending' AND village_code IN(SELECT DISTINCT village.village_code FROM village,gn_division WHERE gn_division.district_name='$district' AND gn_division.GND_Code=village.GND_Code)"))[0])['total'],
+		// 	"totalUnsuccessIncident"=>(($this->db->runQuery("SELECT COUNT(*) AS total FROM reported_incident WHERE status='unsuccess' AND village_code IN(SELECT DISTINCT village.village_code FROM village,gn_division WHERE gn_division.district_name='$district' AND gn_division.GND_Code=village.GND_Code)"))[0])['total'],
+		// 	"totalAccpted"=>(($this->db->runQuery("SELECT COUNT(*) AS total FROM work WHERE incidentID IN(SELECT incidentID FROM reported_incident WHERE village_code IN(SELECT DISTINCT village.village_code FROM village,gn_division WHERE gn_division.district_name='$district' AND gn_division.GND_Code=village.GND_Code)))"))[0])['total'],
+		// 	"acceptedActive"=>(($this->db->runQuery("SELECT COUNT(*) AS total FROM work WHERE incidentID IN(SELECT incidentID FROM reported_incident WHERE status='pending' AND village_code IN(SELECT DISTINCT village.village_code FROM village,gn_division WHERE gn_division.district_name='$district' AND gn_division.GND_Code=village.GND_Code))"))[0])['total'],
+		// 	"acceptedSuccess"=>(($this->db->runQuery("SELECT COUNT(*) AS total FROM work WHERE incidentID IN(SELECT incidentID FROM reported_incident WHERE status='success' AND village_code IN(SELECT DISTINCT village.village_code FROM village,gn_division WHERE gn_division.district_name='$district' AND gn_division.GND_Code=village.GND_Code))"))[0])['total'],
+		// 	"acceptedUnsuccess"=>(($this->db->runQuery("SELECT COUNT(*) AS total FROM work WHERE incidentID IN(SELECT incidentID FROM reported_incident WHERE status='unsuccess' AND village_code IN(SELECT DISTINCT village.village_code FROM village,gn_division WHERE gn_division.district_name='$district' AND gn_division.GND_Code=village.GND_Code))"))[0])['total'],
 
 
-		];
+		// ];
 
 		$noOfActive=(($this->db->runQuery("SELECT COUNT(*) AS noOfActive FROM reported_incident WHERE status='pending' AND village_code IN(SELECT DISTINCT village.village_code FROM village,gn_division WHERE gn_division.district_name='$district' AND gn_division.GND_Code=village.GND_Code)"))[0])["noOfActive"];
 		$noOfSuccess=(($this->db->runQuery("SELECT COUNT(*) AS noOfSuccess FROM reported_incident WHERE status='success' AND village_code IN(SELECT DISTINCT village.village_code FROM village,gn_division WHERE gn_division.district_name='$district' AND gn_division.GND_Code=village.GND_Code)"))[0])["noOfSuccess"];
@@ -390,7 +424,7 @@ class regionalOfficer_model extends Model
 			"activeMapLocation"=>$activeMapLocation,
 			"successMapLocation"=>$successMapLocation,
 			"unsuccessMapLocation"=>$unsuccessMapLocation,
-			"detailsAboutIncidents"=>$detailsAboutIncidents,
+			// "detailsAboutIncidents"=>$detailsAboutIncidents,
 			"noOfActive"=>$noOfActive,
 			"noOfSuccess"=>$noOfSuccess,
 			"noOfUnsuccess"=>$noOfUnsuccess,
@@ -419,6 +453,58 @@ class regionalOfficer_model extends Model
 
 		
 		return $data;
+	}
+
+	public function placeNotice($data){
+
+		$date=$data["date"];
+		$subject=$data["subject"];
+		$description=$data["description"];
+		$village=$data["village"];
+		$gnDivision=$data["gnDivision"];
+		$district=$data["district"];
+		$province=$data["province"];
+		$jobType=$data["jobType"];
+		$time=$data["time"];
+     
+
+       
+		$stmt1="INSERT INTO notice (date,description,province,district,gn_division,village,time,jobType) VALUES('$date','$description','$province','$district','$gnDivision','$village','$time','$jobType')";
+		$this->db->runQuery($stmt1);
+
+		$village_code = (($this->db->runQuery("SELECT village.village_code FROM village,gn_division,district,province WHERE province.Name='$province' AND district.Name='$district' AND gn_division.name='$gnDivision' AND village.name='$village'"))[0])["village_code"];
+
+		$officeNo=(($this->db->runQuery("SELECT officeNo FROM village WHERE village_code='$village_code'"))[0])["officeNo"];
+
+		$stmt2="INSERT INTO notice_has_wildlifeoffice_village VALUES('$village_code',last_insert_id(),'$officeNo','$jobType')";
+		$this->db->runQuery($stmt2);
+	}
+
+
+	public function getPhoneNumbersForNotice($village,$gnDivision,$district,$province,$jobType)
+	{
+
+		$village_code = (($this->db->runQuery("SELECT village.village_code FROM village,gn_division,district,province WHERE province.Name='$province' AND district.Name='$district' AND gn_division.name='$gnDivision' AND village.name='$village'"))[0])["village_code"];
+
+		$officeNo=(($this->db->runQuery("SELECT officeNo FROM village WHERE village_code='$village_code'"))[0])["officeNo"];
+
+		switch($jobType)
+		{
+			case "villager":return ($this->db->runQuery("SELECT DISTINCT user.mobileNo AS mobile FROM lives,user WHERE lives.village_code='$village_code' AND lives.villager_NIC=user.NIC  "));
+			break;
+			case "gramaNiladhari": return ($this->db->runQuery("SELECT DISTINCT user.mobileNo AS mobile FROM lives,user WHERE lives.village_code='$village_code' AND lives.gramaniladhari_NIC=user.NIC "));
+			break;
+			case "wildlifeOfficer":return ($this->db->runQuery("SELECT DISTINCT user.mobileNo AS mobile FROM wildlife_officer,user WHERE wildlife_officer.officeNo='$officeNo' AND wildlife_officer.NIC=user.NIC"));
+			break;
+			case "wildlifeOfficer":return ($this->db->runQuery("SELECT DISTINCT user.mobileNo AS mobile FROM wildlife_officer,user WHERE wildlife_officer.officeNo='$officeNo' AND wildlife_officer.NIC=user.NIC"));
+			break;
+			case "regionalOfficer":return ($this->db->runQuery("SELECT DISTINCT user.mobileNo AS mobile FROM regional_officer,user WHERE regional_officer.officeNo='$officeNo' AND regional_officer.NIC=user.NIC"));
+			break;
+			case "veterinarian": return ($this->db->runQuery("SELECT DISTINCT user.mobileNo AS mobile FROM veterinarian,user WHERE veterinarian.officeNo='$officeNo' AND veterinarian.NIC=user.NIC"));
+			break;
+			
+		}
+
 	}
 
 

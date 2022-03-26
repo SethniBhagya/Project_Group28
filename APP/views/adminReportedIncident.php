@@ -30,12 +30,12 @@
 
             <ul class="nav-menu">
                 <li id="home" class="nav-menu-item"><a href="../">Home</a></li>
-                <li id="dashboard" class="nav-menu-item"><a href="../">Dashboard</a></li>
+                <li id="dashboard" class="nav-menu-item"><a href="../admin/dashboard">Dashboard</a></li>
                 
                 <li class="dropdown">
                     <span class="dot"> <img onclick="myFunction_2(this)" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
                     <div id="myDropdown" class="dropdown-content">
-                        <a href="">View Profile</a>
+                        <a href="../admin/viewProfile">View Profile</a>
                         <a href="../user/logout">Logout</a>
                     </div>
                 </li>
@@ -44,7 +44,51 @@
     </header>
 
     <div id="d1">
-        <h1 id="title">Reported Incidents : Wild elephants in village</h1>
+        <h1 id="title">Reported Incidents :<?php if(isset($_GET["incident"]))$category=$_GET["incident"];
+                                            switch($category)
+                                            {
+                                                case 'elephantAttack':
+                                                {
+                                                    echo "Elephants in the Village";
+         
+            
+                                                    }
+          
+                                                break;
+                                                case 'animalsVillage':
+                                                {  echo "Other Animals are in the Village";
+                                                    }
+          
+                                                break;
+                                                case 'animalDanger':
+                                                { echo "Wild Animal is in Danger";
+                                                    }
+
+          
+                                                break;
+                                                case 'illegal':
+                                                {  echo "Illegal Activities";
+          
+                                                    }
+          
+                                                break;
+                                                case 'cropDamage':
+                                                {  echo "Crop Damages";
+          
+                                                    }
+          
+                                                break;
+                                                case 'fenceDamage':
+                                                {  echo "Elephant Fence Damages";
+          
+                                                    }
+          
+                                                break;
+                                            }
+
+
+
+        ?></h1>
 
         <div id="tb">
             <table>

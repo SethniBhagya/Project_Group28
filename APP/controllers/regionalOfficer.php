@@ -1,8 +1,12 @@
 <?php
 
 require 'user.php';
-session_start();
-session_regenerate_id();
+if(session_status()===PHP_SESSION_NONE)
+    {
+      session_start();
+      session_regenerate_id();
+
+    }
 
 class regionalOfficer extends user{
 
@@ -258,9 +262,11 @@ class regionalOfficer extends user{
 	public function dashboard(){
         
         //get data related to dashboard
+    
       $district=$this->model->getRegionalDistrict($_SESSION["NIC"]);
       $data=$this->model->getDataDashboard($district);
         //redirect to dashboard and pass the data
+
         $this->view->render('regionalOfficer_page',$data);
     }
 
@@ -270,7 +276,103 @@ class regionalOfficer extends user{
 
     public function placeNotice(){
 
-    	$this->view->render('regionalNotice');
+      
+
+       $province=$this->model->getProvince();
+       $this->view->render('regionalNotice',$province);
+
+       if(isset($_POST["provinceName"])){
+
+
+             $district=$this->model->getDistrict($_POST["provinceName"]);
+
+             foreach($district as $row)
+                echo "<option value=".$row["Name"].">".$row["Name"]."</option>";
+
+        }
+
+
+        if(isset($_POST["districtName"])){
+                $gnDivision=$this->model->getGN($_POST["districtName"]);
+                     
+                 foreach($gnDivision as $row)
+                        echo "<option value=".$row["name"].">".$row["name"]."</option>";
+
+              }
+
+
+        if(isset($_POST["gnName"])){
+                 $village=$this->model->getVillage($_POST["gnName"]);
+
+                     
+                  foreach($village as $row)
+                         echo "<option value=".$row["name"].">".$row["name"]."</option>";
+
+        }
+
+        if($_SERVER["REQUEST_METHOD"]=="POST")
+        {
+          if(isset($_POST["submit"])){
+
+
+            $_POST=filter_input_array(INPUT_POST,FILTER_SANITIZE_STRING);
+            date_default_timezone_set('Asia/Colombo');
+            
+
+            $data=[
+              "subject"=>trim($_POST["subject"]),
+              "description"=>trim($_POST["description"]),
+              "village"=>trim($_POST["village"]),
+              "gnDivision"=>trim($_POST["gnd"]),
+              "district"=>trim($_POST["district"]),
+              "province"=>trim($_POST["province"]),
+              "jobType"=>trim($_POST["jobType"]),
+              "date"=>date("y/m/d"),
+              "time"=>date("H:i:s")
+            ];
+
+
+            
+
+              
+            
+            
+            
+
+
+
+            $this->model->placeNotice($data);
+
+            $phoneArray=$this->model->getPhoneNumbersForNotice($data["village"],$data["gnDivision"],$data["district"],$data["province"],$data["jobType"]);
+            $sid="ACef8fe9b30c6de390f180eb11a6ccb5ae";
+            $authToken="45c39c156a16821f9d628bddc683071a";
+
+            for($x=0;$x<count($phoneArray);$x++)
+            {
+              $client=new Twilio\Rest\Client($sid,$authToken);
+              
+              $message=$client->messages->create(
+                "+94".strval(($phoneArray[$x])["mobile"]),
+                array(
+                                'from' => "+15158085104",
+                                'body' => $data["description"]
+                               )
+                
+                
+
+              );
+
+              
+
+            }
+
+
+        
+
+          }
+        }
+
+
 
     }
 
@@ -292,7 +394,7 @@ class regionalOfficer extends user{
     	   <h1>Date:".$newNoticeDetails["date"]."&emsp;Time:".$newNoticeDetails["time"]."</h1>
     	   <p>".$newNoticeDetails["description"]."</p>
     	   <audio id=\"audio\" autoplay loop  controls src=\"http://www.raypinson.com/ringtones/CarAlarm.mp3\"></audio>
-    	   <button id=\"ok-btn\" value=".$newNoticeDetails["noticeID"]." onclick=\"endNotice(this.value)\">Okay</button>
+    	   <button id=\"ok-btn\" value=\"".$newNoticeDetails["noticeID"]."\" onclick=\"endNotice(this.value)\">Okay</button>
 
 
     	</div>
@@ -317,13 +419,16 @@ class regionalOfficer extends user{
     public function endNotice(){
 
     	$noticeId=$_POST["noticeId"];
+      
+
       $url=$_GET['url'];
       $url  = rtrim($url,'/');
       $url  = filter_var($url,FILTER_SANITIZE_URL);
       $url = explode('/',$url);
 
     	$this->model->updateNotice($noticeId,$_SESSION["NIC"]);
-    	header("Location: ../regionalOfficer/".$url[1]);
+    	
+      header("Location: ../regionalOfficer/".$url[0]);
 
     }
 

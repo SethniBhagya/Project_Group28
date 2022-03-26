@@ -8,14 +8,16 @@
     
     
      <script src="../Public/Javascript/admin.js"></script>
+     <!-- <script src="../Public/Javascript/notice.js"></script> -->
      <link rel="stylesheet" href="../Public/css/regionalOfficer_page.css">
+     <link rel="stylesheet" href="../Public/css/noticeAlert.css">
       <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
       <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
       <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js" ></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.min.js" ></script>
-
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" referrerpolicy="no-referrer"></script>
       <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     
     
@@ -55,12 +57,14 @@
       <h1>Wildlife Care</h1>
       <ul>
         <li><a href="../regionalOfficer/viewUser"><i class="fas fa-users"></i>Users</a></li>
-        <li><a href="../admin/placeNotice"><i class="fas fa-bell"></i>Notice</a></li>
+        <li><a href="../regionalOfficer/placeNotice"><i class="fas fa-bell"></i>Notice</a></li>
         
       </ul>
 
 
       
+    </div>
+    <div id="notice-box">
     </div>
           
     
@@ -359,7 +363,7 @@
 
                 
 
-                 <script  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOVujYe2-BPc5b66VsL0xVVUKoZHkb5yo&callback=initMapActive"  async></script>
+                 <script  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA6bqTtd9axLl6pZb3eeSkRgRfXVjW1zkQ&callback=initMapActive"  async></script>
 
               
 
@@ -631,7 +635,7 @@
 
                  </script>
 
-                 <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOVujYe2-BPc5b66VsL0xVVUKoZHkb5yo&callback=initMapSuccess" async></script>
+                 <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA6bqTtd9axLl6pZb3eeSkRgRfXVjW1zkQ&callback=initMapSuccess" async></script>
 
 
 
@@ -904,7 +908,7 @@
 
                  </script>
 
-                 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOVujYe2-BPc5b66VsL0xVVUKoZHkb5yo&callback=initMapUnsuccess"></script>
+                 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA6bqTtd9axLl6pZb3eeSkRgRfXVjW1zkQ&callback=initMapUnsuccess"></script>
 
 
 
@@ -936,9 +940,9 @@
 
       <script >
            let status=document.getElementById("doughnut-chart").getContext("2d");
-           let active=13;
-           let success=12;
-           let unsuccess=2;
+           let active=<?php echo json_encode(($data["noOfActive"]));?>;
+           let success=<?php echo json_encode(($data["noOfSuccess"]));?>;
+           let unsuccess=<?php echo json_encode(($data["noOfUnsuccess"]));?>;
            let statusLabels=["Success","Pending","Unsuccess"];
            let statusData=[success,active,unsuccess];
            let statusColor=["green","#7FFFD4","red"];
@@ -973,12 +977,12 @@
             <script >
               let bar=document.getElementById("bar-chart").getContext("2d");
               let barLabels=["Elephants in Villages","Wild Animal is in Danger","Crop Damages","Illegal Things","Other Wild Animals in Villages","Damage Fences"];
-              var noOfElephantVillage=4;
-              var noOfAnimalDanger=12;
-              var noOfCropDamage=11;
-              var noOfIllegal=2;
-              var noOfOtherAnimal=3;
-              var noOfDamageFence=4;
+              var noOfElephantVillage=<?php echo json_encode(($data["noOfCases"])["numOfActiveElephantsVillage"]);?>;
+              var noOfAnimalDanger=<?php echo json_encode(($data["noOfCases"])["numOfActiveAnimalIsDanger"]);?>;
+              var noOfCropDamage=<?php echo json_encode(($data["noOfCases"])["numOfActiveCropDamage"]);?>;
+              var noOfIllegal=<?php echo json_encode(($data["noOfCases"])["numOfActiveIllegal"]);?>;
+              var noOfOtherAnimal=<?php echo json_encode(($data["noOfCases"])["numOfActiveAnimalInVillage"]);?>;
+              var noOfDamageFence=<?php echo json_encode(($data["noOfCases"])["numOfActiveBreakdownFence"]);?>;
               let barData=[noOfElephantVillage,noOfAnimalDanger,noOfCropDamage,noOfIllegal,noOfOtherAnimal,noOfDamageFence];
               let barColor=["#34EC36","#2A5C2B","#90EAAD","#0A451D","#669F38","#74EC2E"];
               let barChart=new Chart(bar, {
@@ -1013,16 +1017,16 @@
 
             <script >
               let line=document.getElementById("line-chart").getContext("2d");
-              let lineLabels=["12-3","3-6","6-9","9-12","12-15","15-18","18-21","21-23"];
-              var noOf12_3=4;
-              var noOf3_6=12;
-              var noOf6_9=11;
-              var noOf9_12=2;
-              var noOf12_15=3;
-              var noOf15_18=7;
-              var noOf18_21=4;
-              var noOf21_23=1;
-              let lineData=[noOf12_3,noOf3_6,noOf6_9,noOf9_12,noOf12_15,noOf15_18,noOf18_21,noOf21_23];
+              let lineLabels=["12-3","3-6","6-9","9-12","12-15","15-18","18-21","21-00"];
+              var noOf12_3=<?php echo json_encode(($data["times"])["12_3"]);?>;
+              var noOf3_6=<?php echo json_encode(($data["times"])["3_6"]);?>;
+              var noOf6_9=<?php echo json_encode(($data["times"])["6_9"]);?>;
+              var noOf9_12=<?php echo json_encode(($data["times"])["9_12"]);?>;
+              var noOf12_15=<?php echo json_encode(($data["times"])["12_15"]);?>;
+              var noOf15_18=<?php echo json_encode(($data["times"])["15_18"]);?>;
+              var noOf18_21=<?php echo json_encode(($data["times"])["18_21"]);?>;
+              var noOf21_00=<?php echo json_encode(($data["times"])["21_00"]);?>;
+              let lineData=[noOf12_3,noOf3_6,noOf6_9,noOf9_12,noOf12_15,noOf15_18,noOf18_21,noOf21_00];
               let lineChart=new Chart(line, {
                     type:"line",
                     data:{
@@ -1179,6 +1183,49 @@
                       time:3000
                     })
                    }
+
+                   $(document).ready(function(){
+
+    setInterval(function(){
+        loadNotice();
+    },3000);
+
+
+
+    function loadNotice(){
+
+        $.ajax({
+            url:"../regionalOfficer/getNotice",
+            method:"POST",
+            success:function(data){
+                $("#notice-box").html(data);
+
+
+            }
+        })
+
+          
+ 
+
+    }
+
+    
+});
+
+
+function endNotice(x){
+    
+    
+    $.post("endNotice",{noticeId:x},function(data,status){
+           
+          
+        
+        
+    });
+
+
+  }
+
                  </script>
 </html>
 
