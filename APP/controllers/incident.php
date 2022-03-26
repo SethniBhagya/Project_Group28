@@ -179,7 +179,7 @@ class incident extends Controller
                 case "1" : $this->view->render('report1');
                 if (isset($_POST['submitAlert'])) {
                     $this->model->setAlerStatus($_SESSION['NIC']); 
-                    }
+                }
                 //user submit the form 
                 if(isset($_POST['Submit'])){
                     //call insertReport function in incident_model class 
@@ -686,7 +686,7 @@ class incident extends Controller
         switch ($lang) {
             case 1:
                 switch ($reporttype) {
-                    case 'Wild Elephant are in The Village':
+                    case 'Elephants are in The Village':
                         //display villagerReportView1     
                         $this->view->dataReport1  = $this->model->getReport1($reportNo);
                         $this->view->render('report1Update');
@@ -711,7 +711,7 @@ class incident extends Controller
                             $this->model->updateReport2($_SESSION['NIC'], $_POST['animal'], $_POST['place'], $_POST['latitude'], $_POST['longitude'], $reportNo);
                         }
                         break;
-                    case 'Breakdown of Elephant Fence':
+                    case 'Breakdown of Elephant Fences':
                         $this->view->dataReport3  = $this->model->getReport3($reportNo);
                         $this->view->render('report3Update');
                         if (isset($_POST['submitAlert'])) {
@@ -736,7 +736,7 @@ class incident extends Controller
                             $this->model->updateReport4($_SESSION['NIC'], $_POST['animal'], $_POST['cultivatedCrop'], $_POST['cultivatedLand'], $_POST['damageLand'], $_POST['place'], $_POST['latitude'], $_POST['longitude'], $reportNo);
                         }
                         break;
-                    case 'Wild Animal Danger':
+                    case 'Wild Animal is in Danger':
                         $this->view->dataReport5  = $this->model->getReport5($reportNo);
                         $this->view->render('report5Update');
                         if (isset($_POST['submitAlert'])) {
@@ -747,7 +747,7 @@ class incident extends Controller
                             $this->model->updateReport5($_SESSION['NIC'], $_POST['noOfanimals'], $_POST['animal'], $_POST['support'] , $_POST['place'], $_POST['latitude'], $_POST['longitude'], $reportNo);
                         }
                         break;
-                    case 'Illegal Thing happening the Forest':
+                    case 'Illegal Happing':
                         $this->view->dataReport6  = $this->model->getReport6($reportNo);
                         $this->view->render('report6Update');
                         if (isset($_POST['submitAlert'])) {

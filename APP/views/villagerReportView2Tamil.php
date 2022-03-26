@@ -60,7 +60,7 @@
             <div id="messagealert">
                 <form action="?lang=1&report=1" method="post" style="display: inline-block;">
                     <img src="../Public/images/alertIcon.png" id="alert">
-                    <h3>Wildlife Elephants Come In to Your Registered Village &nbsp&nbsp
+                    <h3>யானை உங்கள் கிராமத்திற்கு வரட்டும்  &nbsp&nbsp
                         <input type="submit" value="Ok" name="submitAlert" id="submit1">
                     </h3>
                 </form>
@@ -72,7 +72,7 @@
 
                 <form action="../villager/viewNotification?lang=1&notification=true" method="post" style="display: inline-block;">
                     <img src="../Public/images/bell1.png" id="bell">&nbsp&nbsp
-                    <h3>You have New Notification (<?php echo $this->notification ?>) &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    <h3>புதிய அறிவிப்புபுதிய  (<?php echo $this->notification ?>) &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                         <input type="submit" value="View" name="submitAlert" id="submit">
                     </h3>
                 </form>
@@ -85,7 +85,7 @@
                 <div id="popupmessagerate">
                     <form action="?lang=1&report=1" method="post" style="display: inline-block;">
                         <img src="../Public/images/thankyou.png" id="alert">
-                        <h3> Rating , Comments & Suggestions Submit Sucessfully &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                        <h3>மதிப்பீடு & கருத்துகள் வெற்றிகரமாகச் சமர்ப்பி&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                         </h3>
                     </form>
 
@@ -101,7 +101,7 @@
             <div id="messagealert1">
                 <form action="?lang=1&report=1" method="post" style="display: inline-block;">
                     <img src="../Public/images/alertIcon.png" id="alert">
-                    <h3>Wildlife Elephants Come In to Your Registered Village &nbsp&nbsp
+                    <h3>யானை உங்கள் கிராமத்திற்கு வரட்டும்  &nbsp&nbsp
                         <input type="submit" value="Ok" name="submitAlert" id="submit1">
                     </h3>
                 </form>
@@ -114,7 +114,7 @@
                 <div id="popupmessageratelast">
                     <form action="?lang=1&report=1" method="post" style="display: inline-block;">
                         <img src="../Public/images/thankyou.png" id="alert">
-                        <h3> Rating , Comments & Suggestions Submit Sucessfully &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                        <h3>மதிப்பீடு & கருத்துகள் வெற்றிகரமாகச் சமர்ப்பி &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                         </h3>
                     </form>
 
@@ -132,7 +132,7 @@
 
                 <form action="../villager/viewNotification?lang=1&notification=true" method="post" style="display: inline-block;">
                     <img src="../Public/images/bell1.png" id="bell">
-                    <h3>You have New Notification (<?php echo $this->notification ?>) &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    <h3>புதிய அறிவிப்புபுதிய  (<?php echo $this->notification ?>) &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                         <input type="submit" value="View" name="submitAlert" id="submit">
                     </h3>
                 </form>
@@ -143,7 +143,7 @@
                 <div id="popupmessageratelast">
                     <form action="?lang=1&report=1" method="post" style="display: inline-block;">
                         <img src="../Public/images/thankyou.png" id="alert">
-                        <h3> Rating , Comments & Suggestions Submit Sucessfully &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                        <h3> மதிப்பீடு & கருத்துகள் வெற்றிகரமாகச் சமர்ப்பி  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                         </h3>
                     </form>
 
@@ -161,7 +161,7 @@
                 <div id="popupmessageratefirst">
                     <form action="?lang=1&report=1" method="post" style="display: inline-block;">
                         <img src="../Public/images/thankyou.png" id="alert">&nbsp&nbsp
-                        <h3> Rating , Comments & Suggestions Submit Sucessfully &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                        <h3> மதிப்பீடு & கருத்துகள் வெற்றிகரமாகச் சமர்ப்பி  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                         </h3>
                     </form>
 
@@ -224,7 +224,7 @@
     <div class="container_3">
         <div class="subcontainer_3-1">
             <h3 id="table-name">
-                View Report Table
+            அறிக்கை அட்டவணையைப் பார்க்கவும்
             </h3>
         </div>
         <div class="navigatereport">
@@ -319,16 +319,16 @@
     </div>
     <?php if (!isset($_GET['action'])) { ?>
         <div class="subcontainer_3-4">
-            <a id="first" href="?type=2&lang=1&page=1">First</a>
+            <a id="first" href="?type=2&lang=1&page=1">முத </a>
             <?php if ($_GET['page'] <= 1) { ?>
-                <a>Previous</a>
+                <a>முன்பு</a>
             <?php } else { ?>
-                <a id="previous" href="?type=2&lang=1&page=<?php echo $_GET['page'] - 1 ?>">Previous</a> <?php } ?>
+                <a id="previous" href="?type=2&lang=1&page=<?php echo $_GET['page'] - 1 ?>">முன்பு</a> <?php } ?>
             <?php if ($_GET['page'] == $this->lastpage) { ?>
-                <li id="next"><a>Next</a>
+                <li id="next"><a>அடுத்</a>
                 <?php } else { ?>
-                    <a id="next" href="?type=2&lang=1&page=<?php echo $_GET['page'] + 1 ?>">Next</a> <?php } ?>
-                <a id="last" href="?type=2&lang=1&page=<?php echo $this->lastpage ?>">Last</a>
+                    <a id="next" href="?type=2&lang=1&page=<?php echo $_GET['page'] + 1 ?>">அடுத்</a> <?php } ?>
+                <a id="last" href="?type=2&lang=1&page=<?php echo $this->lastpage ?>">கடந்</a>
                 </li>
         </div>
     <?php } ?>

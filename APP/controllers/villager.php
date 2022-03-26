@@ -152,7 +152,24 @@
            return true;
         }
     }
-        
+    public function villagerHome(){
+      if (isset($_GET['lang'])) {
+        //assign the value
+        $lang = $_GET['lang'];
+      }
+      switch($lang){
+        case 1:
+          $this->view->render('villagerHome');
+        break;
+        case 2:
+          $this->view->render('villagerHomeSinhala');
+        break;
+        case 3:
+          $this->view->render('villagerHomeTamil');
+        break;
+             
+      }
+    }    
      
     public function  editProfile()
     {
@@ -177,27 +194,32 @@
         $villagerGramaniladhariDivision =  $row['name'];  
      }
      $this->view->GramaniladhariDivision = $villagerGramaniladhariDivision; 
-     $hashPassword = $this->model->getHashPassword($_SESSION['NIC']);   
-     foreach ($hashPassword as $row){
-       $villagerHashPassword =  $row['userPassword'];  
-    }
-    $this->view->hashPassword = $villagerHashPassword;
+    //  $this->hashPassword  = $this->model->getHashPassword($_SESSION['NIC']);   
+    //  foreach ($hashPassword as $row){
+    //    $villagerHashPassword =  $row['userPassword'];  
+    // }
+    // $this->view->hashPassword = $villagerHashPassword;
     $this->view->status = $this->checkAlerStatus($_SESSION['NIC']);
     $this->view->notification = $this->checkNotificationStatus($_SESSION['NIC']);
     $getPassword = $this->model->getHashPassword($_SESSION['NIC']);
     foreach( $getPassword as $row){ 
     $hashpassword = $row["userPassword"];
     }
-     switch ($lang) {
+   // echo $hashpassword;
+   $this->view->hashpassword = $hashpassword ;
+     switch ($lang) { 
         case 1:
-          //display special Notice     
+           //display special Notice     
           $this->view->render('editProfile'); 
             if (isset($_POST['submitAlert'])) {
             $this->model->setAlerStatus($_SESSION['NIC']); 
             }
             if (isset($_POST['submit'])) {
-              $this->model->updateprofile($_SESSION['NIC'],$_POST['fname'],$_POST['lname'],$_POST['dob'],$_POST['address'],$_POST['province'] );
-           }
+             // $this->model->updateprofile($_SESSION['NIC'],$_POST['fname'],$_POST['lname'],$_POST['dob'],$_POST['address'],$_POST['province'] );
+              if (password_verify(trim($_POST["oldPassword"]),  $hashpassword  )) {
+                  $this->model->updateprofile($_SESSION['NIC'],$_POST['fname'],$_POST['lname'],$_POST['dob'],$_POST['address'],$_POST['newPassword'] );
+              }
+            }
 
           break;
         case 2:

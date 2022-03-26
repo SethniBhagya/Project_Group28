@@ -213,7 +213,7 @@ if (isset($_POST['Submit'])) {
                  <script>
                    var incidentID = document.getElementById('incidentID')
                  </script>
-                 <td id="view"><a href="../gramaniladari/viewVillagerProfile?type=1&&lang=1&NIC=<?php echo $row['NIC'] ?>"><img src="../Public/images/edit.png" class="view"></a></td>
+                 <td id="view"><a href="../gramaniladari/viewVillagerProfile?type=1&&lang=1&NIC=<?php echo $row['NIC'] ?>&page=<?php echo $_GET['page'] ?>&status=<?php echo $_GET['status'] ?>"><img src="../Public/images/edit.png" class="view"></a></td>
 
                  </td>
 
@@ -245,7 +245,8 @@ if (isset($_POST['Submit'])) {
                  <script>
                    var incidentID = document.getElementById('incidentID')
                  </script>
-                 <td id="view"><a href="../gramaniladari/viewVillagerProfile?type=1&&lang=1&NIC=<?php echo $row['NIC'] ?>"><img src="../Public/images/edit.png" class="view"></a></td>
+              <td id="view"><a href="../gramaniladari/viewVillagerProfile?type=1&&lang=1&NIC=<?php echo $row['NIC'] ?>&page=<?php echo $_GET['page'] ?>&status=<?php echo $_GET['status'] ?>"><img src="../Public/images/edit.png" class="view"></a></td>
+
 
                  </td>
            </tr>

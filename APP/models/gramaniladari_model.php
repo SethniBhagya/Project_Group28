@@ -125,6 +125,9 @@ class gramaniladari_model extends Model
    function updateStatusUnSucessfulRegister($villager_NIC){
     $this->db->runQuery("UPDATE `villager_registration` SET  villager_registration.registrationStatus ='notaccept'  WHERE  villager_registration.Villager_NIC = '$villager_NIC' "); 
     }
+    public function getVillger($gramanildhariId,$villagerNic){
+        return $this->db->runQuery("SELECT * FROM user INNER JOIN  lives ON user.NIC= lives.Villager_NIC INNER JOIN `villager_registration` ON  lives.Villager_NIC=villager_registration.Villager_NIC  WHERE lives.gramaniladhari_NIC='$gramanildhariId' and lives.Villager_NIC='$villagerNic' ");
+   }
     public function getAlerStatus($NIC){
         return $this->db->runQuery("SELECT `alertstatus` FROM `alert` WHERE NIC= '$NIC'");
     }

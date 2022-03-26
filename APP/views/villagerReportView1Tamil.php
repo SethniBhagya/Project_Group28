@@ -35,9 +35,9 @@
                  <div class="dropdown-1" style="  padding-left:  300px ">
                      <button class="dropbtn-1">மொழி</button>
                      <div class="dropdown-content-1">
-                         <a href="../incident/index?lang=1">English</a>
-                         <a href="../incident/index?lang=2">සිංහල</a>
-                         <a href="../incident/index?lang=3">தமிழ்</a>
+                         <a href="?type=1&page=1&lang=1">English</a>
+                         <a href="?type=1&page=1&lang=2">සිංහල</a>
+                         <a href="?type=1&page=1&lang=3">தமிழ்</a>
                      </div>
                  </div>
                  <li class="dropdown">
@@ -52,124 +52,124 @@
     </header>
 
     <?php
-    if (isset($this->status) && isset($this->notification)) {
-        if ($this->status  == "view" && $this->notification > 0) {
+  if (isset($this->status) && isset($this->notification)) {
+    if ($this->status  == "notview" && $this->notification > 0) {
+  ?>
+
+      <div id="messagealert">
+        <form action="?lang=3&report=1" method="post" style="display: inline-block;">
+          <img src="../Public/images/alertIcon.png" id="alert">
+          <h3>யானை உங்கள் கிராமத்திற்கு வரட்டும்   &nbsp&nbsp
+            <input type="submit" value="Ok" name="submitAlert" id="submit1">
+          </h3>
+        </form>
+      </div>
+
+      <div id="notificationmessage">
+
+        <!-- <img src="../Public/images/alertIcon.png" style="width:100000px;  height:100000px"><br> -->
+
+        <form action="../villager/viewNotification?lang=3&notification=true" method="post" style="display: inline-block;">
+          <img src="../Public/images/bell1.png" id="bell">&nbsp&nbsp
+          <h3>புதிய அறிவிப்புபுதிய  (<?php echo $this->notification ?>) &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            <input type="submit" value="View" name="submitAlert" id="submit">
+          </h3>
+        </form>
+      </div>
+      <?php
+
+      if (isset($_POST['Submit'])) {
+      ?>
+
+        <div id="popupmessage">
+          <form action="?lang=3&report=1" method="post" style="display: inline-block;">
+            <img src="../Public/images/success-mesaage.png" id="alert">&nbsp&nbsp
+            <h3>உங்கள் அறிக்கை நிகழ்வு புதுப்பிக்கப்பட்டது &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            </h3>
+          </form>
+
+        </div>
+
+      <?php }  ?>
+    <?php
+
+    } else if ($this->status  == "notview") {
+
     ?>
 
-            <div id="messagealert">
-                <form action="?lang=1&report=1" method="post" style="display: inline-block;">
-                    <img src="../Public/images/alertIcon.png" id="alert">
-                    <h3 style="font-size: 11px;">உங்கள் பதிவு செய்யப்பட்ட கிராமத்திற்கு வனவிலங்கு யானைகள் வருகின்றன &nbsp&nbsp
-                        <input type="submit" value="Ok" name="submitAlert" id="submit1">
-                    </h3>
-                </form>
-            </div>
+      <div id="messagealert1">
+        <form action="?lang=3&report=1" method="post" style="display: inline-block;">
+          <img src="../Public/images/alertIcon.png" id="alert">
+          <h3>யானை உங்கள் கிராமத்திற்கு வரட்டும்  &nbsp&nbsp
+            <input type="submit" value="Ok" name="submitAlert" id="submit1">
+          </h3>
+        </form>
+      </div>
+      <?php
 
-            <div id="notificationmessage">
+      if (isset($_POST['Submit'])) {
+      ?>
 
-                <!-- <img src="../Public/images/alertIcon.png" style="width:100000px;  height:100000px"><br> -->
+        <div id="popupmessagelast">
+          <form action="?lang=3&report=1" method="post" style="display: inline-block;">
+            <img src="../Public/images/success-mesaage.png" id="alert">&nbsp&nbsp
+            <h3>உங்கள் அறிக்கை நிகழ்வு புதுப்பிக்கப்பட்டது &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            </h3>
+          </form>
 
-                <form action="../villager/viewNotification?lang=3&notification=true" method="post" style="display: inline-block;">
-                    <img src="../Public/images/bell1.png" id="bell">&nbsp&nbsp
-                    <h3 style="font-size: 15px;">உங்களிடம் புதிய அறிவிப்பு உள்ளது (<?php echo $this->notification ?>) &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                        <input type="submit" value="View" name="submitAlert" id="submit">
-                    </h3>
-                </form>
-            </div>
-            <?php
+        </div>
+      <?php
 
-            if (isset($_POST['Submit'])) {
-            ?>
+      }
 
-                <div id="popupmessage">
-                    <form action="?lang=3&report=1" method="post" style="display: inline-block;">
-                        <img src="../Public/images/success-mesaage.png" id="alert">&nbsp&nbsp
-                        <h3 style="font-size: 15px; margin-left:110px" >உங்கள் அறிக்கை நிகழ்வு வெற்றிகரமாக சமர்ப்பிக்கப்பட்டது &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                        </h3>
-                    </form>
+      ?>
+    <?php } elseif ($this->notification > 0) {  ?>
 
-                </div>
+      <div id="notificationmessage">
 
-            <?php }  ?>
-        <?php
+        <!-- <img src="../Public/images/alertIcon.png" style="width:1000px;  height:100000px"><br> -->
 
-        } else if ($this->status  == "notview") {
+        <form action="../villager/viewNotification?lang=3&notification=true" method="post" style="display: inline-block;">
+          <img src="../Public/images/bell1.png" id="bell">&nbsp&nbsp
+          <h3>புதிய அறிவிப்புபுதிய  (<?php echo $this->notification ?>) &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            <input type="submit" value="View" name="submitAlert" id="submit">
+          </h3>
+        </form>
+      </div>
+      <?php if (isset($_POST['Submit'])) {
+      ?>
 
-        ?>
+        <div id="popupmessagelast">
+          <form action="?lang=3&report=1" method="post" style="display: inline-block;">
+            <img src="../Public/images/success-mesaage.png" id="alert">&nbsp&nbsp
+            <h3>உங்கள் அறிக்கை நிகழ்வு புதுப்பிக்கப்பட்டது &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            </h3>
+          </form>
 
-            <div id="messagealert1">
-                <form action="?lang=3&report=1" method="post" style="display: inline-block;">
-                    <img src="../Public/images/alertIcon.png" id="alert">
-                    <h3 style="font-size: 11px;">உங்கள் பதிவு செய்யப்பட்ட கிராமத்திற்கு வனவிலங்கு யானைகள் வருகின்றன &nbsp&nbsp
-                        <input type="submit" value="Ok" name="submitAlert" id="submit1">
-                    </h3>
-                </form>
-            </div>
-            <?php
+        </div>
+      <?php
 
-            if (isset($_POST['Submit'])) {
-            ?>
+      }
 
-                <div id="popupmessagelast">
-                    <form action="?lang=3&report=1" method="post" style="display: inline-block;">
-                        <img src="../Public/images/success-mesaage.png" id="alert">&nbsp&nbsp
-                        <h3 style="font-size: 15px;" >உங்கள் அறிக்கை நிகழ்வு வெற்றிகரமாக சமர்ப்பிக்கப்பட்டது &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                        </h3>
-                    </form>
+      ?>
+    <?php } else {
 
-                </div>
-            <?php
+    ?> <?php if (isset($_POST['Submit'])) {
+      ?>
 
-            }
+        <div id="popupmessagefirst">
+          <form action="?lang=3&report=1" method="post" style="display: inline-block;">
+            <img src="../Public/images/success-mesaage.png" id="alert">&nbsp&nbsp
+            <h3>உங்கள் அறிக்கை நிகழ்வு புதுப்பிக்கப்பட்டது &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            </h3>
+          </form>
 
-            ?>
-        <?php } elseif ($this->notification > 0) {  ?>
+        </div>
+      <?php
 
-            <div id="notificationmessage">
+      }
 
-                <!-- <img src="../Public/images/alertIcon.png" style="width:100000px;  height:100000px"><br> -->
-
-                <form action="../villager/viewNotification?lang=3&notification=true" method="post" style="display: inline-block;">
-                    <img src="../Public/images/bell1.png" id="bell">&nbsp&nbsp
-                    <h3 style="font-size: 15px;">உங்களிடம் புதிய அறிவிப்பு உள்ளது (<?php echo $this->notification ?>) &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                        <input type="submit" value="View" name="submitAlert" id="submit">
-                    </h3>
-                </form>
-            </div>
-            <?php if (isset($_POST['Submit'])) {
-            ?>
-
-                <div id="popupmessagelast">
-                    <form action="?lang=3&report=1" method="post" style="display: inline-block;">
-                        <img src="../Public/images/success-mesaage.png" id="alert">&nbsp&nbsp
-                        <h3 style="font-size: 15px;" >உங்கள் அறிக்கை நிகழ்வு வெற்றிகரமாக சமர்ப்பிக்கப்பட்டது &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                        </h3>
-                    </form>
-
-                </div>
-            <?php
-
-            }
-
-            ?>
-        <?php } else {
-
-        ?> <?php if (isset($_POST['Submit'])) {
-        ?>
-
-                <div id="popupmessagefirst">
-                    <form action="?lang=3&report=1" method="post" style="display: inline-block;">
-                        <img src="../Public/images/success-mesaage.png" id="alert">&nbsp&nbsp
-                        <h3 style="font-size: 155px;font-size:15px" >உங்கள் அறிக்கை நிகழ்வு வெற்றிகரமாக சமர்ப்பிக்கப்பட்டது &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                        </h3>
-                    </form>
-
-                </div>
-            <?php
-
-            }
-
-            ?> <?php }
+      ?> <?php }
     }
         ?>
     <div class="container_3">
@@ -226,7 +226,7 @@
                                         echo $row['Place'];
                                     } ?></td>
                                 <td><?php echo $row['reporttype'] ?></td>
-                                <td id="view"><a href="../incident/viewReportpage?lang=1&reportNo=<?php echo $row['incidentID'] ?>&page=<?php echo $_GET['page'] ?>&type=<?php echo $_GET['type'] ?>"><img src="../Public/images/view.png" class="view"></a></td>
+                                <td id="view"><a href="../incident/viewReportpage?lang=3&reportNo=<?php echo $row['incidentID'] ?>&page=<?php echo $_GET['page'] ?>&type=<?php echo $_GET['type'] ?>"><img src="../Public/images/view.png" class="view"></a></td>
                     </tr>
             <?php }
                         } ?>
@@ -253,7 +253,7 @@
                             <td><?php echo $row['time_in'] ?></td>
                             <td><?php echo $row['Place'] ?></td>
                             <td><?php echo $row['reporttype'] ?></td>
-                            <td id="view"><a href="../incident/viewReportpage?lang=1&reportNo=<?php echo $row['incidentID'] ?>&page=<?php echo $_GET['page'] ?>&type=<?php echo $_GET['type'] ?>"><img src="../Public/images/view.png" class="view"></a></td>
+                            <td id="view"><a href="../incident/viewReportpage?lang=3&reportNo=<?php echo $row['incidentID'] ?>&page=<?php echo $_GET['page'] ?>&type=<?php echo $_GET['type'] ?>"><img src="../Public/images/view.png" class="view"></a></td>
 
                     </tr>
                     <?php if (isset($_GET['status'])) { ?>
@@ -291,16 +291,16 @@
     </div>
     <!-- </div> -->
     <div class="subcontainer_3-4">
-        <a id="first" href="?type=1&lang=1&page=1">First</a>
+        <a id="first" href="?type=1&lang=3&page=1">முத </a>
         <?php if ($_GET['page'] <= 1) { ?>
-            <a>Previous</a>
+            <a>முன்பு</a>
         <?php } else { ?>
-            <a id="previous" href="?type=1&lang=1&page=<?php echo $_GET['page'] - 1 ?>">Previous</a> <?php } ?>
+            <a id="previous" href="?type=1&lang=3&page=<?php echo $_GET['page'] - 1 ?>">முன்பு</a> <?php } ?>
         <?php if ($_GET['page'] == $this->lastpage) { ?>
-            <li id="next"><a>Next</a>
+            <li id="next"><a>அடுத் </a>
             <?php } else { ?>
-                <a id="next" href="?type=1&lang=1&page=<?php echo $_GET['page'] + 1 ?>">Next</a> <?php } ?>
-            <a id="last" href="?type=1&lang=1&page=<?php echo $this->lastpage ?>">Last</a>
+                <a id="next" href="?type=1&lang=3&page=<?php echo $_GET['page'] + 1 ?>">அடுத் </a> <?php } ?>
+            <a id="last" href="?type=1&lang=3&page=<?php echo $this->lastpage ?>">கடந் </a>
             </li>
 
     </div>

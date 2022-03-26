@@ -14,7 +14,7 @@
  <title>Edit Profile</title>
 </head>
  <body></body>
-<header id="main">
+<header id="main" style="Z-index :100;">
         <img src="../Public/images/icon.png" alt="icon" id="icon">
         <nav id="navbar" class="mybar">
             <div href="javascript:void(0);" class="icon" onclick="myFunction_1(this)">
@@ -130,7 +130,7 @@ if (isset($_POST['Submit'])) {
 
             <form action="?lang=1&report=1" method="post" style="display: inline-block;">
                 <img src="../Public/images/bell1.png" id="bell">&nbsp&nbsp
-                <h3>You have New Notification (900) &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                <h3>You have New Notification (<?php echo $this->notification ?>) &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                     <input type="submit" value="View" name="submitAlert" id="submit">
                 </h3>
             </form>
@@ -153,17 +153,32 @@ if (isset($_POST['Submit'])) {
 ?>
 <?php }else{
     
-   ?>        <?php if (isset($_POST['Submit'])) {
-    ?>
-    
-        <div id="popupmessagefirst"  >
-            <form action="?lang=1&report=1" method="post" style="display: inline-block;">
-            <img src="../Public/images/success-mesaage.png"  id="alert" >&nbsp&nbsp
-                <h3>Your Report Incident Submit Sucessfully &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                 </h3>
-            </form>
-     
-        </div>  
+   ?>      <?php
+         if (isset($_POST['submit'])) {
+             // $this->model->updateprofile($_SESSION['NIC'],$_POST['fname'],$_POST['lname'],$_POST['dob'],$_POST['address'],$_POST['province'] );
+              if (password_verify(trim($_POST["oldPassword"]),  $this->hashpassword  )) {
+                 // $this->model->updateprofile($_SESSION['NIC'],$_POST['fname'],$_POST['lname'],$_POST['dob'],$_POST['address'],$_POST['newPassword'] );
+                 ?> <div id="popupmessagefirst"  >
+                  <form action="?lang=1&report=1" method="post" style="display: inline-block;">
+                  <img src="../Public/images/success-mesaage.png"  id="alert" >&nbsp&nbsp
+                      <h3>Your Report Incident aaaaSubmit Sucessfully &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                       </h3>
+                  </form>
+           
+              </div>  
+               <?php }else{  ?>
+                <div id="popupmessagefirst" style="Z-index :99; background-color: white;"  >
+                  <form action="?lang=1&report=1" method="post" style="display: inline-block;">
+                  <img src="../Public/images/error-icon.png"  id="alert" >&nbsp&nbsp
+                      <h3>Your Old password is incorrect Please Try again &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                       </h3>
+                  </form>
+           
+              </div> 
+             <?php }  ?>
+  
+
+      
     <?php
     
     }
@@ -195,17 +210,17 @@ if (isset($_POST['Submit'])) {
         } ?>
 
       </div>
-      <div class="contanier_2-1">
+      <div class="contanier_2-1" >
         <div class="view_profile">
            <h3 style="color: white; "><a href="../villager/viewProfile?lang=1">පැතිකඩ</a></h3>
         </div>
         <div class="edit_profile">
-          <h3><a style="color: white;" href="#">පැතිකඩ සංස්කරණය</a></h3>
+          <h3><a style="color: white;" href="#">සංස්කරණය</a></h3>
         </div>
       </div>
  
       <form class="form2" action="" method="post">
-
+          <p>කරුණාකර ඔබ පැතිකඩ විස්තර යාවත්කාලීන කළ යුතු බවට වග බලා ගන්න ඔබ ඔබේ මුරපදය ඇතුළත් කළ යුතුය</p>
         <table id="form1">
           <tr>
             <th>
@@ -331,32 +346,22 @@ if (isset($_POST['Submit'])) {
 
           <tr>
             <th>
-              <label for="password" style="font-weight: 100;">පැරණි මුරපදය</label>
+              <label for="password" style="font-weight: 100;">මුරපදය</label>
             <th><input class="text" type="password" id="password" name="oldPassword" placeholder="Type a Old password" /></th>
           </tr>
          </select>
               </th>
       </tr>
-      
-      
- 
+        
+  
+             <?php //if(isset($this->statusPassword)){
+            //  echo 'name'.$this->statusPassword; //}?>
       </form>  
-      <!-- <?php  
-           //   if (password_verify(trim($_POST["oldPassword"]), $this->hashPassword )) {
-           ?>
-
-                <div id="message1" style="padding: 10px; background-color:aliceblue; margin-left:25px">
-                  <img src="../Public/images/error-icon.png" style="width:90px;  height:90px">
-                  <h1>Your Old Password is Wrong Please Try Again</h1>
-                  <a href="../user/index?lang=1" class="login-btn" style=" border-radius: 10px; padding: 10px 10px; background-color:#056412;  color: white;">login</a>
-                </div>
-          <?php //}
-         
-            ?> -->
+      
           <tr>
             <th>
               <label for="password" style="font-weight: 100;">නව මුරපදය</label>
-            <th><input class="text" type="password" id="password" name=" " placeholder="Type New password for your profile" /></th>
+            <th><input class="text" type="password" id="password" name="newPassword" placeholder="Type New password for your profile" /></th>
           </tr>
           <tr>
           <tr>
@@ -367,9 +372,8 @@ if (isset($_POST['Submit'])) {
           </tr>
         </table>
         <div class="sumbit2">
-          <input type="submit" name="ඉදිරිපත් කරන්න" onclick="return validation()" value="Update" />
+          <input type="submit" name="submit" onclick="return validation()" value="යාවත්කාලීන කරන්න" />
         </div>
-        </form> 
     </div>
     </form>
     </div>

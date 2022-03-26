@@ -189,7 +189,24 @@ if (isset($_POST['Submit'])) {
           $damagedlandExtent = $row['damaged_land_extent'];
         }
 
-        ?>
+        ?> 
+            <?php if(isset($_GET['image'])) { ?>
+            <?php if(!empty($image) ) { ?> 
+            <div class="image">
+                <a href="../incident/updateReport?lang=<?php echo $_GET['lang'] ?>&&reportNo=<?php echo $_GET['reportNo'] ?>&page=<?php echo $_GET['page'] ?>&type=<?php echo $_GET['type'] ?>"><img src="../Public/images/close.png" id="viewcls"></a>
+                
+                <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($image); ?>" />
+            </div> <?php }else{  ?>
+                <div class="imageerror">
+                <img src="../Public/images/errorimage.png" id="errorimage"> 
+                
+                <a href="../incident/updateReport?lang=<?php echo $_GET['lang'] ?>&&reportNo=<?php echo $_GET['reportNo'] ?>&page=<?php echo $_GET['page'] ?>&type=<?php echo $_GET['type'] ?>"><img src="../Public/images/close.png" id="viewcls"></a>
+                
+                <p> සිද්ධි වාර්තාව ඉදිරිපත් කරන විට පින්තූරක් දමා නැත </p>
+                </div>
+                <?php } }?>
+
+
         <h3 style="color: white;"> <b>වගා හානි <br><br>වාර්තා අංකය :<?php echo "  " . $_GET['reportNo']; ?> </b></h3>
       </div>
 
@@ -198,7 +215,7 @@ if (isset($_POST['Submit'])) {
       <div id="map" style="top: 10px">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126452.02111388237!2d80.94313801331407!3d7.934107447297657!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3afb44ba3b16ce27%3A0xc34997a2b3032b7c!2sPolonnaruwa!5e0!3m2!1sen!2slk!4v1633233322587!5m2!1sen!2slk" width="50%" height="300px" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
         <div id="detail">
-          <form class=" " action="../incident/viewReport?lang=1&page=<?php echo $_GET['page'] ?>&type=<?php echo $_GET['type'] ?>" method="post">
+          <form class=" " action=" " method="post">
             <table class="table">
               <tr class="header-table" style="text-align: left;">
                 <th>හානි වු සත්වයා</th>
@@ -250,7 +267,9 @@ if (isset($_POST['Submit'])) {
 
               <tr class="header-table" style="text-align: left;">
                 <th>ඡායාරූපය </th>
-                <td> <input type="file" name="Photo" id="file" class="file" value="<?php $image ?>"></td>
+                <td> <input type="file" name="Photo" id="file" class="file" value="<?php $image ?>">
+                <a  href="../incident/updateReport?image=true&lang=<?php echo $_GET['lang'] ?>&&reportNo=<?php echo $_GET['reportNo'] ?>&page=<?php echo $_GET['page'] ?>&type=<?php echo $_GET['type'] ?>" style="color: black;" >රූපය පෙන්වන්න</a>
+              </td>
               </tr>
               <tr class="header-table" style="text-align: left;">
                 <th>ස්ථානය </th>

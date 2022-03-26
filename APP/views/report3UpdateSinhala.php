@@ -179,9 +179,24 @@ if (isset($_POST['Submit'])) {
                 }
 
                 ?>
-                <h3 style="color: white;"> <b>Breakdown of Elephant Fence<br><br>Report Number :<?php echo "  " . $_GET['reportNo']; ?> </b></h3>
+                <h3 style="color: white;"> <b>අලි වැට කැඩීම<br><br>වාර්තා අංකය :<?php echo "  " . $_GET['reportNo']; ?> </b></h3>
             </div>
 
+            <?php if(isset($_GET['image'])) { ?>
+            <?php if(!empty($image) ) { ?> 
+            <div class="image">
+                <a href="../incident/updateReport?lang=<?php echo $_GET['lang'] ?>&&reportNo=<?php echo $_GET['reportNo'] ?>&page=<?php echo $_GET['page'] ?>&type=<?php echo $_GET['type'] ?>"><img src="../Public/images/close.png" id="viewcls"></a>
+                
+                <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($image); ?>" />
+            </div> <?php }else{  ?>
+                <div class="imageerror">
+                <img src="../Public/images/errorimage.png" id="errorimage"> 
+                
+                <a href="../incident/updateReport?lang=<?php echo $_GET['lang'] ?>&&reportNo=<?php echo $_GET['reportNo'] ?>&page=<?php echo $_GET['page'] ?>&type=<?php echo $_GET['type'] ?>"><img src="../Public/images/close.png" id="viewcls"></a>
+                
+                <p> සිද්ධි වාර්තාව ඉදිරිපත් කරන විට පින්තූරක් දමා නැත </p>
+                </div>
+                <?php } }?>
 
 
             <div id="map" style="top: 10px">

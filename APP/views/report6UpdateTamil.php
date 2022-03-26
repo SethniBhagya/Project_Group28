@@ -189,7 +189,7 @@
               <div id="map" style="top: 10px">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126452.02111388237!2d80.94313801331407!3d7.934107447297657!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3afb44ba3b16ce27%3A0xc34997a2b3032b7c!2sPolonnaruwa!5e0!3m2!1sen!2slk!4v1633233322587!5m2!1sen!2slk" width="50%" height="300px" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                 <div id="detail">
-                <form class=" " action="../incident/viewReport?lang=1&page=<?php echo $_GET['page'] ?>&type=<?php echo $_GET['type'] ?>" method="post">
+                <form class=" " action=""  method="post">
                     <table class="table">
                        
                         <tr class="header-table" style="text-align: left;">
@@ -243,11 +243,8 @@
                        
                     </form>
 
-                    <a id="back" href="../incident/viewReport?type=3&page=<?php echo $_GET['page'] ?>&lang=1" style="color: white;">திரும்</a>
-
-
-
-
+                    <a id="back" href="../incident/viewReport?type=3&page=<?php echo $_GET['page'] ?>&lang=3" style="color: white;">திரும்</a>
+ 
                 </div>
 
 

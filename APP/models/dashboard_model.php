@@ -33,7 +33,7 @@ class dashboard_model extends model{
     public function countWildElephantArrival(){
         date_default_timezone_set('Asia/Kolkata');
         $date = date("Y-m-d"); 
-        return $this->db->runQuery("SELECT COUNT(incidentID) AS countWildElephantArrival FROM reported_incident  WHERE (`date`  between date_sub(now(),INTERVAL 1 MONTH) and now())&&( `reporttype`='Wild Elephant are in The Village')");
+        return $this->db->runQuery("SELECT COUNT(incidentID) AS countWildElephantArrival FROM reported_incident  WHERE (`date`  between date_sub(now(),INTERVAL 1 MONTH) and now())&&( `reporttype`='Elephants are in The Village')");
      }
      public function countWildAnimalArrival(){
         date_default_timezone_set('Asia/Kolkata');
@@ -43,7 +43,7 @@ class dashboard_model extends model{
      public function countElephantFence(){
         date_default_timezone_set('Asia/Kolkata');
         $date = date("Y-m-d"); 
-        return $this->db->runQuery("SELECT COUNT(incidentID) AS countElephantFence FROM reported_incident  WHERE (`date`  between date_sub(now(),INTERVAL 1 MONTH) and now())&&( `reporttype`='Breakdown of Elephant Fence')");
+        return $this->db->runQuery("SELECT COUNT(incidentID) AS countElephantFence FROM reported_incident  WHERE (`date`  between date_sub(now(),INTERVAL 1 MONTH) and now())&&( `reporttype`='Breakdown of Elephant Fences')");
      }
      public function countcropDamages(){
         date_default_timezone_set('Asia/Kolkata');
@@ -53,7 +53,7 @@ class dashboard_model extends model{
      public function countOthers(){
         date_default_timezone_set('Asia/Kolkata');
         $date = date("Y-m-d"); 
-        return $this->db->runQuery("SELECT COUNT(incidentID) AS countOthers FROM reported_incident  WHERE (`date`  between date_sub(now(),INTERVAL 1 MONTH) and now())&&(( `reporttype`='Illegal Thing happening the Forest')||( `reporttype`='Wild Animal Danger'))");
+        return $this->db->runQuery("SELECT COUNT(incidentID) AS countOthers FROM reported_incident  WHERE (`date`  between date_sub(now(),INTERVAL 1 MONTH) and now())&&(( `reporttype`='Illegal Happing')||( `reporttype`='Wild Animal is in Danger'))");
      }
       public function countWildlifeOfficer($district){
          $this->db->runQuery( "SELECT COUNT(incidentID) AS wildlifeOfficer  FROM user INNER JOIN lives ON reported_incident.villager_NIC = lives.villager_NIC WHERE SELECT ");
@@ -66,19 +66,19 @@ class dashboard_model extends model{
       }
       public function countWildElephantArrivalDistrict($district){
          
-         return $this->db->runQuery( "SELECT COUNT(reported_incident.incidentID) AS WildElephantArrivalDistrict FROM reported_incident INNER JOIN lives ON reported_incident.villager_NIC = lives.villager_NIC WHERE ((lives.district = '$district')&&( reported_incident.date   between date_sub(now(),INTERVAL 1 MONTH) and now())&&( reported_incident.reporttype ='Wild Elephant are in The Village'))  ");
+         return $this->db->runQuery( "SELECT COUNT(reported_incident.incidentID) AS WildElephantArrivalDistrict FROM reported_incident INNER JOIN lives ON reported_incident.villager_NIC = lives.villager_NIC WHERE ((lives.district = '$district')&&( reported_incident.date   between date_sub(now(),INTERVAL 1 MONTH) and now())&&( reported_incident.reporttype ='Elephants are in The Village'))  ");
       }
       public function countcropDamagesDistrict($district){
          return $this->db->runQuery( "SELECT COUNT(reported_incident.incidentID) AS cropDamagesDistrict FROM reported_incident INNER JOIN lives ON reported_incident.villager_NIC = lives.villager_NIC WHERE ((lives.district = '$district')&&( reported_incident.date   between date_sub(now(),INTERVAL 1 MONTH) and now())&&( reported_incident.reporttype ='Crop Damages'))  ");
       }
       public function countIllegalThingDistrict($district){
-         return $this->db->runQuery( "SELECT COUNT(reported_incident.incidentID) AS IllegalThing FROM reported_incident INNER JOIN lives ON reported_incident.villager_NIC = lives.villager_NIC WHERE ((lives.district = '$district')&&( reported_incident.date   between date_sub(now(),INTERVAL 1 MONTH) and now())&&( reported_incident.reporttype ='Illegal Thing happening the Forest'))  ");
+         return $this->db->runQuery( "SELECT COUNT(reported_incident.incidentID) AS IllegalThing FROM reported_incident INNER JOIN lives ON reported_incident.villager_NIC = lives.villager_NIC WHERE ((lives.district = '$district')&&( reported_incident.date   between date_sub(now(),INTERVAL 1 MONTH) and now())&&( reported_incident.reporttype ='Illegal Happing'))  ");
       }
       public function countElephantFenceDistrict($district){
-         return $this->db->runQuery( "SELECT COUNT(reported_incident.incidentID) AS ElephantFence FROM reported_incident INNER JOIN lives ON reported_incident.villager_NIC = lives.villager_NIC WHERE ((lives.district = '$district')&&( reported_incident.date   between date_sub(now(),INTERVAL 1 MONTH) and now())&&( reported_incident.reporttype ='Breakdown of Elephant Fence'))  ");
+         return $this->db->runQuery( "SELECT COUNT(reported_incident.incidentID) AS ElephantFence FROM reported_incident INNER JOIN lives ON reported_incident.villager_NIC = lives.villager_NIC WHERE ((lives.district = '$district')&&( reported_incident.date   between date_sub(now(),INTERVAL 1 MONTH) and now())&&( reported_incident.reporttype ='Breakdown of Elephant Fences'))  ");
       }
       public function countWildAnimalDangerDistrict($district){
-         return $this->db->runQuery( "SELECT COUNT(reported_incident.incidentID) AS WildAnimalDanger FROM reported_incident INNER JOIN lives ON reported_incident.villager_NIC = lives.villager_NIC WHERE ((lives.district = '$district')&&( reported_incident.date   between date_sub(now(),INTERVAL 1 MONTH) and now())&&( reported_incident.reporttype ='Wild Animal Danger'))  ");
+         return $this->db->runQuery( "SELECT COUNT(reported_incident.incidentID) AS WildAnimalDanger FROM reported_incident INNER JOIN lives ON reported_incident.villager_NIC = lives.villager_NIC WHERE ((lives.district = '$district')&&( reported_incident.date   between date_sub(now(),INTERVAL 1 MONTH) and now())&&( reported_incident.reporttype ='Wild Animal is in Danger'))  ");
       }
       public function countWildAnimalArrivalDistrict($district){
          return $this->db->runQuery( "SELECT COUNT(reported_incident.incidentID) AS WildAnimalArrival FROM reported_incident INNER JOIN lives ON reported_incident.villager_NIC = lives.villager_NIC WHERE ((lives.district = '$district')&&( reported_incident.date   between date_sub(now(),INTERVAL 1 MONTH) and now())&&( reported_incident.reporttype ='Other Wild Animals are in The Village'))  ");

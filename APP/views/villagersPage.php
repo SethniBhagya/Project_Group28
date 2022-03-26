@@ -25,7 +25,7 @@
             </div>
 
             <ul>
-                <li id="home_2"><a href="../">Home</a></li>
+                <li id="home_2"><a href="../villager/villagerHome?lang=1">Home</a></li>
                 <li id="dashboard_1" style=" background-color: rgb(168, 175, 168); color:black;"><a href="../user/viewpage?lang=1">Main Menu</a></li>
                 <li id="report_2"><a href="../incident/index?lang=1">Report Incidents</a></li>
 
@@ -44,7 +44,7 @@
                     <span class="dot"> <img onclick="myFunction_2(this)" src="../Public/images/user_icon.png" id="user_icon" class="user_btn"></span>
                     <div id="myDropdown" class="dropdown-content">
                         <a href="../villager/editprofile?lang=1">View Profile</a>
-                        <a href="../user/logout">Logint</a>
+                        <a href="../user/logout">Logout</a>
                     </div>
                 </li>
             </ul>
@@ -56,6 +56,7 @@
     ?>
 
             <div id="messagealert">
+                
                 <form action="?lang=1&report=1" method="post" style="display: inline-block;">
                     <img src="../Public/images/alertIcon.png" id="alert">
                     <h3>Wildlife Elephants Come In to Your Registered Village &nbsp&nbsp
@@ -154,7 +155,7 @@
         <?php } else {
 
         ?> <?php if (isset($_POST['Submit'])) {
-        ?>
+            ?>
 
                 <div id="popupmessagefirst">
                     <form action="?lang=1&report=1" method="post" style="display: inline-block;">
@@ -169,8 +170,8 @@
             }
 
             ?> <?php }
-    }
-        ?>
+        }
+                ?>
     <?php
     $result = $this->data;
     foreach ($result as $row) {

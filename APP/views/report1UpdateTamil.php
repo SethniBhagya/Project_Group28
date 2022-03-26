@@ -196,7 +196,7 @@
       <div id="map" style="top: 10px; width :600px">
       </div>
       <div id="detail">
-        <form class=" " action="../incident/viewReport?lang=1&page=<?php echo $_GET['page'] ?>&type=<?php echo $_GET['type'] ?>" method="post">
+        <form class=" " action=" " method="post">
           <table class="table">
             <tr class="header-table" style="text-align: left;">
               <th>எத்தனை யானைகள் </th>
@@ -275,14 +275,14 @@
           </table>
       </div>
       <div id="message">
-        <form action="../incident/viewReport?lang=1&&reportNo=44&page=<?php echo $_GET['page'] ?>&type=<?php echo $_GET['type'] ?>" method="POST">
+        <form action="../incident/viewReport?lang=3&&reportNo=44&page=<?php echo $_GET['page'] ?>&type=<?php echo $_GET['type'] ?>" method="POST">
 
           <input type="submit" value="புதுப்பிக்கவும்" name="Submit" onclick="return validation()">
       </div>
 
       </form>
 
-      <a id="back" href="../incident/viewReport?type=3&page=1&lang=1&page=<?php echo $_GET['page'] ?> " style="color: white;">திரும் </a>
+      <a id="back" href="../incident/viewReport?type=3&page=1&lang=3&page=<?php echo $_GET['page'] ?> " style="color: white;">திரும் </a>
     </div>
   </div>
 </body>

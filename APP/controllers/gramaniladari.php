@@ -347,13 +347,14 @@ public function  editProfile()
       $this->view->notification = $this->checkNotificationStatus($_SESSION['NIC']);
 
      
-      $this->view->villagerData = $this->model->getVillgerReview($_SESSION['NIC']);
+      $this->view->villagerData = $this->model->getVillger($_SESSION['NIC'],$_GET['NIC']);
 
       
-      switch ($lang) {
-        case 1:
-          
-          //display villagerReportView1     
+      switch ($_GET['status']) {
+        case 'pending':
+        switch ($lang) {
+           case 1:
+           //display villagerReportView1     
           $this->view->render('registerVillagerViewUpdating');
           if(isset($_POST['Confirm'])){
             $this->model->updateStatusSucessfulRegister($_GET['NIC'] );
@@ -362,18 +363,37 @@ public function  editProfile()
             $this->model->updateStatusUnSucessfulRegister($_GET['NIC'] );
           }
           break;
-        case 2:
+          case 2:
           //display villagerReportView2
-          $this->view->render('registerVillagerViewUpdating');
+          $this->view->render('registerVillagerSinhala');
           break;
-        case 3:
+          case 3:
           //display villagerReportView3    
-          $this->view->render('registerVillagerViewUpdating');
+          $this->view->render('registerVillagerTamil');
           break;
-        default:
+          default:
           //display Error message
           header('Location: ../user/error');
-      }
+      }break;
+      case 'accept':
+      switch ($lang) {
+        case 1:
+        //display villagerReportView1     
+       $this->view->render('registerVillager');
+       break;
+       case 2:
+       //display villagerReportView2
+       $this->view->render('registerVillagerSinhala');
+       break;
+       case 3:
+       //display villagerReportView3    
+       $this->view->render('registerVillagerTamil');
+       break;
+       default:
+       //display Error message
+       header('Location: ../user/error');
+   }
      
     }
   }
+}

@@ -47,8 +47,3 @@ window.onclick = function myFunction_3(event) {
       }
     }
   }
-
-
-
-   
-

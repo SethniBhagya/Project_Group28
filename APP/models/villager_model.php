@@ -93,5 +93,11 @@ class villager_model extends Model{
  
         
     } 
+    public function updateprofile($NIC,$fname,$lname,$dob,$address,$newPassword ){
+        $this->db->runQuery("UPDATE `user` SET  `Fname`='$fname',`Lname`='$lname',`BOD`='$dob',`Address`='$address' WHERE `NIC`= '$NIC' ");
+        $password = password_hash($newPassword,PASSWORD_DEFAULT);
+        $this->db->runQuery("UPDATE `login` SET  `userPassword`= '$password'  WHERE `userName`= '$newPassword' ");
+         
+    }
 
 }

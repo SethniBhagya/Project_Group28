@@ -259,15 +259,15 @@ if (isset($_POST['Submit'])) {
     </div>
     <?php if (!isset($_GET['action'])) { ?>
         <div class="subcontainer_3-4">
-            <a id="first" href="?type=1&lang=2&page=1">First</a>
+            <a id="first" href="?type=1&lang=2&page=1">පළමු</a>
             <?php if ($_GET['page'] <= 1) { ?>
-                <a>Previous</a>
+                <a>කලින්</a>
             <?php } else { ?>
-                <a id="previous" href="?type=4&lang=2&page=<?php echo $_GET['page'] - 1 ?>">Previous</a> <?php } ?>
+                <a id="previous" href="?type=4&lang=2&page=<?php echo $_GET['page'] - 1 ?>">කලින්</a> <?php } ?>
             <?php if ($_GET['page'] == $this->CropDamagesReviewlastpage) { ?>
-                <li id="next"><a>Next</a>
+                <li id="next"><a>ඊළඟ</a>
                 <?php } else { ?>
-                    <a id="next" href="?type=4&lang=2&page=<?php echo $_GET['page'] + 1 ?>">Next</a> <?php } ?>
+                    <a id="next" href="?type=4&lang=2&page=<?php echo $_GET['page'] + 1 ?>">ඊළඟ</a> <?php } ?>
                 <a id="last" href="?type=4&lang=2&page=<?php echo $this->CropDamagesReviewlastpage ?>">Last</a>
                 </li>
         </div>
