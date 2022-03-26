@@ -19,18 +19,26 @@ class wildlifeofficer extends user
             //assign the value
             $lang = $_GET['lang'];
         }
+        $notification = $this->model->getwildlifeOfficerNotificationStatus($_SESSION['NIC']);
 
+        foreach ($notification  as $row) {
+            $notificationStatus =  $row['notificationStatus'];
+        }
+        $this->view->notificationStatus = $notificationStatus;
 
         switch ($lang) {
             case 1:
+
                 //display profile page     
                 $this->view->render('wildlifeofficer');
                 break;
             case 2:
+
                 //display profile page  
                 $this->view->render('wildlifeofficerSinhala');
                 break;
             case 3:
+
                 //display profile page   
                 $this->view->render('wildlifeofficerTamil');
                 break;
@@ -48,7 +56,12 @@ class wildlifeofficer extends user
         }
 
         $this->view->data = $this->model->selectData($_SESSION["NIC"]);
+        $notification = $this->model->getwildlifeOfficerNotificationStatus($_SESSION['NIC']);
 
+        foreach ($notification  as $row) {
+            $notificationStatus =  $row['notificationStatus'];
+        }
+        $this->view->notificationStatus = $notificationStatus;
         switch ($lang) {
             case 1:
                 //display profile page     
@@ -74,6 +87,12 @@ class wildlifeofficer extends user
 
         $this->view->data = $this->model->selectData($_SESSION["NIC"]);
 
+        $notification = $this->model->getwildlifeOfficerNotificationStatus($_SESSION['NIC']);
+
+        foreach ($notification  as $row) {
+            $notificationStatus =  $row['notificationStatus'];
+        }
+        $this->view->notificationStatus = $notificationStatus;
         switch ($lang) {
             case 1:
                 //display profile page     
@@ -183,6 +202,12 @@ class wildlifeofficer extends user
                 // ];
                 // $this->model->updateData($_SESSION["NIC"],$data);
                 $this->view->data = $this->model->selectData($_SESSION["NIC"]);
+                $notification = $this->model->getwildlifeOfficerNotificationStatus($_SESSION['NIC']);
+
+                foreach ($notification  as $row) {
+                    $notificationStatus =  $row['notificationStatus'];
+                }
+                $this->view->notificationStatus = $notificationStatus;
                 switch ($lang) {
                     case 1:
                         //display profile page     
@@ -209,8 +234,17 @@ class wildlifeofficer extends user
             //assign the value
             $lang = $_GET['lang'];
         }
+        if (isset($_GET['check'])) {
+            $this->model->updateNotification($_SESSION['NIC']);
+        }
 
         $this->view->data = $this->model->selectIncidentData();
+        $notification = $this->model->getwildlifeOfficerNotificationStatus($_SESSION['NIC']);
+
+        foreach ($notification  as $row) {
+            $notificationStatus =  $row['notificationStatus'];
+        }
+        $this->view->notificationStatus = $notificationStatus;
         switch ($lang) {
             case 1:
 
@@ -235,6 +269,12 @@ class wildlifeofficer extends user
         }
 
         $this->view->data = $this->model->selectIncidentDataEx($_GET['index']);
+        $notification = $this->model->getwildlifeOfficerNotificationStatus($_SESSION['NIC']);
+
+        foreach ($notification  as $row) {
+            $notificationStatus =  $row['notificationStatus'];
+        }
+        $this->view->notificationStatus = $notificationStatus;
         switch ($lang) {
             case 1:
 
@@ -252,12 +292,19 @@ class wildlifeofficer extends user
     }
     // sendIncidentDetailsToVet function to send incident to veterinarian.
     public function sendIncidentDetailsToVet()
+
     {
         if (isset($_GET['lang'])) {
             //assign the value
             $lang = $_GET['lang'];
         }
         $this->view->data = $this->model->selectDashboardData();
+        $notification = $this->model->getwildlifeOfficerNotificationStatus($_SESSION['NIC']);
+
+        foreach ($notification  as $row) {
+            $notificationStatus =  $row['notificationStatus'];
+        }
+        $this->view->notificationStatus = $notificationStatus;
         switch ($lang) {
             case 1:
 
@@ -311,6 +358,12 @@ class wildlifeofficer extends user
             $lang = $_GET['lang'];
 
             $result = $this->model->incidentStatUpdate("success", $id, $nic);
+            $notification = $this->model->getwildlifeOfficerNotificationStatus($_SESSION['NIC']);
+
+            foreach ($notification  as $row) {
+                $notificationStatus =  $row['notificationStatus'];
+            }
+            $this->view->notificationStatus = $notificationStatus;
 
             $this->view->data = $this->model->selectIncidentData();
             switch ($lang) {
@@ -330,10 +383,28 @@ class wildlifeofficer extends user
 
             $nic = "";
             $id = trim($_POST['can']);
+            $lang = $_GET['lang'];
             $result = $this->model->incidentStatUpdate("pending", $id, $nic);
 
             $this->view->data = $this->model->selectIncidentData();
-            $this->view->render('wildlifeofficerViewIncidents', $this->view->data);
+            $notification = $this->model->getwildlifeOfficerNotificationStatus($_SESSION['NIC']);
+
+            foreach ($notification  as $row) {
+                $notificationStatus =  $row['notificationStatus'];
+            }
+            $this->view->notificationStatus = $notificationStatus;
+
+            switch ($lang) {
+                case '1':
+                    $this->view->render('wildlifeofficerViewIncidents', $this->view->data);
+                    break;
+                case '2':
+                    $this->view->render('wildlifeofficerViewIncidentsSinhala', $this->view->data);
+                    break;
+                case '3':
+                    $this->view->render('wildlifeofficerViewIncidentsTamil', $this->view->data);
+                    break;
+            }
         }
     }
     function viewNotification()
@@ -345,6 +416,13 @@ class wildlifeofficer extends user
         }
 
         $this->view->data = $this->model->selectNotificationsData();
+
+        $notification = $this->model->getwildlifeOfficerNotificationStatus($_SESSION['NIC']);
+
+        foreach ($notification  as $row) {
+            $notificationStatus =  $row['notificationStatus'];
+        }
+        $this->view->notificationStatus = $notificationStatus;
 
         switch ($lang) {
             case 1:
@@ -372,6 +450,13 @@ class wildlifeofficer extends user
 
         $this->view->data = $this->model->selectAllNotificationsData();
 
+        $notification = $this->model->getwildlifeOfficerNotificationStatus($_SESSION['NIC']);
+
+        foreach ($notification  as $row) {
+            $notificationStatus =  $row['notificationStatus'];
+        }
+        $this->view->notificationStatus = $notificationStatus;
+
         switch ($lang) {
             case 1:
 
@@ -395,10 +480,17 @@ class wildlifeofficer extends user
             $lang = $_GET['lang'];
 
 
-
             $result = $this->model->sendToVetData($id);
 
             $this->view->data = $this->model->selectIncidentData();
+
+            $notification = $this->model->getwildlifeOfficerNotificationStatus($_SESSION['NIC']);
+
+            foreach ($notification  as $row) {
+                $notificationStatus =  $row['notificationStatus'];
+            }
+            $this->view->notificationStatus = $notificationStatus;
+
             switch ($lang) {
                 case '1':
                     $this->view->render('wildlifeofficerViewIncidents', $this->view->data);
@@ -882,6 +974,13 @@ class wildlifeofficer extends user
         $dataArray['IncidentDecCount'] = $datacountIncidentDec;
 
         $dataArray['district'] = $this->model->selectDistrictWildifeOfficer($_SESSION['NIC']);
+
+        $notification = $this->model->getwildlifeOfficerNotificationStatus($_SESSION['NIC']);
+
+        foreach ($notification  as $row) {
+            $notificationStatus =  $row['notificationStatus'];
+        }
+        $this->view->notificationStatus = $notificationStatus;
         switch ($type) {
 
             case 1:
@@ -890,6 +989,7 @@ class wildlifeofficer extends user
 
                 break;
             case 2:
+
 
                 $this->view->render('wildlifeofficerDashboardSinhala', $dataArray);
                 break;

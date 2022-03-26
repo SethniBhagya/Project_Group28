@@ -113,6 +113,16 @@ class Wildlifeofficer_model extends Model
 		return $result;
 	}
 
+	function updateNotification($NIC)
+	{
+		$this->db->runQuery("UPDATE wildlifeofficernotification SET `status`='view' WHERE id='$NIC'");
+	}
+
+	public function getwildlifeOfficerNotificationStatus($NIC)
+	{
+		return $this->db->runQuery("SELECT `status` AS notificationStatus FROM `wildlifeofficernotification` WHERE id='$NIC'");
+	}
+
 
 
 

@@ -18,6 +18,7 @@ if (isset($_SESSION['jobtype'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Public/css/wildlifeofficerHeader.css">
     <link rel="stylesheet" href="../Public/css/wildlifeofficerViewProfile.css">
+    <link rel="stylesheet" href="../Public/css/notification.css" type="text/css">
     <script src="../Public/Javascript/login.js"></script>
     <!-- <script src="../Public/Javascript/viewReport.js"></script> -->
     <script src="../Public/javascript/wildlifeofficer.js"></script>
@@ -64,7 +65,21 @@ if (isset($_SESSION['jobtype'])) {
         </nav>
 
     </header>
+    <?php
+    if ($this->notificationStatus == "notView") {
+    ?>
+        <div id="notificationmessage">
 
+
+            <form action="../wildlifeofficer/viewIncidents?lang=<?php echo $_GET['lang'] ?>&check=true" method="post" style="display: inline-block;">
+                <img src="../Public/images/bell1.png" id="bell">&nbsp&nbsp
+                <h3>ඔබට වාර්තාවූ නව සිදුවීමක් ඇත &nbsp&nbsp&nbsp&nbsp
+                    <input type="submit" value="View" name="submitAlert" id="submit">
+                </h3>
+            </form>
+        </div>
+    <?php  }
+    ?>
 
     </div>
 

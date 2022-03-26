@@ -20,6 +20,7 @@ if (isset($_SESSION['jobtype'])) {
     <link rel="stylesheet" href="../Public/css/wildlifeofficerNotifications.css">
     <script src="../Public/javascript/admin.js"></script>
     <script src="../Public/Javascript/login.js"></script>
+    <link rel="stylesheet" href="../Public/css/notification.css">
 
     <title>Notice</title>
 </head>
@@ -60,6 +61,21 @@ if (isset($_SESSION['jobtype'])) {
             </ul>
         </nav>
     </header>
+    <?php
+    if ($this->notificationStatus == "notView") {
+    ?>
+        <div id="notificationmessage">
+
+
+
+            <form action="../wildlifeofficer/viewIncidents?lang=<?php echo $_GET['lang'] ?>&check=true" method="post" style="display: inline-block;">
+                <img src="../Public/images/bell1.png" id="right" style=" font-weight: 600%;  font-weight: 602;margin-left: 10%;  ">&nbsp
+                <h3>புதிதாக<br> அறிவிக்கப்பட்டசம்பவம் &nbsp&nbsp&nbsp&nbsp&nbsp
+                    <input type="submit" value="View" name="submitAlert" id="submit">
+                </h3>
+            </form>
+        </div> <?php  }
+                ?>
     <div class="container-1">
         <h1>அறிவிப்புகள்</h1>
         <?php foreach ($data as $row) {

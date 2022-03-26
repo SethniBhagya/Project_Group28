@@ -120,7 +120,6 @@ class user_model extends Model
             $this->db->runQuery("UPDATE `alert` SET  `alertstatus`='view'    WHERE NIC= '$villagerNIC' ");
             $this->db->runQuery("UPDATE `alert` SET  `alertstatus`='notview'    WHERE GND= '$GND' ");
             $this->db->runQuery("UPDATE `alert` SET  `alertstatus`='view'    WHERE NIC= '$villagerNIC' ");
-
         }
     }
     public function getAlerStatus($NIC)
@@ -128,34 +127,38 @@ class user_model extends Model
         return $this->db->runQuery("SELECT `alertstatus` FROM `alert` WHERE NIC= '$NIC'");
     }
 
-    public function getNotificationStatus($NIC){
+    public function getNotificationStatus($NIC)
+    {
         return $this->db->runQuery("SELECT COUNT(*) AS numberofnotification FROM `notification` WHERE NIC= '$NIC' and`status`='notview'");
     }
-// >>>>>>> 342e2a17a5e07fda17b8620411c3cf0766b43c49
-    public function setAlerStatus($NIC){
+    // >>>>>>> 342e2a17a5e07fda17b8620411c3cf0766b43c49
+    public function setAlerStatus($NIC)
+    {
         $this->db->runQuery("UPDATE `alert` SET  `alertstatus`='view'    WHERE NIC= '$NIC'");
-        
-    } 
-    public function  selectRegStatus($NIC) {
+    }
+    public function  selectRegStatus($NIC)
+    {
         return $this->db->runQuery("SELECT `registrationStatus` FROM `villager_registration` WHERE Villager_NIC= '$NIC'");
     }
-    public function getEmail($NIC){
+    public function getEmail($NIC)
+    {
         return $this->db->runQuery("SELECT email FROM user WHERE NIC = '$NIC' ");
     }
-    public function getEmails($NIC){
-       // $gramanildhariDivision  =  $this->db->runQuery("SELECT ");
+    public function getEmails($NIC)
+    {
+        // $gramanildhariDivision  =  $this->db->runQuery("SELECT ");
         return $this->db->runQuery("SELECT   user.email AS email FROM user INNER JOIN lives  ON user.NIC=lives.villager_NIC  INNER JOIN grama_niladhari ON lives.gramaniladhari_NIC=grama_niladhari.NIC  WHERE lives.gramaniladhari_NIC=(SELECT gramaniladhari_NIC FROM lives WHERE villager_NIC='$NIC') ");
     }
-    
-    
-    
+    public function getwildlifeOfficerNotificationStatus($NIC)
+    {
+        return $this->db->runQuery("SELECT `status` AS notificationStatus FROM `wildlifeofficernotification` WHERE id='$NIC'");
+    }
 
- 
- 
+
+
     // public function setAlerStatus($NIC)
     // {
     //     $this->db->runQuery("UPDATE `alert` SET  `alertstatus`='view'    WHERE NIC= '$NIC'");
     // }
-    
+
 }
- 

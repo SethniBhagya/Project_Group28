@@ -20,6 +20,7 @@ if (isset($_SESSION['jobtype'])) {
     <link rel="stylesheet" href="../Public/css/wildlifeofficerEditProfile.css">
     <script src="../Public/Javascript/login.js"></script>
     <script src="../Public/javascript/admin.js"></script>
+    <link rel="stylesheet" href="../Public/css/notification.css">
     <!-- <script src="../Public/Javascript/viewReport.js"></script> -->
     <script src="../Public/javascript/wildlifeofficer.js"></script>
     <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=myMap"></script> -->
@@ -63,7 +64,21 @@ if (isset($_SESSION['jobtype'])) {
         </nav>
 
     </header>
+    <?php
+    if ($this->notificationStatus == "notView") {
+    ?>
+        <div id="notificationmessage">
 
+
+
+            <form action="../wildlifeofficer/viewIncidents?lang=<?php echo $_GET['lang'] ?>&check=true" method="post" style="display: inline-block;">
+                <img src="../Public/images/bell1.png" id="right" style=" font-weight: 600%;  font-weight: 602;margin-left: 10%;  ">&nbsp
+                <h3>புதிதாக<br> அறிவிக்கப்பட்டசம்பவம் &nbsp&nbsp&nbsp&nbsp&nbsp
+                    <input type="submit" value="View" name="submitAlert" id="submit">
+                </h3>
+            </form>
+        </div> <?php  }
+                ?>
 
     <body>
         <?php

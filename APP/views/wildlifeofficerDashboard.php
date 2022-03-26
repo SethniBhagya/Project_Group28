@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../Public/css/wildlifeofficerDashboard.css">
     <script src="../Public/Javascript/login.js"></script>
     <script src="../Public/javascript/admin.js"></script>
+    <link rel="stylesheet" href="../Public/css/notification.css">
     <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <!-- <script src="../Javascript/dashboard.js"></script> -->
@@ -99,6 +100,21 @@
             </ul>
         </nav>
     </header>
+    <?php
+    if ($this->notificationStatus == "notView") {
+    ?>
+        <div id="notificationmessage">
+
+
+
+            <form action="../wildlifeofficer/viewIncidents?lang=<?php echo $_GET['lang'] ?>&check=true" method="post" style="display: inline-block;">
+                <img src="../Public/images/bell1.png" id="right" style=" font-weight: 600%;  font-weight: 602;margin-left: 23%;  ">&nbsp&nbsp
+                <h3>You have new reported incident &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    <input type="submit" value="View" name="submitAlert" id="submit">
+                </h3>
+            </form>
+        </div> <?php  }
+                ?>
 
     <!-- <div class="header-name"><h><pre  style="font-size: larger;font-style: normal; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Total in Sri Lanka                                                                                                                                                               LastModified 30/09/2021</pre></h> </div> -->
     <div class="first">

@@ -23,6 +23,7 @@ if (isset($_SESSION['jobtype'])) {
   <script src="../Public/Javascript/viewReport.js"></script>
   <script src="../Public/Javascript/wildlifeofficer.js"></script>
   <script src="../Public/javascript/admin.js"></script>
+  <link rel="stylesheet" href="../Public/css/notification.css" type="text/css">
 
 
   <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOVujYe2-BPc5b66VsL0xVVUKoZHkb5yo&callback=myMap"></script> -->
@@ -173,7 +174,21 @@ if (isset($_SESSION['jobtype'])) {
 
   </header>
 
+  <?php
+  if ($this->notificationStatus == "notView") {
+  ?>
+    <div id="notificationmessage">
 
+
+      <form action="../wildlifeofficer/viewIncidents?lang=<?php echo $_GET['lang'] ?>&check=true" method="post" style="display: inline-block;">
+        <img src="../Public/images/bell1.png" id="bell">&nbsp&nbsp
+        <h3>You have new reported incident &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+          <input type="submit" value="View" name="submitAlert" id="submit">
+        </h3>
+      </form>
+    </div>
+  <?php  }
+  ?>
   </div>
 
 

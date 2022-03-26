@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
- 
+
   <link rel="stylesheet" href="../Public/css/header.css">
   <link rel="stylesheet" href="Public/css/home.css">
   <link rel="stylesheet" href="../Public/css/villagerRegiste.css">
@@ -29,7 +29,7 @@
 
         <ul class="nav-menu">
           <!-- <li id="lan"></li> -->
-      
+
           <li id="home" style="padding: 15px 25px"><a href="../">Home</a></li>
           <li id="report" style="padding: 15px 30px"><a href="../incident/index?lang=1">Report Incidents</a></li>
           <li id="register" style="padding: 15px 40px; background-color:rgba(255, 255, 255, 0.36); "><a href="../villager/register?lang=1">Register</a></li>
@@ -171,23 +171,23 @@
 
                 s2.innerHTML = "";
                 if (s1.value == "Central") {
-                  var optionArray = [  "Kandy|Kandy", "Matale|Matale", "Nuwara Eliya|Nuwara Eliya"]
+                  var optionArray = ["Kandy|Kandy", "Matale|Matale", "Nuwara Eliya|Nuwara Eliya"]
                 } else if (s1.value == "Eastern") {
-                  var optionArray = [  "Ampara|Ampara", "Batticaloa|Batticaloa", "Trincomalee|Trincomalee"]
+                  var optionArray = ["Ampara|Ampara", "Batticaloa|Batticaloa", "Trincomalee|Trincomalee"]
                 } else if (s1.value == "Northern") {
-                  var optionArray = [  "Jaffna|Jaffna", "Kilinochchi|Kilinochchi", "Mannar|Mannar", "Mullaitivu|Mullaitivu"]
+                  var optionArray = ["Jaffna|Jaffna", "Kilinochchi|Kilinochchi", "Mannar|Mannar", "Mullaitivu|Mullaitivu"]
                 } else if (s1.value == "Southern") {
-                  var optionArray = [  "Galle|Galle", "Matara|Matara", "Hambantota|Hambantota"]
+                  var optionArray = ["Galle|Galle", "Matara|Matara", "Hambantota|Hambantota"]
                 } else if (s1.value == "NorthWestern") {
-                  var optionArray = [ "Kurunegala|Kurunegala", "Puttalam|Puttalam"]
+                  var optionArray = ["Kurunegala|Kurunegala", "Puttalam|Puttalam"]
                 } else if (s1.value == "Western") {
-                  var optionArray = [ "Colombo|Colombo", "Gampaha|Gampaha","Kalutha ra|Kaluthara"]
+                  var optionArray = ["Colombo|Colombo", "Gampaha|Gampaha", "Kalutha ra|Kaluthara"]
                 } else if (s1.value == "NorthCentral") {
-                  var optionArray = [ "Anuradhapura|Anuradhapura", "Polonnaruwa|Polonnaruwa"]
+                  var optionArray = ["Anuradhapura|Anuradhapura", "Polonnaruwa|Polonnaruwa"]
                 } else if (s1.value == "Uva") {
-                  var optionArray = [   "Badulla|Badulla", "Moneragala|Moneragala"]
+                  var optionArray = ["Badulla|Badulla", "Moneragala|Moneragala"]
                 } else if (s1.value == "Sabaragamuwa") {
-                  var optionArray = [ "Ratnapura|Ratnapura", "Kegalle|Kegalle"]
+                  var optionArray = ["Ratnapura|Ratnapura", "Kegalle|Kegalle"]
                 } else {
                   var optionArray = ["|Choose here"]
                 }
@@ -200,8 +200,6 @@
                   s2.options.add(newOption);
                 }
               }
-        
-               
             </script>
             <select class="text" name="province" id="province" onclick="populateDistrict(this.id,'district')">
               <option value=""> Choose here</option>
@@ -221,61 +219,62 @@
           <td><label for="district">District</label> </td>
         </tr>
         <tr>
-          <td>    <script>
+          <td>
+            <script>
               function populateGnd(s1, s2) {
                 var s1 = document.getElementById(s1);
                 var s2 = document.getElementById(s2);
 
-                s2.innerHTML = "";   
+                s2.innerHTML = "";
                 if (s1.value == "Kandy") {
-                  var optionArray = [  ]
+                  var optionArray = []
                 } else if (s1.value == "Matale") {
-                  var optionArray = [  ]
+                  var optionArray = []
                 } else if (s1.value == "Nuwara Eliya") {
-                  var optionArray = [  ]
+                  var optionArray = []
                 } else if (s1.value == "Ampara") {
-                  var optionArray = [ ]
+                  var optionArray = []
                 } else if (s1.value == "Batticaloa") {
-                  var optionArray = [ ]
+                  var optionArray = []
                 } else if (s1.value == "Trincomalee") {
-                  var optionArray = [  ]
+                  var optionArray = []
                 } else if (s1.value == "Jaffna") {
-                  var optionArray = [ ]
+                  var optionArray = []
                 } else if (s1.value == "Kilinochchi") {
-                  var optionArray = [  ]
+                  var optionArray = []
                 } else if (s1.value == "Mannar") {
-                  var optionArray = [ ]
+                  var optionArray = []
                 } else if (s1.value == "Mullaitivu") {
-                  var optionArray = [  ]
-                }else if (s1.value == "Galle") {
-                  var optionArray = [  ]
-                }else if (s1.value == "Matara") {
-                  var optionArray = [  ]
-                }else if (s1.value == "Hambantota") {
-                  var optionArray = [ "Thissamaharama|Thissamaharama","Sooriyawewa|Sooriyawewa","Lunugamwehera|Lunugamwehera","Hambanthota|Hambanthota","Weeraketiya|Weeraketiya","Angunukolapelassa|Angunukolapelassa","Katuwana|Katuwana","Hingurakgoda|Hingurakgoda" ]
-                }else if (s1.value == "Kurunegala") {
-                  var optionArray = [  ] 
-                }else if (s1.value == "Puttalam") {
-                  var optionArray = [ ]
-                }else if (s1.value == "Colombo") {
-                  var optionArray = [ ]
-                }else if (s1.value == "Gampaha") {
-                  var optionArray = [ ]
-                }else if (s1.value == "Kaluthara") {
-                  var optionArray = [ ]
-                }else if (s1.value == "Anuradhapura") {
-                  var optionArray = [ "Padaviya|Padaviya" ,"Galenbindunuwawa|Galenbindunuwawa" ,"Kekirawa|Kekirawa","Kabethigollawa|Kabethigollawa","Medawachchiya|Medawachchiya","Kahatagasdigiliya|Kahatagasdigiliya","Horowpathana|Horowpathana"]
-                }else if (s1.value == "Polonnaruwa") {
-                  var optionArray = ["Elahera|Elahera","Dimbulagala|Dimbulagala","Welikanda|Welikanda","Thamankaduwa|Thamankaduwa","Hingurakgoda|Hingurakgoda","Medirigiriya|Medirigiriya","Lankapura|Lankapura" ]
-                }else if (s1.value == "Badulla") {
-                  var optionArray = [ ]
-                }else if (s1.value == "Moneragala") {
-                  var optionArray = [ ]
-                }else if (s1.value == "Kegalle") {
-                  var optionArray = [ ]
-                }else if (s1.value == "Ratnapura") {
-                  var optionArray = [ ]
-                }  else {
+                  var optionArray = []
+                } else if (s1.value == "Galle") {
+                  var optionArray = []
+                } else if (s1.value == "Matara") {
+                  var optionArray = ["Deniyaya|Deniyaya"]
+                } else if (s1.value == "Hambantota") {
+                  var optionArray = ["Thissamaharama|Thissamaharama", "Sooriyawewa|Sooriyawewa", "Lunugamwehera|Lunugamwehera", "Hambanthota|Hambanthota", "Weeraketiya|Weeraketiya", "Angunukolapelassa|Angunukolapelassa", "Katuwana|Katuwana", "Hingurakgoda|Hingurakgoda"]
+                } else if (s1.value == "Kurunegala") {
+                  var optionArray = []
+                } else if (s1.value == "Puttalam") {
+                  var optionArray = []
+                } else if (s1.value == "Colombo") {
+                  var optionArray = []
+                } else if (s1.value == "Gampaha") {
+                  var optionArray = []
+                } else if (s1.value == "Kaluthara") {
+                  var optionArray = []
+                } else if (s1.value == "Anuradhapura") {
+                  var optionArray = ["Padaviya|Padaviya", "Galenbindunuwawa|Galenbindunuwawa", "Kekirawa|Kekirawa", "Kabethigollawa|Kabethigollawa", "Medawachchiya|Medawachchiya", "Kahatagasdigiliya|Kahatagasdigiliya", "Horowpathana|Horowpathana"]
+                } else if (s1.value == "Polonnaruwa") {
+                  var optionArray = ["Elahera|Elahera", "Dimbulagala|Dimbulagala", "Welikanda|Welikanda", "Thamankaduwa|Thamankaduwa", "Hingurakgoda|Hingurakgoda", "Medirigiriya|Medirigiriya", "Lankapura|Lankapura"]
+                } else if (s1.value == "Badulla") {
+                  var optionArray = []
+                } else if (s1.value == "Moneragala") {
+                  var optionArray = []
+                } else if (s1.value == "Kegalle") {
+                  var optionArray = []
+                } else if (s1.value == "Ratnapura") {
+                  var optionArray = []
+                } else {
                   var optionArray = ["|Choose here"]
                 }
 
@@ -286,7 +285,8 @@
                   newOption.innerHTML = pair[1];
                   s2.options.add(newOption);
                 }
-              }  </script>
+              }
+            </script>
             <select class="text" name="district" id="district" onclick="populateGnd(this.id,'gndivision')">
               <option value=""> Choose here</option>
 
@@ -300,8 +300,8 @@
           <td><select class="text" name="gndivision" id="gndivision">
               <option value="">Choose here</option>
               <!-- <?php
-              //Get list data of gramaseweka name
-              foreach ($division  as $row) { ?>
+                    //Get list data of gramaseweka name
+                    foreach ($division  as $row) { ?>
                 <option value="<?php echo $row['name']; ?>"><?php echo $row['name']; ?></option>
               <?php } ?> -->
         </tr>
@@ -354,7 +354,7 @@
       <div class="last">
       </div>
     </form>
-      </div>
+  </div>
   </div>
 
 
@@ -375,7 +375,7 @@
     myInput.onblur = function() {
       document.getElementById("message_1").style.display = "none";
     }
- 
+
     //Villager starts to type something inside the password field
     myInput.onkeyup = function() {
       // Validate lowercase letters
